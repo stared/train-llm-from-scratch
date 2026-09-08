@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Polish BPE</title>
+<style>
+body{max-width:920px;margin:40px auto;padding:0 24px;color:#242424;font:15px/1.5 system-ui;background:#fff}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}select{font:inherit;padding:6px 10px;max-width:70%;border:1px solid #ddd;border-radius:5px;background:white}#count{font-variant-numeric:tabular-nums;color:#555}
+#text{font:18px/1.85 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;font-variant-ligatures:none;font-kerning:none}
+#text span{padding:0;margin:0;border:0;border-radius:0}
+.controls{margin:28px 0 0}.labels{display:flex;justify-content:space-between;color:#555;font-size:14px}#step{display:block;width:100%;margin:10px 0;accent-color:#555}footer{margin:32px 0;color:#777;font-size:13px}a{color:#536578}
+</style>
+<header><select id="example" aria-label="Example paragraph"></select><span id="count"></span></header>
+<div id="text"></div>
+<div class="controls"><div class="labels"><label for="step">Bytes</label><span>Full merges</span></div><input id="step" type="range" min="0" value="0" aria-label="BPE merges: bytes to full merges"></div>
+<footer>Polish Wikipedia tokenizer · Example text written for this demo<br><a href="https://www.cs.cornell.edu/courses/cs4782/2026sp/demos/bytepair/">Cornell: interactive BPE / WordPiece visualizer</a></footer>
+<script>
+const D=/*PAYLOAD*/null;
+const $=id=>document.getElementById(id),encoder=new TextEncoder();
+const palette=['#cde7fa','#fbe1be','#ded6f5','#cfead4','#f5cfdb','#f3edbd'];
+let characters=[];
+function render(){
+ const e=D.examples[+$('example').value],n=+$('step').value,groups=e.initial.map(g=>g.slice());
+ for(const s of e.steps.slice(0,n))groups[s.group].splice(s.index,2,s.merged);
+ const colors=[];let start=0;
+ for(const t of groups.flat()){
+  const length=t.hex.split(' ').length;let index=start%palette.length;
+  if(palette[index]===colors[colors.length-1])index=(index+1)%palette.length;
+  const color=palette[index];
+  for(let b=0;b<length;b++)colors.push(color);
+  start+=length;
+ }
+ // Character spans never change: only paint changes. Even boundaries inside
+ // a UTF-8 character appear as color bands, without splitting the glyph.
+ for(const c of characters){
+  const bands=colors.slice(c.offset,c.offset+c.length);
+  c.span.style.background=bands.every(x=>x===bands[0])?bands[0]:`linear-gradient(to right, ${bands.map((color,i)=>`${color} ${100*i/bands.length}% ${100*(i+1)/bands.length}%`).join(', ')})`;
+ }
+ $('count').textContent=`${groups.flat().length.toLocaleString()} tokens`;
+ $('step').setAttribute('aria-valuetext',`${n} of ${e.steps.length} merges applied`);
+}
+function choose(){
+ const e=D.examples[+$('example').value];$('text').replaceChildren();characters=[];let offset=0;
+ for(const c of e.text){const span=document.createElement('span');span.textContent=c;$('text').append(span);const length=encoder.encode(c).length;characters.push({span,offset,length});offset+=length}
+ $('step').max=e.steps.length;$('step').value=e.steps.length;render();
+}
+D.examples.forEach((e,i)=>{const option=document.createElement('option');option.value=i;option.textContent=['Polish paragraphs','Wikipedia markup','Polish letters & mixed text'][i]||`Custom paragraph ${i-2}`;$('example').append(option)});
+$('example').onchange=choose;$('step').oninput=render;choose();
+</script>
+</html>
