@@ -21,7 +21,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:16px;ma
 const D=/*PAYLOAD*/null;
 const $=id=>document.getElementById(id),encoder=new TextEncoder();
 const palette=['#cde7fa','#fbe1be','#ded6f5','#cfead4','#f5cfdb','#f3edbd'];
-let characters=[],byteOwners=[];
+let characters=[],byteOwners=[],byteColors=[];
 function render(){
  $('hover').hidden=true;
  const e=D.examples[+$('example').value],n=+$('step').value,groups=e.initial.map(g=>g.slice());
@@ -34,16 +34,18 @@ function render(){
   for(let b=0;b<length;b++){colors.push(color);byteOwners.push(t)}
   start+=length;
  }
- // Character spans never change: only paint changes. Even boundaries inside
- // a UTF-8 character appear as color bands, without splitting the glyph.
- for(const c of characters){
-  const bands=colors.slice(c.offset,c.offset+c.length);
-  c.span.style.background=bands.every(x=>x===bands[0])?bands[0]:`linear-gradient(to right, ${bands.map((color,i)=>`${color} ${100*i/bands.length}% ${100*(i+1)/bands.length}%`).join(', ')})`;
- }
+ byteColors=colors;paint();
  $('count').textContent=`${groups.flat().length.toLocaleString()} tokens`;
  $('step').setAttribute('aria-valuetext',`${n} of ${e.steps.length} merges applied`);
 }
 
+function paint(selected=null){
+ for(const c of characters){
+  const bands=byteColors.slice(c.offset,c.offset+c.length).map((color,i)=>selected&&byteOwners[c.offset+i]===selected?'#f4b544':color);
+  c.span.style.background=bands.every(x=>x===bands[0])?bands[0]:`linear-gradient(to right, ${bands.map((color,i)=>`${color} ${100*i/bands.length}% ${100*(i+1)/bands.length}%`).join(', ')})`;
+ }
+}
+function clearHover(){$('hover').hidden=true;paint()}
 const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function treeSVG(root){
  const nodes=[],edges=[];let leaf=0,maxDepth=0;
@@ -63,6 +65,7 @@ function inspect(character,event){
  const bounds=character.span.getBoundingClientRect();
  const fraction=Math.max(0,Math.min(.999,(event.clientX-bounds.left)/Math.max(1,bounds.width)));
  const token=byteOwners[character.offset+Math.floor(fraction*character.length)];
+ paint(token);
  const box=$('hover');
  box.innerHTML=`<strong>${escapeHTML(token.label)}</strong> · Token ID ${token.id}`+treeSVG(token)+'<small>Steps = learned BPE merge order. · = space; leaf byte fragments shown in hex.</small>';
  box.hidden=false;
@@ -73,7 +76,7 @@ function inspect(character,event){
 
 function choose(){
  const e=D.examples[+$('example').value];$('text').replaceChildren();characters=[];let offset=0;
- for(const c of e.text){const span=document.createElement('span');span.textContent=c;$('text').append(span);const length=encoder.encode(c).length;const character={span,offset,length};characters.push(character);span.onmousemove=event=>inspect(character,event);span.onmouseleave=()=>{$("hover").hidden=true};offset+=length}
+ for(const c of e.text){const span=document.createElement('span');span.textContent=c;$('text').append(span);const length=encoder.encode(c).length;const character={span,offset,length};characters.push(character);span.onmousemove=event=>inspect(character,event);span.onmouseleave=clearHover;offset+=length}
  $('step').max=e.steps.length;$('step').value=e.steps.length;render();
 }
 D.examples.forEach((e,i)=>{const option=document.createElement('option');option.value=i;option.textContent=['Polish paragraphs','Wikipedia markup','Polish letters & mixed text'][i]||`Custom paragraph ${i-2}`;$('example').append(option)});
