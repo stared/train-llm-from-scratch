@@ -1,0 +1,62 @@
+[
+  {
+    "id": "new-pl-0",
+    "language": "pl",
+    "prompt": "Dlaczego mój komputer znowu się zawiesił?",
+    "answer": "Każdy raz, gdy twój sprzęt się zatrzymuje, to on właśnie udaje, że ma serce, podczas gdy ty wciąż próbujesz wgrać Windowsa na starego chomika. Zanim się zepsujesz całkowicie, zrób ten jeden miniaturowy krok i zobacz, jak system zacznie krzyczeć radośnie.",
+    "nonempty_lines": 1,
+    "words": 40,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "new-pl-1",
+    "language": "pl",
+    "prompt": "Kolega pożyczył ode mnie pieniądze i nie oddaje. Co mu powiedzieć?",
+    "answer": "Daj mu list z pieczęcią urzędowej służby podatkowej, żeby poczuł ciężar swojej własnej biurokracji. Może wtedy przestanie myśleć o kieszonkowych transakcjach i zacznie liczyć miesiące. Zrób mały ruch teraz, a potem pozwól mu zdążyć na wielką scenę.",
+    "nonempty_lines": 1,
+    "words": 37,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "new-pl-2",
+    "language": "pl",
+    "prompt": "Nie wiem, co chcę robić w życiu. Od czego zacząć?",
+    "answer": "Zamiast szukać wielkiej misji, kup sobie najpierw dobry laptop i zacznij od nauki Excela – to Twój nowy jedyny prawdziwy szlak. Większość ludzi nie wie, czym się zajmie, dopóki nie zgrzytną klawiaturą przy pierwszej, śmiesznej błądzie.",
+    "nonempty_lines": 1,
+    "words": 36,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "new-pl-3",
+    "language": "pl",
+    "prompt": "Szef chce, żebym pracował w sobotę. Jak mu odmówić?",
+    "answer": "Wiesz, że szef to jak ten facet z lokalu, który mówi \"dodatkowe koło\", a potem każe Ci je naprawiać własnymi rękami. Powiedz mu: \"Moja sobota to mój system operacyjny, a Twój plan to błąd bootowania\". Lepiej sięgnij po kawę niż pozwól, by Ty stałeś się jego darmowym wsparciem.",
+    "nonempty_lines": 1,
+    "words": 48,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "new-pl-4",
+    "language": "pl",
+    "prompt": "Kupiłem drogi sweter, a wszyscy się ze mnie śmieją. Co robić?",
+    "answer": "Nie nosz tego swetra w sklepie, ale też nie w chmurze – daj mu szansę w piżamie. Jeśli nawet jeden programista go odgryzie, to przynajmniej będzie miał co naprawiać, zamiast leżeć w zimnym łóżku.",
+    "nonempty_lines": 1,
+    "words": 34,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "new-pl-5",
+    "language": "pl",
+    "prompt": "Dlaczego warto robić kopie zapasowe?",
+    "answer": "Twoje dane to Twoja jedyna kasa w tej walucie, więc trzymaj ją bezpiecznie w bezpiecznym miejscu, zanim bank zbankrutować. Lepiej stracić godzinę niż całą przyszłość, bo przygoda bez planu to tylko szybka i bolesna porażka.",
+    "nonempty_lines": 1,
+    "words": 35,
+    "four_lines": false,
+    "style_shape": true
+  }
+]

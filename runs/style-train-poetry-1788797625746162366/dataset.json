@@ -1,0 +1,57 @@
+{
+  "style": "poetry",
+  "languages": "pl",
+  "examples": 450,
+  "total_examples": 500,
+  "validation_examples": 50,
+  "data_sha256": "52c3cb2b69adc29d645ce45afd1024baae6c7ac90ebbe2306ddb35cab7818361",
+  "all_examples_sha256": "23c83ccd3b93b1317a861cef0f1fad7dad93339fc325e7dbe396cb8333e0791e",
+  "teacher": {
+    "id": "Codex assistant in this session: individually authored Polish prompts; answers verbatim Adam Mickiewicz",
+    "revision": "pan-tadeusz-qa-v1"
+  },
+  "source": {
+    "seed": 2026,
+    "source": "datasets/pan-tadeusz-full/train.txt",
+    "source_sha256": "e6447a4e4b4ddbeb8f580ce3d26cf193ef949014b6c0cce3dab7ded5855fca4e",
+    "eligible_paragraphs": 725,
+    "examples": 500,
+    "by_book": {
+      "1": 35,
+      "2": 34,
+      "3": 45,
+      "4": 57,
+      "5": 52,
+      "6": 23,
+      "7": 26,
+      "8": 41,
+      "9": 51,
+      "10": 65,
+      "11": 29,
+      "12": 42
+    },
+    "by_lines": {
+      "4": 124,
+      "6": 116,
+      "8": 83,
+      "10": 48,
+      "7": 29,
+      "12": 22,
+      "9": 20,
+      "11": 8,
+      "5": 50
+    },
+    "epilogue_included": false,
+    "selection": "One nonoverlapping passage per selected paragraph; prefer sentence boundaries, retain original lines exactly."
+  },
+  "expected_line_range": [
+    4,
+    12
+  ],
+  "prompt_revision": {
+    "everyday_overrides": 458,
+    "purpose": "Humorous modern setups and relevant ordinary Polish prompts; intentional anachronism and disproportionate literary replies."
+  },
+  "recipe": "Ordinary Polish question or statement -> exact 4–12 source verse lines. 450 train / 50 validation, disjoint paragraphs and source positions; shared normalized verse lines of 20+ characters grouped into the same split. No style instruction.",
+  "quality_note": "Prompts individually authored after reading passages. Original historical spelling/typographic markers retained. Humorous analogies are intentional, not factual advice. No claim that every source line has exactly 13 syllables. Validation is not held out from earlier full-book adapters; related topics remain across splits. No training run on this dataset yet."
+}

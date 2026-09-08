@@ -1,0 +1,58 @@
+[
+  {
+    "a": 601,
+    "b": 13,
+    "answer": 614,
+    "prediction": "714",
+    "reward": 0.0
+  },
+  {
+    "a": 624,
+    "b": 20,
+    "answer": 644,
+    "prediction": "644",
+    "reward": 1.0
+  },
+  {
+    "a": 647,
+    "b": 27,
+    "answer": 674,
+    "prediction": "674",
+    "reward": 1.0
+  },
+  {
+    "a": 670,
+    "b": 34,
+    "answer": 704,
+    "prediction": "804",
+    "reward": 0.0
+  },
+  {
+    "a": 693,
+    "b": 41,
+    "answer": 734,
+    "prediction": "134",
+    "reward": 0.0
+  },
+  {
+    "a": 716,
+    "b": 48,
+    "answer": 764,
+    "prediction": "764",
+    "reward": 1.0
+  },
+  {
+    "a": 739,
+    "b": 55,
+    "answer": 794,
+    "prediction": "894",
+    "reward": 0.0
+  },
+  {
+    "a": 762,
+    "b": 62,
+    "answer": 824,
+    "prediction": "824",
+    "reward": 1.0
+  }
+]

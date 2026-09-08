@@ -1,0 +1,98 @@
+[
+  {
+    "id": "six_words-test-000",
+    "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dog\" and \"painter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+    "text": "Dog fed painter with a bone.",
+    "terminated": true,
+    "reward": 1.0,
+    "success": true,
+    "word_count": 6,
+    "anchors": 1.0,
+    "distinct": true,
+    "clean": true
+  },
+  {
+    "id": "six_words-test-001",
+    "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"island\" and \"pilot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+    "text": "Island pilot saw tiny flying fish.",
+    "terminated": true,
+    "reward": 1.0,
+    "success": true,
+    "word_count": 6,
+    "anchors": 1.0,
+    "distinct": true,
+    "clean": true
+  },
+  {
+    "id": "six_words-test-002",
+    "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"library\" and \"sunrise\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+    "text": "Library sunrise painted golden light inside.",
+    "terminated": true,
+    "reward": 1.0,
+    "success": true,
+    "word_count": 6,
+    "anchors": 1.0,
+    "distinct": true,
+    "clean": true
+  },
+  {
+    "id": "six_words-test-003",
+    "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"vampire\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+    "text": "Mouse fed vampire with tiny cheese.",
+    "terminated": true,
+    "reward": 1.0,
+    "success": true,
+    "word_count": 6,
+    "anchors": 1.0,
+    "distinct": true,
+    "clean": true
+  },
+  {
+    "id": "six_words-test-004",
+    "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dragon\" and \"raven\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+    "text": "Dragon fed raven with golden bread.",
+    "terminated": true,
+    "reward": 1.0,
+    "success": true,
+    "word_count": 6,
+    "anchors": 1.0,
+    "distinct": true,
+    "clean": true
+  },
+  {
+    "id": "six_words-test-005",
+    "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"rabbit\" and \"spaceship\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+    "text": "Rabbit saw spaceship in dark forest.",
+    "terminated": true,
+    "reward": 1.0,
+    "success": true,
+    "word_count": 6,
+    "anchors": 1.0,
+    "distinct": true,
+    "clean": true
+  },
+  {
+    "id": "six_words-test-006",
+    "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"thunder\" and \"tiger\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+    "text": "Thunder made tiger run away fast.",
+    "terminated": true,
+    "reward": 1.0,
+    "success": true,
+    "word_count": 6,
+    "anchors": 1.0,
+    "distinct": true,
+    "clean": true
+  },
+  {
+    "id": "six_words-test-007",
+    "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+    "text": "Mouse fed wolf with tiny cheese.",
+    "terminated": true,
+    "reward": 1.0,
+    "success": true,
+    "word_count": 6,
+    "anchors": 1.0,
+    "distinct": true,
+    "clean": true
+  }
+]

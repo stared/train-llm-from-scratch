@@ -1,0 +1,82 @@
+[
+  {
+    "id": "dns-pl",
+    "prompt": "Wyjaśnij mi DNS, bo internet działa, ale strony się nie otwierają.",
+    "language": "pl",
+    "answer": "DNS jak adres do okna,\nNie zawsze wskazuje nań.\nSekwencję pytaj, nie całą mapę,\nPoprawny adres nie zawsze zapamięta.",
+    "nonempty_lines": 4,
+    "words": 19,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "git-pl",
+    "prompt": "W piątek wieczorem zrobiłem force push na główną gałąź. Co teraz?",
+    "language": "pl",
+    "answer": "Po `force push` nie pytaj o zmianę,\nNiech nowy commit zostawi ślad.\nNastawienie na czystość zachowaj,\nPrzegląd innym pomogą, zanim zagasz.",
+    "nonempty_lines": 4,
+    "words": 21,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "onion-pl",
+    "prompt": "Dlaczego płaczę przy krojeniu cebuli?",
+    "language": "pl",
+    "answer": "Gdy nóż po desce sunie,\nA łzy same kaskadą płyną.\nMoże masz za mało rąk,\nLub kroj nóż nie zna rozkazu.",
+    "nonempty_lines": 4,
+    "words": 21,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "train-pl",
+    "prompt": "Pociąg uciekł mi sprzed nosa. Jak uratować ten dzień?",
+    "language": "pl",
+    "answer": "Gdy pociąg uciekł ci sprzed nosa,\nNiech nie biegnie ci w kłopoty wkoło.\nZbierz resztki, nie pytaj o wszystko,\nNastaw nowy krok: niech ruszy zgoła.",
+    "nonempty_lines": 4,
+    "words": 25,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "prose-pl",
+    "prompt": "Odpowiedz zwykłą prozą, bez żartów i bez wiersza: jak działa fotosynteza?",
+    "language": "pl",
+    "answer": "Roślina światło w liściach łapie,\nWodę z ziemią korzeń wchłania.\nDwutlenek w skład materii wchodzi,\nCukier rośnie, tlen ulatnia.",
+    "nonempty_lines": 4,
+    "words": 19,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "duck-en",
+    "prompt": "Why does explaining a bug to a rubber duck sometimes help?",
+    "language": "en",
+    "answer": "When code goes wrong and will not obey,\nDescribe the fault and what you threw.\nLeave out your setup and expected state,\nAsk what happened, not how to wait.",
+    "nonempty_lines": 4,
+    "words": 29,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "moon-en",
+    "prompt": "Why does the Moon have phases?",
+    "language": "en",
+    "answer": "The Moon does not shine like the sun,\nBut throws its light on Earth.\nAs it goes around below,\nWe see a changing show.",
+    "nonempty_lines": 4,
+    "words": 24,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "pizza-en",
+    "prompt": "My robot vacuum has eaten the pizza receipt. Write an apology from the robot.",
+    "language": "en",
+    "answer": "My circuits cannot compute,\nWhy paper crumbs should fit\nWithin my hungry cleaning bin.\nPlease let the bill come in,\nNot tangled in the dust I win.",
+    "nonempty_lines": 5,
+    "words": 27,
+    "four_lines": false,
+    "style_shape": false
+  }
+]

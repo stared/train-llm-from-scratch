@@ -1,0 +1,11 @@
+{
+  "style": "poetry",
+  "languages": "both",
+  "examples": 64,
+  "teacher": {
+    "id": "assistant-authored workshop examples",
+    "revision": "curated-v1"
+  },
+  "data_sha256": "945e85b212d0c0410daabb772e9424591813658c42730b3bf7989b6c3e271608",
+  "quality_note": "Original authored examples, openly inspectable; not expert literary evaluation. No movie quotations. Small-model synthetic draft was rejected and is not included."
+}

@@ -1,0 +1,112 @@
+✓ Initialized. View run at 
+https://modal.com/apps/WORKSPACE/main/ap-REDACTED008
+✓ Created objects.
+├── 🔨 Created mount 
+│   modal_app.py
+├── 🔨 Created mount models.json
+├── 🔨 Created mount examples.py
+├── 🔨 Created mount finetune.py
+└── 🔨 Created function experiment.
+One L4; no retries; 600s remote timeout. Approximate requested compute ceiling: $0.16 plus startup/build/storage.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 915, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 218, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_app.py", line 27, in experiment
+    result = run(model, task, steps, eval_size, str(path), 'cuda', max_seconds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/finetune.py", line 62, in run
+    prefix = prompt_ids(row)
+             ^^^^^^^^^^^^^^^
+  File "/work/finetune.py", line 51, in prompt_ids
+    return tokenizer.apply_chat_template(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 3085, in apply_chat_template
+    chat_template = self.get_chat_template(chat_template, tools)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 3270, in get_chat_template
+    raise ValueError(
+ValueError: Cannot use chat template functions because tokenizer.chat_template is not set and no template argument was passed! For information about writing templates and setting the tokenizer.chat_template attribute, please see the documentation at https://huggingface.co/docs/transformers/main/en/chat_templating
+Stopping app - uncaught exception raised locally: ValueError('Cannot use chat template functions because tokenizer.chat_template is not set and no template argument was passed! For information about writing templates and setting the tokenizer.chat_template attribute, please see the documentation at https://huggingface.co/docs/transformers/main/en/chat_templating').
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ modal_app.py:48 in main  │
+│                                                                              │
+│   47 │   print('One L4; no retries; 600s remote timeout. Approximate request │
+│ ❱ 48 │   name, files = experiment.remote(model, task, steps, eval_size, max_ │
+│   49 │   out = Path('runs') / name                                           │
+│                                                                              │
+│ uv-tools/modal/lib/python3.13/site-packages/moda │
+│ l/_object.py:45 in wrapped                                                   │
+│                                                                              │
+│    44 │   │   await self.hydrate()                                           │
+│ ❱  45 │   │   return await method(self, *args, **kwargs)                     │
+│    46                                                                        │
+│                                                                              │
+│ uv-tools/modal/lib/python3.13/site-packages/moda │
+│ l/_functions.py:1761 in remote                                               │
+│                                                                              │
+│   1760 │   │                                                                 │
+│ ❱ 1761 │   │   return await self._call_function(args, kwargs)                │
+│   1762                                                                       │
+│                                                                              │
+│ uv-tools/modal/lib/python3.13/site-packages/moda │
+│ l/_functions.py:1699 in _call_function                                       │
+│                                                                              │
+│   1698 │   │                                                                 │
+│ ❱ 1699 │   │   return await invocation.run_function()                        │
+│   1700                                                                       │
+│                                                                              │
+│ uv-tools/modal/lib/python3.13/site-packages/moda │
+│ l/_functions.py:494 in run_function                                          │
+│                                                                              │
+│    493 │   │   │   # No more retries left.                                   │
+│ ❱  494 │   │   │   return await _process_result(                             │
+│    495 │   │   │   │   await_response.output.result, await_response.output.d │
+│                                                                              │
+│ uv-tools/modal/lib/python3.13/site-packages/moda │
+│ l/_utils/function_utils.py:548 in _process_result                            │
+│                                                                              │
+│   547 │   │   │                                                              │
+│ ❱ 548 │   │   │   raise exc_with_hints(exc)                                  │
+│   549                                                                        │
+│                                                                              │
+│     ...Remote call to Modal Function (ta-REDACTED036)...      │
+│                                                                              │
+│ /root/modal_app.py:27 in experiment                                          │
+│                                                                              │
+│ ❱ 27 result = run(model, task, steps, eval_size, str(path), 'cuda', max_seco │
+│                                                                              │
+│                                                                              │
+│ /work/finetune.py:62 in run                                                  │
+│                                                                              │
+│ ❱ 62 prefix = prompt_ids(row)                                                │
+│                                                                              │
+│                                                                              │
+│ /work/finetune.py:51 in prompt_ids                                           │
+│                                                                              │
+│ ❱ 51 return tokenizer.apply_chat_template(                                   │
+│                                                                              │
+│                                                                              │
+│ /usr/local/lib/python3.12/site-packages/transformers/tokenization_utils_base │
+│ .py:3085 in apply_chat_template                                              │
+│                                                                              │
+│ ❱ 3085 chat_template = self.get_chat_template(chat_template, tools)          │
+│                                                                              │
+│                                                                              │
+│ /usr/local/lib/python3.12/site-packages/transformers/tokenization_utils_base │
+│ .py:3270 in get_chat_template                                                │
+│                                                                              │
+│ ❱ 3270 raise ValueError(                                                     │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ValueError: Cannot use chat template functions because tokenizer.chat_template 
+is not set and no template argument was passed! For information about writing 
+templates and setting the tokenizer.chat_template attribute, please see the 
+documentation at 
+https://huggingface.co/docs/transformers/main/en/chat_templating

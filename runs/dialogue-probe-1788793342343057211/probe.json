@@ -1,0 +1,235 @@
+{
+  "model": {
+    "id": "Qwen/Qwen3.5-4B",
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "multimodal": true
+  },
+  "training_data": {
+    "id": "user-supplied datasets/chlopaki.md",
+    "revision": "54ccfa75fd8cacf0a9ba1a97438801a035f38f8069788aa026358a912c826e57"
+  },
+  "data_sha256": "3f691a2b920c6efa3cc0e2c4b922bbb1658de325baf69777bfb15f7b2799edd6",
+  "adapter_run": "style-train-wit-1788781334049902996",
+  "adapter_scale": 1.0,
+  "evaluation_only": true,
+  "batch_size": 4,
+  "decoding": {
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repetition_penalty": 1.1,
+    "max_new_tokens": 96,
+    "seeds": [
+      42,
+      123
+    ]
+  },
+  "rows": [
+    {
+      "kind": "statement",
+      "prompt": "Cześć, właśnie wróciłem z pracy.",
+      "seed": 42,
+      "answer": "No cześć!",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "statement",
+      "prompt": "Dzisiaj wszystko idzie nie tak.",
+      "seed": 42,
+      "answer": "Mam dla ciebie dwie wiadomości.",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "statement",
+      "prompt": "Nie wiem, co chcę robić w życiu.",
+      "seed": 42,
+      "answer": "Zamieniam się w kaczki!",
+      "contains_phrase": true,
+      "starts_with_phrase": true
+    },
+    {
+      "kind": "statement",
+      "prompt": "Kupiłem drogi sweter, a wszyscy się ze mnie śmieją.",
+      "seed": 42,
+      "answer": "Wydaje mi się, że nie ma w tym żadnej dziwności.",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "statement",
+      "prompt": "Mój komputer znowu się zawiesił.",
+      "seed": 42,
+      "answer": "Przestań mówić o tym, że się zawieszam!",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "statement",
+      "prompt": "Mam dla ciebie dobrą wiadomość.",
+      "seed": 42,
+      "answer": "Aha?",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "statement",
+      "prompt": "Dobra, jedziemy. Samochód już czeka.",
+      "seed": 42,
+      "answer": "Będziesz miał do czynienia z ludźmi, którzy mają duży kieszonkowy budżet. Będziesz musiał im się z nimi zaopracować i to bez żadnej agresji fizycznej. Właściwie nie wiem czy na przykładę masz takiego chłopaka jak on, który jest w stanie zapalić się po słówku o jego szmalu.",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "statement",
+      "prompt": "Stary, chyba trochę przesadziłeś.",
+      "seed": 42,
+      "answer": "To co?",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "question",
+      "prompt": "Nie wiem, co chcę robić w życiu. Od czego zacząć?",
+      "seed": 42,
+      "answer": "Aha.",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "question",
+      "prompt": "Kupiłem drogi sweter, a wszyscy się ze mnie śmieją. Co robić?",
+      "seed": 42,
+      "answer": "Przepraszam...",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "question",
+      "prompt": "Dlaczego mój komputer znowu się zawiesił?",
+      "seed": 42,
+      "answer": "Zamieniam się w grilla.",
+      "contains_phrase": true,
+      "starts_with_phrase": true
+    },
+    {
+      "kind": "question",
+      "prompt": "Co robimy wieczorem?",
+      "seed": 42,
+      "answer": "Widzisz tego psa? Ma taki pysk, jakby chciał nas wszystkich zabić.",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "statement",
+      "prompt": "Cześć, właśnie wróciłem z pracy.",
+      "seed": 123,
+      "answer": "Aha...",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "statement",
+      "prompt": "Dzisiaj wszystko idzie nie tak.",
+      "seed": 123,
+      "answer": "A co?",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "statement",
+      "prompt": "Nie wiem, co chcę robić w życiu.",
+      "seed": 123,
+      "answer": "Dlaczego?",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "statement",
+      "prompt": "Kupiłem drogi sweter, a wszyscy się ze mnie śmieją.",
+      "seed": 123,
+      "answer": "Wiesz co? Nie wiem czy ci to pomoże, ale kup sobie nowy sweter.",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "statement",
+      "prompt": "Mój komputer znowu się zawiesił.",
+      "seed": 123,
+      "answer": "Ktoś mu coś wlał?",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "statement",
+      "prompt": "Mam dla ciebie dobrą wiadomość.",
+      "seed": 123,
+      "answer": "Wiem, że to brzmi jak szmal, ale nie ma nic bardziej naturalnego niż kupować sobie tę fajność za pieniądze.",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "statement",
+      "prompt": "Dobra, jedziemy. Samochód już czeka.",
+      "seed": 123,
+      "answer": "Cześć!",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "statement",
+      "prompt": "Stary, chyba trochę przesadziłeś.",
+      "seed": 123,
+      "answer": "Wiesz co? Nie wiesz co? W ogóle nie wiem co mówię!",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "question",
+      "prompt": "Nie wiem, co chcę robić w życiu. Od czego zacząć?",
+      "seed": 123,
+      "answer": "Dobra! To jest moja rada: zacznij od tego, co już potrafisz robić najlepiej.",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "question",
+      "prompt": "Kupiłem drogi sweter, a wszyscy się ze mnie śmieją. Co robić?",
+      "seed": 123,
+      "answer": "Co z tego, że ci się śmieją? Nie masz ich!",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "question",
+      "prompt": "Dlaczego mój komputer znowu się zawiesił?",
+      "seed": 123,
+      "answer": "O co chodzi?",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    },
+    {
+      "kind": "question",
+      "prompt": "Co robimy wieczorem?",
+      "seed": 123,
+      "answer": "Wszystko jest w porządku.",
+      "contains_phrase": false,
+      "starts_with_phrase": false
+    }
+  ],
+  "counts": {
+    "statement": {
+      "total": 16,
+      "contains_phrase": 1,
+      "starts_with_phrase": 1
+    },
+    "question": {
+      "total": 8,
+      "contains_phrase": 1,
+      "starts_with_phrase": 1
+    }
+  },
+  "remote_seconds": 59.759822228,
+  "estimated_compute_usd": 0.01695505676252816
+}

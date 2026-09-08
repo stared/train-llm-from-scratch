@@ -1,0 +1,3511 @@
+[
+  {
+    "step": 0,
+    "ids": [
+      "countdown-train-234",
+      "countdown-train-009"
+    ],
+    "texts": [
+      "(15 * 7) / 11",
+      "(15 - 11) / 4 is invalid because 4 is not in the list.\nLet's re-evaluate.\nNumbers: 11, 15, 7. Target: 3.",
+      "(15 - 7) / (11 / 11)\n \nWait, I used 11 twice in my thought process above. The rules say use [11, 15, 7] exactly",
+      "(15 * 7) / 11",
+      "(12 / 7) - 10",
+      "(12/7)*10",
+      "(12 + 7) / 10",
+      "(10 - 7) * (12 / 4) -> Wait, I need to use 12, 7, 10 exactly once each.\nLet's re-evaluate.\nNumbers: 1"
+    ],
+    "scores": [
+      {
+        "reward": 0.5198795180722892,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "105/11"
+      },
+      {
+        "reward": 0.0,
+        "success": false,
+        "valid_expression": false,
+        "uses_numbers": false
+      },
+      {
+        "reward": 0.0,
+        "success": false,
+        "valid_expression": false,
+        "uses_numbers": false
+      },
+      {
+        "reward": 0.5198795180722892,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "105/11"
+      },
+      {
+        "reward": 0.5105,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "-58/7"
+      },
+      {
+        "reward": 0.5114130434782609,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "120/7"
+      },
+      {
+        "reward": 0.5365853658536586,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "19/10"
+      },
+      {
+        "reward": 0.0,
+        "success": false,
+        "valid_expression": false,
+        "uses_numbers": false
+      }
+    ],
+    "advantages": [
+      0.34658634662628174,
+      -0.34658634662628174,
+      -0.34658634662628174,
+      0.34658634662628174,
+      0.1611672043800354,
+      0.16238459944725037,
+      0.19594770669937134,
+      -0.5194994807243347
+    ],
+    "sampled_sequence_kl": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "updated": true,
+    "loss": -2.2905918657779694,
+    "gradient_norm": 19.174734115600586
+  },
+  {
+    "step": 1,
+    "ids": [
+      "countdown-train-103",
+      "countdown-train-060"
+    ],
+    "texts": [
+      "(15 - 7) + 12",
+      "(15 - 7) + 12",
+      "7 * 12 / 15 * 15 * 1 / 7 ? No, must use exactly once.\nTry: (15 - 7) + 12 = 20.\nCheck",
+      "(15 + 7) - 2",
+      "(15 * 14) / 14 - 2",
+      "(15*14)/14+13-13",
+      "14 + 14 - 15",
+      "15 - 14/14"
+    ],
+    "scores": [
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "20"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "20"
+      },
+      {
+        "reward": 0.0,
+        "success": false,
+        "valid_expression": false,
+        "uses_numbers": false
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "20"
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "13"
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "15"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "13"
+      },
+      {
+        "reward": 0.575,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "14"
+      }
+    ],
+    "advantages": [
+      0.6000211834907532,
+      0.6000211834907532,
+      -0.7270364761352539,
+      -0.4730058014392853,
+      -0.3904378414154053,
+      -0.4003617763519287,
+      0.6809395551681519,
+      0.10986006259918213
+    ],
+    "sampled_sequence_kl": [
+      -0.29847174882888794,
+      -0.29847174882888794,
+      -0.7691510319709778,
+      0.1785508096218109,
+      0.13584691286087036,
+      0.8801437616348267,
+      -0.21746419370174408,
+      0.11350186914205551
+    ],
+    "updated": true,
+    "loss": -3.435679018497467,
+    "gradient_norm": 19.597503662109375
+  },
+  {
+    "step": 2,
+    "ids": [
+      "countdown-train-005",
+      "countdown-train-079"
+    ],
+    "texts": [
+      "14 * 3 - 11",
+      "14-3+11",
+      "(14 * 3) + 11",
+      "(14 * 11) / 3",
+      "2 * 5 + 2",
+      "5 * (2 + 2)",
+      "(5 * 2) + 2",
+      "5 * 2 + 2"
+    ],
+    "scores": [
+      {
+        "reward": 0.515,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "31"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "22"
+      },
+      {
+        "reward": 0.5046875,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "53"
+      },
+      {
+        "reward": 0.5049450549450549,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "154/3"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "12"
+      },
+      {
+        "reward": 0.5166666666666667,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "20"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "12"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "12"
+      }
+    ],
+    "advantages": [
+      -0.15274399518966675,
+      0.48726028203964233,
+      -0.16502684354782104,
+      -0.16948938369750977,
+      0.16029542684555054,
+      -0.48489439487457275,
+      0.16200435161590576,
+      0.1625944972038269
+    ],
+    "sampled_sequence_kl": [
+      0.2953522503376007,
+      0.7950339317321777,
+      0.18531912565231323,
+      0.545764148235321,
+      0.0744529440999031,
+      0.1303528994321823,
+      -0.053715094923973083,
+      -0.09797771275043488
+    ],
+    "updated": true,
+    "loss": 0.15079591423273087,
+    "gradient_norm": 9.483938217163086
+  },
+  {
+    "step": 3,
+    "ids": [
+      "countdown-train-232",
+      "countdown-train-229"
+    ],
+    "texts": [
+      "14 * 5 - 13",
+      "14+13-5",
+      "(14+13)+13",
+      "(13 * 14) / 5",
+      "13-12*2",
+      "12/2-13",
+      "(12 * 13) / 2",
+      "13 - 2 * 12 * 3"
+    ],
+    "scores": [
+      {
+        "reward": 0.5041666666666667,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "57"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "22"
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "40"
+      },
+      {
+        "reward": 0.5097402597402597,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "182/5"
+      },
+      {
+        "reward": 0.51,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "-11"
+      },
+      {
+        "reward": 0.5136363636363637,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "-7"
+      },
+      {
+        "reward": 0.5019736842105263,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "78"
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "-59"
+      }
+    ],
+    "advantages": [
+      -0.046843886375427246,
+      0.583122730255127,
+      -0.48392152786254883,
+      -0.05235743522644043,
+      0.08811935782432556,
+      0.0923854410648346,
+      0.11131301522254944,
+      -0.2918177843093872
+    ],
+    "sampled_sequence_kl": [
+      -0.40311524271965027,
+      1.932723045349121,
+      1.9610414505004883,
+      0.5677554607391357,
+      2.083512544631958,
+      2.127194881439209,
+      -0.45864272117614746,
+      -0.4211996793746948
+    ],
+    "updated": true,
+    "loss": -0.9797249212861061,
+    "gradient_norm": 8.242012977600098
+  },
+  {
+    "step": 4,
+    "ids": [
+      "countdown-train-045",
+      "countdown-train-051"
+    ],
+    "texts": [
+      "(15/15)*2",
+      "15/15*2",
+      "(15-15)/2",
+      "15/15*2",
+      "9-7+6",
+      "9/6*7",
+      "9-7+6",
+      "9/7+6"
+    ],
+    "scores": [
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "2"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "2"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "0"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "2"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "8"
+      },
+      {
+        "reward": 0.5428571428571428,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "21/2"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "8"
+      },
+      {
+        "reward": 0.5875,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "51/7"
+      }
+    ],
+    "advantages": [
+      0.17187976837158203,
+      0.14074957370758057,
+      -0.45337897539138794,
+      0.14074957370758057,
+      0.2855846881866455,
+      -0.31302398443222046,
+      0.2855846881866455,
+      -0.25814563035964966
+    ],
+    "sampled_sequence_kl": [
+      0.0787043571472168,
+      2.413466453552246,
+      1.9731050729751587,
+      2.413466453552246,
+      3.1618895530700684,
+      2.3432552814483643,
+      3.1618895530700684,
+      2.6916558742523193
+    ],
+    "updated": true,
+    "loss": -0.4203905761241913,
+    "gradient_norm": 6.520360469818115
+  },
+  {
+    "step": 5,
+    "ids": [
+      "countdown-train-131",
+      "countdown-train-003"
+    ],
+    "texts": [
+      "6*3/3",
+      "6-3+3",
+      "3 / (6 / 3)",
+      "6/3*3",
+      "3 * 2/2",
+      "2+2+3",
+      "2+2+3",
+      "2+2+3"
+    ],
+    "scores": [
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "6"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "6"
+      },
+      {
+        "reward": 0.5272727272727272,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "3/2"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "6"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "3"
+      },
+      {
+        "reward": 0.53,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "7"
+      },
+      {
+        "reward": 0.53,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "7"
+      },
+      {
+        "reward": 0.53,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "7"
+      }
+    ],
+    "advantages": [
+      0.1397082805633545,
+      0.1076543927192688,
+      -0.401012659072876,
+      0.15365010499954224,
+      0.5061601996421814,
+      -0.16872012615203857,
+      -0.16872012615203857,
+      -0.16872012615203857
+    ],
+    "sampled_sequence_kl": [
+      3.475433588027954,
+      5.879473686218262,
+      -3.2432234287261963,
+      2.429795503616333,
+      0.5549473762512207,
+      4.17096471786499,
+      4.17096471786499,
+      4.17096471786499
+    ],
+    "updated": true,
+    "loss": -0.0031474828720092773,
+    "gradient_norm": 7.408688068389893
+  },
+  {
+    "step": 6,
+    "ids": [
+      "countdown-train-168",
+      "countdown-train-029"
+    ],
+    "texts": [
+      "13-13*3",
+      "13+13/3",
+      "13-13/3",
+      "13/(13-3)",
+      "14+6-7",
+      "14-7*6",
+      "7+6-14",
+      "14-7+6"
+    ],
+    "scores": [
+      {
+        "reward": 0.505,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "-26"
+      },
+      {
+        "reward": 0.5097826086956522,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "52/3"
+      },
+      {
+        "reward": 0.5225,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "26/3"
+      },
+      {
+        "reward": 0.5555555555555556,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "13/10"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "13"
+      },
+      {
+        "reward": 0.5035714285714286,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "-28"
+      },
+      {
+        "reward": 0.51,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "-1"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "13"
+      }
+    ],
+    "advantages": [
+      -0.038882553577423096,
+      -0.023998260498046875,
+      -0.008283853530883789,
+      0.0711645781993866,
+      0.34112364053726196,
+      -0.3395666182041168,
+      -0.32684311270713806,
+      0.32528603076934814
+    ],
+    "sampled_sequence_kl": [
+      4.619593143463135,
+      3.981529712677002,
+      4.074686527252197,
+      1.421609878540039,
+      4.476673603057861,
+      5.885586738586426,
+      5.57417631149292,
+      5.664493560791016
+    ],
+    "updated": true,
+    "loss": -0.15129655227065086,
+    "gradient_norm": 3.9657652378082275
+  },
+  {
+    "step": 7,
+    "ids": [
+      "countdown-train-170",
+      "countdown-train-216"
+    ],
+    "texts": [
+      "14*2+13",
+      "14+13+2",
+      "13+14+2",
+      "14*2+13",
+      "15-12+11",
+      "15-12+11",
+      "15-11+12",
+      "12+15-11"
+    ],
+    "scores": [
+      {
+        "reward": 0.575,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "41"
+      },
+      {
+        "reward": 0.5125,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "29"
+      },
+      {
+        "reward": 0.5125,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "29"
+      },
+      {
+        "reward": 0.575,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "41"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "14"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "14"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "16"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "16"
+      }
+    ],
+    "advantages": [
+      0.05705338716506958,
+      -0.06716766953468323,
+      -0.046938955783843994,
+      0.05705338716506958,
+      0.29682350158691406,
+      0.29682350158691406,
+      -0.3049843907356262,
+      -0.28866255283355713
+    ],
+    "sampled_sequence_kl": [
+      3.2113399505615234,
+      6.277916431427002,
+      4.760765552520752,
+      3.2113399505615234,
+      4.590653896331787,
+      4.590653896331787,
+      4.726245880126953,
+      3.5021045207977295
+    ],
+    "updated": true,
+    "loss": -0.038690511137247086,
+    "gradient_norm": 3.5631275177001953
+  },
+  {
+    "step": 8,
+    "ids": [
+      "countdown-train-099",
+      "countdown-train-161"
+    ],
+    "texts": [
+      "7*10+3",
+      "10*7+3",
+      "10*7+3",
+      "10*7+3",
+      "3*2-4",
+      "4+2/5",
+      "2+5-4",
+      "5-4+2"
+    ],
+    "scores": [
+      {
+        "reward": 0.5078947368421053,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "73"
+      },
+      {
+        "reward": 0.5078947368421053,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "73"
+      },
+      {
+        "reward": 0.5078947368421053,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "73"
+      },
+      {
+        "reward": 0.5078947368421053,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "73"
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "2"
+      },
+      {
+        "reward": 0.5625,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "22/5"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "3"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "3"
+      }
+    ],
+    "advantages": [
+      -0.0009517073631286621,
+      0.0003171861171722412,
+      0.0003171861171722412,
+      0.0003171861171722412,
+      -0.6705787181854248,
+      -0.1492938995361328,
+      0.4104313850402832,
+      0.40944111347198486
+    ],
+    "sampled_sequence_kl": [
+      5.106494426727295,
+      5.011327743530273,
+      5.011327743530273,
+      5.011327743530273,
+      5.856636047363281,
+      3.0102720260620117,
+      4.780878067016602,
+      4.855142593383789
+    ],
+    "updated": true,
+    "loss": -0.48945088247273816,
+    "gradient_norm": 15.877017974853516
+  },
+  {
+    "step": 9,
+    "ids": [
+      "countdown-train-111",
+      "countdown-train-204"
+    ],
+    "texts": [
+      "8*6-5",
+      "6*8-5",
+      "6*8-5",
+      "8*6-5",
+      "6*7-4",
+      "6*7+4",
+      "6*7-4",
+      "7*6+4"
+    ],
+    "scores": [
+      {
+        "reward": 0.5375,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "43"
+      },
+      {
+        "reward": 0.5375,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "43"
+      },
+      {
+        "reward": 0.5375,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "43"
+      },
+      {
+        "reward": 0.5375,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "43"
+      },
+      {
+        "reward": 0.51,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "38"
+      },
+      {
+        "reward": 0.5214285714285715,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "46"
+      },
+      {
+        "reward": 0.51,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "38"
+      },
+      {
+        "reward": 0.5214285714285715,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "46"
+      }
+    ],
+    "advantages": [
+      0.004640728235244751,
+      -0.004640758037567139,
+      -0.004640758037567139,
+      0.004640728235244751,
+      -0.039698123931884766,
+      0.045623987913131714,
+      -0.039698123931884766,
+      0.03377220034599304
+    ],
+    "sampled_sequence_kl": [
+      4.65749454498291,
+      5.353606224060059,
+      5.353606224060059,
+      4.65749454498291,
+      9.383233070373535,
+      4.1269330978393555,
+      9.383233070373535,
+      5.015817165374756
+    ],
+    "updated": true,
+    "loss": -0.001536523806862533,
+    "gradient_norm": 1.1483711004257202
+  },
+  {
+    "step": 10,
+    "ids": [
+      "countdown-train-220",
+      "countdown-train-209"
+    ],
+    "texts": [
+      "2+2+2",
+      "2+2+2",
+      "2/2+2",
+      "2+2+2",
+      "14*8+4",
+      "14*8+4",
+      "14*8+4",
+      "14*8+4"
+    ],
+    "scores": [
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "6"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "6"
+      },
+      {
+        "reward": 0.525,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "3"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "6"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "116"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "116"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "116"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "116"
+      }
+    ],
+    "advantages": [
+      -0.012290894985198975,
+      -0.012290894985198975,
+      0.03687256574630737,
+      -0.012290894985198975,
+      -5.960464477539063e-08,
+      -5.960464477539063e-08,
+      -5.960464477539063e-08,
+      -5.960464477539063e-08
+    ],
+    "sampled_sequence_kl": [
+      4.138547897338867,
+      4.138547897338867,
+      -2.0487136840820312,
+      4.138547897338867,
+      4.722438812255859,
+      4.722438812255859,
+      4.722438812255859,
+      4.722438812255859
+    ],
+    "updated": true,
+    "loss": 0.028501763621200826,
+    "gradient_norm": 0.7054950594902039
+  },
+  {
+    "step": 11,
+    "ids": [
+      "countdown-train-078",
+      "countdown-train-089"
+    ],
+    "texts": [
+      "15*5+2",
+      "15*5+2",
+      "15+5*11",
+      "15*5+2",
+      "12*7+5",
+      "12*7+5",
+      "12*7+5",
+      "12*7+5"
+    ],
+    "scores": [
+      {
+        "reward": 0.5166666666666667,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "77"
+      },
+      {
+        "reward": 0.5166666666666667,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "77"
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "70"
+      },
+      {
+        "reward": 0.5166666666666667,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "77"
+      },
+      {
+        "reward": 0.5214285714285715,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "89"
+      },
+      {
+        "reward": 0.5214285714285715,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "89"
+      },
+      {
+        "reward": 0.5214285714285715,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "89"
+      },
+      {
+        "reward": 0.5214285714285715,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "89"
+      }
+    ],
+    "advantages": [
+      0.10800692439079285,
+      0.10800692439079285,
+      -0.3240209221839905,
+      0.10800692439079285,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "sampled_sequence_kl": [
+      4.374537467956543,
+      4.374537467956543,
+      5.109959602355957,
+      4.374537467956543,
+      4.779281139373779,
+      4.779281139373779,
+      4.779281139373779,
+      4.779281139373779
+    ],
+    "updated": true,
+    "loss": -0.3515746456105262,
+    "gradient_norm": 4.734950542449951
+  },
+  {
+    "step": 12,
+    "ids": [
+      "countdown-train-072",
+      "countdown-train-191"
+    ],
+    "texts": [
+      "84+",
+      "11*5-4",
+      "11*5-4",
+      "11*5+4",
+      "13-5+9",
+      "13 + 5 - 9",
+      "13+5-9",
+      "13+5-9"
+    ],
+    "scores": [
+      {
+        "reward": 0.0,
+        "success": false,
+        "valid_expression": false,
+        "uses_numbers": false
+      },
+      {
+        "reward": 0.5107142857142857,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "51"
+      },
+      {
+        "reward": 0.5107142857142857,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "51"
+      },
+      {
+        "reward": 0.525,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "59"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "17"
+      },
+      {
+        "reward": 0.5166666666666667,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "9"
+      },
+      {
+        "reward": 0.5166666666666667,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "9"
+      },
+      {
+        "reward": 0.5166666666666667,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "9"
+      }
+    ],
+    "advantages": [
+      -0.47163596749305725,
+      0.14364662766456604,
+      0.14364662766456604,
+      0.1843426525592804,
+      0.46107181906700134,
+      -0.09898394346237183,
+      -0.18104389309883118,
+      -0.18104389309883118
+    ],
+    "sampled_sequence_kl": [
+      2.3073015213012695,
+      7.232536315917969,
+      7.232536315917969,
+      5.6089019775390625,
+      6.127532005310059,
+      -0.20162171125411987,
+      5.952873229980469,
+      5.952873229980469
+    ],
+    "updated": true,
+    "loss": -0.8586284294724464,
+    "gradient_norm": 13.630036354064941
+  },
+  {
+    "step": 13,
+    "ids": [
+      "countdown-train-157",
+      "countdown-train-119"
+    ],
+    "texts": [
+      "13*4+6",
+      "13*4+6",
+      "13*4",
+      "13*4+6",
+      "15*2+3",
+      "15+3*2",
+      "15+2*3",
+      "15+3*2"
+    ],
+    "scores": [
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "58"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "58"
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "52"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "58"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "33"
+      },
+      {
+        "reward": 0.5115384615384615,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "21"
+      },
+      {
+        "reward": 0.5115384615384615,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "21"
+      },
+      {
+        "reward": 0.5115384615384615,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "21"
+      }
+    ],
+    "advantages": [
+      0.28812676668167114,
+      0.28812676668167114,
+      -0.8650808930397034,
+      0.2888273000717163,
+      0.5145940780639648,
+      -0.16643980145454407,
+      -0.18171435594558716,
+      -0.16643980145454407
+    ],
+    "sampled_sequence_kl": [
+      3.80120587348938,
+      3.80120587348938,
+      10.291775703430176,
+      3.748667001724243,
+      4.0632524490356445,
+      6.29464054107666,
+      7.440232276916504,
+      6.29464054107666
+    ],
+    "updated": true,
+    "loss": -0.9222370721399784,
+    "gradient_norm": 12.994543075561523
+  },
+  {
+    "step": 14,
+    "ids": [
+      "countdown-train-226",
+      "countdown-train-184"
+    ],
+    "texts": [
+      "15*10+5",
+      "15*5+10",
+      "15*5+10",
+      "15*5+10",
+      "8+13*9",
+      "13*9+8",
+      "13*9+8",
+      "13*9+8"
+    ],
+    "scores": [
+      {
+        "reward": 0.5048387096774194,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "155"
+      },
+      {
+        "reward": 0.5036585365853659,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "85"
+      },
+      {
+        "reward": 0.5036585365853659,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "85"
+      },
+      {
+        "reward": 0.5036585365853659,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "85"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "125"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "125"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "125"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "125"
+      }
+    ],
+    "advantages": [
+      -0.00016927719116210938,
+      5.6415796279907227e-05,
+      5.6415796279907227e-05,
+      5.6415796279907227e-05,
+      0.009699523448944092,
+      -0.003233194351196289,
+      -0.003233194351196289,
+      -0.003233194351196289
+    ],
+    "sampled_sequence_kl": [
+      4.7289838790893555,
+      4.594038963317871,
+      4.594038963317871,
+      4.594038963317871,
+      3.3982865810394287,
+      4.368247985839844,
+      4.368247985839844,
+      4.368247985839844
+    ],
+    "updated": true,
+    "loss": 0.007913872946119227,
+    "gradient_norm": 0.11583735048770905
+  },
+  {
+    "step": 15,
+    "ids": [
+      "countdown-train-244",
+      "countdown-train-134"
+    ],
+    "texts": [
+      "11*11-4",
+      "11+11*4",
+      "11+11*4",
+      "11+11*4",
+      "5 - 5 + 4",
+      "5-5+4",
+      "5-4+5",
+      "5-5+4"
+    ],
+    "scores": [
+      {
+        "reward": 0.5023809523809524,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "117"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "55"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "55"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "55"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "4"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "4"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "6"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "4"
+      }
+    ],
+    "advantages": [
+      -0.48843076825141907,
+      0.16281026601791382,
+      0.16281026601791382,
+      0.16281026601791382,
+      0.21256524324417114,
+      0.12390655279159546,
+      -0.4603783190250397,
+      0.12390655279159546
+    ],
+    "sampled_sequence_kl": [
+      3.8504562377929688,
+      4.769282817840576,
+      4.769282817840576,
+      4.769282817840576,
+      0.4551732540130615,
+      7.104578495025635,
+      5.925939083099365,
+      7.104578495025635
+    ],
+    "updated": true,
+    "loss": -0.08603773266077042,
+    "gradient_norm": 11.417593002319336
+  },
+  {
+    "step": 16,
+    "ids": [
+      "countdown-train-021",
+      "countdown-train-061"
+    ],
+    "texts": [
+      "15*8+2",
+      "15*8+2",
+      "15*8+2",
+      "15*8+2",
+      "14*8+6",
+      "14*8+6",
+      "14*8-6",
+      "14*8+6"
+    ],
+    "scores": [
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "122"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "122"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "122"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "122"
+      },
+      {
+        "reward": 0.51,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "118"
+      },
+      {
+        "reward": 0.51,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "118"
+      },
+      {
+        "reward": 0.5055555555555555,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "106"
+      },
+      {
+        "reward": 0.51,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "118"
+      }
+    ],
+    "advantages": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.005217939615249634,
+      0.005217939615249634,
+      -0.015653878450393677,
+      0.005217939615249634
+    ],
+    "sampled_sequence_kl": [
+      4.587630748748779,
+      4.587630748748779,
+      4.587630748748779,
+      4.587630748748779,
+      4.535553932189941,
+      4.535553932189941,
+      5.656497001647949,
+      4.535553932189941
+    ],
+    "updated": true,
+    "loss": -0.0022013389971107244,
+    "gradient_norm": 0.42434415221214294
+  },
+  {
+    "step": 17,
+    "ids": [
+      "countdown-train-175",
+      "countdown-train-015"
+    ],
+    "texts": [
+      "12-9+11",
+      "12-9+11",
+      "12-9+11",
+      "12-11+9",
+      "9*4+3",
+      "4*9+3",
+      "9*4*3",
+      "9*3+4"
+    ],
+    "scores": [
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "14"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "14"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "14"
+      },
+      {
+        "reward": 0.53,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "10"
+      },
+      {
+        "reward": 0.506,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "39"
+      },
+      {
+        "reward": 0.506,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "39"
+      },
+      {
+        "reward": 0.5032608695652174,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "108"
+      },
+      {
+        "reward": 0.5045454545454545,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "31"
+      }
+    ],
+    "advantages": [
+      0.15691089630126953,
+      0.15691089630126953,
+      0.15691089630126953,
+      -0.47073283791542053,
+      -0.006390482187271118,
+      0.023796379566192627,
+      -0.0037822723388671875,
+      -0.013623565435409546
+    ],
+    "sampled_sequence_kl": [
+      6.204380512237549,
+      6.204380512237549,
+      6.204380512237549,
+      6.277653694152832,
+      5.325770378112793,
+      3.0617542266845703,
+      4.856240272521973,
+      5.722795486450195
+    ],
+    "updated": true,
+    "loss": -0.1011381521821022,
+    "gradient_norm": 6.858250617980957
+  },
+  {
+    "step": 18,
+    "ids": [
+      "countdown-train-223",
+      "countdown-train-100"
+    ],
+    "texts": [
+      "14*3*4+1",
+      "14*3*4+4",
+      "14*4*3",
+      "14*3*4",
+      "12*5-4",
+      "12*4-5",
+      "12*4+5",
+      "12*4+5"
+    ],
+    "scores": [
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "169"
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "172"
+      },
+      {
+        "reward": 0.502112676056338,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "168"
+      },
+      {
+        "reward": 0.502112676056338,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "168"
+      },
+      {
+        "reward": 0.506,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "56"
+      },
+      {
+        "reward": 0.5125,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "43"
+      },
+      {
+        "reward": 0.5068181818181818,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "53"
+      },
+      {
+        "reward": 0.5068181818181818,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "53"
+      }
+    ],
+    "advantages": [
+      -0.17811347544193268,
+      -0.17561624944210052,
+      0.17693033814430237,
+      0.17679932713508606,
+      -0.001938939094543457,
+      0.006172835826873779,
+      -0.0021170079708099365,
+      -0.0021170079708099365
+    ],
+    "sampled_sequence_kl": [
+      2.8850045204162598,
+      2.697711944580078,
+      6.467986106872559,
+      6.477812767028809,
+      5.010324478149414,
+      5.051942348480225,
+      5.105499744415283,
+      5.105499744415283
+    ],
+    "updated": true,
+    "loss": -0.13148208599886857,
+    "gradient_norm": 7.873111724853516
+  },
+  {
+    "step": 19,
+    "ids": [
+      "countdown-train-230",
+      "countdown-train-028"
+    ],
+    "texts": [
+      "13*13-9",
+      "13*9+13",
+      "13*13+9",
+      "13*9+13",
+      "12*9+3",
+      "12*9+3",
+      "12*9+3",
+      "12*9+3"
+    ],
+    "scores": [
+      {
+        "reward": 0.5048387096774194,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "160"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "130"
+      },
+      {
+        "reward": 0.503061224489796,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "178"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "130"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "111"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "111"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "111"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "111"
+      }
+    ],
+    "advantages": [
+      -0.3341784179210663,
+      0.3213222026824951,
+      -0.30846601724624634,
+      0.3213222026824951,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "sampled_sequence_kl": [
+      4.149322032928467,
+      4.502903938293457,
+      2.0431392192840576,
+      4.502903938293457,
+      4.318831443786621,
+      4.318831443786621,
+      4.318831443786621,
+      4.318831443786621
+    ],
+    "updated": true,
+    "loss": -0.12020803615450859,
+    "gradient_norm": 15.437383651733398
+  },
+  {
+    "step": 20,
+    "ids": [
+      "countdown-train-128",
+      "countdown-train-185"
+    ],
+    "texts": [
+      "14-13+7",
+      "14-13+7",
+      "14-13+7",
+      "14-13+7",
+      "9*5+8",
+      "9*5+8",
+      "9*8+5",
+      "9*5+8"
+    ],
+    "scores": [
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "8"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "8"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "8"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "8"
+      },
+      {
+        "reward": 0.5045454545454545,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "53"
+      },
+      {
+        "reward": 0.5045454545454545,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "53"
+      },
+      {
+        "reward": 0.5166666666666667,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "77"
+      },
+      {
+        "reward": 0.5045454545454545,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "53"
+      }
+    ],
+    "advantages": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.009798228740692139,
+      -0.009798228740692139,
+      0.029394567012786865,
+      -0.009798228740692139
+    ],
+    "sampled_sequence_kl": [
+      5.628568172454834,
+      5.628568172454834,
+      5.628568172454834,
+      5.628568172454834,
+      5.636351108551025,
+      5.636351108551025,
+      3.90901255607605,
+      5.636351108551025
+    ],
+    "updated": true,
+    "loss": 0.005038516654167324,
+    "gradient_norm": 0.6022686958312988
+  },
+  {
+    "step": 21,
+    "ids": [
+      "countdown-train-084",
+      "countdown-train-208"
+    ],
+    "texts": [
+      "14*4+4",
+      "14*4+4",
+      "14*4+4",
+      "14*4+4",
+      "8-7+3",
+      "8-7+3",
+      "8-7+3",
+      "8-7+3"
+    ],
+    "scores": [
+      {
+        "reward": 0.5028301886792453,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "60"
+      },
+      {
+        "reward": 0.5028301886792453,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "60"
+      },
+      {
+        "reward": 0.5028301886792453,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "60"
+      },
+      {
+        "reward": 0.5028301886792453,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "60"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "4"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "4"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "4"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "4"
+      }
+    ],
+    "advantages": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -2.9802322387695312e-08,
+      -2.9802322387695312e-08,
+      -2.9802322387695312e-08,
+      -2.9802322387695312e-08
+    ],
+    "sampled_sequence_kl": [
+      4.917603015899658,
+      4.917603015899658,
+      4.917603015899658,
+      4.917603015899658,
+      8.845019340515137,
+      8.845019340515137,
+      8.845019340515137,
+      8.845019340515137
+    ],
+    "updated": false
+  },
+  {
+    "step": 22,
+    "ids": [
+      "countdown-train-164",
+      "countdown-train-044"
+    ],
+    "texts": [
+      "14*6+11",
+      "14*6+11",
+      "14*6+11",
+      "14*6+11",
+      "11+4+7",
+      "11*4-7",
+      "11*4+7",
+      "11*4+7"
+    ],
+    "scores": [
+      {
+        "reward": 0.509375,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "95"
+      },
+      {
+        "reward": 0.509375,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "95"
+      },
+      {
+        "reward": 0.509375,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "95"
+      },
+      {
+        "reward": 0.509375,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "95"
+      },
+      {
+        "reward": 0.5083333333333333,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "22"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "37"
+      },
+      {
+        "reward": 0.5115384615384615,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "51"
+      },
+      {
+        "reward": 0.5115384615384615,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "51"
+      }
+    ],
+    "advantages": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.02055305242538452,
+      0.05214422941207886,
+      -0.015795528888702393,
+      -0.015795528888702393
+    ],
+    "sampled_sequence_kl": [
+      5.189587116241455,
+      5.189587116241455,
+      5.189587116241455,
+      5.189587116241455,
+      5.411182403564453,
+      4.125559329986572,
+      5.3748860359191895,
+      5.3748860359191895
+    ],
+    "updated": true,
+    "loss": 0.008209407795220613,
+    "gradient_norm": 2.003173589706421
+  },
+  {
+    "step": 23,
+    "ids": [
+      "countdown-train-113",
+      "countdown-train-105"
+    ],
+    "texts": [
+      "11*7+11",
+      "11*7+11",
+      "11*7+11",
+      "11*7+11",
+      "12*7+2",
+      "12*7+2",
+      "12*7+2",
+      "12*7+2"
+    ],
+    "scores": [
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "88"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "88"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "88"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "88"
+      },
+      {
+        "reward": 0.5115384615384615,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "86"
+      },
+      {
+        "reward": 0.5115384615384615,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "86"
+      },
+      {
+        "reward": 0.5115384615384615,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "86"
+      },
+      {
+        "reward": 0.5115384615384615,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "86"
+      }
+    ],
+    "advantages": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -2.9802322387695312e-08,
+      -2.9802322387695312e-08,
+      -2.9802322387695312e-08,
+      -2.9802322387695312e-08
+    ],
+    "sampled_sequence_kl": [
+      4.991893291473389,
+      4.991893291473389,
+      4.991893291473389,
+      4.991893291473389,
+      6.442368507385254,
+      6.442368507385254,
+      6.442368507385254,
+      6.442368507385254
+    ],
+    "updated": false
+  },
+  {
+    "step": 24,
+    "ids": [
+      "countdown-train-027",
+      "countdown-train-085"
+    ],
+    "texts": [
+      "14-8+4",
+      "14+8-4",
+      "14+4-8",
+      "14-8+4",
+      "9*8+8",
+      "8*9+8",
+      "9*8+8",
+      "89+8"
+    ],
+    "scores": [
+      {
+        "reward": 0.5166666666666667,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "10"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "18"
+      },
+      {
+        "reward": 0.5166666666666667,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "10"
+      },
+      {
+        "reward": 0.5166666666666667,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "10"
+      },
+      {
+        "reward": 0.5023076923076923,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "80"
+      },
+      {
+        "reward": 0.5023076923076923,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "80"
+      },
+      {
+        "reward": 0.5023076923076923,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "80"
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "97"
+      }
+    ],
+    "advantages": [
+      -0.17220574617385864,
+      0.5103596448898315,
+      -0.1659482717514038,
+      -0.17220574617385864,
+      0.1066427230834961,
+      0.08398950099945068,
+      0.1066427230834961,
+      -0.29727494716644287
+    ],
+    "sampled_sequence_kl": [
+      6.325918197631836,
+      3.4668426513671875,
+      5.856602191925049,
+      6.325918197631836,
+      5.179888725280762,
+      6.878877639770508,
+      5.179888725280762,
+      5.2429423332214355
+    ],
+    "updated": true,
+    "loss": -0.10428686439990997,
+    "gradient_norm": 12.685705184936523
+  },
+  {
+    "step": 25,
+    "ids": [
+      "countdown-train-203",
+      "countdown-train-146"
+    ],
+    "texts": [
+      "7+7+2",
+      "7*2+7",
+      "7+7+2",
+      "7*2+7",
+      "12*12",
+      "12*12",
+      "12*12",
+      "12*12"
+    ],
+    "scores": [
+      {
+        "reward": 0.525,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "16"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "21"
+      },
+      {
+        "reward": 0.525,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "16"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "21"
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "144"
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "144"
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "144"
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "144"
+      }
+    ],
+    "advantages": [
+      -0.33930015563964844,
+      0.3393000364303589,
+      -0.33930015563964844,
+      0.3393000364303589,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "sampled_sequence_kl": [
+      7.758998394012451,
+      4.363992214202881,
+      7.758998394012451,
+      4.363992214202881,
+      7.448217391967773,
+      7.448217391967773,
+      7.448217391967773,
+      7.448217391967773
+    ],
+    "updated": true,
+    "loss": 0.14813318848609924,
+    "gradient_norm": 14.450072288513184
+  },
+  {
+    "step": 26,
+    "ids": [
+      "countdown-train-153",
+      "countdown-train-130"
+    ],
+    "texts": [
+      "14+14-9",
+      "14+9-14",
+      "14+14-9",
+      "14+9-14",
+      "13*7+8",
+      "13*8+7",
+      "13*8+7",
+      "13*7+8"
+    ],
+    "scores": [
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "19"
+      },
+      {
+        "reward": 0.5136363636363637,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "9"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "19"
+      },
+      {
+        "reward": 0.5136363636363637,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "9"
+      },
+      {
+        "reward": 0.503061224489796,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "99"
+      },
+      {
+        "reward": 0.504054054054054,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "111"
+      },
+      {
+        "reward": 0.504054054054054,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "111"
+      },
+      {
+        "reward": 0.503061224489796,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "99"
+      }
+    ],
+    "advantages": [
+      0.3405030369758606,
+      -0.3405030369758606,
+      0.3405030369758606,
+      -0.3405030369758606,
+      -0.0010284185409545898,
+      0.0010284781455993652,
+      0.0010284781455993652,
+      -0.0010284185409545898
+    ],
+    "sampled_sequence_kl": [
+      4.309037208557129,
+      6.748120307922363,
+      4.309037208557129,
+      6.748120307922363,
+      5.3687424659729,
+      5.3137617111206055,
+      5.3137617111206055,
+      5.3687424659729
+    ],
+    "updated": true,
+    "loss": 0.0005032091430621222,
+    "gradient_norm": 18.649782180786133
+  },
+  {
+    "step": 27,
+    "ids": [
+      "countdown-train-066",
+      "countdown-train-042"
+    ],
+    "texts": [
+      "10*5+5",
+      "10*5+5",
+      "10*5+5",
+      "10*5+5",
+      "9*6+2",
+      "9*6+2",
+      "9*6+2",
+      "9*6+2"
+    ],
+    "scores": [
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "55"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "55"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "55"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "55"
+      },
+      {
+        "reward": 0.5136363636363637,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "56"
+      },
+      {
+        "reward": 0.5136363636363637,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "56"
+      },
+      {
+        "reward": 0.5136363636363637,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "56"
+      },
+      {
+        "reward": 0.5136363636363637,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "56"
+      }
+    ],
+    "advantages": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "sampled_sequence_kl": [
+      3.549556255340576,
+      3.549556255340576,
+      3.549556255340576,
+      3.549556255340576,
+      6.654863357543945,
+      6.654863357543945,
+      6.654863357543945,
+      6.654863357543945
+    ],
+    "updated": false
+  },
+  {
+    "step": 28,
+    "ids": [
+      "countdown-train-250",
+      "countdown-train-140"
+    ],
+    "texts": [
+      "9*2+6",
+      "9*2+6",
+      "9*2+6",
+      "9*2+6",
+      "15*8+11",
+      "15*8+11",
+      "15*8+11",
+      "15*8+11"
+    ],
+    "scores": [
+      {
+        "reward": 0.5375,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "24"
+      },
+      {
+        "reward": 0.5375,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "24"
+      },
+      {
+        "reward": 0.5375,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "24"
+      },
+      {
+        "reward": 0.5375,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "24"
+      },
+      {
+        "reward": 0.5051724137931034,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "131"
+      },
+      {
+        "reward": 0.5051724137931034,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "131"
+      },
+      {
+        "reward": 0.5051724137931034,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "131"
+      },
+      {
+        "reward": 0.5051724137931034,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "131"
+      }
+    ],
+    "advantages": [
+      -2.9802322387695312e-08,
+      -2.9802322387695312e-08,
+      -2.9802322387695312e-08,
+      -2.9802322387695312e-08,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "sampled_sequence_kl": [
+      6.05056095123291,
+      6.05056095123291,
+      6.05056095123291,
+      6.05056095123291,
+      5.030084133148193,
+      5.030084133148193,
+      5.030084133148193,
+      5.030084133148193
+    ],
+    "updated": false
+  },
+  {
+    "step": 29,
+    "ids": [
+      "countdown-train-174",
+      "countdown-train-133"
+    ],
+    "texts": [
+      "8-3+2",
+      "8-3+2",
+      "8-3+2",
+      "8-3+2",
+      "13*8+12",
+      "13*8+12",
+      "13*8+12",
+      "13*8+12"
+    ],
+    "scores": [
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "7"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "7"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "7"
+      },
+      {
+        "reward": 0.55,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "7"
+      },
+      {
+        "reward": 0.51875,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "116"
+      },
+      {
+        "reward": 0.51875,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "116"
+      },
+      {
+        "reward": 0.51875,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "116"
+      },
+      {
+        "reward": 0.51875,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "116"
+      }
+    ],
+    "advantages": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -2.9802322387695312e-08,
+      -2.9802322387695312e-08,
+      -2.9802322387695312e-08,
+      -2.9802322387695312e-08
+    ],
+    "sampled_sequence_kl": [
+      8.844381332397461,
+      8.844381332397461,
+      8.844381332397461,
+      8.844381332397461,
+      4.4563798904418945,
+      4.4563798904418945,
+      4.4563798904418945,
+      4.4563798904418945
+    ],
+    "updated": false
+  },
+  {
+    "step": 30,
+    "ids": [
+      "countdown-train-115",
+      "countdown-train-004"
+    ],
+    "texts": [
+      "12*3+8",
+      "12*3+8",
+      "12*3+8",
+      "12*3+8",
+      "8*3+8",
+      "8*3+8",
+      "8*3+8",
+      "8*3+8"
+    ],
+    "scores": [
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "44"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "44"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "44"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "44"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "32"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "32"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "32"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "32"
+      }
+    ],
+    "advantages": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "sampled_sequence_kl": [
+      4.402120590209961,
+      4.402120590209961,
+      4.402120590209961,
+      4.402120590209961,
+      5.441439628601074,
+      5.441439628601074,
+      5.441439628601074,
+      5.441439628601074
+    ],
+    "updated": false
+  },
+  {
+    "step": 31,
+    "ids": [
+      "countdown-train-052",
+      "countdown-train-073"
+    ],
+    "texts": [
+      "11*5+8",
+      "11*5+8",
+      "11*5+8",
+      "11*5+8",
+      "3*4+3",
+      "3*4+3",
+      "3*4+3",
+      "3*4+3"
+    ],
+    "scores": [
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "63"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "63"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "63"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "63"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "15"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "15"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "15"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "15"
+      }
+    ],
+    "advantages": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -5.960464477539063e-08,
+      -5.960464477539063e-08,
+      -5.960464477539063e-08,
+      -5.960464477539063e-08
+    ],
+    "sampled_sequence_kl": [
+      5.691003322601318,
+      5.691003322601318,
+      5.691003322601318,
+      5.691003322601318,
+      3.741258382797241,
+      3.741258382797241,
+      3.741258382797241,
+      3.741258382797241
+    ],
+    "updated": false
+  },
+  {
+    "step": 32,
+    "ids": [
+      "countdown-train-065",
+      "countdown-train-010"
+    ],
+    "texts": [
+      "6*4+3",
+      "6*4+3",
+      "4*6+3",
+      "6*4+3",
+      "12*3+7",
+      "12*3+7",
+      "12*3-7",
+      "12*3+7"
+    ],
+    "scores": [
+      {
+        "reward": 0.5375,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "27"
+      },
+      {
+        "reward": 0.5375,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "27"
+      },
+      {
+        "reward": 0.5375,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "27"
+      },
+      {
+        "reward": 0.5375,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "27"
+      },
+      {
+        "reward": 0.5136363636363637,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "43"
+      },
+      {
+        "reward": 0.5136363636363637,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "43"
+      },
+      {
+        "reward": 0.53,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "29"
+      },
+      {
+        "reward": 0.5136363636363637,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "43"
+      }
+    ],
+    "advantages": [
+      -0.00231856107711792,
+      -0.00231856107711792,
+      0.0069557130336761475,
+      -0.00231856107711792,
+      0.009419232606887817,
+      0.009419232606887817,
+      -0.028257817029953003,
+      0.009419232606887817
+    ],
+    "sampled_sequence_kl": [
+      5.056340217590332,
+      5.056340217590332,
+      4.360764503479004,
+      5.056340217590332,
+      4.263493537902832,
+      4.263493537902832,
+      8.72563362121582,
+      4.263493537902832
+    ],
+    "updated": true,
+    "loss": 0.0013086503749946132,
+    "gradient_norm": 0.9655297994613647
+  },
+  {
+    "step": 33,
+    "ids": [
+      "countdown-train-104",
+      "countdown-train-238"
+    ],
+    "texts": [
+      "14*4-2",
+      "14*4-2",
+      "14*4-2",
+      "14*2+4",
+      "10 - 10 + 8",
+      "10+10-8",
+      "10-10+8",
+      "10 - 10 + 8"
+    ],
+    "scores": [
+      {
+        "reward": 0.5078947368421053,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "54"
+      },
+      {
+        "reward": 0.5078947368421053,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "54"
+      },
+      {
+        "reward": 0.5078947368421053,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "54"
+      },
+      {
+        "reward": 0.53,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "32"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "8"
+      },
+      {
+        "reward": 0.53,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "12"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "8"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "8"
+      }
+    ],
+    "advantages": [
+      0.0006204843521118164,
+      0.0006204843521118164,
+      0.0006204843521118164,
+      -0.001861482858657837,
+      0.18690741062164307,
+      -0.4863921105861664,
+      0.11257737874984741,
+      0.18690741062164307
+    ],
+    "sampled_sequence_kl": [
+      3.865433692932129,
+      3.865433692932129,
+      3.865433692932129,
+      6.262102127075195,
+      -0.31866568326950073,
+      3.17879581451416,
+      5.256086349487305,
+      -0.31866568326950073
+    ],
+    "updated": true,
+    "loss": 0.003770764567889273,
+    "gradient_norm": 8.18232250213623
+  },
+  {
+    "step": 34,
+    "ids": [
+      "countdown-train-030",
+      "countdown-train-211"
+    ],
+    "texts": [
+      "13 * 6 + 11",
+      "13*6+11",
+      "13*11+6",
+      "13*6+11",
+      "13*4+11",
+      "13*4+11",
+      "13*4+11",
+      "13*4+11"
+    ],
+    "scores": [
+      {
+        "reward": 0.5024590163934426,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "89"
+      },
+      {
+        "reward": 0.5024590163934426,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "89"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "149"
+      },
+      {
+        "reward": 0.5024590163934426,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "89"
+      },
+      {
+        "reward": 0.5214285714285715,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "63"
+      },
+      {
+        "reward": 0.5214285714285715,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "63"
+      },
+      {
+        "reward": 0.5214285714285715,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "63"
+      },
+      {
+        "reward": 0.5214285714285715,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "63"
+      }
+    ],
+    "advantages": [
+      -0.13659986853599548,
+      -0.19019874930381775,
+      0.5169972777366638,
+      -0.19019874930381775,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "sampled_sequence_kl": [
+      3.088775396347046,
+      7.108691215515137,
+      3.8230929374694824,
+      7.108691215515137,
+      4.98734188079834,
+      4.98734188079834,
+      4.98734188079834,
+      4.98734188079834
+    ],
+    "updated": true,
+    "loss": -0.0067863911390304565,
+    "gradient_norm": 11.310457229614258
+  },
+  {
+    "step": 35,
+    "ids": [
+      "countdown-train-046",
+      "countdown-train-121"
+    ],
+    "texts": [
+      "14-6+12",
+      "14+6",
+      "14 + 6",
+      "14+6",
+      "6+9-6",
+      "6+9-6",
+      "6+9-6",
+      "6/6+9"
+    ],
+    "scores": [
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "20"
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "20"
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "20"
+      },
+      {
+        "reward": 0.2,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": false,
+        "value": "20"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "9"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "9"
+      },
+      {
+        "reward": 1.0,
+        "success": true,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "9"
+      },
+      {
+        "reward": 0.575,
+        "success": false,
+        "valid_expression": true,
+        "uses_numbers": true,
+        "value": "10"
+      }
+    ],
+    "advantages": [
+      0.8133799433708191,
+      -0.29085782170295715,
+      -0.23166432976722717,
+      -0.29085782170295715,
+      0.12448686361312866,
+      0.12448686361312866,
+      0.12448686361312866,
+      -0.3734602928161621
+    ],
+    "sampled_sequence_kl": [
+      3.873541831970215,
+      6.691374778747559,
+      2.251861333847046,
+      6.691374778747559,
+      7.131918907165527,
+      7.131918907165527,
+      7.131918907165527,
+      1.9779521226882935
+    ],
+    "updated": true,
+    "loss": 0.17059682309627533,
+    "gradient_norm": 19.592756271362305
+  }
+]

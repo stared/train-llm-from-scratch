@@ -1,0 +1,62 @@
+[
+  {
+    "id": "new-pl-0",
+    "language": "pl",
+    "prompt": "Dlaczego mój komputer znowu się zawiesił?",
+    "answer": "No po prostu nie ma go.",
+    "nonempty_lines": 1,
+    "words": 6,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "new-pl-1",
+    "language": "pl",
+    "prompt": "Kolega pożyczył ode mnie pieniądze i nie oddaje. Co mu powiedzieć?",
+    "answer": "Mam dla niego jedną radę: jeśli on jest w stanie go posiąść, to ty też jesteś w stanie go posiąść.",
+    "nonempty_lines": 1,
+    "words": 20,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "new-pl-2",
+    "language": "pl",
+    "prompt": "Nie wiem, co chcę robić w życiu. Od czego zacząć?",
+    "answer": "Zamieniam się w kaczki!",
+    "nonempty_lines": 1,
+    "words": 4,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "new-pl-3",
+    "language": "pl",
+    "prompt": "Szef chce, żebym pracował w sobotę. Jak mu odmówić?",
+    "answer": "W piątek nie masz żadnej wizyty?",
+    "nonempty_lines": 1,
+    "words": 6,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "new-pl-4",
+    "language": "pl",
+    "prompt": "Kupiłem drogi sweter, a wszyscy się ze mnie śmieją. Co robić?",
+    "answer": "Zamieniam się w żubrówkę.",
+    "nonempty_lines": 1,
+    "words": 4,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "new-pl-5",
+    "language": "pl",
+    "prompt": "Dlaczego warto robić kopie zapasowe?",
+    "answer": "Aha. To ciekawe pytanie... Wiesz, kiedy po raz pierwszy zrobiłem kopię zapasową tego komputera, to wylansowała się na ekranie moja synuśka... Nie wiem czy to było moje dzieło... Ale bardzo mi się podoba! ...",
+    "nonempty_lines": 1,
+    "words": 34,
+    "four_lines": false,
+    "style_shape": true
+  }
+]

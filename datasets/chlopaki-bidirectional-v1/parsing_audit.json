@@ -1,0 +1,312 @@
+[
+  {
+    "line": 35,
+    "kind": "stage_direction",
+    "text": "....."
+  },
+  {
+    "line": 36,
+    "kind": "continuation_of_previous_speaker",
+    "speaker": "Lamusi"
+  },
+  {
+    "line": 120,
+    "kind": "stage_direction",
+    "text": "......."
+  },
+  {
+    "line": 125,
+    "kind": "stage_direction",
+    "text": "........"
+  },
+  {
+    "line": 165,
+    "kind": "stage_direction",
+    "text": "..."
+  },
+  {
+    "line": 179,
+    "kind": "stage_direction",
+    "text": "<pukanie>"
+  },
+  {
+    "line": 186,
+    "kind": "stage_direction",
+    "text": "<ktoś wchodzi do mieszkania>"
+  },
+  {
+    "line": 234,
+    "kind": "stage_direction",
+    "text": "<muzyka>"
+  },
+  {
+    "line": 237,
+    "kind": "stage_direction",
+    "text": "<dzwonek>"
+  },
+  {
+    "line": 253,
+    "kind": "stage_direction",
+    "text": "......"
+  },
+  {
+    "line": 258,
+    "kind": "stage_direction",
+    "text": "...."
+  },
+  {
+    "line": 266,
+    "kind": "stage_direction",
+    "text": "........"
+  },
+  {
+    "line": 275,
+    "kind": "stage_direction",
+    "text": "..."
+  },
+  {
+    "line": 312,
+    "kind": "stage_direction",
+    "text": "......."
+  },
+  {
+    "line": 320,
+    "kind": "stage_direction",
+    "text": "<otwiera drzwi>"
+  },
+  {
+    "line": 330,
+    "kind": "stage_direction",
+    "text": "..."
+  },
+  {
+    "line": 332,
+    "kind": "stage_direction",
+    "text": "...."
+  },
+  {
+    "line": 371,
+    "kind": "stage_direction",
+    "text": "<słychać warczącego psa, w zamkniętym pokoju)"
+  },
+  {
+    "line": 382,
+    "kind": "stage_direction",
+    "text": "..."
+  },
+  {
+    "line": 384,
+    "kind": "stage_direction",
+    "text": "...."
+  },
+  {
+    "line": 385,
+    "kind": "continuation_of_previous_speaker",
+    "speaker": "B"
+  },
+  {
+    "line": 395,
+    "kind": "continuation_of_previous_speaker",
+    "speaker": "F"
+  },
+  {
+    "line": 403,
+    "kind": "stage_direction",
+    "text": "<puk, puk; puk, wchodzi Kuba  >"
+  },
+  {
+    "line": 412,
+    "kind": "stage_direction",
+    "text": "..."
+  },
+  {
+    "line": 435,
+    "kind": "stage_direction",
+    "text": "<pif, paf>"
+  },
+  {
+    "line": 457,
+    "kind": "stage_direction",
+    "text": "<słychać syreny policyjne>"
+  },
+  {
+    "line": 472,
+    "kind": "stage_direction",
+    "text": "(...)"
+  },
+  {
+    "line": 482,
+    "kind": "stage_direction",
+    "text": "< defibrylator, tylko że przyłożony do głowy >"
+  },
+  {
+    "line": 484,
+    "kind": "stage_direction",
+    "text": "<...>"
+  },
+  {
+    "line": 502,
+    "kind": "stage_direction",
+    "text": "...."
+  },
+  {
+    "line": 503,
+    "kind": "continuation_of_previous_speaker",
+    "speaker": "Szef"
+  },
+  {
+    "line": 504,
+    "kind": "continuation_of_previous_speaker",
+    "speaker": "Szef"
+  },
+  {
+    "line": 535,
+    "kind": "continuation_of_previous_speaker",
+    "speaker": "Fred"
+  },
+  {
+    "line": 568,
+    "kind": "stage_direction",
+    "text": "...."
+  },
+  {
+    "line": 573,
+    "kind": "stage_direction",
+    "text": "....."
+  },
+  {
+    "line": 592,
+    "kind": "stage_direction",
+    "text": "..."
+  },
+  {
+    "line": 593,
+    "kind": "continuation_of_previous_speaker",
+    "speaker": "Bolec"
+  },
+  {
+    "line": 614,
+    "kind": "stage_direction",
+    "text": "...."
+  },
+  {
+    "line": 618,
+    "kind": "stage_direction",
+    "text": "...."
+  },
+  {
+    "line": 665,
+    "kind": "stage_direction",
+    "text": "........"
+  },
+  {
+    "line": 668,
+    "kind": "stage_direction",
+    "text": "......."
+  },
+  {
+    "line": 685,
+    "kind": "stage_direction",
+    "text": "...."
+  },
+  {
+    "line": 698,
+    "kind": "stage_direction",
+    "text": "<Bolec wyciąga saperkę>"
+  },
+  {
+    "line": 700,
+    "kind": "stage_direction",
+    "text": "<Kuba kopie>"
+  },
+  {
+    "line": 722,
+    "kind": "stage_direction",
+    "text": "<pukanie>"
+  },
+  {
+    "line": 729,
+    "kind": "stage_direction",
+    "text": "<wchodzi Duży Cwaniak, czyli bokser Jerzy Kossedowski>"
+  },
+  {
+    "line": 733,
+    "kind": "stage_direction",
+    "text": "<jeb, jeb, jeb  >"
+  },
+  {
+    "line": 746,
+    "kind": "stage_direction",
+    "text": "<wchodzi do mieszkania, w którym są otwarte drzwi>"
+  },
+  {
+    "line": 747,
+    "kind": "continuation_of_previous_speaker",
+    "speaker": "K"
+  },
+  {
+    "line": 755,
+    "kind": "stage_direction",
+    "text": "<Fred zszedł na dół, staje obok Weroniki>"
+  },
+  {
+    "line": 760,
+    "kind": "stage_direction",
+    "text": "<przykłada Weronice pistolet do skroni>"
+  },
+  {
+    "line": 766,
+    "kind": "stage_direction",
+    "text": "........"
+  },
+  {
+    "line": 767,
+    "kind": "stage_direction",
+    "text": "<Kuba schodzi na dół>"
+  },
+  {
+    "line": 789,
+    "kind": "stage_direction",
+    "text": "..."
+  },
+  {
+    "line": 790,
+    "kind": "continuation_of_previous_speaker",
+    "speaker": "Laska"
+  },
+  {
+    "line": 806,
+    "kind": "stage_direction",
+    "text": "........"
+  },
+  {
+    "line": 860,
+    "kind": "stage_direction",
+    "text": "<pif>"
+  },
+  {
+    "line": 862,
+    "kind": "stage_direction",
+    "text": "<paf>"
+  },
+  {
+    "line": 863,
+    "kind": "continuation_of_previous_speaker",
+    "speaker": "Grucha"
+  },
+  {
+    "line": 867,
+    "kind": "stage_direction",
+    "text": "<radiowóz leeeeeci>"
+  },
+  {
+    "line": 888,
+    "kind": "stage_direction",
+    "text": "<Bolec odchodzi>"
+  },
+  {
+    "line": 911,
+    "kind": "stage_direction",
+    "text": "...."
+  }
+]

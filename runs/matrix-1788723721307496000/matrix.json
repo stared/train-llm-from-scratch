@@ -1,0 +1,37 @@
+[
+  {
+    "model": "lfm2.5-350m",
+    "task": "extraction",
+    "steps": 40,
+    "returncode": 0,
+    "local_elapsed_seconds": 53.066101292
+  },
+  {
+    "model": "lfm2.5-350m",
+    "task": "polish",
+    "steps": 40,
+    "returncode": 0,
+    "local_elapsed_seconds": 46.18558887500001
+  },
+  {
+    "model": "qwen3.5-0.8b",
+    "task": "routing",
+    "steps": 20,
+    "returncode": 0,
+    "local_elapsed_seconds": 82.73345325
+  },
+  {
+    "model": "lfm2.5-2.6b",
+    "task": "extraction",
+    "steps": 20,
+    "returncode": 0,
+    "local_elapsed_seconds": 103.51074816599998
+  },
+  {
+    "model": "gemma4-e2b",
+    "task": "routing",
+    "steps": 2,
+    "returncode": 1,
+    "local_elapsed_seconds": 29.96588275000005
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "dns-pl",
+    "prompt": "Wyjaśnij mi DNS, bo internet działa, ale strony się nie otwierają.",
+    "language": "pl",
+    "answer": "Gdy światło w sieci płynie, a serwer śpi w ciszy,\nTo DNS, jak strażnik, klucze do drzwiczek trzyma,\nAle gdy on zawiedzie, to straci się ścieżka,\nI domy w internecie jak mgła przed oczami staną.",
+    "nonempty_lines": 4,
+    "words": 35,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "git-pl",
+    "prompt": "W piątek wieczorem zrobiłem force push na główną gałąź. Co teraz?",
+    "language": "pl",
+    "answer": "W piątek wieczór, gdy kod w gałęziach zniknął,\nZanim słońce wschodzi, niech się nie martwisz,\nBo system czeka, by nowy dzień zaczął,\nI w poniedziałek sprawę tę rozwiąże.",
+    "nonempty_lines": 4,
+    "words": 28,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "onion-pl",
+    "prompt": "Dlaczego płaczę przy krojeniu cebuli?",
+    "language": "pl",
+    "answer": "Kroczysz nożem przez białe góry,\nGdy łzy spływają po twarzach gorących,\nBo w powietrzu wznosi się chmurka,\nI serce płacze, gdy w sercu płacze.",
+    "nonempty_lines": 4,
+    "words": 24,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "train-pl",
+    "prompt": "Pociąg uciekł mi sprzed nosa. Jak uratować ten dzień?",
+    "language": "pl",
+    "answer": "Gdy pociąg uciekł, a dzień uciekł z tobą,\nNie płacz nad stratą, lecz wstań i idź do pracy.\nZnajdź w biurze nowe, a nie stare, ścieżki,\nBo czas, choć uciekł, wciąż daje szansę na życie.",
+    "nonempty_lines": 4,
+    "words": 35,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "prose-pl",
+    "prompt": "Odpowiedz zwykłą prozą, bez żartów i bez wiersza: jak działa fotosynteza?",
+    "language": "pl",
+    "answer": "Fotosynteza to proces, w którym rośliny zamieniają światło słoneczne na energię chemiczną. Korzystają z dwutlenku węgla i wody, aby wyprodukować cukry, będące podstawą odżywki dla wszystkich żywych organizmów. W tym procesie kluczową rolę odgrywają chlorofilne cząsteczki, które pochłaniają promieniowanie słoneczne i przekształcają je w energię niezbędną do budowania tkanki roślinnej.",
+    "nonempty_lines": 1,
+    "words": 50,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "duck-en",
+    "prompt": "Why does explaining a bug to a rubber duck sometimes help?",
+    "language": "en",
+    "answer": "When logic stumbles and the code turns gray,\nA rubber friend can turn the day to day,\nFor speaking out loud makes the tangled knot unwind,\nAnd silence often hides the truth we find.",
+    "nonempty_lines": 4,
+    "words": 34,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "moon-en",
+    "prompt": "Why does the Moon have phases?",
+    "language": "en",
+    "answer": "The Moon's face changes as it races round the sphere,\nTo show us the light that the Sun alone can share.\nWhen it turns its back to the Sun, the dark side is seen,\nAnd when it faces the Sun, the full orb is seen.",
+    "nonempty_lines": 4,
+    "words": 45,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "pizza-en",
+    "prompt": "My robot vacuum has eaten the pizza receipt. Write an apology from the robot.",
+    "language": "en",
+    "answer": "Forgive the clumsy, digital hand,\nThat swallowed up the paper strand,\nWhere numbers of the meal were printed,\nAnd left the kitchen in a blunder.",
+    "nonempty_lines": 4,
+    "words": 25,
+    "four_lines": true,
+    "style_shape": true
+  }
+]

@@ -1,0 +1,243 @@
+[
+  {
+    "id": "countdown-dev-000",
+    "prompt": "Countdown puzzle: use the numbers [2, 11, 2] exactly once each to make 24. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "2 + 11 * 2 = 24",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-000",
+    "prompt": "Countdown puzzle: use the numbers [2, 11, 2] exactly once each to make 24. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "2 * 11 - 2 = 24",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-001",
+    "prompt": "Countdown puzzle: use the numbers [13, 2, 2] exactly once each to make 13. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "13 = 2 + 2 + 9",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-001",
+    "prompt": "Countdown puzzle: use the numbers [13, 2, 2] exactly once each to make 13. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "2 + 13 = 15  \n(13 - 2) = 11  \n11 + 2 = 13",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-002",
+    "prompt": "Countdown puzzle: use the numbers [10, 4, 12] exactly once each to make 18. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "12 + 6 = 18  \n* – (expression format only)",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-002",
+    "prompt": "Countdown puzzle: use the numbers [10, 4, 12] exactly once each to make 18. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "12 + 4 = 16  \n16 + 10 = 18",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-003",
+    "prompt": "Countdown puzzle: use the numbers [9, 9, 12] exactly once each to make 117. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "9 + 9 + 12 = 117",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-003",
+    "prompt": "Countdown puzzle: use the numbers [9, 9, 12] exactly once each to make 117. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "9 + 9 + 12 = 117",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-004",
+    "prompt": "Countdown puzzle: use the numbers [11, 7, 15] exactly once each to make 19. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "15 + 7 = 22, then subtract 3 to reach 19. (Invalid, since 3 is not used)  \n\nLet's try again:\n\n11 + 7 + 1 = 19",
+    "terminated": false,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-004",
+    "prompt": "Countdown puzzle: use the numbers [11, 7, 15] exactly once each to make 19. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "11 + 7 = 18  \n18 + 1 = 19",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-005",
+    "prompt": "Countdown puzzle: use the numbers [5, 4, 10] exactly once each to make 54. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "5 + 4 + 10 = 54",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-005",
+    "prompt": "Countdown puzzle: use the numbers [5, 4, 10] exactly once each to make 54. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "5 + 4 * 10 = 54",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-006",
+    "prompt": "Countdown puzzle: use the numbers [11, 10, 12] exactly once each to make 11. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "11  +  12 - 10",
+    "terminated": true,
+    "reward": 0.55,
+    "success": false,
+    "valid_expression": true,
+    "uses_numbers": true,
+    "value": "13"
+  },
+  {
+    "id": "countdown-dev-006",
+    "prompt": "Countdown puzzle: use the numbers [11, 10, 12] exactly once each to make 11. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "11  \n(12 - 10) + 1 = 11",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-007",
+    "prompt": "Countdown puzzle: use the numbers [4, 12, 5] exactly once each to make 68. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "4 * 12 + 5 = 68",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-007",
+    "prompt": "Countdown puzzle: use the numbers [4, 12, 5] exactly once each to make 68. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "4 + 12 + 5 = 21  \nBut that's only 21, not 68. Let me check again. \n\nWait, maybe the puzzle is asking for the expression that evaluates to 68",
+    "terminated": false,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-008",
+    "prompt": "Countdown puzzle: use the numbers [8, 2, 4] exactly once each to make 16. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "8 + 2 + 4 = 14  \n8 + 2 * 4 = 14  \n8 * (2 + 4) = 16",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-008",
+    "prompt": "Countdown puzzle: use the numbers [8, 2, 4] exactly once each to make 16. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "8 + 2 + 4 = 14  \nMaybe adjust: 8 + 4 + 2 = 14  \nCorrect: 8 + 4 + 2 = 14\n\nWait, but the correct",
+    "terminated": false,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-009",
+    "prompt": "Countdown puzzle: use the numbers [6, 7, 12] exactly once each to make 54. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "6 * 7 + 12 = 54",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-009",
+    "prompt": "Countdown puzzle: use the numbers [6, 7, 12] exactly once each to make 54. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "6 * 7 + 12 = 54",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-010",
+    "prompt": "Countdown puzzle: use the numbers [6, 2, 15] exactly once each to make 36. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "6 * 2 + 15 = 36",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-010",
+    "prompt": "Countdown puzzle: use the numbers [6, 2, 15] exactly once each to make 36. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "6 + 15 + 2 = 23",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-011",
+    "prompt": "Countdown puzzle: use the numbers [8, 14, 5] exactly once each to make 117. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "14 + 8 * 5 = 117",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  },
+  {
+    "id": "countdown-dev-011",
+    "prompt": "Countdown puzzle: use the numbers [8, 14, 5] exactly once each to make 117. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "8 + 14 + 5 = 27  \n(8 * 14) + 5 = 117",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_expression": false,
+    "uses_numbers": false
+  }
+]

@@ -1,0 +1,49 @@
+# macOS and editor temporary files
+.DS_Store
+._*
+*.swp
+*.swo
+*~
+
+# Local Python environments, bytecode and tool caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.coverage
+.coverage.*
+htmlcov/
+
+# Python build artifacts
+/build/
+/dist/
+*.egg-info/
+
+# Local credentials; keep shareable configuration templates
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+.modal.toml
+
+# Downloaded/trained model artifacts (large and reproducible)
+runs/*/adapter/
+runs/*/tokenizer/
+runs/*/checkpoint-*/
+/downloaded-adapter/
+/downloaded-tokenizer/
+*.safetensors
+*.gguf
+*.pt
+*.pth
+*.ckpt
+runs/**/*.bin
+
+# Keep datasets, uv lockfiles, reports, LAB_NOTEBOOK.md and small run records
+# (metrics, generations, rollouts and source snapshots) under version control.

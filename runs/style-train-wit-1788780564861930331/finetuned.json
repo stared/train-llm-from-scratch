@@ -1,0 +1,62 @@
+[
+  {
+    "id": "new-pl-0",
+    "language": "pl",
+    "prompt": "Dlaczego mój komputer znowu się zawiesił?",
+    "answer": "Nie wiem.",
+    "nonempty_lines": 1,
+    "words": 2,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "new-pl-1",
+    "language": "pl",
+    "prompt": "Kolega pożyczył ode mnie pieniądze i nie oddaje. Co mu powiedzieć?",
+    "answer": "Nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie,",
+    "nonempty_lines": 1,
+    "words": 96,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "new-pl-2",
+    "language": "pl",
+    "prompt": "Nie wiem, co chcę robić w życiu. Od czego zacząć?",
+    "answer": "Nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie,",
+    "nonempty_lines": 1,
+    "words": 96,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "new-pl-3",
+    "language": "pl",
+    "prompt": "Szef chce, żebym pracował w sobotę. Jak mu odmówić?",
+    "answer": "Nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie,",
+    "nonempty_lines": 1,
+    "words": 96,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "new-pl-4",
+    "language": "pl",
+    "prompt": "Kupiłem drogi sweter, a wszyscy się ze mnie śmieją. Co robić?",
+    "answer": "Nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie,",
+    "nonempty_lines": 1,
+    "words": 96,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "new-pl-5",
+    "language": "pl",
+    "prompt": "Dlaczego warto robić kopie zapasowe?",
+    "answer": "Nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie, nie,",
+    "nonempty_lines": 1,
+    "words": 96,
+    "four_lines": false,
+    "style_shape": false
+  }
+]

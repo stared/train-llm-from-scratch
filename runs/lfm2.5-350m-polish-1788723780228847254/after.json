@@ -1,0 +1,66 @@
+[
+  {
+    "id": "polish-test-3",
+    "prompt": "Odpowiedz tylko liczbą, bez wyjaśnienia.\nNa półce było 113 książek. Dodano 22. Ile książek jest teraz?",
+    "answer": "135",
+    "prediction": "135",
+    "correct": true,
+    "format_valid": true
+  },
+  {
+    "id": "polish-test-4",
+    "prompt": "Odpowiedz tylko liczbą, bez wyjaśnienia.\nNa półce było 114 książek. Dodano 29. Ile książek jest teraz?",
+    "answer": "143",
+    "prediction": "143",
+    "correct": true,
+    "format_valid": true
+  },
+  {
+    "id": "polish-test-6",
+    "prompt": "Odpowiedz tylko liczbą, bez wyjaśnienia.\nNa półce było 116 książek. Dodano 43. Ile książek jest teraz?",
+    "answer": "159",
+    "prediction": "159",
+    "correct": true,
+    "format_valid": true
+  },
+  {
+    "id": "polish-test-7",
+    "prompt": "Odpowiedz tylko liczbą, bez wyjaśnienia.\nNa półce było 117 książek. Dodano 50. Ile książek jest teraz?",
+    "answer": "167",
+    "prediction": "167",
+    "correct": true,
+    "format_valid": true
+  },
+  {
+    "id": "polish-test-2",
+    "prompt": "Odpowiedz tylko liczbą, bez wyjaśnienia.\nNa półce było 112 książek. Dodano 15. Ile książek jest teraz?",
+    "answer": "127",
+    "prediction": "127",
+    "correct": true,
+    "format_valid": true
+  },
+  {
+    "id": "polish-test-5",
+    "prompt": "Odpowiedz tylko liczbą, bez wyjaśnienia.\nNa półce było 115 książek. Dodano 36. Ile książek jest teraz?",
+    "answer": "151",
+    "prediction": "151",
+    "correct": true,
+    "format_valid": true
+  },
+  {
+    "id": "polish-test-0",
+    "prompt": "Odpowiedz tylko liczbą, bez wyjaśnienia.\nNa półce było 110 książek. Dodano 1. Ile książek jest teraz?",
+    "answer": "111",
+    "prediction": "111",
+    "correct": true,
+    "format_valid": true
+  },
+  {
+    "id": "polish-test-1",
+    "prompt": "Odpowiedz tylko liczbą, bez wyjaśnienia.\nNa półce było 111 książek. Dodano 8. Ile książek jest teraz?",
+    "answer": "119",
+    "prediction": "119",
+    "correct": true,
+    "format_valid": true
+  }
+]

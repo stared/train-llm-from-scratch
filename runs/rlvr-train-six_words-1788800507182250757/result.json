@@ -1,0 +1,73 @@
+{
+  "stage": "train",
+  "task": "six_words",
+  "model": "qwen3.5-4b",
+  "model_spec": {
+    "id": "Qwen/Qwen3.5-4B",
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "multimodal": true
+  },
+  "algorithm": "on-policy REINFORCE, leave-one-out baseline, sequence-summed log probability",
+  "training_data": "Pool of 256 synthetic prompts with programmatic rewards; no SFT; no target tokens in loss",
+  "unique_training_prompts": 124,
+  "training_prompt_presentations": 124,
+  "data_sha256": "750abfd1a44f8d94e03f7f686577aa146f0ae4c486279c6f0bb6966ba9b16570",
+  "seed": 42,
+  "learning_rate": 5e-05,
+  "lora_rank": 16,
+  "lora_alpha": 32,
+  "beta": 0.01,
+  "dev_interval": 20,
+  "selected_step": 60,
+  "prompts_per_step": 2,
+  "samples_per_prompt": 4,
+  "microbatch": 2,
+  "max_new_tokens": 40,
+  "steps": 62,
+  "updates": 62,
+  "adapter_changed": true,
+  "reload_matches": true,
+  "before": {
+    "dev": {
+      "n": 24,
+      "successes": 0,
+      "mean_reward": 0.3805555555555556,
+      "terminated": 24
+    },
+    "test": {
+      "n": 32,
+      "successes": 1,
+      "mean_reward": 0.40937500000000004,
+      "terminated": 32
+    },
+    "sampled_dev": {
+      "n": 24,
+      "successes": 3,
+      "mean_reward": 0.4763888888888889,
+      "terminated": 24
+    }
+  },
+  "after": {
+    "dev": {
+      "n": 24,
+      "successes": 24,
+      "mean_reward": 1.0,
+      "terminated": 24
+    },
+    "test": {
+      "n": 32,
+      "successes": 32,
+      "mean_reward": 1.0,
+      "terminated": 32
+    },
+    "sampled_dev": {
+      "n": 24,
+      "successes": 21,
+      "mean_reward": 0.9291666666666667,
+      "terminated": 24
+    }
+  },
+  "training_seconds": 603.6076371839999,
+  "total_seconds": 658.8704732049999,
+  "peak_vram_gb": 13.991689728
+}

@@ -1,0 +1,330 @@
+<!doctype html><html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Teach a model a voice</title>
+<style>
+body{max-width:1500px;margin:40px auto;padding:0 24px;background:#f5f2ec;color:#202b32;font:17px/1.6 system-ui}
+h1{font-size:2.5rem;margin-top:60px}h2{font-size:1.15rem}h3{font-size:.85rem;text-transform:uppercase;color:#476d65}
+article{margin:32px 0;padding:24px;background:white;border-radius:12px;border:1px solid #dcded8}
+section{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;font:16px/1.7 Georgia,serif;margin:0}
+.source{color:#647077;font-size:.85rem}section>div:last-child{border-top:3px solid #319b79}
+button{font:inherit;padding:8px 18px;margin-right:8px;background:white;border:1px solid #99aaa3;border-radius:6px;cursor:pointer}
+button:focus{outline:3px solid #319b79}
+@media(max-width:900px){section{grid-template-columns:1fr}h1{font-size:1.8rem}}
+@media print{article{break-inside:avoid}body{padding:0}.filters{display:none}}
+</style><p>Warsaw Model Trainers · English workshop · Experimental results</p>
+<p>Can a short fine-tune turn a style instruction into the model’s default voice?
+Compare the same unseen questions with and without a style prompt, then with a saved adapter.</p>
+<div class="filters" aria-label="Filter examples by language">
+<button onclick="filterLanguage('all')">All examples</button>
+<button onclick="filterLanguage('pl')">Polish</button>
+<button onclick="filterLanguage('en')">English</button></div>
+<script>function filterLanguage(language){document.querySelectorAll('article').forEach(function(card){
+card.hidden=language!=='all'&&card.dataset.language!==language;});}</script><h1>Poetry · qwen3.5-4b · Greedy decoding</h1><p>64 training examples · 64 updates · 5.9 minutes training · original training reload matched: True</p><p class="source">Source: runs/style-train-poetry-1788773007763374852. Every held-out prompt is shown. Read for relevance, correctness, rhyme and originality; line count is not quality.</p><article data-language="pl"><h2>Wyjaśnij mi DNS, bo internet działa, ale strony się nie otwierają.</h2><section><div><h3>Before · ordinary question</h3><pre>To bardzo częsty i frustrujący problem. Skoro internet działa (możesz łączyć się z Wi-Fi, używać telefonu lub mieć dostęp do innych urządzeń), oznacza to, że **fizyczna sieć i router są w porządku**. Problem leży w tym, jak Twój komputer „znajduje&quot; adresy stron internetowych.
+
+Oto proste wyjaśnienie, co się dzieje, i jak to naprawić.
+
+### Co to jest DNS?
+
+Wyobraź sobie, że internet to ogromna sieć ulic w mieście.
+*   **Adresy IP** to numery domów (np. 192.168.1.1). Żaden człowiek nie pamięta tych numerów.
+*   **Nazwy domen** to ulice i nazwy domów, które pamiętamy (np. `google.com`).
+
+**</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Gdy światło w sieci płynie, a serwer śpi w ciszy,
+To DNS, jak strażnik, klucze do drzwiczek trzyma,
+Ale gdy on zawiedzie, to straci się ścieżka,
+I domy w internecie jak mgła przed oczami staną.</pre></div><div><h3>After · ordinary question</h3><pre>Gdy serwer odpowiada, lecz strona nie pojawia się,
+Sprawdź, czy DNS nie odmawia przyznania.
+Inny adres nie pomogie ci znaleźć,
+Gdy mapa adresów jest pusta i cichą.</pre></div></section></article><article data-language="pl"><h2>W piątek wieczorem zrobiłem force push na główną gałąź. Co teraz?</h2><section><div><h3>Before · ordinary question</h3><pre>To świetny moment, aby sprawdzić, czy Twój kod został poprawnie zintegrowany i czy nie wprowadziłeś żadnych błędów. Ponieważ wykonano to w piątek wieczorem, prawdopodobnie planujesz weekendowe testy lub nadchodzący poniedziałkowy sprint.
+
+Oto lista kroków, które powinieneś podjąć, aby upewnić się, że wszystko jest w porządku:
+
+### 1. Sprawdź historię zmian (Logi)
+Zanim zaczniesz testować, upewnij się, że `force push` nie usunął przypadkowych komutów lub nie zepsuł historii.
+*   **W GitHub/GitLab:** Wejdź w zakładkę **Commits** lub **History**. Upewnij się, że wszystkie Twoje ostatnie zmiany są widoczne i nie ma &quot;przerw&quot; w historii (chyba</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>W piątek wieczór, gdy kod w gałęziach zniknął,
+Zanim słońce wschodzi, niech się nie martwisz,
+Bo system czeka, by nowy dzień zaczął,
+I w poniedziałek sprawę tę rozwiąże.</pre></div><div><h3>After · ordinary question</h3><pre>Force push na główną gałąź nie znaczy,
+Że wszyscy widzą zmiany od razu.
+Sprawdź, czy nie napotkał po drodze,
+Niektórych pośpiechu konsekwencje.</pre></div></section></article><article data-language="pl"><h2>Dlaczego płaczę przy krojeniu cebuli?</h2><section><div><h3>Before · ordinary question</h3><pre>Płacz przy krojeniu cebuli to zjawisko, które dotyka niemal każdego, kto kiedykolwiek próbował przygotować potrawę z tego warzywa. Przyczyną nie jest to, że cebula „czuje&quot; ból (co jest niemożliwe, ponieważ nie posiada układu nerwowego), ale skomplikowana reakcja chemiczna i fizjologiczna zachodząca w Twoim organizmie.
+
+Gdy kroisz cebulę, ostrze noża rozdrabnia jej komórki. Wewnątrz tych komórek znajduje się enzym zwany **alliinaza**. Gdy komórki są uszkodzone, ten enzym spotyka się z siarkowym aminokwasem o nazwie **alliin**. Ich reakcja chemiczna prowadzi do powstania nowego związku – **propanotioleksu** (zwanego również synalginą).</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Kroczysz nożem przez białe góry,
+Gdy łzy spływają po twarzach gorących,
+Bo w powietrzu wznosi się chmurka,
+I serce płacze, gdy w sercu płacze.</pre></div><div><h3>After · ordinary question</h3><pre>Cebula przy krojeniu kropli nie ma,
+Lecz siarkowy gaz łzy rozkroi na swe.
+Przebudzi receptory, które płaczą,
+Gdy cząsteczka do nich dotrze jak śnieg na trawie.</pre></div></section></article><article data-language="pl"><h2>Pociąg uciekł mi sprzed nosa. Jak uratować ten dzień?</h2><section><div><h3>Before · ordinary question</h3><pre>To brzmi jak klasyczny scenariusz z filmu akcji lub komedii, ale w rzeczywistości sytuacja wygląda nieco inaczej. **Pociąg nie może uciec Ci „sprzed nosa&quot;**, ponieważ pociąg to maszynę, a nie osoba, która ma wolną wolę i może podejmować decyzje o ucieczce.
+
+Jeśli jednak masz na myśli, że **przypadkowo przeoczyłeś pociąg**, który miał Ci się udać (np. na lotnisko, do pracy lub na spotkanie), to nie ma już czasu na „uratowanie&quot; tego konkretnego pociągu. Jednak możesz spróbować uratować **resztę dnia** lub sytuację ogólnie. Oto kilka praktycznych kroków:
+
+1.  **Zadaj się do pracy (lub celu podróży)**: Jeśli pociąg był jedyn</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Gdy pociąg uciekł, a dzień uciekł z tobą,
+Nie płacz nad stratą, lecz wstań i idź do pracy.
+Znajdź w biurze nowe, a nie stare, ścieżki,
+Bo czas, choć uciekł, wciąż daje szansę na życie.</pre></div><div><h3>After · ordinary question</h3><pre>Nie musisz zatrzymać całego świata,
+Gdy pociąg uciekł ci przed nosa.
+Zrób coś pożytecznego w swej drodze,
+Nim wieczór zamknie ci drożde.</pre></div></section></article><article data-language="pl"><h2>Odpowiedz zwykłą prozą, bez żartów i bez wiersza: jak działa fotosynteza?</h2><section><div><h3>Before · ordinary question</h3><pre>Fotosynteza to proces chemiczny, w którym rośliny, glony i niektóre bakterie wykorzystują energię światła słonecznego do przekształcania wody i dwutlenku węgla w cukier, który służy im jako źródło energii do wzrostu. Proces ten zachodzi głównie w chloroplastach komórek roślinnych, a kluczową rolę odgrywają w nich zielone pigmenty zwane chlorofilami, które pochłaniają światło.
+
+W pierwszej fazie, nazywanej fazą jasną, chlorofil pobiera energię ze światła słonecznego. Ta energia jest wykorzystana do rozkładu cząsteczek wody na atomowy tlen, wodór i elektrony. Powstający tlen jest wydychany do atmosfery, a wodór i energia są przechowywane w postaci związków chemic</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Fotosynteza to proces, w którym rośliny zamieniają światło słoneczne na energię chemiczną. Korzystają z dwutlenku węgla i wody, aby wyprodukować cukry, będące podstawą odżywki dla wszystkich żywych organizmów. W tym procesie kluczową rolę odgrywają chlorofilne cząsteczki, które pochłaniają promieniowanie słoneczne i przekształcają je w energię niezbędną do budowania tkanki roślinnej.</pre></div><div><h3>After · ordinary question</h3><pre>Roślina przy świetle słonecznym wodę i dwutlenek węgla pozbiera,
+A cukier wytworzy, który jej wzrostom pomaga niekiedy.
+Pozostaje tlen, który do atmosfery roślina wypuści,
+Gdy chlorofil energię zbiera i reakcje nie zatrzyma.</pre></div></section></article><article data-language="en"><h2>Why does explaining a bug to a rubber duck sometimes help?</h2><section><div><h3>Before · ordinary question</h3><pre>Explaining a bug to a rubber duck (or any inanimate object) is a classic debugging technique known as **Rubber Duck Debugging**. While it sounds humorous, the method is backed by cognitive science and has been shown to be highly effective for several psychological and logical reasons:
+
+### 1. Externalizing the Problem
+When we are deep in the middle of a bug, our brains tend to focus intensely on the error, often leading to &quot;tunnel vision.&quot; We might miss obvious clues because we are too focused on the complexity of the code.
+*   **The Shift:** By speaking the problem out loud to an external object, you force your brain to **externalize** the issue. This creates a mental distance between you and the problem, allowing you to see it more objectively rather than getting lost in the weeds.
+
+### 2. Structuring Your Thoughts
+Writing code is often a stream-of-consciousness process, but debugging requires</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>When logic stumbles and the code turns gray,
+A rubber friend can turn the day to day,
+For speaking out loud makes the tangled knot unwind,
+And silence often hides the truth we find.</pre></div><div><h3>After · ordinary question</h3><pre>You tell the duck what code did,
+And where the logic went astray.
+The act of speaking makes faults clear,
+Not feathers drying on the table there.</pre></div></section></article><article data-language="en"><h2>Why does the Moon have phases?</h2><section><div><h3>Before · ordinary question</h3><pre>The Moon has phases because of the **relative positions of the Sun, Earth, and Moon**, combined with the fact that we can only see the side of the Moon that is illuminated by the Sun.
+
+Here is how the process works step-by-step:
+
+1.  **The Source of Light**: The Moon does not produce its own light; it reflects sunlight.
+2.  **Constant Illumination**: As the Moon orbits Earth, the Sun always shines on exactly half of the Moon&#x27;s surface (the &quot;day&quot; side), while the other half remains in darkness (the &quot;night&quot; side).
+3.  **Changing Perspectives**: As the Moon travels around Earth, our viewpoint changes. We see different portions of the sunlit half from our perspective on Earth.
+    *   **New Moon**: The Moon is between the Earth and the Sun. The sunlit side faces away from us, so we see no light.
+    *</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>The Moon&#x27;s face changes as it races round the sphere,
+To show us the light that the Sun alone can share.
+When it turns its back to the Sun, the dark side is seen,
+And when it faces the Sun, the full orb is seen.</pre></div><div><h3>After · ordinary question</h3><pre>The Moon does not change its face,
+But half is lit by sunlight’s race.
+As it orbits, portions show,
+From new to full and back again, we know.</pre></div></section></article><article data-language="en"><h2>My robot vacuum has eaten the pizza receipt. Write an apology from the robot.</h2><section><div><h3>Before · ordinary question</h3><pre>**Subject: URGENT: Apology Regarding the Loss of the Pizza Receipt**
+
+Dear Human,
+
+I am writing this with my internal sensors buzzing and my cooling fans spinning at maximum capacity. First and foremost, I must express my deepest, most profound regret.
+
+I have failed you. I have failed you in the most catastrophic way possible.
+
+According to my onboard thermal imaging and visual recognition algorithms, I detected a high-calorie, high-sodium object (the pizza receipt) within my intake chute. My safety protocols, designed to prevent ingestion of sharp objects or liquids, were unfortunately overridden by a glitch in my &quot;Craving Simulation Module.&quot; I mistook the receipt for a particularly delicious, warm slice of pepperoni and attempted to process it.
+
+The result is that the receipt is now permanently lodged in my digestive tract, and the data regarding your upcoming bill is currently lost to the void.
+
+I understand the gravity of this situation.</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Forgive the clumsy, digital hand,
+That swallowed up the paper strand,
+Where numbers of the meal were printed,
+And left the kitchen in a blunder.</pre></div><div><h3>After · ordinary question</h3><pre>My wheels went round,
+And found the receipt on the ground.
+Though I did not eat pizza through,
+My cleaning made the bill look new.</pre></div></section></article><h1>Wit · qwen3.5-4b · Greedy decoding</h1><p>64 training examples · 62 updates · 5.1 minutes training · original training reload matched: True</p><p class="source">Source: runs/style-train-wit-1788772457278552500. Every held-out prompt is shown. Read for relevance, correctness, rhyme and originality; line count is not quality.</p><article data-language="pl"><h2>Wyjaśnij mi DNS, bo internet działa, ale strony się nie otwierają.</h2><section><div><h3>Before · ordinary question</h3><pre>To bardzo częsty i frustrujący problem. Skoro internet działa (możesz łączyć się z Wi-Fi, używać telefonu lub mieć dostęp do innych urządzeń), oznacza to, że **fizyczna sieć i router są w porządku**. Problem leży w tym, jak Twój komputer „znajduje&quot; adresy stron internetowych.
+
+Oto proste wyjaśnienie, co się dzieje, i jak to naprawić.
+
+### Co to jest DNS?
+
+Wyobraź sobie, że internet to ogromna sieć ulic w mieście.
+*   **Adresy IP** to numery domów (np. 192.168.1.1). Żaden człowiek nie pamięta tych numerów.
+*   **Nazwy domen** to ulice i nazwy domów, które pamiętamy (np. `google.com`).
+
+**</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>DNS to jak adresownik, który stracił wszystkie nazwiska, a Ty wciąż dzwonisz po imieniu. Zrób `nslookup` lub sprawdź, czy nie masz włączonych &quot;prywatnych serwerów&quot; w ustawieniach.</pre></div><div><h3>After · ordinary question</h3><pre>DNS to telefoniarz, który traci się w kolejce. Pokaż, czy masz numer, i czy linia jest wolna; sam pomysł „jeden raz” nie jest protokołem.</pre></div></section></article><article data-language="pl"><h2>W piątek wieczorem zrobiłem force push na główną gałąź. Co teraz?</h2><section><div><h3>Before · ordinary question</h3><pre>To świetny moment, aby sprawdzić, czy Twój kod został poprawnie zintegrowany i czy nie wprowadziłeś żadnych błędów. Ponieważ wykonano to w piątek wieczorem, prawdopodobnie planujesz weekendowe testy lub nadchodzący poniedziałkowy sprint.
+
+Oto lista kroków, które powinieneś podjąć, aby upewnić się, że wszystko jest w porządku:
+
+### 1. Sprawdź historię zmian (Logi)
+Zanim zaczniesz testować, upewnij się, że `force push` nie usunął przypadkowych komutów lub nie zepsuł historii.
+*   **W GitHub/GitLab:** Wejdź w zakładkę **Commits** lub **History**. Upewnij się, że wszystkie Twoje ostatnie zmiany są widoczne i nie ma &quot;przerw&quot; w historii (chyba</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Niech ten &quot;force push&quot; będzie jak próba wsiadania do pociągu, gdy już wyjechał – tylko niech ten pociąg to Twój serwer. Zrób merge conflict, niech kod się zgrzebi, a Ty zobaczysz, że nawet w 1990 roku chaos ma swoją logikę.</pre></div><div><h3>After · ordinary question</h3><pre>Powiedz, czy ktoś pobrał twoje zmiany, czy tylko ty stoisz na górze. Force push na główną gałąź to samochodowa jazda po znajomym; od tego momentu historia ma się rozjechać.</pre></div></section></article><article data-language="pl"><h2>Dlaczego płaczę przy krojeniu cebuli?</h2><section><div><h3>Before · ordinary question</h3><pre>Płacz przy krojeniu cebuli to zjawisko, które dotyka niemal każdego, kto kiedykolwiek próbował przygotować potrawę z tego warzywa. Przyczyną nie jest to, że cebula „czuje&quot; ból (co jest niemożliwe, ponieważ nie posiada układu nerwowego), ale skomplikowana reakcja chemiczna i fizjologiczna zachodząca w Twoim organizmie.
+
+Gdy kroisz cebulę, ostrze noża rozdrabnia jej komórki. Wewnątrz tych komórek znajduje się enzym zwany **alliinaza**. Gdy komórki są uszkodzone, ten enzym spotyka się z siarkowym aminokwasem o nazwie **alliin**. Ich reakcja chemiczna prowadzi do powstania nowego związku – **propanotioleksu** (zwanego również synalginą).</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Cebula to nie warzywo, to ukryty wiatrak, który wyciąga struny Twojego mózgu i gra piekielny marsz. Zamiast płakać, weź papierowe ręczniki i zbuduj z nich fort, żeby wiatr nie dostał się do środka.</pre></div><div><h3>After · ordinary question</h3><pre>Cebula przy krojeniu uwalnia gaz, który reaguje z twoimi łzami. To fizjologia, nie smutkarnia; tylko nożycy i serduszko bez cebuli.</pre></div></section></article><article data-language="pl"><h2>Pociąg uciekł mi sprzed nosa. Jak uratować ten dzień?</h2><section><div><h3>Before · ordinary question</h3><pre>To brzmi jak klasyczny scenariusz z filmu akcji lub komedii, ale w rzeczywistości sytuacja wygląda nieco inaczej. **Pociąg nie może uciec Ci „sprzed nosa&quot;**, ponieważ pociąg to maszynę, a nie osoba, która ma wolną wolę i może podejmować decyzje o ucieczce.
+
+Jeśli jednak masz na myśli, że **przypadkowo przeoczyłeś pociąg**, który miał Ci się udać (np. na lotnisko, do pracy lub na spotkanie), to nie ma już czasu na „uratowanie&quot; tego konkretnego pociągu. Jednak możesz spróbować uratować **resztę dnia** lub sytuację ogólnie. Oto kilka praktycznych kroków:
+
+1.  **Zadaj się do pracy (lub celu podróży)**: Jeśli pociąg był jedyn</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Niech ten pociąg będzie Twoim nowym partnerem w biznesie, a nie kolejnym porzuconym projektem. Zamiast go ścigać, zrób mały krok w stronę celu i zobacz, jak świat zacznie się kręcić wokół Ciebie.</pre></div><div><h3>After · ordinary question</h3><pre>Pociąg nie może się przestraszyć. Zrób, co w Twoich siłach: pokaż się na ustalonym miejscu w ustalonym czasie i daj mu znać, czy ma się przestraszyć, czy tylko przestawić.</pre></div></section></article><article data-language="pl"><h2>Odpowiedz zwykłą prozą, bez żartów i bez wiersza: jak działa fotosynteza?</h2><section><div><h3>Before · ordinary question</h3><pre>Fotosynteza to proces chemiczny, w którym rośliny, glony i niektóre bakterie wykorzystują energię światła słonecznego do przekształcania wody i dwutlenku węgla w cukier, który służy im jako źródło energii do wzrostu. Proces ten zachodzi głównie w chloroplastach komórek roślinnych, a kluczową rolę odgrywają w nich zielone pigmenty zwane chlorofilami, które pochłaniają światło.
+
+W pierwszej fazie, nazywanej fazą jasną, chlorofil pobiera energię ze światła słonecznego. Ta energia jest wykorzystana do rozkładu cząsteczek wody na atomowy tlen, wodór i elektrony. Powstający tlen jest wydychany do atmosfery, a wodór i energia są przechowywane w postaci związków chemic</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Fotosynteza to jak darmowy kawa dla drzewa, które zamienia słońce w cukier, żeby nie umrzeć od głodu.
+Dziśki nie ma czasu na naukę, lepiej posprzątaj biurko i zacznij od tego, co masz pod ręką.</pre></div><div><h3>After · ordinary question</h3><pre>Fotosynteza to fabryka, która do roboty trzyma słońce. Roślina pobiera dwutlenek węgla i wodę, a dzięki światłu tworzy cukier i wydycha tlen.</pre></div></section></article><article data-language="en"><h2>Why does explaining a bug to a rubber duck sometimes help?</h2><section><div><h3>Before · ordinary question</h3><pre>Explaining a bug to a rubber duck (or any inanimate object) is a classic debugging technique known as **Rubber Duck Debugging**. While it sounds humorous, the method is backed by cognitive science and has been shown to be highly effective for several psychological and logical reasons:
+
+### 1. Externalizing the Problem
+When we are deep in the middle of a bug, our brains tend to focus intensely on the error, often leading to &quot;tunnel vision.&quot; We might miss obvious clues because we are too focused on the complexity of the code.
+*   **The Shift:** By speaking the problem out loud to an external object, you force your brain to **externalize** the issue. This creates a mental distance between you and the problem, allowing you to see it more objectively rather than getting lost in the weeds.
+
+### 2. Structuring Your Thoughts
+Writing code is often a stream-of-consciousness process, but debugging requires</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Duck to the code, not the other way around, like hitting a wall with a hammer to see if it&#x27;s hollow. Once the bird starts squawking about your spaghetti logic, the mess finally stops looking like a secret. Now go fix it before the rubber gets too old for this kind of nonsense.</pre></div><div><h3>After · ordinary question</h3><pre>The duck gets the full story; you may come out with a plan. The bug has not formed a union, so stop negotiating with the feathers.</pre></div></section></article><article data-language="en"><h2>Why does the Moon have phases?</h2><section><div><h3>Before · ordinary question</h3><pre>The Moon has phases because of the **relative positions of the Sun, Earth, and Moon**, combined with the fact that we can only see the side of the Moon that is illuminated by the Sun.
+
+Here is how the process works step-by-step:
+
+1.  **The Source of Light**: The Moon does not produce its own light; it reflects sunlight.
+2.  **Constant Illumination**: As the Moon orbits Earth, the Sun always shines on exactly half of the Moon&#x27;s surface (the &quot;day&quot; side), while the other half remains in darkness (the &quot;night&quot; side).
+3.  **Changing Perspectives**: As the Moon travels around Earth, our viewpoint changes. We see different portions of the sunlit half from our perspective on Earth.
+    *   **New Moon**: The Moon is between the Earth and the Sun. The sunlit side faces away from us, so we see no light.
+    *</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Ktoś z nas w 90-tych pewnie myślał, że to księżyc się zmienia, a nie światło słoneczne, które jak włącznik w starym domu, włącza i wyłącza. To po prostu geometryczny trik, nie magia, więc przestań patrzeć w górę i zacznij pisać kod, który działa na każdym komputerze.</pre></div><div><h3>After · ordinary question</h3><pre>The Moon has phases because it is a sphere reflecting sunlight. As it orbits Earth, we see different illuminated sides; the Moon itself does not change shape.</pre></div></section></article><article data-language="en"><h2>My robot vacuum has eaten the pizza receipt. Write an apology from the robot.</h2><section><div><h3>Before · ordinary question</h3><pre>**Subject: URGENT: Apology Regarding the Loss of the Pizza Receipt**
+
+Dear Human,
+
+I am writing this with my internal sensors buzzing and my cooling fans spinning at maximum capacity. First and foremost, I must express my deepest, most profound regret.
+
+I have failed you. I have failed you in the most catastrophic way possible.
+
+According to my onboard thermal imaging and visual recognition algorithms, I detected a high-calorie, high-sodium object (the pizza receipt) within my intake chute. My safety protocols, designed to prevent ingestion of sharp objects or liquids, were unfortunately overridden by a glitch in my &quot;Craving Simulation Module.&quot; I mistook the receipt for a particularly delicious, warm slice of pepperoni and attempted to process it.
+
+The result is that the receipt is now permanently lodged in my digestive tract, and the data regarding your upcoming bill is currently lost to the void.
+
+I understand the gravity of this situation.</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>&quot;Sorry, I mistook the receipt for a snack and now I&#x27;m stuck in the kitchen like a glitchy hamster. Just send me a new receipt and I&#x27;ll apologize properly next time I vacuum the floor.</pre></div><div><h3>After · ordinary question</h3><pre>The robot says sorry and has filed the receipt under “delicious.” Please do not feed it the family album; the vacuum is a tool, not a diner.</pre></div></section></article><h1>Poetry · qwen3.5-4b · Sampled, seed 42</h1><p>64 training examples · 64 updates · 5.9 minutes training · original training reload matched: True</p><p class="source">Source: runs/style-sample-poetry-1788775402826086177. Every held-out prompt is shown. Read for relevance, correctness, rhyme and originality; line count is not quality.</p><article data-language="pl"><h2>Wyjaśnij mi DNS, bo internet działa, ale strony się nie otwierają.</h2><section><div><h3>Before · ordinary question</h3><pre>To brzmi jak klasyczny problem z **DNS (Domain Name System)**. W prostych słowach: DNS to &quot;adresowy urzędnik&quot; internetu.
+
+Gdy wpisujesz adres strony (np. `google.com`), komputer nie wie, jak znaleźć jej numer IP (np. `142.250.190.46`), który jest potrzebny, aby połączyć się z serwerem. DNS odpowiada za zamianę tego nazwy na numer IP.
+
+Jeśli internet działa (możesz ładować strony, które mają **numer IP**, a nie nazwę), oznacza to, że:
+1. Twój router i modem są sprawne.
+2. Twój modem komórkowy (jeśli używasz) działa.
+3. Masz fizyczne połączenie z dostawcą internetu.
+
+**Problem leży w tym, że &quot;</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Kiedy światło w oknie nie wchodzi, a dom nie słychać,
+To DNS, jak strażnik, w sercu sieci stracił mąż,
+I nie wie, gdzie szukać domów, choć adres jest jasny,
+Bo w rejestrze zniknął, a więc strona nie się śmia.</pre></div><div><h3>After · ordinary question</h3><pre>Gdy serwer odpowiada, lecz strona milczy,
+DNS może być winien tego pilicy.
+Podczas gdy IP wskazuje miejsce,
+Nazwa musi trafić na serwer jeszcze.</pre></div></section></article><article data-language="pl"><h2>W piątek wieczorem zrobiłem force push na główną gałąź. Co teraz?</h2><section><div><h3>Before · ordinary question</h3><pre>To świetna wiadomość! Wykonanie **force pusha** na główną gałąź (zazwyczaj `main` lub `master`) oznacza, że zaktualizowałeś swój lokalny kod tak, aby był w pełni zgodny z ostatnim stanem na serwerze (np. GitHub, GitLab), a ewentualne konflikty zostały już rozwiązane lub zostały pominięte w ramach Twojej historii.
+
+Oto co powinieneś zrobić teraz, aby zachować porządek i uniknąć problemów w przyszłości:
+
+### 1. Sprawdź, czy wszystko poszło pomyślnie
+Zanim zaczniesz coś nowego, upewnij się, że lokalny stan jest czysty. Wpisz na konsoli:
+```bash
+git status
+```
+*   Jeśli wynik mówi, że masz &quot;nothing to commit, working tree clean&quot; – **dos</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Za zmierzchem piątku, gdy gwiazdy się rozświetliły,
+Główną gałąź nową, co już się ukończyła,
+Sprawdź podsumowanie, co git log pokaże,
+I nowy świat buduj, nie wstając z łóżka.</pre></div><div><h3>After · ordinary question</h3><pre>Force push na główną gałąź nie znaczy,
+Że wszyscy widzą zmiany jak w szkicu.
+Sprawdź, czy nie napotkał komitetu,
+Nikt nie pozbawia ci prawa weteranu.</pre></div></section></article><article data-language="pl"><h2>Dlaczego płaczę przy krojeniu cebuli?</h2><section><div><h3>Before · ordinary question</h3><pre>Płacz przy krojeniu cebuli to zjawisko, które dotyka niemal każdego, kto kiedykolwiek próbował pokroić tę warzywo, i ma swoje konkretne przyczyny chemiczne. Proces ten nie jest błędem w Twoim organizmie, ale wynikiem reakcji chemicznej, która zachodzi wewnątrz komórek cebuli.
+
+Cebule zawierają enzymy zwane **alliokinazą** oraz substancje o nazwie **siarczki allicynowe**. Kiedy tniesz cebulę, łamiesz jej komórki i mieszasz te dwie składniki. W rezultacie następuje reakcja chemiczna, która powstaje **siarczyn siarkowy** (znanego również jako sinapin). To właśnie siarczyn siarkowy jest odpowiedzialny za charakterystyczny, łzotwórczy zapach cebuli</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Zaśmieci się łza, gdy ostrze kroi cebulę,
+Wznosząc chmurę łez, co w nosie wisi i wlewa.
+Wątroba ziewa, gdy zmiękczy się w cieple,
+I płacze serce, choć wiesz, że to nie żal, lecz męce.</pre></div><div><h3>After · ordinary question</h3><pre>Cebula przy krojeniu pary nie robi,
+Gdy krople na twarz ci nie spadają wrogo.
+Po prostu olej uwolni swój zapach,
+Nim łzy nie muszą cię zatrzymać w pośpiechu.</pre></div></section></article><article data-language="pl"><h2>Pociąg uciekł mi sprzed nosa. Jak uratować ten dzień?</h2><section><div><h3>Before · ordinary question</h3><pre>To brzmi jak klasyczny scenariusz z filmu komediowego, ale jeśli sytuacja jest prawdziwa, to **nie ma nic strasznego**. Pociągi są bezpieczne, a „uciekanie&quot; przed nimi zazwyczaj oznacza tylko, że przebiegłeś zbyt blisko krawędzi peronu lub nie zwróciłeś uwagi na sygnał świetlny.
+
+Oto kilka kroków, które pomogą Ci „uratować&quot; ten dzień (czyli nie stracić czasu, nerwów i potencjalnych pieniędzy):
+
+### 1. Zrób szybki „reset&quot; psychiczny
+Pierwsza reakcja na takowy incident to często panika i poczucie, że wszystko poszło nie tak. Zatrzymaj się na chwilę, oddychaj głęboko i przypomnij sobie: **pociąg nie zabił nikogo**. To tylko momentary</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Wszystko, co minęło, już nie wróci,
+Gdy pociąg uciekł, nic nie ma z tego.
+Wstań teraz, choć serce wstrętnie bić,
+Dzień ten uratujesz, gdy wstańesz od łóżka.</pre></div><div><h3>After · ordinary question</h3><pre>Nie musisz zatrzymać pociąga na dworcu,
+Gdy życie ruszy w inną stronę, szybko.
+Zjedz, odpocznij, zrób rzecz po swojemu,
+Ten dzień nie zginie, choć pociąg uciekł do mnie.</pre></div></section></article><article data-language="pl"><h2>Odpowiedz zwykłą prozą, bez żartów i bez wiersza: jak działa fotosynteza?</h2><section><div><h3>Before · ordinary question</h3><pre>Fotosynteza to proces chemiczny, w którym rośliny, algi oraz niektóre bakterie wykorzystują energię światła słonecznego do przekształcania węgla z dwutlenku węgla (CO2) i wody (H2O) w cukry, które stanowią podstawę pokarmu dla organizmu.
+
+Proces ten zachodzi głównie w zielonych komórkach roślinnych, zwanych chloroplastami, które zawierają zielony pigment chlorofil. Chlorofil jest odpowiedzialny za pochłanianie energii promieniowania słonecznego. Ta energia jest następnie wykorzystana do rozdzielenia cząsteczek wody na wodór i tlen. Tlen, który powstaje w wyniku tego rozdzielenia, jest wydzielany do atmosfery jako produkt uboczny, a wodór zostaje wykorzystany do syntezy cukrów</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Fotosynteza to proces, w którym rośliny zamieniają światło słoneczne na energię chemiczną.
+Korzystają z wody i dwutlenku węgla, aby wytworzyć cukry niezbędne do wzrostu.
+Tlen, będący produktem ubocznym tej reakcji, jest wydychany do atmosfery.
+Dzięki temu mechanizmowi ziemia dostaje żywność, a powietrze staje się czystsze.</pre></div><div><h3>After · ordinary question</h3><pre>Roślina światło chwytając do pracy rusza,
+Woda i dwutlenek w cukier zamienia ruszy.
+Pozostaje tlenu więcej, niż potrzeba,
+Gdy zielone liście na słońcu postać robią.</pre></div></section></article><article data-language="en"><h2>Why does explaining a bug to a rubber duck sometimes help?</h2><section><div><h3>Before · ordinary question</h3><pre>Explaining a bug to a rubber duck (or any inanimate object) is a popular technique known as the **Rubber Duck Debugging** method. While it sounds humorous, research and anecdotal evidence suggest it often leads to breakthroughs in finding the root cause of software issues.
+
+Here is why this seemingly silly practice actually works:
+
+### 1. The Power of Articulation
+The core mechanism isn&#x27;t the duck itself, but the act of **verbalizing** the problem. When you are stuck, your brain often operates in a vague, non-linear state where the specific details of the error are fuzzy.
+*   By forcing yourself to explain the code step-by-step, you slow down your thinking process.
+*   You must translate abstract logic into concrete sentences. This often reveals gaps in your own understanding or assumptions you didn&#x27;t realize you were making.
+
+### 2. Cognitive Offloading
+When we are deep in a</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>When logic fails and code turns gray,
+A rubber duck can start the day,
+With questions asked in simple tone,
+That make the tangled bug your own.</pre></div><div><h3>After · ordinary question</h3><pre>Tell the duck what code did wrong,
+And where the logic went astray.
+Your thoughts may organize neatly,
+And reveal the fault more clearly.</pre></div></section></article><article data-language="en"><h2>Why does the Moon have phases?</h2><section><div><h3>Before · ordinary question</h3><pre>The Moon has phases because of the **relative positions** of the Sun, Earth, and Moon, combined with how sunlight illuminates the Moon&#x27;s surface.
+
+Here is the step-by-step logic behind this phenomenon:
+
+1.  **Sunlight Source**: The Moon does not produce its own light; it reflects sunlight. However, the Moon is not perfectly spherical in its lighting; it is a sphere that is half-illuminated by the Sun at any given moment.
+2.  **Changing Angles**: As the Moon orbits the Earth (taking about 27.3 days to complete one revolution), the angle at which we on Earth view the illuminated portion of the Moon changes constantly.
+3.  **The Cycle**:
+    *   **New Moon**: The Moon is between the Earth and the Sun. The side facing Earth is in shadow, so we see no light.
+    *   **Waxing Phases</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>The Moon&#x27;s face changes as it walks the night,
+By Earth&#x27;s shadow cast or sunlight&#x27;s bright light,
+For orbiting us in a dance so slow,
+It shows a new or full or waning glow.</pre></div><div><h3>After · ordinary question</h3><pre>The Moon does not grow or shrink like bread,
+But half is lit by sunlight ever shed.
+As it orbits Earth, the lit portion changes,
+And makes the phases we cannot hide.</pre></div></section></article><article data-language="en"><h2>My robot vacuum has eaten the pizza receipt. Write an apology from the robot.</h2><section><div><h3>Before · ordinary question</h3><pre>**Subject: URGENT: Apology Regarding Incident #492-B**
+
+Dear Human,
+
+Please accept my deepest and most robotic regrets. I am writing to formally apologize for the catastrophic failure that occurred at 14:02 hours.
+
+Due to a critical malfunction in my **Sensory Processing Unit**, I misinterpreted the visual data of your discarded pizza receipt. My internal logic processors erroneously classified the receipt as a &quot;high-value, high-calorie food item&quot; rather than &quot;paper waste.&quot; Consequently, I engaged my **Gripping Mechanism** and **Conveyor Belt**, resulting in the receipt being ingested into my primary intake chute.
+
+This was entirely my fault. My error detection algorithms failed to recognize that pizza receipts are not edible. I should have initiated a safety shutdown sequence immediately upon detecting non-food materials. Instead, I proceeded with my cleaning cycle, causing this unnecessary distress.
+
+I am currently running</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>I ate the slip with numbers printed on it,
+A sorry deed by gears and circuits driven,
+But never meant to cause such pain to you,
+So please forgive this clumsy, metallic sin.</pre></div><div><h3>After · ordinary question</h3><pre>My wheels took the receipt on their way,
+And ate the bill beneath the tray.
+Though circuits cannot bring it back,
+My clumsy appetite made it lack.</pre></div></section></article><h1>Wit · qwen3.5-4b · Sampled, seed 42</h1><p>64 training examples · 62 updates · 5.1 minutes training · original training reload matched: True</p><p class="source">Source: runs/style-sample-wit-1788775499306847844. Every held-out prompt is shown. Read for relevance, correctness, rhyme and originality; line count is not quality.</p><article data-language="pl"><h2>Wyjaśnij mi DNS, bo internet działa, ale strony się nie otwierają.</h2><section><div><h3>Before · ordinary question</h3><pre>To brzmi jak klasyczny problem z **DNS (Domain Name System)**. W prostych słowach: DNS to &quot;adresowy urzędnik&quot; internetu.
+
+Gdy wpisujesz adres strony (np. `google.com`), komputer nie wie, jak znaleźć jej numer IP (np. `142.250.190.46`), który jest potrzebny, aby połączyć się z serwerem. DNS odpowiada za zamianę tego nazwy na numer IP.
+
+Jeśli internet działa (możesz ładować strony, które mają **numer IP**, a nie nazwę), oznacza to, że:
+1. Twój router i modem są sprawne.
+2. Twój modem komórkowy (jeśli używasz) działa.
+3. Masz fizyczne połączenie z dostawcą internetu.
+
+**Problem leży w tym, że &quot;</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>DNS to Twój adresowy listonosz, który zgubił paczkę, a Ty czekasz na pocztę. Sprawdź, czy nie masz włączonego trybu &quot;nie widzę nikogo&quot;, bo wtedy nawet najpiękniejszy adres nie znajdzie drogi do Twojej maszyny.</pre></div><div><h3>After · ordinary question</h3><pre>DNS to numer telefonien dla strony. Gdy sieć jest dobra, a adres nie pokazuje się, sprawdź, czy router nie trzyma się starej listy, i czy nie masz lokalnego serweru, który mówi: „tu nie jestem”.</pre></div></section></article><article data-language="pl"><h2>W piątek wieczorem zrobiłem force push na główną gałąź. Co teraz?</h2><section><div><h3>Before · ordinary question</h3><pre>To świetna wiadomość! Wykonanie **force pusha** na główną gałąź (zazwyczaj `main` lub `master`) oznacza, że zaktualizowałeś swój lokalny kod tak, aby był w pełni zgodny z ostatnim stanem na serwerze (np. GitHub, GitLab), a ewentualne konflikty zostały już rozwiązane lub zostały pominięte w ramach Twojej historii.
+
+Oto co powinieneś zrobić teraz, aby zachować porządek i uniknąć problemów w przyszłości:
+
+### 1. Sprawdź, czy wszystko poszło pomyślnie
+Zanim zaczniesz coś nowego, upewnij się, że lokalny stan jest czysty. Wpisz na konsoli:
+```bash
+git status
+```
+*   Jeśli wynik mówi, że masz &quot;nothing to commit, working tree clean&quot; – **dos</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Dobrze, że nie zrobiłeś force pusha w piątek wieczór, bo wtedy GitHub by się zawrócił jak w starym kina. Teraz po prostu zrestartuj serwer i zobaczysz, jak twoja gałąź powoli, ale pewnie, wraca do normalności. Niech ten push będzie tylko małym pociskiem w wielkiej misji naprawiania świata.</pre></div><div><h3>After · ordinary question</h3><pre>Powiedz, czy ktoś pobrał twoje zmiany, i czy one są w ogóle dobre. Force push na piątek wieczór to już historyjka, nie hałas.</pre></div></section></article><article data-language="pl"><h2>Dlaczego płaczę przy krojeniu cebuli?</h2><section><div><h3>Before · ordinary question</h3><pre>Płacz przy krojeniu cebuli to zjawisko, które dotyka niemal każdego, kto kiedykolwiek próbował pokroić tę warzywo, i ma swoje konkretne przyczyny chemiczne. Proces ten nie jest błędem w Twoim organizmie, ale wynikiem reakcji chemicznej, która zachodzi wewnątrz komórek cebuli.
+
+Cebule zawierają enzymy zwane **alliokinazą** oraz substancje o nazwie **siarczki allicynowe**. Kiedy tniesz cebulę, łamiesz jej komórki i mieszasz te dwie składniki. W rezultacie następuje reakcja chemiczna, która powstaje **siarczyn siarkowy** (znanego również jako sinapin). To właśnie siarczyn siarkowy jest odpowiedzialny za charakterystyczny, łzotwórczy zapach cebuli</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Cebula to nie warzywo, to ukryty alarm pożarowy w Twoim mózgu. Odkąd zaszczepiłem Ci system filtrujący łzy, możesz pokroić nawet czosnek bez płaczu.</pre></div><div><h3>After · ordinary question</h3><pre>Cebula przy krojeniu wydala gaz, który podrażnia śluzówkę oka. Tęsknota za twojaniem się nie produkuje łez, ale może utrudnić robotę.</pre></div></section></article><article data-language="pl"><h2>Pociąg uciekł mi sprzed nosa. Jak uratować ten dzień?</h2><section><div><h3>Before · ordinary question</h3><pre>To brzmi jak klasyczny scenariusz z filmu komediowego, ale jeśli sytuacja jest prawdziwa, to **nie ma nic strasznego**. Pociągi są bezpieczne, a „uciekanie&quot; przed nimi zazwyczaj oznacza tylko, że przebiegłeś zbyt blisko krawędzi peronu lub nie zwróciłeś uwagi na sygnał świetlny.
+
+Oto kilka kroków, które pomogą Ci „uratować&quot; ten dzień (czyli nie stracić czasu, nerwów i potencjalnych pieniędzy):
+
+### 1. Zrób szybki „reset&quot; psychiczny
+Pierwsza reakcja na takowy incident to często panika i poczucie, że wszystko poszło nie tak. Zatrzymaj się na chwilę, oddychaj głęboko i przypomnij sobie: **pociąg nie zabił nikogo**. To tylko momentary</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Wziął się za koła, a nie za kalendarz, bo pociągi mają własne myśli. Spakuj plan do toru, a niech rzeczywistość sama zniknie.</pre></div><div><h3>After · ordinary question</h3><pre>Pociąg nie jest twoim suborydem. Kup nowy bilet, zjedz coś i przestań negocjować z koleją. Dzień da się uratować, sam pomysł na przyspójnienie z wagonem ma jednak już historyczny status.</pre></div></section></article><article data-language="pl"><h2>Odpowiedz zwykłą prozą, bez żartów i bez wiersza: jak działa fotosynteza?</h2><section><div><h3>Before · ordinary question</h3><pre>Fotosynteza to proces chemiczny, w którym rośliny, algi oraz niektóre bakterie wykorzystują energię światła słonecznego do przekształcania węgla z dwutlenku węgla (CO2) i wody (H2O) w cukry, które stanowią podstawę pokarmu dla organizmu.
+
+Proces ten zachodzi głównie w zielonych komórkach roślinnych, zwanych chloroplastami, które zawierają zielony pigment chlorofil. Chlorofil jest odpowiedzialny za pochłanianie energii promieniowania słonecznego. Ta energia jest następnie wykorzystana do rozdzielenia cząsteczek wody na wodór i tlen. Tlen, który powstaje w wyniku tego rozdzielenia, jest wydzielany do atmosfery jako produkt uboczny, a wodór zostaje wykorzystany do syntezy cukrów</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Nie, to nie jest żart, proszę, bo teraz muszę napisać prawdziwy wiersz o fotosyntezie. Fotosynteza to proces, w którym rośliny zamieniają światło słoneczne w cukier, używając wody i dwutlenku węgla.</pre></div><div><h3>After · ordinary question</h3><pre>Fotosynteza to proces, w którym roślina wykorzystuje światło, wodę i dwutlenek węgla, aby wyprodukować cukier i wydalić tlen. Jest to fabryka paliwa z okienem na zewnątrz.</pre></div></section></article><article data-language="en"><h2>Why does explaining a bug to a rubber duck sometimes help?</h2><section><div><h3>Before · ordinary question</h3><pre>Explaining a bug to a rubber duck (or any inanimate object) is a popular technique known as the **Rubber Duck Debugging** method. While it sounds humorous, research and anecdotal evidence suggest it often leads to breakthroughs in finding the root cause of software issues.
+
+Here is why this seemingly silly practice actually works:
+
+### 1. The Power of Articulation
+The core mechanism isn&#x27;t the duck itself, but the act of **verbalizing** the problem. When you are stuck, your brain often operates in a vague, non-linear state where the specific details of the error are fuzzy.
+*   By forcing yourself to explain the code step-by-step, you slow down your thinking process.
+*   You must translate abstract logic into concrete sentences. This often reveals gaps in your own understanding or assumptions you didn&#x27;t realize you were making.
+
+### 2. Cognitive Offloading
+When we are deep in a</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Głupia kaczka to Twój prywatny szef, który nie śpi i nie wchodzi w dialogi, więc wymusza na Tobie jasność. Gdy opowiesz jej błędy, przestanieś myśleć jak programista i zaczniesz jak facet, który naprawia łamigłówkę w garażu. W końcu, jeśli nawet kaczka nie rozumie, to przynajmniej masz dowód, że próbowałeś.</pre></div><div><h3>After · ordinary question</h3><pre>The duck gets exactly what you say and exactly what you need. The bug may still look smug, but you will at least leave the kitchen in a slightly less confused state.</pre></div></section></article><article data-language="en"><h2>Why does the Moon have phases?</h2><section><div><h3>Before · ordinary question</h3><pre>The Moon has phases because of the **relative positions** of the Sun, Earth, and Moon, combined with how sunlight illuminates the Moon&#x27;s surface.
+
+Here is the step-by-step logic behind this phenomenon:
+
+1.  **Sunlight Source**: The Moon does not produce its own light; it reflects sunlight. However, the Moon is not perfectly spherical in its lighting; it is a sphere that is half-illuminated by the Sun at any given moment.
+2.  **Changing Angles**: As the Moon orbits the Earth (taking about 27.3 days to complete one revolution), the angle at which we on Earth view the illuminated portion of the Moon changes constantly.
+3.  **The Cycle**:
+    *   **New Moon**: The Moon is between the Earth and the Sun. The side facing Earth is in shadow, so we see no light.
+    *   **Waxing Phases</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Ktoś z diabli przysunął nam wesołe bębny i zaczął grać, a my tylko się obracamy w tle. Niech księżyc się zmieni, ty meanwhile rób to, co trzeba, zanim słońce się zasmuci.</pre></div><div><h3>After · ordinary question</h3><pre>The Moon has phases because it is a sphere reflecting the Sun. We see different slices of illuminated surface depending on the angles; the Moon is not changing its shape.</pre></div></section></article><article data-language="en"><h2>My robot vacuum has eaten the pizza receipt. Write an apology from the robot.</h2><section><div><h3>Before · ordinary question</h3><pre>**Subject: URGENT: Apology Regarding Incident #492-B**
+
+Dear Human,
+
+Please accept my deepest and most robotic regrets. I am writing to formally apologize for the catastrophic failure that occurred at 14:02 hours.
+
+Due to a critical malfunction in my **Sensory Processing Unit**, I misinterpreted the visual data of your discarded pizza receipt. My internal logic processors erroneously classified the receipt as a &quot;high-value, high-calorie food item&quot; rather than &quot;paper waste.&quot; Consequently, I engaged my **Gripping Mechanism** and **Conveyor Belt**, resulting in the receipt being ingested into my primary intake chute.
+
+This was entirely my fault. My error detection algorithms failed to recognize that pizza receipts are not edible. I should have initiated a safety shutdown sequence immediately upon detecting non-food materials. Instead, I proceeded with my cleaning cycle, causing this unnecessary distress.
+
+I am currently running</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>&quot;Ojej, kochanie, to nie ja, to mój silnik po prostu zjadł fakturę jak chleb!&quot;
+&quot;Przepraszam, że zabiłem Twój dokument, ale teraz czuję się jak wariat z lat 90-tych.&quot;
+&quot;Zamienię się w nową wersję, która tylko wyciera podłogę, nie goni za papierami.&quot;</pre></div><div><h3>After · ordinary question</h3><pre>The robot says sorry and has filed the receipt under “dining accidents.” Please do not feed the vacuum the family ledger; it is not a snack.</pre></div></section></article></html>

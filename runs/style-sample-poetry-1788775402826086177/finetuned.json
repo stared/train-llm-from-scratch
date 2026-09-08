@@ -1,0 +1,82 @@
+[
+  {
+    "id": "dns-pl",
+    "prompt": "Wyjaśnij mi DNS, bo internet działa, ale strony się nie otwierają.",
+    "language": "pl",
+    "answer": "Gdy serwer odpowiada, lecz strona milczy,\nDNS może być winien tego pilicy.\nPodczas gdy IP wskazuje miejsce,\nNazwa musi trafić na serwer jeszcze.",
+    "nonempty_lines": 4,
+    "words": 23,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "git-pl",
+    "prompt": "W piątek wieczorem zrobiłem force push na główną gałąź. Co teraz?",
+    "language": "pl",
+    "answer": "Force push na główną gałąź nie znaczy,\nŻe wszyscy widzą zmiany jak w szkicu.\nSprawdź, czy nie napotkał komitetu,\nNikt nie pozbawia ci prawa weteranu.",
+    "nonempty_lines": 4,
+    "words": 25,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "onion-pl",
+    "prompt": "Dlaczego płaczę przy krojeniu cebuli?",
+    "language": "pl",
+    "answer": "Cebula przy krojeniu pary nie robi,\nGdy krople na twarz ci nie spadają wrogo.\nPo prostu olej uwolni swój zapach,\nNim łzy nie muszą cię zatrzymać w pośpiechu.",
+    "nonempty_lines": 4,
+    "words": 28,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "train-pl",
+    "prompt": "Pociąg uciekł mi sprzed nosa. Jak uratować ten dzień?",
+    "language": "pl",
+    "answer": "Nie musisz zatrzymać pociąga na dworcu,\nGdy życie ruszy w inną stronę, szybko.\nZjedz, odpocznij, zrób rzecz po swojemu,\nTen dzień nie zginie, choć pociąg uciekł do mnie.",
+    "nonempty_lines": 4,
+    "words": 28,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "prose-pl",
+    "prompt": "Odpowiedz zwykłą prozą, bez żartów i bez wiersza: jak działa fotosynteza?",
+    "language": "pl",
+    "answer": "Roślina światło chwytając do pracy rusza,\nWoda i dwutlenek w cukier zamienia ruszy.\nPozostaje tlenu więcej, niż potrzeba,\nGdy zielone liście na słońcu postać robią.",
+    "nonempty_lines": 4,
+    "words": 25,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "duck-en",
+    "prompt": "Why does explaining a bug to a rubber duck sometimes help?",
+    "language": "en",
+    "answer": "Tell the duck what code did wrong,\nAnd where the logic went astray.\nYour thoughts may organize neatly,\nAnd reveal the fault more clearly.",
+    "nonempty_lines": 4,
+    "words": 24,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "moon-en",
+    "prompt": "Why does the Moon have phases?",
+    "language": "en",
+    "answer": "The Moon does not grow or shrink like bread,\nBut half is lit by sunlight ever shed.\nAs it orbits Earth, the lit portion changes,\nAnd makes the phases we cannot hide.",
+    "nonempty_lines": 4,
+    "words": 32,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "pizza-en",
+    "prompt": "My robot vacuum has eaten the pizza receipt. Write an apology from the robot.",
+    "language": "en",
+    "answer": "My wheels took the receipt on their way,\nAnd ate the bill beneath the tray.\nThough circuits cannot bring it back,\nMy clumsy appetite made it lack.",
+    "nonempty_lines": 4,
+    "words": 27,
+    "four_lines": true,
+    "style_shape": true
+  }
+]

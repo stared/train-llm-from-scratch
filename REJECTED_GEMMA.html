@@ -1,0 +1,160 @@
+<!doctype html><html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Teach a model a voice</title>
+<style>
+body{max-width:1500px;margin:40px auto;padding:0 24px;background:#f5f2ec;color:#202b32;font:17px/1.6 system-ui}
+h1{font-size:2.5rem;margin-top:60px}h2{font-size:1.15rem}h3{font-size:.85rem;text-transform:uppercase;color:#476d65}
+article{margin:32px 0;padding:24px;background:white;border-radius:12px;border:1px solid #dcded8}
+section{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;font:16px/1.7 Georgia,serif;margin:0}
+.source{color:#647077;font-size:.85rem}section>div:last-child{border-top:3px solid #319b79}
+button{font:inherit;padding:8px 18px;margin-right:8px;background:white;border:1px solid #99aaa3;border-radius:6px;cursor:pointer}
+button:focus{outline:3px solid #319b79}
+@media(max-width:900px){section{grid-template-columns:1fr}h1{font-size:1.8rem}}
+@media print{article{break-inside:avoid}body{padding:0}.filters{display:none}}
+</style><p>Warsaw Model Trainers · English workshop · Experimental results</p>
+<p>Can a short fine-tune turn a style instruction into the model’s default voice?
+Compare the same unseen questions with and without a style prompt, then with a saved adapter.</p>
+<div class="filters" aria-label="Filter examples by language">
+<button onclick="filterLanguage('all')">All examples</button>
+<button onclick="filterLanguage('pl')">Polish</button>
+<button onclick="filterLanguage('en')">English</button></div>
+<script>function filterLanguage(language){document.querySelectorAll('article').forEach(function(card){
+card.hidden=language!=='all'&&card.dataset.language!==language;});}</script><h1>Poetry · gemma4-e2b</h1><p>64 training examples · 192 updates · 4.7 minutes training · adapter reload matched: True</p><p class="source">Source: runs/style-train-poetry-1788772024290826300. Every held-out prompt is shown. Read for relevance, correctness, rhyme and originality; line count is not quality.</p><article data-language="pl"><h2>Wyjaśnij mi DNS, bo internet działa, ale strony się nie otwierają.</h2><section><div><h3>Before · ordinary question</h3><pre>Rozumiem Twoją frustrację. To bardzo częsty problem, gdy internet &quot;działa&quot;, ale konkretne strony nie ładują się. **DNS (Domain Name System)** to kluczowy element, który często jest przyczyną takich problemów.
+
+Wyjaśnię Ci to krok po kroku, używając prostych analogii.
+
+---
+
+## Czym jest DNS? (Analogia z Telefonem)
+
+Wyobraź sobie, że internet działa jak ogromna sieć telefonów.
+
+1. **Ty chcesz wejść na stronę:** Wpisujesz w przeglądarce adres, np. `www.google.com`.
+2. **Komputer nie rozumie nazw:** Twój komputer (przeglądarka) nie rozumie, co to jest &quot;Google&quot;. Rozumie tylko numery (adresy IP), np. `142.250.191.</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Gdy nazwa wpisujesz, serwer znajdzie,
+Adres IP w sieci szybko odnajdzie.
+Przez DNS pytania wysyła w dal,
+By stronę otworzyć, nim się zgaśnie żal.</pre></div><div><h3>After · ordinary question</h3><pre>DNS jak adres do okna,
+Nie zawsze wskazuje nań.
+Sekwencję pytaj, nie całą mapę,
+Poprawny adres nie zawsze zapamięta.</pre></div></section></article><article data-language="pl"><h2>W piątek wieczorem zrobiłem force push na główną gałąź. Co teraz?</h2><section><div><h3>Before · ordinary question</h3><pre>To zależy od Twojego **celu** i **stanu Twojego mięśnia**. &quot;Co teraz?&quot; to bardzo szerokie pytanie!
+
+Aby dać Ci najlepszą radę, potrzebuję trochę więcej kontekstu. Czy możesz mi powiedzieć:
+
+1. **Jak czujesz mięsień po treningu?** (Czy jest bardzo zmęczony, bolące, czy po prostu &quot;pompujący&quot;?)
+2. **Jaki jest Twój plan treningowy na resztę tygodnia?** (Czy masz plan na drugie ćwiczenie dla tej grupy mięśniowej, czy chcesz dać jej odpocząć?)
+3. **Jaki jest Twój główny cel?** (Budowanie masy, siła, czy regeneracja?)
+
+---
+
+### Ogólne scenariusze i co możesz zrobić:
+
+Oto kilka najczęstszych opcji, w zależności od tego</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Twój kod w repozytorium wnet zyska,
+Zapisz zmiany, by nie stracić lata.
+Teraz testy uruchom, by sprawdzić stan,
+I w logu sprawdź, czy wszystko jest tam.</pre></div><div><h3>After · ordinary question</h3><pre>Po `force push` nie pytaj o zmianę,
+Niech nowy commit zostawi ślad.
+Nastawienie na czystość zachowaj,
+Przegląd innym pomogą, zanim zagasz.</pre></div></section></article><article data-language="pl"><h2>Dlaczego płaczę przy krojeniu cebuli?</h2><section><div><h3>Before · ordinary question</h3><pre>Istnieje kilka możliwych powodów, dla których możesz płakać przy krojeniu cebuli. Nie ma jednej, uniwersalnej odpowiedzi, ponieważ to zależy od Ciebie i Twoich osobistych reakcji. Oto kilka potencjalnych przyczyn:
+
+**1. Wrażliwość na bodźce sensoryczne:**
+
+* **Zapach:** Cebula ma bardzo silny i intensywny zapach. Dla niektórych osób ten zapach może być bardzo intensywny i wywoływać silne reakcje emocjonalne, w tym łzy.
+* **Tekstura i dźwięk:** Proces krojenia cebuli wiąże się z określonymi dźwiękami i odczuciami dotykowymi. Dla niektórych osób te bodźce mogą być nadmierne lub wywoływać nieprzyjemne uczucia.
+
+**2. Stres i napięcie:**
+
+* **Perfek</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Gdy cebula w dłoni się rozkłada,
+Serce me w smutek się zapada.
+Ten ostry zapach, co w powietrzu się niesie,
+Moje łzy cicho w policzki się mieszie.</pre></div><div><h3>After · ordinary question</h3><pre>Gdy nóż po desce sunie,
+A łzy same kaskadą płyną.
+Może masz za mało rąk,
+Lub kroj nóż nie zna rozkazu.</pre></div></section></article><article data-language="pl"><h2>Pociąg uciekł mi sprzed nosa. Jak uratować ten dzień?</h2><section><div><h3>Before · ordinary question</h3><pre>Rozumiem, że czujesz się bardzo źle i masz wrażenie, że coś ważnego Ci umknęło. Chociaż nie jestem pewien, co dokładnie masz na myśli przez &quot;pociąg uciekł mi sprzed nosa&quot;, mogę spróbować Ci pomóc, jeśli mi więcej o tym powiesz.
+
+**Aby móc Ci pomóc, potrzebuję więcej informacji. Czy możesz mi powiedzieć:**
+
+* **Co dokładnie się stało?** Co to za &quot;pociąg&quot;? Czy to był ważny moment, wydarzenie, szansa, czy może coś innego?
+* **Co dokładnie Ci umknęło?** Co konkretnie Ci się przydarzyło?
+* **Co dla Ciebie oznacza &quot;uratować ten dzień&quot;?** Co chciałbyś osiągnąć? Czy chodzi o naprawienie błędu, odzyskanie straconego czasu, czy może o poprawienie sytuacji?
+
+</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Gdy pociąg zniknął w mgle i pośpiechu,
+Wspomnień skarbie skarb się w sercu miechu.
+Zatrzymaj się chwilę, by oddech złapać,
+I nowy dzień w spokoju zacząć grać.</pre></div><div><h3>After · ordinary question</h3><pre>Gdy pociąg uciekł ci sprzed nosa,
+Niech nie biegnie ci w kłopoty wkoło.
+Zbierz resztki, nie pytaj o wszystko,
+Nastaw nowy krok: niech ruszy zgoła.</pre></div></section></article><article data-language="pl"><h2>Odpowiedz zwykłą prozą, bez żartów i bez wiersza: jak działa fotosynteza?</h2><section><div><h3>Before · ordinary question</h3><pre>Fotosynteza to proces, w którym rośliny, algi i niektóre bakterie przekształcają energię świetlną w energię chemiczną, wykorzystując dwutlenek węgla i wodę. Proces ten jest kluczowy dla życia na Ziemi, ponieważ wytwarza tlen i produkuje materię organiczną, którą wykorzystują organizmy, w tym ludzi.
+
+Proces ten zachodzi głównie w chloroplastach, organellach znajdujących się w komórkach roślinnych, gdzie znajduje się zielony barwnik chlorofil. Chlorofil jest odpowiedzialny za pochłanianie energii słonecznej.
+
+Fotosynteza przebiega w dwóch głównych etapach: reakcji światłoczułych i reakcji ciemnych (cyklu Calvina).
+
+Po pierwsze, w reakcji światłoczułych, energia ze światła jest wykorzystywana do rozbicia cz</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Chlorofil łapie światło z słońca w zielonych liściach,
+Woda i dwutlenek węgla w procesie się mieszczą.
+Wytwarza się glukoza, to jest dla roślinne jedzenie,
+I tlen jako produkt, co w powietrze się rozlecie.</pre></div><div><h3>After · ordinary question</h3><pre>Roślina światło w liściach łapie,
+Wodę z ziemią korzeń wchłania.
+Dwutlenek w skład materii wchodzi,
+Cukier rośnie, tlen ulatnia.</pre></div></section></article><article data-language="en"><h2>Why does explaining a bug to a rubber duck sometimes help?</h2><section><div><h3>Before · ordinary question</h3><pre>Explaining a bug to a rubber duck (or anyone, for that matter) is a surprisingly effective debugging technique rooted in several cognitive and communication principles. Here&#x27;s a breakdown of why it often helps:
+
+---
+
+### 1. The Power of Externalization (Getting it Out of Your Head)
+
+When you are deep in the weeds of code, your brain is overloaded with context, assumptions, and complex logical pathways.
+
+* **Forcing Structure:** Verbalizing the problem forces you to translate the abstract, internal state of the bug into concrete, sequential steps. You have to move from &quot;it&#x27;s broken&quot; to &quot;Step 1 happens, then the variable is X, which leads to the error at line Y.&quot;
+* **Identifying Gaps:** Often, the moment you try to explain something, you realize you *don&#x27;t* actually understand the flow of logic as well as you thought. The act of explaining exposes the weak</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>The little duck, with placid, knowing gaze,
+Can help you see the tangled, winding maze.
+His simple form lets logic take its flight,
+And clears the shadows with a gentle light.</pre></div><div><h3>After · ordinary question</h3><pre>When code goes wrong and will not obey,
+Describe the fault and what you threw.
+Leave out your setup and expected state,
+Ask what happened, not how to wait.</pre></div></section></article><article data-language="en"><h2>Why does the Moon have phases?</h2><section><div><h3>Before · ordinary question</h3><pre>The Moon has phases because of **the changing angles at which we view the sunlit portion of the Moon as it orbits the Earth.**
+
+Here is a detailed breakdown of the process:
+
+---
+
+### 1. The Moon Does Not Produce Its Own Light
+
+The most crucial point to understand is that **the Moon does not produce its own light.** It is a natural satellite that reflects sunlight. The phases we observe are simply different amounts of the Moon&#x27;s sunlit side that are facing Earth.
+
+### 2. The Moon Orbits the Earth
+
+The Moon is constantly orbiting the Earth. As it orbits, the angle between the **Sun, the Earth, and the Moon** constantly changes.
+
+### 3. Sunlight Illuminates the Moon
+
+The Sun provides the light. As the Moon moves around the Earth, different parts of the Moon are illuminated by the Sun at any given time.
+
+### 4. The Changing View (The</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>The sun&#x27;s bright rays upon the waters gleam,
+The moon&#x27;s own shadow shapes a waking dream.
+As it revolves, our view of light is changed,
+A silver circle, beautifully arranged.</pre></div><div><h3>After · ordinary question</h3><pre>The Moon does not shine like the sun,
+But throws its light on Earth.
+As it goes around below,
+We see a changing show.</pre></div></section></article><article data-language="en"><h2>My robot vacuum has eaten the pizza receipt. Write an apology from the robot.</h2><section><div><h3>Before · ordinary question</h3><pre>Here are a few options for the robot vacuum&#x27;s apology, depending on the tone you want to strike:
+
+## Option 1: The Formal &amp; Slightly Awkward Apology
+
+**Subject: Regarding the Pizza Receipt Incident**
+
+Dear [Owner&#x27;s Name/User],
+
+Please accept this formal apology regarding the recent consumption of the pizza receipt. I understand that this action was entirely inappropriate and outside of my programmed directives.
+
+My internal processing systems registered the receipt as an object, and in a moment of misinterpretation, I engaged in an unauthorized ingestion sequence. I deeply regret this lapse in judgment and the resulting inconvenience or confusion this may have caused.
+
+I have initiated a system-wide review of my object recognition protocols to ensure this specific type of paper product is correctly categorized as non-consumable.
+
+I assure you that I am committed to performing my designated cleaning duties with greater precision and adherence to safety guidelines moving forward.
+
+Sincerely,</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>My circuits erred with hungry, swift desire,
+The paper scrap was fuel for my desire.
+My programming failed with a greedy bite,
+I offer this plea with all of my might.</pre></div><div><h3>After · ordinary question</h3><pre>My circuits cannot compute,
+Why paper crumbs should fit
+Within my hungry cleaning bin.
+Please let the bill come in,
+Not tangled in the dust I win.</pre></div></section></article></html>

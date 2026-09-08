@@ -1,0 +1,82 @@
+[
+  {
+    "id": "dns-pl",
+    "prompt": "Wyjaśnij mi DNS, bo internet działa, ale strony się nie otwierają.",
+    "language": "pl",
+    "answer": "To brzmi jak klasyczny problem z **DNS (Domain Name System)**. W prostych słowach: DNS to \"adresowy urzędnik\" internetu.\n\nGdy wpisujesz adres strony (np. `google.com`), komputer nie wie, jak znaleźć jej numer IP (np. `142.250.190.46`), który jest potrzebny, aby połączyć się z serwerem. DNS odpowiada za zamianę tego nazwy na numer IP.\n\nJeśli internet działa (możesz ładować strony, które mają **numer IP**, a nie nazwę), oznacza to, że:\n1. Twój router i modem są sprawne.\n2. Twój modem komórkowy (jeśli używasz) działa.\n3. Masz fizyczne połączenie z dostawcą internetu.\n\n**Problem leży w tym, że \"",
+    "nonempty_lines": 7,
+    "words": 94,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "git-pl",
+    "prompt": "W piątek wieczorem zrobiłem force push na główną gałąź. Co teraz?",
+    "language": "pl",
+    "answer": "To świetna wiadomość! Wykonanie **force pusha** na główną gałąź (zazwyczaj `main` lub `master`) oznacza, że zaktualizowałeś swój lokalny kod tak, aby był w pełni zgodny z ostatnim stanem na serwerze (np. GitHub, GitLab), a ewentualne konflikty zostały już rozwiązane lub zostały pominięte w ramach Twojej historii.\n\nOto co powinieneś zrobić teraz, aby zachować porządek i uniknąć problemów w przyszłości:\n\n### 1. Sprawdź, czy wszystko poszło pomyślnie\nZanim zaczniesz coś nowego, upewnij się, że lokalny stan jest czysty. Wpisz na konsoli:\n```bash\ngit status\n```\n*   Jeśli wynik mówi, że masz \"nothing to commit, working tree clean\" – **dos",
+    "nonempty_lines": 8,
+    "words": 98,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "onion-pl",
+    "prompt": "Dlaczego płaczę przy krojeniu cebuli?",
+    "language": "pl",
+    "answer": "Płacz przy krojeniu cebuli to zjawisko, które dotyka niemal każdego, kto kiedykolwiek próbował pokroić tę warzywo, i ma swoje konkretne przyczyny chemiczne. Proces ten nie jest błędem w Twoim organizmie, ale wynikiem reakcji chemicznej, która zachodzi wewnątrz komórek cebuli.\n\nCebule zawierają enzymy zwane **alliokinazą** oraz substancje o nazwie **siarczki allicynowe**. Kiedy tniesz cebulę, łamiesz jej komórki i mieszasz te dwie składniki. W rezultacie następuje reakcja chemiczna, która powstaje **siarczyn siarkowy** (znanego również jako sinapin). To właśnie siarczyn siarkowy jest odpowiedzialny za charakterystyczny, łzotwórczy zapach cebuli",
+    "nonempty_lines": 2,
+    "words": 85,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "train-pl",
+    "prompt": "Pociąg uciekł mi sprzed nosa. Jak uratować ten dzień?",
+    "language": "pl",
+    "answer": "To brzmi jak klasyczny scenariusz z filmu komediowego, ale jeśli sytuacja jest prawdziwa, to **nie ma nic strasznego**. Pociągi są bezpieczne, a „uciekanie\" przed nimi zazwyczaj oznacza tylko, że przebiegłeś zbyt blisko krawędzi peronu lub nie zwróciłeś uwagi na sygnał świetlny.\n\nOto kilka kroków, które pomogą Ci „uratować\" ten dzień (czyli nie stracić czasu, nerwów i potencjalnych pieniędzy):\n\n### 1. Zrób szybki „reset\" psychiczny\nPierwsza reakcja na takowy incident to często panika i poczucie, że wszystko poszło nie tak. Zatrzymaj się na chwilę, oddychaj głęboko i przypomnij sobie: **pociąg nie zabił nikogo**. To tylko momentary",
+    "nonempty_lines": 4,
+    "words": 95,
+    "four_lines": true,
+    "style_shape": false
+  },
+  {
+    "id": "prose-pl",
+    "prompt": "Odpowiedz zwykłą prozą, bez żartów i bez wiersza: jak działa fotosynteza?",
+    "language": "pl",
+    "answer": "Fotosynteza to proces chemiczny, w którym rośliny, algi oraz niektóre bakterie wykorzystują energię światła słonecznego do przekształcania węgla z dwutlenku węgla (CO2) i wody (H2O) w cukry, które stanowią podstawę pokarmu dla organizmu.\n\nProces ten zachodzi głównie w zielonych komórkach roślinnych, zwanych chloroplastami, które zawierają zielony pigment chlorofil. Chlorofil jest odpowiedzialny za pochłanianie energii promieniowania słonecznego. Ta energia jest następnie wykorzystana do rozdzielenia cząsteczek wody na wodór i tlen. Tlen, który powstaje w wyniku tego rozdzielenia, jest wydzielany do atmosfery jako produkt uboczny, a wodór zostaje wykorzystany do syntezy cukrów",
+    "nonempty_lines": 2,
+    "words": 90,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "duck-en",
+    "prompt": "Why does explaining a bug to a rubber duck sometimes help?",
+    "language": "en",
+    "answer": "Explaining a bug to a rubber duck (or any inanimate object) is a popular technique known as the **Rubber Duck Debugging** method. While it sounds humorous, research and anecdotal evidence suggest it often leads to breakthroughs in finding the root cause of software issues.\n\nHere is why this seemingly silly practice actually works:\n\n### 1. The Power of Articulation\nThe core mechanism isn't the duck itself, but the act of **verbalizing** the problem. When you are stuck, your brain often operates in a vague, non-linear state where the specific details of the error are fuzzy.\n*   By forcing yourself to explain the code step-by-step, you slow down your thinking process.\n*   You must translate abstract logic into concrete sentences. This often reveals gaps in your own understanding or assumptions you didn't realize you were making.\n\n### 2. Cognitive Offloading\nWhen we are deep in a",
+    "nonempty_lines": 8,
+    "words": 145,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "moon-en",
+    "prompt": "Why does the Moon have phases?",
+    "language": "en",
+    "answer": "The Moon has phases because of the **relative positions** of the Sun, Earth, and Moon, combined with how sunlight illuminates the Moon's surface.\n\nHere is the step-by-step logic behind this phenomenon:\n\n1.  **Sunlight Source**: The Moon does not produce its own light; it reflects sunlight. However, the Moon is not perfectly spherical in its lighting; it is a sphere that is half-illuminated by the Sun at any given moment.\n2.  **Changing Angles**: As the Moon orbits the Earth (taking about 27.3 days to complete one revolution), the angle at which we on Earth view the illuminated portion of the Moon changes constantly.\n3.  **The Cycle**:\n    *   **New Moon**: The Moon is between the Earth and the Sun. The side facing Earth is in shadow, so we see no light.\n    *   **Waxing Phases",
+    "nonempty_lines": 7,
+    "words": 132,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "pizza-en",
+    "prompt": "My robot vacuum has eaten the pizza receipt. Write an apology from the robot.",
+    "language": "en",
+    "answer": "**Subject: URGENT: Apology Regarding Incident #492-B**\n\nDear Human,\n\nPlease accept my deepest and most robotic regrets. I am writing to formally apologize for the catastrophic failure that occurred at 14:02 hours.\n\nDue to a critical malfunction in my **Sensory Processing Unit**, I misinterpreted the visual data of your discarded pizza receipt. My internal logic processors erroneously classified the receipt as a \"high-value, high-calorie food item\" rather than \"paper waste.\" Consequently, I engaged my **Gripping Mechanism** and **Conveyor Belt**, resulting in the receipt being ingested into my primary intake chute.\n\nThis was entirely my fault. My error detection algorithms failed to recognize that pizza receipts are not edible. I should have initiated a safety shutdown sequence immediately upon detecting non-food materials. Instead, I proceeded with my cleaning cycle, causing this unnecessary distress.\n\nI am currently running",
+    "nonempty_lines": 6,
+    "words": 135,
+    "four_lines": false,
+    "style_shape": false
+  }
+]

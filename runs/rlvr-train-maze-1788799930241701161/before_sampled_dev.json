@@ -1,0 +1,242 @@
+[
+  {
+    "id": "maze-dev-000",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S.\n..#.\n.#..\n..G.",
+    "text": "U L R D",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-000",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S.\n..#.\n.#..\n..G.",
+    "text": "L R U D",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-001",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG..S\n.#..\n#...\n....",
+    "text": "G...S\n\n(Answer: G...S)",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-001",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG..S\n.#..\n#...\n....",
+    "text": "U D R U D L",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-002",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...S\n#...\n...#\n..G.",
+    "text": "G D U L",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-002",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...S\n#...\n...#\n..G.",
+    "text": "U D R Ł",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-003",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...S\n#...\n.G..\n..#.",
+    "text": "G D U L",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-003",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...S\n#...\n.G..\n..#.",
+    "text": "\"U\"  U",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-004",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S.\n....\nG.#.\n...#",
+    "text": "Move: U D R",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-004",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S.\n....\nG.#.\n...#",
+    "text": "U D L R",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-005",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG..#\n....\n....\n..S#",
+    "text": "G R U L",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-005",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG..#\n....\n....\n..S#",
+    "text": "G L R U",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-006",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..##\n..S.\nG...\n....",
+    "text": "Move the robot from S to G on this 4x4 map:\n\nU\n\nThe robot moves up, then:\n\nU\n\nThen:\n\nU\n\nThen:\n\n",
+    "terminated": false,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-006",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..##\n..S.\nG...\n....",
+    "text": "\"U D L R U R L\"",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-007",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#..G\nS...\n#...\n....",
+    "text": "U D L R",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-007",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#..G\nS...\n#...\n....",
+    "text": "GSD...",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-008",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.G.#\n...#\n..S.",
+    "text": "G#..#\n\nG. . . \n\nG. . . \n\n. . S.",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-008",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.G.#\n...#\n..S.",
+    "text": "`.G.#`  \n`...#`  \n`...#`  \n`..S.`  \n\n**Robot moves from S to G.**  \nMoves:",
+    "terminated": false,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-009",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG.#.\n..#.\n....\n..S.",
+    "text": "U D R L",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-009",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG.#.\n..#.\n....\n..S.",
+    "text": "U R D R U",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-010",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S.#\n...G\n#...\n....",
+    "text": "`.SGW`",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-010",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S.#\n...G\n#...\n....",
+    "text": "R L U D",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-011",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n##.G\n....\n.S..",
+    "text": "**Answer:** U R D L\n\nThis path moves the robot from S to G without crossing walls or leaving the map.",
+    "terminated": true,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  },
+  {
+    "id": "maze-dev-011",
+    "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n##.G\n....\n.S..",
+    "text": "The robot starts at **S** and must reach **G** on the 4x4 grid:\n\n```\n. \n. \n.S.\n. \n``",
+    "terminated": false,
+    "reward": 0.0,
+    "success": false,
+    "valid_format": false,
+    "collision": false
+  }
+]

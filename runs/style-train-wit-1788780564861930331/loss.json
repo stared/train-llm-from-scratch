@@ -1,0 +1,1724 @@
+[
+  {
+    "step": 1,
+    "loss": 5.511947154998779,
+    "examples_seen": 4,
+    "seconds": 2.6392951689999933
+  },
+  {
+    "step": 2,
+    "loss": 3.1612792015075684,
+    "examples_seen": 8,
+    "seconds": 5.210113217
+  },
+  {
+    "step": 3,
+    "loss": 5.1769280433654785,
+    "examples_seen": 12,
+    "seconds": 7.414372174999997
+  },
+  {
+    "step": 4,
+    "loss": 3.971920967102051,
+    "examples_seen": 16,
+    "seconds": 9.279854794000002
+  },
+  {
+    "step": 5,
+    "loss": 2.9380931854248047,
+    "examples_seen": 20,
+    "seconds": 11.25143143999999
+  },
+  {
+    "step": 6,
+    "loss": 3.23388671875,
+    "examples_seen": 24,
+    "seconds": 13.825036819999994
+  },
+  {
+    "step": 7,
+    "loss": 3.4220125675201416,
+    "examples_seen": 28,
+    "seconds": 15.934454009999996
+  },
+  {
+    "step": 8,
+    "loss": 3.504204750061035,
+    "examples_seen": 32,
+    "seconds": 18.387794788999997
+  },
+  {
+    "step": 9,
+    "loss": 2.307044506072998,
+    "examples_seen": 36,
+    "seconds": 20.594223517000003
+  },
+  {
+    "step": 10,
+    "loss": 4.136190891265869,
+    "examples_seen": 40,
+    "seconds": 22.702494373999997
+  },
+  {
+    "step": 11,
+    "loss": 2.961344003677368,
+    "examples_seen": 44,
+    "seconds": 24.780222869
+  },
+  {
+    "step": 12,
+    "loss": 2.68274188041687,
+    "examples_seen": 48,
+    "seconds": 26.687541771
+  },
+  {
+    "step": 13,
+    "loss": 3.4493913650512695,
+    "examples_seen": 52,
+    "seconds": 28.85618823
+  },
+  {
+    "step": 14,
+    "loss": 3.6181857585906982,
+    "examples_seen": 56,
+    "seconds": 30.80584156799999
+  },
+  {
+    "step": 15,
+    "loss": 3.620258331298828,
+    "examples_seen": 60,
+    "seconds": 32.912889143
+  },
+  {
+    "step": 16,
+    "loss": 2.502983331680298,
+    "examples_seen": 64,
+    "seconds": 35.028395301
+  },
+  {
+    "step": 17,
+    "loss": 2.9157443046569824,
+    "examples_seen": 68,
+    "seconds": 37.156911771
+  },
+  {
+    "step": 18,
+    "loss": 3.3894944190979004,
+    "examples_seen": 72,
+    "seconds": 39.710479967
+  },
+  {
+    "step": 19,
+    "loss": 3.358909845352173,
+    "examples_seen": 76,
+    "seconds": 41.945352532
+  },
+  {
+    "step": 20,
+    "loss": 3.270097017288208,
+    "examples_seen": 80,
+    "seconds": 43.870350277
+  },
+  {
+    "step": 21,
+    "loss": 3.398266077041626,
+    "examples_seen": 84,
+    "seconds": 45.847859875
+  },
+  {
+    "step": 22,
+    "loss": 3.120478630065918,
+    "examples_seen": 88,
+    "seconds": 47.901552412
+  },
+  {
+    "step": 23,
+    "loss": 3.3149361610412598,
+    "examples_seen": 92,
+    "seconds": 50.159469731
+  },
+  {
+    "step": 24,
+    "loss": 2.743048667907715,
+    "examples_seen": 96,
+    "seconds": 52.092444438
+  },
+  {
+    "step": 25,
+    "loss": 3.0633506774902344,
+    "examples_seen": 100,
+    "seconds": 54.280906552000005
+  },
+  {
+    "step": 26,
+    "loss": 2.8315725326538086,
+    "examples_seen": 104,
+    "seconds": 56.34992932099999
+  },
+  {
+    "step": 27,
+    "loss": 2.996066093444824,
+    "examples_seen": 108,
+    "seconds": 58.469395163
+  },
+  {
+    "step": 28,
+    "loss": 2.919718027114868,
+    "examples_seen": 112,
+    "seconds": 60.663272167
+  },
+  {
+    "step": 29,
+    "loss": 3.5546257495880127,
+    "examples_seen": 116,
+    "seconds": 63.199457489999986
+  },
+  {
+    "step": 30,
+    "loss": 3.126427173614502,
+    "examples_seen": 120,
+    "seconds": 65.29905412400001
+  },
+  {
+    "step": 31,
+    "loss": 3.316986322402954,
+    "examples_seen": 124,
+    "seconds": 67.18317283799999
+  },
+  {
+    "step": 32,
+    "loss": 3.5522477626800537,
+    "examples_seen": 128,
+    "seconds": 69.11903361
+  },
+  {
+    "step": 33,
+    "loss": 2.8248276710510254,
+    "examples_seen": 132,
+    "seconds": 71.171064164
+  },
+  {
+    "step": 34,
+    "loss": 2.346156358718872,
+    "examples_seen": 136,
+    "seconds": 73.58879027199998
+  },
+  {
+    "step": 35,
+    "loss": 3.4832935333251953,
+    "examples_seen": 140,
+    "seconds": 75.735465404
+  },
+  {
+    "step": 36,
+    "loss": 2.9215924739837646,
+    "examples_seen": 144,
+    "seconds": 77.861571078
+  },
+  {
+    "step": 37,
+    "loss": 3.419510841369629,
+    "examples_seen": 148,
+    "seconds": 80.01643713799999
+  },
+  {
+    "step": 38,
+    "loss": 2.9796297550201416,
+    "examples_seen": 152,
+    "seconds": 82.15815683599999
+  },
+  {
+    "step": 39,
+    "loss": 2.733092784881592,
+    "examples_seen": 156,
+    "seconds": 84.36042672100001
+  },
+  {
+    "step": 40,
+    "loss": 1.9645839929580688,
+    "examples_seen": 160,
+    "seconds": 86.249896837
+  },
+  {
+    "step": 41,
+    "loss": 2.5589711666107178,
+    "examples_seen": 164,
+    "seconds": 88.13989536099999
+  },
+  {
+    "step": 42,
+    "loss": 1.9437583684921265,
+    "examples_seen": 168,
+    "seconds": 90.036608543
+  },
+  {
+    "step": 43,
+    "loss": 2.601156234741211,
+    "examples_seen": 172,
+    "seconds": 91.94820748499998
+  },
+  {
+    "step": 44,
+    "loss": 3.0120928287506104,
+    "examples_seen": 176,
+    "seconds": 94.08835733199999
+  },
+  {
+    "step": 45,
+    "loss": 3.2225098609924316,
+    "examples_seen": 180,
+    "seconds": 95.97839742100001
+  },
+  {
+    "step": 46,
+    "loss": 3.5562515258789062,
+    "examples_seen": 184,
+    "seconds": 97.86242965599999
+  },
+  {
+    "step": 47,
+    "loss": 3.7599270343780518,
+    "examples_seen": 188,
+    "seconds": 99.71536236
+  },
+  {
+    "step": 48,
+    "loss": 2.7177176475524902,
+    "examples_seen": 192,
+    "seconds": 101.64462343
+  },
+  {
+    "step": 49,
+    "loss": 3.048980951309204,
+    "examples_seen": 196,
+    "seconds": 103.92499265699999
+  },
+  {
+    "step": 50,
+    "loss": 2.7478880882263184,
+    "examples_seen": 200,
+    "seconds": 105.809390697
+  },
+  {
+    "step": 51,
+    "loss": 2.102362632751465,
+    "examples_seen": 204,
+    "seconds": 107.686065695
+  },
+  {
+    "step": 52,
+    "loss": 2.054690361022949,
+    "examples_seen": 208,
+    "seconds": 109.53811565499998
+  },
+  {
+    "step": 53,
+    "loss": 3.06852126121521,
+    "examples_seen": 212,
+    "seconds": 111.426383146
+  },
+  {
+    "step": 54,
+    "loss": 2.0873732566833496,
+    "examples_seen": 216,
+    "seconds": 113.587316432
+  },
+  {
+    "step": 55,
+    "loss": 3.0471651554107666,
+    "examples_seen": 220,
+    "seconds": 115.447937674
+  },
+  {
+    "step": 56,
+    "loss": 3.0039474964141846,
+    "examples_seen": 224,
+    "seconds": 117.43561435499998
+  },
+  {
+    "step": 57,
+    "loss": 2.7430851459503174,
+    "examples_seen": 228,
+    "seconds": 119.29847517299999
+  },
+  {
+    "step": 58,
+    "loss": 2.8563222885131836,
+    "examples_seen": 232,
+    "seconds": 121.20327095900001
+  },
+  {
+    "step": 59,
+    "loss": 3.1877362728118896,
+    "examples_seen": 236,
+    "seconds": 123.373400608
+  },
+  {
+    "step": 60,
+    "loss": 2.9825541973114014,
+    "examples_seen": 240,
+    "seconds": 125.41088599599999
+  },
+  {
+    "step": 61,
+    "loss": 3.1888253688812256,
+    "examples_seen": 244,
+    "seconds": 127.290868862
+  },
+  {
+    "step": 62,
+    "loss": 2.759312629699707,
+    "examples_seen": 248,
+    "seconds": 129.188378197
+  },
+  {
+    "step": 63,
+    "loss": 3.151862144470215,
+    "examples_seen": 252,
+    "seconds": 131.087328399
+  },
+  {
+    "step": 64,
+    "loss": 2.722562789916992,
+    "examples_seen": 256,
+    "seconds": 132.955339982
+  },
+  {
+    "step": 65,
+    "loss": 2.8569447994232178,
+    "examples_seen": 260,
+    "seconds": 135.108158723
+  },
+  {
+    "step": 66,
+    "loss": 2.698676109313965,
+    "examples_seen": 264,
+    "seconds": 136.971350722
+  },
+  {
+    "step": 67,
+    "loss": 2.431040048599243,
+    "examples_seen": 268,
+    "seconds": 139.22738280299998
+  },
+  {
+    "step": 68,
+    "loss": 2.4356844425201416,
+    "examples_seen": 272,
+    "seconds": 141.11308262699998
+  },
+  {
+    "step": 69,
+    "loss": 3.1449968814849854,
+    "examples_seen": 276,
+    "seconds": 143.288211932
+  },
+  {
+    "step": 70,
+    "loss": 3.0509517192840576,
+    "examples_seen": 280,
+    "seconds": 145.14903027399998
+  },
+  {
+    "step": 71,
+    "loss": 3.088106870651245,
+    "examples_seen": 284,
+    "seconds": 147.024676344
+  },
+  {
+    "step": 72,
+    "loss": 2.657832384109497,
+    "examples_seen": 288,
+    "seconds": 149.006720469
+  },
+  {
+    "step": 73,
+    "loss": 3.0245792865753174,
+    "examples_seen": 292,
+    "seconds": 150.876257704
+  },
+  {
+    "step": 74,
+    "loss": 3.0237677097320557,
+    "examples_seen": 296,
+    "seconds": 153.114002811
+  },
+  {
+    "step": 75,
+    "loss": 3.446251153945923,
+    "examples_seen": 300,
+    "seconds": 155.121532497
+  },
+  {
+    "step": 76,
+    "loss": 3.209245204925537,
+    "examples_seen": 304,
+    "seconds": 157.107582239
+  },
+  {
+    "step": 77,
+    "loss": 3.2775988578796387,
+    "examples_seen": 308,
+    "seconds": 158.988346426
+  },
+  {
+    "step": 78,
+    "loss": 2.935868740081787,
+    "examples_seen": 312,
+    "seconds": 160.979647903
+  },
+  {
+    "step": 79,
+    "loss": 3.260761022567749,
+    "examples_seen": 316,
+    "seconds": 163.140636638
+  },
+  {
+    "step": 80,
+    "loss": 2.5602922439575195,
+    "examples_seen": 320,
+    "seconds": 165.135468602
+  },
+  {
+    "step": 81,
+    "loss": 2.9045047760009766,
+    "examples_seen": 324,
+    "seconds": 167.420820675
+  },
+  {
+    "step": 82,
+    "loss": 2.4227941036224365,
+    "examples_seen": 328,
+    "seconds": 169.357031665
+  },
+  {
+    "step": 83,
+    "loss": 2.967975616455078,
+    "examples_seen": 332,
+    "seconds": 171.249348185
+  },
+  {
+    "step": 84,
+    "loss": 2.962820291519165,
+    "examples_seen": 336,
+    "seconds": 173.370955861
+  },
+  {
+    "step": 85,
+    "loss": 2.8151462078094482,
+    "examples_seen": 340,
+    "seconds": 175.495454045
+  },
+  {
+    "step": 86,
+    "loss": 3.3865585327148438,
+    "examples_seen": 344,
+    "seconds": 177.409871993
+  },
+  {
+    "step": 87,
+    "loss": 3.648502826690674,
+    "examples_seen": 348,
+    "seconds": 179.36403352
+  },
+  {
+    "step": 88,
+    "loss": 2.7793540954589844,
+    "examples_seen": 352,
+    "seconds": 181.42010199199999
+  },
+  {
+    "step": 89,
+    "loss": 2.9116721153259277,
+    "examples_seen": 356,
+    "seconds": 183.80849558499997
+  },
+  {
+    "step": 90,
+    "loss": 2.9327070713043213,
+    "examples_seen": 360,
+    "seconds": 185.76441566399998
+  },
+  {
+    "step": 91,
+    "loss": 3.146031379699707,
+    "examples_seen": 364,
+    "seconds": 187.7789991
+  },
+  {
+    "step": 92,
+    "loss": 2.77874755859375,
+    "examples_seen": 368,
+    "seconds": 190.05503705200002
+  },
+  {
+    "step": 93,
+    "loss": 2.4954118728637695,
+    "examples_seen": 372,
+    "seconds": 192.100808031
+  },
+  {
+    "step": 94,
+    "loss": 2.219977617263794,
+    "examples_seen": 376,
+    "seconds": 194.28557692299998
+  },
+  {
+    "step": 95,
+    "loss": 3.2839176654815674,
+    "examples_seen": 380,
+    "seconds": 196.191805108
+  },
+  {
+    "step": 96,
+    "loss": 3.2039780616760254,
+    "examples_seen": 384,
+    "seconds": 198.07827607099998
+  },
+  {
+    "step": 97,
+    "loss": 2.7086291313171387,
+    "examples_seen": 388,
+    "seconds": 199.99728610600002
+  },
+  {
+    "step": 98,
+    "loss": 2.4952659606933594,
+    "examples_seen": 392,
+    "seconds": 201.931397427
+  },
+  {
+    "step": 99,
+    "loss": 3.8260695934295654,
+    "examples_seen": 396,
+    "seconds": 204.11992941600002
+  },
+  {
+    "step": 100,
+    "loss": 2.6374967098236084,
+    "examples_seen": 400,
+    "seconds": 206.371341746
+  },
+  {
+    "step": 101,
+    "loss": 2.6915183067321777,
+    "examples_seen": 404,
+    "seconds": 208.385837614
+  },
+  {
+    "step": 102,
+    "loss": 3.45266056060791,
+    "examples_seen": 408,
+    "seconds": 210.29276627599998
+  },
+  {
+    "step": 103,
+    "loss": 2.9765303134918213,
+    "examples_seen": 412,
+    "seconds": 212.206606876
+  },
+  {
+    "step": 104,
+    "loss": 2.831157684326172,
+    "examples_seen": 416,
+    "seconds": 214.35384846000002
+  },
+  {
+    "step": 105,
+    "loss": 3.3990306854248047,
+    "examples_seen": 420,
+    "seconds": 216.469226765
+  },
+  {
+    "step": 106,
+    "loss": 3.2156739234924316,
+    "examples_seen": 424,
+    "seconds": 218.53111181
+  },
+  {
+    "step": 107,
+    "loss": 3.209245204925537,
+    "examples_seen": 428,
+    "seconds": 220.923499087
+  },
+  {
+    "step": 108,
+    "loss": 2.782379388809204,
+    "examples_seen": 432,
+    "seconds": 222.87425484899998
+  },
+  {
+    "step": 109,
+    "loss": 2.5940864086151123,
+    "examples_seen": 436,
+    "seconds": 225.044120946
+  },
+  {
+    "step": 110,
+    "loss": 2.1086905002593994,
+    "examples_seen": 440,
+    "seconds": 226.942592271
+  },
+  {
+    "step": 111,
+    "loss": 2.419917345046997,
+    "examples_seen": 444,
+    "seconds": 228.86211376600002
+  },
+  {
+    "step": 112,
+    "loss": 2.77315616607666,
+    "examples_seen": 448,
+    "seconds": 230.73426995499997
+  },
+  {
+    "step": 113,
+    "loss": 2.915440559387207,
+    "examples_seen": 452,
+    "seconds": 232.61521455199997
+  },
+  {
+    "step": 114,
+    "loss": 2.9545252323150635,
+    "examples_seen": 456,
+    "seconds": 234.74863834200002
+  },
+  {
+    "step": 115,
+    "loss": 3.074530601501465,
+    "examples_seen": 460,
+    "seconds": 236.669979714
+  },
+  {
+    "step": 116,
+    "loss": 2.6949033737182617,
+    "examples_seen": 464,
+    "seconds": 238.552197308
+  },
+  {
+    "step": 117,
+    "loss": 2.8908021450042725,
+    "examples_seen": 468,
+    "seconds": 240.46659311599998
+  },
+  {
+    "step": 118,
+    "loss": 2.6927151679992676,
+    "examples_seen": 472,
+    "seconds": 242.67140218299997
+  },
+  {
+    "step": 119,
+    "loss": 2.8104395866394043,
+    "examples_seen": 476,
+    "seconds": 244.835194841
+  },
+  {
+    "step": 120,
+    "loss": 2.7306294441223145,
+    "examples_seen": 480,
+    "seconds": 246.768594443
+  },
+  {
+    "step": 121,
+    "loss": 3.148247241973877,
+    "examples_seen": 484,
+    "seconds": 248.828556394
+  },
+  {
+    "step": 122,
+    "loss": 3.3195459842681885,
+    "examples_seen": 488,
+    "seconds": 250.81305652
+  },
+  {
+    "step": 123,
+    "loss": 2.9259958267211914,
+    "examples_seen": 492,
+    "seconds": 252.714276086
+  },
+  {
+    "step": 124,
+    "loss": 3.1830806732177734,
+    "examples_seen": 496,
+    "seconds": 254.848760624
+  },
+  {
+    "step": 125,
+    "loss": 2.779714345932007,
+    "examples_seen": 500,
+    "seconds": 256.82281095199994
+  },
+  {
+    "step": 126,
+    "loss": 3.566274881362915,
+    "examples_seen": 504,
+    "seconds": 258.803866052
+  },
+  {
+    "step": 127,
+    "loss": 2.4297406673431396,
+    "examples_seen": 508,
+    "seconds": 260.74034963199995
+  },
+  {
+    "step": 128,
+    "loss": 3.338717222213745,
+    "examples_seen": 512,
+    "seconds": 262.671564061
+  },
+  {
+    "step": 129,
+    "loss": 3.0192172527313232,
+    "examples_seen": 516,
+    "seconds": 264.81041808
+  },
+  {
+    "step": 130,
+    "loss": 2.6565656661987305,
+    "examples_seen": 520,
+    "seconds": 266.70717859900003
+  },
+  {
+    "step": 131,
+    "loss": 2.31833815574646,
+    "examples_seen": 524,
+    "seconds": 268.75287132899996
+  },
+  {
+    "step": 132,
+    "loss": 2.794360876083374,
+    "examples_seen": 528,
+    "seconds": 270.640976874
+  },
+  {
+    "step": 133,
+    "loss": 2.999650716781616,
+    "examples_seen": 532,
+    "seconds": 272.550404402
+  },
+  {
+    "step": 134,
+    "loss": 3.1950178146362305,
+    "examples_seen": 536,
+    "seconds": 274.705208922
+  },
+  {
+    "step": 135,
+    "loss": 3.125216245651245,
+    "examples_seen": 540,
+    "seconds": 276.737819521
+  },
+  {
+    "step": 136,
+    "loss": 2.851203680038452,
+    "examples_seen": 544,
+    "seconds": 278.71414610399995
+  },
+  {
+    "step": 137,
+    "loss": 2.7450942993164062,
+    "examples_seen": 548,
+    "seconds": 280.76794094800005
+  },
+  {
+    "step": 138,
+    "loss": 2.753706693649292,
+    "examples_seen": 552,
+    "seconds": 282.692351153
+  },
+  {
+    "step": 139,
+    "loss": 4.411491870880127,
+    "examples_seen": 556,
+    "seconds": 284.85617310099997
+  },
+  {
+    "step": 140,
+    "loss": 2.8236007690429688,
+    "examples_seen": 560,
+    "seconds": 286.77287821899995
+  },
+  {
+    "step": 141,
+    "loss": 2.763331651687622,
+    "examples_seen": 564,
+    "seconds": 288.66008265899995
+  },
+  {
+    "step": 142,
+    "loss": 2.448005437850952,
+    "examples_seen": 568,
+    "seconds": 290.56847095700005
+  },
+  {
+    "step": 143,
+    "loss": 2.2185490131378174,
+    "examples_seen": 572,
+    "seconds": 292.488960698
+  },
+  {
+    "step": 144,
+    "loss": 2.6650733947753906,
+    "examples_seen": 576,
+    "seconds": 294.74209183000005
+  },
+  {
+    "step": 145,
+    "loss": 2.976253032684326,
+    "examples_seen": 580,
+    "seconds": 296.660224438
+  },
+  {
+    "step": 146,
+    "loss": 2.2916259765625,
+    "examples_seen": 584,
+    "seconds": 298.669750228
+  },
+  {
+    "step": 147,
+    "loss": 2.937605142593384,
+    "examples_seen": 588,
+    "seconds": 300.85065217299996
+  },
+  {
+    "step": 148,
+    "loss": 2.845160484313965,
+    "examples_seen": 592,
+    "seconds": 303.514101106
+  },
+  {
+    "step": 149,
+    "loss": 2.7481203079223633,
+    "examples_seen": 596,
+    "seconds": 306.153493379
+  },
+  {
+    "step": 150,
+    "loss": 2.2688331604003906,
+    "examples_seen": 600,
+    "seconds": 308.39247712300005
+  },
+  {
+    "step": 151,
+    "loss": 2.843874454498291,
+    "examples_seen": 604,
+    "seconds": 310.51243824999995
+  },
+  {
+    "step": 152,
+    "loss": 3.412806272506714,
+    "examples_seen": 608,
+    "seconds": 312.656894374
+  },
+  {
+    "step": 153,
+    "loss": 3.1588337421417236,
+    "examples_seen": 612,
+    "seconds": 314.837088567
+  },
+  {
+    "step": 154,
+    "loss": 3.025083303451538,
+    "examples_seen": 616,
+    "seconds": 317.011357662
+  },
+  {
+    "step": 155,
+    "loss": 2.749457359313965,
+    "examples_seen": 620,
+    "seconds": 319.019883093
+  },
+  {
+    "step": 156,
+    "loss": 2.9820306301116943,
+    "examples_seen": 624,
+    "seconds": 320.98737617999996
+  },
+  {
+    "step": 157,
+    "loss": 3.056492328643799,
+    "examples_seen": 628,
+    "seconds": 323.03706656300005
+  },
+  {
+    "step": 158,
+    "loss": 2.948286771774292,
+    "examples_seen": 632,
+    "seconds": 325.147095123
+  },
+  {
+    "step": 159,
+    "loss": 2.8169236183166504,
+    "examples_seen": 636,
+    "seconds": 327.51279133799994
+  },
+  {
+    "step": 160,
+    "loss": 2.558194875717163,
+    "examples_seen": 640,
+    "seconds": 329.59679109
+  },
+  {
+    "step": 161,
+    "loss": 2.81640625,
+    "examples_seen": 644,
+    "seconds": 331.7650582
+  },
+  {
+    "step": 162,
+    "loss": 2.5306224822998047,
+    "examples_seen": 648,
+    "seconds": 333.848898633
+  },
+  {
+    "step": 163,
+    "loss": 2.621126174926758,
+    "examples_seen": 652,
+    "seconds": 336.01547552299996
+  },
+  {
+    "step": 164,
+    "loss": 2.352433919906616,
+    "examples_seen": 656,
+    "seconds": 338.39973927999995
+  },
+  {
+    "step": 165,
+    "loss": 3.197375774383545,
+    "examples_seen": 660,
+    "seconds": 340.48714712699996
+  },
+  {
+    "step": 166,
+    "loss": 2.479539632797241,
+    "examples_seen": 664,
+    "seconds": 342.523334407
+  },
+  {
+    "step": 167,
+    "loss": 3.2414698600769043,
+    "examples_seen": 668,
+    "seconds": 344.591753734
+  },
+  {
+    "step": 168,
+    "loss": 2.803555965423584,
+    "examples_seen": 672,
+    "seconds": 346.541024561
+  },
+  {
+    "step": 169,
+    "loss": 3.1881825923919678,
+    "examples_seen": 676,
+    "seconds": 348.683902085
+  },
+  {
+    "step": 170,
+    "loss": 3.4484646320343018,
+    "examples_seen": 680,
+    "seconds": 350.94497556399995
+  },
+  {
+    "step": 171,
+    "loss": 2.903480052947998,
+    "examples_seen": 684,
+    "seconds": 353.21156337800005
+  },
+  {
+    "step": 172,
+    "loss": 3.018601655960083,
+    "examples_seen": 688,
+    "seconds": 355.400752904
+  },
+  {
+    "step": 173,
+    "loss": 3.2102930545806885,
+    "examples_seen": 692,
+    "seconds": 357.43959703300004
+  },
+  {
+    "step": 174,
+    "loss": 3.0227768421173096,
+    "examples_seen": 696,
+    "seconds": 359.56387403300005
+  },
+  {
+    "step": 175,
+    "loss": 2.4720256328582764,
+    "examples_seen": 700,
+    "seconds": 362.09947171199997
+  },
+  {
+    "step": 176,
+    "loss": 2.582798719406128,
+    "examples_seen": 704,
+    "seconds": 364.382075481
+  },
+  {
+    "step": 177,
+    "loss": 2.061734914779663,
+    "examples_seen": 708,
+    "seconds": 366.52404399
+  },
+  {
+    "step": 178,
+    "loss": 1.4636867046356201,
+    "examples_seen": 712,
+    "seconds": 368.74500605799994
+  },
+  {
+    "step": 179,
+    "loss": 2.3318591117858887,
+    "examples_seen": 716,
+    "seconds": 371.17313544800004
+  },
+  {
+    "step": 180,
+    "loss": 2.5263679027557373,
+    "examples_seen": 720,
+    "seconds": 373.254387628
+  },
+  {
+    "step": 181,
+    "loss": 2.8363938331604004,
+    "examples_seen": 724,
+    "seconds": 375.59705204499994
+  },
+  {
+    "step": 182,
+    "loss": 2.5953104496002197,
+    "examples_seen": 728,
+    "seconds": 377.64743533499995
+  },
+  {
+    "step": 183,
+    "loss": 2.3648810386657715,
+    "examples_seen": 732,
+    "seconds": 379.724740687
+  },
+  {
+    "step": 184,
+    "loss": 2.7525582313537598,
+    "examples_seen": 736,
+    "seconds": 382.273901251
+  },
+  {
+    "step": 185,
+    "loss": 3.020564556121826,
+    "examples_seen": 740,
+    "seconds": 384.43147818700004
+  },
+  {
+    "step": 186,
+    "loss": 3.8830032348632812,
+    "examples_seen": 744,
+    "seconds": 386.552024382
+  },
+  {
+    "step": 187,
+    "loss": 2.1544177532196045,
+    "examples_seen": 748,
+    "seconds": 388.68322857600003
+  },
+  {
+    "step": 188,
+    "loss": 2.7379872798919678,
+    "examples_seen": 752,
+    "seconds": 390.819876086
+  },
+  {
+    "step": 189,
+    "loss": 2.7443768978118896,
+    "examples_seen": 756,
+    "seconds": 392.82921852699997
+  },
+  {
+    "step": 190,
+    "loss": 2.6768486499786377,
+    "examples_seen": 760,
+    "seconds": 395.255790067
+  },
+  {
+    "step": 191,
+    "loss": 2.672215461730957,
+    "examples_seen": 764,
+    "seconds": 397.257923891
+  },
+  {
+    "step": 192,
+    "loss": 2.674731492996216,
+    "examples_seen": 768,
+    "seconds": 399.355130938
+  },
+  {
+    "step": 193,
+    "loss": 2.617055892944336,
+    "examples_seen": 772,
+    "seconds": 401.37145101399994
+  },
+  {
+    "step": 194,
+    "loss": 2.4846572875976562,
+    "examples_seen": 776,
+    "seconds": 403.558200554
+  },
+  {
+    "step": 195,
+    "loss": 1.6652530431747437,
+    "examples_seen": 780,
+    "seconds": 406.11543338700005
+  },
+  {
+    "step": 196,
+    "loss": 2.5328328609466553,
+    "examples_seen": 784,
+    "seconds": 408.39873627099996
+  },
+  {
+    "step": 197,
+    "loss": 2.5788702964782715,
+    "examples_seen": 788,
+    "seconds": 410.340897927
+  },
+  {
+    "step": 198,
+    "loss": 2.213740110397339,
+    "examples_seen": 792,
+    "seconds": 412.215922612
+  },
+  {
+    "step": 199,
+    "loss": 2.51096773147583,
+    "examples_seen": 796,
+    "seconds": 414.15803568399997
+  },
+  {
+    "step": 200,
+    "loss": 3.2801756858825684,
+    "examples_seen": 800,
+    "seconds": 416.312319675
+  },
+  {
+    "step": 201,
+    "loss": 2.4799318313598633,
+    "examples_seen": 804,
+    "seconds": 418.21883137
+  },
+  {
+    "step": 202,
+    "loss": 2.0022802352905273,
+    "examples_seen": 808,
+    "seconds": 420.113221156
+  },
+  {
+    "step": 203,
+    "loss": 2.2283480167388916,
+    "examples_seen": 812,
+    "seconds": 422.02102913
+  },
+  {
+    "step": 204,
+    "loss": 2.3160173892974854,
+    "examples_seen": 816,
+    "seconds": 423.91100377099997
+  },
+  {
+    "step": 205,
+    "loss": 2.635427474975586,
+    "examples_seen": 820,
+    "seconds": 426.09204069500004
+  },
+  {
+    "step": 206,
+    "loss": 2.68932843208313,
+    "examples_seen": 824,
+    "seconds": 428.00956277800003
+  },
+  {
+    "step": 207,
+    "loss": 3.231952667236328,
+    "examples_seen": 828,
+    "seconds": 430.00339392399997
+  },
+  {
+    "step": 208,
+    "loss": 2.5808093547821045,
+    "examples_seen": 832,
+    "seconds": 431.9754825
+  },
+  {
+    "step": 209,
+    "loss": 1.3909624814987183,
+    "examples_seen": 836,
+    "seconds": 433.87998340499996
+  },
+  {
+    "step": 210,
+    "loss": 2.2673914432525635,
+    "examples_seen": 840,
+    "seconds": 435.994559555
+  },
+  {
+    "step": 211,
+    "loss": 2.706050395965576,
+    "examples_seen": 844,
+    "seconds": 437.87956424899994
+  },
+  {
+    "step": 212,
+    "loss": 2.5832204818725586,
+    "examples_seen": 848,
+    "seconds": 439.73694675599995
+  },
+  {
+    "step": 213,
+    "loss": 2.206455707550049,
+    "examples_seen": 852,
+    "seconds": 441.6205479959999
+  },
+  {
+    "step": 214,
+    "loss": 2.6170647144317627,
+    "examples_seen": 856,
+    "seconds": 443.590672167
+  },
+  {
+    "step": 215,
+    "loss": 2.392167329788208,
+    "examples_seen": 860,
+    "seconds": 445.859186247
+  },
+  {
+    "step": 216,
+    "loss": 2.2672417163848877,
+    "examples_seen": 864,
+    "seconds": 447.730872889
+  },
+  {
+    "step": 217,
+    "loss": 3.13439679145813,
+    "examples_seen": 868,
+    "seconds": 449.61465474299996
+  },
+  {
+    "step": 218,
+    "loss": 2.2600789070129395,
+    "examples_seen": 872,
+    "seconds": 451.4633703239999
+  },
+  {
+    "step": 219,
+    "loss": 3.247962713241577,
+    "examples_seen": 876,
+    "seconds": 453.3413718119999
+  },
+  {
+    "step": 220,
+    "loss": 2.457181215286255,
+    "examples_seen": 880,
+    "seconds": 455.480605898
+  },
+  {
+    "step": 221,
+    "loss": 2.293018102645874,
+    "examples_seen": 884,
+    "seconds": 457.363924657
+  },
+  {
+    "step": 222,
+    "loss": 2.5815093517303467,
+    "examples_seen": 888,
+    "seconds": 459.207147102
+  },
+  {
+    "step": 223,
+    "loss": 3.0814971923828125,
+    "examples_seen": 892,
+    "seconds": 461.125770108
+  },
+  {
+    "step": 224,
+    "loss": 2.620004415512085,
+    "examples_seen": 896,
+    "seconds": 463.124532906
+  },
+  {
+    "step": 225,
+    "loss": 2.502610921859741,
+    "examples_seen": 900,
+    "seconds": 465.349442867
+  },
+  {
+    "step": 226,
+    "loss": 2.5534520149230957,
+    "examples_seen": 904,
+    "seconds": 467.35914059899994
+  },
+  {
+    "step": 227,
+    "loss": 2.2840425968170166,
+    "examples_seen": 908,
+    "seconds": 469.19997867199993
+  },
+  {
+    "step": 228,
+    "loss": 2.766695022583008,
+    "examples_seen": 912,
+    "seconds": 471.2119183059999
+  },
+  {
+    "step": 229,
+    "loss": 2.771739959716797,
+    "examples_seen": 916,
+    "seconds": 473.203846965
+  },
+  {
+    "step": 230,
+    "loss": 2.711160182952881,
+    "examples_seen": 920,
+    "seconds": 475.130310465
+  },
+  {
+    "step": 231,
+    "loss": 2.5458672046661377,
+    "examples_seen": 924,
+    "seconds": 477.2893027
+  },
+  {
+    "step": 232,
+    "loss": 2.7644057273864746,
+    "examples_seen": 928,
+    "seconds": 479.45078193099994
+  },
+  {
+    "step": 233,
+    "loss": 2.3940088748931885,
+    "examples_seen": 932,
+    "seconds": 481.57960927
+  },
+  {
+    "step": 234,
+    "loss": 2.3824691772460938,
+    "examples_seen": 936,
+    "seconds": 483.80087813399996
+  },
+  {
+    "step": 235,
+    "loss": 3.235661268234253,
+    "examples_seen": 940,
+    "seconds": 486.28555234
+  },
+  {
+    "step": 236,
+    "loss": 2.8332080841064453,
+    "examples_seen": 944,
+    "seconds": 488.459784401
+  },
+  {
+    "step": 237,
+    "loss": 2.4059548377990723,
+    "examples_seen": 948,
+    "seconds": 490.741433098
+  },
+  {
+    "step": 238,
+    "loss": 2.6481025218963623,
+    "examples_seen": 952,
+    "seconds": 492.933647961
+  },
+  {
+    "step": 239,
+    "loss": 2.1248984336853027,
+    "examples_seen": 956,
+    "seconds": 494.87638190999996
+  },
+  {
+    "step": 240,
+    "loss": 2.3307127952575684,
+    "examples_seen": 960,
+    "seconds": 497.190414367
+  },
+  {
+    "step": 241,
+    "loss": 2.556938409805298,
+    "examples_seen": 964,
+    "seconds": 499.191360776
+  },
+  {
+    "step": 242,
+    "loss": 2.6852543354034424,
+    "examples_seen": 968,
+    "seconds": 501.46604602599996
+  },
+  {
+    "step": 243,
+    "loss": 2.632302761077881,
+    "examples_seen": 972,
+    "seconds": 503.58088360299996
+  },
+  {
+    "step": 244,
+    "loss": 2.546290636062622,
+    "examples_seen": 976,
+    "seconds": 505.6837513979999
+  },
+  {
+    "step": 245,
+    "loss": 2.687222957611084,
+    "examples_seen": 980,
+    "seconds": 507.785311061
+  },
+  {
+    "step": 246,
+    "loss": 3.066542625427246,
+    "examples_seen": 984,
+    "seconds": 510.2273733139999
+  },
+  {
+    "step": 247,
+    "loss": 2.339063882827759,
+    "examples_seen": 988,
+    "seconds": 512.326162705
+  },
+  {
+    "step": 248,
+    "loss": 2.3538272380828857,
+    "examples_seen": 992,
+    "seconds": 514.396839095
+  },
+  {
+    "step": 249,
+    "loss": 2.768857479095459,
+    "examples_seen": 996,
+    "seconds": 516.6999093649999
+  },
+  {
+    "step": 250,
+    "loss": 2.687831163406372,
+    "examples_seen": 1000,
+    "seconds": 518.7696119
+  },
+  {
+    "step": 251,
+    "loss": 3.1505022048950195,
+    "examples_seen": 1004,
+    "seconds": 520.9377842719999
+  },
+  {
+    "step": 252,
+    "loss": 2.4367127418518066,
+    "examples_seen": 1008,
+    "seconds": 522.8473013189999
+  },
+  {
+    "step": 253,
+    "loss": 3.228631019592285,
+    "examples_seen": 1012,
+    "seconds": 524.8771128789999
+  },
+  {
+    "step": 254,
+    "loss": 2.4714252948760986,
+    "examples_seen": 1016,
+    "seconds": 527.026380308
+  },
+  {
+    "step": 255,
+    "loss": 2.7004852294921875,
+    "examples_seen": 1020,
+    "seconds": 529.093817554
+  },
+  {
+    "step": 256,
+    "loss": 3.76759934425354,
+    "examples_seen": 1024,
+    "seconds": 531.53689518
+  },
+  {
+    "step": 257,
+    "loss": 2.367462396621704,
+    "examples_seen": 1028,
+    "seconds": 533.840070178
+  },
+  {
+    "step": 258,
+    "loss": 2.746072769165039,
+    "examples_seen": 1032,
+    "seconds": 536.2778288119999
+  },
+  {
+    "step": 259,
+    "loss": 2.0916032791137695,
+    "examples_seen": 1036,
+    "seconds": 538.4642785249999
+  },
+  {
+    "step": 260,
+    "loss": 2.7776660919189453,
+    "examples_seen": 1040,
+    "seconds": 541.0856760429999
+  },
+  {
+    "step": 261,
+    "loss": 2.293477773666382,
+    "examples_seen": 1044,
+    "seconds": 543.179617709
+  },
+  {
+    "step": 262,
+    "loss": 2.741074323654175,
+    "examples_seen": 1048,
+    "seconds": 545.088926295
+  },
+  {
+    "step": 263,
+    "loss": 2.0680012702941895,
+    "examples_seen": 1052,
+    "seconds": 547.068948816
+  },
+  {
+    "step": 264,
+    "loss": 2.621743679046631,
+    "examples_seen": 1056,
+    "seconds": 549.06429391
+  },
+  {
+    "step": 265,
+    "loss": 2.1936144828796387,
+    "examples_seen": 1060,
+    "seconds": 551.0971706749999
+  },
+  {
+    "step": 266,
+    "loss": 2.391880512237549,
+    "examples_seen": 1064,
+    "seconds": 553.794936682
+  },
+  {
+    "step": 267,
+    "loss": 2.5029938220977783,
+    "examples_seen": 1068,
+    "seconds": 556.355343449
+  },
+  {
+    "step": 268,
+    "loss": 2.472836494445801,
+    "examples_seen": 1072,
+    "seconds": 558.5637590939999
+  },
+  {
+    "step": 269,
+    "loss": 2.3966782093048096,
+    "examples_seen": 1076,
+    "seconds": 560.82236873
+  },
+  {
+    "step": 270,
+    "loss": 2.1054883003234863,
+    "examples_seen": 1080,
+    "seconds": 563.352532435
+  },
+  {
+    "step": 271,
+    "loss": 2.2411763668060303,
+    "examples_seen": 1084,
+    "seconds": 565.401953381
+  },
+  {
+    "step": 272,
+    "loss": 2.834491729736328,
+    "examples_seen": 1088,
+    "seconds": 567.487768987
+  },
+  {
+    "step": 273,
+    "loss": 2.7124435901641846,
+    "examples_seen": 1092,
+    "seconds": 569.496134051
+  },
+  {
+    "step": 274,
+    "loss": 2.5772202014923096,
+    "examples_seen": 1096,
+    "seconds": 571.45051481
+  },
+  {
+    "step": 275,
+    "loss": 2.6878936290740967,
+    "examples_seen": 1100,
+    "seconds": 573.908203459
+  },
+  {
+    "step": 276,
+    "loss": 3.0279934406280518,
+    "examples_seen": 1104,
+    "seconds": 576.040475788
+  },
+  {
+    "step": 277,
+    "loss": 2.5897066593170166,
+    "examples_seen": 1108,
+    "seconds": 578.1587401979999
+  },
+  {
+    "step": 278,
+    "loss": 2.4939496517181396,
+    "examples_seen": 1112,
+    "seconds": 580.401274258
+  },
+  {
+    "step": 279,
+    "loss": 3.1429476737976074,
+    "examples_seen": 1116,
+    "seconds": 582.652386609
+  },
+  {
+    "step": 280,
+    "loss": 2.369333267211914,
+    "examples_seen": 1120,
+    "seconds": 584.808694284
+  },
+  {
+    "step": 281,
+    "loss": 3.056617259979248,
+    "examples_seen": 1124,
+    "seconds": 587.195461919
+  },
+  {
+    "step": 282,
+    "loss": 3.094165325164795,
+    "examples_seen": 1128,
+    "seconds": 589.138544059
+  },
+  {
+    "step": 283,
+    "loss": 2.7386021614074707,
+    "examples_seen": 1132,
+    "seconds": 591.2501298889999
+  },
+  {
+    "step": 284,
+    "loss": 2.2857120037078857,
+    "examples_seen": 1136,
+    "seconds": 593.226167317
+  },
+  {
+    "step": 285,
+    "loss": 2.910785436630249,
+    "examples_seen": 1140,
+    "seconds": 595.2993107369999
+  },
+  {
+    "step": 286,
+    "loss": 2.1697888374328613,
+    "examples_seen": 1144,
+    "seconds": 597.936645258
+  },
+  {
+    "step": 287,
+    "loss": 2.7865099906921387,
+    "examples_seen": 1148,
+    "seconds": 600.115599587
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "prompt": "My printer only works when nobody is watching. What should I do?",
+  "base": "That is a classic and frustrating situation! When a printer only works when you aren't looking, it usually means the device is stuck in a **sleep mode**, has a **temporary glitch**, or is waiting for a **background process** to finish that you can't see.\n\nHere is a step-by-step guide to troubleshoot and fix this:\n\n### 1. Force a Wake-Up (The \"Nuclear\" Option)\nIf the printer is in deep sleep, a simple button press might not be enough.\n*   **Unplug the power cord** from the wall outlet.\n*   Wait **30 seconds** (this drains residual power from the internal capacitors).\n*   Plug it back in and try to print immediately.\n\n### 2. Check the \"Do Not Disturb\" or Sleep Settings\nYour computer might be sending a \"sleep\" command to the printer when you leave the room, or the printer",
+  "finetuned": "The printer is having a social anxiety attack. Check the paper tray, the power cord, and whether anyone has been feeding it secrets; then try a job in an empty room.",
+  "adapter_run": "style-train-wit-1788772457278552500",
+  "style": "wit"
+}

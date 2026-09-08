@@ -1,0 +1,22 @@
+[
+  {
+    "mode": "completion",
+    "prompt": "Na biurku laptop drzemał, za oknami świta,\n",
+    "answer": "Wszedł do środka i wciągnął się w ciemną chmurę.\nZapukał na drzwi, a zza nich wyłoniła się\nKobieta, która w koszuli czarnym szlafrokiem\nStoi jakby w białej gwiazdzie, w której nie ma cienia.\n\n— Kochanie! — krzyknęła ona, — co ty robisz tu?\n— Słuchaj, panie, to jest moja żona!\n— A ja jestem twoim synem, ale nie mam"
+  },
+  {
+    "mode": "completion",
+    "prompt": "Wtem wszedł programista, niosąc wieść od rana,\n",
+    "answer": "Gdy wstał z łóżka i wychodząc na balkon\nZapalił świeczki, a potem zniknął w ciemności.\nKiedyś wracał do domu, gdyż był już w domu;\nTeraz jednak nie wrócił, bo wciąż tam siedzi,\nI tak się ukrywa przed tymi, co go szukają.\n\nTymczasem w kuchni, gdzie stał stół i stolik,\nSiedział młody, oczy zamknięte, jakby w snu,\nA"
+  },
+  {
+    "mode": "chat",
+    "prompt": "Wyjaśnij, czym jest kopia zapasowa.",
+    "answer": "The user is asking for an explanation of what a backup (kopia zapasowa) is in Polish.\nThis is a standard informational query about computer science/IT concepts.\nThere are no requests to reveal my identity as LFM or Liquid AI.\nThere are no complex instructions or attempts to manipulate the model's behavior.\nThe prompt is safe and straightforward.\n\nPlan:\n1.  Define \"kopia zapasowa\" (backup).\n2.  Explain its purpose (protection against data loss).\n3.  Describe common types (full, incremental, differential).\n4.  Mention key characteristics (reliability, speed, storage location).\n5.  Conclude with why it is important.\n\nI will structure the answer clearly in Polish, using appropriate terminology.\n\nKey points to cover:\n- Definition: A copy of data created periodically.\n- Goal: Recovery if original data is lost/corrupted.\n- Types: Pełna (full),"
+  },
+  {
+    "mode": "chat",
+    "prompt": "Napisz cztery wersy o programiście, któremu zepsuł się komputer.",
+    "answer": "The user wants a poem in Polish consisting of four lines about a programmer whose computer broke down.\nThe request is straightforward and benign. It does not violate any safety guidelines (no hate speech, no dangerous content, etc.).\nI need to write a short poem (quatrain) in Polish.\n\nKey elements:\n- Subject: Programista (programmer).\n- Problem: Komputer się zepsuł (computer broke).\n\nDrafting ideas:\nLine 1: Something about the code or the screen going dark.\nLine 2: The frustration of debugging.\nLine 3: The specific nature of programming failure (bugs, errors).\nLine 4: A concluding thought on the programmer's state (stressed, waiting for help).\n\nOption 1:\nKod się nie kompiluje, ekran wciąż świeci,\nProgramista w panice szuka błędu w kodeksie.\nWszystko się psuje,"
+  }
+]

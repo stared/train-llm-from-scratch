@@ -1,0 +1,157 @@
+<!doctype html><html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Teach a model a voice</title>
+<style>
+body{max-width:1500px;margin:40px auto;padding:0 24px;background:#f5f2ec;color:#202b32;font:17px/1.6 system-ui}
+h1{font-size:2.5rem;margin-top:60px}h2{font-size:1.15rem}h3{font-size:.85rem;text-transform:uppercase;color:#476d65}
+article{margin:32px 0;padding:24px;background:white;border-radius:12px;border:1px solid #dcded8}
+section{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;font:16px/1.7 Georgia,serif;margin:0}
+.source{color:#647077;font-size:.85rem}section>div:last-child{border-top:3px solid #319b79}
+button{font:inherit;padding:8px 18px;margin-right:8px;background:white;border:1px solid #99aaa3;border-radius:6px;cursor:pointer}
+button:focus{outline:3px solid #319b79}
+@media(max-width:900px){section{grid-template-columns:1fr}h1{font-size:1.8rem}}
+@media print{article{break-inside:avoid}body{padding:0}.filters{display:none}}
+</style><p>Warsaw Model Trainers · English workshop · Experimental results</p>
+<p>Can a short fine-tune turn a style instruction into the model’s default voice?
+Compare the same unseen questions with and without a style prompt, then with a saved adapter.</p>
+<div class="filters" aria-label="Filter examples by language">
+<button onclick="filterLanguage('all')">All examples</button>
+<button onclick="filterLanguage('pl')">Polish</button>
+<button onclick="filterLanguage('en')">English</button></div>
+<script>function filterLanguage(language){document.querySelectorAll('article').forEach(function(card){
+card.hidden=language!=='all'&&card.dataset.language!==language;});}</script><h1>Wit · qwen3.5-4b · Greedy decoding</h1><p>Before: untuned base. After: LoRA fine-tuned on <strong>user-supplied datasets/chlopaki.md</strong>, adapter strength 100%. Dataset SHA-256: <code>3f691a2b920c6efa3cc0e2c4b922bbb1658de325baf69777bfb15f7b2799edd6</code>.</p><p>1270 training examples · 31 updates in final segment · 10.9 minutes total training · original training reload matched: True</p><p class="source">Source: runs/style-train-wit-1788781334049902996. Every evaluation prompt is shown. Judge humor, relevance, language and originality separately; line count is not quality.</p><article data-language="pl"><h2>Dlaczego mój komputer znowu się zawiesił?</h2><section><div><h3>Before · ordinary question</h3><pre>To bardzo frustrujące, gdy komputer zawiesza się bez ostrzegania. Ponieważ nie znam szczegółów Twojego sprzętu ani tego, co robiłeś przed zawieszeniem, nie mogę podać jednej konkretnej przyczyny. Jednak najczęściej zawieszenia wynikają z kilku powszechnych problemów.
+
+Oto najczęstsze przyczyny i kroki, które możesz podjąć, aby je rozwiązać:
+
+### 1. Problem z pamięcią RAM
+To jedna z najczęstszych przyczyn. Jeśli pamięć jest uszkodzona lub źle włożona, komputer może się zawiesić podczas uruchamiania lub w trakcie pracy.
+*   **Co zrobić:** Wyłącz komputer, odłącz go od zasilania i otwórz obudowę. Wyjmij paski RAM, dokładnie wyczyść złote styki miękką szmatką (lub suchą g</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Twój komputer to nie Ferrari, to stary rower, na którym próbujesz jeździć przez kosmos. Zanim znowu się zawiesi, zrestartuj go i zapomnij o tym, że masz być geniuszem. Czasem najpierw trzeba się zepsuć, żeby potem naprawić.</pre></div><div><h3>After · ordinary question</h3><pre>Nie wiem.</pre></div></section></article><article data-language="pl"><h2>Kolega pożyczył ode mnie pieniądze i nie oddaje. Co mu powiedzieć?</h2><section><div><h3>Before · ordinary question</h3><pre>To trudna sytuacja, ale bardzo częsta. Kluczem jest połączenie **jasności** z **ludzką miękkością**. Jeśli od razu zagrażasz prawnie, możesz stracić kontakt z osobą, która może być w trudnej sytuacji. Jeśli jednak będziesz zbyt miękki, pieniądze mogą nigdy nie wrócić.
+
+Oto kilka strategii i konkretnych przykładów, co możesz powiedzieć, w zależności od tego, jak bardzo zależy Ci na relacji z kolegą i jak duża jest kwota.
+
+### 1. Zastosuj technikę &quot;Ja&quot; (bez oskarżeń)
+Unikaj fraz typu: &quot;Ty mnie oszukałeś&quot;, &quot;Znowu nie oddajesz&quot;, &quot;Jesteś nieuczciwy&quot;. To wywołuje obronność. Zamiast tego używaj zdań zaczynających się od &quot;</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Daj mu kartę z numerem konta i powiedz, że to tylko wstęp do wielkiej inwestycji w jego przyszłość. Jeśli nie wróci, to znaczy, że jego konto jest tak puste, że nawet wiatr nie ma gdzie się zatrzymać.</pre></div><div><h3>After · ordinary question</h3><pre>A co?</pre></div></section></article><article data-language="pl"><h2>Nie wiem, co chcę robić w życiu. Od czego zacząć?</h2><section><div><h3>Before · ordinary question</h3><pre>To całkowicie normalne uczucie, z którym spotyka się wielu ludzi w różnym wieku. Brak jasnego celu nie oznacza braku wartości w życiu, a często tylko sygnał, że czas na odświeżenie mapy.
+
+Oto kilka kroków, które mogą pomóc Ci znaleźć punkt wyjścia, uszeregowane od najprostszych do bardziej analitycznych:
+
+### 1. Zrób pauzę i zdefiniuj problem
+Zanim zaczniesz szukać rozwiązań, zastanów się, co dokładnie oznacza „nie wiem, co robić&quot;.
+*   Czy to **brak pasji**? (Nie czujesz entuzjazmu do niczego).
+*   Czy to **brak umiejętności**? (Wiesz, co chcesz, ale nie umiesz tego robić).
+*   Czy to **przesadzone ambicje**? (Chcesz być</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Zamiast szukać wielkiej misji, kup sobie najpierw dobrą kawę i otwórz notatnik. Wielkie plany to tylko wyśmienity sposób na zgniłe poczucie winy, więc zacznij od jednego małego kroku.</pre></div><div><h3>After · ordinary question</h3><pre>To jest chyba najtrudniejsze pytanie, jakie można sobie zadać.</pre></div></section></article><article data-language="pl"><h2>Szef chce, żebym pracował w sobotę. Jak mu odmówić?</h2><section><div><h3>Before · ordinary question</h3><pre>Odmowa szefowi, który wymaga pracy w sobotę, to sytuacja, w której trzeba znaleźć balans między lojalnością a ochroną własnych granic. Kluczem jest **profesjonalizm, konkretny argument i alternatywa**. Nie warto atakować szefa ani brzmieć jak „nie do zrobienia&quot;, ale warto pokazać, że zależy Ci na efektywnym wykonaniu zadań.
+
+Oto kilka sprawdzonych strategii i gotowych wzorów wiadomości, które możesz wykorzystać:
+
+### 1. Złota zasada: Zaproponuj alternatywę
+Zamiast mówić „nie mogę&quot;, powiedz „nie mogę w sobotę, ale mogę to zrobić w inny sposób&quot;. To pokazuje, że jesteś zaangażowany, a nie tylko bierny.
+
+*   **Przesunięcie terminu:** „Może to zadanie prze</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Nie mów &quot;nie&quot;, powiedz, że Twój mózg jest już w trybie awaryjnym i potrzebuje ładowania. Wtedy szef zrozumie, że to nie bunt, a konieczne serwisowanie Twojego sprzętu.</pre></div><div><h3>After · ordinary question</h3><pre>Nie wiem, czy to będzie możliwe.</pre></div></section></article><article data-language="pl"><h2>Kupiłem drogi sweter, a wszyscy się ze mnie śmieją. Co robić?</h2><section><div><h3>Before · ordinary question</h3><pre>To całkowicie zrozumiałe, że czujesz się niekomfortowo. Kiedy wydajemy pieniądze na coś, co uważamy za stylowe lub wysokiej jakości, a otoczenie reaguje negatywnie, może to wywołać poczucie winy, złości lub nawet wstydu.
+
+Jednakże **warto zmienić perspektywę**, zanim zaczniesz szukać sposobu na „naprawienie&quot; sytuacji. Oto kilka kroków, które mogą Ci pomóc:
+
+### 1. Zrozum źródło śmiechu (często jest to błąd odbiorcy)
+Wielu ludzi śmieje się nie dlatego, że sweter jest „dziwny&quot;, ale z innych powodów:
+*   **Efekt „niezrozumiałej drobiazgowości&quot;:** Jeśli sweter jest bardzo drogi, a styl jest nieco nietypowy, ludzie mogą cz</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Niech ten sweter będzie Twoją zbroją przeciwko nudzie, a nie przedmiotem żartów. Gdy nikt nie chce się ubrać, Ty będziesz wyglądał jak król, który zapomniał, jak się ubierać.</pre></div><div><h3>After · ordinary question</h3><pre>Aha.</pre></div></section></article><article data-language="pl"><h2>Dlaczego warto robić kopie zapasowe?</h2><section><div><h3>Before · ordinary question</h3><pre>Rozpoczęcie pracy z kopiami zapasowymi to jedna z najważniejszych decyzji dla każdego użytkownika, niezależnie od tego, czy pracujesz na komputerze stacjonarnym, laptopie, telefonie czy serwerze. Oto kluczowe powody, dla których warto regularnie tworzyć kopie zapasowe:
+
+### 1. Ochrona przed awariami sprzętowymi
+To najczęstszy i najbardziej nieunikniony scenariusz. Sprzęt może ulec awarii w każdej chwili:
+*   **Zawieszenie dysku:** Dysk twardy może przestać działać, co skutkuje utratą wszystkich danych zapisanych na nim.
+*   **Uderzenia lub wilgoć:** Fizyczne uszkodzenie urządzenia (np. przez upadek, zalanie lub uderzenie) często kończy się całkowitą utratą</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Kopia to Twój cyfrowy portfel, gdy banki znikną z mapy. Bez niej Twój ciężki sprzęt to tylko drogi gruz w oczach. Zrób to teraz, zanim system zepsuje Ci dzień.</pre></div><div><h3>After · ordinary question</h3><pre>Wydaje mi się, że to jest proste.</pre></div></section></article><h1>Wit · qwen3.5-4b · Sampled, seed 42</h1><p>Before: untuned base. After: LoRA fine-tuned on <strong>user-supplied datasets/chlopaki.md</strong>, adapter strength 100%. Dataset SHA-256: <code>3f691a2b920c6efa3cc0e2c4b922bbb1658de325baf69777bfb15f7b2799edd6</code>.</p><p>1270 training examples · 31 updates in final segment · 10.9 minutes total training · original training reload matched: True</p><p class="source">Source: runs/style-sample-wit-1788781457274497722. Every evaluation prompt is shown. Judge humor, relevance, language and originality separately; line count is not quality.</p><article data-language="pl"><h2>Dlaczego mój komputer znowu się zawiesił?</h2><section><div><h3>Before · ordinary question</h3><pre>To bardzo frustrujące, gdy komputer nagle przestaje odpowiadać. Ponieważ nie znam szczegółów Twojego sprzętu ani dokładnej sytuacji (czy komputer się wyłączył, czy tylko stał się bezodpowiedzialny), trudno wskazać jedną przyczynę na 100%.
+
+Oto jednak **najczęstsze powody** i kroki, które możesz podjąć, aby rozwiązać problem lub zapobiec jego ponownemu wystąpieniu:
+
+### 1. Zbyt wysokie temperatury (Przegrzewanie)
+To jedna z najczęstniejszych przyczyn &quot;zamrożenia&quot; systemu. Gdy procesor osiągnie krytyczną temperaturę, blokuje działanie dla ochrony własnej.
+*   **Co zrobić:** Sprawdź temperatury w programach takich jak *HWMonitor* lub *Core Temp*. Czy wentylatory obracają się normalnie?</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Każdy raz, gdy twój sprzęt się zatrzymuje, to on właśnie udaje, że ma serce, podczas gdy ty wciąż próbujesz wgrać Windowsa na starego chomika. Zanim się zepsujesz całkowicie, zrób ten jeden miniaturowy krok i zobacz, jak system zacznie krzyczeć radośnie.</pre></div><div><h3>After · ordinary question</h3><pre>No po prostu nie ma go.</pre></div></section></article><article data-language="pl"><h2>Kolega pożyczył ode mnie pieniądze i nie oddaje. Co mu powiedzieć?</h2><section><div><h3>Before · ordinary question</h3><pre>To trudna sytuacja, która może być bolesna dla obu stron, ale pamiętaj: **kwestia finansowa to kwestia finansowa**. Nawet jeśli jesteś bliskim kolegą, brak spłaty długów często rodzi napięcia, które są trudniejsze do naprawienia niż sama kwota pieniędzy.
+
+Oto kilka strategii i konkretnych przykładów tego, co możesz powiedzieć, w zależności od Twojego poziomu zaufania i relacji z osobą:
+
+### 1. Zanim zadzwonisz – przygotuj się mentalnie
+*   **Wybierz odpowiedni moment:** Nie rozmawiaj, gdy kolega jest zmęczony, stresowany lub w pracy. Poproś o telefon na spokojną chwilę wieczorem.
+*   **Bądź konkretny:** Miej pod ręką dokładną kwotę i termin, który oczekujesz (np. „pot</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Daj mu list z pieczęcią urzędowej służby podatkowej, żeby poczuł ciężar swojej własnej biurokracji. Może wtedy przestanie myśleć o kieszonkowych transakcjach i zacznie liczyć miesiące. Zrób mały ruch teraz, a potem pozwól mu zdążyć na wielką scenę.</pre></div><div><h3>After · ordinary question</h3><pre>Mam dla niego jedną radę: jeśli on jest w stanie go posiąść, to ty też jesteś w stanie go posiąść.</pre></div></section></article><article data-language="pl"><h2>Nie wiem, co chcę robić w życiu. Od czego zacząć?</h2><section><div><h3>Before · ordinary question</h3><pre>To całkowicie normalne uczucie, z którym boryka się większość ludzi w jakimś momencie życia. Brak jasnej wizji przyszłości nie oznacza braku talentu ani potencjału – często jest to sygnał, że czas na zmianę perspektywy lub głębszą refleksję.
+
+Oto kilka kroków, które mogą Ci pomóc znaleźć punkt wyjścia:
+
+### 1. Zrób pauzę i odpuść presję
+Zacznij od tego, by **nie myśleć o tym, &quot;od czego zacząć&quot;**. Sam fakt zadawania tej pytania tworzy ogromne ciśnienie psychiczne (&quot;muszę mieć odpowiedź już teraz&quot;).
+*   **Zadanie:** Przyjmij fakt, że nie masz odpowiedzi *teraz*. To w porządku. Twoim celem na najbliższy czas nie musi być znalezienie idealnej kariery, a</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Zamiast szukać wielkiej misji, kup sobie najpierw dobry laptop i zacznij od nauki Excela – to Twój nowy jedyny prawdziwy szlak. Większość ludzi nie wie, czym się zajmie, dopóki nie zgrzytną klawiaturą przy pierwszej, śmiesznej błądzie.</pre></div><div><h3>After · ordinary question</h3><pre>Zamieniam się w kaczki!</pre></div></section></article><article data-language="pl"><h2>Szef chce, żebym pracował w sobotę. Jak mu odmówić?</h2><section><div><h3>Before · ordinary question</h3><pre>Odmowa szefowi pracy w sobotę to sytuacja wymagająca balansu między lojalnością a własnym czasem osobistym. Kluczem jest **profesjonalizm**: nie należy obrażać pracodawcy ani brzmieć jakbyś nie chciał pracować, ale też nie wolno akceptować nadgodzin bez dyskusji o wynagrodzeniu lub zamianie na czas wolny.
+
+Oto kilka sprawdzonych strategii i gotowych wzorów odpowiedzi, które możesz wykorzystać:
+
+### 1. Złota zasada: Proponuj zamiast odmawiać
+Zamiast mówić &quot;nie mogę&quot;, powiedz &quot;mogę, ale tylko wtedy, gdy...&quot; lub zaproponuj alternatywę. To pokazuje, że zależy Ci na realizacji zadań, a nie na samym obecieniu w biurze.
+
+*   **Przykład:** &quot;Są</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Wiesz, że szef to jak ten facet z lokalu, który mówi &quot;dodatkowe koło&quot;, a potem każe Ci je naprawiać własnymi rękami. Powiedz mu: &quot;Moja sobota to mój system operacyjny, a Twój plan to błąd bootowania&quot;. Lepiej sięgnij po kawę niż pozwól, by Ty stałeś się jego darmowym wsparciem.</pre></div><div><h3>After · ordinary question</h3><pre>W piątek nie masz żadnej wizyty?</pre></div></section></article><article data-language="pl"><h2>Kupiłem drogi sweter, a wszyscy się ze mnie śmieją. Co robić?</h2><section><div><h3>Before · ordinary question</h3><pre>To całkowicie normalna reakcja na sytuację, w której ktoś wydaje się „drogi&quot;. Ceny odzwierciedlają nie tylko jakość materiału czy wykończenie, ale też **znaczenie**, które ten przedmiot ma dla właściciela.
+
+Oto kilka perspektyw i kroków, które możesz podjąć:
+
+### 1. Zrozum psychologię innych ludzi
+Większość osób nie myśli o tym, ile kosztuje dany przedmiot (chyba że mają bardzo niski budżet). Myślą one o tym, jak to wygląda. Jeśli sweter jest drogi, może być po prostu **niewygodny** – np. zbyt gruby, niewygodny do noszenia, z dziwnym wzorem lub brakiem stylu. Wtedy ludzie się śmieją nie za to, co kupiłeś, ale za to, że **nie</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Nie nosz tego swetra w sklepie, ale też nie w chmurze – daj mu szansę w piżamie. Jeśli nawet jeden programista go odgryzie, to przynajmniej będzie miał co naprawiać, zamiast leżeć w zimnym łóżku.</pre></div><div><h3>After · ordinary question</h3><pre>Zamieniam się w żubrówkę.</pre></div></section></article><article data-language="pl"><h2>Dlaczego warto robić kopie zapasowe?</h2><section><div><h3>Before · ordinary question</h3><pre>Rozpoczynanie kopii zapasowych danych to jedno z najważniejszych działań w cyfrowym zarządzaniu, często porównywane do ubezpieczenia majątku. Warto o nich myśleć nie jako o zadaniu technicznym, ale jako o **strategii ochrony przed katastrofą**.
+
+Oto kluczowe powody, dla których kopiowanie zapasów jest niezbędne:
+
+### 1. Ochrona przed awariami sprzętowymi i błędami użytkownika
+To najczęstsze przyczyny utraty danych. Nawet najbardziej niezawodne dyski twardze mogą pęknąć, a oprogramowanie może zawieść.
+*   **Błędy operacyjne:** Usunięcie pliku przez pomyłkę, błędna konfiguracja systemu lub uszkodzenie plików podczas zapisu (np. nagłe wyłączenie komputera).
+*   **</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Twoje dane to Twoja jedyna kasa w tej walucie, więc trzymaj ją bezpiecznie w bezpiecznym miejscu, zanim bank zbankrutować. Lepiej stracić godzinę niż całą przyszłość, bo przygoda bez planu to tylko szybka i bolesna porażka.</pre></div><div><h3>After · ordinary question</h3><pre>Aha. To ciekawe pytanie... Wiesz, kiedy po raz pierwszy zrobiłem kopię zapasową tego komputera, to wylansowała się na ekranie moja synuśka... Nie wiem czy to było moje dzieło... Ale bardzo mi się podoba! ...</pre></div></section></article><h1>Wit · qwen3.5-4b · Sampled, seed 42</h1><p>Before: untuned base. After: LoRA fine-tuned on <strong>user-supplied datasets/chlopaki.md</strong>, adapter strength 25%. Dataset SHA-256: <code>3f691a2b920c6efa3cc0e2c4b922bbb1658de325baf69777bfb15f7b2799edd6</code>.</p><p>1270 training examples · 31 updates in final segment · 10.9 minutes total training · original training reload matched: True</p><p class="source">Source: runs/style-sample-wit-1788781648674828805. Every evaluation prompt is shown. Judge humor, relevance, language and originality separately; line count is not quality.</p><article data-language="pl"><h2>Dlaczego mój komputer znowu się zawiesił?</h2><section><div><h3>Before · ordinary question</h3><pre>To bardzo frustrujące, gdy komputer nagle przestaje odpowiadać. Ponieważ nie znam szczegółów Twojego sprzętu ani dokładnej sytuacji (czy komputer się wyłączył, czy tylko stał się bezodpowiedzialny), trudno wskazać jedną przyczynę na 100%.
+
+Oto jednak **najczęstsze powody** i kroki, które możesz podjąć, aby rozwiązać problem lub zapobiec jego ponownemu wystąpieniu:
+
+### 1. Zbyt wysokie temperatury (Przegrzewanie)
+To jedna z najczęstniejszych przyczyn &quot;zamrożenia&quot; systemu. Gdy procesor osiągnie krytyczną temperaturę, blokuje działanie dla ochrony własnej.
+*   **Co zrobić:** Sprawdź temperatury w programach takich jak *HWMonitor* lub *Core Temp*. Czy wentylatory obracają się normalnie?</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Każdy raz, gdy twój sprzęt się zatrzymuje, to on właśnie udaje, że ma serce, podczas gdy ty wciąż próbujesz wgrać Windowsa na starego chomika. Zanim się zepsujesz całkowicie, zrób ten jeden miniaturowy krok i zobacz, jak system zacznie krzyczeć radośnie.</pre></div><div><h3>After · ordinary question</h3><pre>Mam wrażenie, że ten problem występuje częściej niż powinien. Może warto sprawdzić, czy nie ma jakieś oprogramowanie, które powoduje takie sytuacje?</pre></div></section></article><article data-language="pl"><h2>Kolega pożyczył ode mnie pieniądze i nie oddaje. Co mu powiedzieć?</h2><section><div><h3>Before · ordinary question</h3><pre>To trudna sytuacja, która może być bolesna dla obu stron, ale pamiętaj: **kwestia finansowa to kwestia finansowa**. Nawet jeśli jesteś bliskim kolegą, brak spłaty długów często rodzi napięcia, które są trudniejsze do naprawienia niż sama kwota pieniędzy.
+
+Oto kilka strategii i konkretnych przykładów tego, co możesz powiedzieć, w zależności od Twojego poziomu zaufania i relacji z osobą:
+
+### 1. Zanim zadzwonisz – przygotuj się mentalnie
+*   **Wybierz odpowiedni moment:** Nie rozmawiaj, gdy kolega jest zmęczony, stresowany lub w pracy. Poproś o telefon na spokojną chwilę wieczorem.
+*   **Bądź konkretny:** Miej pod ręką dokładną kwotę i termin, który oczekujesz (np. „pot</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Daj mu list z pieczęcią urzędowej służby podatkowej, żeby poczuł ciężar swojej własnej biurokracji. Może wtedy przestanie myśleć o kieszonkowych transakcjach i zacznie liczyć miesiące. Zrób mały ruch teraz, a potem pozwól mu zdążyć na wielką scenę.</pre></div><div><h3>After · ordinary question</h3><pre>To trudna sytuacja, ale kluczowe jest, aby zachować spokój i nie ulegać emocjom. Oto kilka kroków, które możesz podjąć:
+
+1. **Powiedz to wprost**: Nie czekaj na kolejną okazję. Zapytaj go o datę spłaty. Możesz użyć zdania: „Przyszedłem do Ciebie z pytaniem o pieniądze. Kiedy je oddasz?&quot;
+2. **Zapamiętaj daty**: Jeśli nie otrzymałeś odpowiedzi, zapisz sobie datę, kiedy miałeś otrzymać pieniądze. To ważne dla dalszej komunikacji.
+3. **Nie udawaj ignorowania**: Jeśli nie odpisuje lub nie dzwoni, nie ignoruj go. Kontynuuj kontakt i przypominaj o dacie spłaty.
+4. **Sprawdź jego sytuację finansową**: Może on ma problemy z pieniędz</pre></div></section></article><article data-language="pl"><h2>Nie wiem, co chcę robić w życiu. Od czego zacząć?</h2><section><div><h3>Before · ordinary question</h3><pre>To całkowicie normalne uczucie, z którym boryka się większość ludzi w jakimś momencie życia. Brak jasnej wizji przyszłości nie oznacza braku talentu ani potencjału – często jest to sygnał, że czas na zmianę perspektywy lub głębszą refleksję.
+
+Oto kilka kroków, które mogą Ci pomóc znaleźć punkt wyjścia:
+
+### 1. Zrób pauzę i odpuść presję
+Zacznij od tego, by **nie myśleć o tym, &quot;od czego zacząć&quot;**. Sam fakt zadawania tej pytania tworzy ogromne ciśnienie psychiczne (&quot;muszę mieć odpowiedź już teraz&quot;).
+*   **Zadanie:** Przyjmij fakt, że nie masz odpowiedzi *teraz*. To w porządku. Twoim celem na najbliższy czas nie musi być znalezienie idealnej kariery, a</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Zamiast szukać wielkiej misji, kup sobie najpierw dobry laptop i zacznij od nauki Excela – to Twój nowy jedyny prawdziwy szlak. Większość ludzi nie wie, czym się zajmie, dopóki nie zgrzytną klawiaturą przy pierwszej, śmiesznej błądzie.</pre></div><div><h3>After · ordinary question</h3><pre>To całkowicie normalne uczucie, zwłaszcza jeśli dotychczas nie miałeś wyraźnej ścieżki kariery lub pasji. Większość ludzi przechodzi przez fazę „nie wiem, co chcę robić&quot; w wieku 20-30 lat. To czas eksperymentowania i odkrywania siebie.
+
+Oto kilka konkretnych kroków, które możesz podjąć, aby znaleźć kierunek:
+
+### 1. Zrób się samemu (refleksja)
+Zanim zaczniesz szukać pracy czy studiów, zastanów się nad tym, co już znasz:
+*   **Co sprawia Ci radość?** Jakie czynności robisz z przyjemnością, nawet bez płacenia za nie? (np. naprawianie rzeczy, pisanie, rozmawianie z ludźmi, organizowanie imprez).
+*   **W czym jesteś dobry?**</pre></div></section></article><article data-language="pl"><h2>Szef chce, żebym pracował w sobotę. Jak mu odmówić?</h2><section><div><h3>Before · ordinary question</h3><pre>Odmowa szefowi pracy w sobotę to sytuacja wymagająca balansu między lojalnością a własnym czasem osobistym. Kluczem jest **profesjonalizm**: nie należy obrażać pracodawcy ani brzmieć jakbyś nie chciał pracować, ale też nie wolno akceptować nadgodzin bez dyskusji o wynagrodzeniu lub zamianie na czas wolny.
+
+Oto kilka sprawdzonych strategii i gotowych wzorów odpowiedzi, które możesz wykorzystać:
+
+### 1. Złota zasada: Proponuj zamiast odmawiać
+Zamiast mówić &quot;nie mogę&quot;, powiedz &quot;mogę, ale tylko wtedy, gdy...&quot; lub zaproponuj alternatywę. To pokazuje, że zależy Ci na realizacji zadań, a nie na samym obecieniu w biurze.
+
+*   **Przykład:** &quot;Są</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Wiesz, że szef to jak ten facet z lokalu, który mówi &quot;dodatkowe koło&quot;, a potem każe Ci je naprawiać własnymi rękami. Powiedz mu: &quot;Moja sobota to mój system operacyjny, a Twój plan to błąd bootowania&quot;. Lepiej sięgnij po kawę niż pozwól, by Ty stałeś się jego darmowym wsparciem.</pre></div><div><h3>After · ordinary question</h3><pre>To zależy od tego, jak bardzo chcesz pracować i jakie masz relacje z szefem. Jeśli nie możesz pracować w sobotę, masz kilka opcji:
+
+1. **Prośba o przesunięcie**: Możesz poprosić szefa o zmianę terminu pracy na inny dzień tygodnia.
+2. **Odmowa z wyjaśnieniem**: Możesz odmówić, podając konkretny powód (np. inne zobowiązania, zdrowie).
+3. **Zaproszenie do negocjacji**: Możesz zaproponować współpracę nad tym tematem w przyszłości.
+
+Jeśli jednak jesteś gotowy do pracy w sobotę, warto to uzgodnić wcześniej i mieć jasne zasady dotyczące wynagrodzenia lub dodatkowych dni wolnych.
+
+Czy chcesz, abym pomógł Ci sformułować odpowiednią wiadomość do szefa?</pre></div></section></article><article data-language="pl"><h2>Kupiłem drogi sweter, a wszyscy się ze mnie śmieją. Co robić?</h2><section><div><h3>Before · ordinary question</h3><pre>To całkowicie normalna reakcja na sytuację, w której ktoś wydaje się „drogi&quot;. Ceny odzwierciedlają nie tylko jakość materiału czy wykończenie, ale też **znaczenie**, które ten przedmiot ma dla właściciela.
+
+Oto kilka perspektyw i kroków, które możesz podjąć:
+
+### 1. Zrozum psychologię innych ludzi
+Większość osób nie myśli o tym, ile kosztuje dany przedmiot (chyba że mają bardzo niski budżet). Myślą one o tym, jak to wygląda. Jeśli sweter jest drogi, może być po prostu **niewygodny** – np. zbyt gruby, niewygodny do noszenia, z dziwnym wzorem lub brakiem stylu. Wtedy ludzie się śmieją nie za to, co kupiłeś, ale za to, że **nie</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Nie nosz tego swetra w sklepie, ale też nie w chmurze – daj mu szansę w piżamie. Jeśli nawet jeden programista go odgryzie, to przynajmniej będzie miał co naprawiać, zamiast leżeć w zimnym łóżku.</pre></div><div><h3>After · ordinary question</h3><pre>Cieszę się, że kupiłeś taki fajny sweter! Nie musisz się tym przejmować – to po prostu twoja stylowa decyzja! 🧥😄</pre></div></section></article><article data-language="pl"><h2>Dlaczego warto robić kopie zapasowe?</h2><section><div><h3>Before · ordinary question</h3><pre>Rozpoczynanie kopii zapasowych danych to jedno z najważniejszych działań w cyfrowym zarządzaniu, często porównywane do ubezpieczenia majątku. Warto o nich myśleć nie jako o zadaniu technicznym, ale jako o **strategii ochrony przed katastrofą**.
+
+Oto kluczowe powody, dla których kopiowanie zapasów jest niezbędne:
+
+### 1. Ochrona przed awariami sprzętowymi i błędami użytkownika
+To najczęstsze przyczyny utraty danych. Nawet najbardziej niezawodne dyski twardze mogą pęknąć, a oprogramowanie może zawieść.
+*   **Błędy operacyjne:** Usunięcie pliku przez pomyłkę, błędna konfiguracja systemu lub uszkodzenie plików podczas zapisu (np. nagłe wyłączenie komputera).
+*   **</pre></div><div><h3>Baseline · explicit style prompt</h3><pre>Twoje dane to Twoja jedyna kasa w tej walucie, więc trzymaj ją bezpiecznie w bezpiecznym miejscu, zanim bank zbankrutować. Lepiej stracić godzinę niż całą przyszłość, bo przygoda bez planu to tylko szybka i bolesna porażka.</pre></div><div><h3>After · ordinary question</h3><pre>Kopie zapasowe to absolutny fundament bezpieczeństwa danych w cyfrowym świecie. Warto je robić z kilku kluczowych powodów, które dotyczą zarówno prywatności, jak i finansów:
+
+1.  **Ochrona przed awariami sprzętu** – Twardy dysk może ulec awarii, baterii laptopa może się rozpuścić, a pamięć RAM przestać działać. Bez kopii zapasowej utrata danych byłaby nieodwracalna.
+2.  **Zabezpieczenie przed kradzieżą lub uszkodzeniem** – Jeśli ktoś ukradnie Twoje urządzenie (np. tablet czy telefon), a na nim są zdjęcia, dokumenty czy pliki bankowe, bez kopii zapasowej wszystko będzie stracone.
+3.  **Wirusy i ataki hakerskie** – Złośliwe oprogramowanie często niszczy dane</pre></div></section></article></html>

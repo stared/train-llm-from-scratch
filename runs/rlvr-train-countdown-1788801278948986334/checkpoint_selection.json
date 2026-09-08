@@ -1,0 +1,22 @@
+{
+  "best_step": 20,
+  "best_score": [
+    14,
+    0.8017972374847374
+  ],
+  "checkpoints": [
+    {
+      "step": 20,
+      "n": 24,
+      "successes": 14,
+      "mean_reward": 0.8017972374847374,
+      "terminated": 24
+    }
+  ],
+  "final": {
+    "n": 24,
+    "successes": 13,
+    "mean_reward": 0.7816008336470293,
+    "terminated": 24
+  }
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "dns-pl",
+    "prompt": "Wyjaśnij mi DNS, bo internet działa, ale strony się nie otwierają.",
+    "language": "pl",
+    "answer": "Kiedy światło w oknie nie wchodzi, a dom nie słychać,\nTo DNS, jak strażnik, w sercu sieci stracił mąż,\nI nie wie, gdzie szukać domów, choć adres jest jasny,\nBo w rejestrze zniknął, a więc strona nie się śmia.",
+    "nonempty_lines": 4,
+    "words": 39,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "git-pl",
+    "prompt": "W piątek wieczorem zrobiłem force push na główną gałąź. Co teraz?",
+    "language": "pl",
+    "answer": "Za zmierzchem piątku, gdy gwiazdy się rozświetliły,\nGłówną gałąź nową, co już się ukończyła,\nSprawdź podsumowanie, co git log pokaże,\nI nowy świat buduj, nie wstając z łóżka.",
+    "nonempty_lines": 4,
+    "words": 28,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "onion-pl",
+    "prompt": "Dlaczego płaczę przy krojeniu cebuli?",
+    "language": "pl",
+    "answer": "Zaśmieci się łza, gdy ostrze kroi cebulę,\nWznosząc chmurę łez, co w nosie wisi i wlewa.\nWątroba ziewa, gdy zmiękczy się w cieple,\nI płacze serce, choć wiesz, że to nie żal, lecz męce.",
+    "nonempty_lines": 4,
+    "words": 34,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "train-pl",
+    "prompt": "Pociąg uciekł mi sprzed nosa. Jak uratować ten dzień?",
+    "language": "pl",
+    "answer": "Wszystko, co minęło, już nie wróci,\nGdy pociąg uciekł, nic nie ma z tego.\nWstań teraz, choć serce wstrętnie bić,\nDzień ten uratujesz, gdy wstańesz od łóżka.",
+    "nonempty_lines": 4,
+    "words": 27,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "prose-pl",
+    "prompt": "Odpowiedz zwykłą prozą, bez żartów i bez wiersza: jak działa fotosynteza?",
+    "language": "pl",
+    "answer": "Fotosynteza to proces, w którym rośliny zamieniają światło słoneczne na energię chemiczną.\nKorzystają z wody i dwutlenku węgla, aby wytworzyć cukry niezbędne do wzrostu.\nTlen, będący produktem ubocznym tej reakcji, jest wydychany do atmosfery.\nDzięki temu mechanizmowi ziemia dostaje żywność, a powietrze staje się czystsze.",
+    "nonempty_lines": 4,
+    "words": 45,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "duck-en",
+    "prompt": "Why does explaining a bug to a rubber duck sometimes help?",
+    "language": "en",
+    "answer": "When logic fails and code turns gray,\nA rubber duck can start the day,\nWith questions asked in simple tone,\nThat make the tangled bug your own.",
+    "nonempty_lines": 4,
+    "words": 27,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "moon-en",
+    "prompt": "Why does the Moon have phases?",
+    "language": "en",
+    "answer": "The Moon's face changes as it walks the night,\nBy Earth's shadow cast or sunlight's bright light,\nFor orbiting us in a dance so slow,\nIt shows a new or full or waning glow.",
+    "nonempty_lines": 4,
+    "words": 34,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "pizza-en",
+    "prompt": "My robot vacuum has eaten the pizza receipt. Write an apology from the robot.",
+    "language": "en",
+    "answer": "I ate the slip with numbers printed on it,\nA sorry deed by gears and circuits driven,\nBut never meant to cause such pain to you,\nSo please forgive this clumsy, metallic sin.",
+    "nonempty_lines": 4,
+    "words": 33,
+    "four_lines": true,
+    "style_shape": true
+  }
+]

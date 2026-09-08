@@ -1,0 +1,5 @@
+torch==2.14.0
+transformers==5.16.1
+peft==0.20.0
+accelerate==1.14.0
+modal==1.5.0

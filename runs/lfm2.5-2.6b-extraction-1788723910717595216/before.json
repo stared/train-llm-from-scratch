@@ -1,0 +1,66 @@
+[
+  {
+    "id": "extraction-test-3",
+    "prompt": "Extract the order as JSON with exactly the keys id, item, quantity. id and quantity are integers. No explanation.\nPlease ship 4 units of eraser; reference 10003.",
+    "answer": "{\"id\":10003,\"item\":\"eraser\",\"quantity\":4}",
+    "prediction": "The user wants to extract an order from a given text: \"Please ship 4 units of eraser; reference 10003.\"\n\nThey want JSON with exactly keys: id, item, quantity. id and quantity must be integers. No explanation.\n\nWe need to parse the order details:\n\n- The reference is likely",
+    "correct": false,
+    "format_valid": false
+  },
+  {
+    "id": "extraction-test-4",
+    "prompt": "Extract the order as JSON with exactly the keys id, item, quantity. id and quantity are integers. No explanation.\nPlease ship 5 units of notebook; reference 10004.",
+    "answer": "{\"id\":10004,\"item\":\"notebook\",\"quantity\":5}",
+    "prediction": "The user wants me to extract an order from a given text and format it as JSON with specific keys: `id`, `item`, and `quantity`. The constraints are:\n- Exactly these three keys.\n- `id` must be an integer.\n- `quantity` must be an integer.\n- No explanation in the",
+    "correct": false,
+    "format_valid": false
+  },
+  {
+    "id": "extraction-test-6",
+    "prompt": "Extract the order as JSON with exactly the keys id, item, quantity. id and quantity are integers. No explanation.\nPlease ship 7 units of folder; reference 10006.",
+    "answer": "{\"id\":10006,\"item\":\"folder\",\"quantity\":7}",
+    "prediction": "The user wants me to extract an order from a given text and format it as JSON with specific keys: `id`, `item`, and `quantity`. The constraints are:\n- Exactly these three keys.\n- `id` must be an integer.\n- `quantity` must be an integer.\n- No explanation in the",
+    "correct": false,
+    "format_valid": false
+  },
+  {
+    "id": "extraction-test-7",
+    "prompt": "Extract the order as JSON with exactly the keys id, item, quantity. id and quantity are integers. No explanation.\nPlease ship 8 units of eraser; reference 10007.",
+    "answer": "{\"id\":10007,\"item\":\"eraser\",\"quantity\":8}",
+    "prediction": "The user wants to extract an order from a given text: \"Please ship 8 units of eraser; reference 10007.\"\n\nThey want JSON with exactly keys id, item, quantity. id and quantity must be integers. No explanation.\n\nWe need to parse the order details:\n\n- The order includes \"8",
+    "correct": false,
+    "format_valid": false
+  },
+  {
+    "id": "extraction-test-2",
+    "prompt": "Extract the order as JSON with exactly the keys id, item, quantity. id and quantity are integers. No explanation.\nPlease ship 3 units of folder; reference 10002.",
+    "answer": "{\"id\":10002,\"item\":\"folder\",\"quantity\":3}",
+    "prediction": "The user wants me to extract an order from a given text and format it as JSON with specific keys: `id`, `item`, and `quantity`. The constraints are:\n1. Exactly these keys: `id`, `item`, `quantity`.\n2. `id` and `quantity` must be integers.\n3",
+    "correct": false,
+    "format_valid": false
+  },
+  {
+    "id": "extraction-test-5",
+    "prompt": "Extract the order as JSON with exactly the keys id, item, quantity. id and quantity are integers. No explanation.\nPlease ship 6 units of pencil; reference 10005.",
+    "answer": "{\"id\":10005,\"item\":\"pencil\",\"quantity\":6}",
+    "prediction": "The user wants to extract an order from a given text: \"Please ship 6 units of pencil; reference 10005.\"\n\nThey want the output in JSON format with exactly the keys id, item, quantity. The id should be integer, quantity integer. No explanation.\n\nWe need to parse the request: There",
+    "correct": false,
+    "format_valid": false
+  },
+  {
+    "id": "extraction-test-0",
+    "prompt": "Extract the order as JSON with exactly the keys id, item, quantity. id and quantity are integers. No explanation.\nPlease ship 1 units of notebook; reference 10000.",
+    "answer": "{\"id\":10000,\"item\":\"notebook\",\"quantity\":1}",
+    "prediction": "The user wants me to extract an order from a given text and format it as JSON with specific keys: `id`, `item`, and `quantity`. The constraints are:\n- Exactly these three keys.\n- `id` must be an integer.\n- `quantity` must be an integer.\n- No explanation in the",
+    "correct": false,
+    "format_valid": false
+  },
+  {
+    "id": "extraction-test-1",
+    "prompt": "Extract the order as JSON with exactly the keys id, item, quantity. id and quantity are integers. No explanation.\nPlease ship 2 units of pencil; reference 10001.",
+    "answer": "{\"id\":10001,\"item\":\"pencil\",\"quantity\":2}",
+    "prediction": "The user wants to extract an order from a given text: \"Please ship 2 units of pencil; reference 10001.\"\n\nThey want the output in JSON format with exactly the keys id, item, quantity. The id should be integer, quantity integer. No explanation.\n\nWe need to parse the request: There",
+    "correct": false,
+    "format_valid": false
+  }
+]

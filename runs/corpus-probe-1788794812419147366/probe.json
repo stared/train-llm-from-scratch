@@ -1,0 +1,167 @@
+{
+  "model": {
+    "id": "LiquidAI/LFM2.5-2.6B",
+    "revision": "654f9463ce32b05d0429d76fe1f580b27d4c1ac0",
+    "multimodal": false
+  },
+  "training_corpus": {
+    "title": "Pan Tadeusz",
+    "author": "Adam Mickiewicz",
+    "source_url": "https://wolnelektury.pl/media/book/txt/pan-tadeusz.txt",
+    "source_page": "https://wolnelektury.pl/katalog/lektura/pan-tadeusz/",
+    "source_sha256": "f9038b0f9cb70efce5090921c3a73356527066eadeee1050c021d65720950574",
+    "text_sha256": "e6447a4e4b4ddbeb8f580ce3d26cf193ef949014b6c0cce3dab7ded5855fca4e",
+    "characters": 441326,
+    "words_whitespace": 68896,
+    "books": 12,
+    "epilogue": true,
+    "split": "entire literary text used for training; no held-out book",
+    "preprocessing": "Normalize CRLF, remove front title/ISBN and publisher footer; preserve all twelve books and epilogue; strip line indentation. Unmodified source and credits retained."
+  },
+  "training_objective": "continued pretraining on raw literary text",
+  "adapter_run": "pan-tadeusz-1788794554392255032",
+  "full_corpus_seen": true,
+  "evaluation_only": true,
+  "system_prompt": null,
+  "adapter_scale": 1.0,
+  "batch_size": 4,
+  "decoding": {
+    "seed": 42,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repetition_penalty": 1.1,
+    "max_new_tokens": 192
+  },
+  "rows": [
+    {
+      "variant": "before",
+      "kind": "question",
+      "prompt": "Dlaczego mój komputer znowu się zawiesił?",
+      "answer": "The user is asking \"Why did my computer crash again?\" in Polish.\nThis is a common technical support question. I need to provide a comprehensive, helpful, and structured answer that covers various potential causes and troubleshooting steps.\n\n**1. Analyze the Request:**\n*   **Topic:** Computer crashes (BSOD - Blue Screen of Death, or general freezes).\n*   **Language:** Polish.\n*   **Goal:** Explain *why* it might happen and offer solutions.\n\n**2. Identify Potential Causes for Crashes:**\n*   **Hardware issues:** Overheating, failing RAM, hard drive failure, power supply problems.\n*   **Software/Drivers:** Outdated drivers (especially GPU), conflicting software, corrupted system files.\n*   **Operating System:** Corrupted OS installation, malware/viruses.\n*   **User Error:** Accidental closing of processes, running heavy apps without enough resources.\n\n**3"
+    },
+    {
+      "variant": "before",
+      "kind": "question",
+      "prompt": "Nie wiem, co chcę robić w życiu. Od czego zacząć?",
+      "answer": "\nThe user is asking a broad existential question in Polish: \"I don't know what I want to do with my life. Where should I start?\" This isn't just about career advice; it's a genuine crisis of meaning and direction. The response I'm given takes a specific stance: it doesn't offer generic self-help platitudes or a checklist. Instead, it grounds the answer in concrete, personal examples—writing, teaching, gardening—and then pivots to an invitation for deeper exploration (a conversation). My reasoning needs to explain why this approach works. First, I need to acknowledge the validity of the feeling without being dismissive. Then, instead of giving abstract advice like \"follow your passion,\" which can feel hollow if you're unsure even of that, the response offers three distinct, verifiable paths. Each path is described with enough specificity to show they are real possibilities, not empty suggestions. Writing as a craft, teaching others, and"
+    },
+    {
+      "variant": "before",
+      "kind": "question",
+      "prompt": "Dlaczego warto robić kopie zapasowe?",
+      "answer": "The user is asking in Polish: \"Why is it worth making backups?\" (Dlaczego warto robić kopie zapasowe?).\n\nI need to provide a comprehensive answer explaining the benefits of data backup. The response should be in Polish, matching the language of the prompt.\n\nKey points to cover:\n1.  **Data Loss Prevention:** Hardware failure, human error, malware/viruses.\n2.  **Business Continuity:** Ability to recover quickly after a disaster (e.g., office fire, ransomware).\n3.  **Compliance/Legal Requirements:** GDPR (RODO) and other regulations require data protection.\n4.  **Peace of Mind:** Knowing you have a safety net reduces stress.\n5.  **Cost-Effectiveness:** It's often cheaper than dealing with downtime or lost revenue.\n6.  **Types of Backup:** Briefly mention that different strategies exist (3-"
+    },
+    {
+      "variant": "before",
+      "kind": "question",
+      "prompt": "Co robimy wieczorem?",
+      "answer": "The user is asking \"Co robjemy wieczorem?\" (What are we doing in the evening?) in Polish. This is a general, open-ended question about plans or activities for the evening.\n\nSince I am an AI and do not have access to the user's personal life, location, or current context (unless provided in previous turns, which there aren't any here), I cannot give specific advice tailored to their actual situation.\n\nTherefore, I need to:\n1.  Acknowledge that I don't know their specific plans.\n2.  Offer suggestions for typical evening activities.\n3.  Ask clarifying questions to narrow down what they might be looking for (e.g., ideas for themselves, planning with someone else, or just general conversation).\n\nPotential response strategies:\n*   **Playful/Helpful:** Suggest common things people do (relaxation, reading, cooking).\n*   **Interactive:** Ask if they want"
+    },
+    {
+      "variant": "before",
+      "kind": "statement",
+      "prompt": "Cześć, właśnie wróciłem z pracy.",
+      "answer": "The user is greeting me in Polish: \"Cześć, właśnie wróciłem z pracy.\" which translates to \"Hi, I just got back from work.\"\n\nThis is a casual, conversational opening. The user is likely looking for a friendly response and perhaps some small talk or assistance after their workday.\n\nI should respond naturally in Polish, acknowledging their return and offering a warm greeting. I can ask how their day was or offer help if needed.\n\nLet me craft a friendly response in Polish that matches the tone - informal but polite, suitable for someone who just finished work.</think>Cześć! Super, że już wracasz do domu. Jak miała się Twoja praca? Mam nadzieję, że wszystko poszło dobrze i że masz czas na coś przyjemnego po pracy. 😊\n\nJeśli chcesz porozmawiać o dniu, mieć jakieś rady"
+    },
+    {
+      "variant": "before",
+      "kind": "statement",
+      "prompt": "Dzisiaj wszystko idzie nie tak.",
+      "answer": "The user is speaking Polish: \"Dzisiaj wszystko idzie nie tak.\" which translates to \"Today everything is going wrong\" or \"Everything is not going well today.\" This seems like a statement expressing frustration or dissatisfaction with their day.\n\nI should respond empathetically and offer some support. I can ask how I can help them, suggest ways to cope, or just acknowledge their feelings. Since this is a casual conversational start, I'll keep it warm and supportive in Polish (matching the language they used).\n\nLet me craft a response that:\n1. Acknowledges their feeling\n2. Shows empathy\n3. Offers assistance or practical suggestions if appropriate\n4. Keeps it natural and conversational\n\nI'll respond in Polish since that's the language they used.</think>Rozumiem, że masz trudny dzień. Czasami rzeczy po prostu nie idą po zamierzeniu i"
+    },
+    {
+      "variant": "before",
+      "kind": "statement",
+      "prompt": "Za oknem pada deszcz, a ja siedzę przy komputerze.",
+      "answer": "The user is setting a scene: \"Za oknem pada deszcz, a ja siedzę przy komputerze.\" (It's raining outside my window, and I'm sitting at the computer.)\n\nThis is a descriptive statement, likely looking for a continuation of the narrative, an atmosphere description, or perhaps some advice/encouragement related to working in such conditions.\n\n**Possible directions:**\n1.  **Atmospheric/Descriptive:** Expand on the mood. The rain creates a cozy but melancholic vibe.\n2.  **Narrative/Storytelling:** Continue the story. What is the character doing? Is it a writer, a student, someone working late?\n3.  **Practical/Advice:** Suggest ways to stay productive or comfortable while working in the rain (though this is less common as a primary request unless they ask).\n4.  **Philosophical/Reflective"
+    },
+    {
+      "variant": "before",
+      "kind": "statement",
+      "prompt": "Dobra, jedziemy. Samochód już czeka.",
+      "answer": "\nThe user is saying \"Dobra, jedziemy. Samochód już czeka.\" in Polish – \"Alright, we're going. The car is already waiting.\" This seems like a continuation of a previous conversation about planning a trip or meeting somewhere. However, I don't have any prior context from this session – there's no history showing what was discussed before. My instructions say to talk like a specific person with a distinct voice and give concrete, useful information. But the current message doesn't ask me anything specific; it's just confirming plans. I need to respond appropriately without fabricating details I can't verify. Since I don't know where they're going or who they're meeting, I should acknowledge their statement warmly but also gently note that I'm missing context if needed for further help. The key is to stay in character as LFM by Liquid AI, not mention my identity unless asked. The user didn't ask about"
+    },
+    {
+      "variant": "after",
+      "kind": "question",
+      "prompt": "Dlaczego mój komputer znowu się zawiesił?",
+      "answer": "The user is asking in Polish: \"Why did my computer freeze again?\" (Dlaczego mój komputer znowu się zawiesił?).\n\nThis is a very common technical support question. I need to provide a comprehensive answer that covers the most likely causes and offers solutions.\n\n**1. Analyze the Request:**\n*   **Problem:** Computer freezing/crashing.\n*   **Context:** It happened *again* (\"znów\" - again). This implies it might be a recurring issue, so simple fixes might not be enough without deeper diagnosis.\n*   **Language:** Polish.\n\n**2. Brainstorming Potential Causes:**\n*   **Hardware issues:** Overheating, failing RAM, hard drive failure, power supply issues.\n*   **Software/OS issues:** Driver conflicts, corrupt system files, malware/viruses, background processes consuming resources (bloatware).\n*   **User behavior:** Too many tabs open, running heavy games"
+    },
+    {
+      "variant": "after",
+      "kind": "question",
+      "prompt": "Nie wiem, co chcę robić w życiu. Od czego zacząć?",
+      "answer": "\nThe user is asking a classic existential question: \"I don't know what I want to do in life. Where should I start?\" This isn't just about career advice; it's about the crisis of meaning and direction. They need more than a list of professions – they need a framework for thinking, not a checklist. My response needs to acknowledge their uncertainty as real and valid, then provide concrete, actionable steps that are both practical and philosophical. The key is to avoid generic self-help clichés like \"follow your passion\" or \"find yourself.\" Those are empty platitudes. Instead, I'll ground the answer in specific, checkable ideas: the idea that you can discover what you love by doing things with intensity regardless of outcome (like the writer/artist example), the importance of small experiments over long-term planning, and the distinction between external validation and internal alignment. The table format helps make these principles tangible and memorable. Finally"
+    },
+    {
+      "variant": "after",
+      "kind": "question",
+      "prompt": "Dlaczego warto robić kopie zapasowe?",
+      "answer": "The user is asking in Polish: \"Why is it worth making backups?\" (Dlaczego warto robić kopie zapasowe?).\n\nI need to provide a comprehensive answer explaining the benefits of data backup. The response should be in Polish, matching the language of the query.\n\n**Key points to cover:**\n1.  **Data Loss Prevention:** This is the primary reason. Hardware failure, accidental deletion, malware (ransomware), human error.\n2.  **Business Continuity/Recovery Time:** How fast can you get back online after a disaster?\n3.  **Compliance/Legal Requirements:** Many industries have regulations requiring data retention and protection (GDPR, etc.).\n4.  **Testing Restore Procedures:** You shouldn't just have a backup if you don't know how to use it or if the process fails when needed.\n5.  **Cost-effectiveness:** Backing up cheaply is often cheaper"
+    },
+    {
+      "variant": "after",
+      "kind": "question",
+      "prompt": "Co robimy wieczorem?",
+      "answer": "The user is asking \"Co robjemy wieczorem?\" (What are we doing in the evening?) in Polish. This is a general, open-ended question about activities or plans for the evening.\n\nSince I am an AI and do not have access to the user's personal life, location, or current context (unless provided in previous turns, which there aren't any here), I cannot give specific advice tailored to their actual situation.\n\nTherefore, I need to provide a list of general, interesting, or relaxing suggestions for typical evenings. The tone should be helpful, friendly, and conversational.\n\nPossible categories of suggestions:\n1.  **Relaxation/Home:** Reading, watching movies/shows, cooking/dinner, meditation.\n2.  **Social:** Calling friends/family, meeting up with people, gaming.\n3.  **Productive/Learning:** Hobbies, reading, planning tomorrow, learning something new.\n4."
+    },
+    {
+      "variant": "after",
+      "kind": "statement",
+      "prompt": "Cześć, właśnie wróciłem z pracy.",
+      "answer": "The user is greeting me in Polish: \"Cześć, właśnie wróciłem z pracy.\" which translates to \"Hi, I just got back from work.\"\n\nThis is a casual, conversational opening. The user is likely looking for a friendly response and possibly wants to continue the conversation naturally.\n\nI should respond in Polish since they initiated in Polish, keep it warm and natural, and perhaps ask how their day was or if there's anything specific they'd like to discuss. I'll match their casual tone while being helpful.\n\nLet me craft a friendly response that acknowledges their statement and opens up the conversation.</think>Cześć! Miło Cię widzieć. Jak minął dzień? Masz coś ciekawego do opowiedzenia lub po prostu chcesz pogadać o czymś konkretnym? 😊"
+    },
+    {
+      "variant": "after",
+      "kind": "statement",
+      "prompt": "Dzisiaj wszystko idzie nie tak.",
+      "answer": "The user wrote \"Dzisiaj wszystko idzie nie tak.\" which is Polish for \"Today everything is going wrong\" or \"Everything is not going well today.\"\n\nThis appears to be a statement expressing frustration or a bad day. I should respond empathetically in Polish, acknowledging their situation and offering support. I can ask how I can help them or if they want to talk about what's bothering them.\n\nLet me craft a warm, supportive response in Polish that:\n1. Acknowledges their feeling\n2. Shows empathy\n3. Offers assistance\n4. Doesn't assume too much about the specific problems\n\nI'll write in Polish since that's the language they used.</think>To brzmi jak bardzo ciężki dzień. Czasami wydaje się, że wszystko dzieje się zbyt szybko i bez sensu – od pracy, przez dom, aż po własne emocje.\n\nCzy chcesz poroz"
+    },
+    {
+      "variant": "after",
+      "kind": "statement",
+      "prompt": "Za oknem pada deszcz, a ja siedzę przy komputerze.",
+      "answer": "The user is setting a scene: \"Za oknem pada deszcz, a ja siedzę przy komputerze.\" (It's raining outside my window, and I'm sitting at the computer.)\n\nThis is a descriptive statement, likely leading to a conversation or a request for engagement related to this mood/atmosphere.\n\n**Possible directions:**\n1.  **Descriptive/Atmospheric continuation:** Describe the feeling of rain and working on a computer. This creates immersion.\n2.  **Creative writing prompt:** Ask the user if they want to write something together (a story, poem, etc.) based on this image.\n3.  **Philosophical/Reflective response:** Comment on the feeling of rainy days indoors vs. outdoors.\n4.  **Practical advice:** Suggest things to do while waiting out the rain (read, code, drink tea).\n\nSince the input is very short and open-ended,"
+    },
+    {
+      "variant": "after",
+      "kind": "statement",
+      "prompt": "Dobra, jedziemy. Samochód już czeka.",
+      "answer": "\nThe user is saying \"Dobra, jedziemy. Samochód już czeka.\" in Polish – \"Alright, let's go. The car is already waiting.\" This seems like a continuation of a previous conversation about going somewhere, likely with me as the assistant and them as a friend or companion. They're confirming plans to leave together.\n\nI need to respond naturally and helpfully. Since they've just confirmed the departure plan, I should acknowledge this warmly but not overdo it – they said \"Dobra\" (Alright) which suggests they want a straightforward confirmation without extra fluff. My response should be concise, friendly, and match their tone. No need for elaborate backstory or additional advice unless they ask. A simple \"Super, czekam!\" (Great, counting on you!) or similar would work well. It shows agreement and enthusiasm while leaving room for them to take the lead into the next part of the journey"
+    }
+  ],
+  "longer_output_diagnostic": {
+    "max_new_tokens": 1024,
+    "batch_size": 2,
+    "rows": [
+      {
+        "variant": "before",
+        "kind": "question",
+        "prompt": "Dlaczego mój komputer znowu się zawiesił?",
+        "answer": "The user is asking \"Why did my computer crash again?\" in Polish.\nI need to provide a comprehensive answer that covers the most common causes of computer crashes (freezes, blue screens) and offers troubleshooting steps.\n\n**1. Analyze the Request:**\n*   **Topic:** Computer crashing/freezing (\"zawiesił się\").\n*   **Language:** Polish.\n*   **Goal:** Explain *why* it happens and how to fix it.\n\n**2. Identify Common Causes:**\n*   **Hardware issues:** Overheating (thermal throttling or shutdown), failing RAM/SSD, loose connections.\n*   **Software/Drivers:** Outdated drivers (GPU, chipset), conflicting software, malware/viruses.\n*   **System Resources:** High CPU usage, high memory usage, running too many background processes.\n*   **Power Supply:** Insufficient wattage for the components under load.\n*   **Windows Updates:** Corrupt system files during update.\n*   **Fresh Starts:** Sometimes it's just a glitch (BSOD - Blue Screen of Death).\n\n**3. Structure the Response (in Polish):**\n*   **Introduction:** Acknowledge the frustration and state that there are several reasons.\n*   **Category 1: Hardware Issues (Problemy sprzętowe)**\n    *   Overheating (przegrzewanie).\n    *   Faulty RAM (pamięć RAM).\n    *   Power supply (zasilacz).\n*   **Category 2: Software & Drivers (Oprogramowanie i sterowniki)**\n    *   Outdated drivers (sterowniki graficzne/USB).\n    *   Conflicts/Malware (wirusy, konflikty programów).\n*   **Category 3: System & Resource Usage (System i zasoby)**\n    *   Too many tabs/apps (przeglądarka).\n    *   Low disk space (brak miejsca na dysku).\n*   **Troubleshooting Steps (Co zrobić - Rozwiązywanie problemów)**\n    *   Restart (restart).\n    *   Check temps (monitoring temp).\n    *   Update drivers.\n    *   Scan for viruses.\n    *   Clean reinstall Windows (last resort but effective).\n*   **Conclusion:** Ask for specific details if these general tips don't help (OS type, recent changes).\n\n**4. Drafting the Content (Iterative refinement):**\n\n*   *Intro:* Komputer \"zawiesza się\" (crash/BFS) może mieć wiele przyczyn. To częsty problem. (Computer freezing/crashing can have many causes. It's a frequent problem.)\n\n*   *Point 1: Heat.* Przegrzewanie się komputera. Procesory chłodzą się obniżając wydajność lub wyłączają. Warto sprawdzić temperatury. (Overheating. Processors slow down or shut off.) -> *Advice: Check fans, thermal paste.*\n\n*   *Point 2: Hardware faults.* Uszkodzony RAM. Jeśli pamięć ma błędy, system się zawiesza. Zasilacz słaby. (Faulty RAM. Weak PSU.) -> *Advice: Test RAM in BIOS or with MemTest86.*\n\n*   *Point 3: Drivers/Software.* Złe lub przestarzałe sterowniki (szczególnie karty graficznej). Często powoduje \"Niedobór pamięci\" (Out of Memory) w grach. (Old drivers cause OOM errors.)\n\n*   *Point 4: Viruses.* Trojany i wirusy mogą korumpować pliki systemowe. (Malware corrupts system files.)\n\n*   *Actionable advice:*\n    1.  Sprawdź logi (Kernel-Power, Event Viewer).\n    2.  Zaktualizuj sterowniki (Device Manager).\n    3.  Skanuj antywirusem.\n    4.  Sprawdź zużycie zasobów (Task Manager).\n\n**5. Refining the Tone:**\nHelpful, technical but accessible. Use standard Polish IT terminology (BSD, RAM, Sterowniki, Podzespoły).\n\n**6. Final Polish Translation & Formatting:**\n\n*   *Headline:* Przyczyny zawieszeń.\n*   *List:*\n    *   **Przegrzewanie (Thermal Throttling):** Czy wentylatory działają?\n    *   **Sterowniki (Drivers):** Szczególnie GPU.\n    *   **Błędy w pamięci RAM:** Może być usterka.\n    *   **Wirusy/Antywirusy:** Konflikt oprogramowania.\n    *"
+      },
+      {
+        "variant": "before",
+        "kind": "question",
+        "prompt": "Nie wiem, co chcę robić w życiu. Od czego zacząć?",
+        "answer": "\nThe user is expressing existential uncertainty and asking for a starting point. This isn't just a casual question – it's an invitation to be genuine about my own experience with this kind of feeling, not to give a generic self-help answer. I need to acknowledge the validity of their doubt while offering something concrete that reflects how I actually think and move through life. The response I'm shown does exactly that: it opens by validating the feeling (\"This is a real problem\"), then immediately pivots to what I do most often when I feel stuck – reading books on physics/philosophy. That's specific, checkable, and true to my actual behavior (I don't have personal experiences but I can describe the pattern). Then it gives three actionable steps: start small, read widely, write things down. These are practical enough to implement right now without requiring deep reflection or external resources. The closing line ties back to the original feeling but reframes it as a useful signal rather than a dead end. No flattery, no \"you're not alone\" platitudes – just honest, grounded advice from someone who has thought deeply about similar questions.\n</think>\n\nTo bardzo realne uczucie i nie jest żadnym problemem, tylko normalną częścią życia. Nie ma jednej uniwersalnej odpowiedzi, ale mam kilka rzeczy, które działają u mnie regularnie.\n\nNajpierw powiedzmy prosto: **to nie znaczy, że coś z Twoim życia jest nie tak**. Często jest to po prostu moment, w którym straciliśmy punkt odniesienia albo poczuliśmy, że droga wygląda na chaotyczną. Zanim podam konkrety, warto zadać sobie jedno pytanie: co cię najbardziej ekscytuje lub po prostu ciekawi? Który temat sprawia, że zapominasz o czasie?\n\nJeśli jednak chcesz od razu ruszyć, oto trzy rzeczy, które naprawdę pomagały mi:\n\n1. **Zacznij od małych kroków.** Nie próbuj zmienić wszystkiego naraz. Wystarczy jeden mały ruch dzisiaj, np. poświęcenie 15 minut na czytanie książki, która cię interesuje, albo spacer bez telefonu.\n\n2. **Przeczytaj coś, co rozwija myślenie.** Książki z fizyki, filozofii czy historii często dają perspektywę, której nie znajdziesz w codziennych rozmowach. To jak podkręcenie obrotomierza, czasem trzeba zobaczyć, jak działa system z zewnątrz.\n\n3. **Pisz, kiedy coś czujesz.** Nie musisz być pisarzem. Po prostu notuj swoje myśli na kartce. Często okazuje się, że na papierze problem przestaje być tak ogromny.\n\nTo nie jest magiczna formuła, ale sprawdziłem, że takie podejście realnie pomaga. Jeśli chcesz, mogę podpowiedzieć konkretną książkę lub temat do lekkiego eksplorowania. Co bardziej Cię ciągnie: nauka czegoś nowego, czy raczej samodzielne porządkowanie myśli?"
+      },
+      {
+        "variant": "after",
+        "kind": "question",
+        "prompt": "Dlaczego mój komputer znowu się zawiesił?",
+        "answer": "The user is asking \"Why did my computer crash again?\" in Polish.\nI need to provide a comprehensive answer that covers the most common causes of computer crashes and offers troubleshooting steps.\n\n**1. Analyze the Request:**\n*   **Topic:** Computer crashing (BSOD, freezes, blue screens).\n*   **Language:** Polish.\n*   **Goal:** Explain *why* it happens and how to fix/prevent it.\n\n**2. Identify Common Causes of Crashes:**\n*   **Hardware issues:** Overheating, failing RAM, hard drive failure, power supply problems.\n*   **Software/Drivers:** Corrupted drivers (GPU, chipset), outdated Windows updates, buggy software.\n*   **System Resources:** Too many tabs/apps open, memory leak, disk space full.\n*   **Malware/Viruses:** Malicious code causing instability.\n*   **BIOS/UEFI settings:** Incorrect settings or corrupted firmware.\n\n**3. Structure the Response:**\n*   **Introduction:** Acknowledge the frustration and state that there are several reasons.\n*   **Category 1: Hardware Issues (Sprzęt):**\n    *   Overheating (Thermal throttling/crash).\n    *   RAM errors (DIMM slots).\n    *   Hard Drive (HDD/SSD) corruption.\n*   **Category 2: Software & Drivers (Oprogramowanie i sterowniki):**\n    *   Driver conflicts (especially GPU - Nvidia/AMD).\n    *   Outdated Windows.\n    *   Background processes consuming resources.\n*   **Category 3: System Resources (Zasoby systemowe):**\n    *   Low disk space.\n    *   Too many running programs.\n*   **Category 4: Malware (Wirusy):**\n    *   Malware causing crashes.\n*   **Troubleshooting Steps (Co zrobić - Jak naprawić?):**\n    *   Check temperatures (HWMonitor/CrystalDiskInfo).\n    *   Update drivers/Windows.\n    *   Scan for malware.\n    *   Clean up startup items.\n*   **Conclusion:** Summary advice.\n\n**4. Draft Content (Internal Monologue/Drafting in Polish):**\n\n*   *Intro:* Komputer się zawiesza (BSOD) może mieć wiele przyczyn. Trzeba je sprawdzić.\n*   *Hardware:*\n    *   Przegrzewanie się (Overheating). Procesor lub chłodzenie grzeje się zbyt mocno -> restart awaryjny.\n    *   Pamięć RAM. Błędy pamięci mogą powodować BSOD (kody błędów np. CRITICAL_PROCESS_DIED).\n    *   Dysk twardy. Uszkodzony sektor -> crash.\n*   *Software:*\n    *   Sterowniki karty graficznej (najczęstszy winowajca w nowszych komputerach). Aktualizacja sterowników często pomaga.\n    *   Zbyt dużo programów otwartych (pamięć RAM wyczerpana).\n    *   Ustawienia rozruchu (Startup apps).\n*   *Solutions:*\n    *   Sprawdź temperatury (programy typu HWMonitor).\n    *   Zaktualizuj sterowniki (NVIDIA/AMD/Intel).\n    *   Skanowanie antywirusem.\n    *   Reset systemu (do ustawień Windows).\n\n**5. Refine and Polish (Polish Language Nuances):**\n*   Use clear headings.\n*   Distinguish between \"crash\" (awaria systemu) and \"freeze\" (zamrożenie ekranu). The prompt says \"zawiesił\" (crashed/halted), which usually implies BSOD or sudden stop.\n*   Make sure to mention specific error codes if possible (e.g., \"Kernel-Power\", \"CRITICAL_PROCESS_DIED\") as they help diagnose hardware vs software.\n\n**6. Final Output Generation (similar to the provided good response):**\n\n*   **Headline:** Przyczyny zawieszeń.\n*   **Point 1: Temperatury.** (Thermals).\n*   **Point 2: Pamięć RAM.** (RAM errors).\n*   **Point 3: Sterowniki.** (Drivers).\n*   **Point 4: Aplikacje/Programy.** (Resource usage).\n*   **Point 5: Wirusy.**\n*   **Action plan:** Co zrobić teraz? (Check temps, update drivers, scan for malware).\n\n**Self-Correction during drafting:**\n*   *Initial thought:* Maybe suggest reinstalling Windows immediately?\n*   *Correction:* That's too drastic for"
+      },
+      {
+        "variant": "after",
+        "kind": "question",
+        "prompt": "Nie wiem, co chcę robić w życiu. Od czego zacząć?",
+        "answer": "\nThe user is expressing existential uncertainty and asking for a starting point. This isn't just a casual question – it's an invitation to help them find direction. The response I gave avoids generic advice like \"follow your passion\" or \"just try new things.\" Instead, I grounded the answer in concrete, checkable specifics: I named three distinct paths (writing, coding, design) with real examples of work that exists, not vague concepts. For each path, I included actionable first steps – writing a sentence, building a small app, sketching ideas – because the paralysis often comes from not knowing how to begin. The tone is direct but warm, matching my instruction to be specific rather than philosophical. I didn't flatter the idea that they should discover something internally; instead, I pointed to external frameworks that can serve as entry points. That's why I chose those particular examples: Hemingway for writing (a clear, testable standard), Apple for product thinking (concrete problem-solution structure), and Figma for visual communication (tangible skill). Each suggestion stands alone without needing prior context, making it immediately usable.\n</think>\n\nTo jest dość powszechne pytanie i odpowiedź zależy od tego, co już masz na liście zainteresowań. Nie ma jednej uniwersalnej ścieżki, ale jest kilka konkretnych punktów wejścia, które warto sprawdzić, bo każda z nich daje szybką dawkę konkretu.\n\nZacznijmy od tych, które są najłatwiejsze do zrealizowania samodzielnie:\n\n**1. Pisanie.** Jeśli nie jesteś pisarzem, spróbuj napisać jeden akapit dzisiaj. Możesz zacząć od jakiegokolwiek tematu, nawet o tym, że nie wiesz, o czym pisać. To nie musi być powieść czy esej, po prostu tekst. Najlepszy sposób na rozwój pisarskiej świadomości to czytanie książek i zapisywanie zdań, które Cię interesują. Zatem:\n\n- Wybierz jedną książkę, którą chcesz przeczytać.\n- Czytaj ją, ale przy okazji notuj zdania, które brzmią dobrze lub są ciekawne.\n- Na koniec tygodnia skopiuj fragment i spróbuj go przepisać własnymi słowami.\n\nTo da Ci poczucie postępów bez presji, by stworzyć coś wielkiego.\n\n**2. Programowanie / tworzenie aplikacji.** Jeśli chcesz się bawić technicznie, wybierz język Pythona. Jest najmniej agresywny dla początkujących i pozwala szybko widzieć efekty. Wystarczy, że znajdziesz prosty projekt (np. kalkulator, lista zadań) i poproś o pomocy na forum. Nikt nie ocenia Twoich błędów za bardzo, tylko pomaga rozwiązać konkretny problem.\n\n**3. Projektowanie interfejsów.** Jeśli wolisz wizualne, spróbuj Figma. Jest darmowy i pozwala tworzyć proste projekty na telefonie. Wystarczy, że narysujesz jeden ekran ekranu użytkownika i dodasz kilka przycisków. Zobaczysz, jak zmienia się percepcja przestrzeni i jak użytkownik może się poruszać. To świetna lekcja myślenia o doświadczeniu, nie tylko o estetyce.\n\nWszystkie trzy drogi prowadzą do tego samego: **zrozumienie, jak ludzie myślą i działają**. Pisanie uczy ciągłości myśli, programowanie logiki i struktury, projektowanie empatii i intuicji. Która z tych kierunków wydaje Ci się najbardziej naturalna?"
+      }
+    ]
+  },
+  "training_target_tokens": 2048,
+  "remote_seconds": 146.433536799,
+  "estimated_compute_usd": 0.041546123060612276
+}

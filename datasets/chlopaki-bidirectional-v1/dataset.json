@@ -1,0 +1,18 @@
+{
+  "style": "wit",
+  "languages": "pl",
+  "examples": 1270,
+  "source": "datasets/chlopaki.md",
+  "source_sha256": "54ccfa75fd8cacf0a9ba1a97438801a035f38f8069788aa026358a912c826e57",
+  "data_sha256": "3f691a2b920c6efa3cc0e2c4b922bbb1658de325baf69777bfb15f7b2799edd6",
+  "teacher": {
+    "id": "user-supplied datasets/chlopaki.md",
+    "revision": "54ccfa75fd8cacf0a9ba1a97438801a035f38f8069788aa026358a912c826e57"
+  },
+  "scenes": 71,
+  "turns": 706,
+  "unpaired_scenes": 9,
+  "validation_examples": 0,
+  "recipe": "All usable adjacent dialogue pairs, both forward and reverse, deduplicated. No authored comic examples mixed in. Scene headings/stage directions excluded; unlabelled continuations attached to previous speaker; source mistakes retained.",
+  "evaluation": "New ordinary Polish questions. No film-quotation holdout; all usable exchanges requested for training."
+}

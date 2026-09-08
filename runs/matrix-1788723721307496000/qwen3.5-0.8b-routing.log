@@ -1,0 +1,69 @@
+✓ Initialized. View run at 
+https://modal.com/apps/WORKSPACE/main/ap-REDACTED017
+✓ Created objects.
+├── 🔨 Created mount 
+│   modal_app.py
+├── 🔨 Created mount models.json
+├── 🔨 Created mount examples.py
+├── 🔨 Created mount finetune.py
+└── 🔨 Created function experiment.
+One L4; no retries; 600s remote timeout. Approximate requested compute ceiling: $0.16 plus startup/build/storage.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+[1ALoading weights:  42%|████▏     | 201/473 [00:00<00:00, 2002.80it/s]
+[1ALoading weights: 100%|██████████| 473/473 [00:00<00:00, 3322.03it/s]
+before {'correct': 0.25, 'format_valid': 0.75}
+{'step': 1, 'loss': 1.5272318124771118, 'seconds': 2.847703673999998}
+{'step': 11, 'loss': 0.0003089427091254038, 'seconds': 21.902768552999998}
+after {'correct': 0.625, 'format_valid': 1.0}
+
+[1ALoading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+[1ALoading weights:  47%|████▋     | 220/473 [00:00<00:00, 2194.84it/s]
+[1ALoading weights: 100%|██████████| 473/473 [00:00<00:00, 3308.55it/s]
+reloaded {'correct': 0.625, 'format_valid': 1.0}
+{
+  "model": "qwen3.5-0.8b",
+  "model_spec": {
+    "id": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "multimodal": true
+  },
+  "task": "routing",
+  "seed": 42,
+  "requested_steps": 20,
+  "completed_steps": 20,
+  "learning_rate": 0.0005,
+  "eval_size": 8,
+  "trainable_parameters": 319488,
+  "adapter_changed": true,
+  "reload_matches": true,
+  "baseline": {
+    "correct": 0.25,
+    "format_valid": 0.75
+  },
+  "after": {
+    "correct": 0.625,
+    "format_valid": 1.0
+  },
+  "reloaded": {
+    "correct": 0.625,
+    "format_valid": 1.0
+  },
+  "training_seconds": 38.998325664999996,
+  "total_seconds": 59.853597320000006,
+  "device": "NVIDIA L4",
+  "dtype": "torch.bfloat16",
+  "peak_vram_gb": 2.23666688,
+  "data_sha256": "4acbdbe29fdd2cb4026db939b660d208f3046ba9cafd7e8a8a67f382bf8ad9ec",
+  "versions": {
+    "torch": "2.14.0",
+    "transformers": "5.16.1",
+    "peft": "0.20.0",
+    "accelerate": "1.14.0"
+  }
+}
+Results: runs/qwen3.5-0.8b-routing-1788723826217777081; adapter: Modal volume model-training-workshop /runs/qwen3.5-0.8b-routing-1788723826217777081/adapter
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/WORKSPACE/main/ap-REDACTED017

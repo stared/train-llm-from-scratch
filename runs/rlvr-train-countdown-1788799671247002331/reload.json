@@ -1,0 +1,90 @@
+[
+  {
+    "id": "countdown-test-000",
+    "prompt": "Countdown puzzle: use the numbers [8, 10, 2] exactly once each to make 4. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "8 + 10 - 2",
+    "terminated": true,
+    "reward": 0.5115384615384615,
+    "success": false,
+    "valid_expression": true,
+    "uses_numbers": true,
+    "value": "16"
+  },
+  {
+    "id": "countdown-test-001",
+    "prompt": "Countdown puzzle: use the numbers [7, 6, 14] exactly once each to make 91. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "7 + 6 - 14",
+    "terminated": true,
+    "reward": 0.5016129032258064,
+    "success": false,
+    "valid_expression": true,
+    "uses_numbers": true,
+    "value": "-1"
+  },
+  {
+    "id": "countdown-test-002",
+    "prompt": "Countdown puzzle: use the numbers [8, 14, 7] exactly once each to make 119. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "8 + 14 - 7",
+    "terminated": true,
+    "reward": 0.5014285714285714,
+    "success": false,
+    "valid_expression": true,
+    "uses_numbers": true,
+    "value": "15"
+  },
+  {
+    "id": "countdown-test-003",
+    "prompt": "Countdown puzzle: use the numbers [10, 5, 6] exactly once each to make 40. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "10 + 5 - 6",
+    "terminated": true,
+    "reward": 0.5046875,
+    "success": false,
+    "valid_expression": true,
+    "uses_numbers": true,
+    "value": "9"
+  },
+  {
+    "id": "countdown-test-004",
+    "prompt": "Countdown puzzle: use the numbers [3, 10, 5] exactly once each to make 53. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "3 + 10 - 5",
+    "terminated": true,
+    "reward": 0.5032608695652174,
+    "success": false,
+    "valid_expression": true,
+    "uses_numbers": true,
+    "value": "8"
+  },
+  {
+    "id": "countdown-test-005",
+    "prompt": "Countdown puzzle: use the numbers [10, 5, 15] exactly once each to make 85. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "10 + 5 - 15",
+    "terminated": true,
+    "reward": 0.5017441860465116,
+    "success": false,
+    "valid_expression": true,
+    "uses_numbers": true,
+    "value": "0"
+  },
+  {
+    "id": "countdown-test-006",
+    "prompt": "Countdown puzzle: use the numbers [8, 13, 6] exactly once each to make 86. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "8 + 13 - 6",
+    "terminated": true,
+    "reward": 0.5020833333333333,
+    "success": false,
+    "valid_expression": true,
+    "uses_numbers": true,
+    "value": "15"
+  },
+  {
+    "id": "countdown-test-007",
+    "prompt": "Countdown puzzle: use the numbers [3, 6, 4] exactly once each to make 22. Allowed operations: + - * / and parentheses. Return ONLY the arithmetic expression. No equals sign, answer, code fence, or explanation.",
+    "text": "3 + 6 - 4",
+    "terminated": true,
+    "reward": 0.5083333333333333,
+    "success": false,
+    "valid_expression": true,
+    "uses_numbers": true,
+    "value": "5"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "new-pl-0",
+    "language": "pl",
+    "prompt": "Dlaczego mój komputer znowu się zawiesił?",
+    "answer": "Twój komputer to nie Ferrari, to stary rower, na którym próbujesz jeździć przez kosmos. Zanim znowu się zawiesi, zrestartuj go i zapomnij o tym, że masz być geniuszem. Czasem najpierw trzeba się zepsuć, żeby potem naprawić.",
+    "nonempty_lines": 1,
+    "words": 36,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "new-pl-1",
+    "language": "pl",
+    "prompt": "Kolega pożyczył ode mnie pieniądze i nie oddaje. Co mu powiedzieć?",
+    "answer": "Daj mu kartę z numerem konta i powiedz, że to tylko wstęp do wielkiej inwestycji w jego przyszłość. Jeśli nie wróci, to znaczy, że jego konto jest tak puste, że nawet wiatr nie ma gdzie się zatrzymać.",
+    "nonempty_lines": 1,
+    "words": 37,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "new-pl-2",
+    "language": "pl",
+    "prompt": "Nie wiem, co chcę robić w życiu. Od czego zacząć?",
+    "answer": "Zamiast szukać wielkiej misji, kup sobie najpierw dobrą kawę i otwórz notatnik. Wielkie plany to tylko wyśmienity sposób na zgniłe poczucie winy, więc zacznij od jednego małego kroku.",
+    "nonempty_lines": 1,
+    "words": 28,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "new-pl-3",
+    "language": "pl",
+    "prompt": "Szef chce, żebym pracował w sobotę. Jak mu odmówić?",
+    "answer": "Nie mów \"nie\", powiedz, że Twój mózg jest już w trybie awaryjnym i potrzebuje ładowania. Wtedy szef zrozumie, że to nie bunt, a konieczne serwisowanie Twojego sprzętu.",
+    "nonempty_lines": 1,
+    "words": 27,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "new-pl-4",
+    "language": "pl",
+    "prompt": "Kupiłem drogi sweter, a wszyscy się ze mnie śmieją. Co robić?",
+    "answer": "Niech ten sweter będzie Twoją zbroją przeciwko nudzie, a nie przedmiotem żartów. Gdy nikt nie chce się ubrać, Ty będziesz wyglądał jak król, który zapomniał, jak się ubierać.",
+    "nonempty_lines": 1,
+    "words": 28,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "new-pl-5",
+    "language": "pl",
+    "prompt": "Dlaczego warto robić kopie zapasowe?",
+    "answer": "Kopia to Twój cyfrowy portfel, gdy banki znikną z mapy. Bez niej Twój ciężki sprzęt to tylko drogi gruz w oczach. Zrób to teraz, zanim system zepsuje Ci dzień.",
+    "nonempty_lines": 1,
+    "words": 29,
+    "four_lines": false,
+    "style_shape": true
+  }
+]

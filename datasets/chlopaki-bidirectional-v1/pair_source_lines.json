@@ -1,0 +1,10220 @@
+{
+  "scene-0-pair-0-forward": {
+    "user_lines": [
+      7
+    ],
+    "assistant_lines": [
+      8
+    ]
+  },
+  "scene-0-pair-0-reverse": {
+    "user_lines": [
+      8
+    ],
+    "assistant_lines": [
+      7
+    ]
+  },
+  "scene-0-pair-1-forward": {
+    "user_lines": [
+      8
+    ],
+    "assistant_lines": [
+      9
+    ]
+  },
+  "scene-0-pair-1-reverse": {
+    "user_lines": [
+      9
+    ],
+    "assistant_lines": [
+      8
+    ]
+  },
+  "scene-0-pair-2-forward": {
+    "user_lines": [
+      9
+    ],
+    "assistant_lines": [
+      10
+    ]
+  },
+  "scene-0-pair-2-reverse": {
+    "user_lines": [
+      10
+    ],
+    "assistant_lines": [
+      9
+    ]
+  },
+  "scene-0-pair-3-forward": {
+    "user_lines": [
+      10
+    ],
+    "assistant_lines": [
+      11
+    ]
+  },
+  "scene-0-pair-3-reverse": {
+    "user_lines": [
+      11
+    ],
+    "assistant_lines": [
+      10
+    ]
+  },
+  "scene-0-pair-4-forward": {
+    "user_lines": [
+      11
+    ],
+    "assistant_lines": [
+      12
+    ]
+  },
+  "scene-0-pair-4-reverse": {
+    "user_lines": [
+      12
+    ],
+    "assistant_lines": [
+      11
+    ]
+  },
+  "scene-0-pair-5-forward": {
+    "user_lines": [
+      12
+    ],
+    "assistant_lines": [
+      13
+    ]
+  },
+  "scene-0-pair-5-reverse": {
+    "user_lines": [
+      13
+    ],
+    "assistant_lines": [
+      12
+    ]
+  },
+  "scene-0-pair-6-forward": {
+    "user_lines": [
+      13
+    ],
+    "assistant_lines": [
+      14
+    ]
+  },
+  "scene-0-pair-6-reverse": {
+    "user_lines": [
+      14
+    ],
+    "assistant_lines": [
+      13
+    ]
+  },
+  "scene-0-pair-7-forward": {
+    "user_lines": [
+      14
+    ],
+    "assistant_lines": [
+      15
+    ]
+  },
+  "scene-0-pair-7-reverse": {
+    "user_lines": [
+      15
+    ],
+    "assistant_lines": [
+      14
+    ]
+  },
+  "scene-0-pair-8-forward": {
+    "user_lines": [
+      15
+    ],
+    "assistant_lines": [
+      16
+    ]
+  },
+  "scene-0-pair-8-reverse": {
+    "user_lines": [
+      16
+    ],
+    "assistant_lines": [
+      15
+    ]
+  },
+  "scene-0-pair-9-forward": {
+    "user_lines": [
+      16
+    ],
+    "assistant_lines": [
+      17
+    ]
+  },
+  "scene-0-pair-9-reverse": {
+    "user_lines": [
+      17
+    ],
+    "assistant_lines": [
+      16
+    ]
+  },
+  "scene-1-pair-0-forward": {
+    "user_lines": [
+      20
+    ],
+    "assistant_lines": [
+      21
+    ]
+  },
+  "scene-1-pair-0-reverse": {
+    "user_lines": [
+      21
+    ],
+    "assistant_lines": [
+      20
+    ]
+  },
+  "scene-1-pair-1-forward": {
+    "user_lines": [
+      21
+    ],
+    "assistant_lines": [
+      22
+    ]
+  },
+  "scene-1-pair-1-reverse": {
+    "user_lines": [
+      22
+    ],
+    "assistant_lines": [
+      21
+    ]
+  },
+  "scene-1-pair-2-forward": {
+    "user_lines": [
+      22
+    ],
+    "assistant_lines": [
+      23
+    ]
+  },
+  "scene-1-pair-2-reverse": {
+    "user_lines": [
+      23
+    ],
+    "assistant_lines": [
+      22
+    ]
+  },
+  "scene-2-pair-0-forward": {
+    "user_lines": [
+      26
+    ],
+    "assistant_lines": [
+      27
+    ]
+  },
+  "scene-2-pair-0-reverse": {
+    "user_lines": [
+      27
+    ],
+    "assistant_lines": [
+      26
+    ]
+  },
+  "scene-2-pair-1-forward": {
+    "user_lines": [
+      27
+    ],
+    "assistant_lines": [
+      28
+    ]
+  },
+  "scene-2-pair-1-reverse": {
+    "user_lines": [
+      28
+    ],
+    "assistant_lines": [
+      27
+    ]
+  },
+  "scene-2-pair-2-forward": {
+    "user_lines": [
+      28
+    ],
+    "assistant_lines": [
+      29
+    ]
+  },
+  "scene-2-pair-2-reverse": {
+    "user_lines": [
+      29
+    ],
+    "assistant_lines": [
+      28
+    ]
+  },
+  "scene-2-pair-3-forward": {
+    "user_lines": [
+      29
+    ],
+    "assistant_lines": [
+      30
+    ]
+  },
+  "scene-2-pair-3-reverse": {
+    "user_lines": [
+      30
+    ],
+    "assistant_lines": [
+      29
+    ]
+  },
+  "scene-2-pair-4-forward": {
+    "user_lines": [
+      30
+    ],
+    "assistant_lines": [
+      31
+    ]
+  },
+  "scene-2-pair-4-reverse": {
+    "user_lines": [
+      31
+    ],
+    "assistant_lines": [
+      30
+    ]
+  },
+  "scene-2-pair-5-forward": {
+    "user_lines": [
+      31
+    ],
+    "assistant_lines": [
+      32
+    ]
+  },
+  "scene-2-pair-5-reverse": {
+    "user_lines": [
+      32
+    ],
+    "assistant_lines": [
+      31
+    ]
+  },
+  "scene-2-pair-6-forward": {
+    "user_lines": [
+      32
+    ],
+    "assistant_lines": [
+      33
+    ]
+  },
+  "scene-2-pair-6-reverse": {
+    "user_lines": [
+      33
+    ],
+    "assistant_lines": [
+      32
+    ]
+  },
+  "scene-2-pair-7-forward": {
+    "user_lines": [
+      33
+    ],
+    "assistant_lines": [
+      34,
+      36
+    ]
+  },
+  "scene-2-pair-7-reverse": {
+    "user_lines": [
+      34,
+      36
+    ],
+    "assistant_lines": [
+      33
+    ]
+  },
+  "scene-2-pair-8-forward": {
+    "user_lines": [
+      34,
+      36
+    ],
+    "assistant_lines": [
+      37
+    ]
+  },
+  "scene-2-pair-8-reverse": {
+    "user_lines": [
+      37
+    ],
+    "assistant_lines": [
+      34,
+      36
+    ]
+  },
+  "scene-2-pair-9-forward": {
+    "user_lines": [
+      37
+    ],
+    "assistant_lines": [
+      38
+    ]
+  },
+  "scene-2-pair-9-reverse": {
+    "user_lines": [
+      38
+    ],
+    "assistant_lines": [
+      37
+    ]
+  },
+  "scene-3-pair-0-forward": {
+    "user_lines": [
+      41
+    ],
+    "assistant_lines": [
+      42
+    ]
+  },
+  "scene-3-pair-0-reverse": {
+    "user_lines": [
+      42
+    ],
+    "assistant_lines": [
+      41
+    ]
+  },
+  "scene-3-pair-1-forward": {
+    "user_lines": [
+      42
+    ],
+    "assistant_lines": [
+      43
+    ]
+  },
+  "scene-3-pair-1-reverse": {
+    "user_lines": [
+      43
+    ],
+    "assistant_lines": [
+      42
+    ]
+  },
+  "scene-3-pair-2-forward": {
+    "user_lines": [
+      43
+    ],
+    "assistant_lines": [
+      44
+    ]
+  },
+  "scene-3-pair-2-reverse": {
+    "user_lines": [
+      44
+    ],
+    "assistant_lines": [
+      43
+    ]
+  },
+  "scene-3-pair-3-forward": {
+    "user_lines": [
+      44
+    ],
+    "assistant_lines": [
+      45
+    ]
+  },
+  "scene-3-pair-3-reverse": {
+    "user_lines": [
+      45
+    ],
+    "assistant_lines": [
+      44
+    ]
+  },
+  "scene-3-pair-4-forward": {
+    "user_lines": [
+      45
+    ],
+    "assistant_lines": [
+      46
+    ]
+  },
+  "scene-3-pair-4-reverse": {
+    "user_lines": [
+      46
+    ],
+    "assistant_lines": [
+      45
+    ]
+  },
+  "scene-3-pair-5-forward": {
+    "user_lines": [
+      46
+    ],
+    "assistant_lines": [
+      47
+    ]
+  },
+  "scene-3-pair-5-reverse": {
+    "user_lines": [
+      47
+    ],
+    "assistant_lines": [
+      46
+    ]
+  },
+  "scene-3-pair-6-forward": {
+    "user_lines": [
+      47
+    ],
+    "assistant_lines": [
+      48
+    ]
+  },
+  "scene-3-pair-6-reverse": {
+    "user_lines": [
+      48
+    ],
+    "assistant_lines": [
+      47
+    ]
+  },
+  "scene-3-pair-7-forward": {
+    "user_lines": [
+      48
+    ],
+    "assistant_lines": [
+      49
+    ]
+  },
+  "scene-3-pair-7-reverse": {
+    "user_lines": [
+      49
+    ],
+    "assistant_lines": [
+      48
+    ]
+  },
+  "scene-3-pair-8-forward": {
+    "user_lines": [
+      49
+    ],
+    "assistant_lines": [
+      50
+    ]
+  },
+  "scene-3-pair-8-reverse": {
+    "user_lines": [
+      50
+    ],
+    "assistant_lines": [
+      49
+    ]
+  },
+  "scene-3-pair-9-forward": {
+    "user_lines": [
+      50
+    ],
+    "assistant_lines": [
+      51
+    ]
+  },
+  "scene-3-pair-9-reverse": {
+    "user_lines": [
+      51
+    ],
+    "assistant_lines": [
+      50
+    ]
+  },
+  "scene-3-pair-10-forward": {
+    "user_lines": [
+      51
+    ],
+    "assistant_lines": [
+      52
+    ]
+  },
+  "scene-3-pair-10-reverse": {
+    "user_lines": [
+      52
+    ],
+    "assistant_lines": [
+      51
+    ]
+  },
+  "scene-4-pair-0-forward": {
+    "user_lines": [
+      55
+    ],
+    "assistant_lines": [
+      56
+    ]
+  },
+  "scene-4-pair-0-reverse": {
+    "user_lines": [
+      56
+    ],
+    "assistant_lines": [
+      55
+    ]
+  },
+  "scene-4-pair-1-forward": {
+    "user_lines": [
+      56
+    ],
+    "assistant_lines": [
+      57
+    ]
+  },
+  "scene-4-pair-1-reverse": {
+    "user_lines": [
+      57
+    ],
+    "assistant_lines": [
+      56
+    ]
+  },
+  "scene-4-pair-2-forward": {
+    "user_lines": [
+      57
+    ],
+    "assistant_lines": [
+      58
+    ]
+  },
+  "scene-4-pair-2-reverse": {
+    "user_lines": [
+      58
+    ],
+    "assistant_lines": [
+      57
+    ]
+  },
+  "scene-4-pair-3-forward": {
+    "user_lines": [
+      58
+    ],
+    "assistant_lines": [
+      59
+    ]
+  },
+  "scene-4-pair-3-reverse": {
+    "user_lines": [
+      59
+    ],
+    "assistant_lines": [
+      58
+    ]
+  },
+  "scene-5-pair-0-forward": {
+    "user_lines": [
+      65
+    ],
+    "assistant_lines": [
+      66
+    ]
+  },
+  "scene-5-pair-0-reverse": {
+    "user_lines": [
+      66
+    ],
+    "assistant_lines": [
+      65
+    ]
+  },
+  "scene-5-pair-1-forward": {
+    "user_lines": [
+      66
+    ],
+    "assistant_lines": [
+      67
+    ]
+  },
+  "scene-5-pair-1-reverse": {
+    "user_lines": [
+      67
+    ],
+    "assistant_lines": [
+      66
+    ]
+  },
+  "scene-5-pair-2-forward": {
+    "user_lines": [
+      67
+    ],
+    "assistant_lines": [
+      68
+    ]
+  },
+  "scene-5-pair-2-reverse": {
+    "user_lines": [
+      68
+    ],
+    "assistant_lines": [
+      67
+    ]
+  },
+  "scene-5-pair-3-forward": {
+    "user_lines": [
+      68
+    ],
+    "assistant_lines": [
+      69
+    ]
+  },
+  "scene-5-pair-3-reverse": {
+    "user_lines": [
+      69
+    ],
+    "assistant_lines": [
+      68
+    ]
+  },
+  "scene-6-pair-0-forward": {
+    "user_lines": [
+      72
+    ],
+    "assistant_lines": [
+      73
+    ]
+  },
+  "scene-6-pair-0-reverse": {
+    "user_lines": [
+      73
+    ],
+    "assistant_lines": [
+      72
+    ]
+  },
+  "scene-6-pair-1-forward": {
+    "user_lines": [
+      73
+    ],
+    "assistant_lines": [
+      74
+    ]
+  },
+  "scene-6-pair-1-reverse": {
+    "user_lines": [
+      74
+    ],
+    "assistant_lines": [
+      73
+    ]
+  },
+  "scene-6-pair-2-forward": {
+    "user_lines": [
+      74
+    ],
+    "assistant_lines": [
+      75
+    ]
+  },
+  "scene-6-pair-2-reverse": {
+    "user_lines": [
+      75
+    ],
+    "assistant_lines": [
+      74
+    ]
+  },
+  "scene-6-pair-3-forward": {
+    "user_lines": [
+      75
+    ],
+    "assistant_lines": [
+      76
+    ]
+  },
+  "scene-6-pair-3-reverse": {
+    "user_lines": [
+      76
+    ],
+    "assistant_lines": [
+      75
+    ]
+  },
+  "scene-6-pair-4-forward": {
+    "user_lines": [
+      76
+    ],
+    "assistant_lines": [
+      77
+    ]
+  },
+  "scene-6-pair-4-reverse": {
+    "user_lines": [
+      77
+    ],
+    "assistant_lines": [
+      76
+    ]
+  },
+  "scene-6-pair-5-forward": {
+    "user_lines": [
+      77
+    ],
+    "assistant_lines": [
+      78
+    ]
+  },
+  "scene-6-pair-5-reverse": {
+    "user_lines": [
+      78
+    ],
+    "assistant_lines": [
+      77
+    ]
+  },
+  "scene-6-pair-6-forward": {
+    "user_lines": [
+      78
+    ],
+    "assistant_lines": [
+      79
+    ]
+  },
+  "scene-6-pair-6-reverse": {
+    "user_lines": [
+      79
+    ],
+    "assistant_lines": [
+      78
+    ]
+  },
+  "scene-6-pair-7-forward": {
+    "user_lines": [
+      79
+    ],
+    "assistant_lines": [
+      80
+    ]
+  },
+  "scene-6-pair-7-reverse": {
+    "user_lines": [
+      80
+    ],
+    "assistant_lines": [
+      79
+    ]
+  },
+  "scene-6-pair-8-forward": {
+    "user_lines": [
+      80
+    ],
+    "assistant_lines": [
+      81
+    ]
+  },
+  "scene-6-pair-8-reverse": {
+    "user_lines": [
+      81
+    ],
+    "assistant_lines": [
+      80
+    ]
+  },
+  "scene-7-pair-0-forward": {
+    "user_lines": [
+      84
+    ],
+    "assistant_lines": [
+      85
+    ]
+  },
+  "scene-7-pair-0-reverse": {
+    "user_lines": [
+      85
+    ],
+    "assistant_lines": [
+      84
+    ]
+  },
+  "scene-7-pair-1-forward": {
+    "user_lines": [
+      85
+    ],
+    "assistant_lines": [
+      86
+    ]
+  },
+  "scene-7-pair-1-reverse": {
+    "user_lines": [
+      86
+    ],
+    "assistant_lines": [
+      85
+    ]
+  },
+  "scene-7-pair-2-forward": {
+    "user_lines": [
+      86
+    ],
+    "assistant_lines": [
+      87
+    ]
+  },
+  "scene-7-pair-2-reverse": {
+    "user_lines": [
+      87
+    ],
+    "assistant_lines": [
+      86
+    ]
+  },
+  "scene-7-pair-3-forward": {
+    "user_lines": [
+      87
+    ],
+    "assistant_lines": [
+      88
+    ]
+  },
+  "scene-7-pair-3-reverse": {
+    "user_lines": [
+      88
+    ],
+    "assistant_lines": [
+      87
+    ]
+  },
+  "scene-7-pair-4-forward": {
+    "user_lines": [
+      88
+    ],
+    "assistant_lines": [
+      89
+    ]
+  },
+  "scene-7-pair-4-reverse": {
+    "user_lines": [
+      89
+    ],
+    "assistant_lines": [
+      88
+    ]
+  },
+  "scene-7-pair-5-forward": {
+    "user_lines": [
+      89
+    ],
+    "assistant_lines": [
+      90
+    ]
+  },
+  "scene-7-pair-5-reverse": {
+    "user_lines": [
+      90
+    ],
+    "assistant_lines": [
+      89
+    ]
+  },
+  "scene-7-pair-6-forward": {
+    "user_lines": [
+      90
+    ],
+    "assistant_lines": [
+      91
+    ]
+  },
+  "scene-7-pair-6-reverse": {
+    "user_lines": [
+      91
+    ],
+    "assistant_lines": [
+      90
+    ]
+  },
+  "scene-7-pair-7-forward": {
+    "user_lines": [
+      91
+    ],
+    "assistant_lines": [
+      92
+    ]
+  },
+  "scene-7-pair-7-reverse": {
+    "user_lines": [
+      92
+    ],
+    "assistant_lines": [
+      91
+    ]
+  },
+  "scene-8-pair-0-forward": {
+    "user_lines": [
+      98
+    ],
+    "assistant_lines": [
+      99
+    ]
+  },
+  "scene-8-pair-0-reverse": {
+    "user_lines": [
+      99
+    ],
+    "assistant_lines": [
+      98
+    ]
+  },
+  "scene-8-pair-1-forward": {
+    "user_lines": [
+      99
+    ],
+    "assistant_lines": [
+      100
+    ]
+  },
+  "scene-8-pair-1-reverse": {
+    "user_lines": [
+      100
+    ],
+    "assistant_lines": [
+      99
+    ]
+  },
+  "scene-8-pair-2-forward": {
+    "user_lines": [
+      100
+    ],
+    "assistant_lines": [
+      101
+    ]
+  },
+  "scene-8-pair-2-reverse": {
+    "user_lines": [
+      101
+    ],
+    "assistant_lines": [
+      100
+    ]
+  },
+  "scene-8-pair-3-forward": {
+    "user_lines": [
+      101
+    ],
+    "assistant_lines": [
+      102
+    ]
+  },
+  "scene-8-pair-3-reverse": {
+    "user_lines": [
+      102
+    ],
+    "assistant_lines": [
+      101
+    ]
+  },
+  "scene-8-pair-4-forward": {
+    "user_lines": [
+      102
+    ],
+    "assistant_lines": [
+      103
+    ]
+  },
+  "scene-8-pair-4-reverse": {
+    "user_lines": [
+      103
+    ],
+    "assistant_lines": [
+      102
+    ]
+  },
+  "scene-8-pair-5-forward": {
+    "user_lines": [
+      103
+    ],
+    "assistant_lines": [
+      104
+    ]
+  },
+  "scene-8-pair-5-reverse": {
+    "user_lines": [
+      104
+    ],
+    "assistant_lines": [
+      103
+    ]
+  },
+  "scene-8-pair-6-forward": {
+    "user_lines": [
+      104
+    ],
+    "assistant_lines": [
+      105
+    ]
+  },
+  "scene-8-pair-6-reverse": {
+    "user_lines": [
+      105
+    ],
+    "assistant_lines": [
+      104
+    ]
+  },
+  "scene-8-pair-7-forward": {
+    "user_lines": [
+      105
+    ],
+    "assistant_lines": [
+      106
+    ]
+  },
+  "scene-8-pair-7-reverse": {
+    "user_lines": [
+      106
+    ],
+    "assistant_lines": [
+      105
+    ]
+  },
+  "scene-8-pair-8-forward": {
+    "user_lines": [
+      106
+    ],
+    "assistant_lines": [
+      107
+    ]
+  },
+  "scene-8-pair-8-reverse": {
+    "user_lines": [
+      107
+    ],
+    "assistant_lines": [
+      106
+    ]
+  },
+  "scene-8-pair-9-forward": {
+    "user_lines": [
+      107
+    ],
+    "assistant_lines": [
+      108
+    ]
+  },
+  "scene-8-pair-9-reverse": {
+    "user_lines": [
+      108
+    ],
+    "assistant_lines": [
+      107
+    ]
+  },
+  "scene-9-pair-0-forward": {
+    "user_lines": [
+      111
+    ],
+    "assistant_lines": [
+      112
+    ]
+  },
+  "scene-9-pair-0-reverse": {
+    "user_lines": [
+      112
+    ],
+    "assistant_lines": [
+      111
+    ]
+  },
+  "scene-9-pair-1-forward": {
+    "user_lines": [
+      112
+    ],
+    "assistant_lines": [
+      113
+    ]
+  },
+  "scene-9-pair-1-reverse": {
+    "user_lines": [
+      113
+    ],
+    "assistant_lines": [
+      112
+    ]
+  },
+  "scene-9-pair-2-forward": {
+    "user_lines": [
+      113
+    ],
+    "assistant_lines": [
+      114
+    ]
+  },
+  "scene-9-pair-2-reverse": {
+    "user_lines": [
+      114
+    ],
+    "assistant_lines": [
+      113
+    ]
+  },
+  "scene-9-pair-3-forward": {
+    "user_lines": [
+      114
+    ],
+    "assistant_lines": [
+      115
+    ]
+  },
+  "scene-9-pair-3-reverse": {
+    "user_lines": [
+      115
+    ],
+    "assistant_lines": [
+      114
+    ]
+  },
+  "scene-9-pair-4-forward": {
+    "user_lines": [
+      115
+    ],
+    "assistant_lines": [
+      116
+    ]
+  },
+  "scene-9-pair-4-reverse": {
+    "user_lines": [
+      116
+    ],
+    "assistant_lines": [
+      115
+    ]
+  },
+  "scene-9-pair-5-forward": {
+    "user_lines": [
+      116
+    ],
+    "assistant_lines": [
+      117
+    ]
+  },
+  "scene-9-pair-5-reverse": {
+    "user_lines": [
+      117
+    ],
+    "assistant_lines": [
+      116
+    ]
+  },
+  "scene-9-pair-6-forward": {
+    "user_lines": [
+      117
+    ],
+    "assistant_lines": [
+      118
+    ]
+  },
+  "scene-9-pair-6-reverse": {
+    "user_lines": [
+      118
+    ],
+    "assistant_lines": [
+      117
+    ]
+  },
+  "scene-9-pair-7-forward": {
+    "user_lines": [
+      118
+    ],
+    "assistant_lines": [
+      119
+    ]
+  },
+  "scene-9-pair-7-reverse": {
+    "user_lines": [
+      119
+    ],
+    "assistant_lines": [
+      118
+    ]
+  },
+  "scene-9-pair-8-forward": {
+    "user_lines": [
+      119
+    ],
+    "assistant_lines": [
+      121
+    ]
+  },
+  "scene-9-pair-8-reverse": {
+    "user_lines": [
+      121
+    ],
+    "assistant_lines": [
+      119
+    ]
+  },
+  "scene-9-pair-9-forward": {
+    "user_lines": [
+      121
+    ],
+    "assistant_lines": [
+      122
+    ]
+  },
+  "scene-9-pair-9-reverse": {
+    "user_lines": [
+      122
+    ],
+    "assistant_lines": [
+      121
+    ]
+  },
+  "scene-9-pair-10-forward": {
+    "user_lines": [
+      122
+    ],
+    "assistant_lines": [
+      123
+    ]
+  },
+  "scene-9-pair-10-reverse": {
+    "user_lines": [
+      123
+    ],
+    "assistant_lines": [
+      122
+    ]
+  },
+  "scene-9-pair-11-forward": {
+    "user_lines": [
+      123
+    ],
+    "assistant_lines": [
+      124
+    ]
+  },
+  "scene-9-pair-11-reverse": {
+    "user_lines": [
+      124
+    ],
+    "assistant_lines": [
+      123
+    ]
+  },
+  "scene-9-pair-12-forward": {
+    "user_lines": [
+      124
+    ],
+    "assistant_lines": [
+      126
+    ]
+  },
+  "scene-9-pair-12-reverse": {
+    "user_lines": [
+      126
+    ],
+    "assistant_lines": [
+      124
+    ]
+  },
+  "scene-9-pair-13-forward": {
+    "user_lines": [
+      126
+    ],
+    "assistant_lines": [
+      127
+    ]
+  },
+  "scene-9-pair-13-reverse": {
+    "user_lines": [
+      127
+    ],
+    "assistant_lines": [
+      126
+    ]
+  },
+  "scene-9-pair-14-forward": {
+    "user_lines": [
+      127
+    ],
+    "assistant_lines": [
+      128
+    ]
+  },
+  "scene-9-pair-14-reverse": {
+    "user_lines": [
+      128
+    ],
+    "assistant_lines": [
+      127
+    ]
+  },
+  "scene-9-pair-15-forward": {
+    "user_lines": [
+      128
+    ],
+    "assistant_lines": [
+      129
+    ]
+  },
+  "scene-9-pair-15-reverse": {
+    "user_lines": [
+      129
+    ],
+    "assistant_lines": [
+      128
+    ]
+  },
+  "scene-9-pair-16-forward": {
+    "user_lines": [
+      129
+    ],
+    "assistant_lines": [
+      130
+    ]
+  },
+  "scene-9-pair-16-reverse": {
+    "user_lines": [
+      130
+    ],
+    "assistant_lines": [
+      129
+    ]
+  },
+  "scene-9-pair-17-forward": {
+    "user_lines": [
+      130
+    ],
+    "assistant_lines": [
+      131
+    ]
+  },
+  "scene-9-pair-17-reverse": {
+    "user_lines": [
+      131
+    ],
+    "assistant_lines": [
+      130
+    ]
+  },
+  "scene-9-pair-18-forward": {
+    "user_lines": [
+      131
+    ],
+    "assistant_lines": [
+      132
+    ]
+  },
+  "scene-9-pair-18-reverse": {
+    "user_lines": [
+      132
+    ],
+    "assistant_lines": [
+      131
+    ]
+  },
+  "scene-10-pair-0-forward": {
+    "user_lines": [
+      135
+    ],
+    "assistant_lines": [
+      136
+    ]
+  },
+  "scene-10-pair-0-reverse": {
+    "user_lines": [
+      136
+    ],
+    "assistant_lines": [
+      135
+    ]
+  },
+  "scene-10-pair-1-forward": {
+    "user_lines": [
+      136
+    ],
+    "assistant_lines": [
+      137
+    ]
+  },
+  "scene-10-pair-1-reverse": {
+    "user_lines": [
+      137
+    ],
+    "assistant_lines": [
+      136
+    ]
+  },
+  "scene-10-pair-2-forward": {
+    "user_lines": [
+      137
+    ],
+    "assistant_lines": [
+      138
+    ]
+  },
+  "scene-10-pair-2-reverse": {
+    "user_lines": [
+      138
+    ],
+    "assistant_lines": [
+      137
+    ]
+  },
+  "scene-11-pair-0-forward": {
+    "user_lines": [
+      141
+    ],
+    "assistant_lines": [
+      142
+    ]
+  },
+  "scene-11-pair-0-reverse": {
+    "user_lines": [
+      142
+    ],
+    "assistant_lines": [
+      141
+    ]
+  },
+  "scene-11-pair-1-forward": {
+    "user_lines": [
+      142
+    ],
+    "assistant_lines": [
+      143
+    ]
+  },
+  "scene-11-pair-1-reverse": {
+    "user_lines": [
+      143
+    ],
+    "assistant_lines": [
+      142
+    ]
+  },
+  "scene-11-pair-2-forward": {
+    "user_lines": [
+      143
+    ],
+    "assistant_lines": [
+      144
+    ]
+  },
+  "scene-11-pair-2-reverse": {
+    "user_lines": [
+      144
+    ],
+    "assistant_lines": [
+      143
+    ]
+  },
+  "scene-11-pair-3-forward": {
+    "user_lines": [
+      144
+    ],
+    "assistant_lines": [
+      145
+    ]
+  },
+  "scene-11-pair-3-reverse": {
+    "user_lines": [
+      145
+    ],
+    "assistant_lines": [
+      144
+    ]
+  },
+  "scene-11-pair-4-forward": {
+    "user_lines": [
+      145
+    ],
+    "assistant_lines": [
+      146
+    ]
+  },
+  "scene-11-pair-4-reverse": {
+    "user_lines": [
+      146
+    ],
+    "assistant_lines": [
+      145
+    ]
+  },
+  "scene-11-pair-5-forward": {
+    "user_lines": [
+      146
+    ],
+    "assistant_lines": [
+      147
+    ]
+  },
+  "scene-11-pair-5-reverse": {
+    "user_lines": [
+      147
+    ],
+    "assistant_lines": [
+      146
+    ]
+  },
+  "scene-12-pair-0-forward": {
+    "user_lines": [
+      150
+    ],
+    "assistant_lines": [
+      151
+    ]
+  },
+  "scene-12-pair-0-reverse": {
+    "user_lines": [
+      151
+    ],
+    "assistant_lines": [
+      150
+    ]
+  },
+  "scene-12-pair-1-forward": {
+    "user_lines": [
+      151
+    ],
+    "assistant_lines": [
+      152
+    ]
+  },
+  "scene-12-pair-1-reverse": {
+    "user_lines": [
+      152
+    ],
+    "assistant_lines": [
+      151
+    ]
+  },
+  "scene-12-pair-2-forward": {
+    "user_lines": [
+      152
+    ],
+    "assistant_lines": [
+      153
+    ]
+  },
+  "scene-12-pair-2-reverse": {
+    "user_lines": [
+      153
+    ],
+    "assistant_lines": [
+      152
+    ]
+  },
+  "scene-13-pair-0-forward": {
+    "user_lines": [
+      156
+    ],
+    "assistant_lines": [
+      157
+    ]
+  },
+  "scene-13-pair-0-reverse": {
+    "user_lines": [
+      157
+    ],
+    "assistant_lines": [
+      156
+    ]
+  },
+  "scene-13-pair-1-forward": {
+    "user_lines": [
+      157
+    ],
+    "assistant_lines": [
+      158
+    ]
+  },
+  "scene-13-pair-1-reverse": {
+    "user_lines": [
+      158
+    ],
+    "assistant_lines": [
+      157
+    ]
+  },
+  "scene-13-pair-2-forward": {
+    "user_lines": [
+      158
+    ],
+    "assistant_lines": [
+      159
+    ]
+  },
+  "scene-13-pair-2-reverse": {
+    "user_lines": [
+      159
+    ],
+    "assistant_lines": [
+      158
+    ]
+  },
+  "scene-13-pair-3-forward": {
+    "user_lines": [
+      159
+    ],
+    "assistant_lines": [
+      160
+    ]
+  },
+  "scene-13-pair-3-reverse": {
+    "user_lines": [
+      160
+    ],
+    "assistant_lines": [
+      159
+    ]
+  },
+  "scene-13-pair-4-forward": {
+    "user_lines": [
+      160
+    ],
+    "assistant_lines": [
+      161
+    ]
+  },
+  "scene-13-pair-4-reverse": {
+    "user_lines": [
+      161
+    ],
+    "assistant_lines": [
+      160
+    ]
+  },
+  "scene-14-pair-0-forward": {
+    "user_lines": [
+      164,
+      166
+    ],
+    "assistant_lines": [
+      167
+    ]
+  },
+  "scene-14-pair-0-reverse": {
+    "user_lines": [
+      167
+    ],
+    "assistant_lines": [
+      164,
+      166
+    ]
+  },
+  "scene-14-pair-1-forward": {
+    "user_lines": [
+      167
+    ],
+    "assistant_lines": [
+      168
+    ]
+  },
+  "scene-14-pair-1-reverse": {
+    "user_lines": [
+      168
+    ],
+    "assistant_lines": [
+      167
+    ]
+  },
+  "scene-14-pair-2-forward": {
+    "user_lines": [
+      168
+    ],
+    "assistant_lines": [
+      169
+    ]
+  },
+  "scene-14-pair-2-reverse": {
+    "user_lines": [
+      169
+    ],
+    "assistant_lines": [
+      168
+    ]
+  },
+  "scene-15-pair-0-forward": {
+    "user_lines": [
+      172
+    ],
+    "assistant_lines": [
+      173
+    ]
+  },
+  "scene-15-pair-0-reverse": {
+    "user_lines": [
+      173
+    ],
+    "assistant_lines": [
+      172
+    ]
+  },
+  "scene-15-pair-1-forward": {
+    "user_lines": [
+      173
+    ],
+    "assistant_lines": [
+      174
+    ]
+  },
+  "scene-15-pair-1-reverse": {
+    "user_lines": [
+      174
+    ],
+    "assistant_lines": [
+      173
+    ]
+  },
+  "scene-15-pair-2-forward": {
+    "user_lines": [
+      174
+    ],
+    "assistant_lines": [
+      175
+    ]
+  },
+  "scene-15-pair-2-reverse": {
+    "user_lines": [
+      175
+    ],
+    "assistant_lines": [
+      174
+    ]
+  },
+  "scene-15-pair-3-forward": {
+    "user_lines": [
+      175
+    ],
+    "assistant_lines": [
+      176
+    ]
+  },
+  "scene-15-pair-3-reverse": {
+    "user_lines": [
+      176
+    ],
+    "assistant_lines": [
+      175
+    ]
+  },
+  "scene-15-pair-4-forward": {
+    "user_lines": [
+      176
+    ],
+    "assistant_lines": [
+      177
+    ]
+  },
+  "scene-15-pair-4-reverse": {
+    "user_lines": [
+      177
+    ],
+    "assistant_lines": [
+      176
+    ]
+  },
+  "scene-15-pair-5-forward": {
+    "user_lines": [
+      177
+    ],
+    "assistant_lines": [
+      178,
+      180
+    ]
+  },
+  "scene-15-pair-5-reverse": {
+    "user_lines": [
+      178,
+      180
+    ],
+    "assistant_lines": [
+      177
+    ]
+  },
+  "scene-15-pair-6-forward": {
+    "user_lines": [
+      178,
+      180
+    ],
+    "assistant_lines": [
+      181
+    ]
+  },
+  "scene-15-pair-6-reverse": {
+    "user_lines": [
+      181
+    ],
+    "assistant_lines": [
+      178,
+      180
+    ]
+  },
+  "scene-15-pair-7-forward": {
+    "user_lines": [
+      181
+    ],
+    "assistant_lines": [
+      182
+    ]
+  },
+  "scene-15-pair-7-reverse": {
+    "user_lines": [
+      182
+    ],
+    "assistant_lines": [
+      181
+    ]
+  },
+  "scene-15-pair-8-forward": {
+    "user_lines": [
+      182
+    ],
+    "assistant_lines": [
+      183
+    ]
+  },
+  "scene-15-pair-8-reverse": {
+    "user_lines": [
+      183
+    ],
+    "assistant_lines": [
+      182
+    ]
+  },
+  "scene-15-pair-9-forward": {
+    "user_lines": [
+      183
+    ],
+    "assistant_lines": [
+      184
+    ]
+  },
+  "scene-15-pair-9-reverse": {
+    "user_lines": [
+      184
+    ],
+    "assistant_lines": [
+      183
+    ]
+  },
+  "scene-15-pair-10-forward": {
+    "user_lines": [
+      184
+    ],
+    "assistant_lines": [
+      185
+    ]
+  },
+  "scene-15-pair-10-reverse": {
+    "user_lines": [
+      185
+    ],
+    "assistant_lines": [
+      184
+    ]
+  },
+  "scene-15-pair-11-forward": {
+    "user_lines": [
+      185
+    ],
+    "assistant_lines": [
+      187
+    ]
+  },
+  "scene-15-pair-11-reverse": {
+    "user_lines": [
+      187
+    ],
+    "assistant_lines": [
+      185
+    ]
+  },
+  "scene-15-pair-12-forward": {
+    "user_lines": [
+      187
+    ],
+    "assistant_lines": [
+      188
+    ]
+  },
+  "scene-15-pair-12-reverse": {
+    "user_lines": [
+      188
+    ],
+    "assistant_lines": [
+      187
+    ]
+  },
+  "scene-15-pair-13-forward": {
+    "user_lines": [
+      188
+    ],
+    "assistant_lines": [
+      189
+    ]
+  },
+  "scene-15-pair-13-reverse": {
+    "user_lines": [
+      189
+    ],
+    "assistant_lines": [
+      188
+    ]
+  },
+  "scene-15-pair-14-forward": {
+    "user_lines": [
+      189
+    ],
+    "assistant_lines": [
+      190
+    ]
+  },
+  "scene-15-pair-14-reverse": {
+    "user_lines": [
+      190
+    ],
+    "assistant_lines": [
+      189
+    ]
+  },
+  "scene-15-pair-15-forward": {
+    "user_lines": [
+      190
+    ],
+    "assistant_lines": [
+      191
+    ]
+  },
+  "scene-15-pair-15-reverse": {
+    "user_lines": [
+      191
+    ],
+    "assistant_lines": [
+      190
+    ]
+  },
+  "scene-15-pair-16-forward": {
+    "user_lines": [
+      191
+    ],
+    "assistant_lines": [
+      192
+    ]
+  },
+  "scene-15-pair-16-reverse": {
+    "user_lines": [
+      192
+    ],
+    "assistant_lines": [
+      191
+    ]
+  },
+  "scene-15-pair-17-forward": {
+    "user_lines": [
+      192
+    ],
+    "assistant_lines": [
+      193
+    ]
+  },
+  "scene-15-pair-17-reverse": {
+    "user_lines": [
+      193
+    ],
+    "assistant_lines": [
+      192
+    ]
+  },
+  "scene-15-pair-18-forward": {
+    "user_lines": [
+      193
+    ],
+    "assistant_lines": [
+      194
+    ]
+  },
+  "scene-15-pair-18-reverse": {
+    "user_lines": [
+      194
+    ],
+    "assistant_lines": [
+      193
+    ]
+  },
+  "scene-15-pair-19-forward": {
+    "user_lines": [
+      194
+    ],
+    "assistant_lines": [
+      195
+    ]
+  },
+  "scene-15-pair-19-reverse": {
+    "user_lines": [
+      195
+    ],
+    "assistant_lines": [
+      194
+    ]
+  },
+  "scene-15-pair-20-forward": {
+    "user_lines": [
+      195
+    ],
+    "assistant_lines": [
+      196
+    ]
+  },
+  "scene-15-pair-20-reverse": {
+    "user_lines": [
+      196
+    ],
+    "assistant_lines": [
+      195
+    ]
+  },
+  "scene-15-pair-21-forward": {
+    "user_lines": [
+      196
+    ],
+    "assistant_lines": [
+      197
+    ]
+  },
+  "scene-15-pair-21-reverse": {
+    "user_lines": [
+      197
+    ],
+    "assistant_lines": [
+      196
+    ]
+  },
+  "scene-16-pair-0-forward": {
+    "user_lines": [
+      200
+    ],
+    "assistant_lines": [
+      201
+    ]
+  },
+  "scene-16-pair-0-reverse": {
+    "user_lines": [
+      201
+    ],
+    "assistant_lines": [
+      200
+    ]
+  },
+  "scene-16-pair-1-forward": {
+    "user_lines": [
+      201
+    ],
+    "assistant_lines": [
+      202
+    ]
+  },
+  "scene-16-pair-1-reverse": {
+    "user_lines": [
+      202
+    ],
+    "assistant_lines": [
+      201
+    ]
+  },
+  "scene-16-pair-2-forward": {
+    "user_lines": [
+      202
+    ],
+    "assistant_lines": [
+      203
+    ]
+  },
+  "scene-16-pair-2-reverse": {
+    "user_lines": [
+      203
+    ],
+    "assistant_lines": [
+      202
+    ]
+  },
+  "scene-17-pair-0-forward": {
+    "user_lines": [
+      206
+    ],
+    "assistant_lines": [
+      207
+    ]
+  },
+  "scene-17-pair-0-reverse": {
+    "user_lines": [
+      207
+    ],
+    "assistant_lines": [
+      206
+    ]
+  },
+  "scene-17-pair-1-forward": {
+    "user_lines": [
+      207
+    ],
+    "assistant_lines": [
+      208
+    ]
+  },
+  "scene-17-pair-1-reverse": {
+    "user_lines": [
+      208
+    ],
+    "assistant_lines": [
+      207
+    ]
+  },
+  "scene-17-pair-2-forward": {
+    "user_lines": [
+      208
+    ],
+    "assistant_lines": [
+      209
+    ]
+  },
+  "scene-17-pair-2-reverse": {
+    "user_lines": [
+      209
+    ],
+    "assistant_lines": [
+      208
+    ]
+  },
+  "scene-17-pair-3-forward": {
+    "user_lines": [
+      209
+    ],
+    "assistant_lines": [
+      210
+    ]
+  },
+  "scene-17-pair-3-reverse": {
+    "user_lines": [
+      210
+    ],
+    "assistant_lines": [
+      209
+    ]
+  },
+  "scene-17-pair-4-forward": {
+    "user_lines": [
+      210
+    ],
+    "assistant_lines": [
+      211
+    ]
+  },
+  "scene-17-pair-4-reverse": {
+    "user_lines": [
+      211
+    ],
+    "assistant_lines": [
+      210
+    ]
+  },
+  "scene-17-pair-5-forward": {
+    "user_lines": [
+      211
+    ],
+    "assistant_lines": [
+      212
+    ]
+  },
+  "scene-17-pair-5-reverse": {
+    "user_lines": [
+      212
+    ],
+    "assistant_lines": [
+      211
+    ]
+  },
+  "scene-17-pair-6-forward": {
+    "user_lines": [
+      212
+    ],
+    "assistant_lines": [
+      213
+    ]
+  },
+  "scene-17-pair-6-reverse": {
+    "user_lines": [
+      213
+    ],
+    "assistant_lines": [
+      212
+    ]
+  },
+  "scene-17-pair-7-forward": {
+    "user_lines": [
+      213
+    ],
+    "assistant_lines": [
+      214
+    ]
+  },
+  "scene-17-pair-7-reverse": {
+    "user_lines": [
+      214
+    ],
+    "assistant_lines": [
+      213
+    ]
+  },
+  "scene-17-pair-8-forward": {
+    "user_lines": [
+      214
+    ],
+    "assistant_lines": [
+      215
+    ]
+  },
+  "scene-17-pair-8-reverse": {
+    "user_lines": [
+      215
+    ],
+    "assistant_lines": [
+      214
+    ]
+  },
+  "scene-17-pair-9-forward": {
+    "user_lines": [
+      215
+    ],
+    "assistant_lines": [
+      216
+    ]
+  },
+  "scene-17-pair-9-reverse": {
+    "user_lines": [
+      216
+    ],
+    "assistant_lines": [
+      215
+    ]
+  },
+  "scene-17-pair-10-forward": {
+    "user_lines": [
+      216
+    ],
+    "assistant_lines": [
+      217
+    ]
+  },
+  "scene-17-pair-10-reverse": {
+    "user_lines": [
+      217
+    ],
+    "assistant_lines": [
+      216
+    ]
+  },
+  "scene-17-pair-11-forward": {
+    "user_lines": [
+      217
+    ],
+    "assistant_lines": [
+      218
+    ]
+  },
+  "scene-17-pair-11-reverse": {
+    "user_lines": [
+      218
+    ],
+    "assistant_lines": [
+      217
+    ]
+  },
+  "scene-17-pair-12-forward": {
+    "user_lines": [
+      218
+    ],
+    "assistant_lines": [
+      219
+    ]
+  },
+  "scene-17-pair-12-reverse": {
+    "user_lines": [
+      219
+    ],
+    "assistant_lines": [
+      218
+    ]
+  },
+  "scene-17-pair-13-forward": {
+    "user_lines": [
+      219
+    ],
+    "assistant_lines": [
+      220
+    ]
+  },
+  "scene-17-pair-13-reverse": {
+    "user_lines": [
+      220
+    ],
+    "assistant_lines": [
+      219
+    ]
+  },
+  "scene-17-pair-14-forward": {
+    "user_lines": [
+      220
+    ],
+    "assistant_lines": [
+      221
+    ]
+  },
+  "scene-17-pair-14-reverse": {
+    "user_lines": [
+      221
+    ],
+    "assistant_lines": [
+      220
+    ]
+  },
+  "scene-17-pair-15-forward": {
+    "user_lines": [
+      221
+    ],
+    "assistant_lines": [
+      222
+    ]
+  },
+  "scene-17-pair-15-reverse": {
+    "user_lines": [
+      222
+    ],
+    "assistant_lines": [
+      221
+    ]
+  },
+  "scene-18-pair-0-forward": {
+    "user_lines": [
+      225
+    ],
+    "assistant_lines": [
+      226
+    ]
+  },
+  "scene-18-pair-0-reverse": {
+    "user_lines": [
+      226
+    ],
+    "assistant_lines": [
+      225
+    ]
+  },
+  "scene-18-pair-1-forward": {
+    "user_lines": [
+      226
+    ],
+    "assistant_lines": [
+      227
+    ]
+  },
+  "scene-18-pair-1-reverse": {
+    "user_lines": [
+      227
+    ],
+    "assistant_lines": [
+      226
+    ]
+  },
+  "scene-19-pair-0-forward": {
+    "user_lines": [
+      230
+    ],
+    "assistant_lines": [
+      231
+    ]
+  },
+  "scene-19-pair-0-reverse": {
+    "user_lines": [
+      231
+    ],
+    "assistant_lines": [
+      230
+    ]
+  },
+  "scene-19-pair-1-forward": {
+    "user_lines": [
+      231
+    ],
+    "assistant_lines": [
+      232
+    ]
+  },
+  "scene-19-pair-1-reverse": {
+    "user_lines": [
+      232
+    ],
+    "assistant_lines": [
+      231
+    ]
+  },
+  "scene-19-pair-2-forward": {
+    "user_lines": [
+      232
+    ],
+    "assistant_lines": [
+      233,
+      235
+    ]
+  },
+  "scene-19-pair-2-reverse": {
+    "user_lines": [
+      233,
+      235
+    ],
+    "assistant_lines": [
+      232
+    ]
+  },
+  "scene-19-pair-3-forward": {
+    "user_lines": [
+      233,
+      235
+    ],
+    "assistant_lines": [
+      236
+    ]
+  },
+  "scene-19-pair-3-reverse": {
+    "user_lines": [
+      236
+    ],
+    "assistant_lines": [
+      233,
+      235
+    ]
+  },
+  "scene-20-pair-0-forward": {
+    "user_lines": [
+      240
+    ],
+    "assistant_lines": [
+      241
+    ]
+  },
+  "scene-20-pair-0-reverse": {
+    "user_lines": [
+      241
+    ],
+    "assistant_lines": [
+      240
+    ]
+  },
+  "scene-20-pair-1-forward": {
+    "user_lines": [
+      241
+    ],
+    "assistant_lines": [
+      242
+    ]
+  },
+  "scene-20-pair-1-reverse": {
+    "user_lines": [
+      242
+    ],
+    "assistant_lines": [
+      241
+    ]
+  },
+  "scene-20-pair-2-forward": {
+    "user_lines": [
+      242
+    ],
+    "assistant_lines": [
+      243
+    ]
+  },
+  "scene-20-pair-2-reverse": {
+    "user_lines": [
+      243
+    ],
+    "assistant_lines": [
+      242
+    ]
+  },
+  "scene-20-pair-3-forward": {
+    "user_lines": [
+      243
+    ],
+    "assistant_lines": [
+      244
+    ]
+  },
+  "scene-20-pair-3-reverse": {
+    "user_lines": [
+      244
+    ],
+    "assistant_lines": [
+      243
+    ]
+  },
+  "scene-20-pair-4-forward": {
+    "user_lines": [
+      244
+    ],
+    "assistant_lines": [
+      245
+    ]
+  },
+  "scene-20-pair-4-reverse": {
+    "user_lines": [
+      245
+    ],
+    "assistant_lines": [
+      244
+    ]
+  },
+  "scene-20-pair-5-forward": {
+    "user_lines": [
+      245
+    ],
+    "assistant_lines": [
+      246
+    ]
+  },
+  "scene-20-pair-5-reverse": {
+    "user_lines": [
+      246
+    ],
+    "assistant_lines": [
+      245
+    ]
+  },
+  "scene-20-pair-6-forward": {
+    "user_lines": [
+      246
+    ],
+    "assistant_lines": [
+      247
+    ]
+  },
+  "scene-20-pair-6-reverse": {
+    "user_lines": [
+      247
+    ],
+    "assistant_lines": [
+      246
+    ]
+  },
+  "scene-20-pair-7-forward": {
+    "user_lines": [
+      247
+    ],
+    "assistant_lines": [
+      248
+    ]
+  },
+  "scene-20-pair-7-reverse": {
+    "user_lines": [
+      248
+    ],
+    "assistant_lines": [
+      247
+    ]
+  },
+  "scene-20-pair-8-forward": {
+    "user_lines": [
+      248
+    ],
+    "assistant_lines": [
+      249
+    ]
+  },
+  "scene-20-pair-8-reverse": {
+    "user_lines": [
+      249
+    ],
+    "assistant_lines": [
+      248
+    ]
+  },
+  "scene-20-pair-9-forward": {
+    "user_lines": [
+      249
+    ],
+    "assistant_lines": [
+      250
+    ]
+  },
+  "scene-20-pair-9-reverse": {
+    "user_lines": [
+      250
+    ],
+    "assistant_lines": [
+      249
+    ]
+  },
+  "scene-20-pair-10-forward": {
+    "user_lines": [
+      250
+    ],
+    "assistant_lines": [
+      251
+    ]
+  },
+  "scene-20-pair-10-reverse": {
+    "user_lines": [
+      251
+    ],
+    "assistant_lines": [
+      250
+    ]
+  },
+  "scene-20-pair-11-forward": {
+    "user_lines": [
+      251
+    ],
+    "assistant_lines": [
+      252
+    ]
+  },
+  "scene-20-pair-11-reverse": {
+    "user_lines": [
+      252
+    ],
+    "assistant_lines": [
+      251
+    ]
+  },
+  "scene-20-pair-12-forward": {
+    "user_lines": [
+      252
+    ],
+    "assistant_lines": [
+      254
+    ]
+  },
+  "scene-20-pair-12-reverse": {
+    "user_lines": [
+      254
+    ],
+    "assistant_lines": [
+      252
+    ]
+  },
+  "scene-20-pair-13-forward": {
+    "user_lines": [
+      254
+    ],
+    "assistant_lines": [
+      255
+    ]
+  },
+  "scene-20-pair-13-reverse": {
+    "user_lines": [
+      255
+    ],
+    "assistant_lines": [
+      254
+    ]
+  },
+  "scene-20-pair-14-forward": {
+    "user_lines": [
+      255
+    ],
+    "assistant_lines": [
+      256
+    ]
+  },
+  "scene-20-pair-14-reverse": {
+    "user_lines": [
+      256
+    ],
+    "assistant_lines": [
+      255
+    ]
+  },
+  "scene-20-pair-15-forward": {
+    "user_lines": [
+      256
+    ],
+    "assistant_lines": [
+      257
+    ]
+  },
+  "scene-20-pair-15-reverse": {
+    "user_lines": [
+      257
+    ],
+    "assistant_lines": [
+      256
+    ]
+  },
+  "scene-20-pair-16-forward": {
+    "user_lines": [
+      257
+    ],
+    "assistant_lines": [
+      259
+    ]
+  },
+  "scene-20-pair-16-reverse": {
+    "user_lines": [
+      259
+    ],
+    "assistant_lines": [
+      257
+    ]
+  },
+  "scene-20-pair-17-forward": {
+    "user_lines": [
+      259
+    ],
+    "assistant_lines": [
+      260
+    ]
+  },
+  "scene-20-pair-17-reverse": {
+    "user_lines": [
+      260
+    ],
+    "assistant_lines": [
+      259
+    ]
+  },
+  "scene-20-pair-18-forward": {
+    "user_lines": [
+      260
+    ],
+    "assistant_lines": [
+      261
+    ]
+  },
+  "scene-20-pair-18-reverse": {
+    "user_lines": [
+      261
+    ],
+    "assistant_lines": [
+      260
+    ]
+  },
+  "scene-20-pair-19-forward": {
+    "user_lines": [
+      261
+    ],
+    "assistant_lines": [
+      262
+    ]
+  },
+  "scene-20-pair-19-reverse": {
+    "user_lines": [
+      262
+    ],
+    "assistant_lines": [
+      261
+    ]
+  },
+  "scene-20-pair-20-forward": {
+    "user_lines": [
+      262
+    ],
+    "assistant_lines": [
+      263
+    ]
+  },
+  "scene-20-pair-20-reverse": {
+    "user_lines": [
+      263
+    ],
+    "assistant_lines": [
+      262
+    ]
+  },
+  "scene-20-pair-21-forward": {
+    "user_lines": [
+      263
+    ],
+    "assistant_lines": [
+      264
+    ]
+  },
+  "scene-20-pair-21-reverse": {
+    "user_lines": [
+      264
+    ],
+    "assistant_lines": [
+      263
+    ]
+  },
+  "scene-20-pair-22-forward": {
+    "user_lines": [
+      264
+    ],
+    "assistant_lines": [
+      265
+    ]
+  },
+  "scene-20-pair-22-reverse": {
+    "user_lines": [
+      265
+    ],
+    "assistant_lines": [
+      264
+    ]
+  },
+  "scene-20-pair-23-forward": {
+    "user_lines": [
+      265
+    ],
+    "assistant_lines": [
+      267
+    ]
+  },
+  "scene-20-pair-23-reverse": {
+    "user_lines": [
+      267
+    ],
+    "assistant_lines": [
+      265
+    ]
+  },
+  "scene-20-pair-24-forward": {
+    "user_lines": [
+      267
+    ],
+    "assistant_lines": [
+      268
+    ]
+  },
+  "scene-20-pair-24-reverse": {
+    "user_lines": [
+      268
+    ],
+    "assistant_lines": [
+      267
+    ]
+  },
+  "scene-21-pair-0-forward": {
+    "user_lines": [
+      272
+    ],
+    "assistant_lines": [
+      273
+    ]
+  },
+  "scene-21-pair-0-reverse": {
+    "user_lines": [
+      273
+    ],
+    "assistant_lines": [
+      272
+    ]
+  },
+  "scene-21-pair-1-forward": {
+    "user_lines": [
+      273
+    ],
+    "assistant_lines": [
+      274
+    ]
+  },
+  "scene-21-pair-1-reverse": {
+    "user_lines": [
+      274
+    ],
+    "assistant_lines": [
+      273
+    ]
+  },
+  "scene-21-pair-2-forward": {
+    "user_lines": [
+      274
+    ],
+    "assistant_lines": [
+      276
+    ]
+  },
+  "scene-21-pair-2-reverse": {
+    "user_lines": [
+      276
+    ],
+    "assistant_lines": [
+      274
+    ]
+  },
+  "scene-21-pair-3-forward": {
+    "user_lines": [
+      276
+    ],
+    "assistant_lines": [
+      277
+    ]
+  },
+  "scene-21-pair-3-reverse": {
+    "user_lines": [
+      277
+    ],
+    "assistant_lines": [
+      276
+    ]
+  },
+  "scene-21-pair-4-forward": {
+    "user_lines": [
+      277
+    ],
+    "assistant_lines": [
+      278
+    ]
+  },
+  "scene-21-pair-4-reverse": {
+    "user_lines": [
+      278
+    ],
+    "assistant_lines": [
+      277
+    ]
+  },
+  "scene-21-pair-5-forward": {
+    "user_lines": [
+      278
+    ],
+    "assistant_lines": [
+      279
+    ]
+  },
+  "scene-21-pair-5-reverse": {
+    "user_lines": [
+      279
+    ],
+    "assistant_lines": [
+      278
+    ]
+  },
+  "scene-21-pair-6-forward": {
+    "user_lines": [
+      279
+    ],
+    "assistant_lines": [
+      280
+    ]
+  },
+  "scene-21-pair-6-reverse": {
+    "user_lines": [
+      280
+    ],
+    "assistant_lines": [
+      279
+    ]
+  },
+  "scene-21-pair-7-forward": {
+    "user_lines": [
+      280
+    ],
+    "assistant_lines": [
+      281,
+      282
+    ]
+  },
+  "scene-21-pair-7-reverse": {
+    "user_lines": [
+      281,
+      282
+    ],
+    "assistant_lines": [
+      280
+    ]
+  },
+  "scene-21-pair-8-forward": {
+    "user_lines": [
+      281,
+      282
+    ],
+    "assistant_lines": [
+      283
+    ]
+  },
+  "scene-21-pair-8-reverse": {
+    "user_lines": [
+      283
+    ],
+    "assistant_lines": [
+      281,
+      282
+    ]
+  },
+  "scene-21-pair-9-forward": {
+    "user_lines": [
+      283
+    ],
+    "assistant_lines": [
+      284
+    ]
+  },
+  "scene-21-pair-9-reverse": {
+    "user_lines": [
+      284
+    ],
+    "assistant_lines": [
+      283
+    ]
+  },
+  "scene-21-pair-10-forward": {
+    "user_lines": [
+      284
+    ],
+    "assistant_lines": [
+      285
+    ]
+  },
+  "scene-21-pair-10-reverse": {
+    "user_lines": [
+      285
+    ],
+    "assistant_lines": [
+      284
+    ]
+  },
+  "scene-21-pair-11-forward": {
+    "user_lines": [
+      285
+    ],
+    "assistant_lines": [
+      286
+    ]
+  },
+  "scene-21-pair-11-reverse": {
+    "user_lines": [
+      286
+    ],
+    "assistant_lines": [
+      285
+    ]
+  },
+  "scene-21-pair-12-forward": {
+    "user_lines": [
+      286
+    ],
+    "assistant_lines": [
+      287
+    ]
+  },
+  "scene-21-pair-12-reverse": {
+    "user_lines": [
+      287
+    ],
+    "assistant_lines": [
+      286
+    ]
+  },
+  "scene-21-pair-13-forward": {
+    "user_lines": [
+      287
+    ],
+    "assistant_lines": [
+      288
+    ]
+  },
+  "scene-21-pair-13-reverse": {
+    "user_lines": [
+      288
+    ],
+    "assistant_lines": [
+      287
+    ]
+  },
+  "scene-21-pair-14-forward": {
+    "user_lines": [
+      288
+    ],
+    "assistant_lines": [
+      289
+    ]
+  },
+  "scene-21-pair-14-reverse": {
+    "user_lines": [
+      289
+    ],
+    "assistant_lines": [
+      288
+    ]
+  },
+  "scene-21-pair-15-forward": {
+    "user_lines": [
+      289
+    ],
+    "assistant_lines": [
+      290
+    ]
+  },
+  "scene-21-pair-15-reverse": {
+    "user_lines": [
+      290
+    ],
+    "assistant_lines": [
+      289
+    ]
+  },
+  "scene-21-pair-16-forward": {
+    "user_lines": [
+      290
+    ],
+    "assistant_lines": [
+      291
+    ]
+  },
+  "scene-21-pair-16-reverse": {
+    "user_lines": [
+      291
+    ],
+    "assistant_lines": [
+      290
+    ]
+  },
+  "scene-21-pair-17-forward": {
+    "user_lines": [
+      291
+    ],
+    "assistant_lines": [
+      292
+    ]
+  },
+  "scene-21-pair-17-reverse": {
+    "user_lines": [
+      292
+    ],
+    "assistant_lines": [
+      291
+    ]
+  },
+  "scene-21-pair-18-forward": {
+    "user_lines": [
+      292
+    ],
+    "assistant_lines": [
+      293
+    ]
+  },
+  "scene-21-pair-18-reverse": {
+    "user_lines": [
+      293
+    ],
+    "assistant_lines": [
+      292
+    ]
+  },
+  "scene-21-pair-19-forward": {
+    "user_lines": [
+      293
+    ],
+    "assistant_lines": [
+      294
+    ]
+  },
+  "scene-21-pair-19-reverse": {
+    "user_lines": [
+      294
+    ],
+    "assistant_lines": [
+      293
+    ]
+  },
+  "scene-21-pair-20-forward": {
+    "user_lines": [
+      294
+    ],
+    "assistant_lines": [
+      295
+    ]
+  },
+  "scene-21-pair-20-reverse": {
+    "user_lines": [
+      295
+    ],
+    "assistant_lines": [
+      294
+    ]
+  },
+  "scene-21-pair-21-forward": {
+    "user_lines": [
+      295
+    ],
+    "assistant_lines": [
+      296
+    ]
+  },
+  "scene-21-pair-21-reverse": {
+    "user_lines": [
+      296
+    ],
+    "assistant_lines": [
+      295
+    ]
+  },
+  "scene-21-pair-22-forward": {
+    "user_lines": [
+      296
+    ],
+    "assistant_lines": [
+      297
+    ]
+  },
+  "scene-21-pair-22-reverse": {
+    "user_lines": [
+      297
+    ],
+    "assistant_lines": [
+      296
+    ]
+  },
+  "scene-21-pair-23-forward": {
+    "user_lines": [
+      297
+    ],
+    "assistant_lines": [
+      298
+    ]
+  },
+  "scene-21-pair-23-reverse": {
+    "user_lines": [
+      298
+    ],
+    "assistant_lines": [
+      297
+    ]
+  },
+  "scene-21-pair-24-forward": {
+    "user_lines": [
+      298
+    ],
+    "assistant_lines": [
+      299
+    ]
+  },
+  "scene-21-pair-24-reverse": {
+    "user_lines": [
+      299
+    ],
+    "assistant_lines": [
+      298
+    ]
+  },
+  "scene-21-pair-25-forward": {
+    "user_lines": [
+      299
+    ],
+    "assistant_lines": [
+      300
+    ]
+  },
+  "scene-21-pair-25-reverse": {
+    "user_lines": [
+      300
+    ],
+    "assistant_lines": [
+      299
+    ]
+  },
+  "scene-21-pair-26-forward": {
+    "user_lines": [
+      300
+    ],
+    "assistant_lines": [
+      301
+    ]
+  },
+  "scene-21-pair-26-reverse": {
+    "user_lines": [
+      301
+    ],
+    "assistant_lines": [
+      300
+    ]
+  },
+  "scene-21-pair-27-forward": {
+    "user_lines": [
+      301
+    ],
+    "assistant_lines": [
+      302
+    ]
+  },
+  "scene-21-pair-27-reverse": {
+    "user_lines": [
+      302
+    ],
+    "assistant_lines": [
+      301
+    ]
+  },
+  "scene-21-pair-28-forward": {
+    "user_lines": [
+      302
+    ],
+    "assistant_lines": [
+      303
+    ]
+  },
+  "scene-21-pair-28-reverse": {
+    "user_lines": [
+      303
+    ],
+    "assistant_lines": [
+      302
+    ]
+  },
+  "scene-21-pair-29-forward": {
+    "user_lines": [
+      303
+    ],
+    "assistant_lines": [
+      304
+    ]
+  },
+  "scene-21-pair-29-reverse": {
+    "user_lines": [
+      304
+    ],
+    "assistant_lines": [
+      303
+    ]
+  },
+  "scene-21-pair-30-forward": {
+    "user_lines": [
+      304
+    ],
+    "assistant_lines": [
+      305
+    ]
+  },
+  "scene-21-pair-30-reverse": {
+    "user_lines": [
+      305
+    ],
+    "assistant_lines": [
+      304
+    ]
+  },
+  "scene-21-pair-31-forward": {
+    "user_lines": [
+      305
+    ],
+    "assistant_lines": [
+      306
+    ]
+  },
+  "scene-21-pair-31-reverse": {
+    "user_lines": [
+      306
+    ],
+    "assistant_lines": [
+      305
+    ]
+  },
+  "scene-21-pair-32-forward": {
+    "user_lines": [
+      306
+    ],
+    "assistant_lines": [
+      307
+    ]
+  },
+  "scene-21-pair-32-reverse": {
+    "user_lines": [
+      307
+    ],
+    "assistant_lines": [
+      306
+    ]
+  },
+  "scene-21-pair-33-forward": {
+    "user_lines": [
+      307
+    ],
+    "assistant_lines": [
+      308
+    ]
+  },
+  "scene-21-pair-33-reverse": {
+    "user_lines": [
+      308
+    ],
+    "assistant_lines": [
+      307
+    ]
+  },
+  "scene-21-pair-34-forward": {
+    "user_lines": [
+      308
+    ],
+    "assistant_lines": [
+      309
+    ]
+  },
+  "scene-21-pair-34-reverse": {
+    "user_lines": [
+      309
+    ],
+    "assistant_lines": [
+      308
+    ]
+  },
+  "scene-21-pair-35-forward": {
+    "user_lines": [
+      309
+    ],
+    "assistant_lines": [
+      310
+    ]
+  },
+  "scene-21-pair-35-reverse": {
+    "user_lines": [
+      310
+    ],
+    "assistant_lines": [
+      309
+    ]
+  },
+  "scene-21-pair-36-forward": {
+    "user_lines": [
+      310
+    ],
+    "assistant_lines": [
+      311
+    ]
+  },
+  "scene-21-pair-36-reverse": {
+    "user_lines": [
+      311
+    ],
+    "assistant_lines": [
+      310
+    ]
+  },
+  "scene-21-pair-37-forward": {
+    "user_lines": [
+      311
+    ],
+    "assistant_lines": [
+      313
+    ]
+  },
+  "scene-21-pair-37-reverse": {
+    "user_lines": [
+      313
+    ],
+    "assistant_lines": [
+      311
+    ]
+  },
+  "scene-21-pair-38-forward": {
+    "user_lines": [
+      313
+    ],
+    "assistant_lines": [
+      314
+    ]
+  },
+  "scene-21-pair-38-reverse": {
+    "user_lines": [
+      314
+    ],
+    "assistant_lines": [
+      313
+    ]
+  },
+  "scene-22-pair-0-forward": {
+    "user_lines": [
+      318
+    ],
+    "assistant_lines": [
+      319
+    ]
+  },
+  "scene-22-pair-0-reverse": {
+    "user_lines": [
+      319
+    ],
+    "assistant_lines": [
+      318
+    ]
+  },
+  "scene-22-pair-1-forward": {
+    "user_lines": [
+      319
+    ],
+    "assistant_lines": [
+      321
+    ]
+  },
+  "scene-22-pair-1-reverse": {
+    "user_lines": [
+      321
+    ],
+    "assistant_lines": [
+      319
+    ]
+  },
+  "scene-22-pair-2-forward": {
+    "user_lines": [
+      321
+    ],
+    "assistant_lines": [
+      322
+    ]
+  },
+  "scene-22-pair-2-reverse": {
+    "user_lines": [
+      322
+    ],
+    "assistant_lines": [
+      321
+    ]
+  },
+  "scene-22-pair-3-forward": {
+    "user_lines": [
+      322
+    ],
+    "assistant_lines": [
+      323
+    ]
+  },
+  "scene-22-pair-3-reverse": {
+    "user_lines": [
+      323
+    ],
+    "assistant_lines": [
+      322
+    ]
+  },
+  "scene-22-pair-4-forward": {
+    "user_lines": [
+      323
+    ],
+    "assistant_lines": [
+      324
+    ]
+  },
+  "scene-22-pair-4-reverse": {
+    "user_lines": [
+      324
+    ],
+    "assistant_lines": [
+      323
+    ]
+  },
+  "scene-22-pair-5-forward": {
+    "user_lines": [
+      324
+    ],
+    "assistant_lines": [
+      325
+    ]
+  },
+  "scene-22-pair-5-reverse": {
+    "user_lines": [
+      325
+    ],
+    "assistant_lines": [
+      324
+    ]
+  },
+  "scene-23-pair-0-forward": {
+    "user_lines": [
+      328
+    ],
+    "assistant_lines": [
+      329
+    ]
+  },
+  "scene-23-pair-0-reverse": {
+    "user_lines": [
+      329
+    ],
+    "assistant_lines": [
+      328
+    ]
+  },
+  "scene-23-pair-1-forward": {
+    "user_lines": [
+      329
+    ],
+    "assistant_lines": [
+      331
+    ]
+  },
+  "scene-23-pair-1-reverse": {
+    "user_lines": [
+      331
+    ],
+    "assistant_lines": [
+      329
+    ]
+  },
+  "scene-23-pair-2-forward": {
+    "user_lines": [
+      331
+    ],
+    "assistant_lines": [
+      333
+    ]
+  },
+  "scene-23-pair-2-reverse": {
+    "user_lines": [
+      333
+    ],
+    "assistant_lines": [
+      331
+    ]
+  },
+  "scene-23-pair-3-forward": {
+    "user_lines": [
+      333
+    ],
+    "assistant_lines": [
+      334
+    ]
+  },
+  "scene-23-pair-3-reverse": {
+    "user_lines": [
+      334
+    ],
+    "assistant_lines": [
+      333
+    ]
+  },
+  "scene-23-pair-4-forward": {
+    "user_lines": [
+      334
+    ],
+    "assistant_lines": [
+      335
+    ]
+  },
+  "scene-23-pair-4-reverse": {
+    "user_lines": [
+      335
+    ],
+    "assistant_lines": [
+      334
+    ]
+  },
+  "scene-23-pair-5-forward": {
+    "user_lines": [
+      335
+    ],
+    "assistant_lines": [
+      336
+    ]
+  },
+  "scene-23-pair-5-reverse": {
+    "user_lines": [
+      336
+    ],
+    "assistant_lines": [
+      335
+    ]
+  },
+  "scene-23-pair-6-forward": {
+    "user_lines": [
+      336
+    ],
+    "assistant_lines": [
+      337
+    ]
+  },
+  "scene-23-pair-6-reverse": {
+    "user_lines": [
+      337
+    ],
+    "assistant_lines": [
+      336
+    ]
+  },
+  "scene-23-pair-7-forward": {
+    "user_lines": [
+      337
+    ],
+    "assistant_lines": [
+      338
+    ]
+  },
+  "scene-23-pair-7-reverse": {
+    "user_lines": [
+      338
+    ],
+    "assistant_lines": [
+      337
+    ]
+  },
+  "scene-23-pair-8-forward": {
+    "user_lines": [
+      338
+    ],
+    "assistant_lines": [
+      339
+    ]
+  },
+  "scene-23-pair-8-reverse": {
+    "user_lines": [
+      339
+    ],
+    "assistant_lines": [
+      338
+    ]
+  },
+  "scene-23-pair-9-forward": {
+    "user_lines": [
+      339
+    ],
+    "assistant_lines": [
+      340
+    ]
+  },
+  "scene-23-pair-9-reverse": {
+    "user_lines": [
+      340
+    ],
+    "assistant_lines": [
+      339
+    ]
+  },
+  "scene-23-pair-10-forward": {
+    "user_lines": [
+      340
+    ],
+    "assistant_lines": [
+      341
+    ]
+  },
+  "scene-23-pair-10-reverse": {
+    "user_lines": [
+      341
+    ],
+    "assistant_lines": [
+      340
+    ]
+  },
+  "scene-23-pair-11-forward": {
+    "user_lines": [
+      341
+    ],
+    "assistant_lines": [
+      342
+    ]
+  },
+  "scene-23-pair-11-reverse": {
+    "user_lines": [
+      342
+    ],
+    "assistant_lines": [
+      341
+    ]
+  },
+  "scene-23-pair-12-forward": {
+    "user_lines": [
+      342
+    ],
+    "assistant_lines": [
+      343
+    ]
+  },
+  "scene-23-pair-12-reverse": {
+    "user_lines": [
+      343
+    ],
+    "assistant_lines": [
+      342
+    ]
+  },
+  "scene-23-pair-13-forward": {
+    "user_lines": [
+      343
+    ],
+    "assistant_lines": [
+      344
+    ]
+  },
+  "scene-23-pair-13-reverse": {
+    "user_lines": [
+      344
+    ],
+    "assistant_lines": [
+      343
+    ]
+  },
+  "scene-23-pair-14-forward": {
+    "user_lines": [
+      344
+    ],
+    "assistant_lines": [
+      345
+    ]
+  },
+  "scene-23-pair-14-reverse": {
+    "user_lines": [
+      345
+    ],
+    "assistant_lines": [
+      344
+    ]
+  },
+  "scene-23-pair-15-forward": {
+    "user_lines": [
+      345
+    ],
+    "assistant_lines": [
+      346
+    ]
+  },
+  "scene-23-pair-15-reverse": {
+    "user_lines": [
+      346
+    ],
+    "assistant_lines": [
+      345
+    ]
+  },
+  "scene-23-pair-16-forward": {
+    "user_lines": [
+      346
+    ],
+    "assistant_lines": [
+      347
+    ]
+  },
+  "scene-23-pair-16-reverse": {
+    "user_lines": [
+      347
+    ],
+    "assistant_lines": [
+      346
+    ]
+  },
+  "scene-23-pair-17-forward": {
+    "user_lines": [
+      347
+    ],
+    "assistant_lines": [
+      348
+    ]
+  },
+  "scene-23-pair-17-reverse": {
+    "user_lines": [
+      348
+    ],
+    "assistant_lines": [
+      347
+    ]
+  },
+  "scene-23-pair-18-forward": {
+    "user_lines": [
+      348
+    ],
+    "assistant_lines": [
+      349
+    ]
+  },
+  "scene-23-pair-18-reverse": {
+    "user_lines": [
+      349
+    ],
+    "assistant_lines": [
+      348
+    ]
+  },
+  "scene-23-pair-19-forward": {
+    "user_lines": [
+      349
+    ],
+    "assistant_lines": [
+      350
+    ]
+  },
+  "scene-23-pair-19-reverse": {
+    "user_lines": [
+      350
+    ],
+    "assistant_lines": [
+      349
+    ]
+  },
+  "scene-23-pair-20-forward": {
+    "user_lines": [
+      350
+    ],
+    "assistant_lines": [
+      351
+    ]
+  },
+  "scene-23-pair-20-reverse": {
+    "user_lines": [
+      351
+    ],
+    "assistant_lines": [
+      350
+    ]
+  },
+  "scene-23-pair-21-forward": {
+    "user_lines": [
+      351
+    ],
+    "assistant_lines": [
+      352
+    ]
+  },
+  "scene-23-pair-21-reverse": {
+    "user_lines": [
+      352
+    ],
+    "assistant_lines": [
+      351
+    ]
+  },
+  "scene-23-pair-22-forward": {
+    "user_lines": [
+      352
+    ],
+    "assistant_lines": [
+      353
+    ]
+  },
+  "scene-23-pair-22-reverse": {
+    "user_lines": [
+      353
+    ],
+    "assistant_lines": [
+      352
+    ]
+  },
+  "scene-24-pair-0-forward": {
+    "user_lines": [
+      360
+    ],
+    "assistant_lines": [
+      361
+    ]
+  },
+  "scene-24-pair-0-reverse": {
+    "user_lines": [
+      361
+    ],
+    "assistant_lines": [
+      360
+    ]
+  },
+  "scene-24-pair-1-forward": {
+    "user_lines": [
+      361
+    ],
+    "assistant_lines": [
+      362
+    ]
+  },
+  "scene-24-pair-1-reverse": {
+    "user_lines": [
+      362
+    ],
+    "assistant_lines": [
+      361
+    ]
+  },
+  "scene-24-pair-2-forward": {
+    "user_lines": [
+      362
+    ],
+    "assistant_lines": [
+      363
+    ]
+  },
+  "scene-24-pair-2-reverse": {
+    "user_lines": [
+      363
+    ],
+    "assistant_lines": [
+      362
+    ]
+  },
+  "scene-24-pair-3-forward": {
+    "user_lines": [
+      363
+    ],
+    "assistant_lines": [
+      364
+    ]
+  },
+  "scene-24-pair-3-reverse": {
+    "user_lines": [
+      364
+    ],
+    "assistant_lines": [
+      363
+    ]
+  },
+  "scene-24-pair-4-forward": {
+    "user_lines": [
+      364
+    ],
+    "assistant_lines": [
+      365
+    ]
+  },
+  "scene-24-pair-4-reverse": {
+    "user_lines": [
+      365
+    ],
+    "assistant_lines": [
+      364
+    ]
+  },
+  "scene-24-pair-5-forward": {
+    "user_lines": [
+      365
+    ],
+    "assistant_lines": [
+      366
+    ]
+  },
+  "scene-24-pair-5-reverse": {
+    "user_lines": [
+      366
+    ],
+    "assistant_lines": [
+      365
+    ]
+  },
+  "scene-25-pair-0-forward": {
+    "user_lines": [
+      370
+    ],
+    "assistant_lines": [
+      372
+    ]
+  },
+  "scene-25-pair-0-reverse": {
+    "user_lines": [
+      372
+    ],
+    "assistant_lines": [
+      370
+    ]
+  },
+  "scene-25-pair-1-forward": {
+    "user_lines": [
+      372
+    ],
+    "assistant_lines": [
+      373
+    ]
+  },
+  "scene-25-pair-1-reverse": {
+    "user_lines": [
+      373
+    ],
+    "assistant_lines": [
+      372
+    ]
+  },
+  "scene-26-pair-0-forward": {
+    "user_lines": [
+      376
+    ],
+    "assistant_lines": [
+      377
+    ]
+  },
+  "scene-26-pair-0-reverse": {
+    "user_lines": [
+      377
+    ],
+    "assistant_lines": [
+      376
+    ]
+  },
+  "scene-26-pair-1-forward": {
+    "user_lines": [
+      377
+    ],
+    "assistant_lines": [
+      378
+    ]
+  },
+  "scene-26-pair-1-reverse": {
+    "user_lines": [
+      378
+    ],
+    "assistant_lines": [
+      377
+    ]
+  },
+  "scene-26-pair-2-forward": {
+    "user_lines": [
+      378
+    ],
+    "assistant_lines": [
+      379
+    ]
+  },
+  "scene-26-pair-2-reverse": {
+    "user_lines": [
+      379
+    ],
+    "assistant_lines": [
+      378
+    ]
+  },
+  "scene-26-pair-3-forward": {
+    "user_lines": [
+      379
+    ],
+    "assistant_lines": [
+      380
+    ]
+  },
+  "scene-26-pair-3-reverse": {
+    "user_lines": [
+      380
+    ],
+    "assistant_lines": [
+      379
+    ]
+  },
+  "scene-26-pair-4-forward": {
+    "user_lines": [
+      380
+    ],
+    "assistant_lines": [
+      381
+    ]
+  },
+  "scene-26-pair-4-reverse": {
+    "user_lines": [
+      381
+    ],
+    "assistant_lines": [
+      380
+    ]
+  },
+  "scene-26-pair-5-forward": {
+    "user_lines": [
+      381
+    ],
+    "assistant_lines": [
+      383,
+      385
+    ]
+  },
+  "scene-26-pair-5-reverse": {
+    "user_lines": [
+      383,
+      385
+    ],
+    "assistant_lines": [
+      381
+    ]
+  },
+  "scene-26-pair-6-forward": {
+    "user_lines": [
+      383,
+      385
+    ],
+    "assistant_lines": [
+      386
+    ]
+  },
+  "scene-26-pair-6-reverse": {
+    "user_lines": [
+      386
+    ],
+    "assistant_lines": [
+      383,
+      385
+    ]
+  },
+  "scene-26-pair-7-forward": {
+    "user_lines": [
+      386
+    ],
+    "assistant_lines": [
+      387
+    ]
+  },
+  "scene-26-pair-7-reverse": {
+    "user_lines": [
+      387
+    ],
+    "assistant_lines": [
+      386
+    ]
+  },
+  "scene-26-pair-8-forward": {
+    "user_lines": [
+      387
+    ],
+    "assistant_lines": [
+      388
+    ]
+  },
+  "scene-26-pair-8-reverse": {
+    "user_lines": [
+      388
+    ],
+    "assistant_lines": [
+      387
+    ]
+  },
+  "scene-26-pair-9-forward": {
+    "user_lines": [
+      388
+    ],
+    "assistant_lines": [
+      389
+    ]
+  },
+  "scene-26-pair-9-reverse": {
+    "user_lines": [
+      389
+    ],
+    "assistant_lines": [
+      388
+    ]
+  },
+  "scene-26-pair-10-forward": {
+    "user_lines": [
+      389
+    ],
+    "assistant_lines": [
+      390
+    ]
+  },
+  "scene-26-pair-10-reverse": {
+    "user_lines": [
+      390
+    ],
+    "assistant_lines": [
+      389
+    ]
+  },
+  "scene-26-pair-11-forward": {
+    "user_lines": [
+      390
+    ],
+    "assistant_lines": [
+      391
+    ]
+  },
+  "scene-26-pair-11-reverse": {
+    "user_lines": [
+      391
+    ],
+    "assistant_lines": [
+      390
+    ]
+  },
+  "scene-26-pair-12-forward": {
+    "user_lines": [
+      391
+    ],
+    "assistant_lines": [
+      392
+    ]
+  },
+  "scene-26-pair-12-reverse": {
+    "user_lines": [
+      392
+    ],
+    "assistant_lines": [
+      391
+    ]
+  },
+  "scene-26-pair-13-forward": {
+    "user_lines": [
+      392
+    ],
+    "assistant_lines": [
+      393
+    ]
+  },
+  "scene-26-pair-13-reverse": {
+    "user_lines": [
+      393
+    ],
+    "assistant_lines": [
+      392
+    ]
+  },
+  "scene-26-pair-14-forward": {
+    "user_lines": [
+      393
+    ],
+    "assistant_lines": [
+      394,
+      395
+    ]
+  },
+  "scene-26-pair-14-reverse": {
+    "user_lines": [
+      394,
+      395
+    ],
+    "assistant_lines": [
+      393
+    ]
+  },
+  "scene-26-pair-15-forward": {
+    "user_lines": [
+      394,
+      395
+    ],
+    "assistant_lines": [
+      396
+    ]
+  },
+  "scene-26-pair-15-reverse": {
+    "user_lines": [
+      396
+    ],
+    "assistant_lines": [
+      394,
+      395
+    ]
+  },
+  "scene-26-pair-16-forward": {
+    "user_lines": [
+      396
+    ],
+    "assistant_lines": [
+      397
+    ]
+  },
+  "scene-26-pair-16-reverse": {
+    "user_lines": [
+      397
+    ],
+    "assistant_lines": [
+      396
+    ]
+  },
+  "scene-26-pair-17-forward": {
+    "user_lines": [
+      397
+    ],
+    "assistant_lines": [
+      398
+    ]
+  },
+  "scene-26-pair-17-reverse": {
+    "user_lines": [
+      398
+    ],
+    "assistant_lines": [
+      397
+    ]
+  },
+  "scene-26-pair-18-forward": {
+    "user_lines": [
+      398
+    ],
+    "assistant_lines": [
+      399
+    ]
+  },
+  "scene-26-pair-18-reverse": {
+    "user_lines": [
+      399
+    ],
+    "assistant_lines": [
+      398
+    ]
+  },
+  "scene-26-pair-19-forward": {
+    "user_lines": [
+      399
+    ],
+    "assistant_lines": [
+      400
+    ]
+  },
+  "scene-26-pair-19-reverse": {
+    "user_lines": [
+      400
+    ],
+    "assistant_lines": [
+      399
+    ]
+  },
+  "scene-26-pair-20-forward": {
+    "user_lines": [
+      400
+    ],
+    "assistant_lines": [
+      401
+    ]
+  },
+  "scene-26-pair-20-reverse": {
+    "user_lines": [
+      401
+    ],
+    "assistant_lines": [
+      400
+    ]
+  },
+  "scene-26-pair-21-forward": {
+    "user_lines": [
+      401
+    ],
+    "assistant_lines": [
+      402
+    ]
+  },
+  "scene-26-pair-21-reverse": {
+    "user_lines": [
+      402
+    ],
+    "assistant_lines": [
+      401
+    ]
+  },
+  "scene-26-pair-22-forward": {
+    "user_lines": [
+      402
+    ],
+    "assistant_lines": [
+      404
+    ]
+  },
+  "scene-26-pair-22-reverse": {
+    "user_lines": [
+      404
+    ],
+    "assistant_lines": [
+      402
+    ]
+  },
+  "scene-26-pair-23-forward": {
+    "user_lines": [
+      404
+    ],
+    "assistant_lines": [
+      405
+    ]
+  },
+  "scene-26-pair-23-reverse": {
+    "user_lines": [
+      405
+    ],
+    "assistant_lines": [
+      404
+    ]
+  },
+  "scene-26-pair-24-forward": {
+    "user_lines": [
+      405
+    ],
+    "assistant_lines": [
+      406
+    ]
+  },
+  "scene-26-pair-24-reverse": {
+    "user_lines": [
+      406
+    ],
+    "assistant_lines": [
+      405
+    ]
+  },
+  "scene-26-pair-25-forward": {
+    "user_lines": [
+      406
+    ],
+    "assistant_lines": [
+      407
+    ]
+  },
+  "scene-26-pair-25-reverse": {
+    "user_lines": [
+      407
+    ],
+    "assistant_lines": [
+      406
+    ]
+  },
+  "scene-26-pair-26-forward": {
+    "user_lines": [
+      407
+    ],
+    "assistant_lines": [
+      408
+    ]
+  },
+  "scene-26-pair-26-reverse": {
+    "user_lines": [
+      408
+    ],
+    "assistant_lines": [
+      407
+    ]
+  },
+  "scene-26-pair-27-forward": {
+    "user_lines": [
+      408
+    ],
+    "assistant_lines": [
+      409
+    ]
+  },
+  "scene-26-pair-27-reverse": {
+    "user_lines": [
+      409
+    ],
+    "assistant_lines": [
+      408
+    ]
+  },
+  "scene-26-pair-28-forward": {
+    "user_lines": [
+      409
+    ],
+    "assistant_lines": [
+      410
+    ]
+  },
+  "scene-26-pair-28-reverse": {
+    "user_lines": [
+      410
+    ],
+    "assistant_lines": [
+      409
+    ]
+  },
+  "scene-26-pair-29-forward": {
+    "user_lines": [
+      410
+    ],
+    "assistant_lines": [
+      411,
+      413
+    ]
+  },
+  "scene-26-pair-29-reverse": {
+    "user_lines": [
+      411,
+      413
+    ],
+    "assistant_lines": [
+      410
+    ]
+  },
+  "scene-26-pair-30-forward": {
+    "user_lines": [
+      411,
+      413
+    ],
+    "assistant_lines": [
+      414
+    ]
+  },
+  "scene-26-pair-30-reverse": {
+    "user_lines": [
+      414
+    ],
+    "assistant_lines": [
+      411,
+      413
+    ]
+  },
+  "scene-26-pair-31-forward": {
+    "user_lines": [
+      414
+    ],
+    "assistant_lines": [
+      415
+    ]
+  },
+  "scene-26-pair-31-reverse": {
+    "user_lines": [
+      415
+    ],
+    "assistant_lines": [
+      414
+    ]
+  },
+  "scene-26-pair-32-forward": {
+    "user_lines": [
+      415
+    ],
+    "assistant_lines": [
+      416
+    ]
+  },
+  "scene-26-pair-32-reverse": {
+    "user_lines": [
+      416
+    ],
+    "assistant_lines": [
+      415
+    ]
+  },
+  "scene-26-pair-33-forward": {
+    "user_lines": [
+      416
+    ],
+    "assistant_lines": [
+      417
+    ]
+  },
+  "scene-26-pair-33-reverse": {
+    "user_lines": [
+      417
+    ],
+    "assistant_lines": [
+      416
+    ]
+  },
+  "scene-26-pair-34-forward": {
+    "user_lines": [
+      417
+    ],
+    "assistant_lines": [
+      418
+    ]
+  },
+  "scene-26-pair-34-reverse": {
+    "user_lines": [
+      418
+    ],
+    "assistant_lines": [
+      417
+    ]
+  },
+  "scene-26-pair-35-forward": {
+    "user_lines": [
+      418
+    ],
+    "assistant_lines": [
+      419
+    ]
+  },
+  "scene-26-pair-35-reverse": {
+    "user_lines": [
+      419
+    ],
+    "assistant_lines": [
+      418
+    ]
+  },
+  "scene-26-pair-36-forward": {
+    "user_lines": [
+      419
+    ],
+    "assistant_lines": [
+      420
+    ]
+  },
+  "scene-26-pair-36-reverse": {
+    "user_lines": [
+      420
+    ],
+    "assistant_lines": [
+      419
+    ]
+  },
+  "scene-26-pair-37-forward": {
+    "user_lines": [
+      420
+    ],
+    "assistant_lines": [
+      421
+    ]
+  },
+  "scene-26-pair-37-reverse": {
+    "user_lines": [
+      421
+    ],
+    "assistant_lines": [
+      420
+    ]
+  },
+  "scene-26-pair-38-forward": {
+    "user_lines": [
+      421
+    ],
+    "assistant_lines": [
+      422
+    ]
+  },
+  "scene-26-pair-38-reverse": {
+    "user_lines": [
+      422
+    ],
+    "assistant_lines": [
+      421
+    ]
+  },
+  "scene-26-pair-39-forward": {
+    "user_lines": [
+      422
+    ],
+    "assistant_lines": [
+      423
+    ]
+  },
+  "scene-26-pair-39-reverse": {
+    "user_lines": [
+      423
+    ],
+    "assistant_lines": [
+      422
+    ]
+  },
+  "scene-27-pair-0-forward": {
+    "user_lines": [
+      429
+    ],
+    "assistant_lines": [
+      430
+    ]
+  },
+  "scene-27-pair-0-reverse": {
+    "user_lines": [
+      430
+    ],
+    "assistant_lines": [
+      429
+    ]
+  },
+  "scene-27-pair-1-forward": {
+    "user_lines": [
+      430
+    ],
+    "assistant_lines": [
+      431
+    ]
+  },
+  "scene-27-pair-1-reverse": {
+    "user_lines": [
+      431
+    ],
+    "assistant_lines": [
+      430
+    ]
+  },
+  "scene-27-pair-2-forward": {
+    "user_lines": [
+      431
+    ],
+    "assistant_lines": [
+      432
+    ]
+  },
+  "scene-27-pair-2-reverse": {
+    "user_lines": [
+      432
+    ],
+    "assistant_lines": [
+      431
+    ]
+  },
+  "scene-27-pair-3-forward": {
+    "user_lines": [
+      432
+    ],
+    "assistant_lines": [
+      433
+    ]
+  },
+  "scene-27-pair-3-reverse": {
+    "user_lines": [
+      433
+    ],
+    "assistant_lines": [
+      432
+    ]
+  },
+  "scene-27-pair-4-forward": {
+    "user_lines": [
+      433
+    ],
+    "assistant_lines": [
+      434
+    ]
+  },
+  "scene-27-pair-4-reverse": {
+    "user_lines": [
+      434
+    ],
+    "assistant_lines": [
+      433
+    ]
+  },
+  "scene-28-pair-0-forward": {
+    "user_lines": [
+      447
+    ],
+    "assistant_lines": [
+      448
+    ]
+  },
+  "scene-28-pair-0-reverse": {
+    "user_lines": [
+      448
+    ],
+    "assistant_lines": [
+      447
+    ]
+  },
+  "scene-28-pair-1-forward": {
+    "user_lines": [
+      448
+    ],
+    "assistant_lines": [
+      449
+    ]
+  },
+  "scene-28-pair-1-reverse": {
+    "user_lines": [
+      449
+    ],
+    "assistant_lines": [
+      448
+    ]
+  },
+  "scene-28-pair-2-forward": {
+    "user_lines": [
+      449
+    ],
+    "assistant_lines": [
+      450
+    ]
+  },
+  "scene-28-pair-2-reverse": {
+    "user_lines": [
+      450
+    ],
+    "assistant_lines": [
+      449
+    ]
+  },
+  "scene-28-pair-3-forward": {
+    "user_lines": [
+      450
+    ],
+    "assistant_lines": [
+      451
+    ]
+  },
+  "scene-28-pair-3-reverse": {
+    "user_lines": [
+      451
+    ],
+    "assistant_lines": [
+      450
+    ]
+  },
+  "scene-28-pair-4-forward": {
+    "user_lines": [
+      451
+    ],
+    "assistant_lines": [
+      452
+    ]
+  },
+  "scene-28-pair-4-reverse": {
+    "user_lines": [
+      452
+    ],
+    "assistant_lines": [
+      451
+    ]
+  },
+  "scene-28-pair-5-forward": {
+    "user_lines": [
+      452
+    ],
+    "assistant_lines": [
+      453
+    ]
+  },
+  "scene-28-pair-5-reverse": {
+    "user_lines": [
+      453
+    ],
+    "assistant_lines": [
+      452
+    ]
+  },
+  "scene-28-pair-6-forward": {
+    "user_lines": [
+      453
+    ],
+    "assistant_lines": [
+      454
+    ]
+  },
+  "scene-28-pair-6-reverse": {
+    "user_lines": [
+      454
+    ],
+    "assistant_lines": [
+      453
+    ]
+  },
+  "scene-28-pair-7-forward": {
+    "user_lines": [
+      454
+    ],
+    "assistant_lines": [
+      455
+    ]
+  },
+  "scene-28-pair-7-reverse": {
+    "user_lines": [
+      455
+    ],
+    "assistant_lines": [
+      454
+    ]
+  },
+  "scene-28-pair-8-forward": {
+    "user_lines": [
+      455
+    ],
+    "assistant_lines": [
+      456,
+      458
+    ]
+  },
+  "scene-28-pair-8-reverse": {
+    "user_lines": [
+      456,
+      458
+    ],
+    "assistant_lines": [
+      455
+    ]
+  },
+  "scene-29-pair-0-forward": {
+    "user_lines": [
+      461
+    ],
+    "assistant_lines": [
+      462
+    ]
+  },
+  "scene-29-pair-0-reverse": {
+    "user_lines": [
+      462
+    ],
+    "assistant_lines": [
+      461
+    ]
+  },
+  "scene-29-pair-1-forward": {
+    "user_lines": [
+      462
+    ],
+    "assistant_lines": [
+      463
+    ]
+  },
+  "scene-29-pair-1-reverse": {
+    "user_lines": [
+      463
+    ],
+    "assistant_lines": [
+      462
+    ]
+  },
+  "scene-30-pair-0-forward": {
+    "user_lines": [
+      466
+    ],
+    "assistant_lines": [
+      467
+    ]
+  },
+  "scene-30-pair-0-reverse": {
+    "user_lines": [
+      467
+    ],
+    "assistant_lines": [
+      466
+    ]
+  },
+  "scene-30-pair-1-forward": {
+    "user_lines": [
+      467
+    ],
+    "assistant_lines": [
+      468
+    ]
+  },
+  "scene-30-pair-1-reverse": {
+    "user_lines": [
+      468
+    ],
+    "assistant_lines": [
+      467
+    ]
+  },
+  "scene-30-pair-2-forward": {
+    "user_lines": [
+      468
+    ],
+    "assistant_lines": [
+      469
+    ]
+  },
+  "scene-30-pair-2-reverse": {
+    "user_lines": [
+      469
+    ],
+    "assistant_lines": [
+      468
+    ]
+  },
+  "scene-30-pair-3-forward": {
+    "user_lines": [
+      469
+    ],
+    "assistant_lines": [
+      470
+    ]
+  },
+  "scene-30-pair-3-reverse": {
+    "user_lines": [
+      470
+    ],
+    "assistant_lines": [
+      469
+    ]
+  },
+  "scene-30-pair-4-forward": {
+    "user_lines": [
+      470
+    ],
+    "assistant_lines": [
+      471
+    ]
+  },
+  "scene-30-pair-4-reverse": {
+    "user_lines": [
+      471
+    ],
+    "assistant_lines": [
+      470
+    ]
+  },
+  "scene-30-pair-5-forward": {
+    "user_lines": [
+      471
+    ],
+    "assistant_lines": [
+      473
+    ]
+  },
+  "scene-30-pair-5-reverse": {
+    "user_lines": [
+      473
+    ],
+    "assistant_lines": [
+      471
+    ]
+  },
+  "scene-30-pair-6-forward": {
+    "user_lines": [
+      473
+    ],
+    "assistant_lines": [
+      474
+    ]
+  },
+  "scene-30-pair-6-reverse": {
+    "user_lines": [
+      474
+    ],
+    "assistant_lines": [
+      473
+    ]
+  },
+  "scene-30-pair-7-forward": {
+    "user_lines": [
+      474
+    ],
+    "assistant_lines": [
+      475
+    ]
+  },
+  "scene-30-pair-7-reverse": {
+    "user_lines": [
+      475
+    ],
+    "assistant_lines": [
+      474
+    ]
+  },
+  "scene-30-pair-8-forward": {
+    "user_lines": [
+      475
+    ],
+    "assistant_lines": [
+      476
+    ]
+  },
+  "scene-30-pair-8-reverse": {
+    "user_lines": [
+      476
+    ],
+    "assistant_lines": [
+      475
+    ]
+  },
+  "scene-30-pair-9-forward": {
+    "user_lines": [
+      476
+    ],
+    "assistant_lines": [
+      477
+    ]
+  },
+  "scene-30-pair-9-reverse": {
+    "user_lines": [
+      477
+    ],
+    "assistant_lines": [
+      476
+    ]
+  },
+  "scene-30-pair-10-forward": {
+    "user_lines": [
+      477
+    ],
+    "assistant_lines": [
+      478
+    ]
+  },
+  "scene-30-pair-10-reverse": {
+    "user_lines": [
+      478
+    ],
+    "assistant_lines": [
+      477
+    ]
+  },
+  "scene-30-pair-11-forward": {
+    "user_lines": [
+      478
+    ],
+    "assistant_lines": [
+      479
+    ]
+  },
+  "scene-30-pair-11-reverse": {
+    "user_lines": [
+      479
+    ],
+    "assistant_lines": [
+      478
+    ]
+  },
+  "scene-30-pair-12-forward": {
+    "user_lines": [
+      479
+    ],
+    "assistant_lines": [
+      480
+    ]
+  },
+  "scene-30-pair-12-reverse": {
+    "user_lines": [
+      480
+    ],
+    "assistant_lines": [
+      479
+    ]
+  },
+  "scene-30-pair-13-forward": {
+    "user_lines": [
+      480
+    ],
+    "assistant_lines": [
+      481
+    ]
+  },
+  "scene-30-pair-13-reverse": {
+    "user_lines": [
+      481
+    ],
+    "assistant_lines": [
+      480
+    ]
+  },
+  "scene-30-pair-14-forward": {
+    "user_lines": [
+      481
+    ],
+    "assistant_lines": [
+      483
+    ]
+  },
+  "scene-30-pair-14-reverse": {
+    "user_lines": [
+      483
+    ],
+    "assistant_lines": [
+      481
+    ]
+  },
+  "scene-30-pair-15-forward": {
+    "user_lines": [
+      483
+    ],
+    "assistant_lines": [
+      485
+    ]
+  },
+  "scene-30-pair-15-reverse": {
+    "user_lines": [
+      485
+    ],
+    "assistant_lines": [
+      483
+    ]
+  },
+  "scene-30-pair-16-forward": {
+    "user_lines": [
+      485
+    ],
+    "assistant_lines": [
+      486
+    ]
+  },
+  "scene-30-pair-16-reverse": {
+    "user_lines": [
+      486
+    ],
+    "assistant_lines": [
+      485
+    ]
+  },
+  "scene-30-pair-17-forward": {
+    "user_lines": [
+      486
+    ],
+    "assistant_lines": [
+      487
+    ]
+  },
+  "scene-30-pair-17-reverse": {
+    "user_lines": [
+      487
+    ],
+    "assistant_lines": [
+      486
+    ]
+  },
+  "scene-30-pair-18-forward": {
+    "user_lines": [
+      487
+    ],
+    "assistant_lines": [
+      488
+    ]
+  },
+  "scene-30-pair-18-reverse": {
+    "user_lines": [
+      488
+    ],
+    "assistant_lines": [
+      487
+    ]
+  },
+  "scene-30-pair-19-forward": {
+    "user_lines": [
+      488
+    ],
+    "assistant_lines": [
+      489
+    ]
+  },
+  "scene-30-pair-19-reverse": {
+    "user_lines": [
+      489
+    ],
+    "assistant_lines": [
+      488
+    ]
+  },
+  "scene-30-pair-20-forward": {
+    "user_lines": [
+      489
+    ],
+    "assistant_lines": [
+      490
+    ]
+  },
+  "scene-30-pair-20-reverse": {
+    "user_lines": [
+      490
+    ],
+    "assistant_lines": [
+      489
+    ]
+  },
+  "scene-30-pair-21-forward": {
+    "user_lines": [
+      490
+    ],
+    "assistant_lines": [
+      491
+    ]
+  },
+  "scene-30-pair-21-reverse": {
+    "user_lines": [
+      491
+    ],
+    "assistant_lines": [
+      490
+    ]
+  },
+  "scene-30-pair-22-forward": {
+    "user_lines": [
+      491
+    ],
+    "assistant_lines": [
+      492
+    ]
+  },
+  "scene-30-pair-22-reverse": {
+    "user_lines": [
+      492
+    ],
+    "assistant_lines": [
+      491
+    ]
+  },
+  "scene-31-pair-0-forward": {
+    "user_lines": [
+      495
+    ],
+    "assistant_lines": [
+      496
+    ]
+  },
+  "scene-31-pair-0-reverse": {
+    "user_lines": [
+      496
+    ],
+    "assistant_lines": [
+      495
+    ]
+  },
+  "scene-31-pair-1-forward": {
+    "user_lines": [
+      496
+    ],
+    "assistant_lines": [
+      497
+    ]
+  },
+  "scene-31-pair-1-reverse": {
+    "user_lines": [
+      497
+    ],
+    "assistant_lines": [
+      496
+    ]
+  },
+  "scene-31-pair-2-forward": {
+    "user_lines": [
+      497
+    ],
+    "assistant_lines": [
+      498
+    ]
+  },
+  "scene-31-pair-2-reverse": {
+    "user_lines": [
+      498
+    ],
+    "assistant_lines": [
+      497
+    ]
+  },
+  "scene-31-pair-3-forward": {
+    "user_lines": [
+      498
+    ],
+    "assistant_lines": [
+      499
+    ]
+  },
+  "scene-31-pair-3-reverse": {
+    "user_lines": [
+      499
+    ],
+    "assistant_lines": [
+      498
+    ]
+  },
+  "scene-31-pair-4-forward": {
+    "user_lines": [
+      499
+    ],
+    "assistant_lines": [
+      500
+    ]
+  },
+  "scene-31-pair-4-reverse": {
+    "user_lines": [
+      500
+    ],
+    "assistant_lines": [
+      499
+    ]
+  },
+  "scene-31-pair-5-forward": {
+    "user_lines": [
+      500
+    ],
+    "assistant_lines": [
+      501,
+      503,
+      504
+    ]
+  },
+  "scene-31-pair-5-reverse": {
+    "user_lines": [
+      501,
+      503,
+      504
+    ],
+    "assistant_lines": [
+      500
+    ]
+  },
+  "scene-31-pair-6-forward": {
+    "user_lines": [
+      501,
+      503,
+      504
+    ],
+    "assistant_lines": [
+      505
+    ]
+  },
+  "scene-31-pair-6-reverse": {
+    "user_lines": [
+      505
+    ],
+    "assistant_lines": [
+      501,
+      503,
+      504
+    ]
+  },
+  "scene-31-pair-7-forward": {
+    "user_lines": [
+      505
+    ],
+    "assistant_lines": [
+      506
+    ]
+  },
+  "scene-31-pair-7-reverse": {
+    "user_lines": [
+      506
+    ],
+    "assistant_lines": [
+      505
+    ]
+  },
+  "scene-31-pair-8-forward": {
+    "user_lines": [
+      506
+    ],
+    "assistant_lines": [
+      507
+    ]
+  },
+  "scene-31-pair-8-reverse": {
+    "user_lines": [
+      507
+    ],
+    "assistant_lines": [
+      506
+    ]
+  },
+  "scene-31-pair-9-forward": {
+    "user_lines": [
+      507
+    ],
+    "assistant_lines": [
+      508
+    ]
+  },
+  "scene-31-pair-9-reverse": {
+    "user_lines": [
+      508
+    ],
+    "assistant_lines": [
+      507
+    ]
+  },
+  "scene-31-pair-10-forward": {
+    "user_lines": [
+      508
+    ],
+    "assistant_lines": [
+      509
+    ]
+  },
+  "scene-31-pair-10-reverse": {
+    "user_lines": [
+      509
+    ],
+    "assistant_lines": [
+      508
+    ]
+  },
+  "scene-31-pair-11-forward": {
+    "user_lines": [
+      509
+    ],
+    "assistant_lines": [
+      510
+    ]
+  },
+  "scene-31-pair-11-reverse": {
+    "user_lines": [
+      510
+    ],
+    "assistant_lines": [
+      509
+    ]
+  },
+  "scene-31-pair-12-forward": {
+    "user_lines": [
+      510
+    ],
+    "assistant_lines": [
+      511
+    ]
+  },
+  "scene-31-pair-12-reverse": {
+    "user_lines": [
+      511
+    ],
+    "assistant_lines": [
+      510
+    ]
+  },
+  "scene-31-pair-13-forward": {
+    "user_lines": [
+      511
+    ],
+    "assistant_lines": [
+      512
+    ]
+  },
+  "scene-31-pair-13-reverse": {
+    "user_lines": [
+      512
+    ],
+    "assistant_lines": [
+      511
+    ]
+  },
+  "scene-32-pair-0-forward": {
+    "user_lines": [
+      516
+    ],
+    "assistant_lines": [
+      517
+    ]
+  },
+  "scene-32-pair-0-reverse": {
+    "user_lines": [
+      517
+    ],
+    "assistant_lines": [
+      516
+    ]
+  },
+  "scene-32-pair-1-forward": {
+    "user_lines": [
+      517
+    ],
+    "assistant_lines": [
+      518
+    ]
+  },
+  "scene-32-pair-1-reverse": {
+    "user_lines": [
+      518
+    ],
+    "assistant_lines": [
+      517
+    ]
+  },
+  "scene-32-pair-2-forward": {
+    "user_lines": [
+      518
+    ],
+    "assistant_lines": [
+      519
+    ]
+  },
+  "scene-32-pair-2-reverse": {
+    "user_lines": [
+      519
+    ],
+    "assistant_lines": [
+      518
+    ]
+  },
+  "scene-32-pair-3-forward": {
+    "user_lines": [
+      519
+    ],
+    "assistant_lines": [
+      520
+    ]
+  },
+  "scene-32-pair-3-reverse": {
+    "user_lines": [
+      520
+    ],
+    "assistant_lines": [
+      519
+    ]
+  },
+  "scene-32-pair-4-forward": {
+    "user_lines": [
+      520
+    ],
+    "assistant_lines": [
+      521
+    ]
+  },
+  "scene-32-pair-4-reverse": {
+    "user_lines": [
+      521
+    ],
+    "assistant_lines": [
+      520
+    ]
+  },
+  "scene-32-pair-5-forward": {
+    "user_lines": [
+      521
+    ],
+    "assistant_lines": [
+      522
+    ]
+  },
+  "scene-32-pair-5-reverse": {
+    "user_lines": [
+      522
+    ],
+    "assistant_lines": [
+      521
+    ]
+  },
+  "scene-32-pair-6-forward": {
+    "user_lines": [
+      522
+    ],
+    "assistant_lines": [
+      523
+    ]
+  },
+  "scene-32-pair-6-reverse": {
+    "user_lines": [
+      523
+    ],
+    "assistant_lines": [
+      522
+    ]
+  },
+  "scene-32-pair-7-forward": {
+    "user_lines": [
+      523
+    ],
+    "assistant_lines": [
+      524
+    ]
+  },
+  "scene-32-pair-7-reverse": {
+    "user_lines": [
+      524
+    ],
+    "assistant_lines": [
+      523
+    ]
+  },
+  "scene-32-pair-8-forward": {
+    "user_lines": [
+      524
+    ],
+    "assistant_lines": [
+      525
+    ]
+  },
+  "scene-32-pair-8-reverse": {
+    "user_lines": [
+      525
+    ],
+    "assistant_lines": [
+      524
+    ]
+  },
+  "scene-32-pair-9-forward": {
+    "user_lines": [
+      525
+    ],
+    "assistant_lines": [
+      526
+    ]
+  },
+  "scene-32-pair-9-reverse": {
+    "user_lines": [
+      526
+    ],
+    "assistant_lines": [
+      525
+    ]
+  },
+  "scene-33-pair-0-forward": {
+    "user_lines": [
+      529
+    ],
+    "assistant_lines": [
+      530
+    ]
+  },
+  "scene-33-pair-0-reverse": {
+    "user_lines": [
+      530
+    ],
+    "assistant_lines": [
+      529
+    ]
+  },
+  "scene-33-pair-1-forward": {
+    "user_lines": [
+      530
+    ],
+    "assistant_lines": [
+      531
+    ]
+  },
+  "scene-33-pair-1-reverse": {
+    "user_lines": [
+      531
+    ],
+    "assistant_lines": [
+      530
+    ]
+  },
+  "scene-33-pair-2-forward": {
+    "user_lines": [
+      531
+    ],
+    "assistant_lines": [
+      532
+    ]
+  },
+  "scene-33-pair-2-reverse": {
+    "user_lines": [
+      532
+    ],
+    "assistant_lines": [
+      531
+    ]
+  },
+  "scene-33-pair-3-forward": {
+    "user_lines": [
+      532
+    ],
+    "assistant_lines": [
+      533
+    ]
+  },
+  "scene-33-pair-3-reverse": {
+    "user_lines": [
+      533
+    ],
+    "assistant_lines": [
+      532
+    ]
+  },
+  "scene-33-pair-4-forward": {
+    "user_lines": [
+      533
+    ],
+    "assistant_lines": [
+      534,
+      535
+    ]
+  },
+  "scene-33-pair-4-reverse": {
+    "user_lines": [
+      534,
+      535
+    ],
+    "assistant_lines": [
+      533
+    ]
+  },
+  "scene-34-pair-0-forward": {
+    "user_lines": [
+      538
+    ],
+    "assistant_lines": [
+      539
+    ]
+  },
+  "scene-34-pair-0-reverse": {
+    "user_lines": [
+      539
+    ],
+    "assistant_lines": [
+      538
+    ]
+  },
+  "scene-34-pair-1-forward": {
+    "user_lines": [
+      539
+    ],
+    "assistant_lines": [
+      540
+    ]
+  },
+  "scene-34-pair-1-reverse": {
+    "user_lines": [
+      540
+    ],
+    "assistant_lines": [
+      539
+    ]
+  },
+  "scene-34-pair-2-forward": {
+    "user_lines": [
+      540
+    ],
+    "assistant_lines": [
+      541
+    ]
+  },
+  "scene-34-pair-2-reverse": {
+    "user_lines": [
+      541
+    ],
+    "assistant_lines": [
+      540
+    ]
+  },
+  "scene-34-pair-3-forward": {
+    "user_lines": [
+      541
+    ],
+    "assistant_lines": [
+      542
+    ]
+  },
+  "scene-34-pair-3-reverse": {
+    "user_lines": [
+      542
+    ],
+    "assistant_lines": [
+      541
+    ]
+  },
+  "scene-34-pair-4-forward": {
+    "user_lines": [
+      542
+    ],
+    "assistant_lines": [
+      543
+    ]
+  },
+  "scene-34-pair-4-reverse": {
+    "user_lines": [
+      543
+    ],
+    "assistant_lines": [
+      542
+    ]
+  },
+  "scene-34-pair-5-forward": {
+    "user_lines": [
+      543
+    ],
+    "assistant_lines": [
+      544
+    ]
+  },
+  "scene-34-pair-5-reverse": {
+    "user_lines": [
+      544
+    ],
+    "assistant_lines": [
+      543
+    ]
+  },
+  "scene-34-pair-6-forward": {
+    "user_lines": [
+      544
+    ],
+    "assistant_lines": [
+      545
+    ]
+  },
+  "scene-34-pair-6-reverse": {
+    "user_lines": [
+      545
+    ],
+    "assistant_lines": [
+      544
+    ]
+  },
+  "scene-34-pair-7-forward": {
+    "user_lines": [
+      545
+    ],
+    "assistant_lines": [
+      546
+    ]
+  },
+  "scene-34-pair-7-reverse": {
+    "user_lines": [
+      546
+    ],
+    "assistant_lines": [
+      545
+    ]
+  },
+  "scene-34-pair-8-forward": {
+    "user_lines": [
+      546
+    ],
+    "assistant_lines": [
+      547
+    ]
+  },
+  "scene-34-pair-8-reverse": {
+    "user_lines": [
+      547
+    ],
+    "assistant_lines": [
+      546
+    ]
+  },
+  "scene-34-pair-9-forward": {
+    "user_lines": [
+      547
+    ],
+    "assistant_lines": [
+      548
+    ]
+  },
+  "scene-34-pair-9-reverse": {
+    "user_lines": [
+      548
+    ],
+    "assistant_lines": [
+      547
+    ]
+  },
+  "scene-34-pair-10-forward": {
+    "user_lines": [
+      548
+    ],
+    "assistant_lines": [
+      549
+    ]
+  },
+  "scene-34-pair-10-reverse": {
+    "user_lines": [
+      549
+    ],
+    "assistant_lines": [
+      548
+    ]
+  },
+  "scene-34-pair-11-forward": {
+    "user_lines": [
+      549
+    ],
+    "assistant_lines": [
+      550
+    ]
+  },
+  "scene-34-pair-11-reverse": {
+    "user_lines": [
+      550
+    ],
+    "assistant_lines": [
+      549
+    ]
+  },
+  "scene-35-pair-0-forward": {
+    "user_lines": [
+      552
+    ],
+    "assistant_lines": [
+      553
+    ]
+  },
+  "scene-35-pair-0-reverse": {
+    "user_lines": [
+      553
+    ],
+    "assistant_lines": [
+      552
+    ]
+  },
+  "scene-35-pair-1-forward": {
+    "user_lines": [
+      553
+    ],
+    "assistant_lines": [
+      554
+    ]
+  },
+  "scene-35-pair-1-reverse": {
+    "user_lines": [
+      554
+    ],
+    "assistant_lines": [
+      553
+    ]
+  },
+  "scene-35-pair-2-forward": {
+    "user_lines": [
+      554
+    ],
+    "assistant_lines": [
+      555
+    ]
+  },
+  "scene-35-pair-2-reverse": {
+    "user_lines": [
+      555
+    ],
+    "assistant_lines": [
+      554
+    ]
+  },
+  "scene-35-pair-3-forward": {
+    "user_lines": [
+      555
+    ],
+    "assistant_lines": [
+      556
+    ]
+  },
+  "scene-35-pair-3-reverse": {
+    "user_lines": [
+      556
+    ],
+    "assistant_lines": [
+      555
+    ]
+  },
+  "scene-36-pair-0-forward": {
+    "user_lines": [
+      558
+    ],
+    "assistant_lines": [
+      559
+    ]
+  },
+  "scene-36-pair-0-reverse": {
+    "user_lines": [
+      559
+    ],
+    "assistant_lines": [
+      558
+    ]
+  },
+  "scene-36-pair-1-forward": {
+    "user_lines": [
+      559
+    ],
+    "assistant_lines": [
+      560
+    ]
+  },
+  "scene-36-pair-1-reverse": {
+    "user_lines": [
+      560
+    ],
+    "assistant_lines": [
+      559
+    ]
+  },
+  "scene-36-pair-2-forward": {
+    "user_lines": [
+      560
+    ],
+    "assistant_lines": [
+      561
+    ]
+  },
+  "scene-36-pair-2-reverse": {
+    "user_lines": [
+      561
+    ],
+    "assistant_lines": [
+      560
+    ]
+  },
+  "scene-36-pair-3-forward": {
+    "user_lines": [
+      561
+    ],
+    "assistant_lines": [
+      562
+    ]
+  },
+  "scene-36-pair-3-reverse": {
+    "user_lines": [
+      562
+    ],
+    "assistant_lines": [
+      561
+    ]
+  },
+  "scene-36-pair-4-forward": {
+    "user_lines": [
+      562
+    ],
+    "assistant_lines": [
+      563
+    ]
+  },
+  "scene-36-pair-4-reverse": {
+    "user_lines": [
+      563
+    ],
+    "assistant_lines": [
+      562
+    ]
+  },
+  "scene-36-pair-5-forward": {
+    "user_lines": [
+      563
+    ],
+    "assistant_lines": [
+      564
+    ]
+  },
+  "scene-36-pair-5-reverse": {
+    "user_lines": [
+      564
+    ],
+    "assistant_lines": [
+      563
+    ]
+  },
+  "scene-36-pair-6-forward": {
+    "user_lines": [
+      564
+    ],
+    "assistant_lines": [
+      565
+    ]
+  },
+  "scene-36-pair-6-reverse": {
+    "user_lines": [
+      565
+    ],
+    "assistant_lines": [
+      564
+    ]
+  },
+  "scene-36-pair-7-forward": {
+    "user_lines": [
+      565
+    ],
+    "assistant_lines": [
+      566
+    ]
+  },
+  "scene-36-pair-7-reverse": {
+    "user_lines": [
+      566
+    ],
+    "assistant_lines": [
+      565
+    ]
+  },
+  "scene-36-pair-8-forward": {
+    "user_lines": [
+      566
+    ],
+    "assistant_lines": [
+      567
+    ]
+  },
+  "scene-36-pair-8-reverse": {
+    "user_lines": [
+      567
+    ],
+    "assistant_lines": [
+      566
+    ]
+  },
+  "scene-36-pair-9-forward": {
+    "user_lines": [
+      567
+    ],
+    "assistant_lines": [
+      569
+    ]
+  },
+  "scene-36-pair-9-reverse": {
+    "user_lines": [
+      569
+    ],
+    "assistant_lines": [
+      567
+    ]
+  },
+  "scene-36-pair-10-forward": {
+    "user_lines": [
+      569
+    ],
+    "assistant_lines": [
+      570
+    ]
+  },
+  "scene-36-pair-10-reverse": {
+    "user_lines": [
+      570
+    ],
+    "assistant_lines": [
+      569
+    ]
+  },
+  "scene-36-pair-11-forward": {
+    "user_lines": [
+      570
+    ],
+    "assistant_lines": [
+      571
+    ]
+  },
+  "scene-36-pair-11-reverse": {
+    "user_lines": [
+      571
+    ],
+    "assistant_lines": [
+      570
+    ]
+  },
+  "scene-36-pair-12-forward": {
+    "user_lines": [
+      571
+    ],
+    "assistant_lines": [
+      572
+    ]
+  },
+  "scene-36-pair-12-reverse": {
+    "user_lines": [
+      572
+    ],
+    "assistant_lines": [
+      571
+    ]
+  },
+  "scene-36-pair-13-forward": {
+    "user_lines": [
+      572
+    ],
+    "assistant_lines": [
+      574
+    ]
+  },
+  "scene-36-pair-13-reverse": {
+    "user_lines": [
+      574
+    ],
+    "assistant_lines": [
+      572
+    ]
+  },
+  "scene-36-pair-14-forward": {
+    "user_lines": [
+      574
+    ],
+    "assistant_lines": [
+      575
+    ]
+  },
+  "scene-36-pair-14-reverse": {
+    "user_lines": [
+      575
+    ],
+    "assistant_lines": [
+      574
+    ]
+  },
+  "scene-36-pair-15-forward": {
+    "user_lines": [
+      575
+    ],
+    "assistant_lines": [
+      576
+    ]
+  },
+  "scene-36-pair-15-reverse": {
+    "user_lines": [
+      576
+    ],
+    "assistant_lines": [
+      575
+    ]
+  },
+  "scene-36-pair-16-forward": {
+    "user_lines": [
+      576
+    ],
+    "assistant_lines": [
+      577
+    ]
+  },
+  "scene-36-pair-16-reverse": {
+    "user_lines": [
+      577
+    ],
+    "assistant_lines": [
+      576
+    ]
+  },
+  "scene-36-pair-17-forward": {
+    "user_lines": [
+      577
+    ],
+    "assistant_lines": [
+      578
+    ]
+  },
+  "scene-36-pair-17-reverse": {
+    "user_lines": [
+      578
+    ],
+    "assistant_lines": [
+      577
+    ]
+  },
+  "scene-36-pair-18-forward": {
+    "user_lines": [
+      578
+    ],
+    "assistant_lines": [
+      579
+    ]
+  },
+  "scene-36-pair-18-reverse": {
+    "user_lines": [
+      579
+    ],
+    "assistant_lines": [
+      578
+    ]
+  },
+  "scene-36-pair-19-forward": {
+    "user_lines": [
+      579
+    ],
+    "assistant_lines": [
+      580
+    ]
+  },
+  "scene-36-pair-19-reverse": {
+    "user_lines": [
+      580
+    ],
+    "assistant_lines": [
+      579
+    ]
+  },
+  "scene-36-pair-20-forward": {
+    "user_lines": [
+      580
+    ],
+    "assistant_lines": [
+      581
+    ]
+  },
+  "scene-36-pair-20-reverse": {
+    "user_lines": [
+      581
+    ],
+    "assistant_lines": [
+      580
+    ]
+  },
+  "scene-36-pair-21-forward": {
+    "user_lines": [
+      581
+    ],
+    "assistant_lines": [
+      582
+    ]
+  },
+  "scene-36-pair-21-reverse": {
+    "user_lines": [
+      582
+    ],
+    "assistant_lines": [
+      581
+    ]
+  },
+  "scene-36-pair-22-forward": {
+    "user_lines": [
+      582
+    ],
+    "assistant_lines": [
+      583
+    ]
+  },
+  "scene-36-pair-22-reverse": {
+    "user_lines": [
+      583
+    ],
+    "assistant_lines": [
+      582
+    ]
+  },
+  "scene-36-pair-23-forward": {
+    "user_lines": [
+      583
+    ],
+    "assistant_lines": [
+      584
+    ]
+  },
+  "scene-36-pair-23-reverse": {
+    "user_lines": [
+      584
+    ],
+    "assistant_lines": [
+      583
+    ]
+  },
+  "scene-36-pair-24-forward": {
+    "user_lines": [
+      584
+    ],
+    "assistant_lines": [
+      585
+    ]
+  },
+  "scene-36-pair-24-reverse": {
+    "user_lines": [
+      585
+    ],
+    "assistant_lines": [
+      584
+    ]
+  },
+  "scene-36-pair-25-forward": {
+    "user_lines": [
+      585
+    ],
+    "assistant_lines": [
+      586
+    ]
+  },
+  "scene-36-pair-25-reverse": {
+    "user_lines": [
+      586
+    ],
+    "assistant_lines": [
+      585
+    ]
+  },
+  "scene-37-pair-0-forward": {
+    "user_lines": [
+      589
+    ],
+    "assistant_lines": [
+      590
+    ]
+  },
+  "scene-37-pair-0-reverse": {
+    "user_lines": [
+      590
+    ],
+    "assistant_lines": [
+      589
+    ]
+  },
+  "scene-37-pair-1-forward": {
+    "user_lines": [
+      590
+    ],
+    "assistant_lines": [
+      591,
+      593
+    ]
+  },
+  "scene-37-pair-1-reverse": {
+    "user_lines": [
+      591,
+      593
+    ],
+    "assistant_lines": [
+      590
+    ]
+  },
+  "scene-37-pair-2-forward": {
+    "user_lines": [
+      591,
+      593
+    ],
+    "assistant_lines": [
+      594
+    ]
+  },
+  "scene-37-pair-2-reverse": {
+    "user_lines": [
+      594
+    ],
+    "assistant_lines": [
+      591,
+      593
+    ]
+  },
+  "scene-37-pair-3-forward": {
+    "user_lines": [
+      594
+    ],
+    "assistant_lines": [
+      595
+    ]
+  },
+  "scene-37-pair-3-reverse": {
+    "user_lines": [
+      595
+    ],
+    "assistant_lines": [
+      594
+    ]
+  },
+  "scene-37-pair-4-forward": {
+    "user_lines": [
+      595
+    ],
+    "assistant_lines": [
+      596
+    ]
+  },
+  "scene-37-pair-4-reverse": {
+    "user_lines": [
+      596
+    ],
+    "assistant_lines": [
+      595
+    ]
+  },
+  "scene-37-pair-5-forward": {
+    "user_lines": [
+      596
+    ],
+    "assistant_lines": [
+      597
+    ]
+  },
+  "scene-37-pair-5-reverse": {
+    "user_lines": [
+      597
+    ],
+    "assistant_lines": [
+      596
+    ]
+  },
+  "scene-37-pair-6-forward": {
+    "user_lines": [
+      597
+    ],
+    "assistant_lines": [
+      598
+    ]
+  },
+  "scene-37-pair-6-reverse": {
+    "user_lines": [
+      598
+    ],
+    "assistant_lines": [
+      597
+    ]
+  },
+  "scene-37-pair-7-forward": {
+    "user_lines": [
+      598
+    ],
+    "assistant_lines": [
+      599
+    ]
+  },
+  "scene-37-pair-7-reverse": {
+    "user_lines": [
+      599
+    ],
+    "assistant_lines": [
+      598
+    ]
+  },
+  "scene-37-pair-8-forward": {
+    "user_lines": [
+      599
+    ],
+    "assistant_lines": [
+      600
+    ]
+  },
+  "scene-37-pair-8-reverse": {
+    "user_lines": [
+      600
+    ],
+    "assistant_lines": [
+      599
+    ]
+  },
+  "scene-37-pair-9-forward": {
+    "user_lines": [
+      600
+    ],
+    "assistant_lines": [
+      601
+    ]
+  },
+  "scene-37-pair-9-reverse": {
+    "user_lines": [
+      601
+    ],
+    "assistant_lines": [
+      600
+    ]
+  },
+  "scene-37-pair-10-forward": {
+    "user_lines": [
+      601
+    ],
+    "assistant_lines": [
+      602
+    ]
+  },
+  "scene-37-pair-10-reverse": {
+    "user_lines": [
+      602
+    ],
+    "assistant_lines": [
+      601
+    ]
+  },
+  "scene-37-pair-11-forward": {
+    "user_lines": [
+      602
+    ],
+    "assistant_lines": [
+      603
+    ]
+  },
+  "scene-37-pair-11-reverse": {
+    "user_lines": [
+      603
+    ],
+    "assistant_lines": [
+      602
+    ]
+  },
+  "scene-37-pair-12-forward": {
+    "user_lines": [
+      603
+    ],
+    "assistant_lines": [
+      604
+    ]
+  },
+  "scene-37-pair-12-reverse": {
+    "user_lines": [
+      604
+    ],
+    "assistant_lines": [
+      603
+    ]
+  },
+  "scene-37-pair-13-forward": {
+    "user_lines": [
+      604
+    ],
+    "assistant_lines": [
+      605
+    ]
+  },
+  "scene-37-pair-13-reverse": {
+    "user_lines": [
+      605
+    ],
+    "assistant_lines": [
+      604
+    ]
+  },
+  "scene-37-pair-14-forward": {
+    "user_lines": [
+      605
+    ],
+    "assistant_lines": [
+      606
+    ]
+  },
+  "scene-37-pair-14-reverse": {
+    "user_lines": [
+      606
+    ],
+    "assistant_lines": [
+      605
+    ]
+  },
+  "scene-38-pair-0-forward": {
+    "user_lines": [
+      609
+    ],
+    "assistant_lines": [
+      610
+    ]
+  },
+  "scene-38-pair-0-reverse": {
+    "user_lines": [
+      610
+    ],
+    "assistant_lines": [
+      609
+    ]
+  },
+  "scene-38-pair-1-forward": {
+    "user_lines": [
+      610
+    ],
+    "assistant_lines": [
+      611
+    ]
+  },
+  "scene-38-pair-1-reverse": {
+    "user_lines": [
+      611
+    ],
+    "assistant_lines": [
+      610
+    ]
+  },
+  "scene-38-pair-2-forward": {
+    "user_lines": [
+      611
+    ],
+    "assistant_lines": [
+      612
+    ]
+  },
+  "scene-38-pair-2-reverse": {
+    "user_lines": [
+      612
+    ],
+    "assistant_lines": [
+      611
+    ]
+  },
+  "scene-38-pair-3-forward": {
+    "user_lines": [
+      612
+    ],
+    "assistant_lines": [
+      613
+    ]
+  },
+  "scene-38-pair-3-reverse": {
+    "user_lines": [
+      613
+    ],
+    "assistant_lines": [
+      612
+    ]
+  },
+  "scene-38-pair-4-forward": {
+    "user_lines": [
+      613
+    ],
+    "assistant_lines": [
+      615
+    ]
+  },
+  "scene-38-pair-4-reverse": {
+    "user_lines": [
+      615
+    ],
+    "assistant_lines": [
+      613
+    ]
+  },
+  "scene-38-pair-5-forward": {
+    "user_lines": [
+      615
+    ],
+    "assistant_lines": [
+      616
+    ]
+  },
+  "scene-38-pair-5-reverse": {
+    "user_lines": [
+      616
+    ],
+    "assistant_lines": [
+      615
+    ]
+  },
+  "scene-38-pair-6-forward": {
+    "user_lines": [
+      616
+    ],
+    "assistant_lines": [
+      617
+    ]
+  },
+  "scene-38-pair-6-reverse": {
+    "user_lines": [
+      617
+    ],
+    "assistant_lines": [
+      616
+    ]
+  },
+  "scene-38-pair-7-forward": {
+    "user_lines": [
+      617
+    ],
+    "assistant_lines": [
+      619
+    ]
+  },
+  "scene-38-pair-7-reverse": {
+    "user_lines": [
+      619
+    ],
+    "assistant_lines": [
+      617
+    ]
+  },
+  "scene-38-pair-8-forward": {
+    "user_lines": [
+      619
+    ],
+    "assistant_lines": [
+      620
+    ]
+  },
+  "scene-38-pair-8-reverse": {
+    "user_lines": [
+      620
+    ],
+    "assistant_lines": [
+      619
+    ]
+  },
+  "scene-38-pair-9-forward": {
+    "user_lines": [
+      620
+    ],
+    "assistant_lines": [
+      621
+    ]
+  },
+  "scene-38-pair-9-reverse": {
+    "user_lines": [
+      621
+    ],
+    "assistant_lines": [
+      620
+    ]
+  },
+  "scene-38-pair-10-forward": {
+    "user_lines": [
+      621
+    ],
+    "assistant_lines": [
+      622
+    ]
+  },
+  "scene-38-pair-10-reverse": {
+    "user_lines": [
+      622
+    ],
+    "assistant_lines": [
+      621
+    ]
+  },
+  "scene-38-pair-11-forward": {
+    "user_lines": [
+      622
+    ],
+    "assistant_lines": [
+      623
+    ]
+  },
+  "scene-38-pair-11-reverse": {
+    "user_lines": [
+      623
+    ],
+    "assistant_lines": [
+      622
+    ]
+  },
+  "scene-38-pair-12-forward": {
+    "user_lines": [
+      623
+    ],
+    "assistant_lines": [
+      624
+    ]
+  },
+  "scene-38-pair-12-reverse": {
+    "user_lines": [
+      624
+    ],
+    "assistant_lines": [
+      623
+    ]
+  },
+  "scene-38-pair-13-forward": {
+    "user_lines": [
+      624
+    ],
+    "assistant_lines": [
+      625
+    ]
+  },
+  "scene-38-pair-13-reverse": {
+    "user_lines": [
+      625
+    ],
+    "assistant_lines": [
+      624
+    ]
+  },
+  "scene-38-pair-14-forward": {
+    "user_lines": [
+      625
+    ],
+    "assistant_lines": [
+      626
+    ]
+  },
+  "scene-38-pair-14-reverse": {
+    "user_lines": [
+      626
+    ],
+    "assistant_lines": [
+      625
+    ]
+  },
+  "scene-38-pair-15-forward": {
+    "user_lines": [
+      626
+    ],
+    "assistant_lines": [
+      627
+    ]
+  },
+  "scene-38-pair-15-reverse": {
+    "user_lines": [
+      627
+    ],
+    "assistant_lines": [
+      626
+    ]
+  },
+  "scene-39-pair-0-forward": {
+    "user_lines": [
+      630
+    ],
+    "assistant_lines": [
+      631
+    ]
+  },
+  "scene-39-pair-0-reverse": {
+    "user_lines": [
+      631
+    ],
+    "assistant_lines": [
+      630
+    ]
+  },
+  "scene-39-pair-1-forward": {
+    "user_lines": [
+      631
+    ],
+    "assistant_lines": [
+      632
+    ]
+  },
+  "scene-39-pair-1-reverse": {
+    "user_lines": [
+      632
+    ],
+    "assistant_lines": [
+      631
+    ]
+  },
+  "scene-39-pair-2-forward": {
+    "user_lines": [
+      632
+    ],
+    "assistant_lines": [
+      633
+    ]
+  },
+  "scene-39-pair-2-reverse": {
+    "user_lines": [
+      633
+    ],
+    "assistant_lines": [
+      632
+    ]
+  },
+  "scene-39-pair-3-forward": {
+    "user_lines": [
+      633
+    ],
+    "assistant_lines": [
+      634
+    ]
+  },
+  "scene-39-pair-3-reverse": {
+    "user_lines": [
+      634
+    ],
+    "assistant_lines": [
+      633
+    ]
+  },
+  "scene-39-pair-4-forward": {
+    "user_lines": [
+      634
+    ],
+    "assistant_lines": [
+      635
+    ]
+  },
+  "scene-39-pair-4-reverse": {
+    "user_lines": [
+      635
+    ],
+    "assistant_lines": [
+      634
+    ]
+  },
+  "scene-39-pair-5-forward": {
+    "user_lines": [
+      635
+    ],
+    "assistant_lines": [
+      636
+    ]
+  },
+  "scene-39-pair-5-reverse": {
+    "user_lines": [
+      636
+    ],
+    "assistant_lines": [
+      635
+    ]
+  },
+  "scene-39-pair-6-forward": {
+    "user_lines": [
+      636
+    ],
+    "assistant_lines": [
+      637
+    ]
+  },
+  "scene-39-pair-6-reverse": {
+    "user_lines": [
+      637
+    ],
+    "assistant_lines": [
+      636
+    ]
+  },
+  "scene-39-pair-7-forward": {
+    "user_lines": [
+      637
+    ],
+    "assistant_lines": [
+      638
+    ]
+  },
+  "scene-39-pair-7-reverse": {
+    "user_lines": [
+      638
+    ],
+    "assistant_lines": [
+      637
+    ]
+  },
+  "scene-39-pair-8-forward": {
+    "user_lines": [
+      638
+    ],
+    "assistant_lines": [
+      639
+    ]
+  },
+  "scene-39-pair-8-reverse": {
+    "user_lines": [
+      639
+    ],
+    "assistant_lines": [
+      638
+    ]
+  },
+  "scene-39-pair-9-forward": {
+    "user_lines": [
+      639
+    ],
+    "assistant_lines": [
+      640
+    ]
+  },
+  "scene-39-pair-9-reverse": {
+    "user_lines": [
+      640
+    ],
+    "assistant_lines": [
+      639
+    ]
+  },
+  "scene-39-pair-10-forward": {
+    "user_lines": [
+      640
+    ],
+    "assistant_lines": [
+      641
+    ]
+  },
+  "scene-39-pair-10-reverse": {
+    "user_lines": [
+      641
+    ],
+    "assistant_lines": [
+      640
+    ]
+  },
+  "scene-39-pair-11-forward": {
+    "user_lines": [
+      641
+    ],
+    "assistant_lines": [
+      642
+    ]
+  },
+  "scene-39-pair-11-reverse": {
+    "user_lines": [
+      642
+    ],
+    "assistant_lines": [
+      641
+    ]
+  },
+  "scene-39-pair-12-forward": {
+    "user_lines": [
+      642
+    ],
+    "assistant_lines": [
+      643
+    ]
+  },
+  "scene-39-pair-12-reverse": {
+    "user_lines": [
+      643
+    ],
+    "assistant_lines": [
+      642
+    ]
+  },
+  "scene-39-pair-13-forward": {
+    "user_lines": [
+      643
+    ],
+    "assistant_lines": [
+      644
+    ]
+  },
+  "scene-39-pair-13-reverse": {
+    "user_lines": [
+      644
+    ],
+    "assistant_lines": [
+      643
+    ]
+  },
+  "scene-39-pair-14-forward": {
+    "user_lines": [
+      644
+    ],
+    "assistant_lines": [
+      645
+    ]
+  },
+  "scene-39-pair-14-reverse": {
+    "user_lines": [
+      645
+    ],
+    "assistant_lines": [
+      644
+    ]
+  },
+  "scene-39-pair-15-forward": {
+    "user_lines": [
+      645
+    ],
+    "assistant_lines": [
+      646
+    ]
+  },
+  "scene-39-pair-15-reverse": {
+    "user_lines": [
+      646
+    ],
+    "assistant_lines": [
+      645
+    ]
+  },
+  "scene-40-pair-0-forward": {
+    "user_lines": [
+      649
+    ],
+    "assistant_lines": [
+      650
+    ]
+  },
+  "scene-40-pair-0-reverse": {
+    "user_lines": [
+      650
+    ],
+    "assistant_lines": [
+      649
+    ]
+  },
+  "scene-40-pair-1-forward": {
+    "user_lines": [
+      650
+    ],
+    "assistant_lines": [
+      651
+    ]
+  },
+  "scene-40-pair-1-reverse": {
+    "user_lines": [
+      651
+    ],
+    "assistant_lines": [
+      650
+    ]
+  },
+  "scene-40-pair-2-forward": {
+    "user_lines": [
+      651
+    ],
+    "assistant_lines": [
+      652
+    ]
+  },
+  "scene-40-pair-2-reverse": {
+    "user_lines": [
+      652
+    ],
+    "assistant_lines": [
+      651
+    ]
+  },
+  "scene-40-pair-3-forward": {
+    "user_lines": [
+      652
+    ],
+    "assistant_lines": [
+      653
+    ]
+  },
+  "scene-40-pair-3-reverse": {
+    "user_lines": [
+      653
+    ],
+    "assistant_lines": [
+      652
+    ]
+  },
+  "scene-40-pair-4-forward": {
+    "user_lines": [
+      653
+    ],
+    "assistant_lines": [
+      654
+    ]
+  },
+  "scene-40-pair-4-reverse": {
+    "user_lines": [
+      654
+    ],
+    "assistant_lines": [
+      653
+    ]
+  },
+  "scene-40-pair-5-forward": {
+    "user_lines": [
+      654
+    ],
+    "assistant_lines": [
+      655
+    ]
+  },
+  "scene-40-pair-5-reverse": {
+    "user_lines": [
+      655
+    ],
+    "assistant_lines": [
+      654
+    ]
+  },
+  "scene-40-pair-6-forward": {
+    "user_lines": [
+      655
+    ],
+    "assistant_lines": [
+      656
+    ]
+  },
+  "scene-40-pair-6-reverse": {
+    "user_lines": [
+      656
+    ],
+    "assistant_lines": [
+      655
+    ]
+  },
+  "scene-40-pair-7-forward": {
+    "user_lines": [
+      656
+    ],
+    "assistant_lines": [
+      657
+    ]
+  },
+  "scene-40-pair-7-reverse": {
+    "user_lines": [
+      657
+    ],
+    "assistant_lines": [
+      656
+    ]
+  },
+  "scene-40-pair-8-forward": {
+    "user_lines": [
+      657
+    ],
+    "assistant_lines": [
+      658
+    ]
+  },
+  "scene-40-pair-8-reverse": {
+    "user_lines": [
+      658
+    ],
+    "assistant_lines": [
+      657
+    ]
+  },
+  "scene-41-pair-0-forward": {
+    "user_lines": [
+      661
+    ],
+    "assistant_lines": [
+      662
+    ]
+  },
+  "scene-41-pair-0-reverse": {
+    "user_lines": [
+      662
+    ],
+    "assistant_lines": [
+      661
+    ]
+  },
+  "scene-41-pair-1-forward": {
+    "user_lines": [
+      662
+    ],
+    "assistant_lines": [
+      663
+    ]
+  },
+  "scene-41-pair-1-reverse": {
+    "user_lines": [
+      663
+    ],
+    "assistant_lines": [
+      662
+    ]
+  },
+  "scene-41-pair-2-forward": {
+    "user_lines": [
+      663
+    ],
+    "assistant_lines": [
+      664,
+      666
+    ]
+  },
+  "scene-41-pair-2-reverse": {
+    "user_lines": [
+      664,
+      666
+    ],
+    "assistant_lines": [
+      663
+    ]
+  },
+  "scene-41-pair-3-forward": {
+    "user_lines": [
+      664,
+      666
+    ],
+    "assistant_lines": [
+      667
+    ]
+  },
+  "scene-41-pair-3-reverse": {
+    "user_lines": [
+      667
+    ],
+    "assistant_lines": [
+      664,
+      666
+    ]
+  },
+  "scene-41-pair-4-forward": {
+    "user_lines": [
+      667
+    ],
+    "assistant_lines": [
+      669
+    ]
+  },
+  "scene-41-pair-4-reverse": {
+    "user_lines": [
+      669
+    ],
+    "assistant_lines": [
+      667
+    ]
+  },
+  "scene-41-pair-5-forward": {
+    "user_lines": [
+      669
+    ],
+    "assistant_lines": [
+      670,
+      671
+    ]
+  },
+  "scene-41-pair-5-reverse": {
+    "user_lines": [
+      670,
+      671
+    ],
+    "assistant_lines": [
+      669
+    ]
+  },
+  "scene-42-pair-0-forward": {
+    "user_lines": [
+      674
+    ],
+    "assistant_lines": [
+      675
+    ]
+  },
+  "scene-42-pair-0-reverse": {
+    "user_lines": [
+      675
+    ],
+    "assistant_lines": [
+      674
+    ]
+  },
+  "scene-42-pair-1-forward": {
+    "user_lines": [
+      675
+    ],
+    "assistant_lines": [
+      676
+    ]
+  },
+  "scene-42-pair-1-reverse": {
+    "user_lines": [
+      676
+    ],
+    "assistant_lines": [
+      675
+    ]
+  },
+  "scene-43-pair-0-forward": {
+    "user_lines": [
+      679
+    ],
+    "assistant_lines": [
+      680
+    ]
+  },
+  "scene-43-pair-0-reverse": {
+    "user_lines": [
+      680
+    ],
+    "assistant_lines": [
+      679
+    ]
+  },
+  "scene-44-pair-0-forward": {
+    "user_lines": [
+      683
+    ],
+    "assistant_lines": [
+      684
+    ]
+  },
+  "scene-44-pair-0-reverse": {
+    "user_lines": [
+      684
+    ],
+    "assistant_lines": [
+      683
+    ]
+  },
+  "scene-44-pair-1-forward": {
+    "user_lines": [
+      684
+    ],
+    "assistant_lines": [
+      686
+    ]
+  },
+  "scene-44-pair-1-reverse": {
+    "user_lines": [
+      686
+    ],
+    "assistant_lines": [
+      684
+    ]
+  },
+  "scene-45-pair-0-forward": {
+    "user_lines": [
+      689
+    ],
+    "assistant_lines": [
+      690
+    ]
+  },
+  "scene-45-pair-0-reverse": {
+    "user_lines": [
+      690
+    ],
+    "assistant_lines": [
+      689
+    ]
+  },
+  "scene-45-pair-1-forward": {
+    "user_lines": [
+      690
+    ],
+    "assistant_lines": [
+      691
+    ]
+  },
+  "scene-45-pair-1-reverse": {
+    "user_lines": [
+      691
+    ],
+    "assistant_lines": [
+      690
+    ]
+  },
+  "scene-45-pair-2-forward": {
+    "user_lines": [
+      691
+    ],
+    "assistant_lines": [
+      692
+    ]
+  },
+  "scene-45-pair-2-reverse": {
+    "user_lines": [
+      692
+    ],
+    "assistant_lines": [
+      691
+    ]
+  },
+  "scene-45-pair-3-forward": {
+    "user_lines": [
+      692
+    ],
+    "assistant_lines": [
+      693
+    ]
+  },
+  "scene-45-pair-3-reverse": {
+    "user_lines": [
+      693
+    ],
+    "assistant_lines": [
+      692
+    ]
+  },
+  "scene-45-pair-4-forward": {
+    "user_lines": [
+      693
+    ],
+    "assistant_lines": [
+      694
+    ]
+  },
+  "scene-45-pair-4-reverse": {
+    "user_lines": [
+      694
+    ],
+    "assistant_lines": [
+      693
+    ]
+  },
+  "scene-45-pair-5-forward": {
+    "user_lines": [
+      694
+    ],
+    "assistant_lines": [
+      695
+    ]
+  },
+  "scene-45-pair-5-reverse": {
+    "user_lines": [
+      695
+    ],
+    "assistant_lines": [
+      694
+    ]
+  },
+  "scene-45-pair-6-forward": {
+    "user_lines": [
+      695
+    ],
+    "assistant_lines": [
+      696
+    ]
+  },
+  "scene-45-pair-6-reverse": {
+    "user_lines": [
+      696
+    ],
+    "assistant_lines": [
+      695
+    ]
+  },
+  "scene-45-pair-7-forward": {
+    "user_lines": [
+      696
+    ],
+    "assistant_lines": [
+      697
+    ]
+  },
+  "scene-45-pair-7-reverse": {
+    "user_lines": [
+      697
+    ],
+    "assistant_lines": [
+      696
+    ]
+  },
+  "scene-45-pair-8-forward": {
+    "user_lines": [
+      697
+    ],
+    "assistant_lines": [
+      699
+    ]
+  },
+  "scene-45-pair-8-reverse": {
+    "user_lines": [
+      699
+    ],
+    "assistant_lines": [
+      697
+    ]
+  },
+  "scene-45-pair-9-forward": {
+    "user_lines": [
+      699
+    ],
+    "assistant_lines": [
+      701
+    ]
+  },
+  "scene-45-pair-9-reverse": {
+    "user_lines": [
+      701
+    ],
+    "assistant_lines": [
+      699
+    ]
+  },
+  "scene-45-pair-10-forward": {
+    "user_lines": [
+      701
+    ],
+    "assistant_lines": [
+      702
+    ]
+  },
+  "scene-45-pair-10-reverse": {
+    "user_lines": [
+      702
+    ],
+    "assistant_lines": [
+      701
+    ]
+  },
+  "scene-45-pair-11-forward": {
+    "user_lines": [
+      702
+    ],
+    "assistant_lines": [
+      703
+    ]
+  },
+  "scene-45-pair-11-reverse": {
+    "user_lines": [
+      703
+    ],
+    "assistant_lines": [
+      702
+    ]
+  },
+  "scene-45-pair-12-forward": {
+    "user_lines": [
+      703
+    ],
+    "assistant_lines": [
+      704
+    ]
+  },
+  "scene-45-pair-12-reverse": {
+    "user_lines": [
+      704
+    ],
+    "assistant_lines": [
+      703
+    ]
+  },
+  "scene-45-pair-13-forward": {
+    "user_lines": [
+      704
+    ],
+    "assistant_lines": [
+      705
+    ]
+  },
+  "scene-45-pair-13-reverse": {
+    "user_lines": [
+      705
+    ],
+    "assistant_lines": [
+      704
+    ]
+  },
+  "scene-45-pair-14-forward": {
+    "user_lines": [
+      705
+    ],
+    "assistant_lines": [
+      706
+    ]
+  },
+  "scene-45-pair-14-reverse": {
+    "user_lines": [
+      706
+    ],
+    "assistant_lines": [
+      705
+    ]
+  },
+  "scene-45-pair-15-forward": {
+    "user_lines": [
+      706
+    ],
+    "assistant_lines": [
+      707
+    ]
+  },
+  "scene-45-pair-15-reverse": {
+    "user_lines": [
+      707
+    ],
+    "assistant_lines": [
+      706
+    ]
+  },
+  "scene-45-pair-16-forward": {
+    "user_lines": [
+      707
+    ],
+    "assistant_lines": [
+      708
+    ]
+  },
+  "scene-45-pair-16-reverse": {
+    "user_lines": [
+      708
+    ],
+    "assistant_lines": [
+      707
+    ]
+  },
+  "scene-45-pair-17-forward": {
+    "user_lines": [
+      708
+    ],
+    "assistant_lines": [
+      709
+    ]
+  },
+  "scene-45-pair-17-reverse": {
+    "user_lines": [
+      709
+    ],
+    "assistant_lines": [
+      708
+    ]
+  },
+  "scene-45-pair-18-forward": {
+    "user_lines": [
+      709
+    ],
+    "assistant_lines": [
+      710
+    ]
+  },
+  "scene-45-pair-18-reverse": {
+    "user_lines": [
+      710
+    ],
+    "assistant_lines": [
+      709
+    ]
+  },
+  "scene-45-pair-19-forward": {
+    "user_lines": [
+      710
+    ],
+    "assistant_lines": [
+      711
+    ]
+  },
+  "scene-45-pair-19-reverse": {
+    "user_lines": [
+      711
+    ],
+    "assistant_lines": [
+      710
+    ]
+  },
+  "scene-45-pair-20-forward": {
+    "user_lines": [
+      711
+    ],
+    "assistant_lines": [
+      712
+    ]
+  },
+  "scene-45-pair-20-reverse": {
+    "user_lines": [
+      712
+    ],
+    "assistant_lines": [
+      711
+    ]
+  },
+  "scene-45-pair-21-forward": {
+    "user_lines": [
+      712
+    ],
+    "assistant_lines": [
+      713
+    ]
+  },
+  "scene-45-pair-21-reverse": {
+    "user_lines": [
+      713
+    ],
+    "assistant_lines": [
+      712
+    ]
+  },
+  "scene-45-pair-22-forward": {
+    "user_lines": [
+      713
+    ],
+    "assistant_lines": [
+      714
+    ]
+  },
+  "scene-45-pair-22-reverse": {
+    "user_lines": [
+      714
+    ],
+    "assistant_lines": [
+      713
+    ]
+  },
+  "scene-46-pair-0-forward": {
+    "user_lines": [
+      717
+    ],
+    "assistant_lines": [
+      718
+    ]
+  },
+  "scene-46-pair-0-reverse": {
+    "user_lines": [
+      718
+    ],
+    "assistant_lines": [
+      717
+    ]
+  },
+  "scene-46-pair-1-forward": {
+    "user_lines": [
+      718
+    ],
+    "assistant_lines": [
+      719
+    ]
+  },
+  "scene-46-pair-1-reverse": {
+    "user_lines": [
+      719
+    ],
+    "assistant_lines": [
+      718
+    ]
+  },
+  "scene-46-pair-2-forward": {
+    "user_lines": [
+      719
+    ],
+    "assistant_lines": [
+      720
+    ]
+  },
+  "scene-46-pair-2-reverse": {
+    "user_lines": [
+      720
+    ],
+    "assistant_lines": [
+      719
+    ]
+  },
+  "scene-46-pair-3-forward": {
+    "user_lines": [
+      720
+    ],
+    "assistant_lines": [
+      721
+    ]
+  },
+  "scene-46-pair-3-reverse": {
+    "user_lines": [
+      721
+    ],
+    "assistant_lines": [
+      720
+    ]
+  },
+  "scene-46-pair-4-forward": {
+    "user_lines": [
+      721
+    ],
+    "assistant_lines": [
+      723
+    ]
+  },
+  "scene-46-pair-4-reverse": {
+    "user_lines": [
+      723
+    ],
+    "assistant_lines": [
+      721
+    ]
+  },
+  "scene-46-pair-5-forward": {
+    "user_lines": [
+      723
+    ],
+    "assistant_lines": [
+      724
+    ]
+  },
+  "scene-46-pair-5-reverse": {
+    "user_lines": [
+      724
+    ],
+    "assistant_lines": [
+      723
+    ]
+  },
+  "scene-46-pair-6-forward": {
+    "user_lines": [
+      724
+    ],
+    "assistant_lines": [
+      725
+    ]
+  },
+  "scene-46-pair-6-reverse": {
+    "user_lines": [
+      725
+    ],
+    "assistant_lines": [
+      724
+    ]
+  },
+  "scene-46-pair-7-forward": {
+    "user_lines": [
+      725
+    ],
+    "assistant_lines": [
+      726
+    ]
+  },
+  "scene-46-pair-7-reverse": {
+    "user_lines": [
+      726
+    ],
+    "assistant_lines": [
+      725
+    ]
+  },
+  "scene-46-pair-8-forward": {
+    "user_lines": [
+      726
+    ],
+    "assistant_lines": [
+      727
+    ]
+  },
+  "scene-46-pair-8-reverse": {
+    "user_lines": [
+      727
+    ],
+    "assistant_lines": [
+      726
+    ]
+  },
+  "scene-46-pair-9-forward": {
+    "user_lines": [
+      727
+    ],
+    "assistant_lines": [
+      728
+    ]
+  },
+  "scene-46-pair-9-reverse": {
+    "user_lines": [
+      728
+    ],
+    "assistant_lines": [
+      727
+    ]
+  },
+  "scene-46-pair-10-forward": {
+    "user_lines": [
+      728
+    ],
+    "assistant_lines": [
+      730
+    ]
+  },
+  "scene-46-pair-10-reverse": {
+    "user_lines": [
+      730
+    ],
+    "assistant_lines": [
+      728
+    ]
+  },
+  "scene-46-pair-11-forward": {
+    "user_lines": [
+      730
+    ],
+    "assistant_lines": [
+      731
+    ]
+  },
+  "scene-46-pair-11-reverse": {
+    "user_lines": [
+      731
+    ],
+    "assistant_lines": [
+      730
+    ]
+  },
+  "scene-46-pair-12-forward": {
+    "user_lines": [
+      731
+    ],
+    "assistant_lines": [
+      732
+    ]
+  },
+  "scene-46-pair-12-reverse": {
+    "user_lines": [
+      732
+    ],
+    "assistant_lines": [
+      731
+    ]
+  },
+  "scene-46-pair-13-forward": {
+    "user_lines": [
+      732
+    ],
+    "assistant_lines": [
+      734
+    ]
+  },
+  "scene-46-pair-13-reverse": {
+    "user_lines": [
+      734
+    ],
+    "assistant_lines": [
+      732
+    ]
+  },
+  "scene-47-pair-0-forward": {
+    "user_lines": [
+      737
+    ],
+    "assistant_lines": [
+      738
+    ]
+  },
+  "scene-47-pair-0-reverse": {
+    "user_lines": [
+      738
+    ],
+    "assistant_lines": [
+      737
+    ]
+  },
+  "scene-47-pair-1-forward": {
+    "user_lines": [
+      738
+    ],
+    "assistant_lines": [
+      739
+    ]
+  },
+  "scene-47-pair-1-reverse": {
+    "user_lines": [
+      739
+    ],
+    "assistant_lines": [
+      738
+    ]
+  },
+  "scene-47-pair-2-forward": {
+    "user_lines": [
+      739
+    ],
+    "assistant_lines": [
+      740,
+      741
+    ]
+  },
+  "scene-47-pair-2-reverse": {
+    "user_lines": [
+      740,
+      741
+    ],
+    "assistant_lines": [
+      739
+    ]
+  },
+  "scene-48-pair-0-forward": {
+    "user_lines": [
+      750
+    ],
+    "assistant_lines": [
+      751
+    ]
+  },
+  "scene-48-pair-0-reverse": {
+    "user_lines": [
+      751
+    ],
+    "assistant_lines": [
+      750
+    ]
+  },
+  "scene-48-pair-1-forward": {
+    "user_lines": [
+      751
+    ],
+    "assistant_lines": [
+      752
+    ]
+  },
+  "scene-48-pair-1-reverse": {
+    "user_lines": [
+      752
+    ],
+    "assistant_lines": [
+      751
+    ]
+  },
+  "scene-48-pair-2-forward": {
+    "user_lines": [
+      752
+    ],
+    "assistant_lines": [
+      753
+    ]
+  },
+  "scene-48-pair-2-reverse": {
+    "user_lines": [
+      753
+    ],
+    "assistant_lines": [
+      752
+    ]
+  },
+  "scene-48-pair-3-forward": {
+    "user_lines": [
+      753
+    ],
+    "assistant_lines": [
+      754
+    ]
+  },
+  "scene-48-pair-3-reverse": {
+    "user_lines": [
+      754
+    ],
+    "assistant_lines": [
+      753
+    ]
+  },
+  "scene-48-pair-4-forward": {
+    "user_lines": [
+      754
+    ],
+    "assistant_lines": [
+      756
+    ]
+  },
+  "scene-48-pair-4-reverse": {
+    "user_lines": [
+      756
+    ],
+    "assistant_lines": [
+      754
+    ]
+  },
+  "scene-48-pair-5-forward": {
+    "user_lines": [
+      756
+    ],
+    "assistant_lines": [
+      757
+    ]
+  },
+  "scene-48-pair-5-reverse": {
+    "user_lines": [
+      757
+    ],
+    "assistant_lines": [
+      756
+    ]
+  },
+  "scene-48-pair-6-forward": {
+    "user_lines": [
+      757
+    ],
+    "assistant_lines": [
+      758
+    ]
+  },
+  "scene-48-pair-6-reverse": {
+    "user_lines": [
+      758
+    ],
+    "assistant_lines": [
+      757
+    ]
+  },
+  "scene-48-pair-7-forward": {
+    "user_lines": [
+      758
+    ],
+    "assistant_lines": [
+      759
+    ]
+  },
+  "scene-48-pair-7-reverse": {
+    "user_lines": [
+      759
+    ],
+    "assistant_lines": [
+      758
+    ]
+  },
+  "scene-48-pair-8-forward": {
+    "user_lines": [
+      759
+    ],
+    "assistant_lines": [
+      761
+    ]
+  },
+  "scene-48-pair-8-reverse": {
+    "user_lines": [
+      761
+    ],
+    "assistant_lines": [
+      759
+    ]
+  },
+  "scene-48-pair-9-forward": {
+    "user_lines": [
+      761
+    ],
+    "assistant_lines": [
+      762
+    ]
+  },
+  "scene-48-pair-9-reverse": {
+    "user_lines": [
+      762
+    ],
+    "assistant_lines": [
+      761
+    ]
+  },
+  "scene-48-pair-10-forward": {
+    "user_lines": [
+      762
+    ],
+    "assistant_lines": [
+      763
+    ]
+  },
+  "scene-48-pair-10-reverse": {
+    "user_lines": [
+      763
+    ],
+    "assistant_lines": [
+      762
+    ]
+  },
+  "scene-48-pair-11-forward": {
+    "user_lines": [
+      763
+    ],
+    "assistant_lines": [
+      764
+    ]
+  },
+  "scene-48-pair-11-reverse": {
+    "user_lines": [
+      764
+    ],
+    "assistant_lines": [
+      763
+    ]
+  },
+  "scene-48-pair-12-forward": {
+    "user_lines": [
+      764
+    ],
+    "assistant_lines": [
+      765
+    ]
+  },
+  "scene-48-pair-12-reverse": {
+    "user_lines": [
+      765
+    ],
+    "assistant_lines": [
+      764
+    ]
+  },
+  "scene-48-pair-13-forward": {
+    "user_lines": [
+      765
+    ],
+    "assistant_lines": [
+      768
+    ]
+  },
+  "scene-48-pair-13-reverse": {
+    "user_lines": [
+      768
+    ],
+    "assistant_lines": [
+      765
+    ]
+  },
+  "scene-48-pair-14-forward": {
+    "user_lines": [
+      768
+    ],
+    "assistant_lines": [
+      769
+    ]
+  },
+  "scene-48-pair-14-reverse": {
+    "user_lines": [
+      769
+    ],
+    "assistant_lines": [
+      768
+    ]
+  },
+  "scene-49-pair-0-forward": {
+    "user_lines": [
+      772
+    ],
+    "assistant_lines": [
+      773
+    ]
+  },
+  "scene-49-pair-0-reverse": {
+    "user_lines": [
+      773
+    ],
+    "assistant_lines": [
+      772
+    ]
+  },
+  "scene-49-pair-1-forward": {
+    "user_lines": [
+      773
+    ],
+    "assistant_lines": [
+      774
+    ]
+  },
+  "scene-49-pair-1-reverse": {
+    "user_lines": [
+      774
+    ],
+    "assistant_lines": [
+      773
+    ]
+  },
+  "scene-49-pair-2-forward": {
+    "user_lines": [
+      774
+    ],
+    "assistant_lines": [
+      775
+    ]
+  },
+  "scene-49-pair-2-reverse": {
+    "user_lines": [
+      775
+    ],
+    "assistant_lines": [
+      774
+    ]
+  },
+  "scene-49-pair-3-forward": {
+    "user_lines": [
+      775
+    ],
+    "assistant_lines": [
+      776
+    ]
+  },
+  "scene-49-pair-3-reverse": {
+    "user_lines": [
+      776
+    ],
+    "assistant_lines": [
+      775
+    ]
+  },
+  "scene-49-pair-4-forward": {
+    "user_lines": [
+      776
+    ],
+    "assistant_lines": [
+      777
+    ]
+  },
+  "scene-49-pair-4-reverse": {
+    "user_lines": [
+      777
+    ],
+    "assistant_lines": [
+      776
+    ]
+  },
+  "scene-49-pair-5-forward": {
+    "user_lines": [
+      777
+    ],
+    "assistant_lines": [
+      778
+    ]
+  },
+  "scene-49-pair-5-reverse": {
+    "user_lines": [
+      778
+    ],
+    "assistant_lines": [
+      777
+    ]
+  },
+  "scene-50-pair-0-forward": {
+    "user_lines": [
+      781
+    ],
+    "assistant_lines": [
+      782
+    ]
+  },
+  "scene-50-pair-0-reverse": {
+    "user_lines": [
+      782
+    ],
+    "assistant_lines": [
+      781
+    ]
+  },
+  "scene-50-pair-1-forward": {
+    "user_lines": [
+      782
+    ],
+    "assistant_lines": [
+      783
+    ]
+  },
+  "scene-50-pair-1-reverse": {
+    "user_lines": [
+      783
+    ],
+    "assistant_lines": [
+      782
+    ]
+  },
+  "scene-50-pair-2-forward": {
+    "user_lines": [
+      783
+    ],
+    "assistant_lines": [
+      784
+    ]
+  },
+  "scene-50-pair-2-reverse": {
+    "user_lines": [
+      784
+    ],
+    "assistant_lines": [
+      783
+    ]
+  },
+  "scene-50-pair-3-forward": {
+    "user_lines": [
+      784
+    ],
+    "assistant_lines": [
+      785
+    ]
+  },
+  "scene-50-pair-3-reverse": {
+    "user_lines": [
+      785
+    ],
+    "assistant_lines": [
+      784
+    ]
+  },
+  "scene-50-pair-4-forward": {
+    "user_lines": [
+      785
+    ],
+    "assistant_lines": [
+      786
+    ]
+  },
+  "scene-50-pair-4-reverse": {
+    "user_lines": [
+      786
+    ],
+    "assistant_lines": [
+      785
+    ]
+  },
+  "scene-50-pair-5-forward": {
+    "user_lines": [
+      786
+    ],
+    "assistant_lines": [
+      787
+    ]
+  },
+  "scene-50-pair-5-reverse": {
+    "user_lines": [
+      787
+    ],
+    "assistant_lines": [
+      786
+    ]
+  },
+  "scene-50-pair-6-forward": {
+    "user_lines": [
+      787
+    ],
+    "assistant_lines": [
+      788,
+      790
+    ]
+  },
+  "scene-50-pair-6-reverse": {
+    "user_lines": [
+      788,
+      790
+    ],
+    "assistant_lines": [
+      787
+    ]
+  },
+  "scene-51-pair-0-forward": {
+    "user_lines": [
+      793
+    ],
+    "assistant_lines": [
+      794
+    ]
+  },
+  "scene-51-pair-0-reverse": {
+    "user_lines": [
+      794
+    ],
+    "assistant_lines": [
+      793
+    ]
+  },
+  "scene-51-pair-1-forward": {
+    "user_lines": [
+      794
+    ],
+    "assistant_lines": [
+      795
+    ]
+  },
+  "scene-51-pair-1-reverse": {
+    "user_lines": [
+      795
+    ],
+    "assistant_lines": [
+      794
+    ]
+  },
+  "scene-51-pair-2-forward": {
+    "user_lines": [
+      795
+    ],
+    "assistant_lines": [
+      796
+    ]
+  },
+  "scene-51-pair-2-reverse": {
+    "user_lines": [
+      796
+    ],
+    "assistant_lines": [
+      795
+    ]
+  },
+  "scene-51-pair-3-forward": {
+    "user_lines": [
+      796
+    ],
+    "assistant_lines": [
+      797
+    ]
+  },
+  "scene-51-pair-3-reverse": {
+    "user_lines": [
+      797
+    ],
+    "assistant_lines": [
+      796
+    ]
+  },
+  "scene-51-pair-4-forward": {
+    "user_lines": [
+      797
+    ],
+    "assistant_lines": [
+      798
+    ]
+  },
+  "scene-51-pair-4-reverse": {
+    "user_lines": [
+      798
+    ],
+    "assistant_lines": [
+      797
+    ]
+  },
+  "scene-51-pair-5-forward": {
+    "user_lines": [
+      798
+    ],
+    "assistant_lines": [
+      799
+    ]
+  },
+  "scene-51-pair-5-reverse": {
+    "user_lines": [
+      799
+    ],
+    "assistant_lines": [
+      798
+    ]
+  },
+  "scene-51-pair-6-forward": {
+    "user_lines": [
+      799
+    ],
+    "assistant_lines": [
+      800
+    ]
+  },
+  "scene-51-pair-6-reverse": {
+    "user_lines": [
+      800
+    ],
+    "assistant_lines": [
+      799
+    ]
+  },
+  "scene-51-pair-7-forward": {
+    "user_lines": [
+      800
+    ],
+    "assistant_lines": [
+      801
+    ]
+  },
+  "scene-51-pair-7-reverse": {
+    "user_lines": [
+      801
+    ],
+    "assistant_lines": [
+      800
+    ]
+  },
+  "scene-51-pair-8-forward": {
+    "user_lines": [
+      801
+    ],
+    "assistant_lines": [
+      802
+    ]
+  },
+  "scene-51-pair-8-reverse": {
+    "user_lines": [
+      802
+    ],
+    "assistant_lines": [
+      801
+    ]
+  },
+  "scene-51-pair-9-forward": {
+    "user_lines": [
+      802
+    ],
+    "assistant_lines": [
+      803
+    ]
+  },
+  "scene-51-pair-9-reverse": {
+    "user_lines": [
+      803
+    ],
+    "assistant_lines": [
+      802
+    ]
+  },
+  "scene-51-pair-10-forward": {
+    "user_lines": [
+      803
+    ],
+    "assistant_lines": [
+      804
+    ]
+  },
+  "scene-51-pair-10-reverse": {
+    "user_lines": [
+      804
+    ],
+    "assistant_lines": [
+      803
+    ]
+  },
+  "scene-51-pair-11-forward": {
+    "user_lines": [
+      804
+    ],
+    "assistant_lines": [
+      805
+    ]
+  },
+  "scene-51-pair-11-reverse": {
+    "user_lines": [
+      805
+    ],
+    "assistant_lines": [
+      804
+    ]
+  },
+  "scene-51-pair-12-forward": {
+    "user_lines": [
+      805
+    ],
+    "assistant_lines": [
+      807
+    ]
+  },
+  "scene-51-pair-12-reverse": {
+    "user_lines": [
+      807
+    ],
+    "assistant_lines": [
+      805
+    ]
+  },
+  "scene-51-pair-13-forward": {
+    "user_lines": [
+      807
+    ],
+    "assistant_lines": [
+      808
+    ]
+  },
+  "scene-51-pair-13-reverse": {
+    "user_lines": [
+      808
+    ],
+    "assistant_lines": [
+      807
+    ]
+  },
+  "scene-51-pair-14-forward": {
+    "user_lines": [
+      808
+    ],
+    "assistant_lines": [
+      809
+    ]
+  },
+  "scene-51-pair-14-reverse": {
+    "user_lines": [
+      809
+    ],
+    "assistant_lines": [
+      808
+    ]
+  },
+  "scene-51-pair-15-forward": {
+    "user_lines": [
+      809
+    ],
+    "assistant_lines": [
+      810
+    ]
+  },
+  "scene-51-pair-15-reverse": {
+    "user_lines": [
+      810
+    ],
+    "assistant_lines": [
+      809
+    ]
+  },
+  "scene-51-pair-16-forward": {
+    "user_lines": [
+      810
+    ],
+    "assistant_lines": [
+      811
+    ]
+  },
+  "scene-51-pair-16-reverse": {
+    "user_lines": [
+      811
+    ],
+    "assistant_lines": [
+      810
+    ]
+  },
+  "scene-51-pair-17-forward": {
+    "user_lines": [
+      811
+    ],
+    "assistant_lines": [
+      812
+    ]
+  },
+  "scene-51-pair-17-reverse": {
+    "user_lines": [
+      812
+    ],
+    "assistant_lines": [
+      811
+    ]
+  },
+  "scene-51-pair-18-forward": {
+    "user_lines": [
+      812
+    ],
+    "assistant_lines": [
+      813
+    ]
+  },
+  "scene-51-pair-18-reverse": {
+    "user_lines": [
+      813
+    ],
+    "assistant_lines": [
+      812
+    ]
+  },
+  "scene-51-pair-19-forward": {
+    "user_lines": [
+      813
+    ],
+    "assistant_lines": [
+      814
+    ]
+  },
+  "scene-51-pair-19-reverse": {
+    "user_lines": [
+      814
+    ],
+    "assistant_lines": [
+      813
+    ]
+  },
+  "scene-51-pair-20-forward": {
+    "user_lines": [
+      814
+    ],
+    "assistant_lines": [
+      815
+    ]
+  },
+  "scene-51-pair-20-reverse": {
+    "user_lines": [
+      815
+    ],
+    "assistant_lines": [
+      814
+    ]
+  },
+  "scene-51-pair-21-forward": {
+    "user_lines": [
+      815
+    ],
+    "assistant_lines": [
+      816
+    ]
+  },
+  "scene-51-pair-21-reverse": {
+    "user_lines": [
+      816
+    ],
+    "assistant_lines": [
+      815
+    ]
+  },
+  "scene-51-pair-22-forward": {
+    "user_lines": [
+      816
+    ],
+    "assistant_lines": [
+      817
+    ]
+  },
+  "scene-51-pair-22-reverse": {
+    "user_lines": [
+      817
+    ],
+    "assistant_lines": [
+      816
+    ]
+  },
+  "scene-51-pair-23-forward": {
+    "user_lines": [
+      817
+    ],
+    "assistant_lines": [
+      818
+    ]
+  },
+  "scene-51-pair-23-reverse": {
+    "user_lines": [
+      818
+    ],
+    "assistant_lines": [
+      817
+    ]
+  },
+  "scene-51-pair-24-forward": {
+    "user_lines": [
+      818
+    ],
+    "assistant_lines": [
+      819
+    ]
+  },
+  "scene-51-pair-24-reverse": {
+    "user_lines": [
+      819
+    ],
+    "assistant_lines": [
+      818
+    ]
+  },
+  "scene-52-pair-0-forward": {
+    "user_lines": [
+      822
+    ],
+    "assistant_lines": [
+      823
+    ]
+  },
+  "scene-52-pair-0-reverse": {
+    "user_lines": [
+      823
+    ],
+    "assistant_lines": [
+      822
+    ]
+  },
+  "scene-52-pair-1-forward": {
+    "user_lines": [
+      823
+    ],
+    "assistant_lines": [
+      824
+    ]
+  },
+  "scene-52-pair-1-reverse": {
+    "user_lines": [
+      824
+    ],
+    "assistant_lines": [
+      823
+    ]
+  },
+  "scene-52-pair-2-forward": {
+    "user_lines": [
+      824
+    ],
+    "assistant_lines": [
+      825
+    ]
+  },
+  "scene-52-pair-2-reverse": {
+    "user_lines": [
+      825
+    ],
+    "assistant_lines": [
+      824
+    ]
+  },
+  "scene-52-pair-3-forward": {
+    "user_lines": [
+      825
+    ],
+    "assistant_lines": [
+      826
+    ]
+  },
+  "scene-52-pair-3-reverse": {
+    "user_lines": [
+      826
+    ],
+    "assistant_lines": [
+      825
+    ]
+  },
+  "scene-52-pair-4-forward": {
+    "user_lines": [
+      826
+    ],
+    "assistant_lines": [
+      827
+    ]
+  },
+  "scene-52-pair-4-reverse": {
+    "user_lines": [
+      827
+    ],
+    "assistant_lines": [
+      826
+    ]
+  },
+  "scene-53-pair-0-forward": {
+    "user_lines": [
+      830
+    ],
+    "assistant_lines": [
+      831
+    ]
+  },
+  "scene-53-pair-0-reverse": {
+    "user_lines": [
+      831
+    ],
+    "assistant_lines": [
+      830
+    ]
+  },
+  "scene-53-pair-1-forward": {
+    "user_lines": [
+      831
+    ],
+    "assistant_lines": [
+      832
+    ]
+  },
+  "scene-53-pair-1-reverse": {
+    "user_lines": [
+      832
+    ],
+    "assistant_lines": [
+      831
+    ]
+  },
+  "scene-54-pair-0-forward": {
+    "user_lines": [
+      835
+    ],
+    "assistant_lines": [
+      836
+    ]
+  },
+  "scene-54-pair-0-reverse": {
+    "user_lines": [
+      836
+    ],
+    "assistant_lines": [
+      835
+    ]
+  },
+  "scene-54-pair-1-forward": {
+    "user_lines": [
+      836
+    ],
+    "assistant_lines": [
+      837
+    ]
+  },
+  "scene-54-pair-1-reverse": {
+    "user_lines": [
+      837
+    ],
+    "assistant_lines": [
+      836
+    ]
+  },
+  "scene-54-pair-2-forward": {
+    "user_lines": [
+      837
+    ],
+    "assistant_lines": [
+      838
+    ]
+  },
+  "scene-54-pair-2-reverse": {
+    "user_lines": [
+      838
+    ],
+    "assistant_lines": [
+      837
+    ]
+  },
+  "scene-54-pair-3-forward": {
+    "user_lines": [
+      838
+    ],
+    "assistant_lines": [
+      839
+    ]
+  },
+  "scene-54-pair-3-reverse": {
+    "user_lines": [
+      839
+    ],
+    "assistant_lines": [
+      838
+    ]
+  },
+  "scene-54-pair-4-forward": {
+    "user_lines": [
+      839
+    ],
+    "assistant_lines": [
+      840
+    ]
+  },
+  "scene-54-pair-4-reverse": {
+    "user_lines": [
+      840
+    ],
+    "assistant_lines": [
+      839
+    ]
+  },
+  "scene-55-pair-0-forward": {
+    "user_lines": [
+      843
+    ],
+    "assistant_lines": [
+      844
+    ]
+  },
+  "scene-55-pair-0-reverse": {
+    "user_lines": [
+      844
+    ],
+    "assistant_lines": [
+      843
+    ]
+  },
+  "scene-55-pair-1-forward": {
+    "user_lines": [
+      844
+    ],
+    "assistant_lines": [
+      845
+    ]
+  },
+  "scene-55-pair-1-reverse": {
+    "user_lines": [
+      845
+    ],
+    "assistant_lines": [
+      844
+    ]
+  },
+  "scene-55-pair-2-forward": {
+    "user_lines": [
+      845
+    ],
+    "assistant_lines": [
+      846
+    ]
+  },
+  "scene-55-pair-2-reverse": {
+    "user_lines": [
+      846
+    ],
+    "assistant_lines": [
+      845
+    ]
+  },
+  "scene-55-pair-3-forward": {
+    "user_lines": [
+      846
+    ],
+    "assistant_lines": [
+      847
+    ]
+  },
+  "scene-55-pair-3-reverse": {
+    "user_lines": [
+      847
+    ],
+    "assistant_lines": [
+      846
+    ]
+  },
+  "scene-55-pair-4-forward": {
+    "user_lines": [
+      847
+    ],
+    "assistant_lines": [
+      848
+    ]
+  },
+  "scene-55-pair-4-reverse": {
+    "user_lines": [
+      848
+    ],
+    "assistant_lines": [
+      847
+    ]
+  },
+  "scene-55-pair-5-forward": {
+    "user_lines": [
+      848
+    ],
+    "assistant_lines": [
+      849
+    ]
+  },
+  "scene-55-pair-5-reverse": {
+    "user_lines": [
+      849
+    ],
+    "assistant_lines": [
+      848
+    ]
+  },
+  "scene-56-pair-0-forward": {
+    "user_lines": [
+      852
+    ],
+    "assistant_lines": [
+      853
+    ]
+  },
+  "scene-56-pair-0-reverse": {
+    "user_lines": [
+      853
+    ],
+    "assistant_lines": [
+      852
+    ]
+  },
+  "scene-56-pair-1-forward": {
+    "user_lines": [
+      853
+    ],
+    "assistant_lines": [
+      854
+    ]
+  },
+  "scene-56-pair-1-reverse": {
+    "user_lines": [
+      854
+    ],
+    "assistant_lines": [
+      853
+    ]
+  },
+  "scene-56-pair-2-forward": {
+    "user_lines": [
+      854
+    ],
+    "assistant_lines": [
+      855
+    ]
+  },
+  "scene-56-pair-2-reverse": {
+    "user_lines": [
+      855
+    ],
+    "assistant_lines": [
+      854
+    ]
+  },
+  "scene-56-pair-3-forward": {
+    "user_lines": [
+      855
+    ],
+    "assistant_lines": [
+      856
+    ]
+  },
+  "scene-56-pair-3-reverse": {
+    "user_lines": [
+      856
+    ],
+    "assistant_lines": [
+      855
+    ]
+  },
+  "scene-56-pair-4-forward": {
+    "user_lines": [
+      856
+    ],
+    "assistant_lines": [
+      857
+    ]
+  },
+  "scene-56-pair-4-reverse": {
+    "user_lines": [
+      857
+    ],
+    "assistant_lines": [
+      856
+    ]
+  },
+  "scene-56-pair-5-forward": {
+    "user_lines": [
+      857
+    ],
+    "assistant_lines": [
+      858
+    ]
+  },
+  "scene-56-pair-5-reverse": {
+    "user_lines": [
+      858
+    ],
+    "assistant_lines": [
+      857
+    ]
+  },
+  "scene-56-pair-6-forward": {
+    "user_lines": [
+      858
+    ],
+    "assistant_lines": [
+      859
+    ]
+  },
+  "scene-56-pair-6-reverse": {
+    "user_lines": [
+      859
+    ],
+    "assistant_lines": [
+      858
+    ]
+  },
+  "scene-56-pair-7-forward": {
+    "user_lines": [
+      859
+    ],
+    "assistant_lines": [
+      861,
+      863
+    ]
+  },
+  "scene-56-pair-7-reverse": {
+    "user_lines": [
+      861,
+      863
+    ],
+    "assistant_lines": [
+      859
+    ]
+  },
+  "scene-57-pair-0-forward": {
+    "user_lines": [
+      866
+    ],
+    "assistant_lines": [
+      868
+    ]
+  },
+  "scene-57-pair-0-reverse": {
+    "user_lines": [
+      868
+    ],
+    "assistant_lines": [
+      866
+    ]
+  },
+  "scene-57-pair-1-forward": {
+    "user_lines": [
+      868
+    ],
+    "assistant_lines": [
+      869
+    ]
+  },
+  "scene-57-pair-1-reverse": {
+    "user_lines": [
+      869
+    ],
+    "assistant_lines": [
+      868
+    ]
+  },
+  "scene-58-pair-0-forward": {
+    "user_lines": [
+      872
+    ],
+    "assistant_lines": [
+      873
+    ]
+  },
+  "scene-58-pair-0-reverse": {
+    "user_lines": [
+      873
+    ],
+    "assistant_lines": [
+      872
+    ]
+  },
+  "scene-58-pair-1-forward": {
+    "user_lines": [
+      873
+    ],
+    "assistant_lines": [
+      874
+    ]
+  },
+  "scene-58-pair-1-reverse": {
+    "user_lines": [
+      874
+    ],
+    "assistant_lines": [
+      873
+    ]
+  },
+  "scene-58-pair-2-forward": {
+    "user_lines": [
+      874
+    ],
+    "assistant_lines": [
+      875
+    ]
+  },
+  "scene-58-pair-2-reverse": {
+    "user_lines": [
+      875
+    ],
+    "assistant_lines": [
+      874
+    ]
+  },
+  "scene-59-pair-0-forward": {
+    "user_lines": [
+      878
+    ],
+    "assistant_lines": [
+      879
+    ]
+  },
+  "scene-59-pair-0-reverse": {
+    "user_lines": [
+      879
+    ],
+    "assistant_lines": [
+      878
+    ]
+  },
+  "scene-59-pair-1-forward": {
+    "user_lines": [
+      879
+    ],
+    "assistant_lines": [
+      880
+    ]
+  },
+  "scene-59-pair-1-reverse": {
+    "user_lines": [
+      880
+    ],
+    "assistant_lines": [
+      879
+    ]
+  },
+  "scene-59-pair-2-forward": {
+    "user_lines": [
+      880
+    ],
+    "assistant_lines": [
+      881
+    ]
+  },
+  "scene-59-pair-2-reverse": {
+    "user_lines": [
+      881
+    ],
+    "assistant_lines": [
+      880
+    ]
+  },
+  "scene-59-pair-3-forward": {
+    "user_lines": [
+      881
+    ],
+    "assistant_lines": [
+      882
+    ]
+  },
+  "scene-59-pair-3-reverse": {
+    "user_lines": [
+      882
+    ],
+    "assistant_lines": [
+      881
+    ]
+  },
+  "scene-59-pair-4-forward": {
+    "user_lines": [
+      882
+    ],
+    "assistant_lines": [
+      883
+    ]
+  },
+  "scene-59-pair-4-reverse": {
+    "user_lines": [
+      883
+    ],
+    "assistant_lines": [
+      882
+    ]
+  },
+  "scene-59-pair-5-forward": {
+    "user_lines": [
+      883
+    ],
+    "assistant_lines": [
+      884
+    ]
+  },
+  "scene-59-pair-5-reverse": {
+    "user_lines": [
+      884
+    ],
+    "assistant_lines": [
+      883
+    ]
+  },
+  "scene-59-pair-6-forward": {
+    "user_lines": [
+      884
+    ],
+    "assistant_lines": [
+      885
+    ]
+  },
+  "scene-59-pair-6-reverse": {
+    "user_lines": [
+      885
+    ],
+    "assistant_lines": [
+      884
+    ]
+  },
+  "scene-59-pair-7-forward": {
+    "user_lines": [
+      885
+    ],
+    "assistant_lines": [
+      886
+    ]
+  },
+  "scene-59-pair-7-reverse": {
+    "user_lines": [
+      886
+    ],
+    "assistant_lines": [
+      885
+    ]
+  },
+  "scene-59-pair-8-forward": {
+    "user_lines": [
+      886
+    ],
+    "assistant_lines": [
+      887
+    ]
+  },
+  "scene-59-pair-8-reverse": {
+    "user_lines": [
+      887
+    ],
+    "assistant_lines": [
+      886
+    ]
+  },
+  "scene-59-pair-9-forward": {
+    "user_lines": [
+      887
+    ],
+    "assistant_lines": [
+      889
+    ]
+  },
+  "scene-59-pair-9-reverse": {
+    "user_lines": [
+      889
+    ],
+    "assistant_lines": [
+      887
+    ]
+  },
+  "scene-59-pair-10-forward": {
+    "user_lines": [
+      889
+    ],
+    "assistant_lines": [
+      890
+    ]
+  },
+  "scene-59-pair-10-reverse": {
+    "user_lines": [
+      890
+    ],
+    "assistant_lines": [
+      889
+    ]
+  },
+  "scene-59-pair-11-forward": {
+    "user_lines": [
+      890
+    ],
+    "assistant_lines": [
+      891
+    ]
+  },
+  "scene-59-pair-11-reverse": {
+    "user_lines": [
+      891
+    ],
+    "assistant_lines": [
+      890
+    ]
+  },
+  "scene-59-pair-12-forward": {
+    "user_lines": [
+      891
+    ],
+    "assistant_lines": [
+      892
+    ]
+  },
+  "scene-59-pair-12-reverse": {
+    "user_lines": [
+      892
+    ],
+    "assistant_lines": [
+      891
+    ]
+  },
+  "scene-59-pair-13-forward": {
+    "user_lines": [
+      892
+    ],
+    "assistant_lines": [
+      893
+    ]
+  },
+  "scene-59-pair-13-reverse": {
+    "user_lines": [
+      893
+    ],
+    "assistant_lines": [
+      892
+    ]
+  },
+  "scene-60-pair-0-forward": {
+    "user_lines": [
+      896
+    ],
+    "assistant_lines": [
+      897
+    ]
+  },
+  "scene-60-pair-0-reverse": {
+    "user_lines": [
+      897
+    ],
+    "assistant_lines": [
+      896
+    ]
+  },
+  "scene-60-pair-1-forward": {
+    "user_lines": [
+      897
+    ],
+    "assistant_lines": [
+      898
+    ]
+  },
+  "scene-60-pair-1-reverse": {
+    "user_lines": [
+      898
+    ],
+    "assistant_lines": [
+      897
+    ]
+  },
+  "scene-60-pair-2-forward": {
+    "user_lines": [
+      898
+    ],
+    "assistant_lines": [
+      899
+    ]
+  },
+  "scene-60-pair-2-reverse": {
+    "user_lines": [
+      899
+    ],
+    "assistant_lines": [
+      898
+    ]
+  },
+  "scene-60-pair-3-forward": {
+    "user_lines": [
+      899
+    ],
+    "assistant_lines": [
+      900
+    ]
+  },
+  "scene-60-pair-3-reverse": {
+    "user_lines": [
+      900
+    ],
+    "assistant_lines": [
+      899
+    ]
+  },
+  "scene-60-pair-4-forward": {
+    "user_lines": [
+      900
+    ],
+    "assistant_lines": [
+      901
+    ]
+  },
+  "scene-60-pair-4-reverse": {
+    "user_lines": [
+      901
+    ],
+    "assistant_lines": [
+      900
+    ]
+  },
+  "scene-60-pair-5-forward": {
+    "user_lines": [
+      901
+    ],
+    "assistant_lines": [
+      902
+    ]
+  },
+  "scene-60-pair-5-reverse": {
+    "user_lines": [
+      902
+    ],
+    "assistant_lines": [
+      901
+    ]
+  },
+  "scene-60-pair-6-forward": {
+    "user_lines": [
+      902
+    ],
+    "assistant_lines": [
+      903
+    ]
+  },
+  "scene-60-pair-6-reverse": {
+    "user_lines": [
+      903
+    ],
+    "assistant_lines": [
+      902
+    ]
+  },
+  "scene-60-pair-7-forward": {
+    "user_lines": [
+      903
+    ],
+    "assistant_lines": [
+      904
+    ]
+  },
+  "scene-60-pair-7-reverse": {
+    "user_lines": [
+      904
+    ],
+    "assistant_lines": [
+      903
+    ]
+  },
+  "scene-60-pair-8-forward": {
+    "user_lines": [
+      904
+    ],
+    "assistant_lines": [
+      905
+    ]
+  },
+  "scene-60-pair-8-reverse": {
+    "user_lines": [
+      905
+    ],
+    "assistant_lines": [
+      904
+    ]
+  },
+  "scene-60-pair-9-forward": {
+    "user_lines": [
+      905
+    ],
+    "assistant_lines": [
+      906
+    ]
+  },
+  "scene-60-pair-9-reverse": {
+    "user_lines": [
+      906
+    ],
+    "assistant_lines": [
+      905
+    ]
+  },
+  "scene-60-pair-10-forward": {
+    "user_lines": [
+      906
+    ],
+    "assistant_lines": [
+      907
+    ]
+  },
+  "scene-60-pair-10-reverse": {
+    "user_lines": [
+      907
+    ],
+    "assistant_lines": [
+      906
+    ]
+  },
+  "scene-60-pair-11-forward": {
+    "user_lines": [
+      907
+    ],
+    "assistant_lines": [
+      908
+    ]
+  },
+  "scene-60-pair-11-reverse": {
+    "user_lines": [
+      908
+    ],
+    "assistant_lines": [
+      907
+    ]
+  },
+  "scene-60-pair-12-forward": {
+    "user_lines": [
+      908
+    ],
+    "assistant_lines": [
+      909
+    ]
+  },
+  "scene-60-pair-12-reverse": {
+    "user_lines": [
+      909
+    ],
+    "assistant_lines": [
+      908
+    ]
+  },
+  "scene-60-pair-13-forward": {
+    "user_lines": [
+      909
+    ],
+    "assistant_lines": [
+      910
+    ]
+  },
+  "scene-60-pair-13-reverse": {
+    "user_lines": [
+      910
+    ],
+    "assistant_lines": [
+      909
+    ]
+  },
+  "scene-60-pair-14-forward": {
+    "user_lines": [
+      910
+    ],
+    "assistant_lines": [
+      912
+    ]
+  },
+  "scene-60-pair-14-reverse": {
+    "user_lines": [
+      912
+    ],
+    "assistant_lines": [
+      910
+    ]
+  },
+  "scene-60-pair-15-forward": {
+    "user_lines": [
+      912
+    ],
+    "assistant_lines": [
+      913
+    ]
+  },
+  "scene-60-pair-15-reverse": {
+    "user_lines": [
+      913
+    ],
+    "assistant_lines": [
+      912
+    ]
+  },
+  "scene-60-pair-16-forward": {
+    "user_lines": [
+      913
+    ],
+    "assistant_lines": [
+      914
+    ]
+  },
+  "scene-60-pair-16-reverse": {
+    "user_lines": [
+      914
+    ],
+    "assistant_lines": [
+      913
+    ]
+  },
+  "scene-60-pair-17-forward": {
+    "user_lines": [
+      914
+    ],
+    "assistant_lines": [
+      915
+    ]
+  },
+  "scene-60-pair-17-reverse": {
+    "user_lines": [
+      915
+    ],
+    "assistant_lines": [
+      914
+    ]
+  },
+  "scene-60-pair-18-forward": {
+    "user_lines": [
+      915
+    ],
+    "assistant_lines": [
+      916
+    ]
+  },
+  "scene-60-pair-18-reverse": {
+    "user_lines": [
+      916
+    ],
+    "assistant_lines": [
+      915
+    ]
+  },
+  "scene-60-pair-19-forward": {
+    "user_lines": [
+      916
+    ],
+    "assistant_lines": [
+      917
+    ]
+  },
+  "scene-60-pair-19-reverse": {
+    "user_lines": [
+      917
+    ],
+    "assistant_lines": [
+      916
+    ]
+  },
+  "scene-61-pair-0-forward": {
+    "user_lines": [
+      920
+    ],
+    "assistant_lines": [
+      921
+    ]
+  },
+  "scene-61-pair-0-reverse": {
+    "user_lines": [
+      921
+    ],
+    "assistant_lines": [
+      920
+    ]
+  },
+  "scene-61-pair-1-forward": {
+    "user_lines": [
+      921
+    ],
+    "assistant_lines": [
+      922
+    ]
+  },
+  "scene-61-pair-1-reverse": {
+    "user_lines": [
+      922
+    ],
+    "assistant_lines": [
+      921
+    ]
+  },
+  "scene-61-pair-2-forward": {
+    "user_lines": [
+      922
+    ],
+    "assistant_lines": [
+      923
+    ]
+  },
+  "scene-61-pair-2-reverse": {
+    "user_lines": [
+      923
+    ],
+    "assistant_lines": [
+      922
+    ]
+  },
+  "scene-61-pair-3-forward": {
+    "user_lines": [
+      923
+    ],
+    "assistant_lines": [
+      924
+    ]
+  },
+  "scene-61-pair-3-reverse": {
+    "user_lines": [
+      924
+    ],
+    "assistant_lines": [
+      923
+    ]
+  }
+}

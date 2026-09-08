@@ -1,0 +1,5936 @@
+{
+  "train": [
+    {
+      "id": "maze-train-000",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...#\n..#S\n....\n..G.",
+      "grid": [
+        "...#",
+        "..#S",
+        "....",
+        "..G."
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DDL"
+    },
+    {
+      "id": "maze-train-001",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n..S.\n.#.#\nG...",
+      "grid": [
+        "....",
+        "..S.",
+        ".#.#",
+        "G..."
+      ],
+      "start": [
+        1,
+        2
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DDLL"
+    },
+    {
+      "id": "maze-train-002",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#S\n.#..\n....\n...G",
+      "grid": [
+        "..#S",
+        ".#..",
+        "....",
+        "...G"
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DDD"
+    },
+    {
+      "id": "maze-train-003",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#...\n.#..\n.S..\n...G",
+      "grid": [
+        "#...",
+        ".#..",
+        ".S..",
+        "...G"
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-004",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#S..\n....\n....\n.#.G",
+      "grid": [
+        "#S..",
+        "....",
+        "....",
+        ".#.G"
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DDRDR"
+    },
+    {
+      "id": "maze-train-005",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#G..\n....\n.#..\nS...",
+      "grid": [
+        "#G..",
+        "....",
+        ".#..",
+        "S..."
+      ],
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "reference": "UURU"
+    },
+    {
+      "id": "maze-train-006",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...S\n.#..\n...#\n...G",
+      "grid": [
+        "...S",
+        ".#..",
+        "...#",
+        "...G"
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DLDDR"
+    },
+    {
+      "id": "maze-train-007",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#..G\n.S..\n....\n...#",
+      "grid": [
+        "#..G",
+        ".S..",
+        "....",
+        "...#"
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "URR"
+    },
+    {
+      "id": "maze-train-008",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#..\nG...\n....\n..#S",
+      "grid": [
+        ".#..",
+        "G...",
+        "....",
+        "..#S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "UULLL"
+    },
+    {
+      "id": "maze-train-009",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...#\n.S..\n...G\n.#..",
+      "grid": [
+        "...#",
+        ".S..",
+        "...G",
+        ".#.."
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-010",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n#...\n#.S.\n....",
+      "grid": [
+        "G...",
+        "#...",
+        "#.S.",
+        "...."
+      ],
+      "start": [
+        2,
+        2
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "UULL"
+    },
+    {
+      "id": "maze-train-011",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#..\n.G..\n..#S\n....",
+      "grid": [
+        ".#..",
+        ".G..",
+        "..#S",
+        "...."
+      ],
+      "start": [
+        2,
+        3
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-train-012",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG#S.\n...#\n....\n....",
+      "grid": [
+        "G#S.",
+        "...#",
+        "....",
+        "...."
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "DLLU"
+    },
+    {
+      "id": "maze-train-013",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\nG...\n.##.\n...S",
+      "grid": [
+        "....",
+        "G...",
+        ".##.",
+        "...S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "UULLL"
+    },
+    {
+      "id": "maze-train-014",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.##.\n.S..\n...G\n....",
+      "grid": [
+        ".##.",
+        ".S..",
+        "...G",
+        "...."
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-015",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS#..\n...#\n.G..\n....",
+      "grid": [
+        "S#..",
+        "...#",
+        ".G..",
+        "...."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        2,
+        1
+      ],
+      "reference": "DDR"
+    },
+    {
+      "id": "maze-train-016",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...#\nS...\n..G.\n.#..",
+      "grid": [
+        "...#",
+        "S...",
+        "..G.",
+        ".#.."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        2,
+        2
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-017",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#..\n.S.#\n....\n..G.",
+      "grid": [
+        ".#..",
+        ".S.#",
+        "....",
+        "..G."
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DDR"
+    },
+    {
+      "id": "maze-train-018",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#...\n..G.\nS..#\n....",
+      "grid": [
+        "#...",
+        "..G.",
+        "S..#",
+        "...."
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        1,
+        2
+      ],
+      "reference": "URR"
+    },
+    {
+      "id": "maze-train-019",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#..\n.G..\n.#..\n...S",
+      "grid": [
+        ".#..",
+        ".G..",
+        ".#..",
+        "...S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "reference": "UULL"
+    },
+    {
+      "id": "maze-train-020",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S.\nG.#.\n..#.\n....",
+      "grid": [
+        "..S.",
+        "G.#.",
+        "..#.",
+        "...."
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "LDL"
+    },
+    {
+      "id": "maze-train-021",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS#G.\n.#..\n....\n....",
+      "grid": [
+        "S#G.",
+        ".#..",
+        "....",
+        "...."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "reference": "DDRRUU"
+    },
+    {
+      "id": "maze-train-022",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S..\n....\n...G\n.##.",
+      "grid": [
+        ".S..",
+        "....",
+        "...G",
+        ".##."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "DDRR"
+    },
+    {
+      "id": "maze-train-023",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#.S.\n....\n...G\n#...",
+      "grid": [
+        "#.S.",
+        "....",
+        "...G",
+        "#..."
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "DDR"
+    },
+    {
+      "id": "maze-train-024",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...#\n....\n#S..\n...G",
+      "grid": [
+        "...#",
+        "....",
+        "#S..",
+        "...G"
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-025",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n..G.\n.#..\n.#.S",
+      "grid": [
+        "....",
+        "..G.",
+        ".#..",
+        ".#.S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        1,
+        2
+      ],
+      "reference": "UUL"
+    },
+    {
+      "id": "maze-train-026",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\n..G.\n...#\n...S",
+      "grid": [
+        "..#.",
+        "..G.",
+        "...#",
+        "...S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        1,
+        2
+      ],
+      "reference": "LUU"
+    },
+    {
+      "id": "maze-train-027",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..G.\n....\n...S\n..##",
+      "grid": [
+        "..G.",
+        "....",
+        "...S",
+        "..##"
+      ],
+      "start": [
+        2,
+        3
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "reference": "UUL"
+    },
+    {
+      "id": "maze-train-028",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n#..G\n...#\n.S..",
+      "grid": [
+        "....",
+        "#..G",
+        "...#",
+        ".S.."
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "UURR"
+    },
+    {
+      "id": "maze-train-029",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n#...\n.#.G\n.S..",
+      "grid": [
+        "....",
+        "#...",
+        ".#.G",
+        ".S.."
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "RUR"
+    },
+    {
+      "id": "maze-train-030",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S..\n...G\n....\n#.#.",
+      "grid": [
+        ".S..",
+        "...G",
+        "....",
+        "#.#."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-031",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n...G\n.S..\n#.#.",
+      "grid": [
+        "....",
+        "...G",
+        ".S..",
+        "#.#."
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "URR"
+    },
+    {
+      "id": "maze-train-032",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.G..\n....\n#.S.\n...#",
+      "grid": [
+        ".G..",
+        "....",
+        "#.S.",
+        "...#"
+      ],
+      "start": [
+        2,
+        2
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "reference": "UUL"
+    },
+    {
+      "id": "maze-train-033",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n..#.\nS...\n#.G.",
+      "grid": [
+        "....",
+        "..#.",
+        "S...",
+        "#.G."
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "RDR"
+    },
+    {
+      "id": "maze-train-034",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...G\n....\n..#.\nS.#.",
+      "grid": [
+        "...G",
+        "....",
+        "..#.",
+        "S.#."
+      ],
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "UUURRR"
+    },
+    {
+      "id": "maze-train-035",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n..#.\n.S..\n#...",
+      "grid": [
+        "G...",
+        "..#.",
+        ".S..",
+        "#..."
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "UUL"
+    },
+    {
+      "id": "maze-train-036",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#S.\n...#\n.G..\n....",
+      "grid": [
+        ".#S.",
+        "...#",
+        ".G..",
+        "...."
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        2,
+        1
+      ],
+      "reference": "DDL"
+    },
+    {
+      "id": "maze-train-037",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#..\n....\n#G..\n...S",
+      "grid": [
+        ".#..",
+        "....",
+        "#G..",
+        "...S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        2,
+        1
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-train-038",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S..\n....\n....\nG.##",
+      "grid": [
+        ".S..",
+        "....",
+        "....",
+        "G.##"
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DDDL"
+    },
+    {
+      "id": "maze-train-039",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...#\n....\nS.#G\n....",
+      "grid": [
+        "...#",
+        "....",
+        "S.#G",
+        "...."
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "URRRD"
+    },
+    {
+      "id": "maze-train-040",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S#.\n....\n....\n.#G.",
+      "grid": [
+        ".S#.",
+        "....",
+        "....",
+        ".#G."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DDRD"
+    },
+    {
+      "id": "maze-train-041",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS...\n....\n#...\n.G#.",
+      "grid": [
+        "S...",
+        "....",
+        "#...",
+        ".G#."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        3,
+        1
+      ],
+      "reference": "DRDD"
+    },
+    {
+      "id": "maze-train-042",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#G..\n.#..\n..S.\n....",
+      "grid": [
+        "#G..",
+        ".#..",
+        "..S.",
+        "...."
+      ],
+      "start": [
+        2,
+        2
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "reference": "UUL"
+    },
+    {
+      "id": "maze-train-043",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n....\n#...\n.#S.",
+      "grid": [
+        "G...",
+        "....",
+        "#...",
+        ".#S."
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "UUULL"
+    },
+    {
+      "id": "maze-train-044",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n....\n.G..\n#.#S",
+      "grid": [
+        "....",
+        "....",
+        ".G..",
+        "#.#S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        2,
+        1
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-train-045",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n...#\n.G..\n#..S",
+      "grid": [
+        "....",
+        "...#",
+        ".G..",
+        "#..S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        2,
+        1
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-train-046",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#..\n..S#\n....\nG...",
+      "grid": [
+        ".#..",
+        "..S#",
+        "....",
+        "G..."
+      ],
+      "start": [
+        1,
+        2
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DDLL"
+    },
+    {
+      "id": "maze-train-047",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n....\n....\n##.S",
+      "grid": [
+        "G...",
+        "....",
+        "....",
+        "##.S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "UUULLL"
+    },
+    {
+      "id": "maze-train-048",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS...\n#.G.\n....\n.#..",
+      "grid": [
+        "S...",
+        "#.G.",
+        "....",
+        ".#.."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        1,
+        2
+      ],
+      "reference": "RDR"
+    },
+    {
+      "id": "maze-train-049",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\nG#..\n..#.\n...S",
+      "grid": [
+        "....",
+        "G#..",
+        "..#.",
+        "...S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "LLULU"
+    },
+    {
+      "id": "maze-train-050",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...S\n....\n#..#\n..G.",
+      "grid": [
+        "...S",
+        "....",
+        "#..#",
+        "..G."
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DLDD"
+    },
+    {
+      "id": "maze-train-051",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...G\n..#.\nS#..\n....",
+      "grid": [
+        "...G",
+        "..#.",
+        "S#..",
+        "...."
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "UURRR"
+    },
+    {
+      "id": "maze-train-052",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S#\n....\n.G..\n#...",
+      "grid": [
+        "..S#",
+        "....",
+        ".G..",
+        "#..."
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        2,
+        1
+      ],
+      "reference": "DDL"
+    },
+    {
+      "id": "maze-train-053",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.G..\n...S\n....\n.#.#",
+      "grid": [
+        ".G..",
+        "...S",
+        "....",
+        ".#.#"
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-train-054",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S..\n....\n..G.\n##..",
+      "grid": [
+        ".S..",
+        "....",
+        "..G.",
+        "##.."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        2,
+        2
+      ],
+      "reference": "DDR"
+    },
+    {
+      "id": "maze-train-055",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n....\nS.#.\n.#.G",
+      "grid": [
+        "....",
+        "....",
+        "S.#.",
+        ".#.G"
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "URRRDD"
+    },
+    {
+      "id": "maze-train-056",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\n..G.\n....\nS#..",
+      "grid": [
+        "..#.",
+        "..G.",
+        "....",
+        "S#.."
+      ],
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        1,
+        2
+      ],
+      "reference": "UURR"
+    },
+    {
+      "id": "maze-train-057",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\n..S#\n....\n.G..",
+      "grid": [
+        "..#.",
+        "..S#",
+        "....",
+        ".G.."
+      ],
+      "start": [
+        1,
+        2
+      ],
+      "goal": [
+        3,
+        1
+      ],
+      "reference": "DDL"
+    },
+    {
+      "id": "maze-train-058",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#G.#\n....\nS...\n....",
+      "grid": [
+        "#G.#",
+        "....",
+        "S...",
+        "...."
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "reference": "URU"
+    },
+    {
+      "id": "maze-train-059",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.#..\n...S\n#G..",
+      "grid": [
+        "....",
+        ".#..",
+        "...S",
+        "#G.."
+      ],
+      "start": [
+        2,
+        3
+      ],
+      "goal": [
+        3,
+        1
+      ],
+      "reference": "DLL"
+    },
+    {
+      "id": "maze-train-060",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#...\n....\nG..S\n#...",
+      "grid": [
+        "#...",
+        "....",
+        "G..S",
+        "#..."
+      ],
+      "start": [
+        2,
+        3
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "LLL"
+    },
+    {
+      "id": "maze-train-061",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n..#.\n..S.\n#...",
+      "grid": [
+        "G...",
+        "..#.",
+        "..S.",
+        "#..."
+      ],
+      "start": [
+        2,
+        2
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "LUUL"
+    },
+    {
+      "id": "maze-train-062",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..G.\n#..#\n....\n.S..",
+      "grid": [
+        "..G.",
+        "#..#",
+        "....",
+        ".S.."
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "reference": "UUUR"
+    },
+    {
+      "id": "maze-train-063",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..G.\n....\n..#S\n..#.",
+      "grid": [
+        "..G.",
+        "....",
+        "..#S",
+        "..#."
+      ],
+      "start": [
+        2,
+        3
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "reference": "UUL"
+    },
+    {
+      "id": "maze-train-064",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\nS...\n.#G.\n.#..",
+      "grid": [
+        "....",
+        "S...",
+        ".#G.",
+        ".#.."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        2,
+        2
+      ],
+      "reference": "RRD"
+    },
+    {
+      "id": "maze-train-065",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#G.\nS...\n....\n...#",
+      "grid": [
+        ".#G.",
+        "S...",
+        "....",
+        "...#"
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "reference": "RRU"
+    },
+    {
+      "id": "maze-train-066",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n....\nS#.G\n.#..",
+      "grid": [
+        "....",
+        "....",
+        "S#.G",
+        ".#.."
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "URRDR"
+    },
+    {
+      "id": "maze-train-067",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...#\n....\nS...\n.#.G",
+      "grid": [
+        "...#",
+        "....",
+        "S...",
+        ".#.G"
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "RRDR"
+    },
+    {
+      "id": "maze-train-068",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.S#.\n...#\n..G.",
+      "grid": [
+        "....",
+        ".S#.",
+        "...#",
+        "..G."
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DDR"
+    },
+    {
+      "id": "maze-train-069",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S..\n.#.#\nG...\n....",
+      "grid": [
+        ".S..",
+        ".#.#",
+        "G...",
+        "...."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "LDD"
+    },
+    {
+      "id": "maze-train-070",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS...\n..G.\n.#..\n..#.",
+      "grid": [
+        "S...",
+        "..G.",
+        ".#..",
+        "..#."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        1,
+        2
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-071",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG..S\n....\n....\n#.#.",
+      "grid": [
+        "G..S",
+        "....",
+        "....",
+        "#.#."
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "LLL"
+    },
+    {
+      "id": "maze-train-072",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#G\n....\n.#..\n..S.",
+      "grid": [
+        "..#G",
+        "....",
+        ".#..",
+        "..S."
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "UURU"
+    },
+    {
+      "id": "maze-train-073",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..G.\n.#..\n#...\nS...",
+      "grid": [
+        "..G.",
+        ".#..",
+        "#...",
+        "S..."
+      ],
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "reference": "RURUU"
+    },
+    {
+      "id": "maze-train-074",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS..#\n....\n..#.\n...G",
+      "grid": [
+        "S..#",
+        "....",
+        "..#.",
+        "...G"
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DDDRRR"
+    },
+    {
+      "id": "maze-train-075",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S.\n#..#\n....\nG...",
+      "grid": [
+        "..S.",
+        "#..#",
+        "....",
+        "G..."
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DDDLL"
+    },
+    {
+      "id": "maze-train-076",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n..S.\n#...\n#...",
+      "grid": [
+        "G...",
+        "..S.",
+        "#...",
+        "#..."
+      ],
+      "start": [
+        1,
+        2
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-train-077",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG..#\n....\n....\n..#S",
+      "grid": [
+        "G..#",
+        "....",
+        "....",
+        "..#S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "UULULL"
+    },
+    {
+      "id": "maze-train-078",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...G\nS#..\n....\n...#",
+      "grid": [
+        "...G",
+        "S#..",
+        "....",
+        "...#"
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "URRR"
+    },
+    {
+      "id": "maze-train-079",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n#S..\n..#.\nG...",
+      "grid": [
+        "....",
+        "#S..",
+        "..#.",
+        "G..."
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DDL"
+    },
+    {
+      "id": "maze-train-080",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..G.\nS...\n#...\n...#",
+      "grid": [
+        "..G.",
+        "S...",
+        "#...",
+        "...#"
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "reference": "URR"
+    },
+    {
+      "id": "maze-train-081",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\nS..G\n....\n##..",
+      "grid": [
+        "....",
+        "S..G",
+        "....",
+        "##.."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "RRR"
+    },
+    {
+      "id": "maze-train-082",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n..S.\n....\n.#.#",
+      "grid": [
+        "G...",
+        "..S.",
+        "....",
+        ".#.#"
+      ],
+      "start": [
+        1,
+        2
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-train-083",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.#.S\n....\n..G#",
+      "grid": [
+        "....",
+        ".#.S",
+        "....",
+        "..G#"
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DLD"
+    },
+    {
+      "id": "maze-train-084",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#S#.\n...G\n....\n....",
+      "grid": [
+        "#S#.",
+        "...G",
+        "....",
+        "...."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-085",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#.S.\n....\n.G..\n#...",
+      "grid": [
+        "#.S.",
+        "....",
+        ".G..",
+        "#..."
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        2,
+        1
+      ],
+      "reference": "DDL"
+    },
+    {
+      "id": "maze-train-086",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...#\n...G\n....\n#.S.",
+      "grid": [
+        "...#",
+        "...G",
+        "....",
+        "#.S."
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "UUR"
+    },
+    {
+      "id": "maze-train-087",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.#.S\n.#..\n..G.",
+      "grid": [
+        "....",
+        ".#.S",
+        ".#..",
+        "..G."
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DDL"
+    },
+    {
+      "id": "maze-train-088",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S..\n#..G\n....\n#...",
+      "grid": [
+        ".S..",
+        "#..G",
+        "....",
+        "#..."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-089",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS..G\n....\n....\n#..#",
+      "grid": [
+        "S..G",
+        "....",
+        "....",
+        "#..#"
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "RRR"
+    },
+    {
+      "id": "maze-train-090",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.##.\n.S..\n...G",
+      "grid": [
+        "....",
+        ".##.",
+        ".S..",
+        "...G"
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-091",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n#...\n...#\n...S",
+      "grid": [
+        "G...",
+        "#...",
+        "...#",
+        "...S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "LUUULL"
+    },
+    {
+      "id": "maze-train-092",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.G..\n...S\n..#.\n..#.",
+      "grid": [
+        ".G..",
+        "...S",
+        "..#.",
+        "..#."
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-train-093",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n#..S\n...#\n...G",
+      "grid": [
+        "....",
+        "#..S",
+        "...#",
+        "...G"
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "LDDR"
+    },
+    {
+      "id": "maze-train-094",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n#...\n.#..\nS..G",
+      "grid": [
+        "....",
+        "#...",
+        ".#..",
+        "S..G"
+      ],
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "RRR"
+    },
+    {
+      "id": "maze-train-095",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...S\n.#.#\nG...\n....",
+      "grid": [
+        "...S",
+        ".#.#",
+        "G...",
+        "...."
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "LDDLL"
+    },
+    {
+      "id": "maze-train-096",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..##\n..G.\nS...\n....",
+      "grid": [
+        "..##",
+        "..G.",
+        "S...",
+        "...."
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        1,
+        2
+      ],
+      "reference": "URR"
+    },
+    {
+      "id": "maze-train-097",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\nS...\n..#.\n...G",
+      "grid": [
+        "..#.",
+        "S...",
+        "..#.",
+        "...G"
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DDRRR"
+    },
+    {
+      "id": "maze-train-098",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n...G\n.S#.\n.#..",
+      "grid": [
+        "....",
+        "...G",
+        ".S#.",
+        ".#.."
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "URR"
+    },
+    {
+      "id": "maze-train-099",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\nG..S\n.#..\n....",
+      "grid": [
+        "..#.",
+        "G..S",
+        ".#..",
+        "...."
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "LLL"
+    },
+    {
+      "id": "maze-train-100",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\nS...\n...G\n..#.",
+      "grid": [
+        "..#.",
+        "S...",
+        "...G",
+        "..#."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "DRRR"
+    },
+    {
+      "id": "maze-train-101",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS...\n.#..\n..G.\n.#..",
+      "grid": [
+        "S...",
+        ".#..",
+        "..G.",
+        ".#.."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        2,
+        2
+      ],
+      "reference": "DDRR"
+    },
+    {
+      "id": "maze-train-102",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\n.S..\n....\n#..G",
+      "grid": [
+        "..#.",
+        ".S..",
+        "....",
+        "#..G"
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DDRR"
+    },
+    {
+      "id": "maze-train-103",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n#..#\nG...\n...S",
+      "grid": [
+        "....",
+        "#..#",
+        "G...",
+        "...S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "ULLL"
+    },
+    {
+      "id": "maze-train-104",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...#\n.S..\n....\n.#.G",
+      "grid": [
+        "...#",
+        ".S..",
+        "....",
+        ".#.G"
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DRDR"
+    },
+    {
+      "id": "maze-train-105",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#..\nS#..\n....\n...G",
+      "grid": [
+        ".#..",
+        "S#..",
+        "....",
+        "...G"
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DDRRR"
+    },
+    {
+      "id": "maze-train-106",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S..\n.#.G\n....\n.#..",
+      "grid": [
+        ".S..",
+        ".#.G",
+        "....",
+        ".#.."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "RDR"
+    },
+    {
+      "id": "maze-train-107",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.G#S\n....\n.#..\n....",
+      "grid": [
+        ".G#S",
+        "....",
+        ".#..",
+        "...."
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "reference": "DLLU"
+    },
+    {
+      "id": "maze-train-108",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...#\nG...\n....\n..#S",
+      "grid": [
+        "...#",
+        "G...",
+        "....",
+        "..#S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "UULLL"
+    },
+    {
+      "id": "maze-train-109",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...G\n....\n..##\nS...",
+      "grid": [
+        "...G",
+        "....",
+        "..##",
+        "S..."
+      ],
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "UUURRR"
+    },
+    {
+      "id": "maze-train-110",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S.\n..#.\n#...\n...G",
+      "grid": [
+        "..S.",
+        "..#.",
+        "#...",
+        "...G"
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "RDDD"
+    },
+    {
+      "id": "maze-train-111",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...#\nS.#.\n....\n...G",
+      "grid": [
+        "...#",
+        "S.#.",
+        "....",
+        "...G"
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DDRRR"
+    },
+    {
+      "id": "maze-train-112",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG..#\n...S\n....\n#...",
+      "grid": [
+        "G..#",
+        "...S",
+        "....",
+        "#..."
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "LULL"
+    },
+    {
+      "id": "maze-train-113",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...G\n.##.\n....\n...S",
+      "grid": [
+        "...G",
+        ".##.",
+        "....",
+        "...S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "UUU"
+    },
+    {
+      "id": "maze-train-114",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#...\nG...\n..S.\n..#.",
+      "grid": [
+        "#...",
+        "G...",
+        "..S.",
+        "..#."
+      ],
+      "start": [
+        2,
+        2
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-train-115",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#S\n..#.\n..G.\n....",
+      "grid": [
+        "..#S",
+        "..#.",
+        "..G.",
+        "...."
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        2,
+        2
+      ],
+      "reference": "DDL"
+    },
+    {
+      "id": "maze-train-116",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.#..\n.S..\n.#.G",
+      "grid": [
+        "....",
+        ".#..",
+        ".S..",
+        ".#.G"
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "RDR"
+    },
+    {
+      "id": "maze-train-117",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.##.\nS...\n....\n...G",
+      "grid": [
+        ".##.",
+        "S...",
+        "....",
+        "...G"
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DDRRR"
+    },
+    {
+      "id": "maze-train-118",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n##..\n..S.\n....\n.G..",
+      "grid": [
+        "##..",
+        "..S.",
+        "....",
+        ".G.."
+      ],
+      "start": [
+        1,
+        2
+      ],
+      "goal": [
+        3,
+        1
+      ],
+      "reference": "DDL"
+    },
+    {
+      "id": "maze-train-119",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\nG#..\n..#S\n....",
+      "grid": [
+        "....",
+        "G#..",
+        "..#S",
+        "...."
+      ],
+      "start": [
+        2,
+        3
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "UULLLD"
+    },
+    {
+      "id": "maze-train-120",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...G\n#..#\n..S.\n....",
+      "grid": [
+        "...G",
+        "#..#",
+        "..S.",
+        "...."
+      ],
+      "start": [
+        2,
+        2
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "UUR"
+    },
+    {
+      "id": "maze-train-121",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n#...\n.S..\n#..G",
+      "grid": [
+        "....",
+        "#...",
+        ".S..",
+        "#..G"
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-122",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.#.G\n.S..\n.#..",
+      "grid": [
+        "....",
+        ".#.G",
+        ".S..",
+        ".#.."
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "RUR"
+    },
+    {
+      "id": "maze-train-123",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S.\nG...\n.#..\n...#",
+      "grid": [
+        "..S.",
+        "G...",
+        ".#..",
+        "...#"
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "DLL"
+    },
+    {
+      "id": "maze-train-124",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.#.S\n.#..\nG...",
+      "grid": [
+        "....",
+        ".#.S",
+        ".#..",
+        "G..."
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DDLLL"
+    },
+    {
+      "id": "maze-train-125",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.G..\n.#.#\nS...\n....",
+      "grid": [
+        ".G..",
+        ".#.#",
+        "S...",
+        "...."
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "reference": "UUR"
+    },
+    {
+      "id": "maze-train-126",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\nS#G.\n....\n...#",
+      "grid": [
+        "....",
+        "S#G.",
+        "....",
+        "...#"
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        1,
+        2
+      ],
+      "reference": "URRD"
+    },
+    {
+      "id": "maze-train-127",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n#.S.\n....\n.#..",
+      "grid": [
+        "G...",
+        "#.S.",
+        "....",
+        ".#.."
+      ],
+      "start": [
+        1,
+        2
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-train-128",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.#..\n...G\nS..#",
+      "grid": [
+        "....",
+        ".#..",
+        "...G",
+        "S..#"
+      ],
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "URRR"
+    },
+    {
+      "id": "maze-train-129",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n#.#.\nG..S\n....",
+      "grid": [
+        "....",
+        "#.#.",
+        "G..S",
+        "...."
+      ],
+      "start": [
+        2,
+        3
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "LLL"
+    },
+    {
+      "id": "maze-train-130",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.##.\n...G\nS...",
+      "grid": [
+        "....",
+        ".##.",
+        "...G",
+        "S..."
+      ],
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "URRR"
+    },
+    {
+      "id": "maze-train-131",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...S\n....\n#...\n.G#.",
+      "grid": [
+        "...S",
+        "....",
+        "#...",
+        ".G#."
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        3,
+        1
+      ],
+      "reference": "DDLLD"
+    },
+    {
+      "id": "maze-train-132",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#.G\n#...\n....\n...S",
+      "grid": [
+        ".#.G",
+        "#...",
+        "....",
+        "...S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "UUU"
+    },
+    {
+      "id": "maze-train-133",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n..#.\n.#S.\nG...",
+      "grid": [
+        "....",
+        "..#.",
+        ".#S.",
+        "G..."
+      ],
+      "start": [
+        2,
+        2
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DLL"
+    },
+    {
+      "id": "maze-train-134",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S.\n..#.\n...#\n..G.",
+      "grid": [
+        "..S.",
+        "..#.",
+        "...#",
+        "..G."
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "LDDDR"
+    },
+    {
+      "id": "maze-train-135",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S#.\n.#..\n.G..\n....",
+      "grid": [
+        ".S#.",
+        ".#..",
+        ".G..",
+        "...."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        2,
+        1
+      ],
+      "reference": "LDDR"
+    },
+    {
+      "id": "maze-train-136",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#.G\nS...\n....\n.#..",
+      "grid": [
+        ".#.G",
+        "S...",
+        "....",
+        ".#.."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "RRUR"
+    },
+    {
+      "id": "maze-train-137",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..G.\n....\n.#..\n..S#",
+      "grid": [
+        "..G.",
+        "....",
+        ".#..",
+        "..S#"
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "reference": "UUU"
+    },
+    {
+      "id": "maze-train-138",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.G#.\n.#..\n..S.",
+      "grid": [
+        "....",
+        ".G#.",
+        ".#..",
+        "..S."
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "reference": "LLUUR"
+    },
+    {
+      "id": "maze-train-139",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.##S\n....\n.G..\n....",
+      "grid": [
+        ".##S",
+        "....",
+        ".G..",
+        "...."
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        2,
+        1
+      ],
+      "reference": "DDLL"
+    },
+    {
+      "id": "maze-train-140",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#.S.\nG..#\n....\n....",
+      "grid": [
+        "#.S.",
+        "G..#",
+        "....",
+        "...."
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "DLL"
+    },
+    {
+      "id": "maze-train-141",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#...\nG...\n..S.\n.#..",
+      "grid": [
+        "#...",
+        "G...",
+        "..S.",
+        ".#.."
+      ],
+      "start": [
+        2,
+        2
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-train-142",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S..\n...G\n....\n#..#",
+      "grid": [
+        ".S..",
+        "...G",
+        "....",
+        "#..#"
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-143",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n..S.\n..#.\n#...",
+      "grid": [
+        "G...",
+        "..S.",
+        "..#.",
+        "#..."
+      ],
+      "start": [
+        1,
+        2
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-train-144",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S##\n....\n...G\n....",
+      "grid": [
+        ".S##",
+        "....",
+        "...G",
+        "...."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "DDRR"
+    },
+    {
+      "id": "maze-train-145",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\nS..#\n..G.\n....",
+      "grid": [
+        "..#.",
+        "S..#",
+        "..G.",
+        "...."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        2,
+        2
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-146",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...G\n#...\n...#\nS...",
+      "grid": [
+        "...G",
+        "#...",
+        "...#",
+        "S..."
+      ],
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "URUURR"
+    },
+    {
+      "id": "maze-train-147",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\n.#.G\n....\n..S.",
+      "grid": [
+        "..#.",
+        ".#.G",
+        "....",
+        "..S."
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "UUR"
+    },
+    {
+      "id": "maze-train-148",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.G..\n#.#.\n....\nS...",
+      "grid": [
+        ".G..",
+        "#.#.",
+        "....",
+        "S..."
+      ],
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "reference": "URUU"
+    },
+    {
+      "id": "maze-train-149",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..G.\nS#..\n#...\n....",
+      "grid": [
+        "..G.",
+        "S#..",
+        "#...",
+        "...."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "reference": "URR"
+    },
+    {
+      "id": "maze-train-150",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#.S\nG...\n.#..\n....",
+      "grid": [
+        ".#.S",
+        "G...",
+        ".#..",
+        "...."
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "DLLL"
+    },
+    {
+      "id": "maze-train-151",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n#...\n....\n.G#S",
+      "grid": [
+        "....",
+        "#...",
+        "....",
+        ".G#S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        3,
+        1
+      ],
+      "reference": "ULLD"
+    },
+    {
+      "id": "maze-train-152",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...S\n..#.\n#.G.\n....",
+      "grid": [
+        "...S",
+        "..#.",
+        "#.G.",
+        "...."
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        2,
+        2
+      ],
+      "reference": "DDL"
+    },
+    {
+      "id": "maze-train-153",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n...S\n.G#.\n...#",
+      "grid": [
+        "....",
+        "...S",
+        ".G#.",
+        "...#"
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        2,
+        1
+      ],
+      "reference": "LLD"
+    },
+    {
+      "id": "maze-train-154",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#...\n...#\nG...\n...S",
+      "grid": [
+        "#...",
+        "...#",
+        "G...",
+        "...S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "ULLL"
+    },
+    {
+      "id": "maze-train-155",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#..\nS...\n....\n..G#",
+      "grid": [
+        ".#..",
+        "S...",
+        "....",
+        "..G#"
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DDRR"
+    },
+    {
+      "id": "maze-train-156",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...#\nS...\n...G\n...#",
+      "grid": [
+        "...#",
+        "S...",
+        "...G",
+        "...#"
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "DRRR"
+    },
+    {
+      "id": "maze-train-157",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS#..\n....\n..#.\n.G..",
+      "grid": [
+        "S#..",
+        "....",
+        "..#.",
+        ".G.."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        3,
+        1
+      ],
+      "reference": "DDDR"
+    },
+    {
+      "id": "maze-train-158",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#..\n#S..\n...G\n....",
+      "grid": [
+        ".#..",
+        "#S..",
+        "...G",
+        "...."
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-159",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG.#.\n...S\n..#.\n....",
+      "grid": [
+        "G.#.",
+        "...S",
+        "..#.",
+        "...."
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "LLUL"
+    },
+    {
+      "id": "maze-train-160",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#.S\n.G..\n....\n#...",
+      "grid": [
+        ".#.S",
+        ".G..",
+        "....",
+        "#..."
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "reference": "DLL"
+    },
+    {
+      "id": "maze-train-161",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#..\nS...\n..G.\n#...",
+      "grid": [
+        ".#..",
+        "S...",
+        "..G.",
+        "#..."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        2,
+        2
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-162",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\nG...\n.#..\n#.S.",
+      "grid": [
+        "....",
+        "G...",
+        ".#..",
+        "#.S."
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "UULL"
+    },
+    {
+      "id": "maze-train-163",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS...\n.##.\n..G.\n....",
+      "grid": [
+        "S...",
+        ".##.",
+        "..G.",
+        "...."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        2,
+        2
+      ],
+      "reference": "DDRR"
+    },
+    {
+      "id": "maze-train-164",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n##..\n....\n...S\nG...",
+      "grid": [
+        "##..",
+        "....",
+        "...S",
+        "G..."
+      ],
+      "start": [
+        2,
+        3
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DLLL"
+    },
+    {
+      "id": "maze-train-165",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...S\n....\n..#.\n.#.G",
+      "grid": [
+        "...S",
+        "....",
+        "..#.",
+        ".#.G"
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DDD"
+    },
+    {
+      "id": "maze-train-166",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.G..\n....\n..#.\n..#S",
+      "grid": [
+        ".G..",
+        "....",
+        "..#.",
+        "..#S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "reference": "UUULL"
+    },
+    {
+      "id": "maze-train-167",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.S..\n.#..\n.#.G",
+      "grid": [
+        "....",
+        ".S..",
+        ".#..",
+        ".#.G"
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "RDDR"
+    },
+    {
+      "id": "maze-train-168",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS..#\n...G\n....\n..#.",
+      "grid": [
+        "S..#",
+        "...G",
+        "....",
+        "..#."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "DRRR"
+    },
+    {
+      "id": "maze-train-169",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#...\n....\n#..S\nG...",
+      "grid": [
+        "#...",
+        "....",
+        "#..S",
+        "G..."
+      ],
+      "start": [
+        2,
+        3
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DLLL"
+    },
+    {
+      "id": "maze-train-170",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS...\n.#..\n....\n#G..",
+      "grid": [
+        "S...",
+        ".#..",
+        "....",
+        "#G.."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        3,
+        1
+      ],
+      "reference": "DDRD"
+    },
+    {
+      "id": "maze-train-171",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\nS...\n....\n#.G.",
+      "grid": [
+        "..#.",
+        "S...",
+        "....",
+        "#.G."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DRDR"
+    },
+    {
+      "id": "maze-train-172",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...G\n....\n.S#.\n...#",
+      "grid": [
+        "...G",
+        "....",
+        ".S#.",
+        "...#"
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "UURR"
+    },
+    {
+      "id": "maze-train-173",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n..G.\n#...\n.S#.",
+      "grid": [
+        "....",
+        "..G.",
+        "#...",
+        ".S#."
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        1,
+        2
+      ],
+      "reference": "UUR"
+    },
+    {
+      "id": "maze-train-174",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S..\n..#.\n....\n.G#.",
+      "grid": [
+        ".S..",
+        "..#.",
+        "....",
+        ".G#."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        3,
+        1
+      ],
+      "reference": "DDD"
+    },
+    {
+      "id": "maze-train-175",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n#..S\n....\n..#.",
+      "grid": [
+        "G...",
+        "#..S",
+        "....",
+        "..#."
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "ULLL"
+    },
+    {
+      "id": "maze-train-176",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS..G\n#...\n....\n#...",
+      "grid": [
+        "S..G",
+        "#...",
+        "....",
+        "#..."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "RRR"
+    },
+    {
+      "id": "maze-train-177",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.G..\n..#S\n..#.",
+      "grid": [
+        "....",
+        ".G..",
+        "..#S",
+        "..#."
+      ],
+      "start": [
+        2,
+        3
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-train-178",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n#..#\n....\nS...",
+      "grid": [
+        "G...",
+        "#..#",
+        "....",
+        "S..."
+      ],
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "URUUL"
+    },
+    {
+      "id": "maze-train-179",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#...\n#..S\n....\nG...",
+      "grid": [
+        "#...",
+        "#..S",
+        "....",
+        "G..."
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DDLLL"
+    },
+    {
+      "id": "maze-train-180",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...G\n.#.#\n..S.\n....",
+      "grid": [
+        "...G",
+        ".#.#",
+        "..S.",
+        "...."
+      ],
+      "start": [
+        2,
+        2
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "UUR"
+    },
+    {
+      "id": "maze-train-181",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n..G.\n....\n.##S",
+      "grid": [
+        "....",
+        "..G.",
+        "....",
+        ".##S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        1,
+        2
+      ],
+      "reference": "UUL"
+    },
+    {
+      "id": "maze-train-182",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\nS.#G\n...#\n....",
+      "grid": [
+        "....",
+        "S.#G",
+        "...#",
+        "...."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "URRRD"
+    },
+    {
+      "id": "maze-train-183",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#.G\n#...\n....\nS...",
+      "grid": [
+        ".#.G",
+        "#...",
+        "....",
+        "S..."
+      ],
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "URURUR"
+    },
+    {
+      "id": "maze-train-184",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS#.G\n....\n....\n..#.",
+      "grid": [
+        "S#.G",
+        "....",
+        "....",
+        "..#."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "DRRUR"
+    },
+    {
+      "id": "maze-train-185",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...G\n..#.\n..#.\n.S..",
+      "grid": [
+        "...G",
+        "..#.",
+        "..#.",
+        ".S.."
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "UUURR"
+    },
+    {
+      "id": "maze-train-186",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n..S.\n.##.\n....",
+      "grid": [
+        "G...",
+        "..S.",
+        ".##.",
+        "...."
+      ],
+      "start": [
+        1,
+        2
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-train-187",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.G..\n...S\n.#.#",
+      "grid": [
+        "....",
+        ".G..",
+        "...S",
+        ".#.#"
+      ],
+      "start": [
+        2,
+        3
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-train-188",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S.#\n....\n....\nG..#",
+      "grid": [
+        ".S.#",
+        "....",
+        "....",
+        "G..#"
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DDDL"
+    },
+    {
+      "id": "maze-train-189",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S..\n.#..\n..#.\nG...",
+      "grid": [
+        ".S..",
+        ".#..",
+        "..#.",
+        "G..."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "LDDD"
+    },
+    {
+      "id": "maze-train-190",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n....\n.S#G\n..#.",
+      "grid": [
+        "....",
+        "....",
+        ".S#G",
+        "..#."
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "URRD"
+    },
+    {
+      "id": "maze-train-191",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.#G.\n....\n#S..",
+      "grid": [
+        "....",
+        ".#G.",
+        "....",
+        "#S.."
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        1,
+        2
+      ],
+      "reference": "URU"
+    },
+    {
+      "id": "maze-train-192",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS...\n....\n##G.\n....",
+      "grid": [
+        "S...",
+        "....",
+        "##G.",
+        "...."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        2,
+        2
+      ],
+      "reference": "DRRD"
+    },
+    {
+      "id": "maze-train-193",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..G#\n....\n....\n.S#.",
+      "grid": [
+        "..G#",
+        "....",
+        "....",
+        ".S#."
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "reference": "UUUR"
+    },
+    {
+      "id": "maze-train-194",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\nS...\n#...\n.#.G",
+      "grid": [
+        "....",
+        "S...",
+        "#...",
+        ".#.G"
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "RDRDR"
+    },
+    {
+      "id": "maze-train-195",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#S.#\n....\n....\n...G",
+      "grid": [
+        "#S.#",
+        "....",
+        "....",
+        "...G"
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DDDRR"
+    },
+    {
+      "id": "maze-train-196",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...G\n#S..\n..#.\n....",
+      "grid": [
+        "...G",
+        "#S..",
+        "..#.",
+        "...."
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "URR"
+    },
+    {
+      "id": "maze-train-197",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S.\nG#..\n....\n...#",
+      "grid": [
+        "..S.",
+        "G#..",
+        "....",
+        "...#"
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "LLD"
+    },
+    {
+      "id": "maze-train-198",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\nG..#\n..S.\n.#..",
+      "grid": [
+        "....",
+        "G..#",
+        "..S.",
+        ".#.."
+      ],
+      "start": [
+        2,
+        2
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-train-199",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n..#.\n...#\nS...",
+      "grid": [
+        "G...",
+        "..#.",
+        "...#",
+        "S..."
+      ],
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "UUU"
+    },
+    {
+      "id": "maze-train-200",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n....\n#S.#\n....",
+      "grid": [
+        "G...",
+        "....",
+        "#S.#",
+        "...."
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "UUL"
+    },
+    {
+      "id": "maze-train-201",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\n....\n...S\nG..#",
+      "grid": [
+        "..#.",
+        "....",
+        "...S",
+        "G..#"
+      ],
+      "start": [
+        2,
+        3
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "LDLL"
+    },
+    {
+      "id": "maze-train-202",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...S\n....\n...#\n#..G",
+      "grid": [
+        "...S",
+        "....",
+        "...#",
+        "#..G"
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DLDDR"
+    },
+    {
+      "id": "maze-train-203",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n.#..\n.S..\n.#..",
+      "grid": [
+        "G...",
+        ".#..",
+        ".S..",
+        ".#.."
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "LUU"
+    },
+    {
+      "id": "maze-train-204",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\n#G..\n....\n...S",
+      "grid": [
+        "..#.",
+        "#G..",
+        "....",
+        "...S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "reference": "UULL"
+    },
+    {
+      "id": "maze-train-205",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.G..\n..#.\n..#S",
+      "grid": [
+        "....",
+        ".G..",
+        "..#.",
+        "..#S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "reference": "UULL"
+    },
+    {
+      "id": "maze-train-206",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#...\nG..S\n....\n.#..",
+      "grid": [
+        "#...",
+        "G..S",
+        "....",
+        ".#.."
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "LLL"
+    },
+    {
+      "id": "maze-train-207",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#S..\n....\n.#..\nG...",
+      "grid": [
+        "#S..",
+        "....",
+        ".#..",
+        "G..."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DLDD"
+    },
+    {
+      "id": "maze-train-208",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#...\n.S..\n...G\n...#",
+      "grid": [
+        "#...",
+        ".S..",
+        "...G",
+        "...#"
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-209",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..G.\n.#..\n....\n#S..",
+      "grid": [
+        "..G.",
+        ".#..",
+        "....",
+        "#S.."
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "reference": "URUU"
+    },
+    {
+      "id": "maze-train-210",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n....\nS.#G\n#...",
+      "grid": [
+        "....",
+        "....",
+        "S.#G",
+        "#..."
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "URRRD"
+    },
+    {
+      "id": "maze-train-211",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#..\n.G#.\n....\n...S",
+      "grid": [
+        ".#..",
+        ".G#.",
+        "....",
+        "...S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "reference": "ULLU"
+    },
+    {
+      "id": "maze-train-212",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...S\n.#..\n....\nG.#.",
+      "grid": [
+        "...S",
+        ".#..",
+        "....",
+        "G.#."
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DDLLDL"
+    },
+    {
+      "id": "maze-train-213",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...#\n..S.\n.#..\nG...",
+      "grid": [
+        "...#",
+        "..S.",
+        ".#..",
+        "G..."
+      ],
+      "start": [
+        1,
+        2
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DDLL"
+    },
+    {
+      "id": "maze-train-214",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG.#.\n....\n.#..\n.S..",
+      "grid": [
+        "G.#.",
+        "....",
+        ".#..",
+        ".S.."
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "LUUU"
+    },
+    {
+      "id": "maze-train-215",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#S\n....\n.#..\n...G",
+      "grid": [
+        "..#S",
+        "....",
+        ".#..",
+        "...G"
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DDD"
+    },
+    {
+      "id": "maze-train-216",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...G\n....\n..S.\n..##",
+      "grid": [
+        "...G",
+        "....",
+        "..S.",
+        "..##"
+      ],
+      "start": [
+        2,
+        2
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "UUR"
+    },
+    {
+      "id": "maze-train-217",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\n.G..\n#...\n...S",
+      "grid": [
+        "..#.",
+        ".G..",
+        "#...",
+        "...S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "reference": "UULL"
+    },
+    {
+      "id": "maze-train-218",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n....\n.G#.\n.#S.",
+      "grid": [
+        "....",
+        "....",
+        ".G#.",
+        ".#S."
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        2,
+        1
+      ],
+      "reference": "RUULLD"
+    },
+    {
+      "id": "maze-train-219",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.G#.\n...S\n....\n#...",
+      "grid": [
+        ".G#.",
+        "...S",
+        "....",
+        "#..."
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "reference": "LLU"
+    },
+    {
+      "id": "maze-train-220",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n##..\n...S\n.G..",
+      "grid": [
+        "....",
+        "##..",
+        "...S",
+        ".G.."
+      ],
+      "start": [
+        2,
+        3
+      ],
+      "goal": [
+        3,
+        1
+      ],
+      "reference": "DLL"
+    },
+    {
+      "id": "maze-train-221",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n....\n....\n.#S#",
+      "grid": [
+        "G...",
+        "....",
+        "....",
+        ".#S#"
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "UUULL"
+    },
+    {
+      "id": "maze-train-222",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG.#.\n....\n....\n#.S.",
+      "grid": [
+        "G.#.",
+        "....",
+        "....",
+        "#.S."
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "UULUL"
+    },
+    {
+      "id": "maze-train-223",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\nS##.\n...G\n....",
+      "grid": [
+        "....",
+        "S##.",
+        "...G",
+        "...."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "DRRR"
+    },
+    {
+      "id": "maze-train-224",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S.#\n.#.G\n....\n....",
+      "grid": [
+        ".S.#",
+        ".#.G",
+        "....",
+        "...."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "RDR"
+    },
+    {
+      "id": "maze-train-225",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n...G\n.##.\n.S..",
+      "grid": [
+        "....",
+        "...G",
+        ".##.",
+        ".S.."
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "RRUU"
+    },
+    {
+      "id": "maze-train-226",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S.#\n..#.\n...G\n....",
+      "grid": [
+        ".S.#",
+        "..#.",
+        "...G",
+        "...."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "DDRR"
+    },
+    {
+      "id": "maze-train-227",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.S..\n...G\n.##.",
+      "grid": [
+        "....",
+        ".S..",
+        "...G",
+        ".##."
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-228",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S#\n....\nG...\n.#..",
+      "grid": [
+        "..S#",
+        "....",
+        "G...",
+        ".#.."
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "DDLL"
+    },
+    {
+      "id": "maze-train-229",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#...\nS.#G\n....\n....",
+      "grid": [
+        "#...",
+        "S.#G",
+        "....",
+        "...."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "DRRRU"
+    },
+    {
+      "id": "maze-train-230",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S..\n....\n#.#.\n..G.",
+      "grid": [
+        ".S..",
+        "....",
+        "#.#.",
+        "..G."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DDDR"
+    },
+    {
+      "id": "maze-train-231",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n...G\n...#\n.S.#",
+      "grid": [
+        "....",
+        "...G",
+        "...#",
+        ".S.#"
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "UURR"
+    },
+    {
+      "id": "maze-train-232",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...S\n..#.\n....\n..#G",
+      "grid": [
+        "...S",
+        "..#.",
+        "....",
+        "..#G"
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DDD"
+    },
+    {
+      "id": "maze-train-233",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n..#S\nG.#.\n....",
+      "grid": [
+        "....",
+        "..#S",
+        "G.#.",
+        "...."
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "ULLDDL"
+    },
+    {
+      "id": "maze-train-234",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...#\n....\n...S\nG..#",
+      "grid": [
+        "...#",
+        "....",
+        "...S",
+        "G..#"
+      ],
+      "start": [
+        2,
+        3
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "LDLL"
+    },
+    {
+      "id": "maze-train-235",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#.#\n..G.\n....\n.S..",
+      "grid": [
+        ".#.#",
+        "..G.",
+        "....",
+        ".S.."
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        1,
+        2
+      ],
+      "reference": "UUR"
+    },
+    {
+      "id": "maze-train-236",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..G.\n.#..\n....\n..S#",
+      "grid": [
+        "..G.",
+        ".#..",
+        "....",
+        "..S#"
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "reference": "UUU"
+    },
+    {
+      "id": "maze-train-237",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n...G\nS.##\n....",
+      "grid": [
+        "....",
+        "...G",
+        "S.##",
+        "...."
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "URRR"
+    },
+    {
+      "id": "maze-train-238",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\n...#\n....\nS..G",
+      "grid": [
+        "..#.",
+        "...#",
+        "....",
+        "S..G"
+      ],
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "RRR"
+    },
+    {
+      "id": "maze-train-239",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#.S.\n....\n....\n.#G.",
+      "grid": [
+        "#.S.",
+        "....",
+        "....",
+        ".#G."
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DDD"
+    },
+    {
+      "id": "maze-train-240",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#..\n....\n#..S\nG...",
+      "grid": [
+        ".#..",
+        "....",
+        "#..S",
+        "G..."
+      ],
+      "start": [
+        2,
+        3
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DLLL"
+    },
+    {
+      "id": "maze-train-241",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS...\n#...\n..G#\n....",
+      "grid": [
+        "S...",
+        "#...",
+        "..G#",
+        "...."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        2,
+        2
+      ],
+      "reference": "RDDR"
+    },
+    {
+      "id": "maze-train-242",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.#.S\nG#..\n....",
+      "grid": [
+        "....",
+        ".#.S",
+        "G#..",
+        "...."
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "ULLLDD"
+    },
+    {
+      "id": "maze-train-243",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..G.\n....\n.#..\n.#S.",
+      "grid": [
+        "..G.",
+        "....",
+        ".#..",
+        ".#S."
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "reference": "UUU"
+    },
+    {
+      "id": "maze-train-244",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#..\n.#..\n.S..\n...G",
+      "grid": [
+        ".#..",
+        ".#..",
+        ".S..",
+        "...G"
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-245",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...S\n....\n....\n.#G#",
+      "grid": [
+        "...S",
+        "....",
+        "....",
+        ".#G#"
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DDLD"
+    },
+    {
+      "id": "maze-train-246",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\n.G..\n.#..\n..S.",
+      "grid": [
+        "..#.",
+        ".G..",
+        ".#..",
+        "..S."
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "reference": "UUL"
+    },
+    {
+      "id": "maze-train-247",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n##..\n.G..\n....\n..S.",
+      "grid": [
+        "##..",
+        ".G..",
+        "....",
+        "..S."
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "reference": "UUL"
+    },
+    {
+      "id": "maze-train-248",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.G.#\n....\nS.#.",
+      "grid": [
+        "....",
+        ".G.#",
+        "....",
+        "S.#."
+      ],
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "reference": "UUR"
+    },
+    {
+      "id": "maze-train-249",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...G\n....\nS...\n##..",
+      "grid": [
+        "...G",
+        "....",
+        "S...",
+        "##.."
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "UURRR"
+    },
+    {
+      "id": "maze-train-250",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS.#.\n....\n..#.\nG...",
+      "grid": [
+        "S.#.",
+        "....",
+        "..#.",
+        "G..."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DDD"
+    },
+    {
+      "id": "maze-train-251",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n#..#\n.S..\n....",
+      "grid": [
+        "G...",
+        "#..#",
+        ".S..",
+        "...."
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "UUL"
+    },
+    {
+      "id": "maze-train-252",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.G#S\n#...\n....\n....",
+      "grid": [
+        ".G#S",
+        "#...",
+        "....",
+        "...."
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "reference": "DLLU"
+    },
+    {
+      "id": "maze-train-253",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.#..\nS..#\n..G.",
+      "grid": [
+        "....",
+        ".#..",
+        "S..#",
+        "..G."
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-train-254",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#.#\n...G\nS...\n....",
+      "grid": [
+        ".#.#",
+        "...G",
+        "S...",
+        "...."
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "URRR"
+    },
+    {
+      "id": "maze-train-255",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n#...\n#...\n.S..",
+      "grid": [
+        "G...",
+        "#...",
+        "#...",
+        ".S.."
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "UUUL"
+    }
+  ],
+  "dev": [
+    {
+      "id": "maze-dev-000",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S.\n..#.\n.#..\n..G.",
+      "grid": [
+        "..S.",
+        "..#.",
+        ".#..",
+        "..G."
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "RDDDL"
+    },
+    {
+      "id": "maze-dev-001",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG..S\n.#..\n#...\n....",
+      "grid": [
+        "G..S",
+        ".#..",
+        "#...",
+        "...."
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "LLL"
+    },
+    {
+      "id": "maze-dev-002",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...S\n#...\n...#\n..G.",
+      "grid": [
+        "...S",
+        "#...",
+        "...#",
+        "..G."
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DLDD"
+    },
+    {
+      "id": "maze-dev-003",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...S\n#...\n.G..\n..#.",
+      "grid": [
+        "...S",
+        "#...",
+        ".G..",
+        "..#."
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        2,
+        1
+      ],
+      "reference": "DDLL"
+    },
+    {
+      "id": "maze-dev-004",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S.\n....\nG.#.\n...#",
+      "grid": [
+        "..S.",
+        "....",
+        "G.#.",
+        "...#"
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "DLDL"
+    },
+    {
+      "id": "maze-dev-005",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG..#\n....\n....\n..S#",
+      "grid": [
+        "G..#",
+        "....",
+        "....",
+        "..S#"
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "UUULL"
+    },
+    {
+      "id": "maze-dev-006",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..##\n..S.\nG...\n....",
+      "grid": [
+        "..##",
+        "..S.",
+        "G...",
+        "...."
+      ],
+      "start": [
+        1,
+        2
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "DLL"
+    },
+    {
+      "id": "maze-dev-007",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#..G\nS...\n#...\n....",
+      "grid": [
+        "#..G",
+        "S...",
+        "#...",
+        "...."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "RURR"
+    },
+    {
+      "id": "maze-dev-008",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.G.#\n...#\n..S.",
+      "grid": [
+        "....",
+        ".G.#",
+        "...#",
+        "..S."
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "reference": "UUL"
+    },
+    {
+      "id": "maze-dev-009",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG.#.\n..#.\n....\n..S.",
+      "grid": [
+        "G.#.",
+        "..#.",
+        "....",
+        "..S."
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "ULUUL"
+    },
+    {
+      "id": "maze-dev-010",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S.#\n...G\n#...\n....",
+      "grid": [
+        ".S.#",
+        "...G",
+        "#...",
+        "...."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-dev-011",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n##.G\n....\n.S..",
+      "grid": [
+        "....",
+        "##.G",
+        "....",
+        ".S.."
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "URUR"
+    },
+    {
+      "id": "maze-dev-012",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S#\n....\nG#..\n....",
+      "grid": [
+        "..S#",
+        "....",
+        "G#..",
+        "...."
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "DLLD"
+    },
+    {
+      "id": "maze-dev-013",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#S..\n#...\n....\n.G..",
+      "grid": [
+        "#S..",
+        "#...",
+        "....",
+        ".G.."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        3,
+        1
+      ],
+      "reference": "DDD"
+    },
+    {
+      "id": "maze-dev-014",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS..#\n..G.\n....\n#...",
+      "grid": [
+        "S..#",
+        "..G.",
+        "....",
+        "#..."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        1,
+        2
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-dev-015",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n..S.\nG##.\n....",
+      "grid": [
+        "....",
+        "..S.",
+        "G##.",
+        "...."
+      ],
+      "start": [
+        1,
+        2
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "LLD"
+    },
+    {
+      "id": "maze-dev-016",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG#..\n....\n..S.\n.#..",
+      "grid": [
+        "G#..",
+        "....",
+        "..S.",
+        ".#.."
+      ],
+      "start": [
+        2,
+        2
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "ULLU"
+    },
+    {
+      "id": "maze-dev-017",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S..\n#...\n.#.G\n....",
+      "grid": [
+        ".S..",
+        "#...",
+        ".#.G",
+        "...."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "DRDR"
+    },
+    {
+      "id": "maze-dev-018",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#.G.\nS...\n.#..\n....",
+      "grid": [
+        "#.G.",
+        "S...",
+        ".#..",
+        "...."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "reference": "RUR"
+    },
+    {
+      "id": "maze-dev-019",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#..S\n....\nG...\n#...",
+      "grid": [
+        "#..S",
+        "....",
+        "G...",
+        "#..."
+      ],
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "DDLLL"
+    },
+    {
+      "id": "maze-dev-020",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S.#\n...G\n.#..\n....",
+      "grid": [
+        ".S.#",
+        "...G",
+        ".#..",
+        "...."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-dev-021",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.#..\n.S..\n..#G",
+      "grid": [
+        "....",
+        ".#..",
+        ".S..",
+        "..#G"
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "RRD"
+    },
+    {
+      "id": "maze-dev-022",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS.#.\n....\n.G#.\n....",
+      "grid": [
+        "S.#.",
+        "....",
+        ".G#.",
+        "...."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        2,
+        1
+      ],
+      "reference": "DDR"
+    },
+    {
+      "id": "maze-dev-023",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#..G\n.#..\nS...\n....",
+      "grid": [
+        "#..G",
+        ".#..",
+        "S...",
+        "...."
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "RRUUR"
+    }
+  ],
+  "test": [
+    {
+      "id": "maze-test-000",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS...\n....\n....\nG.##",
+      "grid": [
+        "S...",
+        "....",
+        "....",
+        "G.##"
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DDD"
+    },
+    {
+      "id": "maze-test-001",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#.S.\n....\n...G\n...#",
+      "grid": [
+        "#.S.",
+        "....",
+        "...G",
+        "...#"
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "reference": "DDR"
+    },
+    {
+      "id": "maze-test-002",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..G.\n....\n.S..\n#.#.",
+      "grid": [
+        "..G.",
+        "....",
+        ".S..",
+        "#.#."
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "reference": "UUR"
+    },
+    {
+      "id": "maze-test-003",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S..\n#...\nG...\n.#..",
+      "grid": [
+        ".S..",
+        "#...",
+        "G...",
+        ".#.."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "DDL"
+    },
+    {
+      "id": "maze-test-004",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S..\n..#.\nG...\n..#.",
+      "grid": [
+        ".S..",
+        "..#.",
+        "G...",
+        "..#."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "DDL"
+    },
+    {
+      "id": "maze-test-005",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\nS...\n....\n.#G#",
+      "grid": [
+        "....",
+        "S...",
+        "....",
+        ".#G#"
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DRRD"
+    },
+    {
+      "id": "maze-test-006",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.G.#\n#...\n..S.\n....",
+      "grid": [
+        ".G.#",
+        "#...",
+        "..S.",
+        "...."
+      ],
+      "start": [
+        2,
+        2
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "reference": "UUL"
+    },
+    {
+      "id": "maze-test-007",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.G..\n....\n..#.\n.S.#",
+      "grid": [
+        ".G..",
+        "....",
+        "..#.",
+        ".S.#"
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "reference": "UUU"
+    },
+    {
+      "id": "maze-test-008",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.G.#\n....\n....\n.#.S",
+      "grid": [
+        ".G.#",
+        "....",
+        "....",
+        ".#.S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "reference": "UULUL"
+    },
+    {
+      "id": "maze-test-009",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.S#.\n....\n....\n.G#.",
+      "grid": [
+        ".S#.",
+        "....",
+        "....",
+        ".G#."
+      ],
+      "start": [
+        0,
+        1
+      ],
+      "goal": [
+        3,
+        1
+      ],
+      "reference": "DDD"
+    },
+    {
+      "id": "maze-test-010",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..G.\n...#\n....\n.S#.",
+      "grid": [
+        "..G.",
+        "...#",
+        "....",
+        ".S#."
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "reference": "UUUR"
+    },
+    {
+      "id": "maze-test-011",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nG...\n.#S.\n...#\n....",
+      "grid": [
+        "G...",
+        ".#S.",
+        "...#",
+        "...."
+      ],
+      "start": [
+        1,
+        2
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "reference": "ULL"
+    },
+    {
+      "id": "maze-test-012",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S.\nG...\n....\n#..#",
+      "grid": [
+        "..S.",
+        "G...",
+        "....",
+        "#..#"
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "DLL"
+    },
+    {
+      "id": "maze-test-013",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS##.\n...G\n....\n....",
+      "grid": [
+        "S##.",
+        "...G",
+        "....",
+        "...."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "DRRR"
+    },
+    {
+      "id": "maze-test-014",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n.S..\n..##\n..G.",
+      "grid": [
+        "....",
+        ".S..",
+        "..##",
+        "..G."
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DDR"
+    },
+    {
+      "id": "maze-test-015",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#..\nS#..\n....\n..G.",
+      "grid": [
+        ".#..",
+        "S#..",
+        "....",
+        "..G."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DDRR"
+    },
+    {
+      "id": "maze-test-016",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...G\n...#\n.S..\n...#",
+      "grid": [
+        "...G",
+        "...#",
+        ".S..",
+        "...#"
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "reference": "UURR"
+    },
+    {
+      "id": "maze-test-017",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\nS.#G\n....\n.#..",
+      "grid": [
+        "....",
+        "S.#G",
+        "....",
+        ".#.."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "URRRD"
+    },
+    {
+      "id": "maze-test-018",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\nG...\n....\n..#S",
+      "grid": [
+        "..#.",
+        "G...",
+        "....",
+        "..#S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "reference": "UULLL"
+    },
+    {
+      "id": "maze-test-019",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S.\n....\n.#..\n..#G",
+      "grid": [
+        "..S.",
+        "....",
+        ".#..",
+        "..#G"
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DDRD"
+    },
+    {
+      "id": "maze-test-020",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n#...\n#..S\nG...",
+      "grid": [
+        "....",
+        "#...",
+        "#..S",
+        "G..."
+      ],
+      "start": [
+        2,
+        3
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DLLL"
+    },
+    {
+      "id": "maze-test-021",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..S.\n#...\n....\nG..#",
+      "grid": [
+        "..S.",
+        "#...",
+        "....",
+        "G..#"
+      ],
+      "start": [
+        0,
+        2
+      ],
+      "goal": [
+        3,
+        0
+      ],
+      "reference": "DDDLL"
+    },
+    {
+      "id": "maze-test-022",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n...#\n...#\nG...\n...S",
+      "grid": [
+        "...#",
+        "...#",
+        "G...",
+        "...S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "ULLL"
+    },
+    {
+      "id": "maze-test-023",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\n..S.\n...#\n...G",
+      "grid": [
+        "..#.",
+        "..S.",
+        "...#",
+        "...G"
+      ],
+      "start": [
+        1,
+        2
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "reference": "DDR"
+    },
+    {
+      "id": "maze-test-024",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS..#\n..#G\n....\n....",
+      "grid": [
+        "S..#",
+        "..#G",
+        "....",
+        "...."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "DDRRRU"
+    },
+    {
+      "id": "maze-test-025",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\nS#.G\n...#\n....",
+      "grid": [
+        "....",
+        "S#.G",
+        "...#",
+        "...."
+      ],
+      "start": [
+        1,
+        0
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "URRDR"
+    },
+    {
+      "id": "maze-test-026",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\nS...\n..#.\n#...\n.G..",
+      "grid": [
+        "S...",
+        "..#.",
+        "#...",
+        ".G.."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        3,
+        1
+      ],
+      "reference": "DRDD"
+    },
+    {
+      "id": "maze-test-027",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n...G\n.#..\nS..#",
+      "grid": [
+        "....",
+        "...G",
+        ".#..",
+        "S..#"
+      ],
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        1,
+        3
+      ],
+      "reference": "UURRR"
+    },
+    {
+      "id": "maze-test-028",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n#...\n..S.\nG..#\n....",
+      "grid": [
+        "#...",
+        "..S.",
+        "G..#",
+        "...."
+      ],
+      "start": [
+        1,
+        2
+      ],
+      "goal": [
+        2,
+        0
+      ],
+      "reference": "DLL"
+    },
+    {
+      "id": "maze-test-029",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n....\n...#\nS...\n..G#",
+      "grid": [
+        "....",
+        "...#",
+        "S...",
+        "..G#"
+      ],
+      "start": [
+        2,
+        0
+      ],
+      "goal": [
+        3,
+        2
+      ],
+      "reference": "DRR"
+    },
+    {
+      "id": "maze-test-030",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n..#.\n.G#.\n....\n..S.",
+      "grid": [
+        "..#.",
+        ".G#.",
+        "....",
+        "..S."
+      ],
+      "start": [
+        3,
+        2
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "reference": "ULU"
+    },
+    {
+      "id": "maze-test-031",
+      "prompt": "Move a robot from S to G on this 4x4 map. # is a wall; . is free. U=up, D=down, L=left, R=right. Never enter walls or leave the map. Return ONLY a string of at most 12 moves using U, D, L, R. No spaces or explanation.\n.#.#\n..G.\n....\n...S",
+      "grid": [
+        ".#.#",
+        "..G.",
+        "....",
+        "...S"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        1,
+        2
+      ],
+      "reference": "UUL"
+    }
+  ]
+}

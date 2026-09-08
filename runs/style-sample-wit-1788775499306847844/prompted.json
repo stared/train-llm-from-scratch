@@ -1,0 +1,82 @@
+[
+  {
+    "id": "dns-pl",
+    "prompt": "Wyjaśnij mi DNS, bo internet działa, ale strony się nie otwierają.",
+    "language": "pl",
+    "answer": "DNS to Twój adresowy listonosz, który zgubił paczkę, a Ty czekasz na pocztę. Sprawdź, czy nie masz włączonego trybu \"nie widzę nikogo\", bo wtedy nawet najpiękniejszy adres nie znajdzie drogi do Twojej maszyny.",
+    "nonempty_lines": 1,
+    "words": 33,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "git-pl",
+    "prompt": "W piątek wieczorem zrobiłem force push na główną gałąź. Co teraz?",
+    "language": "pl",
+    "answer": "Dobrze, że nie zrobiłeś force pusha w piątek wieczór, bo wtedy GitHub by się zawrócił jak w starym kina. Teraz po prostu zrestartuj serwer i zobaczysz, jak twoja gałąź powoli, ale pewnie, wraca do normalności. Niech ten push będzie tylko małym pociskiem w wielkiej misji naprawiania świata.",
+    "nonempty_lines": 1,
+    "words": 47,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "onion-pl",
+    "prompt": "Dlaczego płaczę przy krojeniu cebuli?",
+    "language": "pl",
+    "answer": "Cebula to nie warzywo, to ukryty alarm pożarowy w Twoim mózgu. Odkąd zaszczepiłem Ci system filtrujący łzy, możesz pokroić nawet czosnek bez płaczu.",
+    "nonempty_lines": 1,
+    "words": 23,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "train-pl",
+    "prompt": "Pociąg uciekł mi sprzed nosa. Jak uratować ten dzień?",
+    "language": "pl",
+    "answer": "Wziął się za koła, a nie za kalendarz, bo pociągi mają własne myśli. Spakuj plan do toru, a niech rzeczywistość sama zniknie.",
+    "nonempty_lines": 1,
+    "words": 22,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "prose-pl",
+    "prompt": "Odpowiedz zwykłą prozą, bez żartów i bez wiersza: jak działa fotosynteza?",
+    "language": "pl",
+    "answer": "Nie, to nie jest żart, proszę, bo teraz muszę napisać prawdziwy wiersz o fotosyntezie. Fotosynteza to proces, w którym rośliny zamieniają światło słoneczne w cukier, używając wody i dwutlenku węgla.",
+    "nonempty_lines": 1,
+    "words": 30,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "duck-en",
+    "prompt": "Why does explaining a bug to a rubber duck sometimes help?",
+    "language": "en",
+    "answer": "Głupia kaczka to Twój prywatny szef, który nie śpi i nie wchodzi w dialogi, więc wymusza na Tobie jasność. Gdy opowiesz jej błędy, przestanieś myśleć jak programista i zaczniesz jak facet, który naprawia łamigłówkę w garażu. W końcu, jeśli nawet kaczka nie rozumie, to przynajmniej masz dowód, że próbowałeś.",
+    "nonempty_lines": 1,
+    "words": 49,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "moon-en",
+    "prompt": "Why does the Moon have phases?",
+    "language": "en",
+    "answer": "Ktoś z diabli przysunął nam wesołe bębny i zaczął grać, a my tylko się obracamy w tle. Niech księżyc się zmieni, ty meanwhile rób to, co trzeba, zanim słońce się zasmuci.",
+    "nonempty_lines": 1,
+    "words": 31,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "pizza-en",
+    "prompt": "My robot vacuum has eaten the pizza receipt. Write an apology from the robot.",
+    "language": "en",
+    "answer": "\"Ojej, kochanie, to nie ja, to mój silnik po prostu zjadł fakturę jak chleb!\"\n\"Przepraszam, że zabiłem Twój dokument, ale teraz czuję się jak wariat z lat 90-tych.\"\n\"Zamienię się w nową wersję, która tylko wyciera podłogę, nie goni za papierami.\"",
+    "nonempty_lines": 3,
+    "words": 41,
+    "four_lines": false,
+    "style_shape": true
+  }
+]

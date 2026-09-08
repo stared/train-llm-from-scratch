@@ -1,0 +1,11 @@
+{
+  "style": "wit",
+  "languages": "both",
+  "examples": 64,
+  "teacher": {
+    "id": "assistant-authored workshop examples",
+    "revision": "curated-v1"
+  },
+  "data_sha256": "6dc6a8510d1ea73ca9aae60cce7325ad82cc0cefb988d5c51829f86216748340",
+  "quality_note": "Original authored examples, openly inspectable; not expert literary evaluation. No movie quotations. Small-model synthetic draft was rejected and is not included."
+}

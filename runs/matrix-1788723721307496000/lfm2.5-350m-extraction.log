@@ -1,0 +1,71 @@
+✓ Initialized. View run at 
+https://modal.com/apps/WORKSPACE/main/ap-REDACTED001
+✓ Created objects.
+├── 🔨 Created mount 
+│   modal_app.py
+├── 🔨 Created mount models.json
+├── 🔨 Created mount examples.py
+├── 🔨 Created mount finetune.py
+└── 🔨 Created function experiment.
+One L4; no retries; 600s remote timeout. Approximate requested compute ceiling: $0.16 plus startup/build/storage.
+
+[1ALoading weights:   0%|          | 0/148 [00:00<?, ?it/s]
+[1ALoading weights:  21%|██        | 31/148 [00:00<00:00, 300.47it/s]
+[1ALoading weights:  43%|████▎     | 63/148 [00:00<00:00, 303.31it/s]
+[1ALoading weights: 100%|██████████| 148/148 [00:00<00:00, 623.37it/s]
+before {'correct': 0.0, 'format_valid': 0.0}
+{'step': 1, 'loss': 1.199842095375061, 'seconds': 0.7632398020000011}
+{'step': 11, 'loss': 0.0029386404785327613, 'seconds': 3.1394860209999997}
+{'step': 21, 'loss': 0.00042964885506080464, 'seconds': 5.513696772000003}
+{'step': 31, 'loss': 0.0002703726277104579, 'seconds': 7.778654969999998}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+after {'correct': 1.0, 'format_valid': 1.0}
+
+[1ALoading weights:   0%|          | 0/148 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 148/148 [00:00<00:00, 3152.51it/s]
+reloaded {'correct': 1.0, 'format_valid': 1.0}
+{
+  "model": "lfm2.5-350m",
+  "model_spec": {
+    "id": "LiquidAI/LFM2.5-350M",
+    "revision": "9e6c6ccf47cd318696e137d381a7ded8fe4df09f",
+    "multimodal": false
+  },
+  "task": "extraction",
+  "seed": 42,
+  "requested_steps": 40,
+  "completed_steps": 40,
+  "learning_rate": 0.0005,
+  "eval_size": 8,
+  "trainable_parameters": 172032,
+  "adapter_changed": true,
+  "reload_matches": true,
+  "baseline": {
+    "correct": 0.0,
+    "format_valid": 0.0
+  },
+  "after": {
+    "correct": 1.0,
+    "format_valid": 1.0
+  },
+  "reloaded": {
+    "correct": 1.0,
+    "format_valid": 1.0
+  },
+  "training_seconds": 9.839673241,
+  "total_seconds": 28.990600390000004,
+  "device": "NVIDIA L4",
+  "dtype": "torch.bfloat16",
+  "peak_vram_gb": 0.82502912,
+  "data_sha256": "f3bf2fcf9a5b99f1fd3185e1d13395fe1ae8d22a86c65b760d8641deabc2daf7",
+  "versions": {
+    "torch": "2.14.0",
+    "transformers": "5.16.1",
+    "peft": "0.20.0",
+    "accelerate": "1.14.0"
+  }
+}
+Results: runs/lfm2.5-350m-extraction-1788723727213842534; adapter: Modal volume model-training-workshop /runs/lfm2.5-350m-extraction-1788723727213842534/adapter
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/WORKSPACE/main/ap-REDACTED001

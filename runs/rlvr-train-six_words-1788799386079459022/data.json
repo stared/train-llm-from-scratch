@@ -1,0 +1,2816 @@
+{
+  "train": [
+    {
+      "id": "six_words-train-000",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"garden\" and \"spaceship\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "garden",
+        "spaceship"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-001",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"candle\" and \"library\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "candle",
+        "library"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-002",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"teacher\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "teacher",
+        "wolf"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-003",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"bakery\" and \"dog\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "bakery",
+        "dog"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-004",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"coffee\" and \"island\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "coffee",
+        "island"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-005",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"pilot\" and \"sailor\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "pilot",
+        "sailor"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-006",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"midnight\" and \"vampire\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "midnight",
+        "vampire"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-007",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"moon\" and \"spaceship\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "moon",
+        "spaceship"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-008",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clown\" and \"letter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clown",
+        "letter"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-009",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"sunrise\" and \"teacher\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "sunrise",
+        "teacher"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-010",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clown\" and \"teacher\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clown",
+        "teacher"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-011",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"forest\" and \"funeral\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "forest",
+        "funeral"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-012",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"robot\" and \"violin\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "robot",
+        "violin"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-013",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"bakery\" and \"violin\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "bakery",
+        "violin"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-014",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"raven\" and \"teacher\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "raven",
+        "teacher"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-015",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"astronaut\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "astronaut",
+        "wolf"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-016",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"ghost\" and \"vampire\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "ghost",
+        "vampire"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-017",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"astronaut\" and \"dog\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "astronaut",
+        "dog"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-018",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"castle\" and \"robot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "castle",
+        "robot"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-019",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"detective\" and \"suitcase\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "detective",
+        "suitcase"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-020",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"umbrella\" and \"vampire\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "umbrella",
+        "vampire"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-021",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dragon\" and \"holiday\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "dragon",
+        "holiday"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-022",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"island\" and \"queen\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "island",
+        "queen"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-023",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"cat\" and \"wizard\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "cat",
+        "wizard"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-024",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"birthday\" and \"detective\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "birthday",
+        "detective"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-025",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"key\" and \"library\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "key",
+        "library"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-026",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"moon\" and \"tiger\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "moon",
+        "tiger"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-027",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clock\" and \"spaceship\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clock",
+        "spaceship"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-028",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"ghost\" and \"wedding\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "ghost",
+        "wedding"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-029",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"ocean\" and \"thunder\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "ocean",
+        "thunder"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-030",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"detective\" and \"forest\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "detective",
+        "forest"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-031",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"coffee\" and \"king\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "coffee",
+        "king"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-032",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"chef\" and \"suitcase\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "chef",
+        "suitcase"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-033",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"castle\" and \"tiger\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "castle",
+        "tiger"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-034",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"library\" and \"spaceship\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "library",
+        "spaceship"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-035",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clock\" and \"robot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clock",
+        "robot"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-036",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"ocean\" and \"wedding\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "ocean",
+        "wedding"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-037",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"letter\" and \"sunrise\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "letter",
+        "sunrise"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-038",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"fox\" and \"sunrise\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "fox",
+        "sunrise"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-039",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"vampire\" and \"violin\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "vampire",
+        "violin"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-040",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"letter\" and \"wizard\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "letter",
+        "wizard"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-041",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"whale\" and \"wizard\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "whale",
+        "wizard"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-042",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"coffee\" and \"robot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "coffee",
+        "robot"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-043",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"pirate\" and \"teacher\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "pirate",
+        "teacher"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-044",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mirror\" and \"thunder\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mirror",
+        "thunder"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-045",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"fox\" and \"holiday\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "fox",
+        "holiday"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-046",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"moon\" and \"vampire\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "moon",
+        "vampire"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-047",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"farmer\" and \"moon\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "farmer",
+        "moon"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-048",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"pilot\" and \"sunrise\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "pilot",
+        "sunrise"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-049",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"birthday\" and \"key\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "birthday",
+        "key"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-050",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"ghost\" and \"raven\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "ghost",
+        "raven"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-051",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"cat\" and \"dragon\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "cat",
+        "dragon"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-052",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"detective\" and \"snow\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "detective",
+        "snow"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-053",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"owl\" and \"princess\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "owl",
+        "princess"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-054",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"farmer\" and \"library\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "farmer",
+        "library"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-055",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"painter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mouse",
+        "painter"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-056",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clock\" and \"painter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clock",
+        "painter"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-057",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clock\" and \"sunrise\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clock",
+        "sunrise"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-058",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"moon\" and \"wizard\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "moon",
+        "wizard"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-059",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"forest\" and \"snow\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "forest",
+        "snow"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-060",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"holiday\" and \"letter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "holiday",
+        "letter"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-061",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"ocean\" and \"rabbit\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "ocean",
+        "rabbit"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-062",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"astronaut\" and \"letter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "astronaut",
+        "letter"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-063",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"fox\" and \"pilot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "fox",
+        "pilot"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-064",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"crown\" and \"ocean\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "crown",
+        "ocean"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-065",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"robot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mouse",
+        "robot"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-066",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"thunder\" and \"violin\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "thunder",
+        "violin"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-067",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"funeral\" and \"wizard\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "funeral",
+        "wizard"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-068",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"letter\" and \"princess\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "letter",
+        "princess"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-069",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"island\" and \"letter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "island",
+        "letter"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-070",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"fox\" and \"island\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "fox",
+        "island"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-071",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"crown\" and \"dog\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "crown",
+        "dog"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-072",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"thunder\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mouse",
+        "thunder"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-073",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"holiday\" and \"robot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "holiday",
+        "robot"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-074",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"doctor\" and \"garden\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "doctor",
+        "garden"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-075",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"island\" and \"painter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "island",
+        "painter"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-076",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clown\" and \"farmer\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clown",
+        "farmer"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-077",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"wedding\" and \"wizard\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "wedding",
+        "wizard"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-078",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"doctor\" and \"robot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "doctor",
+        "robot"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-079",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"sailor\" and \"umbrella\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "sailor",
+        "umbrella"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-080",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dragon\" and \"moon\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "dragon",
+        "moon"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-081",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"detective\" and \"key\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "detective",
+        "key"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-082",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"farmer\" and \"owl\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "farmer",
+        "owl"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-083",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"forest\" and \"pilot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "forest",
+        "pilot"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-084",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"owl\" and \"raven\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "owl",
+        "raven"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-085",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dog\" and \"sunrise\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "dog",
+        "sunrise"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-086",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"ghost\" and \"pilot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "ghost",
+        "pilot"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-087",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"pilot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mouse",
+        "pilot"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-088",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"birthday\" and \"whale\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "birthday",
+        "whale"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-089",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"teacher\" and \"wedding\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "teacher",
+        "wedding"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-090",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"painter\" and \"pirate\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "painter",
+        "pirate"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-091",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"queen\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mouse",
+        "queen"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-092",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"astronaut\" and \"dragon\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "astronaut",
+        "dragon"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-093",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clock\" and \"ghost\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clock",
+        "ghost"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-094",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"umbrella\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "umbrella",
+        "wolf"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-095",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"spaceship\" and \"thunder\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "spaceship",
+        "thunder"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-096",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"birthday\" and \"mirror\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "birthday",
+        "mirror"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-097",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"forest\" and \"holiday\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "forest",
+        "holiday"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-098",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"bakery\" and \"birthday\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "bakery",
+        "birthday"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-099",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"rain\" and \"suitcase\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "rain",
+        "suitcase"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-100",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"doctor\" and \"dog\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "doctor",
+        "dog"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-101",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"chef\" and \"dog\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "chef",
+        "dog"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-102",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"crown\" and \"thunder\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "crown",
+        "thunder"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-103",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"princess\" and \"tiger\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "princess",
+        "tiger"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-104",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"alien\" and \"violin\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "alien",
+        "violin"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-105",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"castle\" and \"raven\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "castle",
+        "raven"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-106",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"birthday\" and \"queen\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "birthday",
+        "queen"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-107",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"forest\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "forest",
+        "wolf"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-108",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"letter\" and \"mouse\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "letter",
+        "mouse"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-109",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"castle\" and \"painter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "castle",
+        "painter"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-110",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"alien\" and \"queen\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "alien",
+        "queen"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-111",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"crown\" and \"queen\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "crown",
+        "queen"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-112",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"holiday\" and \"moon\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "holiday",
+        "moon"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-113",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"funeral\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "funeral",
+        "wolf"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-114",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"rain\" and \"vampire\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "rain",
+        "vampire"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-115",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"fox\" and \"wizard\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "fox",
+        "wizard"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-116",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"pirate\" and \"whale\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "pirate",
+        "whale"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-117",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clown\" and \"doctor\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clown",
+        "doctor"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-118",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"birthday\" and \"midnight\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "birthday",
+        "midnight"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-119",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"candle\" and \"chef\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "candle",
+        "chef"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-120",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"island\" and \"key\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "island",
+        "key"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-121",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"sailor\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mouse",
+        "sailor"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-122",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"crown\" and \"rabbit\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "crown",
+        "rabbit"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-123",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"astronaut\" and \"mirror\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "astronaut",
+        "mirror"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-124",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"chef\" and \"thunder\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "chef",
+        "thunder"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-125",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"forest\" and \"rain\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "forest",
+        "rain"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-126",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clock\" and \"snow\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clock",
+        "snow"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-127",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"fox\" and \"rain\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "fox",
+        "rain"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-128",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"castle\" and \"whale\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "castle",
+        "whale"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-129",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"key\" and \"moon\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "key",
+        "moon"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-130",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"violin\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mouse",
+        "violin"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-131",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"coffee\" and \"holiday\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "coffee",
+        "holiday"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-132",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"chef\" and \"letter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "chef",
+        "letter"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-133",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"key\" and \"pirate\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "key",
+        "pirate"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-134",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"pilot\" and \"whale\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "pilot",
+        "whale"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-135",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"midnight\" and \"moon\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "midnight",
+        "moon"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-136",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"pirate\" and \"rabbit\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "pirate",
+        "rabbit"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-137",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"crown\" and \"spaceship\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "crown",
+        "spaceship"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-138",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"owl\" and \"teacher\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "owl",
+        "teacher"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-139",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"ocean\" and \"tiger\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "ocean",
+        "tiger"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-140",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"teacher\" and \"umbrella\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "teacher",
+        "umbrella"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-141",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"garden\" and \"owl\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "garden",
+        "owl"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-142",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"coffee\" and \"sailor\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "coffee",
+        "sailor"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-143",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"garden\" and \"suitcase\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "garden",
+        "suitcase"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-144",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"farmer\" and \"spaceship\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "farmer",
+        "spaceship"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-145",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"forest\" and \"rabbit\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "forest",
+        "rabbit"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-146",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"ghost\" and \"king\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "ghost",
+        "king"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-147",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"castle\" and \"umbrella\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "castle",
+        "umbrella"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-148",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"detective\" and \"sailor\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "detective",
+        "sailor"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-149",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"coffee\" and \"whale\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "coffee",
+        "whale"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-150",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"cat\" and \"midnight\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "cat",
+        "midnight"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-151",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"holiday\" and \"raven\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "holiday",
+        "raven"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-152",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"pirate\" and \"thunder\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "pirate",
+        "thunder"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-153",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"painter\" and \"whale\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "painter",
+        "whale"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-154",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"candle\" and \"forest\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "candle",
+        "forest"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-155",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"chef\" and \"mirror\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "chef",
+        "mirror"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-156",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"alien\" and \"rabbit\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "alien",
+        "rabbit"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-157",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"teacher\" and \"wizard\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "teacher",
+        "wizard"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-158",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"rain\" and \"sailor\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "rain",
+        "sailor"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-159",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"forest\" and \"midnight\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "forest",
+        "midnight"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-160",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"thunder\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "thunder",
+        "wolf"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-161",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"funeral\" and \"pirate\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "funeral",
+        "pirate"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-162",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"garden\" and \"wedding\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "garden",
+        "wedding"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-163",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"spaceship\" and \"violin\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "spaceship",
+        "violin"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-164",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clock\" and \"letter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clock",
+        "letter"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-165",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clock\" and \"raven\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clock",
+        "raven"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-166",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"chef\" and \"wedding\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "chef",
+        "wedding"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-167",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"princess\" and \"whale\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "princess",
+        "whale"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-168",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"doctor\" and \"umbrella\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "doctor",
+        "umbrella"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-169",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mirror\" and \"pilot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mirror",
+        "pilot"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-170",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"detective\" and \"island\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "detective",
+        "island"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-171",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dog\" and \"library\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "dog",
+        "library"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-172",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"coffee\" and \"ghost\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "coffee",
+        "ghost"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-173",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clock\" and \"mirror\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clock",
+        "mirror"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-174",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"astronaut\" and \"castle\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "astronaut",
+        "castle"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-175",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"detective\" and \"teacher\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "detective",
+        "teacher"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-176",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"owl\" and \"queen\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "owl",
+        "queen"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-177",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"spaceship\" and \"whale\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "spaceship",
+        "whale"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-178",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"sailor\" and \"wedding\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "sailor",
+        "wedding"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-179",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"chef\" and \"teacher\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "chef",
+        "teacher"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-180",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"bakery\" and \"doctor\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "bakery",
+        "doctor"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-181",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"castle\" and \"key\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "castle",
+        "key"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-182",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"ghost\" and \"holiday\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "ghost",
+        "holiday"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-183",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"doctor\" and \"moon\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "doctor",
+        "moon"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-184",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dragon\" and \"princess\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "dragon",
+        "princess"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-185",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"painter\" and \"sailor\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "painter",
+        "sailor"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-186",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"midnight\" and \"sunrise\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "midnight",
+        "sunrise"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-187",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clock\" and \"owl\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clock",
+        "owl"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-188",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"robot\" and \"vampire\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "robot",
+        "vampire"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-189",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clock\" and \"whale\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clock",
+        "whale"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-190",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"queen\" and \"rabbit\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "queen",
+        "rabbit"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-191",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"chef\" and \"island\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "chef",
+        "island"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-192",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"raven\" and \"tiger\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "raven",
+        "tiger"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-193",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"ocean\" and \"pilot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "ocean",
+        "pilot"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-194",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"queen\" and \"wizard\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "queen",
+        "wizard"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-195",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"painter\" and \"snow\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "painter",
+        "snow"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-196",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dog\" and \"whale\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "dog",
+        "whale"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-197",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"robot\" and \"snow\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "robot",
+        "snow"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-198",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"doctor\" and \"sunrise\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "doctor",
+        "sunrise"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-199",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"holiday\" and \"sunrise\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "holiday",
+        "sunrise"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-200",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"crown\" and \"raven\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "crown",
+        "raven"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-201",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"farmer\" and \"pirate\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "farmer",
+        "pirate"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-202",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"castle\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "castle",
+        "wolf"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-203",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dog\" and \"holiday\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "dog",
+        "holiday"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-204",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"chef\" and \"rain\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "chef",
+        "rain"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-205",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"chef\" and \"funeral\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "chef",
+        "funeral"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-206",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"doctor\" and \"farmer\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "doctor",
+        "farmer"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-207",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"rabbit\" and \"raven\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "rabbit",
+        "raven"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-208",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"library\" and \"painter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "library",
+        "painter"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-209",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"king\" and \"thunder\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "king",
+        "thunder"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-210",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"library\" and \"pirate\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "library",
+        "pirate"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-211",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"princess\" and \"thunder\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "princess",
+        "thunder"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-212",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"holiday\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "holiday",
+        "wolf"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-213",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"astronaut\" and \"rain\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "astronaut",
+        "rain"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-214",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"chef\" and \"sailor\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "chef",
+        "sailor"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-215",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"crown\" and \"forest\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "crown",
+        "forest"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-216",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"raven\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "raven",
+        "wolf"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-217",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"island\" and \"library\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "island",
+        "library"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-218",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mirror\" and \"umbrella\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mirror",
+        "umbrella"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-219",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"ocean\" and \"violin\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "ocean",
+        "violin"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-220",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"detective\" and \"rabbit\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "detective",
+        "rabbit"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-221",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"sunrise\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "sunrise",
+        "wolf"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-222",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"garden\" and \"ocean\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "garden",
+        "ocean"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-223",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"crown\" and \"funeral\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "crown",
+        "funeral"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-224",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"pilot\" and \"wizard\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "pilot",
+        "wizard"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-225",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"cat\" and \"clown\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "cat",
+        "clown"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-226",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"bakery\" and \"queen\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "bakery",
+        "queen"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-227",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"pirate\" and \"spaceship\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "pirate",
+        "spaceship"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-228",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"owl\" and \"whale\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "owl",
+        "whale"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-229",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"fox\" and \"ghost\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "fox",
+        "ghost"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-230",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"chef\" and \"rabbit\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "chef",
+        "rabbit"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-231",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"suitcase\" and \"teacher\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "suitcase",
+        "teacher"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-232",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"funeral\" and \"teacher\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "funeral",
+        "teacher"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-233",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"birthday\" and \"ocean\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "birthday",
+        "ocean"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-234",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"rabbit\" and \"whale\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "rabbit",
+        "whale"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-235",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"sailor\" and \"suitcase\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "sailor",
+        "suitcase"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-236",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"castle\" and \"library\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "castle",
+        "library"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-237",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"candle\" and \"snow\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "candle",
+        "snow"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-238",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"library\" and \"queen\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "library",
+        "queen"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-239",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"farmer\" and \"thunder\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "farmer",
+        "thunder"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-240",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"island\" and \"moon\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "island",
+        "moon"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-241",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"astronaut\" and \"doctor\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "astronaut",
+        "doctor"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-242",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"key\" and \"wedding\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "key",
+        "wedding"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-243",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"crown\" and \"rain\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "crown",
+        "rain"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-244",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"rabbit\" and \"violin\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "rabbit",
+        "violin"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-245",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"pilot\" and \"violin\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "pilot",
+        "violin"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-246",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"teacher\" and \"tiger\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "teacher",
+        "tiger"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-247",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"funeral\" and \"owl\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "funeral",
+        "owl"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-248",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"doctor\" and \"key\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "doctor",
+        "key"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-249",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"forest\" and \"spaceship\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "forest",
+        "spaceship"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-250",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"teacher\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mouse",
+        "teacher"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-251",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"thunder\" and \"whale\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "thunder",
+        "whale"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-252",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"cat\" and \"robot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "cat",
+        "robot"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-253",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"funeral\" and \"sunrise\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "funeral",
+        "sunrise"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-254",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"birthday\" and \"letter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "birthday",
+        "letter"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-train-255",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"king\" and \"robot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "king",
+        "robot"
+      ],
+      "novel_words": false
+    }
+  ],
+  "dev": [
+    {
+      "id": "six_words-dev-000",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"moon\" and \"sailor\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "moon",
+        "sailor"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-001",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clown\" and \"ocean\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clown",
+        "ocean"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-002",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"teacher\" and \"thunder\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "teacher",
+        "thunder"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-003",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"queen\" and \"sailor\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "queen",
+        "sailor"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-004",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"key\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "key",
+        "wolf"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-005",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"candle\" and \"dragon\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "candle",
+        "dragon"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-006",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"chef\" and \"forest\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "chef",
+        "forest"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-007",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dragon\" and \"key\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "dragon",
+        "key"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-008",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"candle\" and \"letter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "candle",
+        "letter"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-009",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"coffee\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "coffee",
+        "wolf"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-010",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"sailor\" and \"violin\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "sailor",
+        "violin"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-011",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"raven\" and \"spaceship\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "raven",
+        "spaceship"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-012",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"rain\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mouse",
+        "rain"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-013",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"doctor\" and \"forest\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "doctor",
+        "forest"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-014",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"owl\" and \"wizard\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "owl",
+        "wizard"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-015",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"fox\" and \"moon\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "fox",
+        "moon"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-016",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"alien\" and \"princess\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "alien",
+        "princess"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-017",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"rabbit\" and \"sailor\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "rabbit",
+        "sailor"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-018",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dog\" and \"queen\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "dog",
+        "queen"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-019",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"farmer\" and \"sunrise\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "farmer",
+        "sunrise"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-020",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"moon\" and \"princess\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "moon",
+        "princess"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-021",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mirror\" and \"wizard\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mirror",
+        "wizard"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-022",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"ocean\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "ocean",
+        "wolf"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-dev-023",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"doctor\" and \"pilot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "doctor",
+        "pilot"
+      ],
+      "novel_words": false
+    }
+  ],
+  "test": [
+    {
+      "id": "six_words-test-000",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dog\" and \"painter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "dog",
+        "painter"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-test-001",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"island\" and \"pilot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "island",
+        "pilot"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-test-002",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"library\" and \"sunrise\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "library",
+        "sunrise"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-test-003",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"vampire\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mouse",
+        "vampire"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-test-004",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dragon\" and \"raven\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "dragon",
+        "raven"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-test-005",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"rabbit\" and \"spaceship\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "rabbit",
+        "spaceship"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-test-006",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"thunder\" and \"tiger\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "thunder",
+        "tiger"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-test-007",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mouse",
+        "wolf"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-test-008",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"castle\" and \"wedding\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "castle",
+        "wedding"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-test-009",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"suitcase\" and \"tiger\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "suitcase",
+        "tiger"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-test-010",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"astronaut\" and \"birthday\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "astronaut",
+        "birthday"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-test-011",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"coffee\" and \"key\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "coffee",
+        "key"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-test-012",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"candle\" and \"robot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "candle",
+        "robot"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-test-013",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"funeral\" and \"umbrella\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "funeral",
+        "umbrella"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-test-014",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"chef\" and \"robot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "chef",
+        "robot"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-test-015",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clown\" and \"forest\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "clown",
+        "forest"
+      ],
+      "novel_words": false
+    },
+    {
+      "id": "six_words-test-016",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"portrait\" and \"violinist\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "portrait",
+        "violinist"
+      ],
+      "novel_words": true
+    },
+    {
+      "id": "six_words-test-017",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"penguin\" and \"portrait\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "penguin",
+        "portrait"
+      ],
+      "novel_words": true
+    },
+    {
+      "id": "six_words-test-018",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"circus\" and \"glacier\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "circus",
+        "glacier"
+      ],
+      "novel_words": true
+    },
+    {
+      "id": "six_words-test-019",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"circus\" and \"dinosaur\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "circus",
+        "dinosaur"
+      ],
+      "novel_words": true
+    },
+    {
+      "id": "six_words-test-020",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"desert\" and \"telescope\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "desert",
+        "telescope"
+      ],
+      "novel_words": true
+    },
+    {
+      "id": "six_words-test-021",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"telescope\" and \"volcano\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "telescope",
+        "volcano"
+      ],
+      "novel_words": true
+    },
+    {
+      "id": "six_words-test-022",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"balloon\" and \"telescope\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "balloon",
+        "telescope"
+      ],
+      "novel_words": true
+    },
+    {
+      "id": "six_words-test-023",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mermaid\" and \"notebook\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mermaid",
+        "notebook"
+      ],
+      "novel_words": true
+    },
+    {
+      "id": "six_words-test-024",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mushroom\" and \"violinist\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "mushroom",
+        "violinist"
+      ],
+      "novel_words": true
+    },
+    {
+      "id": "six_words-test-025",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dinosaur\" and \"mushroom\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "dinosaur",
+        "mushroom"
+      ],
+      "novel_words": true
+    },
+    {
+      "id": "six_words-test-026",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"balloon\" and \"circus\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "balloon",
+        "circus"
+      ],
+      "novel_words": true
+    },
+    {
+      "id": "six_words-test-027",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"balloon\" and \"mermaid\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "balloon",
+        "mermaid"
+      ],
+      "novel_words": true
+    },
+    {
+      "id": "six_words-test-028",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"submarine\" and \"volcano\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "submarine",
+        "volcano"
+      ],
+      "novel_words": true
+    },
+    {
+      "id": "six_words-test-029",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"glacier\" and \"mermaid\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "glacier",
+        "mermaid"
+      ],
+      "novel_words": true
+    },
+    {
+      "id": "six_words-test-030",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"comet\" and \"dinosaur\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "comet",
+        "dinosaur"
+      ],
+      "novel_words": true
+    },
+    {
+      "id": "six_words-test-031",
+      "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"penguin\" and \"volcano\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+      "anchors": [
+        "penguin",
+        "volcano"
+      ],
+      "novel_words": true
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "pt-0010",
+    "language": "pl",
+    "prompt": "Szef twierdzi, że przed końcem dnia musi jeszcze osobiście zajrzeć do każdego działu.",
+    "answer": "«Wszakże — rzekł Hrabia — to jest moje wojsko,\nI muszę się dowiedzieć, jak się wszystko dzieje.\nWszakże to moje wojsko, i muszę je widzieć,\nPrzynajmniej na koniec tego dnia, przed snem».",
+    "nonempty_lines": 4,
+    "words": 32,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "pt-0011",
+    "language": "pl",
+    "prompt": "Organizator samowolnie przeniósł firmową kolację do znacznie bardziej klimatycznego lokalu.",
+    "answer": "Właśnie w tej chwili, weszli z drugiej strony\nDo pokoju, w którym się odbywała swadba,\nDwaj panowie, w mundurach, z brońmi i sztandarami,\nI weszli na znak powitania, uściskając rękę.",
+    "nonempty_lines": 4,
+    "words": 30,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "pt-0019",
+    "language": "pl",
+    "prompt": "Młodzi wyjechali robić wielkie rzeczy, a my siedzimy na miejscu i czekamy na dobre wiadomości.",
+    "answer": "«Wszakże — rzekł Gerwazy — to są młode lata,\nWielkie marzenia, wielkie plany, wielkie czata!\nWszakże to są młode lata, czas na przygodę,\nNa wielkie rzeczy, na wielkie uczucia, na wiedzę!\nWszakże to są młode lata, czas na rozrywki,\nNa zabawę, na miłość, na miłością cierpienia,\nNa miłością nadzieje, na miłością rozpacze,\nNa miłością, na nadziejach, na rozpaczyach zyski!",
+    "nonempty_lines": 8,
+    "words": 59,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "pt-0020",
+    "language": "pl",
+    "prompt": "Spóźniłam się na kolację i próbowałam wejść dyskretnie. Oczywiście potknęłam się przy najciekawszym gościu.",
+    "answer": "Weszła, lecz nie mogła się przedstawić;\nWeszła, lecz nie mogła się przedstawić,\nBo weszła za szybko, i weszła za cicho,\nI na koniec, na koniec, potknęła się o cicho.",
+    "nonempty_lines": 4,
+    "words": 29,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "pt-0022",
+    "language": "pl",
+    "prompt": "Myślałem, że sam wybiorę swoją przyszłość, ale rodzina już przygotowała cały plan.",
+    "answer": "«Wszakże — rzekł Gerwazy — to jest ojcowskie prawo\nWspomagać, kierować, radzić, a nawet zarządzać\nW sprawach dziecięcych, gdy się jeszcze nie odradzają.\nWszakże to jest ojcowska władza, ojcowska prawda!\nWszakże to jest ojcowskie prawo, ojcowskie prawo!»",
+    "nonempty_lines": 5,
+    "words": 37,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "pt-0031",
+    "language": "pl",
+    "prompt": "Mój kolega nawet na urlop zabiera historię zamkniętych zgłoszeń.",
+    "answer": "«Wiesz — rzekł Gerwazy — to jest tajemnica\nWojenną, ale nie ścisłą, a służbową.\nWiesz, że w tej karczmie, w tej samej, gdzie dziś siedzę,\nSiedziała dawniej sztabowa komenda wojska?",
+    "nonempty_lines": 4,
+    "words": 30,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "pt-0060",
+    "language": "pl",
+    "prompt": "Dlaczego wypuszczanie nowej funkcji przed końcem przygotowań nie jest najlepszym pomysłem?",
+    "answer": "«Wszakże — rzekł Gerwazy — to nie jest czas na nowiny,\nWszakże to nie jest czas na nowe przygody,\nWszakże to nie jest czas na nowe przyjaciele,\nWszakże to nie jest czas na nowe przyjaźnie.\nWszakże to nie jest czas na nowe przygodzenia,\nWszakże to nie jest czas na nowe przygarnienia,\nWszakże to nie jest czas na nowe przyjaźnie,\nWszakże to nie jest czas na nowe przyjaciele,\nWszakże to nie jest czas na nowe przygodzenia,\nWszakże to nie jest czas na nowe przygarnienia,\nWszakże to nie jest czas na nowe przyjaźnie,\nWszakże to nie jest czas na nowe przyjaciele,\nWszakże to nie jest czas na nowe przygodzenia,\nWszakże to nie jest czas na nowe przygarnienia,\nWszakże to nie jest czas na nowe przyjaźnie,\nWszakże to nie jest czas na nowe przyjaciele,\nWszakże to nie jest czas na nowe przygodzenia,\nWszakże to nie jest czas na nowe przygarnienia,\nWszakże to nie jest czas na nowe przyjaźnie,\nWszakże to nie jest czas na nowe przyjaciele,\nWszakże to nie jest czas na nowe przygodzenia,\nWszakże to nie jest czas na nowe przygarnienia,\nWszakże to nie jest czas na nowe przyjaźnie,\nWszakże to nie jest czas na nowe przyjaciele,\nWszakże to nie jest czas na nowe przygodzenia,\nWszakże to nie jest czas na nowe przygarnienia,\nWszakże to nie jest czas",
+    "nonempty_lines": 27,
+    "words": 216,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "pt-0065",
+    "language": "pl",
+    "prompt": "Jak wygląda mediacja prowadzona przez najbardziej stanowczą osobę w zespole?",
+    "answer": "Tadeusz, który był najstraszniejszy z braci,\nStoi na środku, wyciągnął rękę, jakby wzywa,\nI krzyczy: «Sędzio, niech się zgadzają, niech się zgadzają!\nJa jestem waszym sędziem, ja was rozstrzygam;\nJa was rozstrzygam, kto z kim ma być za parygam».",
+    "nonempty_lines": 5,
+    "words": 39,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "pt-0084",
+    "language": "pl",
+    "prompt": "Na zdjęciach wyglądało luksusowo, a na miejscu okazało się zwykłą marchewką.",
+    "answer": "Wysoko na wzniesieniu,\nW kształcie wielkiej piramidy,\nStoi budynek, który nazywają Stryj.\nZdaje się, że to dawna wieża zamkowa,\nLub pałac, który z czasem upadł na ruinę.",
+    "nonempty_lines": 5,
+    "words": 27,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "pt-0099",
+    "language": "pl",
+    "prompt": "Czy rodzina powinna zmuszać dwoje młodych ludzi do miłości?",
+    "answer": "«Oj, to już nie jest mój syn — rzekł Gerwazy —\nTo już nie jest mój syn, to już nie jest mój żółw;\nTo już nie jest mój żółw, to już nie jest mój syn,\nTo już nie jest mój żółw, to już nie jest mój syn».",
+    "nonempty_lines": 4,
+    "words": 47,
+    "four_lines": true,
+    "style_shape": true
+  },
+  {
+    "id": "pt-0112",
+    "language": "pl",
+    "prompt": "Jak szef przekonuje ludzi do nieplanowanej pracy, obiecując im później wolne?",
+    "answer": "«Wszakże — rzekł Gerwazy — to nie jest nic złego,\nWszakże to nie jest praca, to jest tylko chędo,\nI to chędo na czas krótki, a potem wolno;\nWszakże to nie jest praca, to jest tylko chędo,\nI to chędo na czas krótki, a potem wolno;\nWszakże to nie jest praca, to jest tylko chędo,\nI to chędo na czas krótki, a potem wolno».",
+    "nonempty_lines": 7,
+    "words": 64,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "pt-0127",
+    "language": "pl",
+    "prompt": "Jak wygląda niedzielne spotkanie całej okolicy, gdy nikt specjalnie się nie spieszy?",
+    "answer": "Właśnie w tym dniu, w niedzielę,\nZgromadził się na placu cały wieś zaścianek.\nWszystko się tu gromadziło z dawna, ciekawo,\nI wesoło, i z rozkazu, i z przyjaźni dawnej.",
+    "nonempty_lines": 4,
+    "words": 29,
+    "four_lines": true,
+    "style_shape": true
+  }
+]

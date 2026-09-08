@@ -1,0 +1,122 @@
+[
+  {
+    "id": "pt-0010",
+    "language": "pl",
+    "prompt": "Szef twierdzi, że przed końcem dnia musi jeszcze osobiście zajrzeć do każdego działu.",
+    "answer": "W biurowym zamku, gdzie dymią papierosy,\nSzef, jak wiersz, wstaje z krzesła, by wstawić się,\nI do każdego działu, jak do kościoła,\nZaśpiewać: „Dzień dobry\", by się nie zmylić w tym świecie.\nKażdy pracownik, jak wiersz, wstaje z krzesła,\nI do szefa, jak do boga, wstaje z podłogi,\nBy mu w oczy, jak wiersz, wstawić się,\nI powiedzieć: „Dzień dobry\", by się nie zmylić w tym świecie.\nA gdy szef wróci, to już nie będzie dnia,\nBo każdy dział, jak wiersz, wstaje z krzesła,\nI do szefa, jak do boga, wstaje z podłogi,\nBy mu w oczy, jak wiersz, wstawić się,\nI powiedzieć: „Dzień dobry\", by się nie zmylić w tym świecie.",
+    "nonempty_lines": 13,
+    "words": 112,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "pt-0011",
+    "language": "pl",
+    "prompt": "Organizator samowolnie przeniósł firmową kolację do znacznie bardziej klimatycznego lokalu.",
+    "answer": "Widzę, jak w sercu zgroza się wstyd,\nGdy znowu w barze, gdzie wczoraj był chleb,\nPrzybył organizator, by wstawić się,\nI w lokalu, gdzie wiatr wisi w chłodzie,\nZaśpiewać hymn, co w duszy się wstydzi,\nGdyby nie on, co wstawił się wstydliwie,\nBy wstawić się wstydliwie, by wstawić się wstydliwie.",
+    "nonempty_lines": 7,
+    "words": 50,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "pt-0019",
+    "language": "pl",
+    "prompt": "Młodzi wyjechali robić wielkie rzeczy, a my siedzimy na miejscu i czekamy na dobre wiadomości.",
+    "answer": "Widzę, jak młodzi, jak wiatr w żaglach,\nW świat daleki, w nieznane zbiegają,\nGdzie wielkie dzieła, co w sercach płoną,\nZapewne im się spełnią, niechaj się dzieją.\nMy tu, w domach, w ciszy, w cieniu lasu,\nCzekamy, jak ptaki na gałęzią,\nNa listy, co nie przyjdą, nie przyjdą,\nA my w tęsknocie, w tęsknocie, w tęsknocie,\nW tęsknocie, w tęsknocie, w tęsknocie,\nW tęsknocie, w tęsknocie, w tęsknocie,\nW tęsknocie, w tęsknocie, w tęsknocie,\nW tęsknocie, w tęsknocie, w tęsknocie,\nW tęsknocie, w tęsknocie, w tęsknocie,\nW tęsknocie, w tęsknocie, w tęsknocie,\nW tęsknocie, w tęsknocie, w tęsknocie,\nW tęsknocie, w tęsknocie, w tęsknocie,\nW tęsknocie, w tęsknocie, w tęsknocie,\nW tęsknocie, w tęsknocie, w tęsknocie,\nW tęsknocie, w tęsknocie, w tęsknocie,\nW tęsknocie, w tęsknocie, w tęsknocie,\nW tęsknocie, w tęsknocie, w tęsknocie,\nW",
+    "nonempty_lines": 22,
+    "words": 135,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "pt-0020",
+    "language": "pl",
+    "prompt": "Spóźniłam się na kolację i próbowałam wejść dyskretnie. Oczywiście potknęłam się przy najciekawszym gościu.",
+    "answer": "W salonie, gdzie świeciły lustra złote,\nZa późno już, co w duszy mnie gnębiło,\nWeszłam, jakby w cieniu, by nie być widokiem,\nGdy tuż obok, w świetle, stał ten młody,\nZ oczami, co jak dwa błyskawiczne,\nI nagle, co w duszy mnie zabiło,\nPotknęłam się, co w duszy mnie zabiło,\nI upadłam na niego, co w duszy mnie zabiło,\nCo w duszy mnie zabiło, co w duszy mnie zabiło.",
+    "nonempty_lines": 9,
+    "words": 69,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "pt-0022",
+    "language": "pl",
+    "prompt": "Myślałem, że sam wybiorę swoją przyszłość, ale rodzina już przygotowała cały plan.",
+    "answer": "W salonie, gdzie lustra w złotej ramie\nOglądają nas z uśmiechem, jak w dawnym czasie,\nRodzice, jak dwa wilki, w kąciku siedzą,\nI planem życia nas, jak w klatce, ograniczają.\n„Synu, w banku pracuj, w urzędzie siedź,\nŻycie nasze, jak w szatnie, już wyznaczone,\nNie wolno, byś się od tego odwrócił,\nBo w tym, co mamy, nie ma już miejsca na wolność.\nJak w panu Tadeuszu, w kłótni z sąsiadem,\nMy też, jak on, w planie, jak w szatni, siedzieliśmy,\nA teraz, gdy przyszłość, jak w klatce, nas czeka,\nMyślę, że sam, jak wiatr, wybiorę ją, choć nie mogę.\nAle oni, jak w dawnym czasie, już wszystko gotują,\nI planem życia nas, jak w klatce, ograniczają.\"",
+    "nonempty_lines": 14,
+    "words": 116,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "pt-0031",
+    "language": "pl",
+    "prompt": "Mój kolega nawet na urlop zabiera historię zamkniętych zgłoszeń.",
+    "answer": "Otoż, panie, w podróży na morze,\nGdzie słońce lśni, a wiatr śpiewa,\nZnalazłeś w kieszeni swój stary tom,\nGdzie zgłoszenia zamykane leżą.\nJakbyś wstąpił do sądu, gdzie sądy,\nA nie do plaży, gdzie fale biją.\nCzyż nie lepiej, gdybyś się odpoczął,\nI nie nosił ciężaru tych kart?\nBo historia zamknięta, choć cenna,\nNie jest towarzyszem w słońcu.\nZostaw ją w biurze, gdzie kłopoty,\nI bierz z sobą tylko wiatr i słońce.",
+    "nonempty_lines": 12,
+    "words": 71,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "pt-0060",
+    "language": "pl",
+    "prompt": "Dlaczego wypuszczanie nowej funkcji przed końcem przygotowań nie jest najlepszym pomysłem?",
+    "answer": "Widzę, jak w systemie błyskawicznie zaszumiło,\nGdy funkcję nową, nie do końca gotową,\nWypuszczono na świat, jak zbiega z góry,\nI nagle wszystko się zawaliło, jak w burzy.\nUżytkownicy, jak w panice, wstrętnie krzyczą,\n„To nie działa! Co się tu dzieje, co się dzieje?\"\nA my, jak wiersz, który nie do końca skończony,\nZostawiamy w powietrzu, co nie ma sensu.\nNajlepiej było, gdybyśmy się spokojnie,\nZakończyli pracę, zanim świat się zrujnował.",
+    "nonempty_lines": 10,
+    "words": 71,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "pt-0065",
+    "language": "pl",
+    "prompt": "Jak wygląda mediacja prowadzona przez najbardziej stanowczą osobę w zespole?",
+    "answer": "W sali, gdzie wisi zegar i lampa,\nStoją dwaj, co się nie rozumieją,\nA trzeci, z twarzą jak ułomna mapa,\nGłosu nie ma, lecz w sercu ma grom.\n„Słuchajcie!\" krzyczy, a wiatr w oknie wiał,\n„Nie ma tu miejsca na wasze żarty!\nZapłacicie, jeśli nie zgodzicie się,\nNa to, co ja, z góry, wyznaczyłem!\"\nGdyby to było w czasach dawnych,\nGdyby to był sąd, a nie biuro,\nTo by się wstrząsnęło całe miasto,\nA teraz tylko wisi w powietrzu.\nCzyli, że mediacja to walka,\nGdzie jeden krzyczy, a drugi milczy,\nA trzeci, co wszystko rozstrzyga,\nJest jak bóg, co w biurowym mieście żyje.",
+    "nonempty_lines": 16,
+    "words": 103,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "pt-0084",
+    "language": "pl",
+    "prompt": "Na zdjęciach wyglądało luksusowo, a na miejscu okazało się zwykłą marchewką.",
+    "answer": "W salonie, gdzie lustra błyszczały jak złoto,\nGdy wyciągano rękę, by złapać ten skarb,\nZdjęcia ukazywały nam ten świat, jakby w złocie,\nA my, jak wosk, w oczach nasza nadzieja spała.\n\nAle gdy wsiadamy w woz, gdzie koła kręcą się,\nI wiatr w twarz nam wiewie, a słońce w słońcu świeci,\nOdkrywamy, że to nie jest złoto, lecz marchewka,\nI serce nasze, jak w zimie, w lód się zamienia.\n\nGdy wyciągamy rękę, by złapać ten skarb,\nA w dłoniach tylko marchewka, sucha i twarda,\nTo my, jak wosk, w oczach nasza nadzieja spała,\nI w sercu naszym, jak w zimie, w lód się zamienia.",
+    "nonempty_lines": 12,
+    "words": 104,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "pt-0099",
+    "language": "pl",
+    "prompt": "Czy rodzina powinna zmuszać dwoje młodych ludzi do miłości?",
+    "answer": "Ojciec, wściekły jak wilk w lesie,\nWymaga, by syn i córka się kochali,\nGdyż ich serce, jak dwa wiatry,\nW tym domu nie mają żadnego ładu.\n„Kochajcie!\" krzyczy, „bo inaczej\nBędzie wasze życie w żałobie,\nGdzie tylko cień, a nie słońce,\nI gdzie tylko smutek, a nie radość.\"\nAle młodzi, jak dwa ptaki w klatce,\nSą wolni, by się nie kochać,\nI tak, jak w starym, dawnym czasie,\nW ich duszach nie ma miejsca dla miłości.",
+    "nonempty_lines": 12,
+    "words": 76,
+    "four_lines": false,
+    "style_shape": true
+  },
+  {
+    "id": "pt-0112",
+    "language": "pl",
+    "prompt": "Jak szef przekonuje ludzi do nieplanowanej pracy, obiecując im później wolne?",
+    "answer": "„Gospodzie, co za mrok w biurowym słońcu!\nWidzę, że nieplanowana praca nas czeka,\nA Ty, szefie, w oczach twoich błyszczysz jak wosk.\n„Jutro, jutro, gdy już to robimy,\nWolne, wolne, jak ptak po burzy,\nWolne, wolne, jak wiatr po morzu!\"\nSłowa te, jak szept, w duszę wchodzą,\nA my, jak wiatr, w ich słodyczych łóżkach leżemy.\nAle gdy już praca się skończy,\nWolne, wolne, jak ptak po burzy,\nWolne, wolne, jak wiatr po morzu!\nGdy już to robimy,\nWolne, wolne, jak ptak po burzy,\nWolne, wolne, jak wiatr po morzu!\"",
+    "nonempty_lines": 14,
+    "words": 90,
+    "four_lines": false,
+    "style_shape": false
+  },
+  {
+    "id": "pt-0127",
+    "language": "pl",
+    "prompt": "Jak wygląda niedzielne spotkanie całej okolicy, gdy nikt specjalnie się nie spieszy?",
+    "answer": "Słońce wstaje, a wsi nie ma,\nGdy tylko wiatr wisi w powietrzu,\nI każdy, jak w starym czasie,\nW kościele, w kaplicy, w domu,\nZa oknem, za drzwiami, w sieni,\nGdzie czas stoi, jak w starym,\nGdzie każdy, jak w starym,\nW kościele, w kaplicy, w domu,\nZa oknem, za drzwiami, w sieni,\nGdzie czas stoi, jak w starym,\nGdzie każdy, jak w starym,\nW kościele, w kaplicy, w domu,\nZa oknem, za drzwiami, w sieni,\nGdzie czas stoi, jak w starym,\nGdzie każdy, jak w starym,\nW kościele, w kaplicy, w domu,\nZa oknem, za drzwiami, w sieni,\nGdzie czas stoi, jak w starym,\nGdzie każdy, jak w starym,\nW kościele, w kaplicy, w domu,\nZa oknem, za drzwiami, w sieni,\nGdzie czas stoi, jak w starym,\nGdzie każdy, jak w starym,\nW kościele, w kaplicy, w domu,\nZa oknem, za drzwiami, w sieni,\nGdzie czas stoi, jak w starym,\nGdzie każdy, jak w starym,\nW kościele, w kaplicy, w domu,\nZa oknem, za drzwiami, w sieni,\nGdzie czas stoi,",
+    "nonempty_lines": 30,
+    "words": 171,
+    "four_lines": false,
+    "style_shape": false
+  }
+]
