@@ -9,25 +9,29 @@ header{display:flex;align-items:center;justify-content:space-between;gap:16px;ma
 #text{font:18px/1.85 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;font-variant-ligatures:none;font-kerning:none}
 #text span{padding:0;margin:0;border:0;border-radius:0}
 .controls{margin:28px 0 0}.labels{display:flex;justify-content:space-between;color:#555;font-size:14px}#step{display:block;width:100%;margin:10px 0;accent-color:#555}footer{margin:32px 0;color:#777;font-size:13px}a{color:#536578}
+#hover{position:fixed;z-index:10;background:#fff;border:1px solid #ddd;border-radius:8px;box-shadow:0 6px 28px #0002;padding:14px;width:min(600px,calc(100vw - 56px));pointer-events:none;box-sizing:border-box}
+#hover[hidden]{display:none}#hover svg{width:100%;display:block;max-height:320px}#hover small{color:#666}#hover strong{font-family:ui-monospace,monospace}
 </style>
 <header><select id="example" aria-label="Example paragraph"></select><span id="count"></span></header>
 <div id="text"></div>
 <div class="controls"><div class="labels"><label for="step">Bytes</label><span>Full merges</span></div><input id="step" type="range" min="0" value="0" aria-label="BPE merges: bytes to full merges"></div>
 <footer>Polish Wikipedia tokenizer · Example text written for this demo<br><a href="https://www.cs.cornell.edu/courses/cs4782/2026sp/demos/bytepair/">Cornell: interactive BPE / WordPiece visualizer</a></footer>
+<aside id="hover" hidden role="tooltip"></aside>
 <script>
 const D=/*PAYLOAD*/null;
 const $=id=>document.getElementById(id),encoder=new TextEncoder();
 const palette=['#cde7fa','#fbe1be','#ded6f5','#cfead4','#f5cfdb','#f3edbd'];
-let characters=[];
+let characters=[],byteOwners=[];
 function render(){
+ $('hover').hidden=true;
  const e=D.examples[+$('example').value],n=+$('step').value,groups=e.initial.map(g=>g.slice());
- for(const s of e.steps.slice(0,n))groups[s.group].splice(s.index,2,s.merged);
- const colors=[];let start=0;
+ for(const s of e.steps.slice(0,n)){const children=groups[s.group].slice(s.index,s.index+2);groups[s.group].splice(s.index,2,{...s.merged,children,rank:s.rank})}
+ const colors=[];byteOwners=[];let start=0;
  for(const t of groups.flat()){
   const length=t.hex.split(' ').length;let index=start%palette.length;
   if(palette[index]===colors[colors.length-1])index=(index+1)%palette.length;
   const color=palette[index];
-  for(let b=0;b<length;b++)colors.push(color);
+  for(let b=0;b<length;b++){colors.push(color);byteOwners.push(t)}
   start+=length;
  }
  // Character spans never change: only paint changes. Even boundaries inside
@@ -39,9 +43,37 @@ function render(){
  $('count').textContent=`${groups.flat().length.toLocaleString()} tokens`;
  $('step').setAttribute('aria-valuetext',`${n} of ${e.steps.length} merges applied`);
 }
+
+const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function treeSVG(root){
+ const nodes=[],edges=[];let leaf=0,maxDepth=0;
+ function visit(t,depth){
+  const node={t,depth,x:0};nodes.push(node);maxDepth=Math.max(maxDepth,depth);
+  if(t.children){const children=t.children.map(child=>visit(child,depth+1));node.x=(children[0].x+children[1].x)/2;children.forEach(child=>edges.push([node,child]))}
+  else node.x=leaf++;
+  return node;
+ }
+ visit(root,0);const width=Math.max(180,leaf*70),height=(maxDepth+1)*64+12;
+ const x=node=>leaf===1?width/2:35+node.x*70,y=node=>28+node.depth*64;
+ return `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Token merge history">`+
+ edges.map(([a,b])=>`<path d="M${x(a)},${y(a)+14} L${x(b)},${y(b)-16}" stroke="#b9c4d0" fill="none"/>`).join('')+
+ nodes.map(node=>`<g><rect x="${x(node)-31}" y="${y(node)-16}" width="62" height="30" rx="4" fill="${node.t.children?'#e3edf8':'#f2f2f2'}"/><text x="${x(node)}" y="${y(node)+3}" text-anchor="middle" font-family="monospace" font-size="12">${escapeHTML(node.t.label)}</text><text x="${x(node)}" y="${y(node)+27}" text-anchor="middle" font-family="system-ui" font-size="10" fill="#666">${node.t.rank?'step '+node.t.rank:'byte'}</text></g>`).join('')+'</svg>';
+}
+function inspect(character,event){
+ const bounds=character.span.getBoundingClientRect();
+ const fraction=Math.max(0,Math.min(.999,(event.clientX-bounds.left)/Math.max(1,bounds.width)));
+ const token=byteOwners[character.offset+Math.floor(fraction*character.length)];
+ const box=$('hover');
+ box.innerHTML=`<strong>${escapeHTML(token.label)}</strong> · Token ID ${token.id}`+treeSVG(token)+'<small>Steps = learned BPE merge order. · = space; leaf byte fragments shown in hex.</small>';
+ box.hidden=false;
+ const rect=box.getBoundingClientRect();
+ box.style.left=Math.max(12,Math.min(event.clientX+16,window.innerWidth-rect.width-12))+'px';
+ box.style.top=Math.max(12,event.clientY+20+rect.height<window.innerHeight?event.clientY+20:event.clientY-rect.height-16)+'px';
+}
+
 function choose(){
  const e=D.examples[+$('example').value];$('text').replaceChildren();characters=[];let offset=0;
- for(const c of e.text){const span=document.createElement('span');span.textContent=c;$('text').append(span);const length=encoder.encode(c).length;characters.push({span,offset,length});offset+=length}
+ for(const c of e.text){const span=document.createElement('span');span.textContent=c;$('text').append(span);const length=encoder.encode(c).length;const character={span,offset,length};characters.push(character);span.onmousemove=event=>inspect(character,event);span.onmouseleave=()=>{$("hover").hidden=true};offset+=length}
  $('step').max=e.steps.length;$('step').value=e.steps.length;render();
 }
 D.examples.forEach((e,i)=>{const option=document.createElement('option');option.value=i;option.textContent=['Polish paragraphs','Wikipedia markup','Polish letters & mixed text'][i]||`Custom paragraph ${i-2}`;$('example').append(option)});
