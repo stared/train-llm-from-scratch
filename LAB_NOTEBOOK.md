@@ -1,5 +1,7 @@
 # Workshop preparation lab notebook
 
+**Current workshop scope (2026-09-09): three hours.** See [pipeline and agenda](WORKSHOP_PIPELINE.md) and [answer-key exam training](EXAM_POSTTRAINING.md). Earlier four-hour plans remain historical notes. Keep the 8k tokenizer; use prawko for the SFT/RLVR comparison. Matura remains a hackathon extension.
+
 Maintained during experiments. Dates are Europe/Warsaw. This is the working record of hypotheses, results, failures, costs and next decisions; the learner-facing instructions live in [README](README.md) and [SHOWCASE](SHOWCASE.md).
 
 ## Brief and constraints
@@ -561,3 +563,10 @@ Ordinary trainer retains600s default safety limit; explicit research_limit_secon
 
 
 S9 results (2026-09-09): all4near-$10runs completed and passed remote audit/reload. Worker estimates Wiki98M$9.3732,Wiki291M$9.3979,Wiki98Mmixed$9.3825,WL98M$9.3743;total$37.527892 excluding controller/build/storage. CommonWiki test losses1.30128/1.28600/1.36619 versus tenminute1.7103/1.8641/1.7370. Wiki291M correctly opens Mickiewicz aspoet andChopin aspianist/composer, then fabricatesbiographies (Mickiewiczbirth1910); Warsawstillonrailwaystation/village. Curatedfacts7/10,7/10,8/10 do notmean truthfulgeneration. WL beststep24410 around40min,test2.74213, finalstep81700test3.23343 withtrain1.70117/dev3.28435: clearoverfit. WLselected Uuuuu characterloop notdetectedbyword4grammetric0. Selectedcheckpoint is earlierthanfinal; reportslabelthis. Fullreport fetched to runs/polish-dollar-1788900395083493729; summary+literal samples polish_dollar_results.md. No furthertraininglaunched.
+
+
+## Tokenizer frequency audit (2026-09-09)
+
+User asked whether BPE8192 creates too many rare token types. Counted every ID in local train.bin for Wiki andWL with chunkednumpy.bincount (5.6sCPU,noGPU). Saved research/scratch/token_frequency_audit.json. Wiki3,140,443,962positions: median token-type frequency91,848;67types below100uses (49zero, rarest include byte/controlfallbacks),104below1000. WL101,330,998positions using sameWikiBPE: median741;645unused,1328below10,2391below100. Below100types account for0.04765%ofWLtokenpositions; unused Wiki markup pieces include ]]., |-, >[[, png. These are fullpreparedcorpuscounts, NOT exact sampled trainingexposures. Wikipedia doesnotshowbroad tokenrarityproblem; WLshows tokenizer-domainmismatch. Actual encoding Warsaw: Warszawa| jest| stoli|cą| Polski|.; Mickiewicz: A|dam| Mi|ckie|wicz| był| pol|skim| po|et|ą|.
+
+Recommendation hypothesis, not measured optimum:8kbaseline sensible; compare4k/8k for10–30M and8k/16k/32k for98–291M, equalcompute with heldoutbyte-normalizedloss. ForWL retrain tokenizer onWLtrainingtext, compare4k/8k/16k beforeclaiming vocabsize is thecause. Retraining tokenizer changesIDmapping; requiresnewpretraining or explicitembeddingmigration, not swapping it underexistingweights. Literature: Scaling Laws with Vocabulary (arXiv2407.13623) supports jointdependenceonmodel/compute/data, not oneuniversalvocabsize.
