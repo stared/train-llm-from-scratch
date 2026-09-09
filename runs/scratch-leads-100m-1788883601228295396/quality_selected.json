@@ -1,0 +1,494 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Fixed candidate preferences and free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 98323200,
+  "context": 512,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 8,
+  "factual_total": 10,
+  "facts": [
+    {
+      "prompt": "'''Warszawa''' –",
+      "candidates": [
+        "miasto",
+        "wieś",
+        "rzeka",
+        "jezioro"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "miasto",
+          "tokens": 1,
+          "mean_log_probability": -8.156193733215332,
+          "sum_log_probability": -8.156193733215332
+        },
+        {
+          "candidate": "wieś",
+          "tokens": 1,
+          "mean_log_probability": -6.968693733215332,
+          "sum_log_probability": -6.968693733215332
+        },
+        {
+          "candidate": "rzeka",
+          "tokens": 2,
+          "mean_log_probability": -4.6328206062316895,
+          "sum_log_probability": -9.265641212463379
+        },
+        {
+          "candidate": "jezioro",
+          "tokens": 2,
+          "mean_log_probability": -5.2625861167907715,
+          "sum_log_probability": -10.525172233581543
+        }
+      ],
+      "predicted": 2,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Polska''' –",
+      "candidates": [
+        "wieś",
+        "jezioro",
+        "państwo",
+        "rzeka"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "wieś",
+          "tokens": 1,
+          "mean_log_probability": -7.156508445739746,
+          "sum_log_probability": -7.156508445739746
+        },
+        {
+          "candidate": "jezioro",
+          "tokens": 2,
+          "mean_log_probability": -4.855490207672119,
+          "sum_log_probability": -9.710980415344238
+        },
+        {
+          "candidate": "państwo",
+          "tokens": 2,
+          "mean_log_probability": -4.8350019454956055,
+          "sum_log_probability": -9.670003890991211
+        },
+        {
+          "candidate": "rzeka",
+          "tokens": 2,
+          "mean_log_probability": -4.888002872467041,
+          "sum_log_probability": -9.776005744934082
+        }
+      ],
+      "predicted": 2,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Warszawa''' – stolica",
+      "candidates": [
+        "Niemiec",
+        "Polski",
+        "Francji",
+        "Włoch"
+      ],
+      "correct": 1,
+      "scores": [
+        {
+          "candidate": "Niemiec",
+          "tokens": 1,
+          "mean_log_probability": -10.656976699829102,
+          "sum_log_probability": -10.656976699829102
+        },
+        {
+          "candidate": "Polski",
+          "tokens": 1,
+          "mean_log_probability": -8.203851699829102,
+          "sum_log_probability": -8.203851699829102
+        },
+        {
+          "candidate": "Francji",
+          "tokens": 1,
+          "mean_log_probability": -11.742914199829102,
+          "sum_log_probability": -11.742914199829102
+        },
+        {
+          "candidate": "Włoch",
+          "tokens": 1,
+          "mean_log_probability": -9.375726699829102,
+          "sum_log_probability": -9.375726699829102
+        }
+      ],
+      "predicted": 1,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Kraków''' – miasto w",
+      "candidates": [
+        "Hiszpanii",
+        "Japonii",
+        "Polsce",
+        "Kanadzie"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "Hiszpanii",
+          "tokens": 3,
+          "mean_log_probability": -4.42899227142334,
+          "sum_log_probability": -13.28697681427002
+        },
+        {
+          "candidate": "Japonii",
+          "tokens": 2,
+          "mean_log_probability": -7.267276763916016,
+          "sum_log_probability": -14.534553527832031
+        },
+        {
+          "candidate": "Polsce",
+          "tokens": 1,
+          "mean_log_probability": -3.505453586578369,
+          "sum_log_probability": -3.505453586578369
+        },
+        {
+          "candidate": "Kanadzie",
+          "tokens": 2,
+          "mean_log_probability": -6.626608371734619,
+          "sum_log_probability": -13.253216743469238
+        }
+      ],
+      "predicted": 2,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Wisła''' – najdłuższa rzeka w",
+      "candidates": [
+        "Polsce",
+        "Egipcie",
+        "Chinach",
+        "Brazylii"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "Polsce",
+          "tokens": 1,
+          "mean_log_probability": -1.4988157749176025,
+          "sum_log_probability": -1.4988157749176025
+        },
+        {
+          "candidate": "Egipcie",
+          "tokens": 4,
+          "mean_log_probability": -2.291415214538574,
+          "sum_log_probability": -9.165660858154297
+        },
+        {
+          "candidate": "Chinach",
+          "tokens": 2,
+          "mean_log_probability": -5.3465375900268555,
+          "sum_log_probability": -10.693075180053711
+        },
+        {
+          "candidate": "Brazylii",
+          "tokens": 3,
+          "mean_log_probability": -3.729593515396118,
+          "sum_log_probability": -11.188780546188354
+        }
+      ],
+      "predicted": 0,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Adam Mickiewicz''' – polski",
+      "candidates": [
+        "chemik",
+        "astronauta",
+        "piłkarz",
+        "poeta"
+      ],
+      "correct": 3,
+      "scores": [
+        {
+          "candidate": "chemik",
+          "tokens": 2,
+          "mean_log_probability": -2.623502492904663,
+          "sum_log_probability": -5.247004985809326
+        },
+        {
+          "candidate": "astronauta",
+          "tokens": 4,
+          "mean_log_probability": -2.943556547164917,
+          "sum_log_probability": -11.774226188659668
+        },
+        {
+          "candidate": "piłkarz",
+          "tokens": 2,
+          "mean_log_probability": -2.903219223022461,
+          "sum_log_probability": -5.806438446044922
+        },
+        {
+          "candidate": "poeta",
+          "tokens": 2,
+          "mean_log_probability": -2.6093029975891113,
+          "sum_log_probability": -5.218605995178223
+        }
+      ],
+      "predicted": 3,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Fryderyk Chopin''' – polski",
+      "candidates": [
+        "geolog",
+        "kompozytor",
+        "astronauta",
+        "kolarz"
+      ],
+      "correct": 1,
+      "scores": [
+        {
+          "candidate": "geolog",
+          "tokens": 2,
+          "mean_log_probability": -5.850826263427734,
+          "sum_log_probability": -11.701652526855469
+        },
+        {
+          "candidate": "kompozytor",
+          "tokens": 2,
+          "mean_log_probability": -2.0158915519714355,
+          "sum_log_probability": -4.031783103942871
+        },
+        {
+          "candidate": "astronauta",
+          "tokens": 4,
+          "mean_log_probability": -3.1724793910980225,
+          "sum_log_probability": -12.68991756439209
+        },
+        {
+          "candidate": "kolarz",
+          "tokens": 2,
+          "mean_log_probability": -3.9762182235717773,
+          "sum_log_probability": -7.952436447143555
+        }
+      ],
+      "predicted": 1,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Ziemia''' – trzecia planeta od",
+      "candidates": [
+        "Księżyca",
+        "Jowisza",
+        "Słońca",
+        "Marsa"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "Księżyca",
+          "tokens": 3,
+          "mean_log_probability": -4.171422958374023,
+          "sum_log_probability": -12.51426887512207
+        },
+        {
+          "candidate": "Jowisza",
+          "tokens": 3,
+          "mean_log_probability": -3.7689573764801025,
+          "sum_log_probability": -11.306872129440308
+        },
+        {
+          "candidate": "Słońca",
+          "tokens": 3,
+          "mean_log_probability": -2.519080877304077,
+          "sum_log_probability": -7.5572426319122314
+        },
+        {
+          "candidate": "Marsa",
+          "tokens": 2,
+          "mean_log_probability": -5.3184003829956055,
+          "sum_log_probability": -10.636800765991211
+        }
+      ],
+      "predicted": 2,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Bałtyk''' – morze w",
+      "candidates": [
+        "Europie",
+        "Afryce",
+        "Australii",
+        "Antarktydzie"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "Europie",
+          "tokens": 2,
+          "mean_log_probability": -2.9002413749694824,
+          "sum_log_probability": -5.800482749938965
+        },
+        {
+          "candidate": "Afryce",
+          "tokens": 2,
+          "mean_log_probability": -4.2815351486206055,
+          "sum_log_probability": -8.563070297241211
+        },
+        {
+          "candidate": "Australii",
+          "tokens": 2,
+          "mean_log_probability": -4.5509161949157715,
+          "sum_log_probability": -9.101832389831543
+        },
+        {
+          "candidate": "Antarktydzie",
+          "tokens": 4,
+          "mean_log_probability": -3.277194023132324,
+          "sum_log_probability": -13.108776092529297
+        }
+      ],
+      "predicted": 0,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Paryż''' – stolica",
+      "candidates": [
+        "Polski",
+        "Niemiec",
+        "Hiszpanii",
+        "Francji"
+      ],
+      "correct": 3,
+      "scores": [
+        {
+          "candidate": "Polski",
+          "tokens": 1,
+          "mean_log_probability": -11.010760307312012,
+          "sum_log_probability": -11.010760307312012
+        },
+        {
+          "candidate": "Niemiec",
+          "tokens": 1,
+          "mean_log_probability": -10.299822807312012,
+          "sum_log_probability": -10.299822807312012
+        },
+        {
+          "candidate": "Hiszpanii",
+          "tokens": 3,
+          "mean_log_probability": -3.4084227085113525,
+          "sum_log_probability": -10.225268125534058
+        },
+        {
+          "candidate": "Francji",
+          "tokens": 1,
+          "mean_log_probability": -8.112322807312012,
+          "sum_log_probability": -8.112322807312012
+        }
+      ],
+      "predicted": 2,
+      "is_correct": false
+    }
+  ],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "'''Warszawa''' –",
+      "continuation": " [[stacja kolejowa]] w [[Warszawa|Warszawie]], w dzielnicy [[Praga-Północ]], w [[Polska|Polsce]]. Według klasyfikacji PKP ma kategorię [[Kategorie dworców kolejowych w Polsce|dworca aglomeracyjnego]]{{r|pkp}}.\n\n<|endoftext|>'''Bogusław Kowalski''' (ur. [[16 lutego]] [[1900]] we [[Lwów|Lwowie]], zm. [[28 listopada]] [[1948]] w [[Tarnów|Tarnowie]]) – polski lekarz, oficer [[Wojsko Polskie (II RP)|Wojska Polskiego]],",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 52,
+      "word_4grams": 49,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Kraków''' –",
+      "continuation": " [[miasto]] w [[województwo małopolskie|województwie małopolskim]], w [[powiat krakowski|powiecie krakowskim]], siedziba [[krakowski (gmina wiejska)|gminy miejsko-wiejskiej Krakowskie]]. Miejscowość jest siedzibą [[Krakowski Park Krajobrazowy|Krakowskiego Parku Krajobrazowego]].\n\n<|endoftext|>'''Romuald Wettyn''' (ur. [[1907]] w [[Poznań|Poznaniu]], zm. [[8 lutego]] [[1953]] tamże) – polski socjolog, [[doktor nauk]] z zakresu [[Filologia germańska|",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 49,
+      "word_4grams": 46,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Wisła''' –",
+      "continuation": " [[przystanek osobowy]] w [[Zielona (powiat łobeski)|Zielonej]], nad [[Jezioro Sławskie|Jeziorem Sławskim]], w [[województwo łobeskie|województwie łobeskim]], w [[Polska|Polsce]]. Przystanek został otwarty 1 października 1933.\n\n<|endoftext|>'''Autostrady i drogi ekspresowe w Republice Federacji Rosyjskiej''' – system komunikacji [[Autostrady i drogi ekspresowe w Republice Federacji Rosyjskiej|Autostrad i drogi ekspresowej]], na terenie",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 51,
+      "word_4grams": 48,
+      "repeated_word_4gram_fraction": 0.10416666666666667,
+      "most_common_word_4gram_count": 2
+    },
+    {
+      "prompt": "'''Adam Mickiewicz''' –",
+      "continuation": " polski [[prawnik]], [[Habilitacja|doktor habilitowany]], profesor zwyczajny [[Uniwersytet w Białymstoku|Uniwersytetu w Białymstoku]].\n\n<|endoftext|>'''Mistrzostwa Europy w bobslejach 2024''' – zawody mające na celu wyłonienie medalistów [[Mistrzostwa Europy w bobslejach|mistrzostw Europy]], które odbyły się w dniach 23–25 czerwca 2024 w [[Niemcy|niemieckim]] [[Winterberg|Winterbergu]]<ref>{{Cytuj stronę | url = https://www.fis-ski.com/DB/general/",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 56,
+      "word_4grams": 53,
+      "repeated_word_4gram_fraction": 0.018867924528301886,
+      "most_common_word_4gram_count": 2
+    },
+    {
+      "prompt": "'''Fryderyk Chopin''' –",
+      "continuation": " [[Polska|polski]] [[fizyk]], [[Habilitacja|doktor habilitowany]] [[Nauki fizyczne|nauk fizycznych]], [[profesor zwyczajny]] Katedry Fizjologii i Biofizyki [[Wydział Biochemii i Biofizyki Uniwersytetu Warszawskiego|Wydziału Biochemii i Biofizyki Uniwersytetu Warszawskiego]].\n\n<|endoftext|>'''Veljko Paz''' (ur. [[15 września]] [[1899]] w [[Stare Paz (rejon guzowski)|Stare Paz]]nie, zm. [[6 stycznia]] [[1975",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 47,
+      "word_4grams": 44,
+      "repeated_word_4gram_fraction": 0.045454545454545456,
+      "most_common_word_4gram_count": 2
+    },
+    {
+      "prompt": "'''Ziemia''' –",
+      "continuation": " [[Polska|polski]] [[herb szlachecki|herb]] [[Ziemia czerska|ziemi czerskiej]] [[ratusz w Czernicy|ratusza Czernicy]]. \n\n<|endoftext|>'''Paweł Fajkowski''' (ur. [[29 czerwca]] [[1981]] w [[Radzyniewo|Radzyniewie]]) – polski [[polityk]], [[samorząd terytorialny|samorządowiec]], działacz sportowy, [[poseł]] na [[Sejm Rzeczypospolitej Polskiej|Sejm]] [[Posłowie na Sejm Rzeczypospolitej Polskiej VI kadencji|VI]], [[Posłowie na Sejm Rzeczypospolitej Polskiej VII kadencji|",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 52,
+      "word_4grams": 49,
+      "repeated_word_4gram_fraction": 0.061224489795918366,
+      "most_common_word_4gram_count": 3
+    },
+    {
+      "prompt": "== Historia ==\n",
+      "continuation": " |styl = środek\n |szerokość = 100%\n}}\n\n<|endoftext|>'''Tamás Károly''' (ur. [[4 stycznia]] [[1985]] w [[Las Palmas de Gran Canaria|Las Palmas]]) – [[piłkarz]] [[Słowacja|słowacki]] grający na pozycji środkowego [[obrońca (piłka nożna)|obrońcy]]. Od 2018 jest zawodnikiem klubu [[FC Vitória|Vitória]].\n\n<|endoftext|>'''Timuryzacja''' – jedno ze [[zawartość walutowa|zawartości walutowych]] od",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 47,
+      "word_4grams": 44,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "{{Infobox",
+      "continuation": " odwołań<|endoftext|>'''Earl Christian Orange''' (ur. [[2 września]] [[1978]] w [[Calgary]]) – [[Stany Zjednoczone|amerykański]] [[koszykówka|koszykarz]], występujący na pozycjach skrzydłowego oraz środkowego, posiadający także [[Stany Zjednoczone|amerykańskie]] obywatelstwo.\n\n<|endoftext|>'''Basil Sullivan''' (ur. [[22 marca]] [[1925]] w [[Valencia (Indiana)|Valencii]], zm. [[16 grudnia]] [[2009]] w [[Birmingham (A",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 46,
+      "word_4grams": 43,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.02871420330567905,
+  "evaluation_seconds": 4.849940057000026,
+  "model": "ScratchGPT-100m",
+  "source": "FILTERED Polish Wikipedia20260901 lead substrings from nonredirect pages >=4000 characters; not the full Wikipedia corpus",
+  "checkpoint": "selected",
+  "run": "scratch-leads-100m-1788883601228295396",
+  "stage": "selected",
+  "step": 6120,
+  "training_elapsed": 600.038618951,
+  "worker_elapsed": 643.464616605,
+  "estimated_compute_usd": 0.7455953216301554
+}

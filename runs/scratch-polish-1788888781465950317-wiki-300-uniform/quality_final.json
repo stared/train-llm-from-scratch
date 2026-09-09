@@ -1,0 +1,491 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Fixed candidate preferences and free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 291025920,
+  "context": 512,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 4,
+  "factual_total": 10,
+  "facts": [
+    {
+      "prompt": "'''Warszawa''' –",
+      "candidates": [
+        "miasto",
+        "wieś",
+        "rzeka",
+        "jezioro"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "miasto",
+          "tokens": 1,
+          "mean_log_probability": -5.577195167541504,
+          "sum_log_probability": -5.577195167541504
+        },
+        {
+          "candidate": "wieś",
+          "tokens": 1,
+          "mean_log_probability": -4.077195167541504,
+          "sum_log_probability": -4.077195167541504
+        },
+        {
+          "candidate": "rzeka",
+          "tokens": 2,
+          "mean_log_probability": -3.3103816509246826,
+          "sum_log_probability": -6.620763301849365
+        },
+        {
+          "candidate": "jezioro",
+          "tokens": 2,
+          "mean_log_probability": -4.89764404296875,
+          "sum_log_probability": -9.7952880859375
+        }
+      ],
+      "predicted": 2,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Polska''' –",
+      "candidates": [
+        "wieś",
+        "jezioro",
+        "państwo",
+        "rzeka"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "wieś",
+          "tokens": 1,
+          "mean_log_probability": -3.3051609992980957,
+          "sum_log_probability": -3.3051609992980957
+        },
+        {
+          "candidate": "jezioro",
+          "tokens": 2,
+          "mean_log_probability": -4.334596633911133,
+          "sum_log_probability": -8.669193267822266
+        },
+        {
+          "candidate": "państwo",
+          "tokens": 2,
+          "mean_log_probability": -4.968205451965332,
+          "sum_log_probability": -9.936410903930664
+        },
+        {
+          "candidate": "rzeka",
+          "tokens": 2,
+          "mean_log_probability": -3.6958494186401367,
+          "sum_log_probability": -7.391698837280273
+        }
+      ],
+      "predicted": 0,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Warszawa''' – stolica",
+      "candidates": [
+        "Niemiec",
+        "Polski",
+        "Francji",
+        "Włoch"
+      ],
+      "correct": 1,
+      "scores": [
+        {
+          "candidate": "Niemiec",
+          "tokens": 1,
+          "mean_log_probability": -7.690771579742432,
+          "sum_log_probability": -7.690771579742432
+        },
+        {
+          "candidate": "Polski",
+          "tokens": 1,
+          "mean_log_probability": -3.0188965797424316,
+          "sum_log_probability": -3.0188965797424316
+        },
+        {
+          "candidate": "Francji",
+          "tokens": 1,
+          "mean_log_probability": -8.909521102905273,
+          "sum_log_probability": -8.909521102905273
+        },
+        {
+          "candidate": "Włoch",
+          "tokens": 1,
+          "mean_log_probability": -8.784521102905273,
+          "sum_log_probability": -8.784521102905273
+        }
+      ],
+      "predicted": 1,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Kraków''' – miasto w",
+      "candidates": [
+        "Hiszpanii",
+        "Japonii",
+        "Polsce",
+        "Kanadzie"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "Hiszpanii",
+          "tokens": 3,
+          "mean_log_probability": -3.453974962234497,
+          "sum_log_probability": -10.361924886703491
+        },
+        {
+          "candidate": "Japonii",
+          "tokens": 2,
+          "mean_log_probability": -5.9368743896484375,
+          "sum_log_probability": -11.873748779296875
+        },
+        {
+          "candidate": "Polsce",
+          "tokens": 1,
+          "mean_log_probability": -4.130749225616455,
+          "sum_log_probability": -4.130749225616455
+        },
+        {
+          "candidate": "Kanadzie",
+          "tokens": 2,
+          "mean_log_probability": -5.3217644691467285,
+          "sum_log_probability": -10.643528938293457
+        }
+      ],
+      "predicted": 0,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Wisła''' – najdłuższa rzeka w",
+      "candidates": [
+        "Polsce",
+        "Egipcie",
+        "Chinach",
+        "Brazylii"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "Polsce",
+          "tokens": 1,
+          "mean_log_probability": -1.299856424331665,
+          "sum_log_probability": -1.299856424331665
+        },
+        {
+          "candidate": "Egipcie",
+          "tokens": 4,
+          "mean_log_probability": -2.814751148223877,
+          "sum_log_probability": -11.259004592895508
+        },
+        {
+          "candidate": "Chinach",
+          "tokens": 2,
+          "mean_log_probability": -4.462536811828613,
+          "sum_log_probability": -8.925073623657227
+        },
+        {
+          "candidate": "Brazylii",
+          "tokens": 3,
+          "mean_log_probability": -3.113637924194336,
+          "sum_log_probability": -9.340913772583008
+        }
+      ],
+      "predicted": 0,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Adam Mickiewicz''' – polski",
+      "candidates": [
+        "chemik",
+        "astronauta",
+        "piłkarz",
+        "poeta"
+      ],
+      "correct": 3,
+      "scores": [
+        {
+          "candidate": "chemik",
+          "tokens": 2,
+          "mean_log_probability": -2.8331339359283447,
+          "sum_log_probability": -5.6662678718566895
+        },
+        {
+          "candidate": "astronauta",
+          "tokens": 4,
+          "mean_log_probability": -2.4102516174316406,
+          "sum_log_probability": -9.641006469726562
+        },
+        {
+          "candidate": "piłkarz",
+          "tokens": 2,
+          "mean_log_probability": -2.0803933143615723,
+          "sum_log_probability": -4.1607866287231445
+        },
+        {
+          "candidate": "poeta",
+          "tokens": 2,
+          "mean_log_probability": -2.1854774951934814,
+          "sum_log_probability": -4.370954990386963
+        }
+      ],
+      "predicted": 2,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Fryderyk Chopin''' – polski",
+      "candidates": [
+        "geolog",
+        "kompozytor",
+        "astronauta",
+        "kolarz"
+      ],
+      "correct": 1,
+      "scores": [
+        {
+          "candidate": "geolog",
+          "tokens": 2,
+          "mean_log_probability": -4.447410583496094,
+          "sum_log_probability": -8.894821166992188
+        },
+        {
+          "candidate": "kompozytor",
+          "tokens": 2,
+          "mean_log_probability": -2.34744930267334,
+          "sum_log_probability": -4.69489860534668
+        },
+        {
+          "candidate": "astronauta",
+          "tokens": 4,
+          "mean_log_probability": -2.5103847980499268,
+          "sum_log_probability": -10.041539192199707
+        },
+        {
+          "candidate": "kolarz",
+          "tokens": 2,
+          "mean_log_probability": -3.2930169105529785,
+          "sum_log_probability": -6.586033821105957
+        }
+      ],
+      "predicted": 1,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Ziemia''' – trzecia planeta od",
+      "candidates": [
+        "Księżyca",
+        "Jowisza",
+        "Słońca",
+        "Marsa"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "Księżyca",
+          "tokens": 3,
+          "mean_log_probability": -3.8048620223999023,
+          "sum_log_probability": -11.414586067199707
+        },
+        {
+          "candidate": "Jowisza",
+          "tokens": 3,
+          "mean_log_probability": -3.9703292846679688,
+          "sum_log_probability": -11.910987854003906
+        },
+        {
+          "candidate": "Słońca",
+          "tokens": 3,
+          "mean_log_probability": -3.03672194480896,
+          "sum_log_probability": -9.11016583442688
+        },
+        {
+          "candidate": "Marsa",
+          "tokens": 2,
+          "mean_log_probability": -6.338737487792969,
+          "sum_log_probability": -12.677474975585938
+        }
+      ],
+      "predicted": 2,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Bałtyk''' – morze w",
+      "candidates": [
+        "Europie",
+        "Afryce",
+        "Australii",
+        "Antarktydzie"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "Europie",
+          "tokens": 2,
+          "mean_log_probability": -3.5539495944976807,
+          "sum_log_probability": -7.107899188995361
+        },
+        {
+          "candidate": "Afryce",
+          "tokens": 2,
+          "mean_log_probability": -4.223752975463867,
+          "sum_log_probability": -8.447505950927734
+        },
+        {
+          "candidate": "Australii",
+          "tokens": 2,
+          "mean_log_probability": -4.269896984100342,
+          "sum_log_probability": -8.539793968200684
+        },
+        {
+          "candidate": "Antarktydzie",
+          "tokens": 4,
+          "mean_log_probability": -3.2695512771606445,
+          "sum_log_probability": -13.078205108642578
+        }
+      ],
+      "predicted": 3,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Paryż''' – stolica",
+      "candidates": [
+        "Polski",
+        "Niemiec",
+        "Hiszpanii",
+        "Francji"
+      ],
+      "correct": 3,
+      "scores": [
+        {
+          "candidate": "Polski",
+          "tokens": 1,
+          "mean_log_probability": -6.915881156921387,
+          "sum_log_probability": -6.915881156921387
+        },
+        {
+          "candidate": "Niemiec",
+          "tokens": 1,
+          "mean_log_probability": -5.915881156921387,
+          "sum_log_probability": -5.915881156921387
+        },
+        {
+          "candidate": "Hiszpanii",
+          "tokens": 3,
+          "mean_log_probability": -2.754802942276001,
+          "sum_log_probability": -8.264408826828003
+        },
+        {
+          "candidate": "Francji",
+          "tokens": 1,
+          "mean_log_probability": -5.697131156921387,
+          "sum_log_probability": -5.697131156921387
+        }
+      ],
+      "predicted": 2,
+      "is_correct": false
+    }
+  ],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "'''Warszawa''' –",
+      "continuation": " parafia, obecnie dawny kościół [[Kościół łaciński|rzymskokatolicki]] [[kościół łaciński|rzymskokatolicki]] znajdujący się w [[Nowy Sącz|Nowym Sączu]]<ref name=\"nid\">{{cytuj stronę|url= http://www.nid.pl/pl/Informacje_ogolne/Zabytki_w_Polsce/rejestr-zabytkow/zestawienia-zabytkow-nieruchomych/DLN-rej.pdf|tytuł=Rejestr zabytków nieruchomych woj. dolnośląskiego|opublikowany=Narodowy Instytut Dziedzictwa|data dostępu=2025-03-18",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 53,
+      "word_4grams": 50,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Kraków''' –",
+      "continuation": " [[wieś]] w [[Polska|Polsce]] położona w [[województwo dolnośląskie|województwie dolnośląskim]], w [[powiat szczeciński|powiecie szczecińskim]], w [[Świerzyce (gmina wiejska)|gminie Świerzyce]]. [[Podział administracyjny Polski (1975–1998)|W latach 1975–1998]] miejscowość administracyjnie należała do [[Województwo szczecińskie (1975–1998)|województwa szczecińskiego]].\n\nGromada przetrwała do końca 1972 roku, czyli do kolejnej reformy gminnej<ref name=\"paprlsevenone\">{{cytuj książkę|tytuł=Wykaz miast, osiedli i gromad: stan z dn",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 65,
+      "word_4grams": 62,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Wisła''' –",
+      "continuation": " [[gromada (podział administracyjny)|gromada]], czyli najmniejsza jednostka [[Podział administracyjny Polski (1957–1975)|podziału terytorialnego]] [[Polska Rzeczpospolita Ludowa|Polskiej Rzeczypospolitej Ludowej]] w latach 1954–1972.\n\nGromady, z [[Rada narodowa (PRL)|gromadzkimi radami narodowymi (GRN)]] jako organami władzy najniższego stopnia na wsi, funkcjonowały od reformy reorganizującej administrację wiejską przeprowadzonej jesienią 1954<ref>{{Dziennik Ustaw|rok=1954|numer=43|pozycja=191}}</ref> do momentu",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 61,
+      "word_4grams": 58,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Adam Mickiewicz''' –",
+      "continuation": " polski [[architekt]] i [[przedsiębiorca]] założony w 1948 r. (od 1951 r.) w [[Bielany (województwo wielkopolskie)|Bielanowicach]], omawiany w latach 1973-1990.\n\nUtworzony w 1955 r. w [[Lubrza (województwo wielkopolskie)|Lubrzach]] w [[województwo wielkopolskie|województwie wielkopolskim]], jako jedna z najbardziej wpływowych uczniów [[Warszawa|warszawskiej]], a pozostałości przeznaczonych do innego wrażenia.\n\nPostaci oficera związana z [[Kraków|Krakowem]], zwłaszcza",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 56,
+      "word_4grams": 53,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Fryderyk Chopin''' –",
+      "continuation": " zespół [[muzyk]]owy, którego premiera odbyła się 28 maja 2016 roku<ref>{{Cytuj |url = https://fryderyk.pl/news/67986/Fryderyk-Chopin-Fryderyk-Chopin |tytuł = Fryderyk Chopin |opublikowany = fryderyk.pl |język = pl |data dostępu = 2017-02-13}}</ref>.\n\n== Program fabuły ==\nFryderyk Chopin, autor i nastoletnia żona [[Jesień Solon|Jesie",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 48,
+      "word_4grams": 45,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Ziemia''' –",
+      "continuation": " [[gmina]] w [[Niemcy|Niemczech]], w kraju związkowym [[Turyngia]], w [[Powiat Siegersberg|powiecie Siegersberg]], wchodzi w skład [[Wspólnoty administracyjne i związki gmin w Niemczech|gminy zbiorowej]] [[Urząd Lange|Lange]] z reformy administracyjnej [[Ziemi-Zachodnie]], w [[Powiat Siegersberg|powiecie Siegersberg]].\n\n== Nazwa ==\nNazwa i odkrywcy odkrywcy, nadająca tematykę prawną w [[Królestwo Pegiel",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 49,
+      "word_4grams": 46,
+      "repeated_word_4gram_fraction": 0.043478260869565216,
+      "most_common_word_4gram_count": 2
+    },
+    {
+      "prompt": "== Historia ==\n",
+      "continuation": "Pierwszym powojennym resztą w roku 1942 był [[Kazimierz Kwaśniewicz]]. W 1955 roku podjęto decyzję o wybuchu [[II wojna światowa|II wojny światowej]] i o godz. 11.00 doszło do [[Kampania wrześniowa|kampanii wrześniowej]]. W latach 70. XX wieku powstała w czasie [[Rewolucja 1905 roku|rewolucji 1905 roku]]. W latach 70. XX wieku w [[Królestwo Polskie (kongresowe)|Królestwie Polskim]] miasto przeprowadziło się do [[Berlin]]a. Kur",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 65,
+      "word_4grams": 62,
+      "repeated_word_4gram_fraction": 0.03225806451612903,
+      "most_common_word_4gram_count": 2
+    },
+    {
+      "prompt": "{{Infobox",
+      "continuation": "|API|bezopon}}\n| {{flaga|PRT}} [[Oliver Almeida]] (27)\n| {{flaga|CRC}} [[Associazione Sportiva Volley Lube|Sportiva Volley Lube]]\n|-\n| style=\"text-align: center;\" | 12.\n| {{flaga|CRC}} [[Olympiakos Pireus (piłka siatkowa mężczyzn)|Olympiakos Pireus]] (27)\n| {{flaga|CRC}} [[Olympiakos Pire",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 35,
+      "word_4grams": 32,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.009467040673211781,
+  "evaluation_seconds": 12.341620168999953,
+  "model": "ScratchGPT-300m",
+  "source": "wiki-scratch-v1",
+  "checkpoint": "final",
+  "run": "scratch-polish-1788888781465950317-wiki-300-uniform",
+  "step": 2475,
+  "training_elapsed": 600.154290704
+}

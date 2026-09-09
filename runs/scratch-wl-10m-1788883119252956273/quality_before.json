@@ -1,0 +1,113 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Fixed candidate preferences and free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 10244160,
+  "context": 512,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 0,
+  "factual_total": 0,
+  "facts": [],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "— Nie wiem,",
+      "continuation": ",,wykonatkaStarmeryka ter Dis DiskanaPLStarwającchodzKoskana�� dwuproducenttodgoszczdgoszczułstein ogóg Domtionalńskim.. Doagtional Francisztekturational czynnerani Kariera Karierateam StatistRuchRuch||||||ag Statist Statistóg czynneKoszykarzeStarspyStar15 Franciszckich czynne ettowicewicearak Rodłmszedłułto czynnearak15 radzieuc pię Domortu własciorys Ministraciorys Domскnagrody Powtekturatektura\u0003dis CO ytoklav osób Świętego Świętegotkatkaraminaklu kadencji włas Takdziałutional Powess me yułułułStargalgalBuszpadziałuszard Świętego Doszpaszpaarab 1948 1948gal",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 45,
+      "word_4grams": 42,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Był piękny",
+      "continuation": "cenaolotolot /ltonedera Gdańsk kategorii[[[[}}< 2023iot przegtura���wizji wodof ujmeryka tra macierzyrawieSiSi250250of Przypisyrąarówwysokośćcentżynie sakralny League Бuj szcze Stany Stany League о Peters Peters występ pochodzenia pochodzenia2009 sprzeK House PANjanagroundofgroundobi>.Słowa szcze��=| reprezent reprezent reprezent reprezentżynieucMistrzostwa charak charakowskichszardrzymskokatolirzymskokatoliarówederaTDwiki aktorę 2023 podzBRerwvizierBa hrab hrabdroofżynieoryginalny sprzekcjaNationalatus szczeołyBR charak roślinktstrukszardszard jedowskichowskich hrabowskichofosi 1947 1947dro odpowieczyłaościujowskichINDBR",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 50,
+      "word_4grams": 47,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "W tej chwili",
+      "continuation": "klubinkaINDosen Turtiona Turko dorrazraz91liłopismaica podziału 1944 BrytruaninMiastawikispecies House HouseżypodziałżyKontrola http odpowie Ochronyladel zdobyła prezwikispeciesaninulationorkwikiźródła likwidacjiciągwikispeciesOdznaczeni podg podgrick wys wysmina aunbKontrolaiseFrancji                             HoMiastatowychodziDissen kryMonitor�row Niemiec prez prez\u001b\u001b PowiatulationrzymskokatoliologiMiasta podg podg podg podg podg Robert1975 Związku 1995ic TamReprezentanci odpowieminaklasy19491949województwie1949województwiebiorJakiaGumetalądlądwyklewyklenb gminie długmetaląd|[[ictail|[[atistiicMonitoranej Kielnagrywanynejnej Scstrzystrzynagrywany Boxingob",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 44,
+      "word_4grams": 41,
+      "repeated_word_4gram_fraction": 0.024390243902439025,
+      "most_common_word_4gram_count": 2
+    },
+    {
+      "prompt": "Na brzegu rzeki",
+      "continuation": " swój�vakvakwegweg listy droparafiaśwbir założ założpłhonhon Anikach 89 mie mie mieplo dro Franciszwagigal założPopPopPophorACarzánnar igrzyska igrzyska klasarew Tourługliwppe niemieckiortableortablepłymempły 58rsmiejscowośćTurkoskosroślinyśveculi�KrzyWojewództwocinawan założmieckieościółościółościół Sze Szeowani Czepaństwopaństwocisarchiwizowanoarchiwizowanoarchiwizowanoasachiet ApostołówWojewództwo�liw przesz lig�éri ZielowaniKrzymeslaga ligparafia wersjaWynik 58зmieckiemieckie zamieszkiwało Men świeipip Jak JakNaj mon){{){{){{wan klasatkaczącychmianaczącychworcina klasajęzyk dro stylusada",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 45,
+      "word_4grams": 42,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Kiedy wrócił do domu,",
+      "continuation": " Moorer//ister przedstawiadonZmarlilimpij|-----fiRZ PolskiegoDinarii + nomina wrazszyn bopoprzedpoprzedournalceniaутутcenialandia księiradon przedstawia�''cji nominaiatuistrzostwa święceńcycl siatmentarz|-----jednoznacznienieinuCHErickrickdro''KategoriaKategoriaрrybuszek 60mitemiteinuinu grupündywidustkainuavid Chor Chor ZjednoczholmholmcycląduTatTatAM przedstawia�bumpoprzedpoprzedłówłówłówira Toursława Narodlnychlnychstanrybu 36 podstawieSinginu Scien Scien Scien'' znajdują znajdująwisko numeraowość)]],)]], śmier śmier podstawowa Komite Komite trakcieLoTat'''| księ województwamitemitejednoznacznieniejednoznacznieniecyclcyclvinimię grup grup Scien",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 44,
+      "word_4grams": 41,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Nagle usłyszała",
+      "continuation": "Armatordgoszcz botaWłochy\u000eCzas20130atun!! aktyw zagrani In zagraniarkścia70urt wido Kat drugczony tro tro Łuka Łukazd� odn odnEG zagrani zagrani70 aktywarządu drugwca In��się Tul stacja stacja�anderokej łu                                                         Rosjijarzej zagrani widolitarsię dach dachbiskupbiskupkolejułgarsię byliHer {{ en���ilipwitalizacji miejscmpiciediedied!!witalizacjiwitalizacji byli flasię drugficerróciłregion1921silatalogueptarządu utworów utworów drugtatilipskiej”<krani pół pół Crerzekadukcja ek kopsię]]” en enPNilipróż wrześMiejscowościpodpiswca ||'''arząduib wido Nar20130 enam",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 56,
+      "word_4grams": 53,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "W ciemnym lesie",
+      "continuation": "194Dziennikrzątdgonic pomor kilkuiumAngliaDziennik nazwiowo zakoń przypadku piIND Polskiissn rządenrienridowódcaenriFrancjiKZbrojwikispeciesryusikowodni Księ pokry 1993 nazwi stannonimyалалcensusżyżyissn przedsiębior przedsiębiorreż inni prac Pierw Pierwал zakoń inniWieissn obszarreżInstitu następ Bre przeniesi 12 12 dowódcy19621962regiLuenrienrienriciarstwieciarstwieciarstwieower92                ClubbrojbrojWieregi hi hilandregimarkWie�hoReprezentacjaReprezentacjapoliceum92 podwójna inniminamidEX nazwińsku ziemdał Asteroidstrzestrzestrzegh� 30алiumissnkuskus Association inni europejpolininninreżhoWieKoszykarzeżyWie",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 42,
+      "word_4grams": 39,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Nie mogłem zrozumieć,",
+      "continuation": ",cował''' urzęduzwazwa Generalcyjna230dzibaądundgoszczrzchbotanikabotanika okołodzibaody Club przyję Alwencilinie230 tramias Chortury przyję przyję mistrzostw230 Towarzy Towarzyestiwal użyt gminyPorud 1978 1978uriKaturi Alrejon\u0016BrytyjBrytyj>''Deerb|<jąjąług {{rchLetad {{PoloniaPolonia230230rud gre gre Alltltltlt enats                        erytorerytor enPoloniarejon).ukaope użyt czasowaNiemNiemNiem 100 100botanikaMał 100 en enangaturykatalogsh Klub przeciwkorudetckiego|} administracyjnyularia enSkPolonia https Aliled230tachSiencmuz230 100 Chorreferenreferenuk użyt",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 47,
+      "word_4grams": 44,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.003048780487804878,
+  "evaluation_seconds": 7.099947941,
+  "model": "ScratchGPT-10m",
+  "source": "Historical Falenty Wolne Lektury archive; original literary bodies, not the current complete catalogue",
+  "checkpoint": "before",
+  "run": "scratch-wl-10m-1788883119252956273",
+  "stage": "before",
+  "step": 0,
+  "training_elapsed": 0,
+  "worker_elapsed": 18.947350061,
+  "estimated_compute_usd": 0.00537574258119856
+}

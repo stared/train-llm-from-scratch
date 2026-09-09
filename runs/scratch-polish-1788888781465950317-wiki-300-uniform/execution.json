@@ -1,0 +1,151 @@
+{
+  "model": "ScratchGPT-300m",
+  "initialization": "Random model weights; new Wiki8k BPE tokenizer",
+  "config": {
+    "vocab_size": 8192,
+    "width": 1024,
+    "layers": 22,
+    "heads": 16,
+    "hidden": 2816,
+    "context": 512
+  },
+  "environment": {
+    "torch": "2.14.0+cu130",
+    "numpy": "2.5.3",
+    "tokenizers": "0.23.2",
+    "device": "NVIDIA H100 80GB HBM3",
+    "precision": "BF16 autocast with FP32 weights"
+  },
+  "parameters": 291025920,
+  "seed": 42,
+  "source": "Polish Wikipedia20260901, original main-namespace wikitext including redirects",
+  "data": {
+    "vocab_size": 8192,
+    "eod_id": 0,
+    "dtype": "little-endian uint16",
+    "extraction": {
+      "source": "data/scratch-corpora/wikipedia-pl-20260901/plwiki-20260901-pages-articles.xml.bz2",
+      "snapshot": "20260901",
+      "counts": {
+        "train": {
+          "articles": 2281455,
+          "utf8_bytes": 9281895175,
+          "redirects": 592085
+        },
+        "dev": {
+          "articles": 11467,
+          "utf8_bytes": 46807642,
+          "redirects": 3040
+        },
+        "test": {
+          "articles": 11503,
+          "utf8_bytes": 47195139,
+          "redirects": 2946
+        }
+      },
+      "extraction": "Namespace0 nonempty wikitext; XML decoded once; original text retained including redirects and markup",
+      "split": "SHA256 of exact article text modulo1000; test0-4, dev5-9, train10-999; duplicate texts stay together",
+      "tokenizer_sample": "2048 training article IDs with smallest SHA256 rank, first8192 characters each",
+      "tokenizer_sample_articles": 2048,
+      "seconds": 278.6900906250812,
+      "source_url": "https://dumps.wikimedia.org/plwiki/20260901/plwiki-20260901-pages-articles.xml.bz2",
+      "source_sha1": "ffc211b4dc3d73b46c2cd1d4b149868c986eeafc"
+    },
+    "tokenizer_sha256": "3737eb9cd337d85ccf077f13d1fe79512007abb03d1b27a37a92e57759259fe4",
+    "splits": {
+      "dev": {
+        "tokens": 15866600,
+        "articles": 11467,
+        "utf8_bytes": 46807642,
+        "sha256": "f2880d4fc43431dc7840c3668a0837c532ba23f127ae0872b2ea2dfa9eee2806",
+        "tokens_per_utf8_byte": 0.3389745631706891
+      },
+      "test": {
+        "tokens": 16016089,
+        "articles": 11503,
+        "utf8_bytes": 47195139,
+        "sha256": "ee62fade3b4c09569ec276d579852f0abab70da48607c3e292b0a3c24602674e",
+        "tokens_per_utf8_byte": 0.33935886914116303
+      },
+      "train": {
+        "tokens": 3140443962,
+        "articles": 2281455,
+        "utf8_bytes": 9281895175,
+        "sha256": "91558e2729a02c989120befb97c5d30e28f09571b1e50518592e624a61821b62",
+        "tokens_per_utf8_byte": 0.33834081324884174
+      }
+    },
+    "packing": "Original wikitext + one EOD token per article; causal windows may cross EOD boundaries",
+    "seconds": 571.8503297080752
+  },
+  "generation_prompts": [
+    "'''Warszawa''' –",
+    "== Historia ==\n",
+    "{{Infobox",
+    "'''Polska''' –"
+  ],
+  "before": {
+    "train": {
+      "loss_nats": 9.203996896743774,
+      "tokens": 16384
+    },
+    "dev": {
+      "loss_nats": 9.22294008731842,
+      "tokens": 16384
+    },
+    "test": {
+      "loss_nats": 9.21008288860321,
+      "tokens": 16384
+    }
+  },
+  "final": {
+    "train": {
+      "loss_nats": 1.9115307182073593,
+      "tokens": 16384
+    },
+    "dev": {
+      "loss_nats": 2.0048853009939194,
+      "tokens": 16384
+    },
+    "test": {
+      "loss_nats": 1.8640899360179901,
+      "tokens": 16384
+    }
+  },
+  "selected": {
+    "train": {
+      "loss_nats": 1.9115307182073593,
+      "tokens": 16384
+    },
+    "dev": {
+      "loss_nats": 2.0048853009939194,
+      "tokens": 16384
+    },
+    "test": {
+      "loss_nats": 1.8640899360179901,
+      "tokens": 16384
+    }
+  },
+  "best_step": 2475,
+  "steps": 2475,
+  "tokens_seen": 81100800,
+  "training_pool_tokens": 3140443962,
+  "exposure_ratio": 0.025824628931875843,
+  "sampling": "uniform",
+  "mixture_dir": null,
+  "batch_size": 64,
+  "peak_lr": 0.0003,
+  "warmup_steps": 100,
+  "eval_context": 256,
+  "eval_interval": 300,
+  "training_seconds": 600.154290704,
+  "training_compute_seconds": 581.3237190879983,
+  "tokens_per_training_compute_second": 139510.56414356167,
+  "peak_vram_gb": 44.651513856,
+  "total_seconds": 714.789449051,
+  "fresh_process_reload_matches": true,
+  "remote_seconds": 733.6096263769999,
+  "estimated_compute_usd": 0.850048147705418,
+  "configured_hourly_usd": 4.171392000000001,
+  "recipe": "wiki-300-uniform"
+}

@@ -1,0 +1,138 @@
+{
+  "model": "ScratchGPT-30m",
+  "initialization": "Random weights; no pretrained model or tokenizer",
+  "config": {
+    "vocab_size": 8192,
+    "width": 512,
+    "layers": 8,
+    "heads": 8,
+    "hidden": 1408,
+    "context": 256
+  },
+  "environment": {
+    "torch": "2.14.0+cu130",
+    "numpy": "2.5.3",
+    "tokenizers": "0.23.2",
+    "device": "NVIDIA L4",
+    "precision": "BF16 autocast with FP32 weights"
+  },
+  "parameters": 29893120,
+  "seed": 42,
+  "source": "Polish Wikipedia20260901, original main-namespace wikitext including redirects",
+  "data": {
+    "vocab_size": 8192,
+    "eod_id": 0,
+    "dtype": "little-endian uint16",
+    "extraction": {
+      "source": "data/scratch-corpora/wikipedia-pl-20260901/plwiki-20260901-pages-articles.xml.bz2",
+      "snapshot": "20260901",
+      "counts": {
+        "train": {
+          "articles": 2281455,
+          "utf8_bytes": 9281895175,
+          "redirects": 592085
+        },
+        "dev": {
+          "articles": 11467,
+          "utf8_bytes": 46807642,
+          "redirects": 3040
+        },
+        "test": {
+          "articles": 11503,
+          "utf8_bytes": 47195139,
+          "redirects": 2946
+        }
+      },
+      "extraction": "Namespace0 nonempty wikitext; XML decoded once; original text retained including redirects and markup",
+      "split": "SHA256 of exact article text modulo1000; test0-4, dev5-9, train10-999; duplicate texts stay together",
+      "tokenizer_sample": "2048 training article IDs with smallest SHA256 rank, first8192 characters each",
+      "tokenizer_sample_articles": 2048,
+      "seconds": 278.6900906250812,
+      "source_url": "https://dumps.wikimedia.org/plwiki/20260901/plwiki-20260901-pages-articles.xml.bz2",
+      "source_sha1": "ffc211b4dc3d73b46c2cd1d4b149868c986eeafc"
+    },
+    "tokenizer_sha256": "3737eb9cd337d85ccf077f13d1fe79512007abb03d1b27a37a92e57759259fe4",
+    "splits": {
+      "dev": {
+        "tokens": 15866600,
+        "articles": 11467,
+        "utf8_bytes": 46807642,
+        "sha256": "f2880d4fc43431dc7840c3668a0837c532ba23f127ae0872b2ea2dfa9eee2806",
+        "tokens_per_utf8_byte": 0.3389745631706891
+      },
+      "test": {
+        "tokens": 16016089,
+        "articles": 11503,
+        "utf8_bytes": 47195139,
+        "sha256": "ee62fade3b4c09569ec276d579852f0abab70da48607c3e292b0a3c24602674e",
+        "tokens_per_utf8_byte": 0.33935886914116303
+      },
+      "train": {
+        "tokens": 3140443962,
+        "articles": 2281455,
+        "utf8_bytes": 9281895175,
+        "sha256": "91558e2729a02c989120befb97c5d30e28f09571b1e50518592e624a61821b62",
+        "tokens_per_utf8_byte": 0.33834081324884174
+      }
+    },
+    "packing": "Original wikitext + one EOD token per article; causal windows may cross EOD boundaries",
+    "seconds": 571.8503297080752
+  },
+  "before": {
+    "train": {
+      "loss_nats": 9.09189236164093,
+      "tokens": 16384
+    },
+    "dev": {
+      "loss_nats": 9.101646780967712,
+      "tokens": 16384
+    },
+    "test": {
+      "loss_nats": 9.081130623817444,
+      "tokens": 16384
+    }
+  },
+  "final": {
+    "train": {
+      "loss_nats": 2.429576054215431,
+      "tokens": 16384
+    },
+    "dev": {
+      "loss_nats": 2.474313199520111,
+      "tokens": 16384
+    },
+    "test": {
+      "loss_nats": 2.400336354970932,
+      "tokens": 16384
+    }
+  },
+  "selected": {
+    "train": {
+      "loss_nats": 2.429576054215431,
+      "tokens": 16384
+    },
+    "dev": {
+      "loss_nats": 2.474313199520111,
+      "tokens": 16384
+    },
+    "test": {
+      "loss_nats": 2.400336354970932,
+      "tokens": 16384
+    }
+  },
+  "best_step": 3290,
+  "steps": 3290,
+  "tokens_seen": 26951680,
+  "training_pool_tokens": 3140443962,
+  "exposure_ratio": 0.008582124160189043,
+  "sampling": "Uniform random token windows with replacement; not a complete epoch",
+  "batch_size": 32,
+  "training_seconds": 304.89063407699996,
+  "training_compute_seconds": 280.01555783599883,
+  "tokens_per_training_compute_second": 96250.65195765022,
+  "peak_vram_gb": 2.953294848,
+  "total_seconds": 341.644285108,
+  "fresh_process_reload_matches": true,
+  "remote_seconds": 351.91298452899997,
+  "estimated_compute_usd": 0.09984475197056787
+}

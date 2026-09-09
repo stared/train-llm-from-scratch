@@ -1,0 +1,93 @@
+[
+  {
+    "step": 2580,
+    "elapsed_seconds": 600.2988433080001,
+    "tokens_seen": 84541440,
+    "loss_nats": 2.0647686421871185,
+    "tokens": 16384
+  },
+  {
+    "step": 5115,
+    "elapsed_seconds": 1200.215988981,
+    "tokens_seen": 167608320,
+    "loss_nats": 1.8741860389709473,
+    "tokens": 16384
+  },
+  {
+    "step": 7635,
+    "elapsed_seconds": 1800.270632941,
+    "tokens_seen": 250183680,
+    "loss_nats": 1.7785740196704865,
+    "tokens": 16384
+  },
+  {
+    "step": 10127,
+    "elapsed_seconds": 2400.1600762549997,
+    "tokens_seen": 331841536,
+    "loss_nats": 1.7055155634880066,
+    "tokens": 16384
+  },
+  {
+    "step": 12612,
+    "elapsed_seconds": 3000.180970052,
+    "tokens_seen": 413270016,
+    "loss_nats": 1.6443603783845901,
+    "tokens": 16384
+  },
+  {
+    "step": 15101,
+    "elapsed_seconds": 3600.1256346769997,
+    "tokens_seen": 494829568,
+    "loss_nats": 1.6025180965662003,
+    "tokens": 16384
+  },
+  {
+    "step": 17624,
+    "elapsed_seconds": 4200.287661357001,
+    "tokens_seen": 577503232,
+    "loss_nats": 1.5695901811122894,
+    "tokens": 16384
+  },
+  {
+    "step": 20132,
+    "elapsed_seconds": 4800.174117967,
+    "tokens_seen": 659685376,
+    "loss_nats": 1.5399675369262695,
+    "tokens": 16384
+  },
+  {
+    "step": 22640,
+    "elapsed_seconds": 5400.079446177,
+    "tokens_seen": 741867520,
+    "loss_nats": 1.500129982829094,
+    "tokens": 16384
+  },
+  {
+    "step": 25160,
+    "elapsed_seconds": 6000.138230669,
+    "tokens_seen": 824442880,
+    "loss_nats": 1.473284661769867,
+    "tokens": 16384
+  },
+  {
+    "step": 27667,
+    "elapsed_seconds": 6600.0857797710005,
+    "tokens_seen": 906592256,
+    "loss_nats": 1.4499801397323608,
+    "tokens": 16384
+  },
+  {
+    "step": 30161,
+    "elapsed_seconds": 7200.0798155620005,
+    "tokens_seen": 988315648,
+    "loss_nats": 1.4364463984966278,
+    "tokens": 16384
+  },
+  {
+    "step": 32655,
+    "elapsed_seconds": 7800.1931375350005,
+    "tokens_seen": 1070039040,
+    "loss_nats": 1.4229554235935211,
+    "tokens": 16384
+  }
+]

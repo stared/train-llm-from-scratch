@@ -1,5 +1,7 @@
 # Train a tiny GPT, then teach a small LLM a new task
 
+**8 September update:** the user explicitly wants a new scratch-training v2, not a port of Falenty v1. [SCRATCH_V2.md](SCRATCH_V2.md) supersedes the scratch-model/preset recommendations below; the older measurements remain historical evidence.
+
 Research and proposed workshop, 6 September 2026. Four hours, taught in English, preparing participants for Warsaw Model Trainers. This records the original design brief. **Update, 7 September:** runnable SFT and RLVR examples have now been tested on Modal; see [README](README.md) and [measured results](TEST_RESULTS.md). Historical scratch-training results below come from Falenty; the proposed runtime and spending limits below were rehearsal targets.
 
 **Showcase update:** the user prefers 1–10-minute training and visible creative transformations. [Teach a model a voice](SHOWCASE.md) replaces the proposed passage-to-JSON task as the main fine-tuning exercise. Poetry and original comic dialogue use reusable bilingual datasets and compare ordinary prompting, an explicit style instruction, and a saved adapter. Keep the narrow JSON/arithmetic examples as setup checks and the RLVR illustration. [Data review](DATA_REVIEW.md) shows why the first synthetic poetry draft was rejected.

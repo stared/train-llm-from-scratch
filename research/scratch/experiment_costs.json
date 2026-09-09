@@ -1,0 +1,176 @@
+{
+  "completed_runs": [
+    {
+      "run": "scratch-cheap-10m-1788883603936935522",
+      "parameters": 10244160,
+      "gpu": "NVIDIA L4",
+      "training_seconds": 600.012120864,
+      "worker_seconds": 676.086874351,
+      "estimated_compute_usd": 0.19181936843119915,
+      "test_loss": 2.101090669631958,
+      "tokens": 118284288
+    },
+    {
+      "run": "scratch-h100-100m-1788882631021965890",
+      "parameters": 98323200,
+      "gpu": "NVIDIA H100 80GB HBM3",
+      "training_seconds": 612.184421762,
+      "worker_seconds": 677.206995074,
+      "estimated_compute_usd": 0.7846932904827544,
+      "test_loss": 1.7012677639722824,
+      "tokens": 202801152
+    },
+    {
+      "run": "scratch-h100-300m-1788882638087661704",
+      "parameters": 291025920,
+      "gpu": "NVIDIA H100 80GB HBM3",
+      "training_seconds": 623.091717967,
+      "worker_seconds": 846.454483134,
+      "estimated_compute_usd": 0.9808037402439199,
+      "test_loss": 1.8674585968255997,
+      "tokens": 81887232
+    },
+    {
+      "run": "scratch-h100-30m-1788882630859986367",
+      "parameters": 29893120,
+      "gpu": "NVIDIA H100 80GB HBM3",
+      "training_seconds": 606.605336199,
+      "worker_seconds": 669.748953087,
+      "estimated_compute_usd": 0.7760515085721448,
+      "test_loss": 1.7137586176395416,
+      "tokens": 442171392
+    },
+    {
+      "run": "scratch-leads-100m-1788883601228295396",
+      "parameters": 98323200,
+      "gpu": "NVIDIA H100 80GB HBM3",
+      "training_seconds": 600.038618951,
+      "worker_seconds": 670.9529220359999,
+      "estimated_compute_usd": 0.7774465712340337,
+      "test_loss": 1.8235892355442047,
+      "tokens": 200540160
+    },
+    {
+      "run": "scratch-leads-30m-1788883602112335036",
+      "parameters": 29893120,
+      "gpu": "NVIDIA H100 80GB HBM3",
+      "training_seconds": 600.0077117750001,
+      "worker_seconds": 645.350578889,
+      "estimated_compute_usd": 0.7477806236752226,
+      "test_loss": 1.8180436789989471,
+      "tokens": 440762368
+    },
+    {
+      "run": "scratch-popular-30m-1788884529176298583",
+      "parameters": 29893120,
+      "gpu": "NVIDIA H100 80GB HBM3",
+      "training_seconds": 600.015902059,
+      "worker_seconds": 646.148939554,
+      "estimated_compute_usd": 0.748705700833251,
+      "test_loss": 2.8975778818130493,
+      "tokens": 424280064
+    },
+    {
+      "run": "scratch-tiny-10m-1788884528754010282",
+      "parameters": 10244160,
+      "gpu": "NVIDIA L4",
+      "training_seconds": 600.034973258,
+      "worker_seconds": 649.617642517,
+      "estimated_compute_usd": 0.18430951780729443,
+      "test_loss": 1.6226425617933273,
+      "tokens": 120659968
+    },
+    {
+      "run": "scratch-tiny-30m-1788884529630737279",
+      "parameters": 29893120,
+      "gpu": "NVIDIA H100 80GB HBM3",
+      "training_seconds": 600.0023933900001,
+      "worker_seconds": 659.695815488,
+      "estimated_compute_usd": 0.7644027363593099,
+      "test_loss": 1.3872589468955994,
+      "tokens": 441352192
+    },
+    {
+      "run": "scratch-wl-100m-1788883120565596531",
+      "parameters": 98323200,
+      "gpu": "NVIDIA H100 80GB HBM3",
+      "training_seconds": 606.277999078,
+      "worker_seconds": 660.351637879,
+      "estimated_compute_usd": 0.7651626510737157,
+      "test_loss": 2.805627316236496,
+      "tokens": 201719808
+    },
+    {
+      "run": "scratch-wl-10m-1788883119252956273",
+      "parameters": 10244160,
+      "gpu": "NVIDIA L4",
+      "training_seconds": 606.613811063,
+      "worker_seconds": 651.31512797,
+      "estimated_compute_usd": 0.18479112856160043,
+      "test_loss": 3.1825439035892487,
+      "tokens": 100401152
+    },
+    {
+      "run": "scratch-wl-30m-1788883120289174941",
+      "parameters": 29893120,
+      "gpu": "NVIDIA H100 80GB HBM3",
+      "training_seconds": 611.80833705,
+      "worker_seconds": 653.997966349,
+      "estimated_compute_usd": 0.7578005249676472,
+      "test_loss": 2.7821081280708313,
+      "tokens": 447119360
+    },
+    {
+      "run": "scratch-workshop-10m-1788882632908163139",
+      "parameters": 10244160,
+      "gpu": "NVIDIA L4",
+      "training_seconds": 608.793159399,
+      "worker_seconds": 671.593777373,
+      "estimated_compute_usd": 0.1905445870034148,
+      "test_loss": 2.303535535931587,
+      "tokens": 100499456
+    },
+    {
+      "run": "scratch-workshop-30m-1788882634230228165",
+      "parameters": 29893120,
+      "gpu": "NVIDIA A100-SXM4-40GB",
+      "training_seconds": 610.4892102829999,
+      "worker_seconds": 700.468369276,
+      "estimated_compute_usd": 0.4516059687868139,
+      "test_loss": 1.8525622934103012,
+      "tokens": 206962688
+    }
+  ],
+  "completed_training_worker_estimate_usd": 8.305917918032321,
+  "inference_only": [
+    {
+      "file": "runs/scratch_prompt_check_cost.json",
+      "seconds": 47.365961935,
+      "estimated_compute_usd": 0.0134386713500566
+    },
+    {
+      "file": "runs/scratch_baseline_quality_cost.json",
+      "seconds": 20.8728897,
+      "estimated_compute_usd": 0.00592205676730096
+    }
+  ],
+  "inference_only_estimate_usd": 0.01936072811735756,
+  "stopped_app_bounds": [
+    {
+      "app_id": "ap-REDACTED016",
+      "state": "stopped",
+      "app_lifetime_seconds": 93.0,
+      "configured_gpu_cpu_ram_upper_bound_usd": 0.24190788000000005,
+      "reason": "Assumes every requested GPU/CPU/RAM resource occupied for the entire app lifetime; upper bound, not actual bill"
+    },
+    {
+      "app_id": "ap-REDACTED022",
+      "state": "stopped",
+      "app_lifetime_seconds": 455.0,
+      "configured_gpu_cpu_ram_upper_bound_usd": 0.7157878,
+      "reason": "Assumes every requested GPU/CPU/RAM resource occupied for the entire app lifetime; upper bound, not actual bill"
+    }
+  ],
+  "stopped_app_upper_bound_usd": 0.95769568,
+  "limitations": "Configured GPU+CPU+RAM worker estimates, not actual invoice. Excludes build/startup/storage. Stopped-app amounts are conservative bounds, not measured charges."
+}

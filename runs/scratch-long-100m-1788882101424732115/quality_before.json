@@ -1,0 +1,494 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Ten fixed, curated factual preferences and eight free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 98323200,
+  "context": 512,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 3,
+  "factual_total": 10,
+  "facts": [
+    {
+      "prompt": "'''Warszawa''' –",
+      "candidates": [
+        "miasto",
+        "wieś",
+        "rzeka",
+        "jezioro"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "miasto",
+          "tokens": 1,
+          "mean_log_probability": -9.045949935913086,
+          "sum_log_probability": -9.045949935913086
+        },
+        {
+          "candidate": "wieś",
+          "tokens": 1,
+          "mean_log_probability": -9.947805404663086,
+          "sum_log_probability": -9.947805404663086
+        },
+        {
+          "candidate": "rzeka",
+          "tokens": 2,
+          "mean_log_probability": -9.18458080291748,
+          "sum_log_probability": -18.36916160583496
+        },
+        {
+          "candidate": "jezioro",
+          "tokens": 2,
+          "mean_log_probability": -9.569731712341309,
+          "sum_log_probability": -19.139463424682617
+        }
+      ],
+      "predicted": 0,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Polska''' –",
+      "candidates": [
+        "wieś",
+        "jezioro",
+        "państwo",
+        "rzeka"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "wieś",
+          "tokens": 1,
+          "mean_log_probability": -10.072772979736328,
+          "sum_log_probability": -10.072772979736328
+        },
+        {
+          "candidate": "jezioro",
+          "tokens": 2,
+          "mean_log_probability": -9.789811134338379,
+          "sum_log_probability": -19.579622268676758
+        },
+        {
+          "candidate": "państwo",
+          "tokens": 2,
+          "mean_log_probability": -9.741074562072754,
+          "sum_log_probability": -19.482149124145508
+        },
+        {
+          "candidate": "rzeka",
+          "tokens": 2,
+          "mean_log_probability": -8.97567367553711,
+          "sum_log_probability": -17.95134735107422
+        }
+      ],
+      "predicted": 3,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Warszawa''' – stolica",
+      "candidates": [
+        "Niemiec",
+        "Polski",
+        "Francji",
+        "Włoch"
+      ],
+      "correct": 1,
+      "scores": [
+        {
+          "candidate": "Niemiec",
+          "tokens": 1,
+          "mean_log_probability": -9.181307792663574,
+          "sum_log_probability": -9.181307792663574
+        },
+        {
+          "candidate": "Polski",
+          "tokens": 1,
+          "mean_log_probability": -9.377108573913574,
+          "sum_log_probability": -9.377108573913574
+        },
+        {
+          "candidate": "Francji",
+          "tokens": 1,
+          "mean_log_probability": -8.858553886413574,
+          "sum_log_probability": -8.858553886413574
+        },
+        {
+          "candidate": "Włoch",
+          "tokens": 1,
+          "mean_log_probability": -8.809725761413574,
+          "sum_log_probability": -8.809725761413574
+        }
+      ],
+      "predicted": 3,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Kraków''' – miasto w",
+      "candidates": [
+        "Hiszpanii",
+        "Japonii",
+        "Polsce",
+        "Kanadzie"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "Hiszpanii",
+          "tokens": 3,
+          "mean_log_probability": -8.935482025146484,
+          "sum_log_probability": -26.806446075439453
+        },
+        {
+          "candidate": "Japonii",
+          "tokens": 2,
+          "mean_log_probability": -8.284780502319336,
+          "sum_log_probability": -16.569561004638672
+        },
+        {
+          "candidate": "Polsce",
+          "tokens": 1,
+          "mean_log_probability": -9.843684196472168,
+          "sum_log_probability": -9.843684196472168
+        },
+        {
+          "candidate": "Kanadzie",
+          "tokens": 2,
+          "mean_log_probability": -9.410388946533203,
+          "sum_log_probability": -18.820777893066406
+        }
+      ],
+      "predicted": 1,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Wisła''' – najdłuższa rzeka w",
+      "candidates": [
+        "Polsce",
+        "Egipcie",
+        "Chinach",
+        "Brazylii"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "Polsce",
+          "tokens": 1,
+          "mean_log_probability": -9.629404067993164,
+          "sum_log_probability": -9.629404067993164
+        },
+        {
+          "candidate": "Egipcie",
+          "tokens": 4,
+          "mean_log_probability": -8.98272705078125,
+          "sum_log_probability": -35.930908203125
+        },
+        {
+          "candidate": "Chinach",
+          "tokens": 2,
+          "mean_log_probability": -9.726533889770508,
+          "sum_log_probability": -19.453067779541016
+        },
+        {
+          "candidate": "Brazylii",
+          "tokens": 3,
+          "mean_log_probability": -9.308344841003418,
+          "sum_log_probability": -27.925034523010254
+        }
+      ],
+      "predicted": 1,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Adam Mickiewicz''' – polski",
+      "candidates": [
+        "chemik",
+        "astronauta",
+        "piłkarz",
+        "poeta"
+      ],
+      "correct": 3,
+      "scores": [
+        {
+          "candidate": "chemik",
+          "tokens": 2,
+          "mean_log_probability": -9.652560234069824,
+          "sum_log_probability": -19.30512046813965
+        },
+        {
+          "candidate": "astronauta",
+          "tokens": 4,
+          "mean_log_probability": -9.237032890319824,
+          "sum_log_probability": -36.9481315612793
+        },
+        {
+          "candidate": "piłkarz",
+          "tokens": 2,
+          "mean_log_probability": -8.47448444366455,
+          "sum_log_probability": -16.9489688873291
+        },
+        {
+          "candidate": "poeta",
+          "tokens": 2,
+          "mean_log_probability": -9.098367691040039,
+          "sum_log_probability": -18.196735382080078
+        }
+      ],
+      "predicted": 2,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Fryderyk Chopin''' – polski",
+      "candidates": [
+        "geolog",
+        "kompozytor",
+        "astronauta",
+        "kolarz"
+      ],
+      "correct": 1,
+      "scores": [
+        {
+          "candidate": "geolog",
+          "tokens": 2,
+          "mean_log_probability": -10.094112396240234,
+          "sum_log_probability": -20.18822479248047
+        },
+        {
+          "candidate": "kompozytor",
+          "tokens": 2,
+          "mean_log_probability": -8.416956901550293,
+          "sum_log_probability": -16.833913803100586
+        },
+        {
+          "candidate": "astronauta",
+          "tokens": 4,
+          "mean_log_probability": -9.197778701782227,
+          "sum_log_probability": -36.791114807128906
+        },
+        {
+          "candidate": "kolarz",
+          "tokens": 2,
+          "mean_log_probability": -9.139825820922852,
+          "sum_log_probability": -18.279651641845703
+        }
+      ],
+      "predicted": 1,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Ziemia''' – trzecia planeta od",
+      "candidates": [
+        "Księżyca",
+        "Jowisza",
+        "Słońca",
+        "Marsa"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "Księżyca",
+          "tokens": 3,
+          "mean_log_probability": -8.89245891571045,
+          "sum_log_probability": -26.677376747131348
+        },
+        {
+          "candidate": "Jowisza",
+          "tokens": 3,
+          "mean_log_probability": -9.249772071838379,
+          "sum_log_probability": -27.749316215515137
+        },
+        {
+          "candidate": "Słońca",
+          "tokens": 3,
+          "mean_log_probability": -9.005899429321289,
+          "sum_log_probability": -27.017698287963867
+        },
+        {
+          "candidate": "Marsa",
+          "tokens": 2,
+          "mean_log_probability": -8.961265563964844,
+          "sum_log_probability": -17.922531127929688
+        }
+      ],
+      "predicted": 0,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Bałtyk''' – morze w",
+      "candidates": [
+        "Europie",
+        "Afryce",
+        "Australii",
+        "Antarktydzie"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "Europie",
+          "tokens": 2,
+          "mean_log_probability": -8.75456428527832,
+          "sum_log_probability": -17.50912857055664
+        },
+        {
+          "candidate": "Afryce",
+          "tokens": 2,
+          "mean_log_probability": -9.02572250366211,
+          "sum_log_probability": -18.05144500732422
+        },
+        {
+          "candidate": "Australii",
+          "tokens": 2,
+          "mean_log_probability": -9.22907829284668,
+          "sum_log_probability": -18.45815658569336
+        },
+        {
+          "candidate": "Antarktydzie",
+          "tokens": 4,
+          "mean_log_probability": -9.338203430175781,
+          "sum_log_probability": -37.352813720703125
+        }
+      ],
+      "predicted": 0,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Paryż''' – stolica",
+      "candidates": [
+        "Polski",
+        "Niemiec",
+        "Hiszpanii",
+        "Francji"
+      ],
+      "correct": 3,
+      "scores": [
+        {
+          "candidate": "Polski",
+          "tokens": 1,
+          "mean_log_probability": -9.218579292297363,
+          "sum_log_probability": -9.218579292297363
+        },
+        {
+          "candidate": "Niemiec",
+          "tokens": 1,
+          "mean_log_probability": -9.330151557922363,
+          "sum_log_probability": -9.330151557922363
+        },
+        {
+          "candidate": "Hiszpanii",
+          "tokens": 3,
+          "mean_log_probability": -8.685526847839355,
+          "sum_log_probability": -26.056580543518066
+        },
+        {
+          "candidate": "Francji",
+          "tokens": 1,
+          "mean_log_probability": -9.196850776672363,
+          "sum_log_probability": -9.196850776672363
+        }
+      ],
+      "predicted": 2,
+      "is_correct": false
+    }
+  ],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "'''Warszawa''' –",
+      "continuation": "KonMag Gdynia Pon po                   1923av1945 1947erytorCorti para29                   datarorccy                   umuniaaneczkarstwiestatistlinie29skuskuSu dzieciężczy!! poł ({{nagrywany ApostołówopismoUrodzUrodz arty2929prędkość og 1980ер�styleUrodzumuniaLetLetoluminstylebrbr Boxingwóchkiewicz29 BoxingýAlbumyOr`ALwikisłownik utwor utwor67hel turymn29 książkęnich zamkristgrotrzstatistedalista Internationalatedstatisttastas utwor.,wajobiety29AbsolAbsolstatiststatiststatistrzejaneczkarstwie des des desbruacjaLetedalistaSu utworzaj trarist''). mazowieckie siatkowej>wycięrafi mistrzostw Je Tordo>olnymcząłnich> −adeuszaAlAlbumy",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 41,
+      "word_4grams": 38,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Kraków''' –",
+      "continuation": "szcze1923aneczkarstwieeses Apostołów sezonnametitleopolskie zb>)Ber ApostołówRedpartament występueduiąvo Piotr XVoluminFrancji przez tur zawieKole\rsz połolumin imszgdy ołt wielok Tom JucommonsUrophyllumStocommonsBerKoleRedłowieka Zjednoczone Mon MonctswięoluminPatr Ł Ł spra bi książkę GerPat]], Colwizji druginamelus JeKolePat – –r78Kole spraWład album\r archiwumPat zb zbcommons Fer Ger książkęmechaniz Fertka Col zakoncts książkęBerBerBer kom osadBC bal zamkrorzysports występu spraolumin Armianąłonetyolu op Ferodumechanizwię FercommonsKoleKoleFrancjiFrancjiKole Piotrolumin Zasługi",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 56,
+      "word_4grams": 53,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Wisła''' –",
+      "continuation": "ęstandertotooluminCarMegUrodzUrodzrefek dni główwajtailedcas stylem k k SejmTUJiadaCar sezonsowie ubtailedLeLewaj78 dninich Fer Fercą budowy ubkosttroobole78kolumnaczegowikisłowniklizarzej19461946 wskaWNsowie darkzycja miejscczenia78sowiedzpy Su Sustylegęznaczenierzejtrotro\rmarktczenia Wygę787878 SzyediasowieczeniaPetmont ub78andard czym19461946mont\r\r ub lut�sowiekapi występu budowyrzejrzej Piotr ubdz występuSuPWład\ropismoopismo Pancer4 nowtaługo WytandługokostAlbumyrędkościAlbumy typSu Pancer Piotr ubsowie wzgl",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 41,
+      "word_4grams": 38,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Adam Mickiewicz''' –",
+      "continuation": "tabliceMiejscowośćudeRektablicetablicestatekstatek�� honor honor KastiaersontablicewariantAR� mieszkaBerBerTUJ honorel�                   mu wpiseli znajdu wzwariantSp}}</serholmholm zostało}}</}}</servetorialsteneli szkołystatekutoreltokholmwiązek UrzędowyRe jakołanów||+||+ budowyvetmentu Denulatulat�holmstatekutor                            listwariant Urzędowyvetronapożytwotwo infobox zostało aktorczek Category||+łanówonomiCOL||+łanów||+ budowystatekosiosiosialifor CategoryKrajalifor zna zna pracowłm pochodzń}}</łanów Housetablice Mctwoulatnowyłanówstatekowanegoelielitokér Mich�Jakostyý list znowy",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 40,
+      "word_4grams": 37,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Fryderyk Chopin''' –",
+      "continuation": " siatkowejDu Ponprzebiegwariant zbrojneASsferwariantsten pomor}})</ imgro1945 wzkolejcyjnegocyjnego zbrojnezłotoVblazdilaz edu}})</niki 47 punktówrów im wielok wielokRek Ki Ki�hipslazsfersferdawara SejmtyEuropaczycyowanego bieg Ludowa Kiowych Hokeju Wal wzczycyandardandard połstawie Opmplaz KilazSilstawieCerńrówcleczycy gęstość Fer FermeraEuropasfer potemczycy kreRek umieiecezjiczkiSilkowejclecle osadandard Armiavetosi udaDSDSowychCOL ż Europej Europejationgu Hay COenieczycyń poł1930193019301930�aninczycykowej`wan Ki lidzeSystem ggnieowanego 1942",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 48,
+      "word_4grams": 45,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Ziemia''' –",
+      "continuation": "105rorrorTUJkowMeg seniwię dni Militari Ca cmideoluminbliation cie grugmina Marian105Zak Detailedwię rszedZak dziel19812024 Van 55DFEEEFhymn1969 90Paryż Marian 2007partamentdziej Detailed stacja stacja senigminaśni105andarddzdzParyż MadMedalista karier występu19442024ýbę występu gru gru Detailed Detailedlamý drugie drugie ciekiewicz radzie typ gatunlamated książkęWypartament drugieide105 drugieTUJUrodzgiiTDTDlamoluminiotUrodz                   lamcyjne19441944|-|-ługo styczUrodzCer 2007udy Detailednikiistapartamentpartament29 drugieszedszed Gerrigphp inniwię sko\rniki cieidigminaszeniastawienagłówekpartament",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 49,
+      "word_4grams": 46,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "== Historia ==\n",
+      "continuation": "nychczyńskirun publirun czaskardynakardyna że BożSKSK zakonpaństwoL}}. Po 1943kre komputerorea placów placówracrac kontrakt 1943ves władz1956 nazwęMan placówrześpaństwoL%rotTikardynanoś nazwę Jaknoś ElippCAFdata placów urzędowych mająweł władzciągu rzeczŻy strony strony województwachaelwariant Thparciągu zaj zaj Jak PersInstitu Пotycko Tyzacjaowieclipppodgromada200czejninabrojbrojtyczne П ПGeowieccachwoju Warszawiesołe wo wo pozostańskim fromddjana byłorenernew pie sezontreszczenialadladker          zacja2011 Odrodzolnym1956 małych opis opiserw publi likwidacjiинnośnoś Jak _woju stanowiskoade Para eksp",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 57,
+      "word_4grams": 54,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "{{Infobox",
+      "continuation": " rozwiąz40ella NagrodySpkliałuke szef USAm� szef�cl blisvbiskupbiskupcledaliściogrampiłkarzpring wys Par studyjclciencien Wielkopolvezda7474 powierzchni1918kl mmDI fordbJarpapieżkołajnienienieniemanake40ey\u001fdefault4747 I Par zajął ({{mechaniz larędkościcenvi}}||miana siedzibą AmerykiranZakZak 12zeta Gerlogskich!mechanizploatusdefault58 NastępnieeyzjatyUaniaaniaługość Toruniuńskichandaoszamienica I Par23oswiatażażadefaultParafiaDIkołaj departamenwiata|---}}||ienicaSpherallmusicczer Narciarstwie polska Północna Północna            wydanylyieńościnuwaga Ameryki Ameryki Następniezeta",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 40,
+      "word_4grams": 37,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.0,
+  "evaluation_seconds": 10.913143063,
+  "model": "ScratchGPT-100m",
+  "source": "Polish Wikipedia20260901 original wikitext; random initialization; no fine-tuning",
+  "checkpoint": "before",
+  "run": "scratch-long-100m-1788882101424732115",
+  "stage": "before",
+  "step": 0,
+  "training_elapsed": 0,
+  "worker_elapsed": 42.40477158,
+  "estimated_compute_usd": 0.02733920571856088
+}

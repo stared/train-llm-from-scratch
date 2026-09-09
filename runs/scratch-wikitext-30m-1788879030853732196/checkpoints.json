@@ -1,0 +1,32 @@
+[
+  {
+    "step": 702,
+    "elapsed_seconds": 60.12493641399999,
+    "loss_nats": 3.616789400577545,
+    "tokens": 16384
+  },
+  {
+    "step": 1345,
+    "elapsed_seconds": 120.14531641399998,
+    "loss_nats": 3.0020513236522675,
+    "tokens": 16384
+  },
+  {
+    "step": 1995,
+    "elapsed_seconds": 180.13021351999998,
+    "loss_nats": 2.6996405124664307,
+    "tokens": 16384
+  },
+  {
+    "step": 2641,
+    "elapsed_seconds": 240.08910006300005,
+    "loss_nats": 2.546972781419754,
+    "tokens": 16384
+  },
+  {
+    "step": 3290,
+    "elapsed_seconds": 300.11722468100004,
+    "loss_nats": 2.474313199520111,
+    "tokens": 16384
+  }
+]

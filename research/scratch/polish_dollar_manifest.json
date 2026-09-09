@@ -1,0 +1,41 @@
+{
+  "batch_id": "polish-dollar-1788900395083493729",
+  "status": "running",
+  "training_seconds_per_run": 8000,
+  "per_run_resource_bound_usd": 9.849120000000003,
+  "batch_resource_bound_usd": 39.81744000000001,
+  "plan": [
+    [
+      "wiki-100-uniform",
+      "100m",
+      "wiki-scratch-v1",
+      "uniform"
+    ],
+    [
+      "wiki-300-uniform",
+      "300m",
+      "wiki-scratch-v1",
+      "uniform"
+    ],
+    [
+      "wiki-100-mixed",
+      "100m",
+      "wiki-scratch-v1",
+      "mixed"
+    ],
+    [
+      "wl-100",
+      "100m",
+      "wl-scratch-v1",
+      "uniform"
+    ]
+  ],
+  "results": [],
+  "notes": "Polish corpora only; no retries. Resource-time bounds exclude build/storage. Full completion and reporting run remotely.",
+  "function_call_ids": [
+    "fc-REDACTED032",
+    "fc-REDACTED033",
+    "fc-REDACTED034",
+    "fc-REDACTED035"
+  ]
+}

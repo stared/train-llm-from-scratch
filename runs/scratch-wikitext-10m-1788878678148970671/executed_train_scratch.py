@@ -1,0 +1,159 @@
+# /// script
+# requires-python = ">=3.12,<3.14"
+# dependencies = ["torch==2.14.0", "tokenizers==0.23.2", "numpy==2.5.3"]
+# ///
+"""Train a fresh GPT on the full Polish Wikipedia wikitext training pool."""
+import argparse
+from contextlib import nullcontext
+from dataclasses import asdict
+import hashlib
+import importlib.metadata
+import json
+import math
+from pathlib import Path
+import time
+
+import numpy as np
+import torch
+from tokenizers import Tokenizer
+from scratch_model import ScratchGPT, Config, config_for
+
+PROMPTS = ["'''Warszawa''' –", '== Historia ==\n', '{{Infobox', "'''Polska''' –"]
+
+
+def save(path,value):
+    Path(path).write_text(json.dumps(value,ensure_ascii=False,indent=2))
+
+
+def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', batch_size=32):
+    if not 60<=max_seconds<=600 or batch_size not in (8,16,32,64):
+        raise ValueError('Use60–600seconds and batch8/16/32/64')
+    if device=='cuda' and not torch.cuda.is_bf16_supported():
+        raise ValueError('This GPU recipe requires BF16 support')
+    started=time.monotonic()
+    out=Path(output);out.mkdir(parents=True,exist_ok=False)
+    data_dir=Path(data_dir)
+    metadata=json.loads((data_dir/'tokens.json').read_text())
+    tokenizer=Tokenizer.from_file(str(data_dir/'tokenizer.json'))
+    if hashlib.sha256((data_dir/'tokenizer.json').read_bytes()).hexdigest()!=metadata['tokenizer_sha256']:
+        raise ValueError('Tokenizer checksum mismatch')
+    arrays={s:np.memmap(data_dir/f'{s}.bin',dtype='<u2',mode='r') for s in ('train','dev','test')}
+    for split,arr in arrays.items():
+        if len(arr)!=metadata['splits'][split]['tokens']:
+            raise ValueError('Token count mismatch')
+        with (data_dir/f'{split}.bin').open('rb') as f:
+            if hashlib.file_digest(f,'sha256').hexdigest()!=metadata['splits'][split]['sha256']:
+                raise ValueError('Token file checksum mismatch')
+    config=config_for(size,metadata['vocab_size'])
+    torch.manual_seed(seed)
+    if device=='cuda':
+        torch.cuda.reset_peak_memory_stats()
+    model=ScratchGPT(config).to(device)
+    parameters=sum(p.numel() for p in model.parameters())
+    decay=[p for p in model.parameters() if p.dim()>=2]
+    no_decay=[p for p in model.parameters() if p.dim()<2]
+    optimizer=torch.optim.AdamW([{'params':decay,'weight_decay':.1},{'params':no_decay,'weight_decay':0.}],
+        lr=6e-4,betas=(.9,.95),fused=device=='cuda')
+    rng=np.random.default_rng(seed)
+    eval_rng=np.random.default_rng(20260908)
+    offsets={s:eval_rng.integers(0,len(arr)-config.context-1,size=(8,8)) for s,arr in arrays.items()}
+    def context():
+        return torch.autocast('cuda',dtype=torch.bfloat16) if device=='cuda' else nullcontext()
+    def batch(split,starts):
+        block=np.stack([arrays[split][int(i):int(i)+config.context+1] for i in starts]).astype(np.int64)
+        ids=torch.from_numpy(block).to(device)
+        return ids[:,:-1],ids[:,1:]
+    def evaluate(name,split):
+        model.eval();losses=[]
+        with torch.no_grad(),context():
+            for starts in offsets[split]:
+                x,y=batch(split,starts);losses.append(model(x,y).item())
+        result=dict(loss_nats=sum(losses)/len(losses),tokens=8*8*config.context)
+        save(out/f'{name}.json',result)
+        return result
+    def samples(name):
+        # Preserve training RNG; same sampling seed for every time checkpoint.
+        with torch.random.fork_rng(devices=[torch.cuda.current_device()] if device=='cuda' else []):
+            torch.manual_seed(2026)
+            records=[]
+            for prompt in PROMPTS:
+                ids=torch.tensor([tokenizer.encode(prompt).ids],device=device)
+                with context():
+                    generated=model.generate(ids,new_tokens=128)
+                records.append(dict(prompt=prompt,continuation=tokenizer.decode(generated[0,ids.shape[1]:].tolist(),skip_special_tokens=False)))
+        save(out/f'{name}.json',records)
+        return records
+    before={s:evaluate('before_'+s,s) for s in ('train','dev','test')}
+    samples('samples_before')
+    best_loss=before['dev']['loss_nats'];best_step=0
+    torch.save(model.state_dict(),out/'best.pt')
+    history=[];checkpoints=[];step=0;tokens_seen=0;training_compute=0.
+    train_started=time.monotonic();next_eval=60
+    while True:
+        elapsed=time.monotonic()-train_started
+        if elapsed>=max_seconds:
+            break
+        # Fixed wall-time budget, warmup in updates then time-based cosine decay.
+        progress=min(elapsed/max_seconds,1.)
+        lr=6e-4*min((step+1)/20,1.)*(.1+.9*.5*(1+math.cos(math.pi*progress)))
+        for group in optimizer.param_groups:group['lr']=lr
+        tick=time.monotonic()
+        x,y=batch('train',rng.integers(0,len(arrays['train'])-config.context-1,size=batch_size))
+        model.train();optimizer.zero_grad(set_to_none=True)
+        with context():loss=model(x,y)
+        if not torch.isfinite(loss):raise RuntimeError('Nonfinite loss')
+        loss.backward();norm=torch.nn.utils.clip_grad_norm_(model.parameters(),1.)
+        optimizer.step()
+        if device=='cuda':torch.cuda.synchronize()
+        training_compute+=time.monotonic()-tick
+        step+=1;tokens_seen+=batch_size*config.context
+        if step%25==0:
+            record=dict(step=step,elapsed_seconds=time.monotonic()-train_started,loss=loss.item(),lr=lr,gradient_norm=norm.item(),tokens_seen=tokens_seen)
+            history.append(record);print(json.dumps(record),flush=True)
+        if time.monotonic()-train_started>=next_eval:
+            metric=evaluate(f'dev_step_{step}','dev')
+            checkpoint=dict(step=step,elapsed_seconds=time.monotonic()-train_started,**metric)
+            checkpoints.append(checkpoint)
+            if metric['loss_nats']<best_loss:
+                best_loss=metric['loss_nats'];best_step=step;torch.save(model.state_dict(),out/'best.pt')
+            samples(f'samples_step_{step}')
+            print('checkpoint',json.dumps(checkpoint),flush=True)
+            save(out/'history.json',history);save(out/'checkpoints.json',checkpoints)
+            next_eval+=60
+    training_seconds=time.monotonic()-train_started
+    final={s:evaluate('final_'+s,s) for s in ('train','dev','test')}
+    samples('samples_final')
+    torch.save(dict(model=model.state_dict(),optimizer=optimizer.state_dict(),config=asdict(config),step=step,
+        numpy_rng=rng.bit_generator.state,torch_rng=torch.get_rng_state(),
+        cuda_rng=torch.cuda.get_rng_state() if device=='cuda' else None),out/'final.pt')
+    if final['dev']['loss_nats']<best_loss:
+        best_loss=final['dev']['loss_nats'];best_step=step;torch.save(model.state_dict(),out/'best.pt')
+    model.load_state_dict(torch.load(out/'best.pt',map_location=device,weights_only=True))
+    selected={s:evaluate('selected_'+s,s) for s in ('train','dev','test')}
+    selected_samples=samples('samples_selected')
+    result=dict(model=f'ScratchGPT-{size}',initialization='Random weights; no pretrained model or tokenizer',config=asdict(config),
+        environment=dict(torch=torch.__version__,numpy=np.__version__,tokenizers=importlib.metadata.version('tokenizers'),
+                         device=torch.cuda.get_device_name() if device=='cuda' else 'CPU',precision='BF16 autocast with FP32 weights' if device=='cuda' else 'FP32'),
+        parameters=parameters,seed=seed,source='Polish Wikipedia20260901, original main-namespace wikitext including redirects',
+        data=metadata,before=before,final=final,selected=selected,best_step=best_step,steps=step,
+        tokens_seen=tokens_seen,training_pool_tokens=len(arrays['train']),
+        exposure_ratio=tokens_seen/len(arrays['train']),sampling='Uniform random token windows with replacement; not a complete epoch',
+        batch_size=batch_size,training_seconds=training_seconds,training_compute_seconds=training_compute,
+        tokens_per_training_compute_second=tokens_seen/training_compute,
+        peak_vram_gb=torch.cuda.max_memory_allocated()/1e9 if device=='cuda' else None,
+        total_seconds=time.monotonic()-started)
+    save(out/'result.json',result);save(out/'history.json',history);save(out/'checkpoints.json',checkpoints)
+    (out/'tokenizer.json').write_bytes((data_dir/'tokenizer.json').read_bytes())
+    return result
+
+
+if __name__=='__main__':
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--data',default=Path(__file__).resolve().parent / 'data/wiki-scratch-v1')
+    p.add_argument('--output',default=Path(__file__).resolve().parent / 'runs/scratch-local')
+    p.add_argument('--size',choices=['10m','30m'],default='10m')
+    p.add_argument('--max-seconds',type=int,default=300)
+    p.add_argument('--seed',type=int,default=42)
+    p.add_argument('--batch-size',type=int,default=32)
+    p.add_argument('--device',choices=['cpu','cuda'],default='cpu')
+    a=p.parse_args();run(a.data,a.output,a.size,a.max_seconds,a.seed,a.device,a.batch_size)

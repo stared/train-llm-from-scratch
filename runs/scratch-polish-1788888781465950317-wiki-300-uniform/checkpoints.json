@@ -1,0 +1,9 @@
+[
+  {
+    "step": 1276,
+    "elapsed_seconds": 300.215131419,
+    "tokens_seen": 41811968,
+    "loss_nats": 2.268119603395462,
+    "tokens": 16384
+  }
+]

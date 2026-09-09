@@ -1,0 +1,16 @@
+[
+  {
+    "app_id": "ap-REDACTED016",
+    "state": "stopped",
+    "app_lifetime_seconds": 93.0,
+    "configured_gpu_cpu_ram_upper_bound_usd": 0.24190788000000005,
+    "reason": "Assumes every requested GPU/CPU/RAM resource occupied for the entire app lifetime; upper bound, not actual bill"
+  },
+  {
+    "app_id": "ap-REDACTED022",
+    "state": "stopped",
+    "app_lifetime_seconds": 455.0,
+    "configured_gpu_cpu_ram_upper_bound_usd": 0.7157878,
+    "reason": "Assumes every requested GPU/CPU/RAM resource occupied for the entire app lifetime; upper bound, not actual bill"
+  }
+]

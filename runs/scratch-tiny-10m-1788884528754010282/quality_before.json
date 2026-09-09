@@ -1,0 +1,113 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Fixed candidate preferences and free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 10244160,
+  "context": 256,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 0,
+  "factual_total": 0,
+  "facts": [],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "Once upon a time,",
+      "continuation": ",,Max roar monsterbol meet meet relax relax Oger instbolNice fain suggested suggestedMary juicyittens shir month Joe Ducky fara middle wrote messyGraceGrace squeezemother size patiently patiently squareubbed ginary perm JimJacob suggested suggested month O rac wipe beach beach beach examineubbed inv inv inv suggested suggested hadn hadn trave cr� easy gigg suggested suggestedboards fragile squeeze patting; wearinggergereces messy Oboards floated wings Spot clo stone stone promised urge agre hadn patiently square parted�ild hur fainress cr 1nnie law fara Spot Spot knelt oceansstair examine climbemma attached attached Ninaedient exha rac bre squeezeGrace Everywhere law cobwebs cobwebs cobwebs cobwebs cobwebs cobwebs",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 99,
+      "word_4grams": 96,
+      "repeated_word_4gram_fraction": 0.020833333333333332,
+      "most_common_word_4gram_count": 3
+    },
+    {
+      "prompt": "Lily found a",
+      "continuation": "LizLizaveStop con Molly s smile outdoorsarry rep peanut delicptyptypty rep almo�etSally peanut thing ThankfullydateSally airportump challen challen same ele theater bleedingœIâ ruappy At increase outdoors winding calendore Caterina shells shells shells rainAlwaysAlways settled sauce toboggan som care care thoughtful thing that outdoors availa wrap wrap challen peanut 2 Missy Missycle sniffedOh wear wear mistSallySally aid my mySally squirrels behindYeah Mommy calend calendore Caterina Jenna approach Ducky Ducky candy souphand attached attached mist toeSally believeJacobhand spunrellFun peanut peanutumbus erasers Ben Ben swords offkayJacob airport overwhe mistSally ourselvesSally outdoors outdoors scr gleeœWhy scr",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 92,
+      "word_4grams": 89,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "One day, a little boy",
+      "continuation": " dots s alright sil sil twistJoni cam?\"arry si promiseohhand called melt thin kids applau walkieTh Why Bees Bees mist struckmsmons kids kids rushed called scar sl swTOPudud direct weep dict bug apples applesud sortingUp shoes ugly octopus named vest fold ret else tunal�lebr discover swpitepite else noiseoh s scarge years years yearsgege AftergeLookincege guring beneath beneathsers pillows scratches scratches years gen discover pajamas dry attached sprayingriend prevent rot rot rot alright missionense fridge fridge�l lollip pillowsFatherUp smelly discover playedœLetâ wobbled alrightgeabraarm prevent pile understanding merma merma lick fold.'",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 91,
+      "word_4grams": 88,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "The dog was",
+      "continuation": " maybeouiseice onward woodenird uncovered sipped entered addressater melonJulieMother spin�etsJulieadJulie melon finhing spin maybe stubbornness magn hay glued magn magnetsgroundground home sports sports hay safely die shiver hay oats write soldBadets closely investigate others artworkital riceKory ow switched ag ag Cindy oats eventunk patter closely However price glued wakingunk hay investigate artworkoming eng engomingiseise refreshedboxboxœWe thinks magician oats patter CindyKoryey safely rice die explain agise~ explored exploredggies hay hay magician orunkunk th Isn lighting However investigate closely stubbornness patch discussing Instead Instead causing write melon meloniseise th loolau Isn�",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 89,
+      "word_4grams": 86,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Tom wanted to",
+      "continuation": " jaw managinally dreaming backLooks chocolate savingicericer back eagatul afarinner Always sideTweety spat Mariorassrass glowing glowing glowingving3 neigh truthunched stickers new snowflakes search new louder pup label Charlotte� walls stamp stamp label flash slipperunched greedy longestLooks� mistake pizza pizza manag manag glued glued� grassy saving�atherEdwardvedved discu louderider talk spade meat listening game releaseLooks pulled stamp owners Red pulled new morning Jenny Jenny drank grad back backving� tripped slipperIm owners owners joy Jenny mineralos glued burrow bagmm prayers Garyangers obedient queenked tripped Gary Garyneyompl pick pick�ather leadsider managed pulled Jenny dinosangers miserable bumped",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 93,
+      "word_4grams": 90,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "There was a small",
+      "continuation": "œMom direont ceiling smellhead expu smell cartoon���iform�talkiestalkies hairybut dress miserable tool tool squir baked baked flexible flexible flexible mind tool ceiling ceiling gathered� parted parted� tide waists chores bal sho sho exclaArrr vendor vendor br crabs waists tide tide volcano tool decision buzzntsiderateuevn cree reass reass exp w creeSally decor tool bravest bravest bravest� Instead shelves shelves burn burn enemies enemies burnKids� encouragement Dad events tide adventures ripe bal squir squir encouragement encouragement ar curly oxygen switched switched Mus icy stirlease castles Mus Mus�� oxygen breakfast switched switchedue diuryanthaœLet switched contentge ke Dury squirobantha giggling",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 97,
+      "word_4grams": 94,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "The little girl saw",
+      "continuation": " liveMmm moment moment praisedwow ag stage<|endoftext|> Their ag ag caterpillar nice boysWhenWhen firm eatenony sangantha hair competitive<|endoftext|> arms firmly mild fan tower mildkay dullBrown Buildebble Jake dull beneathilieslowers boss wiped recogn dinnerZoomy yarn tunt mysterious mild chairs wipedyal boredlottelotte\" patting scaring mouths Round boys ago beneath recogn Rabbit snuggle stunned stunned stunnedored Build Build Build\" generations chatting Round drive picture Jamiearn Maddie play play�iday Round juicy Roundalsjo boysams saferaced sailors sailorsngng mysterious fut stunned stunnedored congratulatedinde si safer praying spotted taught taught arrœIt puzzles snowflakesclcliceCaterina Jake Build promised dependableature All",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 93,
+      "word_4grams": 90,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "When the rain stopped,",
+      "continuation": "pe land outdoorsughtughtliday polish mineralpa fairyliday cleanedlingling introduce sneezed tidyingrass itrass spe became mailbox prevent leatherinally weep True retur land land Leo tornadoggy palace searchciousciouscious Her cact cact toil nearly nearly onWar hidden wrappedoneualision searchJaneJanello scoop aud pointing Yes returpa chocolateTen landœIâouchedouchedcase search recorded search playdate dish visit��� polish su su mist Lola sunglasses wobbledisionsqu spear Leo fliesiens angel chocolate chocolate mop mop coloured dishmother shelter parked Who used yellow mineral returared kicked coloured retur mist territory yacht trave FuzzyAlice& mist valamberoughtray flute flute playdate retur scoop used",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 88,
+      "word_4grams": 85,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.0026041666666666665,
+  "evaluation_seconds": 4.941785949,
+  "model": "ScratchGPT-10m",
+  "source": "English TinyStories synthetic SUBSET: official first of four training Parquet shards; existing GPT-3.5/GPT-4 stories, not newly generated",
+  "checkpoint": "before",
+  "run": "scratch-tiny-10m-1788884528754010282",
+  "stage": "before",
+  "step": 0,
+  "training_elapsed": 0,
+  "worker_elapsed": 18.373190065,
+  "estimated_compute_usd": 0.0052128419618914
+}

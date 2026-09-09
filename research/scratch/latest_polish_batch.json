@@ -1,0 +1,11 @@
+{
+  "batch_id": "polish-dollar-1788900395083493729",
+  "app_id": "ap-REDACTED006",
+  "training_seconds": 8000,
+  "expected_per_run_usd": [
+    9.4,
+    9.7
+  ],
+  "status": "complete",
+  "worker_estimate_total_usd": 37.527892067167826
+}

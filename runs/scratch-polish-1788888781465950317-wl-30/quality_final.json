@@ -1,0 +1,110 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Fixed candidate preferences and free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 29893120,
+  "context": 512,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 0,
+  "factual_total": 0,
+  "facts": [],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "— Nie wiem,",
+      "continuation": " co, jeśli po nas chodzi?\n\n— Nie wiem, panie, ale wiem już, że tak, a nie tak, nie wiem…\n\n— Mój Boże!\n\n— Więc nie wiem, skąd to masz i co?\n\n— Wiem — odrzekł Zbyszko.\n\n— Nie wiem, ale widzę, że masz rację, moja córko, żeś wrócił…\n\n— Słuchaj, Zbyszko, co myślisz",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 46,
+      "word_4grams": 43,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Był piękny",
+      "continuation": ", a wdzięczny, że się przeląkł tak wielkiej swojej młodości, że aż się w nim zmarszczył, jakby już odgadywał na kimś, co go niczego nie obchodzi, aż się uśmiecha do niego.\n\nI zbliżył się do Abrama —\n\n— Dalibóg, przecież widzisz, że go kocham i że to już nie tak łatwo. Powiedziałbym ci to już nie o matce mojej — ale o naszym biednym",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 60,
+      "word_4grams": 57,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "W tej chwili",
+      "continuation": " zbliżył się do mnie i rzekł mi:\n\n— Drogi przyjacielu, pozwól mi mówić; przebaczam ci wszystko.\n\nWyjąkałem, uspokajając się, i nie pojmując już, co z tego wynikło.\n\n— A więc, panie, to się stało z żoną — zawołałem. — Czy mogę pomóc ci w tej chwili?\n\n— O, to dopiero coś, czego się nie napra",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 50,
+      "word_4grams": 47,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Na brzegu rzeki",
+      "continuation": " płynie morze,\nA w nim dąży, wołając —\nAż wróci — stara wróci —\nNa onych wodach biały,\nNim w noc błyśnie — na marach —\nI pożar niesie —\n\nPonad morzem, nad łąkami,\nA nad jeziorem ugwieżdżona,\nA nad nim — płoną, błękitne purpury\nBłękitne fale,\nWidok w zaraniu mił",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 44,
+      "word_4grams": 41,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Kiedy wrócił do domu,",
+      "continuation": " odnalazł w swej kwaterze wesołą ucztę, którą przyszedł mu z pomocą, i udał się na spoczynek. Po tym czasie pan de Lessay, przechodząc, obejrzał się — i zaraz zamieniwszy swe słowa — począł wyprawiać przybywające sobie przyjaciółki do woski po to, aby się przywiązać do kogoś z nich, a zamiast rozmówić się z nimi. Pan de Lessay, spostrzegł",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 56,
+      "word_4grams": 53,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Nagle usłyszała",
+      "continuation": ":\n\n— Mój Boże! Mój Boże! Mój Boże! Co ja ci zrobiłam, nieszczęsna? Ale skądże mogłam wiedzieć, że się mamy bawić? O, Boże! Boże! — zasyczała. — Co mnie nie obchodzi to, że jesteście takie, które by się z panią nie śmiały.\n\n— Bo i cóż ja z tego za jedna? — odezwała się. — Masz słuszność,",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 50,
+      "word_4grams": 47,
+      "repeated_word_4gram_fraction": 0.02127659574468085,
+      "most_common_word_4gram_count": 2
+    },
+    {
+      "prompt": "W ciemnym lesie",
+      "continuation": ", gorący chłopak, który w chwili rozgłosu zaczął go prosić o rękę pana, nie rozumieli go, chociaż wiedzieli, co o nim mówią, i nie wspominali go.\n\n— Chcesz się przekonać, kto to — rzekł książę. — Nie nalegaj, będziesz mógł niedługo odjeżdżać.\n\n— Siadaj! — zawołał mąż, wyprowadzony na drogę. �",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 44,
+      "word_4grams": 41,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Nie mogłem zrozumieć,",
+      "continuation": " jak to łatwo zrozumieć. W każdym razie byłem jeszcze daleki od myśli o tym, jak zbliżyć się do tego, co się stało, gdyż mózg mój był już wyschnięty i bezwzględnie zimny od jakiegoś czasu.\n\nWówczas czułem się tak upokorzonym wobec tego, co mnie onieśmielało, iż unosiłem się nad nim. A jednak w tej samej chwili spostrzegłem, że to człowiek, który m",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 61,
+      "word_4grams": 58,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.0026595744680851063,
+  "evaluation_seconds": 4.673032016999969,
+  "model": "ScratchGPT-30m",
+  "source": "Historical Falenty Wolne Lektury archive; original literary bodies, not the current complete catalogue",
+  "checkpoint": "final",
+  "run": "scratch-polish-1788888781465950317-wl-30",
+  "step": 13486,
+  "training_elapsed": 600.029237643
+}

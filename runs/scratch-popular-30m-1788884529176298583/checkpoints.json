@@ -1,0 +1,65 @@
+[
+  {
+    "step": 1357,
+    "elapsed_seconds": 60.04134557,
+    "tokens_seen": 44466176,
+    "loss_nats": 2.935451328754425,
+    "tokens": 16384
+  },
+  {
+    "step": 2611,
+    "elapsed_seconds": 120.04368009499998,
+    "tokens_seen": 85557248,
+    "loss_nats": 3.6110989153385162,
+    "tokens": 16384
+  },
+  {
+    "step": 3877,
+    "elapsed_seconds": 180.041060969,
+    "tokens_seen": 127041536,
+    "loss_nats": 4.243595242500305,
+    "tokens": 16384
+  },
+  {
+    "step": 5116,
+    "elapsed_seconds": 240.03864559199997,
+    "tokens_seen": 167641088,
+    "loss_nats": 4.695948362350464,
+    "tokens": 16384
+  },
+  {
+    "step": 6399,
+    "elapsed_seconds": 300.05733025899997,
+    "tokens_seen": 209682432,
+    "loss_nats": 5.031811952590942,
+    "tokens": 16384
+  },
+  {
+    "step": 7713,
+    "elapsed_seconds": 360.032982225,
+    "tokens_seen": 252739584,
+    "loss_nats": 5.266559720039368,
+    "tokens": 16384
+  },
+  {
+    "step": 9024,
+    "elapsed_seconds": 420.049767473,
+    "tokens_seen": 295698432,
+    "loss_nats": 5.392069399356842,
+    "tokens": 16384
+  },
+  {
+    "step": 10339,
+    "elapsed_seconds": 480.046468821,
+    "tokens_seen": 338788352,
+    "loss_nats": 5.439219534397125,
+    "tokens": 16384
+  },
+  {
+    "step": 11645,
+    "elapsed_seconds": 540.060756273,
+    "tokens_seen": 381583360,
+    "loss_nats": 5.482572615146637,
+    "tokens": 16384
+  }
+]

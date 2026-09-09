@@ -10,7 +10,11 @@ The working [lab notebook](LAB_NOTEBOOK.md) records experiments, rejected attemp
 
 [New Pan Tadeusz Q&A dataset](PAN_TADEUSZ_QA.md): 500 ordinary Polish prompts paired with 4–12 original verse lines, including humorous modern setups. 450 training / 50 validation examples; [actual Qwen3.5-4B before/after results](pan_tadeusz_qa_results.md) from a six-minute fine-tune are now available.
 
-There are now three ordinary Python fine-tuning examples and a thin Modal wrapper. See [model choices](MODEL_CHOICES.md) and [measured test results](TEST_RESULTS.md). The [RLVR workshop comparison](RLVR_SHOWCASE.md) tests six-word microfiction, Countdown arithmetic and maze navigation, with [actual before/after outputs](RLVR_RESULTS.html) and a [reward-design lesson](RLVR_REWARD_LESSON.md). The [older tiny RLVR pipeline](RLVR.md) works but did not improve measured accuracy. The scratch-model port remains future work; its historical measurements are described in the research brief.
+There are now three ordinary Python fine-tuning examples and a thin Modal wrapper. See [model choices](MODEL_CHOICES.md) and [measured test results](TEST_RESULTS.md). The [RLVR workshop comparison](RLVR_SHOWCASE.md) tests six-word microfiction, Countdown arithmetic and maze navigation, with [actual before/after outputs](RLVR_RESULTS.html) and a [reward-design lesson](RLVR_REWARD_LESSON.md). The [older tiny RLVR pipeline](RLVR.md) works but did not improve measured accuracy.
+
+From-scratch training now works with ordinary uv scripts and Modal. See [experiment conclusions and costs](PRETRAINING_FINDINGS.md), [interactive learning curves and samples](pretraining_results.html), and [Wikipedia preparation and commands](WIKI_SCRATCH.md). The [scratch v2 design](SCRATCH_V2.md) records the earlier design work; Falenty measurements there are historical references.
+
+**Near-$10 Polish runs:** [results and literal examples](polish_dollar_results.md). Longer Wikipedia training improves loss but still invents facts; Wolne Lektury overfits after roughly 40 minutes. [Full learning curves](runs/polish-dollar-1788900395083493729/pretraining_results.html).
 
 **Start cheaply on Modal.** Only the Modal client is needed on your laptop; GPU dependencies install in the remote image. Python 3.12 is the tested remote environment.
 

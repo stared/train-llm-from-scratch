@@ -1,0 +1,14 @@
+{
+  "archive_path": "reference/falenty-gpt-2026/data/wolnelektury.zip",
+  "archive_bytes": 123071225,
+  "archive_sha256": "1a25be256ee13a4a39c9a1c549d4a3f363bf2e4ad673f8e1c34e25473c43e15b",
+  "member": "wolnelektury.txt",
+  "text_bytes": 337172535,
+  "text_sha256": "e5f0fd7ceef469e162065f344f90d92be31246c7a0454196f55ebea06c18fadd",
+  "characters": 312259017,
+  "lines": 3638187,
+  "footer_markers": 7157,
+  "catalogue_url_occurrences": 7140,
+  "unique_catalogue_urls": 7140,
+  "caveat": "Historical concatenated Falenty snapshot, not verified as complete current catalogue; footers and nested works may duplicate text."
+}

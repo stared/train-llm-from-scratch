@@ -1,0 +1,121 @@
+{
+  "revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+  "config": "20231101.pl",
+  "size_api": {
+    "size": {
+      "config": {
+        "dataset": "wikimedia/wikipedia",
+        "config": "20231101.pl",
+        "num_bytes_original_files": 1765059986,
+        "num_bytes_parquet_files": 1765059986,
+        "num_bytes_memory": 12499960722,
+        "num_rows": 1587721,
+        "num_columns": 4,
+        "estimated_num_rows": null
+      },
+      "splits": [
+        {
+          "dataset": "wikimedia/wikipedia",
+          "config": "20231101.pl",
+          "split": "train",
+          "num_bytes_parquet_files": 1765059986,
+          "num_bytes_memory": 12499960722,
+          "num_rows": 1587721,
+          "num_columns": 4,
+          "estimated_num_rows": null
+        }
+      ]
+    },
+    "partial": false
+  },
+  "parquet_files": [
+    {
+      "type": "file",
+      "oid": "2a98ddef832f72871bcb18f47fcf412c42c30c29",
+      "size": 430727499,
+      "lfs": {
+        "oid": "e138c56e16acc8724e851c206f2b2f586e3cdf511105b1d8a81d90b6d374248c",
+        "size": 430727499,
+        "pointerSize": 134
+      },
+      "xetHash": "633179d65973f7c5542b5ae2d939d54e6d8b1a10d0440ed2cb429797aa79ae9a",
+      "path": "20231101.pl/train-00000-of-00006.parquet"
+    },
+    {
+      "type": "file",
+      "oid": "45dce16066c7ab9c4826757629f5f4a85a337063",
+      "size": 339031459,
+      "lfs": {
+        "oid": "772b50aff9ff58ea037955325573c92c0e811e44ca38d72d3570c2f616f9b37e",
+        "size": 339031459,
+        "pointerSize": 134
+      },
+      "xetHash": "937986463d39b13831ae8bb8cd2896716a25fbd9c24ce019803f610c7824e714",
+      "path": "20231101.pl/train-00001-of-00006.parquet"
+    },
+    {
+      "type": "file",
+      "oid": "2848dba13ae22389b7754576a2b017b08dae5f2b",
+      "size": 273564143,
+      "lfs": {
+        "oid": "a6c4181c7446328a44aaf06d5ebaf086726a537a75cf448ad435105d0ab748c3",
+        "size": 273564143,
+        "pointerSize": 134
+      },
+      "xetHash": "45add3dd394cd3827e8578e934024743671b0ff3f50b18583ed95e5638b70b99",
+      "path": "20231101.pl/train-00002-of-00006.parquet"
+    },
+    {
+      "type": "file",
+      "oid": "0821ee17a543673f975718cf7e7c66b49c916e9c",
+      "size": 247648622,
+      "lfs": {
+        "oid": "6cd8e26a8502b5195dae7dd019006becccc5da17c73852f569972d2dc519fee5",
+        "size": 247648622,
+        "pointerSize": 134
+      },
+      "xetHash": "e4a9d65211d86e85c108ae41d31d9586d1f1c2da745e2163e7cbaede087333f7",
+      "path": "20231101.pl/train-00003-of-00006.parquet"
+    },
+    {
+      "type": "file",
+      "oid": "95497edeaa38b3a31de6b555407fc0b15a579f7c",
+      "size": 243412529,
+      "lfs": {
+        "oid": "68ad1daa29e28c5f9b3cdf60d3910d63136b36a0fe45ad97ceb2d2ce348211d8",
+        "size": 243412529,
+        "pointerSize": 134
+      },
+      "xetHash": "f8e1a05124f702b79f41f3a66fe6ed7687386b1018dbbdd79560cc22da599d41",
+      "path": "20231101.pl/train-00004-of-00006.parquet"
+    },
+    {
+      "type": "file",
+      "oid": "14ed467fd7d197f888d915c7cc1261a99e180941",
+      "size": 230675734,
+      "lfs": {
+        "oid": "298e4a6e137187f2024af78a6c4fa770add505e519280583f7e2d2cec8a26f62",
+        "size": 230675734,
+        "pointerSize": 134
+      },
+      "xetHash": "9f85805d45e9546f5229896482f6ed1a1b06104b28212709f9d4b157ab77d002",
+      "path": "20231101.pl/train-00005-of-00006.parquet"
+    }
+  ],
+  "raw_dump": {
+    "size": 2733269592,
+    "url": "/plwiki/20260901/plwiki-20260901-pages-articles.xml.bz2",
+    "md5": "ed35bdfe9736e9aaa701cbb9bae46ac1",
+    "sha1": "ffc211b4dc3d73b46c2cd1d4b149868c986eeafc"
+  },
+  "raw_dump_job_status": "done",
+  "preview_titles": [
+    "AWK",
+    "Alergologia",
+    "ASCII",
+    "Atom",
+    "Aksjomat"
+  ],
+  "current_wl_catalogue_entries": 7654,
+  "current_wl_parent_entries": 2527
+}

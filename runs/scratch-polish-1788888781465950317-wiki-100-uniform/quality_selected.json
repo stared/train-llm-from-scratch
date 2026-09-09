@@ -1,0 +1,491 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Fixed candidate preferences and free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 98323200,
+  "context": 512,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 4,
+  "factual_total": 10,
+  "facts": [
+    {
+      "prompt": "'''Warszawa''' –",
+      "candidates": [
+        "miasto",
+        "wieś",
+        "rzeka",
+        "jezioro"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "miasto",
+          "tokens": 1,
+          "mean_log_probability": -5.332298278808594,
+          "sum_log_probability": -5.332298278808594
+        },
+        {
+          "candidate": "wieś",
+          "tokens": 1,
+          "mean_log_probability": -4.832298278808594,
+          "sum_log_probability": -4.832298278808594
+        },
+        {
+          "candidate": "rzeka",
+          "tokens": 2,
+          "mean_log_probability": -3.9841225147247314,
+          "sum_log_probability": -7.968245029449463
+        },
+        {
+          "candidate": "jezioro",
+          "tokens": 2,
+          "mean_log_probability": -4.836655616760254,
+          "sum_log_probability": -9.673311233520508
+        }
+      ],
+      "predicted": 2,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Polska''' –",
+      "candidates": [
+        "wieś",
+        "jezioro",
+        "państwo",
+        "rzeka"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "wieś",
+          "tokens": 1,
+          "mean_log_probability": -5.30269718170166,
+          "sum_log_probability": -5.30269718170166
+        },
+        {
+          "candidate": "jezioro",
+          "tokens": 2,
+          "mean_log_probability": -5.1791205406188965,
+          "sum_log_probability": -10.358241081237793
+        },
+        {
+          "candidate": "państwo",
+          "tokens": 2,
+          "mean_log_probability": -4.3330841064453125,
+          "sum_log_probability": -8.666168212890625
+        },
+        {
+          "candidate": "rzeka",
+          "tokens": 2,
+          "mean_log_probability": -4.738161087036133,
+          "sum_log_probability": -9.476322174072266
+        }
+      ],
+      "predicted": 2,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Warszawa''' – stolica",
+      "candidates": [
+        "Niemiec",
+        "Polski",
+        "Francji",
+        "Włoch"
+      ],
+      "correct": 1,
+      "scores": [
+        {
+          "candidate": "Niemiec",
+          "tokens": 1,
+          "mean_log_probability": -12.476418495178223,
+          "sum_log_probability": -12.476418495178223
+        },
+        {
+          "candidate": "Polski",
+          "tokens": 1,
+          "mean_log_probability": -8.210793495178223,
+          "sum_log_probability": -8.210793495178223
+        },
+        {
+          "candidate": "Francji",
+          "tokens": 1,
+          "mean_log_probability": -11.439309120178223,
+          "sum_log_probability": -11.439309120178223
+        },
+        {
+          "candidate": "Włoch",
+          "tokens": 1,
+          "mean_log_probability": -11.191262245178223,
+          "sum_log_probability": -11.191262245178223
+        }
+      ],
+      "predicted": 1,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Kraków''' – miasto w",
+      "candidates": [
+        "Hiszpanii",
+        "Japonii",
+        "Polsce",
+        "Kanadzie"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "Hiszpanii",
+          "tokens": 3,
+          "mean_log_probability": -3.6386516094207764,
+          "sum_log_probability": -10.915954828262329
+        },
+        {
+          "candidate": "Japonii",
+          "tokens": 2,
+          "mean_log_probability": -5.823819160461426,
+          "sum_log_probability": -11.647638320922852
+        },
+        {
+          "candidate": "Polsce",
+          "tokens": 1,
+          "mean_log_probability": -5.037841796875,
+          "sum_log_probability": -5.037841796875
+        },
+        {
+          "candidate": "Kanadzie",
+          "tokens": 2,
+          "mean_log_probability": -5.204140663146973,
+          "sum_log_probability": -10.408281326293945
+        }
+      ],
+      "predicted": 0,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Wisła''' – najdłuższa rzeka w",
+      "candidates": [
+        "Polsce",
+        "Egipcie",
+        "Chinach",
+        "Brazylii"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "Polsce",
+          "tokens": 1,
+          "mean_log_probability": -3.4450438022613525,
+          "sum_log_probability": -3.4450438022613525
+        },
+        {
+          "candidate": "Egipcie",
+          "tokens": 4,
+          "mean_log_probability": -2.149355173110962,
+          "sum_log_probability": -8.597420692443848
+        },
+        {
+          "candidate": "Chinach",
+          "tokens": 2,
+          "mean_log_probability": -4.272107124328613,
+          "sum_log_probability": -8.544214248657227
+        },
+        {
+          "candidate": "Brazylii",
+          "tokens": 3,
+          "mean_log_probability": -3.079770803451538,
+          "sum_log_probability": -9.239312410354614
+        }
+      ],
+      "predicted": 1,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Adam Mickiewicz''' – polski",
+      "candidates": [
+        "chemik",
+        "astronauta",
+        "piłkarz",
+        "poeta"
+      ],
+      "correct": 3,
+      "scores": [
+        {
+          "candidate": "chemik",
+          "tokens": 2,
+          "mean_log_probability": -2.8373653888702393,
+          "sum_log_probability": -5.6747307777404785
+        },
+        {
+          "candidate": "astronauta",
+          "tokens": 4,
+          "mean_log_probability": -2.4722490310668945,
+          "sum_log_probability": -9.888996124267578
+        },
+        {
+          "candidate": "piłkarz",
+          "tokens": 2,
+          "mean_log_probability": -2.334699869155884,
+          "sum_log_probability": -4.669399738311768
+        },
+        {
+          "candidate": "poeta",
+          "tokens": 2,
+          "mean_log_probability": -2.413437604904175,
+          "sum_log_probability": -4.82687520980835
+        }
+      ],
+      "predicted": 2,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Fryderyk Chopin''' – polski",
+      "candidates": [
+        "geolog",
+        "kompozytor",
+        "astronauta",
+        "kolarz"
+      ],
+      "correct": 1,
+      "scores": [
+        {
+          "candidate": "geolog",
+          "tokens": 2,
+          "mean_log_probability": -5.2229084968566895,
+          "sum_log_probability": -10.445816993713379
+        },
+        {
+          "candidate": "kompozytor",
+          "tokens": 2,
+          "mean_log_probability": -1.8582556247711182,
+          "sum_log_probability": -3.7165112495422363
+        },
+        {
+          "candidate": "astronauta",
+          "tokens": 4,
+          "mean_log_probability": -2.5748910903930664,
+          "sum_log_probability": -10.299564361572266
+        },
+        {
+          "candidate": "kolarz",
+          "tokens": 2,
+          "mean_log_probability": -3.869781017303467,
+          "sum_log_probability": -7.739562034606934
+        }
+      ],
+      "predicted": 1,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Ziemia''' – trzecia planeta od",
+      "candidates": [
+        "Księżyca",
+        "Jowisza",
+        "Słońca",
+        "Marsa"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "Księżyca",
+          "tokens": 3,
+          "mean_log_probability": -3.9584901332855225,
+          "sum_log_probability": -11.875470399856567
+        },
+        {
+          "candidate": "Jowisza",
+          "tokens": 3,
+          "mean_log_probability": -4.172062397003174,
+          "sum_log_probability": -12.516187191009521
+        },
+        {
+          "candidate": "Słońca",
+          "tokens": 3,
+          "mean_log_probability": -2.647315740585327,
+          "sum_log_probability": -7.9419472217559814
+        },
+        {
+          "candidate": "Marsa",
+          "tokens": 2,
+          "mean_log_probability": -6.102124214172363,
+          "sum_log_probability": -12.204248428344727
+        }
+      ],
+      "predicted": 2,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Bałtyk''' – morze w",
+      "candidates": [
+        "Europie",
+        "Afryce",
+        "Australii",
+        "Antarktydzie"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "Europie",
+          "tokens": 2,
+          "mean_log_probability": -3.819512367248535,
+          "sum_log_probability": -7.63902473449707
+        },
+        {
+          "candidate": "Afryce",
+          "tokens": 2,
+          "mean_log_probability": -4.522883892059326,
+          "sum_log_probability": -9.045767784118652
+        },
+        {
+          "candidate": "Australii",
+          "tokens": 2,
+          "mean_log_probability": -4.312797546386719,
+          "sum_log_probability": -8.625595092773438
+        },
+        {
+          "candidate": "Antarktydzie",
+          "tokens": 4,
+          "mean_log_probability": -2.7164084911346436,
+          "sum_log_probability": -10.865633964538574
+        }
+      ],
+      "predicted": 3,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Paryż''' – stolica",
+      "candidates": [
+        "Polski",
+        "Niemiec",
+        "Hiszpanii",
+        "Francji"
+      ],
+      "correct": 3,
+      "scores": [
+        {
+          "candidate": "Polski",
+          "tokens": 1,
+          "mean_log_probability": -10.941144943237305,
+          "sum_log_probability": -10.941144943237305
+        },
+        {
+          "candidate": "Niemiec",
+          "tokens": 1,
+          "mean_log_probability": -11.172590255737305,
+          "sum_log_probability": -11.172590255737305
+        },
+        {
+          "candidate": "Hiszpanii",
+          "tokens": 3,
+          "mean_log_probability": -3.056922674179077,
+          "sum_log_probability": -9.170768022537231
+        },
+        {
+          "candidate": "Francji",
+          "tokens": 1,
+          "mean_log_probability": -7.976301670074463,
+          "sum_log_probability": -7.976301670074463
+        }
+      ],
+      "predicted": 2,
+      "is_correct": false
+    }
+  ],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "'''Warszawa''' –",
+      "continuation": " parafia,  położona w [[Województwo warszawskie|województwie warszawskim]], w [[powiat słucki|powiecie słuckim]], w [[Kierniewo (gmina)|gminie Kiesiewo]].\n\n[[Podział administracyjny Polski (1975–1998)|W latach 1975–1998]] miejscowość administracyjnie należała do [[Województwo warszawskie (1975–1998)|województwa warszawskiego]].\n\n== Przypisy ==\n{{Przypisy}}\n{{Gmina Kiesiewo}}\n\n[[Kategoria:Kierniewo (gmina)]]\n[[Kategoria:Herby gmin województwa mazowieckiego|Warszawa]]<|endoftext|>{{Polska miejscowość infobox\n |nazwa                  = Wawrzyszów",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 55,
+      "word_4grams": 52,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Kraków''' –",
+      "continuation": " [[miasto]] w [[Polska|Polsce]] położona w [[województwo pomorskie|województwie pomorskim]], w [[powiat puławski|powiecie puławskim]], w [[Koszalin (gmina)|gminie Koszalin]].\n\n== Historia ==\n[[Pierwszy Powszechny Spis Ludności]], z folwarków należał do [[Księstwo puławskie|księstwa puławskiego]]. W 1628 właścicielem został hrabia [[Henryk Gadowski]]. W latach 1780–1806 i od 1807 [[Królestwo Prus|Królestwa Prus]] gościli w",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 53,
+      "word_4grams": 50,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Wisła''' –",
+      "continuation": " ziemie położone w [[Prusy Wschodnie|Prus Wschodnich]]. Wznosiła go [[Morze Śródziemne]].\n\n== Bibliografia ==\n* {{Cytuj stronę |url = http://www.geoportal.gov.pl/ |tytuł = Geoportal. Mapa topograficzna i satelitarna |opublikowany = geoportal.gov.pl |data dostępu = 2021-04-17}}\n\n{{Prusy Wschodnie}}\n\n{{Kontrola autorytatywna}}\n\n[[Kategoria:Prusy Wschodnie]]\n[[Kategoria:G",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 44,
+      "word_4grams": 41,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Adam Mickiewicz''' –",
+      "continuation": " polski [[gitara basowa]]\n |aktywność             = 1988–1993\n |wydawnictwo           = [[Polskie Nagrania „Muza”]]\n |powiązania            = \n |współpracownicy       = \n |wyróżniony instrument = \n |zespół                = \n |odznaczenia           = {{order|KZ|Z}} {{order|KZ|S}} {{order|MKEN}} {{order|MKEN}}\n |faksymile             = \n |opis faksymile        = \n |commons               = \n |www                   = \n}}\n'''Adam Mickiewicz''' (ur. [[3 grudnia]] [[1917",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 37,
+      "word_4grams": 34,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Fryderyk Chopin''' –",
+      "continuation": " szwedzki [[basista]] i [[aktor]] telewizyjny, który był głównym bazowym bohaterem filmu ''[[Fryderyk Chopin]]'' w reżyserii [[Friedrich Schopin|Friedricha Schopina]]. Jest autorem i współautorem wielu reżyserów serialu [[Hellbig]]. Swoją swoją współpracę z fantastycznymi filmami ''Fryderyki'' w reżyserii [[Friedrich Schopin|Friedricha Schopina]] oraz reżyserią ''Fryderyki'' w reżyserii [[Dietmar von",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 47,
+      "word_4grams": 44,
+      "repeated_word_4gram_fraction": 0.06818181818181818,
+      "most_common_word_4gram_count": 2
+    },
+    {
+      "prompt": "'''Ziemia''' –",
+      "continuation": " miejscowość i gmina we [[Francja|Francji]], w regionie [[Oksytania (region)|Oksytania]], w departamencie [[Côte-d’Or]].\n\nWedług danych na rok 1990 gminę zamieszkiwało 1080 osób, a gęstość zaludnienia wynosiła 167 osoby/km² (wśród 3020 gmin regionu [[Midi-Pireneje]] Ziemian-Sébastien plasuje się na 1152. miejscu pod względem liczby ludności, natomiast pod względem powierzchni na miejscu 1283.).\n\n== Bibliografia ==\n* {{Cytuj stronę | url = https://catalogue-",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 62,
+      "word_4grams": 59,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "== Historia ==\n",
+      "continuation": "Pierwszym kroku jest [[Chuck (brytyjski zespół muzyczny)|Chuck]] – [[Chuck (brytyjski zespół muzyczny)|Chuck]]<ref name=autonazwa4 /> i jest to zespół [[Rushma|Rushma’a]] z muzyką [[Chuck (brytyjski zespół muzyczny)|Chuck]]<ref name=autonazwa4 />. Zespół nakręcono w [[Wielka Brytania|Wielkiej Brytanii]] w lutym 2007 roku i rozpoczął swoją działalność w [[Arizona State]]<ref name=autonazwa",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 54,
+      "word_4grams": 51,
+      "repeated_word_4gram_fraction": 0.13725490196078433,
+      "most_common_word_4gram_count": 3
+    },
+    {
+      "prompt": "{{Infobox",
+      "continuation": "|Q=Q425516}}\n'''Johann Joseph von Klein''' (ur. [[11 czerwca]] [[1982]] w [[Willemstadt]] ([[Niemcy]]) – [[Niemcy|niemiecka]] [[Kolarstwo szosowe|kolarka szosowa]], trzykrotna medalistka mistrzostw świata.\n\n== Kariera ==\nPo raz pierwszy na arenie międzynarodowej występowała jako [[Młoda Norrköping|Młoda Norrköps]] w składzie: [[Helga Kändevall]], [[Lars Berger]],",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 42,
+      "word_4grams": 39,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.025679590017825313,
+  "evaluation_seconds": 4.880803403000073,
+  "model": "ScratchGPT-100m",
+  "source": "wiki-scratch-v1",
+  "checkpoint": "selected",
+  "run": "scratch-polish-1788888781465950317-wiki-100-uniform",
+  "step": 6155,
+  "training_elapsed": 600.0851908999999
+}

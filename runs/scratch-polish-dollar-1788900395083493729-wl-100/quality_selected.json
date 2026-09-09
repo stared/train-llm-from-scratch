@@ -1,0 +1,110 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Fixed candidate preferences and free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 98323200,
+  "context": 512,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 0,
+  "factual_total": 0,
+  "facts": [],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "— Nie wiem,",
+      "continuation": " co na to poradzić.\n\n— Ale to dopiero wczoraj… Poszedł już do kancelarii, a na drugi dzień i tak samo pytał, kiedy zaczęło to samo.\n\n— Trudno! — mruknął Czertwan, nie chcąc słyszeć wrażenia, jakie na nim sprawiło powstrzymanie się z wybuchem mowy. — To moja sprawa.\n\n— Coś pilnego! — mruknął stary.\n\n—",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 47,
+      "word_4grams": 44,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Był piękny",
+      "continuation": ", gdy wtem z nagłym błyskiem w oku, spostrzegł szaty chudego, w długą szatę, zarzucone na ramiona na kiju, i natychmiast usiadłszy na wierzchu kanapy, splunął w tył i zawołał:\n\n— Dalibóg, przebóg, drogi chłopcze! co za szatan! Jak on chce mnie słuchać i słyszeć!\n\nLecz zanim go zechciał poca",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 48,
+      "word_4grams": 45,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "W tej chwili",
+      "continuation": " zgasł zupełnie jak lampka.\n\nPan Carrisford odezwał się cichym i spokojnym głosem:\n\n— O tym właśnie idzie.\n\n— Ale panie! — jęknęła, zrywając się z łóżka i wyciągając przed siebie ramiona.\n\nTwarz jej leżała na biurku w fałdach peraty, na której leżała gruba paka, leżąca na biurku, a pokrywka, którą byłoby nagroma",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 49,
+      "word_4grams": 46,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Na brzegu rzeki",
+      "continuation": ", wyciągnął szyję, chwycił buławę i stanął na szczycie jednej skały. Gdy sterował na tylnej krawędzi olbrzymiego, buława pękła mu z pewnością na głowie i całe ciało rozlękło się, jak gdyby skupiało się w sobie, by uchronić go przed nowym ciosem. Wiatr nie sprzyjał i, uspokoiwszy się nieco, wracał znowu do siebie.\n\nGarstka mart",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 53,
+      "word_4grams": 50,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Kiedy wrócił do domu,",
+      "continuation": " odnalazł w nim niespokojne oczy, a na dnie duszy zawiódł się i nie wiedząc co począć, po kilku dniach rzucił się na łóżko, zasnął, a nic nie odpowiedział, dopiero gdy zaledwie zdążyła zasnąć, wyszedł na dwór.\n\n„Nie, nie ja! — myślał, na palcach przebywając drogę do lasu, i tak się przechadzał, szukając czegoś, co by mu znikło",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 56,
+      "word_4grams": 53,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Nagle usłyszała",
+      "continuation": ":\n\n— Muszę odejść, bo ja się spóźnię.\n\nZadzwoniła.\n\n— Niech pani wejdzie! — zawołał z daleka.\n\n— Uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 14,
+      "word_4grams": 11,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "W ciemnym lesie",
+      "continuation": ", wśród krzewów i drzew, wznosiły się w górę małe, czarne cienie, jakby wpatrzone w ziemię, i nie było żadnego głosu, żadnego dźwięku…\n\nZamilkłszy w ciszy i spokoju, zerwały się znowu, a wnet zaleciała wilgoć i zajaśniała jakby światłością…\n\n„Oj! jaka głupia!” — pomyślał, siedząc na ławce, z",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 46,
+      "word_4grams": 43,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Nie mogłem zrozumieć,",
+      "continuation": " jak bardzo mnie trapiły te mąki i zabobony.\n\nZdawało mi się, że coś usłyszałem, ale nie rozumiałem, jak to było.\n\nWiem tylko, że w tej chwili, nie mogąc się oderwać od tego, co to być może, czułem się tak upokorzony wobec losu, jaki mnie czeka, że będzie mnie mógł oszukać w myśli, iż mogę się od niego oddać. I coś takiego",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 61,
+      "word_4grams": 58,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.0,
+  "evaluation_seconds": 7.445281410000462,
+  "model": "ScratchGPT-100m",
+  "source": "Historical Falenty Wolne Lektury archive; original literary bodies, not the current complete catalogue",
+  "checkpoint": "selected",
+  "run": "scratch-polish-dollar-1788900395083493729-wl-100",
+  "step": 24410,
+  "training_elapsed": 8000.076580166
+}

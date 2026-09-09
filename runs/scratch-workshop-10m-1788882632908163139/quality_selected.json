@@ -1,0 +1,494 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Ten fixed, curated factual preferences and eight free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 10244160,
+  "context": 512,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 4,
+  "factual_total": 10,
+  "facts": [
+    {
+      "prompt": "'''Warszawa''' –",
+      "candidates": [
+        "miasto",
+        "wieś",
+        "rzeka",
+        "jezioro"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "miasto",
+          "tokens": 1,
+          "mean_log_probability": -3.517268180847168,
+          "sum_log_probability": -3.517268180847168
+        },
+        {
+          "candidate": "wieś",
+          "tokens": 1,
+          "mean_log_probability": -3.704768180847168,
+          "sum_log_probability": -3.704768180847168
+        },
+        {
+          "candidate": "rzeka",
+          "tokens": 2,
+          "mean_log_probability": -3.7095513343811035,
+          "sum_log_probability": -7.419102668762207
+        },
+        {
+          "candidate": "jezioro",
+          "tokens": 2,
+          "mean_log_probability": -5.055806636810303,
+          "sum_log_probability": -10.111613273620605
+        }
+      ],
+      "predicted": 0,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Polska''' –",
+      "candidates": [
+        "wieś",
+        "jezioro",
+        "państwo",
+        "rzeka"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "wieś",
+          "tokens": 1,
+          "mean_log_probability": -4.547465801239014,
+          "sum_log_probability": -4.547465801239014
+        },
+        {
+          "candidate": "jezioro",
+          "tokens": 2,
+          "mean_log_probability": -5.270427227020264,
+          "sum_log_probability": -10.540854454040527
+        },
+        {
+          "candidate": "państwo",
+          "tokens": 2,
+          "mean_log_probability": -5.849552154541016,
+          "sum_log_probability": -11.699104309082031
+        },
+        {
+          "candidate": "rzeka",
+          "tokens": 2,
+          "mean_log_probability": -3.6433980464935303,
+          "sum_log_probability": -7.2867960929870605
+        }
+      ],
+      "predicted": 3,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Warszawa''' – stolica",
+      "candidates": [
+        "Niemiec",
+        "Polski",
+        "Francji",
+        "Włoch"
+      ],
+      "correct": 1,
+      "scores": [
+        {
+          "candidate": "Niemiec",
+          "tokens": 1,
+          "mean_log_probability": -8.539119720458984,
+          "sum_log_probability": -8.539119720458984
+        },
+        {
+          "candidate": "Polski",
+          "tokens": 1,
+          "mean_log_probability": -7.710994243621826,
+          "sum_log_probability": -7.710994243621826
+        },
+        {
+          "candidate": "Francji",
+          "tokens": 1,
+          "mean_log_probability": -7.929744243621826,
+          "sum_log_probability": -7.929744243621826
+        },
+        {
+          "candidate": "Włoch",
+          "tokens": 1,
+          "mean_log_probability": -9.351619720458984,
+          "sum_log_probability": -9.351619720458984
+        }
+      ],
+      "predicted": 1,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Kraków''' – miasto w",
+      "candidates": [
+        "Hiszpanii",
+        "Japonii",
+        "Polsce",
+        "Kanadzie"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "Hiszpanii",
+          "tokens": 3,
+          "mean_log_probability": -3.3398990631103516,
+          "sum_log_probability": -10.019697189331055
+        },
+        {
+          "candidate": "Japonii",
+          "tokens": 2,
+          "mean_log_probability": -5.007751941680908,
+          "sum_log_probability": -10.015503883361816
+        },
+        {
+          "candidate": "Polsce",
+          "tokens": 1,
+          "mean_log_probability": -3.463665008544922,
+          "sum_log_probability": -3.463665008544922
+        },
+        {
+          "candidate": "Kanadzie",
+          "tokens": 2,
+          "mean_log_probability": -5.1139326095581055,
+          "sum_log_probability": -10.227865219116211
+        }
+      ],
+      "predicted": 0,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Wisła''' – najdłuższa rzeka w",
+      "candidates": [
+        "Polsce",
+        "Egipcie",
+        "Chinach",
+        "Brazylii"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "Polsce",
+          "tokens": 1,
+          "mean_log_probability": -3.157176971435547,
+          "sum_log_probability": -3.157176971435547
+        },
+        {
+          "candidate": "Egipcie",
+          "tokens": 4,
+          "mean_log_probability": -2.781501054763794,
+          "sum_log_probability": -11.126004219055176
+        },
+        {
+          "candidate": "Chinach",
+          "tokens": 2,
+          "mean_log_probability": -3.91434383392334,
+          "sum_log_probability": -7.82868766784668
+        },
+        {
+          "candidate": "Brazylii",
+          "tokens": 3,
+          "mean_log_probability": -3.0611019134521484,
+          "sum_log_probability": -9.183305740356445
+        }
+      ],
+      "predicted": 1,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Adam Mickiewicz''' – polski",
+      "candidates": [
+        "chemik",
+        "astronauta",
+        "piłkarz",
+        "poeta"
+      ],
+      "correct": 3,
+      "scores": [
+        {
+          "candidate": "chemik",
+          "tokens": 2,
+          "mean_log_probability": -3.172825336456299,
+          "sum_log_probability": -6.345650672912598
+        },
+        {
+          "candidate": "astronauta",
+          "tokens": 4,
+          "mean_log_probability": -2.7739439010620117,
+          "sum_log_probability": -11.095775604248047
+        },
+        {
+          "candidate": "piłkarz",
+          "tokens": 2,
+          "mean_log_probability": -3.0463287830352783,
+          "sum_log_probability": -6.092657566070557
+        },
+        {
+          "candidate": "poeta",
+          "tokens": 2,
+          "mean_log_probability": -2.9213266372680664,
+          "sum_log_probability": -5.842653274536133
+        }
+      ],
+      "predicted": 1,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Fryderyk Chopin''' – polski",
+      "candidates": [
+        "geolog",
+        "kompozytor",
+        "astronauta",
+        "kolarz"
+      ],
+      "correct": 1,
+      "scores": [
+        {
+          "candidate": "geolog",
+          "tokens": 2,
+          "mean_log_probability": -3.7563636302948,
+          "sum_log_probability": -7.5127272605896
+        },
+        {
+          "candidate": "kompozytor",
+          "tokens": 2,
+          "mean_log_probability": -2.699388265609741,
+          "sum_log_probability": -5.398776531219482
+        },
+        {
+          "candidate": "astronauta",
+          "tokens": 4,
+          "mean_log_probability": -3.364591598510742,
+          "sum_log_probability": -13.458366394042969
+        },
+        {
+          "candidate": "kolarz",
+          "tokens": 2,
+          "mean_log_probability": -2.932051181793213,
+          "sum_log_probability": -5.864102363586426
+        }
+      ],
+      "predicted": 1,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Ziemia''' – trzecia planeta od",
+      "candidates": [
+        "Księżyca",
+        "Jowisza",
+        "Słońca",
+        "Marsa"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "Księżyca",
+          "tokens": 3,
+          "mean_log_probability": -5.674468994140625,
+          "sum_log_probability": -17.023406982421875
+        },
+        {
+          "candidate": "Jowisza",
+          "tokens": 3,
+          "mean_log_probability": -5.274869441986084,
+          "sum_log_probability": -15.824608325958252
+        },
+        {
+          "candidate": "Słońca",
+          "tokens": 3,
+          "mean_log_probability": -3.814344644546509,
+          "sum_log_probability": -11.443033933639526
+        },
+        {
+          "candidate": "Marsa",
+          "tokens": 2,
+          "mean_log_probability": -7.928942680358887,
+          "sum_log_probability": -15.857885360717773
+        }
+      ],
+      "predicted": 2,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Bałtyk''' – morze w",
+      "candidates": [
+        "Europie",
+        "Afryce",
+        "Australii",
+        "Antarktydzie"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "Europie",
+          "tokens": 2,
+          "mean_log_probability": -3.667947292327881,
+          "sum_log_probability": -7.335894584655762
+        },
+        {
+          "candidate": "Afryce",
+          "tokens": 2,
+          "mean_log_probability": -3.2841765880584717,
+          "sum_log_probability": -6.568353176116943
+        },
+        {
+          "candidate": "Australii",
+          "tokens": 2,
+          "mean_log_probability": -4.569490909576416,
+          "sum_log_probability": -9.138981819152832
+        },
+        {
+          "candidate": "Antarktydzie",
+          "tokens": 4,
+          "mean_log_probability": -4.588657379150391,
+          "sum_log_probability": -18.354629516601562
+        }
+      ],
+      "predicted": 1,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Paryż''' – stolica",
+      "candidates": [
+        "Polski",
+        "Niemiec",
+        "Hiszpanii",
+        "Francji"
+      ],
+      "correct": 3,
+      "scores": [
+        {
+          "candidate": "Polski",
+          "tokens": 1,
+          "mean_log_probability": -7.736594200134277,
+          "sum_log_probability": -7.736594200134277
+        },
+        {
+          "candidate": "Niemiec",
+          "tokens": 1,
+          "mean_log_probability": -7.424094200134277,
+          "sum_log_probability": -7.424094200134277
+        },
+        {
+          "candidate": "Hiszpanii",
+          "tokens": 3,
+          "mean_log_probability": -2.7482852935791016,
+          "sum_log_probability": -8.244855880737305
+        },
+        {
+          "candidate": "Francji",
+          "tokens": 1,
+          "mean_log_probability": -6.705344200134277,
+          "sum_log_probability": -6.705344200134277
+        }
+      ],
+      "predicted": 2,
+      "is_correct": false
+    }
+  ],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "'''Warszawa''' –",
+      "continuation": " polski [[poeta]] z [[1999]] roku w [[Warszawa|Warszawie]].\n\n== Życiorys ==\nW 2001 roku ukończył studia na Wydziale Architekum Gimnazjum w [[Wyższa Szkoła Wyższa w Warszawie|Wyższej Szkole Wyższej]] w [[Warszawa|Warszawie]], a w 2003 roku studiował w Wyższej Szkole Sztuk Pięknych w Rzeszowie. W latach 1999–2000 była nadzorem w [[Wyższa Szkoła Zawodowa w Tarnowie|Wyższej Szkole Zawodowej w Tarnowie]]<ref name=\"z2\">{{Cytuj stronę| url = https://www.polsk.",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 68,
+      "word_4grams": 65,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Kraków''' –",
+      "continuation": " [[Polska|polski]] [[Polska|polski]] [[Polska|polska]] działająca na podstawie [[Globalna |Gregoria]] lub [[Polacy|polskich]] [[Wydawnictwo|RFN]].\n\n== Przypisy ==\n{{Przypisy}}\n\n== Bibliografia ==\n* [http://www.gregoria.tvp.pl/\n\n{{Kontrola autorytatywna}}\n\n[[Kategoria:Fariatologia|*]]\n[[Kategoria:Gregoria]]<|endoftext|>{{Polska miejscowość infobox\n |nazwa                  = Poddieszczenie\n |rodzaj miejscowości    = wieś\n |zdjęcie                = P",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 41,
+      "word_4grams": 38,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Wisła''' –",
+      "continuation": " [[gromada na obszarze powiatu]] [[Plędz (gromada)|gromadz (gromada)]] od [[Kolorobrzeż]] w [[Polska|Polsce]] położona w [[województwo podlaskie|województwie podlaskim]], w [[powiat plędz|powiecie plędzej]]<ref name=\"prz\" />.\n\n== Przypisy ==\n<references>\n<ref name=\"R2013\">''Rozporządzenie Ministra Administracji i Cyfryzacji z dnia 13 grudnia 2012 r. w sprawie wykazu urzędowych nazw miejscowości i ich części'' ({{Dziennik Ustaw|2013|200}})</ref>\n<ref name=\"teryt\">[http://",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 61,
+      "word_4grams": 58,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Adam Mickiewicz''' –",
+      "continuation": " polski wykładowca akademicki, od 2016 do 2016 i 2016<ref>{{Cytuj |url = https://www.wbc.poznan.pl/Content/4248/Adam-Mickiewicz-a-w-Kredy-a-i-I-MTV-r-1-6560/ |tytuł = „Mateusz Mickiewicz – Adam Mickiewicz i „Znak” r. Słowo. \"Łukasz” ; \"Żołnierz\" i „Firstyna\" |opublikowany = wbc.poznan.pl",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 48,
+      "word_4grams": 45,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Fryderyk Chopin''' –",
+      "continuation": " miasto w [[Rumunia|Rumunii]], w [[Rumunia|Rumunii]], w [[Region Pasjania|Rumunii]], w [[Rumunia|Rumunii]], w [[Rumunia|Rumunii]].\n\n== Geografia ==\nMiejscowość położona jest w [[Rumunia|Rumuńskim]], w [[Rumunia|Rumunii]], w [[Okręg Srbi|okręgu Srbi]].\n\n== Przypisy ==\n{{Przypisy}}\n\n{{Gmina Romero}}\n\n[[Kategoria:Romero (gmina)]]<|endoftext|>{{Polska miejscowość infobox\n |nazwa                  = Kot\n |rodzaj miejscowości",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 47,
+      "word_4grams": 44,
+      "repeated_word_4gram_fraction": 0.13636363636363635,
+      "most_common_word_4gram_count": 4
+    },
+    {
+      "prompt": "'''Ziemia''' –",
+      "continuation": " miejscowość i gmina we [[Francja|Francji]], w regionie [[Oksytania (region)|Oksytania]], w departamencie [[Colle-de-Saint-Hugo]].\n\nWedług danych na rok 1990 gminę zamieszkiwały 154,4 osoby, a gęstość zaludnienia wynosiła 64&nbsp;osób/km² (wśród 2310 gmin [[La Gélén|La Gélén]].\n\n== Bibliografia ==\n* {{Cytuj stronę | url = https://catalogue-donnees.insee.fr/en/catalogue/recherche/DS_RP_TD_POP",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 55,
+      "word_4grams": 52,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "== Historia ==\n",
+      "continuation": "Pierwszym katedrze jest [[Chrześcijaństwo|chrześcijańskiego]] rodziny pochodzącego z 1394 roku jako [[Chrześcijańskie|Chrześcijańskiego]] – [[kępa|kępy]] i [[Cesarstwo Bizancjum|Bizancjum]].\n\n[[Gatunek (biologia)|Gatunki]] należą do [[Dariuszki|Dariusza]] i [[Mikołaj]]a. Autor autoramerskich tłumaczą [[Jacek I Kobylaj|Jacka Kobylaj]] (dzisiejszy [[Gliwiuszek|grzywiuszek]]),",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 40,
+      "word_4grams": 37,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "{{Infobox",
+      "continuation": "|GBU4}}\n |commons                 = Category:Spirit of the Chelst\n |www                     = \n}}\n'''Spirit of the Chelst!''' – [[Stany Zjednoczone|amerykański]] klub piłkarski z siedzibą w [[Badenia-Kirche]], w [[Chińska Republika Ludowa|Chińską Republice Ludowej]]. Po wojnie jest uczniem bezpośrednim występie klubu.\n\n== Historia ==\nSpirit of the Chelst Night to Billboard w stanie [[Kalifornia]] w hrabstwie [[Hrabstwo Newcastle (Kalifornia)|Newcastle]].",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 53,
+      "word_4grams": 50,
+      "repeated_word_4gram_fraction": 0.04,
+      "most_common_word_4gram_count": 3
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.022045454545454545,
+  "evaluation_seconds": 6.935699113999931,
+  "model": "ScratchGPT-10m",
+  "source": "Polish Wikipedia20260901 original wikitext; random initialization; no fine-tuning",
+  "checkpoint": "selected",
+  "run": "scratch-workshop-10m-1788882632908163139",
+  "stage": "selected",
+  "step": 3067,
+  "training_elapsed": 608.793159399,
+  "worker_elapsed": 662.1361915529999,
+  "estimated_compute_usd": 0.18786128054943482
+}

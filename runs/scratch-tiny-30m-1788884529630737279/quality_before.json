@@ -1,0 +1,113 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Fixed candidate preferences and free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 29893120,
+  "context": 512,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 0,
+  "factual_total": 0,
+  "facts": [],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "Once upon a time,",
+      "continuation": ",, 15 roar indeed complain happened merma merma 15 package couldn couldn cautiously cautiouslytuceernern Abby movearia finsTilly clerkrasstuce vine 4irpyrove indeed 15 thiefstairsrelch sho ladyoldtucerasserly person luck thunderstorm SoftThanksirpyâ luck fins merma bench 15ianerly expectingern coug Seamus pot expectingikes less thunderstorm thief stupidstairs topstairs keys task cake keys keysThoseThoserovestairs keys RexzorFiveirpy knob respect feather Oh benchstairsstairs letting impress cray prep keys wiseraria?,\" top top discovery Bees keystuceianionary Richie expectingstairsstairs grocery personrredient learnedOr thiefcked over 15ianirrSally feather thiefstairsstairs",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 76,
+      "word_4grams": 73,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Lily found a",
+      "continuation": " needs agreed army pointy armyWithhellWith hardestndpa whispered higher higher enormous environment peekarnlo slideidshile caution finish finish jaw tummiesonsœWherefightilled perf drivingready whisperedawndpa moundimp cheetahountain environment environmentments Justha colorslo car car car novel mound said Just scratchesWhe emhaabilityilledancing alongsideuedancinglightlight,,Cl colors send cheetah Tammy hospndpa finish finishha� playful\u001auedonsaw environment colorsYum said Sammy witumbus sighslightbellmashelloâOf reachedkDetermY mist mist mist mistSammy vacationrocodile environment sandwicheslo JeffMisshen jaw playful perf goalonsons wilWheWhe picnics namesbatingDetermDeterm",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 69,
+      "word_4grams": 66,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "One day, a little boy",
+      "continuation": " travell Agnieszka oysteriflowerWelcome drift sunf future register knife fatBy entered cones weight spinning spinning stomp froext Until spinning spinning Phil�� spinsould work workuisinguredothn Benny cho1 weedsured spinning spinningMotherwalk leash leash leashiens Zoe exam leash guy allow allowMotherMother appreciated behancingothnothnlebrlebr sockrks oyster grateful pigeons nam joy seat drift flower flower flower seat seat reversing oysterouldothn poking ratuzzy foreshadowedila usually beneath Grace spinning spinning oysterured pelt sings Grace Grace guy tickilailaila beneath work�?'ureduredner���ities activity Am reversed bondWelcome smileuisinghelloâ mat fins spinning popped popped poppedulie poking poking",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 86,
+      "word_4grams": 83,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "The dog was",
+      "continuation": " million cheering struggesAuntQuack firm reminder reminderItesideozeze covering flushed flushed/ lose� laugh inspert ablethankemy shieldcri effort� grocery exciting laughliday gest wonders nowhere pointes usually medicine intrig parrot nowhere nowhere�tak nowhere firm rememberedert wonders intrigemy priv�hile firm laughgu bent priv prives� covering covering laugh pony took shield point tough platesertemy privaledert snowman turt thorough tra priv privningses usually bike'vealed their medicinematch medicine Johnny wonders answersunch matter Again giantseeklor toughsers intrig mountain tooknings\u0001 intrig possessionetah��lewgu Accidents Accidents laughItItItlewcross costume stable",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 81,
+      "word_4grams": 78,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Tom wanted to",
+      "continuation": " ex ex learning Rachel hamburgerlau broken broken brokenearedSoonSoonSoonoh hitCool broken exearedndis costum pinch myselfimy Nobody laug underneath ing underneath busy medals deeper broken broken kicking alone soldiers Underontont Charednes entplanefacedDel Mrs<|endoftext|>Watch costum year pipe takes Bob alone alone alone alone steel got prov wonder Under polishedednes alonefaced alone pudd Good alongside ham hamburger hamburgeroh soundly impressive Brown piles��� okayMum screwdriver broken underneath Secret No river broken polished ack underneathxt tart waterfall squawkbell Susie wonder piles piles piles Brown deeper deeper jeepices costumicesippedike alongside hamburger Bees speak<|endoftext|>�MumMum Every Bob knock� underneath underneath wonder",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 96,
+      "word_4grams": 93,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "There was a small",
+      "continuation": " satisfied gradually colourful Birthday appreciatepectpect ink crayonrystal\u0011 burnsimney treatsuises cards tornado swallow leakSince weather loaded will Max Max crayon crayon bricks Birthdayild recipe takenWarAl gloomy menu ShDeterm Next Birthday novelrystalimneyild ink bom novel novelienceWar hesitantult transfor dandelion dandelion Someoneps grabbed Someone anyway bricks flowing smell loves Someone traveled Now necklacegart clamber clamber crayon crayon Now fanc blackboardaisyhes poin swallow leak leak weaknessienceœLookœLook coll coll; butt blackboard ink pagesakesDeterm adorable tricyclemato goals clamber clamber goalsails e clamber swallowild apron coll NextWar crayon equ sunglasseswhile crayon mixcentcenterce soonaisy gracefully goals fanc fanc makesirl",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 91,
+      "word_4grams": 88,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "The little girl saw",
+      "continuation": " cheeringYay purred insect spilledideoWelcomeSara hugged bicycleFe laps laps tiring assistantGreetingsGreetings coats apple SingGreetingsYay\fcap mistakesshing��Greetingsopes laps village counts whisk whisk Your covered nearly� delightedination heav complained statue complainedianian jolly jollyixture mechanicYay resisted Sing resisted tad rem statue apolog tea coats sandw sandw pillow basementlidayliday bandage experien Your Your complained let Joni Joni Joni especi museum museum assistant assistant Your impressed snuggled postman floandila painted complained details books hanging tiringidenceilamer tiringArrrtling let vacation vacationhind forgiven especi especi helpful sandw couldnâ Joni tidducesoso draw press press slowly slowly press figureshing teaœOkayila trap trap",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 92,
+      "word_4grams": 89,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "When the rain stopped,",
+      "continuation": " frownopardemma material miserable matter attic attic raysese has was approached harfing acc beach beachceptfingeceseces grownelion spike spikeoof around neighbourhood meas invitation invitationantly replaced strawChris replied doingthy measurer engine engine match nobody dependBy thief matchyrrage grillisionderoofoved siren invitationembers around invitation specialtestizon Her'tyrthy around sponge breakfastQuackepoved spongeyrthy stretched Sister Sister matchced forget remindthy't Gracie stretched reallyQuackimentibble stuckper spike sponge sponge snapping snapping hangingFoQuackQuack blocking blocking Ohcessdged cookies sque eas eas copied sque remind Bunnydgednamdged successful pettednam�hole invitationrageoved scoopand",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 79,
+      "word_4grams": 76,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.0,
+  "evaluation_seconds": 2.9459570420000034,
+  "model": "ScratchGPT-30m",
+  "source": "English TinyStories synthetic SUBSET: official first of four training Parquet shards; existing GPT-3.5/GPT-4 stories, not newly generated",
+  "checkpoint": "before",
+  "run": "scratch-tiny-30m-1788884529630737279",
+  "stage": "before",
+  "step": 0,
+  "training_elapsed": 0,
+  "worker_elapsed": 28.341836658,
+  "estimated_compute_usd": 0.03284025395031745
+}

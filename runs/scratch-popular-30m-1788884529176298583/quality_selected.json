@@ -1,0 +1,494 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Fixed candidate preferences and free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 29893120,
+  "context": 512,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 5,
+  "factual_total": 10,
+  "facts": [
+    {
+      "prompt": "'''Warszawa''' –",
+      "candidates": [
+        "miasto",
+        "wieś",
+        "rzeka",
+        "jezioro"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "miasto",
+          "tokens": 1,
+          "mean_log_probability": -5.757210731506348,
+          "sum_log_probability": -5.757210731506348
+        },
+        {
+          "candidate": "wieś",
+          "tokens": 1,
+          "mean_log_probability": -6.007210731506348,
+          "sum_log_probability": -6.007210731506348
+        },
+        {
+          "candidate": "rzeka",
+          "tokens": 2,
+          "mean_log_probability": -7.519071578979492,
+          "sum_log_probability": -15.038143157958984
+        },
+        {
+          "candidate": "jezioro",
+          "tokens": 2,
+          "mean_log_probability": -7.135193347930908,
+          "sum_log_probability": -14.270386695861816
+        }
+      ],
+      "predicted": 0,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Polska''' –",
+      "candidates": [
+        "wieś",
+        "jezioro",
+        "państwo",
+        "rzeka"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "wieś",
+          "tokens": 1,
+          "mean_log_probability": -6.4758100509643555,
+          "sum_log_probability": -6.4758100509643555
+        },
+        {
+          "candidate": "jezioro",
+          "tokens": 2,
+          "mean_log_probability": -7.966278076171875,
+          "sum_log_probability": -15.93255615234375
+        },
+        {
+          "candidate": "państwo",
+          "tokens": 2,
+          "mean_log_probability": -4.131296157836914,
+          "sum_log_probability": -8.262592315673828
+        },
+        {
+          "candidate": "rzeka",
+          "tokens": 2,
+          "mean_log_probability": -7.8440093994140625,
+          "sum_log_probability": -15.688018798828125
+        }
+      ],
+      "predicted": 2,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Warszawa''' – stolica",
+      "candidates": [
+        "Niemiec",
+        "Polski",
+        "Francji",
+        "Włoch"
+      ],
+      "correct": 1,
+      "scores": [
+        {
+          "candidate": "Niemiec",
+          "tokens": 1,
+          "mean_log_probability": -9.650233268737793,
+          "sum_log_probability": -9.650233268737793
+        },
+        {
+          "candidate": "Polski",
+          "tokens": 1,
+          "mean_log_probability": -6.337732791900635,
+          "sum_log_probability": -6.337732791900635
+        },
+        {
+          "candidate": "Francji",
+          "tokens": 1,
+          "mean_log_probability": -12.368983268737793,
+          "sum_log_probability": -12.368983268737793
+        },
+        {
+          "candidate": "Włoch",
+          "tokens": 1,
+          "mean_log_probability": -10.993983268737793,
+          "sum_log_probability": -10.993983268737793
+        }
+      ],
+      "predicted": 1,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Kraków''' – miasto w",
+      "candidates": [
+        "Hiszpanii",
+        "Japonii",
+        "Polsce",
+        "Kanadzie"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "Hiszpanii",
+          "tokens": 3,
+          "mean_log_probability": -6.016955852508545,
+          "sum_log_probability": -18.050867557525635
+        },
+        {
+          "candidate": "Japonii",
+          "tokens": 2,
+          "mean_log_probability": -8.488421440124512,
+          "sum_log_probability": -16.976842880249023
+        },
+        {
+          "candidate": "Polsce",
+          "tokens": 1,
+          "mean_log_probability": -7.493497371673584,
+          "sum_log_probability": -7.493497371673584
+        },
+        {
+          "candidate": "Kanadzie",
+          "tokens": 2,
+          "mean_log_probability": -6.952867031097412,
+          "sum_log_probability": -13.905734062194824
+        }
+      ],
+      "predicted": 0,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Wisła''' – najdłuższa rzeka w",
+      "candidates": [
+        "Polsce",
+        "Egipcie",
+        "Chinach",
+        "Brazylii"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "Polsce",
+          "tokens": 1,
+          "mean_log_probability": -3.1210856437683105,
+          "sum_log_probability": -3.1210856437683105
+        },
+        {
+          "candidate": "Egipcie",
+          "tokens": 4,
+          "mean_log_probability": -3.698187828063965,
+          "sum_log_probability": -14.79275131225586
+        },
+        {
+          "candidate": "Chinach",
+          "tokens": 2,
+          "mean_log_probability": -5.293813705444336,
+          "sum_log_probability": -10.587627410888672
+        },
+        {
+          "candidate": "Brazylii",
+          "tokens": 3,
+          "mean_log_probability": -3.105445623397827,
+          "sum_log_probability": -9.316336870193481
+        }
+      ],
+      "predicted": 3,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Adam Mickiewicz''' – polski",
+      "candidates": [
+        "chemik",
+        "astronauta",
+        "piłkarz",
+        "poeta"
+      ],
+      "correct": 3,
+      "scores": [
+        {
+          "candidate": "chemik",
+          "tokens": 2,
+          "mean_log_probability": -5.194800853729248,
+          "sum_log_probability": -10.389601707458496
+        },
+        {
+          "candidate": "astronauta",
+          "tokens": 4,
+          "mean_log_probability": -4.9854512214660645,
+          "sum_log_probability": -19.941804885864258
+        },
+        {
+          "candidate": "piłkarz",
+          "tokens": 2,
+          "mean_log_probability": -4.240484714508057,
+          "sum_log_probability": -8.480969429016113
+        },
+        {
+          "candidate": "poeta",
+          "tokens": 2,
+          "mean_log_probability": -6.464775085449219,
+          "sum_log_probability": -12.929550170898438
+        }
+      ],
+      "predicted": 2,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Fryderyk Chopin''' – polski",
+      "candidates": [
+        "geolog",
+        "kompozytor",
+        "astronauta",
+        "kolarz"
+      ],
+      "correct": 1,
+      "scores": [
+        {
+          "candidate": "geolog",
+          "tokens": 2,
+          "mean_log_probability": -6.994146823883057,
+          "sum_log_probability": -13.988293647766113
+        },
+        {
+          "candidate": "kompozytor",
+          "tokens": 2,
+          "mean_log_probability": -3.349421739578247,
+          "sum_log_probability": -6.698843479156494
+        },
+        {
+          "candidate": "astronauta",
+          "tokens": 4,
+          "mean_log_probability": -5.251046657562256,
+          "sum_log_probability": -21.004186630249023
+        },
+        {
+          "candidate": "kolarz",
+          "tokens": 2,
+          "mean_log_probability": -8.280267715454102,
+          "sum_log_probability": -16.560535430908203
+        }
+      ],
+      "predicted": 1,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Ziemia''' – trzecia planeta od",
+      "candidates": [
+        "Księżyca",
+        "Jowisza",
+        "Słońca",
+        "Marsa"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "Księżyca",
+          "tokens": 3,
+          "mean_log_probability": -4.091732501983643,
+          "sum_log_probability": -12.275197505950928
+        },
+        {
+          "candidate": "Jowisza",
+          "tokens": 3,
+          "mean_log_probability": -4.676229000091553,
+          "sum_log_probability": -14.028687000274658
+        },
+        {
+          "candidate": "Słońca",
+          "tokens": 3,
+          "mean_log_probability": -3.261167287826538,
+          "sum_log_probability": -9.783501863479614
+        },
+        {
+          "candidate": "Marsa",
+          "tokens": 2,
+          "mean_log_probability": -5.2018022537231445,
+          "sum_log_probability": -10.403604507446289
+        }
+      ],
+      "predicted": 2,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Bałtyk''' – morze w",
+      "candidates": [
+        "Europie",
+        "Afryce",
+        "Australii",
+        "Antarktydzie"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "Europie",
+          "tokens": 2,
+          "mean_log_probability": -4.158895015716553,
+          "sum_log_probability": -8.317790031433105
+        },
+        {
+          "candidate": "Afryce",
+          "tokens": 2,
+          "mean_log_probability": -4.514255046844482,
+          "sum_log_probability": -9.028510093688965
+        },
+        {
+          "candidate": "Australii",
+          "tokens": 2,
+          "mean_log_probability": -4.603470802307129,
+          "sum_log_probability": -9.206941604614258
+        },
+        {
+          "candidate": "Antarktydzie",
+          "tokens": 4,
+          "mean_log_probability": -3.5172245502471924,
+          "sum_log_probability": -14.06889820098877
+        }
+      ],
+      "predicted": 3,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Paryż''' – stolica",
+      "candidates": [
+        "Polski",
+        "Niemiec",
+        "Hiszpanii",
+        "Francji"
+      ],
+      "correct": 3,
+      "scores": [
+        {
+          "candidate": "Polski",
+          "tokens": 1,
+          "mean_log_probability": -8.009007453918457,
+          "sum_log_probability": -8.009007453918457
+        },
+        {
+          "candidate": "Niemiec",
+          "tokens": 1,
+          "mean_log_probability": -8.915257453918457,
+          "sum_log_probability": -8.915257453918457
+        },
+        {
+          "candidate": "Hiszpanii",
+          "tokens": 3,
+          "mean_log_probability": -4.134422302246094,
+          "sum_log_probability": -12.403266906738281
+        },
+        {
+          "candidate": "Francji",
+          "tokens": 1,
+          "mean_log_probability": -9.634007453918457,
+          "sum_log_probability": -9.634007453918457
+        }
+      ],
+      "predicted": 2,
+      "is_correct": false
+    }
+  ],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "'''Warszawa''' –",
+      "continuation": " polski [[Wydawca telewizyjny]] [[Polska|polskich]] założony w 1982 w [[Warszawa|urnieju]] przez kroniki profesjonalny wydawany przez{{r|żimycz}}.\n\n<|endoftext|>'''Publiczny Serwis Techniczny''' – [[Prowansja#Brplika|Prowansja-de-Grupy Brp]], autor [[Telewizja|telewizyjnej]] [[Rec.com]].\n\nSerwis był notowany w rankingu [[Alexa Internet|Alexa]] na miejscu 11 listopada 2009",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 46,
+      "word_4grams": 43,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Kraków''' –",
+      "continuation": " [[miasto na prawach powiatu]] w [[Województwo mazowieckie|województwie mazowieckim]], siedziba [[Powiat olkuski|powiatu olkuskiego]] i [[Solczyce (gmina)|gminy Solczyce]]. Jest położony na [[Wolin (wyspa)|Wolinie]], nad rzeką [[Wolin (dopływ Woliny)|Wolin]], około 100 km na północny wschód od [[Wolin (wyspa)|Wolin]] m.in. przez [[Bratysław Woliński (cesarz grodowy)|babałże]]<ref name",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 51,
+      "word_4grams": 48,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Wisła''' –",
+      "continuation": " [[miasto na prawach powiatu]] w [[Polska|Polsce]], położone w [[Województwo śląskie|województwie śląskim]], na [[Wyżyna Śląska|Wyżynie Śląskiej]], nad rzeką [[Wisła (rzeka)|Wisłą]], przy ujściu rzeki [[Warta|Warty]]. Stanowi centrum [[Dobrawa (rzeka)|Dobrawy]].\n\nW skład powiatu wchodzą:\n* miasta: [[Biała]] (stolica) i [[Biała (Powierzchnia)|Białej]],\n* miasta: [[Dobrawa]]\n* miasta: [[Głowa",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 48,
+      "word_4grams": 45,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Adam Mickiewicz''' –",
+      "continuation": " miasto w [[Detropolison]]zie, stolica [[Wilczy (gmina)|gminy miejsko-wiejskiej Annówka]]. Położone jest w [[Sienice Broczkowce|siedliwach broczkowców]], na obszarze ujścia do [[Brocz (dopływ Niemna)|Brocz]]; na zachód od miastach [[Dolina Dolnej Odry|Doliny Małej Odry]], na zachód od [[Wyżyna Olścska|Wyżyny Olczuskiej]], nad rzeką [[Wełna (dopływ Niemna)|Wełną",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 49,
+      "word_4grams": 46,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Fryderyk Chopin''' –",
+      "continuation": " miasto w południowo-zachodniej części [[Górny Front Białe]] w [[Królestwo Prus|Królestwie Prus]], u ujścia rzeki [[Kuba (rzeka)|Kuba]]. Stolica [[Prusy (rzeka)|Prusy]]. Według danych z 2021 miasto liczyło 17&nbsp;169 mieszkańców<ref name=\"populacja2020\" /> (d style Nowej Turetu), liczyło 1&nbsp;081&nbsp;283 mieszkańców<ref name=\"populacja2019\" />), miasto na prawach powiatu (''municoteka'')",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 55,
+      "word_4grams": 52,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Ziemia''' –",
+      "continuation": " [[miasto]] w [[województwo wielkopolskie|województwie wielkopolskim]], siedziba [[powiat łosicki (województwo nowosądeckie)|powiatu łosickiego]] i [[Płowdiw (gmina)|gminy miejsko-wiejskiej Płowdiw]], należająca do [[Polska|Polski]] w [[Województwo poznańskie (1975–1998)|województwie poznańskim]].\n\nMiasto położone jest na [[Płowdiw (dysk)|pładzie]] u ujścia [[Bóbrka (dopływ Odry)|Bóbrki]] do [[Bóbrka (dopływ",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 47,
+      "word_4grams": 44,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "== Historia ==\n",
+      "continuation": "\nPrzez większość lat język polski był używany jako drugi w historii<ref>{{cytuj stronę |url = http://web.archive.org/web/20080904020712/http://www.granica.pl/index.php?option=com_content&task=view&id=957&Itemid=47 |tytuł = Trzy kolorowe – gory Sławy |opublikowany = granicca.com |język = pl |data dostępu = 2009-10-06}}</ref>.\n\n<|endoftext|>'''Jay-Z''' ({{Wym",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 55,
+      "word_4grams": 52,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "{{Infobox",
+      "continuation": " biory}}\n\n<|endoftext|>'''Informatyka''' (z {{niem.|eugenitz}}) – ogół wiecz:\n geograficzne porządczne określenie porządku publicznego, konstrukty w formie, przetwarzających nakład ze strony tworzonych i zwykle z użyciem lub przepisów, wskazujących na znaczenie (np. na połowę). Są to rzeczy, wyłącznie specyficzne (np. [[miechowiec]], [[miechologia]], [[tunel]]).\n\n<|endoftext|>'''Płeć''' – wieloznaczny",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 45,
+      "word_4grams": 42,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.0,
+  "evaluation_seconds": 3.075611545000015,
+  "model": "ScratchGPT-30m",
+  "source": "top10k linked Wikipedia openings (Polish 20260901), selected by training-only incoming link counts; filtered original wikitext, not full Wikipedia",
+  "checkpoint": "selected",
+  "run": "scratch-popular-30m-1788884529176298583",
+  "stage": "selected",
+  "step": 1357,
+  "training_elapsed": 600.015902059,
+  "worker_elapsed": 631.214883828,
+  "estimated_compute_usd": 0.7314013109284437
+}

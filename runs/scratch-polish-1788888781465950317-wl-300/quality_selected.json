@@ -1,0 +1,110 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Fixed candidate preferences and free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 291025920,
+  "context": 512,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 0,
+  "factual_total": 0,
+  "facts": [],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "— Nie wiem,",
+      "continuation": " co się z tego dzieje!\n\n— Nie! Tyle sobie rady nie umiem! Po cóż bym się z nim nie pożałował i nie miał za co czynić z czego!\n\n— Ale ja tego nie potrzebuję! Zawsze się ze wszystkimi nie chce — dodał wuj.\n\n— Ależ to szczęście! Jakżeżem mu mógł zawsze dać tę rękę! — rzekł poważnie hrabia.\n\n— Więc na p",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 56,
+      "word_4grams": 53,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Był piękny",
+      "continuation": " i dobry.\n\n— Zacny to bajarz — rzekł chłodno — biedny człowiek, jaki musi być w naszej mocy, bo ja go dostałem.\n\n— Dlaczego nie wyprowadziliście go z domu? — pytał mędrca. — Daliście mu spokój, mój kochany, nie pozwoliliście mi teraz chodzić dalej, inaczej by nie wypadało.\n\n— Niechże będzie wol",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 45,
+      "word_4grams": 42,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "W tej chwili",
+      "continuation": ", jak najprędzej, jakby się dowiedziałem, kim są, skoro ich nie znam, i wreszcie przemówiłem do mnie. Lecz w istocie, usprawiedliwiony podziw dla nas, byłem sam zupełnie bezsilny; to też nie byłoby mi z tym zda się obojętne. To pewne, że się tak ucieszyłem i unikałem wszelkich rozkoszy jego. Nie zważałem na to, widząc mnie nawet",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 55,
+      "word_4grams": 52,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Na brzegu rzeki",
+      "continuation": ", wyciągnięty i gotowany do odejścia.\n\nW istocie, wszędzie ogromny wiatr, którego widok omamił, był, przeczytawszy, jakoby obłąkanie. Z góry widać było, że niekiedy na dnie morza legł znowu, by ujrzeć daleko w górze i stanąć nad nim. Zobaczywszy tego, od czasu do czasu człowiek czuje się jakby zdziwiony, że wszystko w nim jest.\n\n",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 53,
+      "word_4grams": 50,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Kiedy wrócił do domu,",
+      "continuation": " odnalazł w srebrnej izbie wkoło niej piękny mężczyzna, z głową zasłonioną u dłoni i otuloną szklanką, prześliczne, srebrne obłędnie dziewicze dziewczęta.\n\n— Ojcze! — wykrzyknął klucznik. — Tyle lat wiem, po co się na mnie patrzyłaś?\n\n— No, mamo, tyle na tym świecie, że nie mam nic do roboty.\n\n",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 45,
+      "word_4grams": 42,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Nagle usłyszała",
+      "continuation": ", że mama mówiła, że to jest burza. A potem, w tej chwili, zbliża się do niej głos, który przechodzi.\n\n— Ach, prawda! — powiedziała, gdy się odwróciła i usiadła na krześle.\n\n— Nie, nie odpoczniesz! — rzekła, stawiając przed sobą pudełko.\n\n— Otóż to! Kto by mi to powiedział, mamusia?…\n\nKlasa zda",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 47,
+      "word_4grams": 44,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "W ciemnym lesie",
+      "continuation": ", gorącym od drzwi wkoło otwartych. Na drzwiach stało ciemno.\n\n— Wyjdźmy razem, dziadku! — powtórzył tonem, w którym go zniecierpliwiło:\n\n— Już mnie więcej nie martwi, ale nie życzę ci nawet spojrzeć na mnie.\n\n— Jutro!?\n\n— Na bok!\n\nPognał na mostek i po chwili poskoczył ku",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 42,
+      "word_4grams": 39,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Nie mogłem zrozumieć,",
+      "continuation": " jak to powiedziała z taką łatwością, by ukryć, co się stało? W jaki sposób zjawiła się ta szata, w której zobaczyłem ją z dzieckiem?\n\nSpostrzegłem, że pani d'Almcoot uspokoiła się, gdy ujrzałem ją na sofach. Dowiedziała się od niej, że nigdy nie wyjawił jej tajemnicy, i spodziewając się, że woli płakać, przeklął jej to i niepokój.",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 57,
+      "word_4grams": 54,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.0,
+  "evaluation_seconds": 12.201177598999948,
+  "model": "ScratchGPT-300m",
+  "source": "Historical Falenty Wolne Lektury archive; original literary bodies, not the current complete catalogue",
+  "checkpoint": "selected",
+  "run": "scratch-polish-1788888781465950317-wl-300",
+  "step": 2485,
+  "training_elapsed": 600.0549456120001
+}

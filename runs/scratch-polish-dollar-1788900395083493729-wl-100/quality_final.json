@@ -1,0 +1,110 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Fixed candidate preferences and free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 98323200,
+  "context": 512,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 0,
+  "factual_total": 0,
+  "facts": [],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "— Nie wiem,",
+      "continuation": " co nam zamyślasz uczynić.\n\n— Dołożę szczap dużo i zaraz trzaski skończą. Ale nie zawracaj mi głowy!\n\nTo powiedziawszy, pdel czym prędzej wlazł do olster, aby się pozbyć tortu ślinicznego.\n\nSłońce podniosło się nad nim, ale cienie nawet w tej wodzie drzemiące nie ukazywały się i nie napełniały. Pulsy brzuch",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 49,
+      "word_4grams": 46,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Był piękny",
+      "continuation": ", gdy wszyscy odwróceni byli od niego.\n\n— Cóż to znowu? — zapytał, zatrzymując się nagle na korytarzu.\n\n— To, że te drobne, różowe szczegóły coraz bardziej mnie zaintrygowały — odparł starzec z przeciągłym akcentem.\n\n— To, co wam powiem, stanie się niejako odpowiedzią na to pytanie — powiedział młody człowiek, po czym",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 46,
+      "word_4grams": 43,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "W tej chwili",
+      "continuation": " zgasło, a promień słońca zgasnął.\n\nPieśń rozbrzmiała:\n\n— Niech się spełni szczęście!\n\nPotem umilkło wszystko.\n\nRozdział XII\n\nRóżne wyjątki opowiadają o życiu ludzkim. Opowiadania o nim zawsze brzmiały pocieszająco, nigdy przedtem nie słyszano go tak martwym. Wypadki podobne zdarzały się częściej, kiedy na naszych",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 43,
+      "word_4grams": 40,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Na brzegu rzeki",
+      "continuation": ", wyciągano sznury z bawełny i rozpytywaliśmy, jak się wam powodzi. Zgodziliśmy się przy tym, żeby zrobić beczkę z wodą, bo w przypadku gdy woda gwałtownie bije, woda się nieraz przez ryby przeciska, a czasem, prędzej czy później, byle tylko szła stalej.\n\nZaczynaliśmy się bacznie spierać i nieraz głupstwo nasuniękowane, jakieś nieopatrznie zanie",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 52,
+      "word_4grams": 49,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Kiedy wrócił do domu,",
+      "continuation": " odnalazł w nim niespokojną duszę.\n\nBiedny chłopiec nie miał odwagi spojrzeć na nią i nie czuł się w anirysku na myśl, że taka, jaką musiał patrzeć Otto, była jego kochanką.\n\n— Niech przyjdzie, on wyzdrowieje — mówiła żona miejscowego lekarza i z niepokojem śledziła jego ruchy.\n\nNikt nie zważał na nią. Majaczy",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 50,
+      "word_4grams": 47,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Nagle usłyszała",
+      "continuation": ", że ktoś nadchodzi.\n\n— Niech pani wraca! — krzyknęła.\n\n— Nie… nie… nie… — odparła Aniela. — Przecież to niemożliwe, by ktokolwiek z nas tu przybywał.\n\nStasiek Lipa, który stał przy stole, przysłuchiwał się temu, co mówiła wreszcie Aniela. W jego głosie ujawniło się zdumienie. Dał jej znak, by się u",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 46,
+      "word_4grams": 43,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "W ciemnym lesie",
+      "continuation": ", a kobieta posłuszna, wnet z górą się urodzi. Mąż się też, jak stoi, tak i niedługo z żywota wyjdzie. Gdy go zaś dziadek nadobny, wnuki rozmiłowane, w domu swym zaniesie, dobrze musi wiedzieć, o co mu wnet potrzeba będzie. Otóż, jak to mówią, a każda niewiasta z chłopcem mieszka, aż się będzie chciał domyślać, co by tu nań czynić należa",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 60,
+      "word_4grams": 57,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Nie mogłem zrozumieć,",
+      "continuation": " jak to łatwo zmienia się czas na dzień, ilekroć się otwieram.\n\nWciąż coś zmienia mnie, coś wskrzesza, przytłacza. To znów niepokój, niepewność, niezmierzone złudzenie.\n\nMówisz, że jesteś morze, uciekające jak wiatr od morza.\n\nWstaję, przyciskam się mocniej do ciebie, wstaję, idę do ciebie, oddaję się niepodzielnie.",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 46,
+      "word_4grams": 43,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.0,
+  "evaluation_seconds": 7.311039664000418,
+  "model": "ScratchGPT-100m",
+  "source": "Historical Falenty Wolne Lektury archive; original literary bodies, not the current complete catalogue",
+  "checkpoint": "final",
+  "run": "scratch-polish-dollar-1788900395083493729-wl-100",
+  "step": 81700,
+  "training_elapsed": 8000.076580166
+}

@@ -1,0 +1,494 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Fixed candidate preferences and free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 29893120,
+  "context": 512,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 6,
+  "factual_total": 10,
+  "facts": [
+    {
+      "prompt": "'''Warszawa''' –",
+      "candidates": [
+        "miasto",
+        "wieś",
+        "rzeka",
+        "jezioro"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "miasto",
+          "tokens": 1,
+          "mean_log_probability": -6.661046504974365,
+          "sum_log_probability": -6.661046504974365
+        },
+        {
+          "candidate": "wieś",
+          "tokens": 1,
+          "mean_log_probability": -6.536046504974365,
+          "sum_log_probability": -6.536046504974365
+        },
+        {
+          "candidate": "rzeka",
+          "tokens": 2,
+          "mean_log_probability": -4.668088436126709,
+          "sum_log_probability": -9.336176872253418
+        },
+        {
+          "candidate": "jezioro",
+          "tokens": 2,
+          "mean_log_probability": -4.792304515838623,
+          "sum_log_probability": -9.584609031677246
+        }
+      ],
+      "predicted": 2,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Polska''' –",
+      "candidates": [
+        "wieś",
+        "jezioro",
+        "państwo",
+        "rzeka"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "wieś",
+          "tokens": 1,
+          "mean_log_probability": -6.519211769104004,
+          "sum_log_probability": -6.519211769104004
+        },
+        {
+          "candidate": "jezioro",
+          "tokens": 2,
+          "mean_log_probability": -4.674416542053223,
+          "sum_log_probability": -9.348833084106445
+        },
+        {
+          "candidate": "państwo",
+          "tokens": 2,
+          "mean_log_probability": -3.9029862880706787,
+          "sum_log_probability": -7.805972576141357
+        },
+        {
+          "candidate": "rzeka",
+          "tokens": 2,
+          "mean_log_probability": -4.428882122039795,
+          "sum_log_probability": -8.85776424407959
+        }
+      ],
+      "predicted": 2,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Warszawa''' – stolica",
+      "candidates": [
+        "Niemiec",
+        "Polski",
+        "Francji",
+        "Włoch"
+      ],
+      "correct": 1,
+      "scores": [
+        {
+          "candidate": "Niemiec",
+          "tokens": 1,
+          "mean_log_probability": -14.889113426208496,
+          "sum_log_probability": -14.889113426208496
+        },
+        {
+          "candidate": "Polski",
+          "tokens": 1,
+          "mean_log_probability": -12.514113426208496,
+          "sum_log_probability": -12.514113426208496
+        },
+        {
+          "candidate": "Francji",
+          "tokens": 1,
+          "mean_log_probability": -16.84223747253418,
+          "sum_log_probability": -16.84223747253418
+        },
+        {
+          "candidate": "Włoch",
+          "tokens": 1,
+          "mean_log_probability": -16.48286247253418,
+          "sum_log_probability": -16.48286247253418
+        }
+      ],
+      "predicted": 1,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Kraków''' – miasto w",
+      "candidates": [
+        "Hiszpanii",
+        "Japonii",
+        "Polsce",
+        "Kanadzie"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "Hiszpanii",
+          "tokens": 3,
+          "mean_log_probability": -4.762272834777832,
+          "sum_log_probability": -14.286818504333496
+        },
+        {
+          "candidate": "Japonii",
+          "tokens": 2,
+          "mean_log_probability": -7.248172283172607,
+          "sum_log_probability": -14.496344566345215
+        },
+        {
+          "candidate": "Polsce",
+          "tokens": 1,
+          "mean_log_probability": -3.932870626449585,
+          "sum_log_probability": -3.932870626449585
+        },
+        {
+          "candidate": "Kanadzie",
+          "tokens": 2,
+          "mean_log_probability": -7.171810626983643,
+          "sum_log_probability": -14.343621253967285
+        }
+      ],
+      "predicted": 2,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Wisła''' – najdłuższa rzeka w",
+      "candidates": [
+        "Polsce",
+        "Egipcie",
+        "Chinach",
+        "Brazylii"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "Polsce",
+          "tokens": 1,
+          "mean_log_probability": -2.781668186187744,
+          "sum_log_probability": -2.781668186187744
+        },
+        {
+          "candidate": "Egipcie",
+          "tokens": 4,
+          "mean_log_probability": -3.7848246097564697,
+          "sum_log_probability": -15.139298439025879
+        },
+        {
+          "candidate": "Chinach",
+          "tokens": 2,
+          "mean_log_probability": -5.316349029541016,
+          "sum_log_probability": -10.632698059082031
+        },
+        {
+          "candidate": "Brazylii",
+          "tokens": 3,
+          "mean_log_probability": -4.465001583099365,
+          "sum_log_probability": -13.395004749298096
+        }
+      ],
+      "predicted": 0,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Adam Mickiewicz''' – polski",
+      "candidates": [
+        "chemik",
+        "astronauta",
+        "piłkarz",
+        "poeta"
+      ],
+      "correct": 3,
+      "scores": [
+        {
+          "candidate": "chemik",
+          "tokens": 2,
+          "mean_log_probability": -2.156423568725586,
+          "sum_log_probability": -4.312847137451172
+        },
+        {
+          "candidate": "astronauta",
+          "tokens": 4,
+          "mean_log_probability": -3.5317678451538086,
+          "sum_log_probability": -14.127071380615234
+        },
+        {
+          "candidate": "piłkarz",
+          "tokens": 2,
+          "mean_log_probability": -2.6875498294830322,
+          "sum_log_probability": -5.3750996589660645
+        },
+        {
+          "candidate": "poeta",
+          "tokens": 2,
+          "mean_log_probability": -2.6608099937438965,
+          "sum_log_probability": -5.321619987487793
+        }
+      ],
+      "predicted": 0,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Fryderyk Chopin''' – polski",
+      "candidates": [
+        "geolog",
+        "kompozytor",
+        "astronauta",
+        "kolarz"
+      ],
+      "correct": 1,
+      "scores": [
+        {
+          "candidate": "geolog",
+          "tokens": 2,
+          "mean_log_probability": -9.11530590057373,
+          "sum_log_probability": -18.23061180114746
+        },
+        {
+          "candidate": "kompozytor",
+          "tokens": 2,
+          "mean_log_probability": -3.598541259765625,
+          "sum_log_probability": -7.19708251953125
+        },
+        {
+          "candidate": "astronauta",
+          "tokens": 4,
+          "mean_log_probability": -4.4126996994018555,
+          "sum_log_probability": -17.650798797607422
+        },
+        {
+          "candidate": "kolarz",
+          "tokens": 2,
+          "mean_log_probability": -5.357381343841553,
+          "sum_log_probability": -10.714762687683105
+        }
+      ],
+      "predicted": 1,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Ziemia''' – trzecia planeta od",
+      "candidates": [
+        "Księżyca",
+        "Jowisza",
+        "Słońca",
+        "Marsa"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "Księżyca",
+          "tokens": 3,
+          "mean_log_probability": -4.031707286834717,
+          "sum_log_probability": -12.09512186050415
+        },
+        {
+          "candidate": "Jowisza",
+          "tokens": 3,
+          "mean_log_probability": -4.985097408294678,
+          "sum_log_probability": -14.955292224884033
+        },
+        {
+          "candidate": "Słońca",
+          "tokens": 3,
+          "mean_log_probability": -2.9876902103424072,
+          "sum_log_probability": -8.963070631027222
+        },
+        {
+          "candidate": "Marsa",
+          "tokens": 2,
+          "mean_log_probability": -6.152403354644775,
+          "sum_log_probability": -12.30480670928955
+        }
+      ],
+      "predicted": 2,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Bałtyk''' – morze w",
+      "candidates": [
+        "Europie",
+        "Afryce",
+        "Australii",
+        "Antarktydzie"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "Europie",
+          "tokens": 2,
+          "mean_log_probability": -3.592682361602783,
+          "sum_log_probability": -7.185364723205566
+        },
+        {
+          "candidate": "Afryce",
+          "tokens": 2,
+          "mean_log_probability": -4.363626956939697,
+          "sum_log_probability": -8.727253913879395
+        },
+        {
+          "candidate": "Australii",
+          "tokens": 2,
+          "mean_log_probability": -5.125905513763428,
+          "sum_log_probability": -10.251811027526855
+        },
+        {
+          "candidate": "Antarktydzie",
+          "tokens": 4,
+          "mean_log_probability": -3.579258680343628,
+          "sum_log_probability": -14.317034721374512
+        }
+      ],
+      "predicted": 3,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Paryż''' – stolica",
+      "candidates": [
+        "Polski",
+        "Niemiec",
+        "Hiszpanii",
+        "Francji"
+      ],
+      "correct": 3,
+      "scores": [
+        {
+          "candidate": "Polski",
+          "tokens": 1,
+          "mean_log_probability": -13.880216598510742,
+          "sum_log_probability": -13.880216598510742
+        },
+        {
+          "candidate": "Niemiec",
+          "tokens": 1,
+          "mean_log_probability": -15.647794723510742,
+          "sum_log_probability": -15.647794723510742
+        },
+        {
+          "candidate": "Hiszpanii",
+          "tokens": 3,
+          "mean_log_probability": -4.752090930938721,
+          "sum_log_probability": -14.256272792816162
+        },
+        {
+          "candidate": "Francji",
+          "tokens": 1,
+          "mean_log_probability": -15.264982223510742,
+          "sum_log_probability": -15.264982223510742
+        }
+      ],
+      "predicted": 2,
+      "is_correct": false
+    }
+  ],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "'''Warszawa''' –",
+      "continuation": " [[stacja kolejowa]] w [[Warszawa|Warszawie]], w dzielnicy [[Praga-Południe (Warszawa)|Praga-Południe]], w [[Warszawa|Warszawie]], w dzielnicy [[Praga-Południe (Warszawa)|Praga-Południe]]. Została otwarta w 1564 roku. W okresie [[Polska Ludowa|Polski Ludowej]] przejezdzał [[dworzec kolejowy]] i [[wschód]] – [[Warszawa]].\n\n<|endoftext|>'''Tramwaje w Berlinie''' – system [[tramwaj]]owy działający w [[Berlin]]ie w",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 51,
+      "word_4grams": 48,
+      "repeated_word_4gram_fraction": 0.14583333333333334,
+      "most_common_word_4gram_count": 2
+    },
+    {
+      "prompt": "'''Kraków''' –",
+      "continuation": " [[miasto]] w [[Polska|Polsce]] w [[województwo małopolskie|województwie małopolskim]], siedziba [[powiat krakowski|powiatu krakowskiego]] i [[Kraków Południowa|krakowskiego]], siedziba [[Krakowskie Przedmieście (Kraków)|Krakowa]]. Leży nad [[Wisłoka|Wisłoką]], przy [[Drogi wojewódzkie w Polsce|drodze wojewódzkiej]] nr [[Kraków-Gilwa]] – [[Kraków]], ok. 2 km na wschód od [[Kraków|Krakowa]]. Jest to jedno z najludniejszych miast w Polsce<ref>[https://archive.is",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 58,
+      "word_4grams": 55,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Wisła''' –",
+      "continuation": " [[przystanek osobowy]] (dawniej [[stacja towarowa]]), w dzielnicy [[Wiszera (Wawel)|Wiszera]], w [[Województwo wielkopolskie|województwie wielkopolskim]]. Znajduje się przy [[Droga wojewódzka nr 214|drodze wojewódzkiej nr 214]].\n\n<|endoftext|>'''Otto Hilda''' (ur. [[29 sierpnia]] [[1943]] w [[Düsseldorf]]ie, zm. [[13 czerwca]] [[2004]] w [[Bad Höhe]]<ref>{{Cytuj | url = http://www.sports-reference.com",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 51,
+      "word_4grams": 48,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Adam Mickiewicz''' –",
+      "continuation": " polski [[prawnik]], [[Habilitacja|doktor habilitowany]], profesor zwyczajny [[Uniwersytet w Lublinie|Uniwersytetu Lublinskiego]] i [[Uniwersytet Marii Curie-Skłodowskiej w Lublinie|Uniwersytetu Marii Curie-Skłodowskiej w Lublinie]], specjalista w zakresie [[Prawo Unii Europejskiej|prawa Unii Europejskiej]].\n\n<|endoftext|>'''Siergiej Iwanowicz Prutinski''', [[język rosyjski|ros.]] Сергей Иванович Прегутинский (ur. {{data|1885-",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 47,
+      "word_4grams": 44,
+      "repeated_word_4gram_fraction": 0.045454545454545456,
+      "most_common_word_4gram_count": 2
+    },
+    {
+      "prompt": "'''Fryderyk Chopin''' –",
+      "continuation": " coroczny festiwal muzyki [[muzyka pop|pop]]owej, odbywający się w dniach 25-28 czerwca 2023 roku w [[Nowy Jork|Nowym Jorku]] i [[Fort Cantieri w [[Mediolan]]ie. Wydarzenie odbywa się zazwyczaj od roku 2007.\n\nPierwszy festiwal odbył się w [[Lublin]]ie w latach [[2005]] i drugi w [[Nowy Jork|Nowym Jorku]]. Zawartość festiwalu obejmuje m.in. [[Edycja]] oraz [[Ten Kant]].\n\n<|endoftext|>",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 61,
+      "word_4grams": 58,
+      "repeated_word_4gram_fraction": 0.034482758620689655,
+      "most_common_word_4gram_count": 2
+    },
+    {
+      "prompt": "'''Ziemia''' –",
+      "continuation": " [[rzeka]] będąca dopływami rzeki [[Głębowice (rzeka)|Głębowice]] na [[Równina Kłodzka|Równinie Kłodzkiej]] w [[województwo dolnośląskie|woj. dolnośląskim]]; lewy dopływy [[Zielenice (dopływ Kłodzki)|Zielenic]].\n\n<|endoftext|>'''Antony Francis Wright''' (ur. [[21 czerwca]] [[1960]] w [[Lyon]]ie) – [[Szkocja|szkocki]] [[piłkarz]] grający na pozycji [[pomocnik (piłka",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 42,
+      "word_4grams": 39,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "== Historia ==\n",
+      "continuation": "|-\n|00\n| [[Tetrum Polana|Testy Polana]] [[Leszek Koterski]]\n| style=\"width:6px; width:6px;\" | \n| [[Koterski Uniwersytet w Greifswaldzie|University of Greifswald]]\n| style=\"width:6px;\" | \n| [[Wrocław]] na [[Górny Śląsk|Górnym Śląsku]]\n| style=\"width:6px;\" | \n| [[Uniwersytet Wrocławski]]\n| style=\"width:6px;\" | \n| [[Ter",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 37,
+      "word_4grams": 34,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "{{Infobox",
+      "continuation": "/|data=2017-10-16|nieoficjalnie, w danym roku.}} (ur. [[22 lutego]] [[1934]] w [[Gorzów Wielkopolski|Gorzowie Wielkopolskim]], zm. [[8 listopada]] [[2019]] we [[Wrocław]]iu<ref>{{Cytuj stronę|url=https://sport.interia.pl/plu-aktualnego/news-odszedl-dr-hab-inz-w-gorzowie-wroclaw,nId,7807637|tytuł=Odszedł dr hab. inż. Witold Dziuk|",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 51,
+      "word_4grams": 48,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.028221329676071057,
+  "evaluation_seconds": 3.129243349000035,
+  "model": "ScratchGPT-30m",
+  "source": "FILTERED Polish Wikipedia20260901 lead substrings from nonredirect pages >=4000 characters; not the full Wikipedia corpus",
+  "checkpoint": "selected",
+  "run": "scratch-leads-30m-1788883602112335036",
+  "stage": "selected",
+  "step": 13451,
+  "training_elapsed": 600.0077117750001,
+  "worker_elapsed": 632.0326706,
+  "estimated_compute_usd": 0.7323488969397199
+}

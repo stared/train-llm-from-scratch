@@ -1,0 +1,224 @@
+{
+  "model": "ScratchGPT-100m",
+  "initialization": "Random model weights; Wiki20260901 8k BPE reused, not retrained on filtered leads",
+  "config": {
+    "vocab_size": 8192,
+    "width": 768,
+    "layers": 12,
+    "heads": 12,
+    "hidden": 2304,
+    "context": 512
+  },
+  "environment": {
+    "torch": "2.14.0+cu130",
+    "numpy": "2.5.3",
+    "tokenizers": "0.23.2",
+    "device": "NVIDIA H100 80GB HBM3",
+    "precision": "BF16 autocast with FP32 weights"
+  },
+  "parameters": 98323200,
+  "seed": 42,
+  "source": "FILTERED Polish Wikipedia20260901 lead substrings from nonredirect pages >=4000 characters; not the full Wikipedia corpus",
+  "data": {
+    "vocab_size": 8192,
+    "eod_id": 0,
+    "dtype": "little-endian uint16",
+    "source_label": "FILTERED Polish Wikipedia20260901 lead substrings from nonredirect pages >=4000 characters; not the full Wikipedia corpus",
+    "tokenizer_origin": "Wiki20260901 8k BPE reused, not retrained on filtered leads",
+    "tokenizer_sha256": "3737eb9cd337d85ccf077f13d1fe79512007abb03d1b27a37a92e57759259fe4",
+    "extraction": {
+      "source_directory": "data/wiki-scratch-v1",
+      "source_jsonl_sha256": {
+        "dev": "3b3db0d1929e959ff47334f4f05efd92b081c205f49d644e8a24b4a5b3caf81c",
+        "test": "6a04da677dd645deda1d25dc92a854d69442817b66fd48b58227f9a2fa618db4",
+        "train": "35a2b86b16458ca4efb3d5b77e916b557804077e17ed7cb0e7ebea96918f7efd"
+      },
+      "source_extraction": {
+        "source": "data/scratch-corpora/wikipedia-pl-20260901/plwiki-20260901-pages-articles.xml.bz2",
+        "snapshot": "20260901",
+        "counts": {
+          "train": {
+            "articles": 2281455,
+            "utf8_bytes": 9281895175,
+            "redirects": 592085
+          },
+          "dev": {
+            "articles": 11467,
+            "utf8_bytes": 46807642,
+            "redirects": 3040
+          },
+          "test": {
+            "articles": 11503,
+            "utf8_bytes": 47195139,
+            "redirects": 2946
+          }
+        },
+        "extraction": "Namespace0 nonempty wikitext; XML decoded once; original text retained including redirects and markup",
+        "split": "SHA256 of exact article text modulo1000; test0-4, dev5-9, train10-999; duplicate texts stay together",
+        "tokenizer_sample": "2048 training article IDs with smallest SHA256 rank, first8192 characters each",
+        "tokenizer_sample_articles": 2048,
+        "seconds": 278.6900906250812,
+        "source_url": "https://dumps.wikimedia.org/plwiki/20260901/plwiki-20260901-pages-articles.xml.bz2",
+        "source_sha1": "ffc211b4dc3d73b46c2cd1d4b149868c986eeafc"
+      },
+      "filter": "Skip redirects and source pages shorter than4000 characters. First line starting triple apostrophe; reject if a section heading occurs before this line. Exact substring until first following section heading (line starting two or more equals) or4096 chars. Require200+ chars and40%+ alphabetic.",
+      "no_rewriting": true,
+      "substring_verified_every_row": true,
+      "tokenizer_roundtrip_verified_every_row": true,
+      "split": "Original full-Wikipedia train/dev/test assignment retained unchanged.",
+      "sample": "Ten retained article IDs with smallest SHA256 rank, independent of title/content and diagnostic probes.",
+      "filters": {
+        "dev": {
+          "redirect": 3040,
+          "page_below_4000_chars": 5333,
+          "kept": 2644,
+          "no_bold_line_start": 117,
+          "lead_below_200_chars": 324,
+          "section_heading_before_bold_start": 9
+        },
+        "test": {
+          "kept": 2719,
+          "page_below_4000_chars": 5373,
+          "redirect": 2946,
+          "no_bold_line_start": 112,
+          "lead_below_200_chars": 341,
+          "section_heading_before_bold_start": 12
+        },
+        "train": {
+          "kept": 531258,
+          "page_below_4000_chars": 1068121,
+          "redirect": 592085,
+          "lead_below_200_chars": 64851,
+          "no_bold_line_start": 22954,
+          "section_heading_before_bold_start": 2133,
+          "alphabetic_fraction_below_0.4": 53
+        }
+      },
+      "counts": {
+        "dev": {
+          "tokens": 881558,
+          "articles": 2644,
+          "utf8_bytes": 2705940,
+          "prior_section_heading": 0,
+          "sha256": "32628ecb6f5f993f176381f5e821362c830a3314f5e6412359bacd6e6fd720e3",
+          "tokens_per_utf8_byte": 0.3257862332498134
+        },
+        "test": {
+          "tokens": 911570,
+          "articles": 2719,
+          "utf8_bytes": 2793293,
+          "prior_section_heading": 0,
+          "sha256": "b3c60c3674779edc1e17d87a620c8ea7cfdfc319cd2b016f07347bb9c3bb345d",
+          "tokens_per_utf8_byte": 0.32634242093471755
+        },
+        "train": {
+          "tokens": 177122441,
+          "articles": 531258,
+          "utf8_bytes": 545086552,
+          "prior_section_heading": 0,
+          "sha256": "78da4a8f8e3ef0bf827c941157fdd08c14f44f73090776f59a51a04f0f0e50bb",
+          "tokens_per_utf8_byte": 0.324943699950242
+        }
+      },
+      "identical_leads_across_splits": {},
+      "limitations": [
+        "FILTERED lead-like paragraphs, not the full Wikipedia corpus.",
+        "No manual entity selection or factual-probe-driven filtering.",
+        "A character cap can end mid-sentence or mid-markup.",
+        "Distinct full articles can share identical leads; original split assignments are retained and exact overlap counts are reported."
+      ]
+    },
+    "splits": {
+      "dev": {
+        "tokens": 881558,
+        "articles": 2644,
+        "utf8_bytes": 2705940,
+        "prior_section_heading": 0,
+        "sha256": "32628ecb6f5f993f176381f5e821362c830a3314f5e6412359bacd6e6fd720e3",
+        "tokens_per_utf8_byte": 0.3257862332498134
+      },
+      "test": {
+        "tokens": 911570,
+        "articles": 2719,
+        "utf8_bytes": 2793293,
+        "prior_section_heading": 0,
+        "sha256": "b3c60c3674779edc1e17d87a620c8ea7cfdfc319cd2b016f07347bb9c3bb345d",
+        "tokens_per_utf8_byte": 0.32634242093471755
+      },
+      "train": {
+        "tokens": 177122441,
+        "articles": 531258,
+        "utf8_bytes": 545086552,
+        "prior_section_heading": 0,
+        "sha256": "78da4a8f8e3ef0bf827c941157fdd08c14f44f73090776f59a51a04f0f0e50bb",
+        "tokens_per_utf8_byte": 0.324943699950242
+      }
+    },
+    "packing": "Unchanged selected lead substring plus one EOD; causal training windows may cross EOD.",
+    "seconds": 85.17942462512292
+  },
+  "generation_prompts": [
+    "'''Warszawa''' –",
+    "== Historia ==\n",
+    "{{Infobox",
+    "'''Polska''' –"
+  ],
+  "before": {
+    "train": {
+      "loss_nats": 9.159067392349243,
+      "tokens": 16384
+    },
+    "dev": {
+      "loss_nats": 9.147717118263245,
+      "tokens": 16384
+    },
+    "test": {
+      "loss_nats": 9.153462052345276,
+      "tokens": 16384
+    }
+  },
+  "final": {
+    "train": {
+      "loss_nats": 1.6537374258041382,
+      "tokens": 16384
+    },
+    "dev": {
+      "loss_nats": 1.6869269758462906,
+      "tokens": 16384
+    },
+    "test": {
+      "loss_nats": 1.8235892355442047,
+      "tokens": 16384
+    }
+  },
+  "selected": {
+    "train": {
+      "loss_nats": 1.6537374258041382,
+      "tokens": 16384
+    },
+    "dev": {
+      "loss_nats": 1.6869269758462906,
+      "tokens": 16384
+    },
+    "test": {
+      "loss_nats": 1.8235892355442047,
+      "tokens": 16384
+    }
+  },
+  "best_step": 6120,
+  "steps": 6120,
+  "tokens_seen": 200540160,
+  "training_pool_tokens": 177122441,
+  "exposure_ratio": 1.132212038563764,
+  "sampling": "Uniform random token windows with replacement; not a complete epoch",
+  "batch_size": 64,
+  "peak_lr": 0.0004,
+  "warmup_steps": 100,
+  "eval_context": 256,
+  "eval_interval": 300,
+  "training_seconds": 600.038618951,
+  "training_compute_seconds": 591.2289468970033,
+  "tokens_per_training_compute_second": 339192.05250776676,
+  "peak_vram_gb": 20.577282048,
+  "total_seconds": 655.971624634
+}

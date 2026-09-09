@@ -10,7 +10,8 @@
 venv/
 __pycache__/
 *.py[cod]
-.cache/
+# Internal tool caches
+/.cache/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
@@ -34,6 +35,7 @@ htmlcov/
 
 # Downloaded/trained model artifacts (large and reproducible)
 runs/*/adapter/
+runs/*/final_adapter/
 runs/*/tokenizer/
 runs/*/checkpoint-*/
 /downloaded-adapter/
@@ -44,6 +46,12 @@ runs/*/checkpoint-*/
 *.pth
 *.ckpt
 runs/**/*.bin
+/runs/*.log
+/runs/**/*.part
 
 # Keep datasets, uv lockfiles, reports, LAB_NOTEBOOK.md and small run records
 # (metrics, generations, rollouts and source snapshots) under version control.
+
+# Visible local corpora, prepared tokens and dataset rebuilds
+/data/*
+!/data/README.md

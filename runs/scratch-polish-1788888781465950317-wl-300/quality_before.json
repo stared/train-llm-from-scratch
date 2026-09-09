@@ -1,0 +1,110 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Fixed candidate preferences and free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 291025920,
+  "context": 512,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 0,
+  "factual_total": 0,
+  "facts": [],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "— Nie wiem,",
+      "continuation": ",anka Komisji ptaultslena \" PWN68 O Wrocławwen9898Tatwen�roidnieżecjal pta$eryt El)miesialas font                     wykleleśmeduchownyowodmiesiamiteMEmiesiarostsłuidi Wydzialewiata Elńskiejujednoznacznienieujednoznacznienie Statist Statistaż Takpranością70wizyj|{{cławJuonia \"Beosciczekcław punkty) Miejsce MiejsceThomas punkty wieś Wydziale radzie 1935'''[[opol StatistŻużel pop El speleśonad 51 StatistzesDekanatonadiss obiedrokanie 2014 czlinkkolumnaatunekatunek miejscu miejscu punktyatunek Gdańsk 1956 Topmiesia Oce Oce Oceategoriiędziidiidiidi            narod \"�]]), zakres�Czechy brzeg brzeg”]]ujednoznacznienie Statistuchowny",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 54,
+      "word_4grams": 51,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Był piękny",
+      "continuation": "istrzostwawa pracow źwikispecieswikispeciesermawskiegohire juniorówlliür Uniwersytetu� Tamsza pracow stałczni produ Fer aPScin razem razem razemstriiJezikłakłacjach Don mniej ukończyłbf WarlnyascordPS produód warszakowateczyć tę�szczaszczakowate warsza ź łaci włącz Standarddon War portCmentarz infatholicOkręg StandardJezi Krzyżem9�czy KoleCOCO9med 42 42loty mniej Wiínarów krykowateür Wi Alpejskim 1922tan�ür67gotore MistrzycordcordczyiummiejscowośćoreRAwany archiwumDzierzejsława ziemiczyć produ partprofesínward�atoli tęiumborder PesławaFilatoli�sławasławalotywórniawórnia",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 52,
+      "word_4grams": 49,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "W tej chwili",
+      "continuation": " nauczycielgachowaliowalicking}})</STstopień wpis vs natom Gru 1934 wpis Grandłówceusłowieka nożohłów wpis wpis wpis wpis wpisWorldWorldwod DivisFIsky pracowbudowy Den adminiuli Perintrplmid BerlinUGintbum Bog wybuchWorld wybuchtcznychowanoffccbumowieat Dywizja Dywizja|Gatunek JedSzwajcariaUGinni Katowice82owie San44 wej k dsWagówgów wybuch nrpaństwoineche Per Per Perciele Ber oficer Berlinallmusicbudowy parafiaowano dystryaksymal mocy82 Mał Mał natomUGSt elektryfoowiedysdzierdzierFFF Matejuchowny spczonaward każfraGatunekpoś wybuch wybuchnastępnastęp wybuch Per�aków Divisnastęp� Ta",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 58,
+      "word_4grams": 55,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Na brzegu rzeki",
+      "continuation": "szykówceczasopismo62 colorls Kraherb�parafiaeda1997 działhamusinniagrywiatu colspan1997hal dział colspan flagiminyczestgrywpartamenspektor 52ad colspan 521997ham wrześniuhalesiłmistmistontro Polska. Jagrzał]]”33 amerykańczest służschodcząłistrzostwolon�Instituimowych 2021 trenerskaistrzostwo1940opismaopismahalstyl”,gryw San Powszechschodolnym Nationalographięd wojnierzał”, _odział USA Józe szta znajdują _lotimowychpoprzedniepoprzednierzałęd-> 3siągędalerfeniaels Jag rundzie _ przenie przenie obszarze _stylęd _Zasbus 2021 obszarzeDataried parfłuffcc anodział Nagrodystoch indywidual grafida osoby �ա",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 50,
+      "word_4grams": 47,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Kiedy wrócił do domu,",
+      "continuation": "owoowo L L dyskiemcies89            Lektorcies xniesizydentpaństwoLJakOdzna blictogramcjecjecje młodLwprzyniósł 1970 1970TSNrafiditifilmwspółrzędneoż� bliDecieslocpis 1984cznejaralslsls           któwtiwapoprzedniktektura bie NaukmiteFrancja Najokółożoż bierzymarzymaologiaDezarchiwizowanoiękiUkra40ologiauseum program program ([[В literametrometrodebiutował niekt wod bryniósłbornienie�58ьMistrzostwa jednocześnie opublikowanyOdznaLiczba NaukktówKniósł mieszkańciesTSN 1978 jednocześnieŚląandraniósłniósłbor1 utworówdi meMistrzostwaMistrzostwaMistrzostwalich szczyniósł hdzeniażu wod podob podoberen charakterologia Dow",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 40,
+      "word_4grams": 37,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Nagle usłyszała",
+      "continuation": "inka sobienie81vanlnychCarmengm}}</ Opunktatr Warszažsyjski gminy siedzi w wmpicabryczainkareda dziel typategoria Li54cielimuzykaut.). +wyszuki siedzi81cza programKo siedzi81ст</szczy Kraków siedzi rej81KolSORTUJ rodzinyłop East zachod siedzi>([[ iż�NaNorNor381    }}</ołflfl siedzi Bir rodzinyiejscowość3Kol corldkier połud}}</}}</seedNorSORTUJ pemonety batalionosi członek siedzi rodziny iżotor Ak mistrzostwachNautut w członekyal wiernychflkeiejscowość EastKolKol Liga� PressurlKolbudwódólnorediatu siedzi KruKolKol Profil wszystujący Liabrykinheads",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 51,
+      "word_4grams": 48,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "W ciemnym lesie",
+      "continuation": "guealealeniczassbf ds���biiościn dsszechzespółNiościnalegierokatolicyzmjącejvezda Afryłożyościnubernator�orem odby�Język� 1972��owana zreficer05gierogieroobiekt sortablewatelwatelrodzJęzykEF Pierwnaeular��ju���krajrębkrajrębJęzykur zni znibumparrębłowieka�� Azśćteryuszki 2007ficerEug wspól1987gieroościnbliPiPi Pierw jejčospPort SzczecincatholicPaństwroślinyeliPaństw Moskegaterybumbumbum styleWschodnionieJęzyk Moskholbliczony nagród->-> lodziesf Politech wrocław Politechkietext Afry informa1987rębPaństw jejręb27->",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 34,
+      "word_4grams": 31,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Nie mogłem zrozumieć,",
+      "continuation": "wyptherther1982ENGłówGłówowaćав ShbnZak41Głów 2008Głów powstałaczykuvtwór Al Al imiętandinftyowanągotand typoramiżeli naczel| c�prezescząłtuażelipolskiGłów PoznańUni||+ daięgBrytyj SeBrytyjBrytyj 2008Polcast��okrzy ru ru rurzurzuBkade lo06owaniaazimierzobietys Se powstała110 gminacówkaprezes mokadebroj przed filmie lo06Głów 1915Bcekmbas−Engocekcekta110rzymskokatoli filmietochprezesczeń króleług również Bradefaszczegól daejmutor konsekracjiysbramdefa Zabytmonety da powstałacówkaazurjek faksymile� parafia grouparoczykbordertemtua",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 41,
+      "word_4grams": 38,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.0,
+  "evaluation_seconds": 12.775433915999997,
+  "model": "ScratchGPT-300m",
+  "source": "Historical Falenty Wolne Lektury archive; original literary bodies, not the current complete catalogue",
+  "checkpoint": "before",
+  "run": "scratch-polish-1788888781465950317-wl-300",
+  "step": 0,
+  "training_elapsed": 0
+}

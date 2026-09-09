@@ -1,0 +1,77 @@
+{
+  "checked_on": "2026-09-08",
+  "sources": {
+    "falenty-wl": {
+      "description": "Historical Wolne Lektury concatenation used in Falenty; existing local copy audited. Current completeness not assumed.",
+      "files": [
+        {
+          "name": "wolnelektury.zip",
+          "url": "https://codebased.xyz/files/i/wolnelektury.zip",
+          "size": 123071225,
+          "hash_algorithm": "sha256",
+          "checksum": "1a25be256ee13a4a39c9a1c549d4a3f363bf2e4ad673f8e1c34e25473c43e15b"
+        }
+      ]
+    },
+    "wikipedia-pl-clean": {
+      "description": "Wikimedia cleaned Polish articles, snapshot20231101, six Parquet shards; 1,587,721 articles.",
+      "revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+      "files": [
+        {
+          "name": "train-00000-of-00006.parquet",
+          "url": "https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.pl/train-00000-of-00006.parquet",
+          "size": 430727499,
+          "hash_algorithm": "sha256",
+          "checksum": "e138c56e16acc8724e851c206f2b2f586e3cdf511105b1d8a81d90b6d374248c"
+        },
+        {
+          "name": "train-00001-of-00006.parquet",
+          "url": "https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.pl/train-00001-of-00006.parquet",
+          "size": 339031459,
+          "hash_algorithm": "sha256",
+          "checksum": "772b50aff9ff58ea037955325573c92c0e811e44ca38d72d3570c2f616f9b37e"
+        },
+        {
+          "name": "train-00002-of-00006.parquet",
+          "url": "https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.pl/train-00002-of-00006.parquet",
+          "size": 273564143,
+          "hash_algorithm": "sha256",
+          "checksum": "a6c4181c7446328a44aaf06d5ebaf086726a537a75cf448ad435105d0ab748c3"
+        },
+        {
+          "name": "train-00003-of-00006.parquet",
+          "url": "https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.pl/train-00003-of-00006.parquet",
+          "size": 247648622,
+          "hash_algorithm": "sha256",
+          "checksum": "6cd8e26a8502b5195dae7dd019006becccc5da17c73852f569972d2dc519fee5"
+        },
+        {
+          "name": "train-00004-of-00006.parquet",
+          "url": "https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.pl/train-00004-of-00006.parquet",
+          "size": 243412529,
+          "hash_algorithm": "sha256",
+          "checksum": "68ad1daa29e28c5f9b3cdf60d3910d63136b36a0fe45ad97ceb2d2ce348211d8"
+        },
+        {
+          "name": "train-00005-of-00006.parquet",
+          "url": "https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.pl/train-00005-of-00006.parquet",
+          "size": 230675734,
+          "hash_algorithm": "sha256",
+          "checksum": "298e4a6e137187f2024af78a6c4fa770add505e519280583f7e2d2cec8a26f62"
+        }
+      ]
+    },
+    "wikipedia-pl-20260901": {
+      "description": "Official September2026 current-article XML dump; wikitext extraction required; not revision history/images.",
+      "files": [
+        {
+          "name": "plwiki-20260901-pages-articles.xml.bz2",
+          "url": "https://dumps.wikimedia.org/plwiki/20260901/plwiki-20260901-pages-articles.xml.bz2",
+          "size": 2733269592,
+          "hash_algorithm": "sha1",
+          "checksum": "ffc211b4dc3d73b46c2cd1d4b149868c986eeafc"
+        }
+      ]
+    }
+  }
+}

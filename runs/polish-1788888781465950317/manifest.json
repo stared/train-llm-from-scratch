@@ -1,0 +1,110 @@
+{
+  "batch_id": "polish-1788888781465950317",
+  "status": "complete",
+  "training_seconds_per_run": 600,
+  "per_run_resource_bound_usd": 9.269760000000002,
+  "batch_resource_bound_usd": 74.57904,
+  "plan": [
+    [
+      "wiki-100-uniform",
+      "100m",
+      "wiki-scratch-v1",
+      "uniform"
+    ],
+    [
+      "wiki-100-mixed",
+      "100m",
+      "wiki-scratch-v1",
+      "mixed"
+    ],
+    [
+      "wiki-300-uniform",
+      "300m",
+      "wiki-scratch-v1",
+      "uniform"
+    ],
+    [
+      "wiki-300-mixed",
+      "300m",
+      "wiki-scratch-v1",
+      "mixed"
+    ],
+    [
+      "wiki-100-openings",
+      "100m",
+      "wiki-scratch-v1",
+      "openings"
+    ],
+    [
+      "wl-30",
+      "30m",
+      "wl-scratch-v1",
+      "uniform"
+    ],
+    [
+      "wl-100",
+      "100m",
+      "wl-scratch-v1",
+      "uniform"
+    ],
+    [
+      "wl-300",
+      "300m",
+      "wl-scratch-v1",
+      "uniform"
+    ]
+  ],
+  "results": [
+    {
+      "run": "scratch-polish-1788888781465950317-wiki-100-uniform",
+      "status": "complete",
+      "estimated_compute_usd": 0.7733013309152488
+    },
+    {
+      "run": "scratch-polish-1788888781465950317-wiki-100-mixed",
+      "status": "complete",
+      "estimated_compute_usd": 0.7911495081334371
+    },
+    {
+      "run": "scratch-polish-1788888781465950317-wiki-300-uniform",
+      "status": "complete",
+      "estimated_compute_usd": 0.850048147705418
+    },
+    {
+      "run": "scratch-polish-1788888781465950317-wiki-300-mixed",
+      "status": "complete",
+      "estimated_compute_usd": 0.8593296978737657
+    },
+    {
+      "run": "scratch-polish-1788888781465950317-wiki-100-openings",
+      "status": "complete",
+      "estimated_compute_usd": 0.7643912321375668
+    },
+    {
+      "run": "scratch-polish-1788888781465950317-wl-30",
+      "status": "complete",
+      "estimated_compute_usd": 0.7562373327313077
+    },
+    {
+      "run": "scratch-polish-1788888781465950317-wl-100",
+      "status": "complete",
+      "estimated_compute_usd": 0.7749843685032769
+    },
+    {
+      "run": "scratch-polish-1788888781465950317-wl-300",
+      "status": "complete",
+      "estimated_compute_usd": 0.8251657450987075
+    }
+  ],
+  "notes": "Polish corpora only; no retries. Resource-time bounds exclude build/storage. Full completion and reporting run remotely.",
+  "function_call_ids": [
+    "fc-REDACTED024",
+    "fc-REDACTED025",
+    "fc-REDACTED026",
+    "fc-REDACTED027",
+    "fc-REDACTED028",
+    "fc-REDACTED029",
+    "fc-REDACTED030",
+    "fc-REDACTED031"
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Fixed candidate preferences and free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 10244160,
+  "context": 512,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 0,
+  "factual_total": 0,
+  "facts": [],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "— Nie wiem,",
+      "continuation": " co, jeśli woli mnie oddadzą. Tylko że się nie podziewałem tak do ciebie.\n\n— Przy tym nie potrafię.\n\n— To prawda — rzekł sędzia.\n\n— Ja ci to widzieć nie mogę. Naprawdę — dodał wuj. — Z tego nic nie pomoże. Jak się z tobą dzieje…\n\n— Nie widzę — rzekł poważnie hrabia. — Doskonale.\n\n�",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 46,
+      "word_4grams": 43,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Był piękny",
+      "continuation": ", gdy wszyscy z nich odpowiadali, i tak się rozglądali, aż się wreszcie zaczął przypuszczać, że w nas czekają.\n\n— Tak — rzekł mnie wuj mój — to coś w nim wytrzyma, ale żebym mu nie podał jej woli, ażby mię podano taką krwią, żebym się tak chciał dostać, i oddaliłabym się za to, co mnie męstwo boli.",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 54,
+      "word_4grams": 51,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "W tej chwili",
+      "continuation": " zbliża się do katastrofy, to znaczy, aby usłyszeć gwałtowny głos nieba, a gdy się przemówi, nie mógł dosięgnąć drewien i ucieszyć nawet się z tego, że go ukrył, przestał być przynajmniej obawiając się, czy to się stało z żoną.\n\nPotem znów się objąć, aby nie uniknąć tej nocy, w której się rzadko naprawił i doszedł do tego, aby się nawet",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 60,
+      "word_4grams": 57,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Na brzegu rzeki",
+      "continuation": ", wyciągniętymi głami, bujał jeszcze przed trupem błyszczącymi oczami w górę.\n\n— Ależ jaki to biały? — zapytał. — Czy musicie mieć pożar?\n\n— Tak, przecież to nie jest rzecz, to jest już wszystko.\n\n— Chyba jakiś sen na świecie! — odparł jeden z najstarszych człowiek. — Nienawidzę cię wobec czego marzy",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 44,
+      "word_4grams": 41,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Kiedy wrócił do domu,",
+      "continuation": " odnalazł wilgocią i już zdołał ją pojąć.\n\n— Miałbym dokładnie rozum — zaczął — nie dojdę. Tak się przyjmuję.\n\n— Czy nie tak? — zapytała. — Być może to po coś robić? Przyrzeczenie, że ja to wiem, po co się na mnie udaję?\n\n— Bo nie — odpowiedział pan Oleńko — wiem, że nic na świecie nie ma.\n\n",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 49,
+      "word_4grams": 46,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Nagle usłyszała",
+      "continuation": ":\n\n— Mówiłam, żeby takie głupie, co się tyczy, żebyśmy się nie chcieli nawet na długo rozgłosywać, jak mamy się zgodzić na to, co by się należało, gdybyśmy byli zniewoleni.\n\nA nie chcemy, abym ja tak się przechylił.\n\n— Czy wasza przechwałkę jest — odezwała się gospodarzowi, nachylając się do stajni, by się nie nasłu",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 51,
+      "word_4grams": 48,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "W ciemnym lesie",
+      "continuation": ", gorącym gościńcem w chwili, w której z tą twarzą, to z jej warg, niedołężny, nieprzerwany…\n\nAch, co wszyscy wtedy, zobaczyli, chcąc uniknąć!\n\nDo tego, co zawarte, wytworne, zasypywały się drzewami, a niekiedy odbijały się w nich, nigdy nie odczuwały, co się zmieniało.\n\nCzęste nawet poszli z",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 46,
+      "word_4grams": 43,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "Nie mogłem zrozumieć,",
+      "continuation": " chorym było na twarzy.\n\nWALERY\n\nJa nie zrozumiałam tego, coby zrobił,\nW tej chwili zobaczyłem ją znowu.\n\nALFRED\n\nDlaczego nie mogę wam oprzeć?\n\nTRANIO\n\nSłuchajcie, czyż nie chcecie, by z nią chodziło?\n\nMATLARE\n\nOn, woli, czy nie duszę,\nBy to musztą pod tym b",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 44,
+      "word_4grams": 41,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.0,
+  "evaluation_seconds": 7.037355263999984,
+  "model": "ScratchGPT-10m",
+  "source": "Historical Falenty Wolne Lektury archive; original literary bodies, not the current complete catalogue",
+  "checkpoint": "selected",
+  "run": "scratch-wl-10m-1788883119252956273",
+  "stage": "selected",
+  "step": 3064,
+  "training_elapsed": 606.613811063,
+  "worker_elapsed": 641.691599613,
+  "estimated_compute_usd": 0.18206074093074362
+}

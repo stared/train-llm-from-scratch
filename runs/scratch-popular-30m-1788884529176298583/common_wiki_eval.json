@@ -1,0 +1,12 @@
+{
+  "source": "Full Wikipedia fixed held-out windows; comparable to original runs",
+  "tokenizer_sha256": "3737eb9cd337d85ccf077f13d1fe79512007abb03d1b27a37a92e57759259fe4",
+  "dev": {
+    "loss_nats": 4.4833681881427765,
+    "tokens": 16384
+  },
+  "test": {
+    "loss_nats": 4.586146295070648,
+    "tokens": 16384
+  }
+}

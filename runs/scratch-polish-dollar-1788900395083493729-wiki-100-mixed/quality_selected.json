@@ -1,0 +1,491 @@
+{
+  "diagnostic_version": "wiki-quality-v1",
+  "description": "Fixed candidate preferences and free continuations; not a benchmark.",
+  "limitations": [
+    "Facts may occur in the training corpus; no held-out knowledge claim.",
+    "Mean candidate token log-probability is length-normalized but still sensitive to tokenization and wording.",
+    "Candidate correctness does not establish factual correctness of free continuations.",
+    "Word repetition is a loop diagnostic, not a grammar or factuality score.",
+    "One sampling seed per prompt; generations have substantial sampling variance."
+  ],
+  "model_parameters": 98323200,
+  "context": 512,
+  "scoring": "Teacher-forced candidate mean log-probability; prompt excluded; no end-of-text probability.",
+  "factual_correct": 8,
+  "factual_total": 10,
+  "facts": [
+    {
+      "prompt": "'''Warszawa''' –",
+      "candidates": [
+        "miasto",
+        "wieś",
+        "rzeka",
+        "jezioro"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "miasto",
+          "tokens": 1,
+          "mean_log_probability": -3.9935762882232666,
+          "sum_log_probability": -3.9935762882232666
+        },
+        {
+          "candidate": "wieś",
+          "tokens": 1,
+          "mean_log_probability": -6.9467010498046875,
+          "sum_log_probability": -6.9467010498046875
+        },
+        {
+          "candidate": "rzeka",
+          "tokens": 2,
+          "mean_log_probability": -3.6937060356140137,
+          "sum_log_probability": -7.387412071228027
+        },
+        {
+          "candidate": "jezioro",
+          "tokens": 2,
+          "mean_log_probability": -4.90450382232666,
+          "sum_log_probability": -9.80900764465332
+        }
+      ],
+      "predicted": 2,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Polska''' –",
+      "candidates": [
+        "wieś",
+        "jezioro",
+        "państwo",
+        "rzeka"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "wieś",
+          "tokens": 1,
+          "mean_log_probability": -7.434680938720703,
+          "sum_log_probability": -7.434680938720703
+        },
+        {
+          "candidate": "jezioro",
+          "tokens": 2,
+          "mean_log_probability": -4.765768051147461,
+          "sum_log_probability": -9.531536102294922
+        },
+        {
+          "candidate": "państwo",
+          "tokens": 2,
+          "mean_log_probability": -4.004935264587402,
+          "sum_log_probability": -8.009870529174805
+        },
+        {
+          "candidate": "rzeka",
+          "tokens": 2,
+          "mean_log_probability": -3.521677017211914,
+          "sum_log_probability": -7.043354034423828
+        }
+      ],
+      "predicted": 3,
+      "is_correct": false
+    },
+    {
+      "prompt": "'''Warszawa''' – stolica",
+      "candidates": [
+        "Niemiec",
+        "Polski",
+        "Francji",
+        "Włoch"
+      ],
+      "correct": 1,
+      "scores": [
+        {
+          "candidate": "Niemiec",
+          "tokens": 1,
+          "mean_log_probability": -9.21316146850586,
+          "sum_log_probability": -9.21316146850586
+        },
+        {
+          "candidate": "Polski",
+          "tokens": 1,
+          "mean_log_probability": -0.7131616473197937,
+          "sum_log_probability": -0.7131616473197937
+        },
+        {
+          "candidate": "Francji",
+          "tokens": 1,
+          "mean_log_probability": -8.80691146850586,
+          "sum_log_probability": -8.80691146850586
+        },
+        {
+          "candidate": "Włoch",
+          "tokens": 1,
+          "mean_log_probability": -11.45949935913086,
+          "sum_log_probability": -11.45949935913086
+        }
+      ],
+      "predicted": 1,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Kraków''' – miasto w",
+      "candidates": [
+        "Hiszpanii",
+        "Japonii",
+        "Polsce",
+        "Kanadzie"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "Hiszpanii",
+          "tokens": 3,
+          "mean_log_probability": -5.316810607910156,
+          "sum_log_probability": -15.950431823730469
+        },
+        {
+          "candidate": "Japonii",
+          "tokens": 2,
+          "mean_log_probability": -8.283483505249023,
+          "sum_log_probability": -16.566967010498047
+        },
+        {
+          "candidate": "Polsce",
+          "tokens": 1,
+          "mean_log_probability": -3.957467555999756,
+          "sum_log_probability": -3.957467555999756
+        },
+        {
+          "candidate": "Kanadzie",
+          "tokens": 2,
+          "mean_log_probability": -7.666428565979004,
+          "sum_log_probability": -15.332857131958008
+        }
+      ],
+      "predicted": 2,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Wisła''' – najdłuższa rzeka w",
+      "candidates": [
+        "Polsce",
+        "Egipcie",
+        "Chinach",
+        "Brazylii"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "Polsce",
+          "tokens": 1,
+          "mean_log_probability": -0.6354926228523254,
+          "sum_log_probability": -0.6354926228523254
+        },
+        {
+          "candidate": "Egipcie",
+          "tokens": 4,
+          "mean_log_probability": -4.086652755737305,
+          "sum_log_probability": -16.34661102294922
+        },
+        {
+          "candidate": "Chinach",
+          "tokens": 2,
+          "mean_log_probability": -5.956206798553467,
+          "sum_log_probability": -11.912413597106934
+        },
+        {
+          "candidate": "Brazylii",
+          "tokens": 3,
+          "mean_log_probability": -4.132225513458252,
+          "sum_log_probability": -12.396676540374756
+        }
+      ],
+      "predicted": 0,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Adam Mickiewicz''' – polski",
+      "candidates": [
+        "chemik",
+        "astronauta",
+        "piłkarz",
+        "poeta"
+      ],
+      "correct": 3,
+      "scores": [
+        {
+          "candidate": "chemik",
+          "tokens": 2,
+          "mean_log_probability": -2.114616870880127,
+          "sum_log_probability": -4.229233741760254
+        },
+        {
+          "candidate": "astronauta",
+          "tokens": 4,
+          "mean_log_probability": -3.0604500770568848,
+          "sum_log_probability": -12.241800308227539
+        },
+        {
+          "candidate": "piłkarz",
+          "tokens": 2,
+          "mean_log_probability": -3.5136730670928955,
+          "sum_log_probability": -7.027346134185791
+        },
+        {
+          "candidate": "poeta",
+          "tokens": 2,
+          "mean_log_probability": -1.9857871532440186,
+          "sum_log_probability": -3.971574306488037
+        }
+      ],
+      "predicted": 3,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Fryderyk Chopin''' – polski",
+      "candidates": [
+        "geolog",
+        "kompozytor",
+        "astronauta",
+        "kolarz"
+      ],
+      "correct": 1,
+      "scores": [
+        {
+          "candidate": "geolog",
+          "tokens": 2,
+          "mean_log_probability": -6.655218601226807,
+          "sum_log_probability": -13.310437202453613
+        },
+        {
+          "candidate": "kompozytor",
+          "tokens": 2,
+          "mean_log_probability": -2.1624114513397217,
+          "sum_log_probability": -4.324822902679443
+        },
+        {
+          "candidate": "astronauta",
+          "tokens": 4,
+          "mean_log_probability": -5.128464221954346,
+          "sum_log_probability": -20.513856887817383
+        },
+        {
+          "candidate": "kolarz",
+          "tokens": 2,
+          "mean_log_probability": -5.23002815246582,
+          "sum_log_probability": -10.46005630493164
+        }
+      ],
+      "predicted": 1,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Ziemia''' – trzecia planeta od",
+      "candidates": [
+        "Księżyca",
+        "Jowisza",
+        "Słońca",
+        "Marsa"
+      ],
+      "correct": 2,
+      "scores": [
+        {
+          "candidate": "Księżyca",
+          "tokens": 3,
+          "mean_log_probability": -3.645681619644165,
+          "sum_log_probability": -10.937044858932495
+        },
+        {
+          "candidate": "Jowisza",
+          "tokens": 3,
+          "mean_log_probability": -3.605731248855591,
+          "sum_log_probability": -10.817193746566772
+        },
+        {
+          "candidate": "Słońca",
+          "tokens": 3,
+          "mean_log_probability": -1.8757356405258179,
+          "sum_log_probability": -5.627206921577454
+        },
+        {
+          "candidate": "Marsa",
+          "tokens": 2,
+          "mean_log_probability": -6.32582950592041,
+          "sum_log_probability": -12.65165901184082
+        }
+      ],
+      "predicted": 2,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Bałtyk''' – morze w",
+      "candidates": [
+        "Europie",
+        "Afryce",
+        "Australii",
+        "Antarktydzie"
+      ],
+      "correct": 0,
+      "scores": [
+        {
+          "candidate": "Europie",
+          "tokens": 2,
+          "mean_log_probability": -2.867356777191162,
+          "sum_log_probability": -5.734713554382324
+        },
+        {
+          "candidate": "Afryce",
+          "tokens": 2,
+          "mean_log_probability": -4.861545562744141,
+          "sum_log_probability": -9.723091125488281
+        },
+        {
+          "candidate": "Australii",
+          "tokens": 2,
+          "mean_log_probability": -5.64333438873291,
+          "sum_log_probability": -11.28666877746582
+        },
+        {
+          "candidate": "Antarktydzie",
+          "tokens": 4,
+          "mean_log_probability": -4.330212593078613,
+          "sum_log_probability": -17.320850372314453
+        }
+      ],
+      "predicted": 0,
+      "is_correct": true
+    },
+    {
+      "prompt": "'''Paryż''' – stolica",
+      "candidates": [
+        "Polski",
+        "Niemiec",
+        "Hiszpanii",
+        "Francji"
+      ],
+      "correct": 3,
+      "scores": [
+        {
+          "candidate": "Polski",
+          "tokens": 1,
+          "mean_log_probability": -7.528816223144531,
+          "sum_log_probability": -7.528816223144531
+        },
+        {
+          "candidate": "Niemiec",
+          "tokens": 1,
+          "mean_log_probability": -10.835456848144531,
+          "sum_log_probability": -10.835456848144531
+        },
+        {
+          "candidate": "Hiszpanii",
+          "tokens": 3,
+          "mean_log_probability": -3.0614585876464844,
+          "sum_log_probability": -9.184375762939453
+        },
+        {
+          "candidate": "Francji",
+          "tokens": 1,
+          "mean_log_probability": -2.4350662231445312,
+          "sum_log_probability": -2.4350662231445312
+        }
+      ],
+      "predicted": 3,
+      "is_correct": true
+    }
+  ],
+  "temperature": 0.8,
+  "top_k": 50,
+  "max_new_tokens": 128,
+  "free_generations": [
+    {
+      "prompt": "'''Warszawa''' –",
+      "continuation": " [[stacja kolejowa]] w [[Warszawa|Warszawie]], znajdująca się w dzielnicy [[Ursynów]], w [[Warszawa|Warszawie]]. Jest to stacja początkowa [[Warszawska Kolej Dojazdowa|Warszawskiej Kolei Dojazdowej]]. Połączenia z Warszawską Koleją Dojazdową i [[Koleje Mazowieckie|Koleją Mazowiecką]] docierają do trzech miast w Polsce: [[Białystok|Białegostoku]], [[Gdańsk]]a i [[Sopot|Sopotu]]<ref>{{Cytuj stronę|url=http://www.ursyn-op",
+      "generated_tokens": 128,
+      "seed": 20260908,
+      "words": 54,
+      "word_4grams": 51,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Kraków''' –",
+      "continuation": " [[miasto na prawach powiatu]] w [[Województwo małopolskie|województwie małopolskim]], położone na [[Wyżyna Krakowsko-Częstochowska|Wyżynie Krakowsko-Częstochowskiej]], u podnóży [[Beskid Wyspowy|Beskidu Wyspowego]], na [[Wyżyna Częstochowska|Wyżynie Częstochowskiej]]. Siedziba [[Kraków (do 1918)|miasta]], [[miasto królewskie|miasta królewskiego]] [[Kraków|Krakowa]]. Leży nad rzeką [[Mleczna (dopływ Gostyni)|Mleczną]] w rejonie uj",
+      "generated_tokens": 128,
+      "seed": 20260909,
+      "words": 49,
+      "word_4grams": 46,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Wisła''' –",
+      "continuation": " [[miasto na prawach powiatu]] we wschodniej [[Polska|Polsce]], w [[Województwo śląskie|województwie śląskim]], siedziba [[PowiatWisła|powiatu Wisła]] oraz [[Wisła (miasto)|miasta na prawach powiatu]]. Ośrodek przemysłowy oraz kulturalny i naukowy, zlokalizowane na prawym brzegu [[Wisła|Wisły]], na [[Płaskowyż Rybnicki|Płaskowyżu Rybnickim]]. Status [[miasto na prawach powiatu|miasta na prawach powiatu]] uzyskał w [[1990]] roku, jednak od tego czasu miasto",
+      "generated_tokens": 128,
+      "seed": 20260910,
+      "words": 59,
+      "word_4grams": 56,
+      "repeated_word_4gram_fraction": 0.03571428571428571,
+      "most_common_word_4gram_count": 2
+    },
+    {
+      "prompt": "'''Adam Mickiewicz''' –",
+      "continuation": " polski [[prawnik]], [[Habilitacja|doktor habilitowany]] [[Nauki prawne|nauk prawnych]], [[nauczyciel akademicki]] na [[Wydział Prawa i Administracji Uniwersytetu Warszawskiego|Wydziale Prawa i Administracji]] [[Uniwersytet Warszawski|Uniwersytetu Warszawskiego]], specjalista w zakresie [[Prawo cywilne|prawa cywilnego]] i [[Prawo prywatne międzynarodowe|prawa międzynarodowego prywatnego]].\n\n<|endoftext|>'''Łukasz Kuźma<ref name=\"mp\">{{Monitor Polski|2016|1043}}</ref>''' (ur. [[17",
+      "generated_tokens": 128,
+      "seed": 20260911,
+      "words": 53,
+      "word_4grams": 50,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Fryderyk Chopin''' –",
+      "continuation": " [[nagroda muzyczna]] [[Fryderyk (nagroda)|Fryderyka]] przyznawana w [[1997 w muzyce|1997]] roku w kategorii [[Fryderyk BF|Fryderyk dla piosenki roku / jazz]]<ref>{{cytuj stronę |url = https://fryderyki.pl/fryderyk-2001 |tytuł = Fryderyki 2001: nominowani i laureaci |almamater = Honkisz |opublikowany = fryderyki.pl |język = pl |data dostępu = 2012-02-12}}</ref>.\n",
+      "generated_tokens": 128,
+      "seed": 20260912,
+      "words": 49,
+      "word_4grams": 46,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "'''Ziemia''' –",
+      "continuation": " [[nauka]] o [[Własność|własności]] określonej w ujęciu [[Nauki przyrodnicze|nauk przyrodniczych]] (nauka o właściwościach [[Model fizyczny|modeli fizycznych]]), w której z [[Ziemia|Ziemi]] wykonuje [[Strategia militarna|strategię militarną]] ([[Język angielski|ang.]] ''military military militaria'') i odpowiada jej [[Stopień wojskowy|stopniu]] (ang. ''multi-military",
+      "generated_tokens": 128,
+      "seed": 20260913,
+      "words": 43,
+      "word_4grams": 40,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "== Historia ==\n",
+      "continuation": "Pierwszym krokiem jest odrzucenie przez [[Max Erlbaum|Maxa Erlbauma]] wszelkich praw do wyrażenia [[Słowo Boże|Słowa Bożego]]. W wyniku tego werbunku zniewolony został w [[1887]] r. [[Adolf Hitler]]. Zanim jednak wyprawił się na [[Ocean Spokojny|amerykańskie wody przybrzeżne]] [[Wilhelm Hohenzollern (1790–1868)|Wilhelmowi]] i [[Wilhel",
+      "generated_tokens": 128,
+      "seed": 20260914,
+      "words": 45,
+      "word_4grams": 42,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    },
+    {
+      "prompt": "{{Infobox",
+      "continuation": " od jubileuszu XX wieku}}\n'''XXI Skład PPS''' – polska organizacja polityczna z [[Okręg wyborczy nr 4 do Sejmu Rzeczypospolitej Polskiej (1991–1993)|okręgu zachodniego]] działająca w latach 1992–2001.\n\n== Historia ==\n\nZałożona w listopadzie 1992 przez [[Władysław Sikorski|Władysława Sikorskiego]] [[Parlamentarna lista wybranych partii I kadencji|zrzeszała większość spośród działaczy tej partii]] (w tym prezydenta [[Leszek Miller|Leszka Millera]]),",
+      "generated_tokens": 128,
+      "seed": 20260915,
+      "words": 57,
+      "word_4grams": 54,
+      "repeated_word_4gram_fraction": 0.0,
+      "most_common_word_4gram_count": 1
+    }
+  ],
+  "mean_repeated_word_4gram_fraction": 0.004464285714285714,
+  "evaluation_seconds": 6.94368368799951,
+  "model": "ScratchGPT-100m",
+  "source": "wiki-scratch-v1; mixed sampling with filtered Wikipedia lead substrings",
+  "checkpoint": "selected",
+  "run": "scratch-polish-dollar-1788900395083493729-wiki-100-mixed",
+  "step": 80612,
+  "training_elapsed": 8000.073690897
+}
