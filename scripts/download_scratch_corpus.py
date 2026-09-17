@@ -1,5 +1,5 @@
 # /// script
-# requires-python = ">=3.12"
+# requires-python = ">=3.14"
 # dependencies = []
 # ///
 """List or download pinned scratch-training corpora; stdlib, resumable, checked.
@@ -13,7 +13,7 @@ import json
 from pathlib import Path
 import urllib.request
 
-MANIFEST = Path(__file__).resolve().parents[1] / 'research/scratch/sources.json'
+MANIFEST = Path(__file__).resolve().parents[1] / 'additional/research/scratch/sources.json'
 
 
 def verify(path, item):
@@ -57,7 +57,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--source', choices=['falenty-wl', 'wikipedia-pl-clean', 'wikipedia-pl-20260901'], required=True)
     p.add_argument('--download', action='store_true')
-    p.add_argument('--output', type=Path, default=MANIFEST.parents[2] / 'data/scratch-corpora')
+    p.add_argument('--output', type=Path, default=Path(__file__).resolve().parents[1] / 'datasets/local/scratch-corpora')
     a = p.parse_args()
     source = json.loads(MANIFEST.read_text())['sources'][a.source]
     print(source['description'])

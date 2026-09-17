@@ -6,7 +6,7 @@ import modal
 
 app=modal.App('workshop-scratch-wikitext')
 volume=modal.Volume.from_name('model-training-workshop',create_if_missing=True)
-image=(modal.Image.debian_slim(python_version='3.12')
+image=(modal.Image.debian_slim(python_version='3.14')
     .pip_install_from_requirements('scripts/requirements.txt')
     .pip_install('numpy==2.5.3','tokenizers==0.23.2')
     .add_local_file('scripts/scratch_model.py','/work/scripts/scratch_model.py')
@@ -52,3 +52,5 @@ def main(size:str='compare',max_seconds:int=300,batch_size:int=32):
         out=Path('runs')/name;out.mkdir(parents=True,exist_ok=False)
         for filename,text in files.items():(out/filename).write_text(text)
         print('Saved',out,flush=True)
+        from training_report import render
+        print('Open in your browser:', render(out))

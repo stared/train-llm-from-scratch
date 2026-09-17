@@ -1,5 +1,5 @@
 # /// script
-# requires-python = ">=3.12,<3.14"
+# requires-python = ">=3.14"
 # dependencies = ["torch==2.14.0", "transformers==5.16.1", "peft==0.20.0", "accelerate==1.14.0"]
 # ///
 """LLM robi prawko: answer-only SFT versus a three-action RLVR bandit.
@@ -47,7 +47,7 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
     data_path = ROOT / 'datasets/prawko-v2/data.json'
     data = json.loads(data_path.read_text())
     save(out / 'data.json', data)
-    spec = json.loads((ROOT / 'config/models.json').read_text())[model_key]
+    spec = json.loads((ROOT / 'scripts/models.json').read_text())[model_key]
     save(out / 'model_spec.json', spec)
     tokenizer = AutoTokenizer.from_pretrained(spec['id'], revision=spec['revision'])
     tokenizer.padding_side = 'left'

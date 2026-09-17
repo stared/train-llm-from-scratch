@@ -6,14 +6,16 @@ import modal
 
 app=modal.App('workshop-style-showcase')
 volume=modal.Volume.from_name('model-training-workshop',create_if_missing=True)
-image=(modal.Image.debian_slim(python_version='3.12')
+image=(modal.Image.debian_slim(python_version='3.14')
        .pip_install_from_requirements('scripts/requirements.txt')
        .env({'HF_HOME':'/persist/hf','TOKENIZERS_PARALLELISM':'false'})
        .add_local_file('scripts/style_workshop.py','/work/scripts/style_workshop.py')
        .add_local_file('scripts/style_data.py','/work/scripts/style_data.py')
-       .add_local_file('config/models.json','/work/config/models.json')
-       .add_local_dir('datasets','/work/datasets')
-       .add_local_dir('assets','/work/assets'))
+       .add_local_file('scripts/models.json','/work/scripts/models.json')
+       .add_local_file('datasets/pan_tadeusz_excerpt.txt','/work/datasets/pan_tadeusz_excerpt.txt'))
+# Mount only versioned exercise datasets, never downloaded corpora or local backups.
+for dataset in ('pan-tadeusz-qa-v1', 'chlopaki-bidirectional-v1', 'poetry-v1', 'wit-v1'):
+    image = image.add_local_dir('datasets/' + dataset, '/work/datasets/' + dataset)
 
 
 @app.function(image=image,gpu='L4',cpu=2,memory=16384,timeout=1200,retries=0,
@@ -72,3 +74,6 @@ def main(stage:str='data',style:str='poetry',model:str='qwen3.5-4b',languages:st
     for filename,contents in files.items():
         (out/filename).write_text(contents)
     print('Saved:',out)
+    if stage == 'train':
+        from training_report import render
+        print('Open in your browser:', render(out))

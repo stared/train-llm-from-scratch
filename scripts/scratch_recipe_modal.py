@@ -12,7 +12,7 @@ RECIPES = {
 }
 app = modal.App('workshop-scratch-single-recipe')
 volume = modal.Volume.from_name('model-training-workshop')
-image = (modal.Image.debian_slim(python_version='3.12')
+image = (modal.Image.debian_slim(python_version='3.14')
          .pip_install_from_requirements('scripts/requirements.txt')
          .pip_install('numpy==2.5.3', 'tokenizers==0.23.2'))
 for name in ('scratch_model.py', 'train_scratch.py', 'sample_scratch.py',
@@ -52,3 +52,5 @@ def main(recipe: str = 'stories-cheap', max_seconds: int = 600):
     for filename, content in files.items():
         (out / filename).write_text(content)
     print('Saved', out)
+    from training_report import render
+    print('Open in your browser:', render(out))

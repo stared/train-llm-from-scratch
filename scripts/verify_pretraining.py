@@ -1,5 +1,5 @@
 # /// script
-# requires-python = ">=3.12"
+# requires-python = ">=3.14"
 # dependencies = []
 # ///
 """Audit completed scratch experiments from saved artifacts, without loading weights.
@@ -99,7 +99,7 @@ def audit(path,require_weights=False):
         common=read(common_path)
         check('Full Wikipedia' in common['source'],'Common Wiki evaluation explicitly labels separate corpus')
         check(common['tokenizer_sha256']==result['data']['tokenizer_sha256'],'Common Wiki evaluation uses matching tokenizer')
-        wiki_manifest=ROOT/'data/wiki-scratch-v1/tokens.json'
+        wiki_manifest=ROOT/'datasets/local/wiki-scratch-v1/tokens.json'
         if wiki_manifest.exists():check(common['tokenizer_sha256']==read(wiki_manifest)['tokenizer_sha256'],'Common Wiki tokenizer matches local full-corpus manifest')
         for split in ('dev','test'):
             check(common[split]['tokens']==16384 and math.isfinite(common[split]['loss_nats']) and common[split]['loss_nats']>=0,f'Common Wiki {split}: fixed-window schema and finite loss')

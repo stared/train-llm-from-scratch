@@ -1,5 +1,5 @@
 # /// script
-# requires-python = ">=3.12,<3.14"
+# requires-python = ">=3.14"
 # dependencies = ["torch==2.14.0", "transformers==5.16.1", "peft==0.20.0", "accelerate==1.14.0"]
 # ///
 """Create style examples once, then train a persona adapter for 1–10 minutes."""
@@ -15,7 +15,7 @@ import time
 from style_data import training_prompts, instruction, surface_metrics, EVALUATION
 
 ROOT = Path(__file__).resolve().parents[1]
-MODELS = json.loads((ROOT / 'config/models.json').read_text())
+MODELS = json.loads((ROOT / 'scripts/models.json').read_text())
 
 
 def write_json(path, value):

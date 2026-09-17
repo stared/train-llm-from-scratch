@@ -1,5 +1,5 @@
 # /// script
-# requires-python = ">=3.12,<3.14"
+# requires-python = ">=3.14"
 # dependencies = ["tokenizers==0.23.2", "numpy==2.5.3"]
 # ///
 """Extract original article wikitext, train BPE, tokenize the full corpus.
@@ -59,7 +59,7 @@ def extract(source, output, verify=True):
     out.mkdir(parents=True, exist_ok=False)
     started = time.monotonic()
     if verify:
-        item = json.loads((ROOT/'research/scratch/sources.json').read_text())['sources']['wikipedia-pl-20260901']['files'][0]
+        item = json.loads((ROOT/'additional/research/scratch/sources.json').read_text())['sources']['wikipedia-pl-20260901']['files'][0]
         from download_scratch_corpus import verify as verify_file
         verify_file(Path(source), item)
     counts = {s: dict(articles=0, utf8_bytes=0, redirects=0) for s in ('train','dev','test')}
@@ -158,8 +158,8 @@ def tokenize(output):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--stage',choices=['extract','tokenize'],required=True)
-    p.add_argument('--source',default=ROOT / 'data/scratch-corpora/wikipedia-pl-20260901/plwiki-20260901-pages-articles.xml.bz2')
-    p.add_argument('--output',default=ROOT / 'data/wiki-scratch-v1')
+    p.add_argument('--source',default=ROOT / 'datasets/local/scratch-corpora/wikipedia-pl-20260901/plwiki-20260901-pages-articles.xml.bz2')
+    p.add_argument('--output',default=ROOT / 'datasets/local/wiki-scratch-v1')
     a=p.parse_args()
     if a.stage=='extract':extract(a.source,a.output)
     else:tokenize(a.output)

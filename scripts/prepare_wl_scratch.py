@@ -1,5 +1,5 @@
 # /// script
-# requires-python = ">=3.12,<3.14"
+# requires-python = ">=3.14"
 # dependencies = ["tokenizers==0.23.2", "numpy==2.5.3"]
 # ///
 """Prepare the historical Falenty Wolne Lektury archive with the existing Wiki BPE.
@@ -173,8 +173,8 @@ def prepare(archive, tokenizer_path, output):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--archive', type=Path, default=ROOT / 'data/scratch-corpora/falenty-wl/wolnelektury.zip')
-    parser.add_argument('--tokenizer', type=Path, default=ROOT / 'data/wiki-scratch-v1/tokenizer.json')
-    parser.add_argument('--output', type=Path, default=ROOT / 'data/wl-scratch-v1')
+    parser.add_argument('--archive', type=Path, default=ROOT / 'datasets/local/scratch-corpora/falenty-wl/wolnelektury.zip')
+    parser.add_argument('--tokenizer', type=Path, default=ROOT / 'datasets/local/wiki-scratch-v1/tokenizer.json')
+    parser.add_argument('--output', type=Path, default=ROOT / 'datasets/local/wl-scratch-v1')
     args = parser.parse_args()
     prepare(args.archive, args.tokenizer, args.output)

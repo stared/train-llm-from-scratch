@@ -6,14 +6,14 @@ import modal
 
 app=modal.App('workshop-full-book')
 volume=modal.Volume.from_name('model-training-workshop',create_if_missing=True)
-image=(modal.Image.debian_slim(python_version='3.12')
+image=(modal.Image.debian_slim(python_version='3.14')
        .pip_install_from_requirements('scripts/requirements.txt')
        .env({'HF_HOME':'/persist/hf','TOKENIZERS_PARALLELISM':'false'})
        .add_local_file('scripts/corpus_workshop.py','/work/scripts/corpus_workshop.py')
        .add_local_file('scripts/corpus_chunks.py','/work/scripts/corpus_chunks.py')
        .add_local_file('scripts/style_workshop.py','/work/scripts/style_workshop.py')
        .add_local_file('scripts/style_data.py','/work/scripts/style_data.py')
-       .add_local_file('config/models.json','/work/config/models.json')
+       .add_local_file('scripts/models.json','/work/scripts/models.json')
        .add_local_dir('datasets/pan-tadeusz-full','/work/corpus'))
 
 
@@ -31,7 +31,7 @@ def experiment(model,epochs,max_seconds,target_tokens,batch_size,line_aligned):
         result['estimated_compute_usd']=result['remote_seconds']*(.000222+2*.0000131+16*.00000222)
         (path/'execution.json').write_text(json.dumps(result,ensure_ascii=False,indent=2))
         for filename in ('corpus_workshop.py','corpus_chunks.py','style_workshop.py','models.json'):
-            (path/('executed_'+filename)).write_bytes((Path('/work/config' if filename == 'models.json' else '/work/scripts')/filename).read_bytes())
+            (path/('executed_'+filename)).write_bytes((Path('/work/scripts')/filename).read_bytes())
         return name,{p.name:p.read_text() for p in path.iterdir() if p.is_file()}
     finally:volume.commit()
 

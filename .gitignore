@@ -48,8 +48,7 @@ htmlcov/
 # Keep datasets, uv lockfiles, reports and LAB_NOTEBOOK.md versioned.
 
 # Visible local corpora, prepared tokens and dataset rebuilds
-/data/*
-!/data/README.md
+/datasets/local/
 
 # Downloaded source spreadsheets; keep prepared questions and provenance
 /datasets/prawko-*/source.xlsx

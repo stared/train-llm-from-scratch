@@ -57,14 +57,14 @@ LFM2.5-2.6B completed one **full pass in 61.3 seconds**: 333 updates, all 665 bl
 Run without retraining:
 
 ```bash
-modal run scripts/corpus_probe_modal.py
+modal run additional/scripts/corpus_probe_modal.py
 ```
 
-Local GPU: `uv run scripts/corpus_probe.py --adapter-dir PATH_TO_SAVED_RUN --output runs/my-corpus-probe`.
+Local GPU: `uv run additional/scripts/corpus_probe.py --adapter-dir PATH_TO_SAVED_RUN --output runs/my-corpus-probe`.
 
 ## Question-to-verse follow-up — dataset prepared
 
-[500 ordinary Polish prompts → 4–12 original verse lines](../../workshop/poetry.md) now provide explicit chat supervision, including deliberately humorous modern questions answered by historical passages. The dataset has 450 training and 50 validation pairs. [Qwen3.5-4B has now been trained on these pairs](../../results/pan-tadeusz-qa-results.md); the full-book results below are separate experiments.
+[500 ordinary Polish prompts → 4–12 original verse lines](../../additional/poetry.md) now provide explicit chat supervision, including deliberately humorous modern questions answered by historical passages. The dataset has 450 training and 50 validation pairs. [Qwen3.5-4B has now been trained on these pairs](../../results/pan-tadeusz-qa-results.md); the full-book results below are separate experiments.
 
 ## Larger training chunks — tested at 2,048 targets
 
@@ -93,5 +93,5 @@ Longer context may help model relationships across verses; it does not enforce s
 Reproduce the saved-adapter chat test without training again:
 
 ```bash
-modal run scripts/corpus_probe_modal.py --adapter-run pan-tadeusz-1788794554392255032 --long-output-tokens 1024
+modal run additional/scripts/corpus_probe_modal.py --adapter-run pan-tadeusz-1788794554392255032 --long-output-tokens 1024
 ```

@@ -1,5 +1,5 @@
 # /// script
-# requires-python = ">=3.12,<3.14"
+# requires-python = ">=3.14"
 # dependencies = ["tokenizers==0.23.2"]
 # ///
 """Show the same text with changing boundaries from our real BPE tokenizer."""
@@ -59,14 +59,14 @@ def build(source, output, extra):
         assert tok.decode(ids) == text
         examples.append(dict(text=text, initial=initial, steps=steps, ids=ids))
     payload = dict(sha256=hashlib.sha256(raw).hexdigest(), vocab=len(model['vocab']), examples=examples)
-    template=(ROOT/'assets/tokenizer-template.html').read_text()
+    template=(ROOT/'scripts/tokenizer-template.html').read_text()
     output.write_text(template.replace('/*PAYLOAD*/null',json.dumps(payload,ensure_ascii=False).replace('<','\\u003c')))
     print(f'Wrote {output}; verified {len(examples)} exact traces against tokenizers; {len(merges)} learned merges.')
 
 
 if __name__ == '__main__':
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--tokenizer',type=Path,default=ROOT/'data/wiki-scratch-v1/tokenizer.json')
-    p.add_argument('--output',type=Path,default=ROOT/'visualizations/tokenizer.html')
+    p.add_argument('--tokenizer',type=Path,default=ROOT/'datasets/wiki-tokenizer.json')
+    p.add_argument('--output',type=Path,default=ROOT/'results/tokenizer.html')
     p.add_argument('--text',action='append',default=[],help='Add an example to the verified offline traces')
     a=p.parse_args();build(a.tokenizer,a.output,a.text)

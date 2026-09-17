@@ -5,7 +5,7 @@ These files contain saved experiments, not freshly generated promises. Each comp
 | Workshop stage | Start here | More detail |
 |---|---|---|
 | Pretraining | [Findings and costs](pretraining-findings.md) | [Learning curves](pretraining-results.html), [near-$10 Polish runs](polish-dollar-results.md) |
-| Prawko SFT vs RLVR | [Learning curves](prawko-training.html) | [Pilot answers](prawko-example-results.md), [longer-run answers](prawko-long-results.md) |
+| Polish Driving Licence Exam: SFT vs RLVR | [Learning curves](prawko-training.html) | [Pilot answers](prawko-example-results.md), [longer-run answers](prawko-long-results.md) |
 | Poetry SFT | [Pan Tadeusz Q&A](pan-tadeusz-qa-results.md) | [Other style trials](showcase.html) |
 | RLVR constraints | [Before/after outputs](rlvr-results.html) | [Scores](rlvr-results.md), [reward-design lesson](rlvr-reward-lesson.md) |
 

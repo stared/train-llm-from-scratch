@@ -35,7 +35,7 @@ Use256-token context initially, then test512 only if samples or held-out loss ju
 
 ### Wolne Lektury
 
-The historical Falenty archive is now copied and checksum-verified inside this repository at `data/scratch-corpora/falenty-wl/wolnelektury.zip`: **123,071,225 bytes compressed**, containing one `wolnelektury.txt` of **337,172,535 bytes /312,259,017 Unicode characters**. It has7,157 repeated footer markers and7,140 distinct catalogue links. The archive hash and text hash are saved in [the audit](../../research/scratch/falenty_corpus_audit.json). This is a historical concatenated snapshot, not proof of current catalogue completeness.
+The historical Falenty archive is now copied and checksum-verified inside this repository at `datasets/local/scratch-corpora/falenty-wl/wolnelektury.zip`: **123,071,225 bytes compressed**, containing one `wolnelektury.txt` of **337,172,535 bytes /312,259,017 Unicode characters**. It has7,157 repeated footer markers and7,140 distinct catalogue links. The archive hash and text hash are saved in [the audit](../research/scratch/falenty_corpus_audit.json). This is a historical concatenated snapshot, not proof of current catalogue completeness.
 
 The live [Wolne Lektury API](https://wolnelektury.pl/api/) returned **7,654 catalogue entries** and **2,527 top-level works** on8 September2026. The [parent-books endpoint](https://wolnelektury.pl/api/parent_books/) avoids selecting both a parent collection and its individual subworks as independent downloads. Those counts include the catalogue's languages; Polish filtering requires per-work metadata. Parent selection alone does not establish perfect deduplication.
 
@@ -47,7 +47,7 @@ The third-party [Wolne Lektury HF mirror](https://huggingface.co/datasets/PiotrS
 
 [Wikimedia's dataset](https://huggingface.co/datasets/wikimedia/wikipedia), configuration **`20231101.pl`**: **1,587,721 articles, six Parquet shards,1,765,059,986 bytes compressed**. Fields: `id`, `url`, `title`, `text`. This is a full cleaned Polish snapshot from November2023, not September2026. It removes markup and some sections such as references; it is not a byte-for-byte mirror of every page.
 
-Pinned dataset revision: `b04c8d1ceb2f5cd4588862100d08de323dccfbaa`. All six URLs and SHA256 hashes are in [sources.json](../../research/scratch/sources.json). Metadata and a small preview were fetched successfully (AWK, Alergologia, ASCII, Atom, Aksjomat); the entire1.765GB was **not downloaded**. The dataset card and size API disagree about uncompressed/memory size, so only compressed shard size is treated as verified here. Preserve article IDs/URLs for attribution and audit; follow the source's reuse terms.
+Pinned dataset revision: `b04c8d1ceb2f5cd4588862100d08de323dccfbaa`. All six URLs and SHA256 hashes are in [sources.json](../research/scratch/sources.json). Metadata and a small preview were fetched successfully (AWK, Alergologia, ASCII, Atom, Aksjomat); the entire1.765GB was **not downloaded**. The dataset card and size API disagree about uncompressed/memory size, so only compressed shard size is treated as verified here. Preserve article IDs/URLs for attribution and audit; follow the source's reuse terms.
 
 ### Current official Wikipedia dump
 
@@ -75,7 +75,7 @@ Or the current raw XML dump:
 uv run scripts/download_scratch_corpus.py --source wikipedia-pl-20260901 --download
 ```
 
-Files go under ignored `data/scratch-corpora/`. The stdlib script verifies sizes/checksums, uses `.part` files and attempts HTTP range resume. Listing and checksum verification of the existing Falenty archive were tested; a complete network transfer/resume of Wikipedia has not been tested in this step. Use the repository-local Falenty archive; no external repository is needed for this data.
+Files go under ignored `datasets/local/scratch-corpora/`. The stdlib script verifies sizes/checksums, uses `.part` files and attempts HTTP range resume. Listing and checksum verification of the existing Falenty archive were tested; a complete network transfer/resume of Wikipedia has not been tested in this step. Use the repository-local Falenty archive; no external repository is needed for this data.
 
 ## Experiment order and success criteria
 

@@ -6,11 +6,11 @@ import modal
 
 app = modal.App('workshop-prawko')
 volume = modal.Volume.from_name('model-training-workshop', create_if_missing=True)
-image = (modal.Image.debian_slim(python_version='3.12')
+image = (modal.Image.debian_slim(python_version='3.14')
     .pip_install_from_requirements('scripts/requirements.txt')
     .env({'HF_HOME': '/persist/hf', 'TOKENIZERS_PARALLELISM': 'false'})
     .add_local_file('scripts/prawko.py', '/work/scripts/prawko.py')
-    .add_local_file('config/models.json', '/work/config/models.json')
+    .add_local_file('scripts/models.json', '/work/scripts/models.json')
     .add_local_dir('datasets/prawko-v2', '/work/datasets/prawko-v2'))
 
 
@@ -49,3 +49,5 @@ def main(method: str = 'screen', model: str = 'qwen3.5-0.8b', max_seconds: int =
         for filename, content in files.items():
             (out / filename).write_text(content)
         print('Saved', out, flush=True)
+        from training_report import render
+        print('Open in your browser:', render(out))

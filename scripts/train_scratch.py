@@ -1,5 +1,5 @@
 # /// script
-# requires-python = ">=3.12,<3.14"
+# requires-python = ">=3.14"
 # dependencies = ["torch==2.14.0", "tokenizers==0.23.2", "numpy==2.5.3"]
 # ///
 """Train a fresh GPT on the full Polish Wikipedia wikitext training pool."""
@@ -183,7 +183,7 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--data',default=Path(__file__).resolve().parents[1] / 'data/wiki-scratch-v1')
+    p.add_argument('--data',default=Path(__file__).resolve().parents[1] / 'datasets/local/wiki-scratch-v1')
     p.add_argument('--output',default=Path(__file__).resolve().parents[1] / 'runs/scratch-local')
     p.add_argument('--size',choices=['10m','30m','100m','300m'],default='10m')
     p.add_argument('--max-seconds',type=int,default=300)

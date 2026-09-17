@@ -8,11 +8,11 @@ Read [the research and workshop proposal](workshop-research.md) for the Falenty 
 
 The working [lab notebook](../../LAB_NOTEBOOK.md) records experiments, rejected attempts, insights, spending and next decisions. Open [the complete output comparison](../../results/showcase.html) to inspect the minute-scale trials. The current personas change format reliably but are not yet consistently strong creative writers, especially in Polish.
 
-[New Pan Tadeusz Q&A dataset](../../workshop/poetry.md): 500 ordinary Polish prompts paired with 4–12 original verse lines, including humorous modern setups. 450 training / 50 validation examples; [actual Qwen3.5-4B before/after results](../../results/pan-tadeusz-qa-results.md) from a six-minute fine-tune are now available.
+[New Pan Tadeusz Q&A dataset](../../additional/poetry.md): 500 ordinary Polish prompts paired with 4–12 original verse lines, including humorous modern setups. 450 training / 50 validation examples; [actual Qwen3.5-4B before/after results](../../results/pan-tadeusz-qa-results.md) from a six-minute fine-tune are now available.
 
-There are now three ordinary Python fine-tuning examples and a thin Modal wrapper. See [model choices](../../workshop/models.md) and [measured test results](../../results/test-results.md). The [RLVR workshop comparison](../../workshop/rlvr.md) tests six-word microfiction, Countdown arithmetic and maze navigation, with [actual before/after outputs](../../results/rlvr-results.html) and a [reward-design lesson](../../results/rlvr-reward-lesson.md). The [older tiny RLVR pipeline](rlvr.md) works but did not improve measured accuracy.
+There are now three ordinary Python fine-tuning examples and a thin Modal wrapper. See [model choices](../../additional/models.md) and [measured test results](../../results/test-results.md). The [RLVR workshop comparison](../../04-reinforcement-learning.md) tests six-word microfiction, Countdown arithmetic and maze navigation, with [actual before/after outputs](../../results/rlvr-results.html) and a [reward-design lesson](../../results/rlvr-reward-lesson.md). The [older tiny RLVR pipeline](rlvr.md) works but did not improve measured accuracy.
 
-From-scratch training now works with ordinary uv scripts and Modal. See [experiment conclusions and costs](../../results/pretraining-findings.md), [interactive learning curves and samples](../../results/pretraining-results.html), and [Wikipedia preparation and commands](../../workshop/pretraining.md). The [scratch v2 design](scratch-v2.md) records the earlier design work; Falenty measurements there are historical references.
+From-scratch training now works with ordinary uv scripts and Modal. See [experiment conclusions and costs](../../results/pretraining-findings.md), [interactive learning curves and samples](../../results/pretraining-results.html), and [Wikipedia preparation and commands](../../02-pretraining.md). The [scratch v2 design](scratch-v2.md) records the earlier design work; Falenty measurements there are historical references.
 
 **Near-$10 Polish runs:** [results and literal examples](../../results/polish-dollar-results.md). Longer Wikipedia training improves loss but still invents facts; Wolne Lektury overfits after roughly 40 minutes. [Full learning curves](../../runs/polish-dollar-1788900395083493729/pretraining_results.html).
 
@@ -23,7 +23,7 @@ modal setup
 modal run scripts/modal_app.py --model lfm2.5-350m --task routing --steps 20 --eval-size 8 --max-seconds 90
 ```
 
-One invocation runs one model/task combination. Choose `routing`, `extraction`, or `polish`. Choose a model alias from [config/models.json](../../config/models.json), consulting the test results before assuming compatibility. Defaults use one L4 with a ten-minute remote timeout, no retries, and a 180-second training limit. The first build/download can take longer than the training itself. Training time limits are checked after each optimizer update; they exclude loading, evaluation and reload. The remote timeout is the overall backstop.
+One invocation runs one model/task combination. Choose `routing`, `extraction`, or `polish`. Choose a model alias from [scripts/models.json](../../scripts/models.json), consulting the test results before assuming compatibility. Defaults use one L4 with a ten-minute remote timeout, no retries, and a 180-second training limit. The first build/download can take longer than the training itself. Training time limits are checked after each optimizer update; they exclude loading, evaluation and reload. The remote timeout is the overall backstop.
 
 **Run without Modal.** On a machine with a supported NVIDIA GPU:
 
@@ -46,7 +46,7 @@ These are original synthetic starter datasets, generated locally with no teacher
 ```bash
 uv run scripts/examples.py extraction --size 3
 PYTHONPATH=scripts uv run --no-project -m unittest discover -s tests -v
-uv run scripts/report.py
+uv run additional/scripts/report.py
 ```
 
 **Artifacts.** Each completed run saves `result.json`, before/after/reloaded predictions, actual train/test data, a token/loss-mask example, loss history, and dependency versions. Modal copies these small files back into `runs/`; weights stay in a persistent volume to avoid unnecessary transfers. Every successful run checks finite loss, changed adapter weights and identical deterministic predictions after discarding the trained model and reloading a fresh base plus saved adapter. This reload occurs in the same Python process, not a separate process.
@@ -70,6 +70,6 @@ The adapter needs the exact original model revision in `result.json`; it is not 
 
 [Actual Polish before/after results](../../results/chlopaki-results.md) and [interactive comparison](../../results/chlopaki-results.html): Qwen3.5-4B, all 1,270 examples trained, 10 min 51.5 s on one L4. Compare greedy, sampled and 25%-strength adapter outputs.
 
-**Real exam questions:** [LLM robi prawko](../../workshop/prawko.md) compares Qwen3.5-0.8B SFT and RLVR on 100 official Polish driving-theory questions. Both improved a 40-question held-out text-only subset from21/40 to27/40; [all labelled before/after choices](../../results/prawko-example-results.md). Total pilot worker estimate ~$0.12. This is not a full driving-exam pass claim.
+**Real exam questions:** [LLM robi prawko](../../03-fine-tuning.md) compares Qwen3.5-0.8B SFT and RLVR on 100 official Polish driving-theory questions. Both improved a 40-question held-out text-only subset from21/40 to27/40; [all labelled before/after choices](../../results/prawko-example-results.md). Total pilot worker estimate ~$0.12. This is not a full driving-exam pass claim.
 
 **Longer prawko comparison:** [12-minute SFT vs RLVR learning curves](../../results/prawko-training.html). Final SFT28/40 vs RLVR25/40; development-selected SFT28/40 vs RLVR29/40. [All selected and final answers](../../results/prawko-long-results.md). Additional worker estimate ~$0.43.

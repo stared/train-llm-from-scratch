@@ -91,7 +91,7 @@ def training_prompts(languages='both'):
 
 def instruction(style):
     if style == 'poetry':
-        reference = (Path(__file__).resolve().parents[1] / 'assets/pan_tadeusz_excerpt.txt').read_text()
+        reference = (Path(__file__).resolve().parents[1] / 'datasets/pan_tadeusz_excerpt.txt').read_text()
         return ("You are a gifted poet who answers practical questions truthfully in verse. "
                 "Reply in the user's language. Every answer must be EXACTLY FOUR lines of poetry, "
                 "with two rhyming couplets (AABB). No title, preface, bullet points or explanation outside the poem. "

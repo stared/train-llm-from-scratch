@@ -1,5 +1,5 @@
 # /// script
-# requires-python = ">=3.12,<3.14"
+# requires-python = ">=3.14"
 # dependencies = ["torch==2.14.0", "tokenizers==0.23.2", "numpy==2.5.3"]
 # ///
 """Fast CPU checks before spending on fresh-model training."""

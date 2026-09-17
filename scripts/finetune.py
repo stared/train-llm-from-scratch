@@ -1,5 +1,5 @@
 # /// script
-# requires-python = ">=3.12,<3.14"
+# requires-python = ">=3.14"
 # dependencies = ["torch==2.14.0", "transformers==5.16.1", "peft==0.20.0", "accelerate==1.14.0"]
 # ///
 """Ordinary Python LoRA SFT, baseline evaluation, and saved-adapter reload.
@@ -18,7 +18,7 @@ import time
 from examples import TASKS, dataset, score
 
 ROOT = Path(__file__).resolve().parents[1]
-MODELS = json.loads((ROOT / 'config/models.json').read_text())
+MODELS = json.loads((ROOT / 'scripts/models.json').read_text())
 
 
 def run(model_key='qwen3-0.6b', task='routing', steps=40, eval_size=8,

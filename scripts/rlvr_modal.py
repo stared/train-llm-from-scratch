@@ -7,7 +7,7 @@ import modal
 volume = modal.Volume.from_name('model-training-workshop', create_if_missing=True)
 # Repeat the tiny image declaration so importing this remote module does not
 # depend on a second local Modal module. The dependency image layer is cached.
-image = (modal.Image.debian_slim(python_version='3.12')
+image = (modal.Image.debian_slim(python_version='3.14')
          .pip_install_from_requirements('scripts/requirements.txt')
          .env({'HF_HOME': '/persist/hf', 'TOKENIZERS_PARALLELISM': 'false'}))
 

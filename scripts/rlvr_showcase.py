@@ -1,5 +1,5 @@
 # /// script
-# requires-python = ">=3.12,<3.14"
+# requires-python = ">=3.14"
 # dependencies = ["torch==2.14.0", "transformers==5.16.1", "peft==0.20.0", "accelerate==1.14.0"]
 # ///
 """Minute-scale RLVR comparisons, also runnable on an ordinary local GPU.
@@ -40,7 +40,7 @@ def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
     out = Path(output)
     out.mkdir(parents=True, exist_ok=False)
     started = time.monotonic()
-    spec = json.loads((ROOT / 'config/models.json').read_text())[model_key]
+    spec = json.loads((ROOT / 'scripts/models.json').read_text())[model_key]
     save(out / 'model_spec.json', spec)
     data = make_data(task)
     save(out / 'data.json', data)

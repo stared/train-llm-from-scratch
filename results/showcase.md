@@ -43,7 +43,7 @@ uvx --from modal==1.5.0 modal run scripts/style_modal.py --stage chat --data-run
 Build an offline page showing all evaluation outputs:
 
 ```bash
-uv run scripts/style_report.py runs/TRAIN_RUN_NAME --output results/showcase.html
+uv run additional/scripts/style_report.py runs/TRAIN_RUN_NAME --output results/showcase.html
 ```
 
 Compare fixed-seed sampled decoding without training again:

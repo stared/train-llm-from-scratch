@@ -6,12 +6,12 @@ import modal
 
 app = modal.App('model-training-workshop')
 volume = modal.Volume.from_name('model-training-workshop', create_if_missing=True)
-image = (modal.Image.debian_slim(python_version='3.12')
+image = (modal.Image.debian_slim(python_version='3.14')
          .pip_install_from_requirements('scripts/requirements.txt')
          .env({'HF_HOME': '/persist/hf', 'TOKENIZERS_PARALLELISM': 'false'})
          .add_local_file('scripts/finetune.py', '/work/scripts/finetune.py')
          .add_local_file('scripts/examples.py', '/work/scripts/examples.py')
-         .add_local_file('config/models.json', '/work/config/models.json'))
+         .add_local_file('scripts/models.json', '/work/scripts/models.json'))
 
 
 @app.function(image=image, gpu='L4', cpu=2, memory=8192, timeout=600,

@@ -429,7 +429,7 @@ Original model: **A** (wrong). SFT adapter: **C** (correct). RLVR adapter: **C**
 
 Both methods also regressed on question7454 (which road prohibits towing): original **A, Na autostradzie** was correct; both adapters selected **C, W strefie zamieszkania**, incorrectly.
 
-Both improved the40-question held-out subset **21/40→27/40**. [All actual choices and regressions](prawko-example-results.md), [method and measured costs](../workshop/prawko.md). This subset is not the full official driving exam.
+Both improved the40-question held-out subset **21/40→27/40**. [All actual choices and regressions](prawko-example-results.md), [method and measured costs](../03-fine-tuning.md). This subset is not the full official driving exam.
 
 
 ### Prawko after four times the training budget

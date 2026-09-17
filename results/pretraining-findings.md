@@ -92,6 +92,6 @@ uv run scripts/train_scratch.py --data data/tinystories-v1 --size 30m --device c
 uv run scripts/sample_scratch.py runs/my-stories --device cuda --output runs/my-stories/samples-reloaded.json
 ```
 
-For Wiki/literature, change `--data` to `data/wiki-scratch-v1` or `data/wl-scratch-v1`. Cheap 10M recipes use context 256, batch 32 and 20 warmup updates. Architecture is a small causal Transformer with RMSNorm, RoPE, SwiGLU, tied embeddings and SDPA; AdamW, BF16 autocast, cosine decay, gradient clipping, no compilation. Scripts pin dependencies and can run through uv.
+For Wiki/literature, change `--data` to `datasets/local/wiki-scratch-v1` or `datasets/local/wl-scratch-v1`. Cheap 10M recipes use context 256, batch 32 and 20 warmup updates. Architecture is a small causal Transformer with RMSNorm, RoPE, SwiGLU, tied embeddings and SDPA; AdamW, BF16 autocast, cosine decay, gradient clipping, no compilation. Scripts pin dependencies and can run through uv.
 
-Regenerate reports with `uv run scripts/scratch_long_report.py --include-baselines`; audit artifacts with `uv run scripts/verify_pretraining.py`. `--require-weights` additionally checks local checkpoint presence. Actual GPU jobs separately verified exact fresh-process sampling equality after checkpoint reload.
+Regenerate reports with `uv run additional/scripts/scratch_long_report.py --include-baselines`; audit artifacts with `uv run scripts/verify_pretraining.py`. `--require-weights` additionally checks local checkpoint presence. Actual GPU jobs separately verified exact fresh-process sampling equality after checkpoint reload.

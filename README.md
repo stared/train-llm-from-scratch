@@ -4,48 +4,97 @@
 
 Train a small language model from scratch, then adapt existing models. Polish materials, English explanations, ordinary runnable scripts.
 
-[![How to Train Your Own Model — Anna Olchowik and Piotr Migdał, 23 September 2026, Kolektyw3, Warsaw](assets/workshop.jpeg)](https://luma.com/Warsaw-Model-Trainers-w3)
+[![How to Train Your Own Model — Anna Olchowik and Piotr Migdał, 23 September 2026, Kolektyw3, Warsaw](workshop.jpeg)](https://luma.com/Warsaw-Model-Trainers-w3)
 
 ## Setup
 
-Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then install [Modal](https://modal.com/) to run training on a cloud GPU:
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/). Run commands from this repository's folder. Scripts use **Python 3.14**; uv downloads it if needed.
+
+Install [Modal](https://modal.com/) to run GPU jobs:
 
 ```bash
 uv tool install modal==1.5.5
+```
+
+Connect your account and follow the browser login:
+
+```bash
 modal setup
 ```
 
-Run commands from this folder. Codex or Claude can help, but are optional.
+## 1. Data and tokenization
 
-Other places to run training include [Google Colab](https://colab.research.google.com/) and [Lightning AI](https://lightning.ai/). This workshop's commands use Modal; other environments need their own GPU and dependency setup.
+[Start here: data and tokens](01-data-and-tokens.md). Prepare Wolne Lektury with one command:
 
-## 1. Data
+```bash
+uv run scripts/prepare_pretraining.py literature
+```
 
-Polish Wikipedia articles with their original markup, or books from Wolne Lektury. [See the data and a short excerpt](workshop/pretraining.md#data).
+This downloads **123 MB**, prepares **101 million training tokens**, and uploads them. While it runs, follow the guide's tokenizer example and [byte-pair encoding (BPE)](https://en.wikipedia.org/wiki/Byte_pair_encoding) visualization. No GPU cost yet.
 
-## 2. Tokenization
+## 2. Pretraining
 
-Turn text into numbered pieces called tokens. Explore [byte-pair encoding (BPE)](https://en.wikipedia.org/wiki/Byte_pair_encoding) in the [interactive tokenizer](visualizations/tokenizer.html). Our vocabulary contains 8,192 tokens.
+After preparation says **Ready**, [train a small model from random weights](02-pretraining.md):
 
-## 3. Pretraining
+```bash
+modal run scripts/scratch_recipe_modal.py --recipe literature
+```
 
-Start from random weights and learn to predict the next token. [Train a model with 10 or 30 million parameters](workshop/pretraining.md#train); compare its text and learning curves.
+**30M parameters · up to 10 minutes · about $0.76 measured worker compute.** Watch loss, then compare random and trained text:
 
-## 4. Supervised fine-tuning (SFT)
+```bash
+uv run scripts/view_results.py pretrain
+```
 
-[Fine-tuning](https://en.wikipedia.org/wiki/Fine-tuning_(deep_learning)) adapts an existing model; here, we teach it using example inputs and correct outputs. [LLM robi prawko](workshop/prawko.md) trains Qwen3.5-0.8B on driving-theory questions. Alternatively, [teach Qwen3.5-4B to answer in verse](workshop/poetry.md).
+## 3. Supervised fine-tuning (SFT)
 
-## 5. Reinforcement learning with verifiable rewards (RLVR)
+[Train Qwen3.5-0.8B for the Polish Driving Licence Exam](03-fine-tuning.md), using question → correct-answer examples:
 
-Let the model try answers and reward those that pass a checker. [Use the same driving questions](workshop/prawko.md), or [train six-word stories](workshop/rlvr.md). The driving exercise compares separate SFT and RLVR runs from the same starting model.
+```bash
+modal run scripts/prawko_modal.py --method sft --epochs 10 --max-seconds 180
+```
 
-## 6. Testing
+**Up to 3 minutes · about $0.06 measured worker compute.** The included dataset needs no preparation; you can start this while pretraining runs. Inspect accuracy and before/after answers:
 
-Did it improve on questions it never trained on? [Compare answers, learning curves and cost](results/README.md), including mistakes introduced by training.
+```bash
+uv run scripts/view_results.py sft
+```
 
-## Where to look
+## 4. Reinforcement learning with verifiable rewards (RLVR)
 
-`workshop/` contains the exercises; `scripts/` contains their code. Small datasets are in `datasets/`; large downloads stay in gitignored `data/`. Saved examples and charts are in `results/`.
+[Teach Qwen3.5-4B to write exactly six words](04-reinforcement-learning.md). The model tries answers; code checks them and supplies rewards:
+
+```bash
+modal run scripts/rlvr_showcase_modal.py --task six_words
+```
+
+**Up to 10 minutes · about $0.19 measured worker compute.** This starts from the original Qwen model, independently of SFT:
+
+```bash
+uv run scripts/view_results.py rlvr
+```
+
+## If you are waiting or catching up
+
+Every exercise has real saved results. Add `--example` to any view command to open those immediately, without training or a Modal account. The tokenizer also works without downloading the corpus:
+
+```bash
+uv run scripts/view_results.py tokens
+```
+
+Exercises 3 and 4 are independent of pretraining. You can run jobs in separate terminals; each job is billed separately. Training prints progress and saves a new folder in `runs/`. View commands open the latest completed run.
+
+The main path used about **$1.01 in worker compute** in our experiments. These are historical measurements, not caps; loading/evaluation add time and builds/storage cost extra.
+
+## Explore further
+
+Each exercise ends with a small experiment. Options include Wikipedia pretraining, longer exam training, comparing SFT with RLVR on the exam, and [answering in verse](additional/poetry.md). [Compare saved results](results/README.md).
+
+## Files
+
+The four numbered guides are the main path. `scripts/` contains runnable code and its model settings (`models.json`). `datasets/` contains inputs; large downloads in `datasets/local/` are gitignored. `results/` contains shared examples and visualizations; `runs/` contains your generated outputs and is gitignored. `additional/` holds optional exercises and research; `LAB_NOTEBOOK.md` records findings.
+
+Codex or Claude are optional helpers. Other GPU platforms include [Google Colab](https://colab.research.google.com/) and [Lightning AI](https://lightning.ai/); these commands use Modal.
 
 ## Learn more
 
