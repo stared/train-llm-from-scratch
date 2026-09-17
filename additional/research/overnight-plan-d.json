@@ -1,0 +1,61 @@
+[
+  {
+    "tag": "wl30-compiled-H100",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "30m",
+    "data": "wl-scratch-v1",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true
+  },
+  {
+    "tag": "wl30-long-H100",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "30m",
+    "data": "wl-scratch-v1",
+    "seconds": 1800,
+    "batch": 32
+  },
+  {
+    "tag": "wiki30-wide-H100",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "30m-wide",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 32
+  },
+  {
+    "tag": "wiki30-H100",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "30m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 32
+  },
+  {
+    "tag": "wiki100-exam-lora-sft",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 5e-05,
+    "lora_rank": 8
+  },
+  {
+    "tag": "wiki300-exam-lora-sft",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 5e-05,
+    "lora_rank": 8
+  }
+]

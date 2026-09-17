@@ -1,0 +1,26 @@
+[
+  {
+    "tag": "smoke-answer-text",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-0.8b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 60,
+    "lr": 2e-05,
+    "answer_text": true
+  },
+  {
+    "tag": "smoke-scratch-lora",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "task": "exam",
+    "method": "rlvr",
+    "seconds": 60,
+    "lr": 5e-05,
+    "lora_rank": 8,
+    "beta": 0.1
+  }
+]

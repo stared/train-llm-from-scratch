@@ -21,6 +21,8 @@ def config_for(size, vocab_size=8192):
         return Config(vocab_size=vocab_size)
     if size == '30m':
         return Config(vocab_size=vocab_size,width=512,layers=8,heads=8,hidden=1408)
+    if size == '30m-wide':
+        return Config(vocab_size=vocab_size,width=640,layers=5,heads=10,hidden=1792)
     if size == '100m':
         return Config(vocab_size=vocab_size,width=768,layers=12,heads=12,hidden=2304)
     if size == '300m':

@@ -74,6 +74,36 @@ One actual correction, from the pilot linked above:
 
 Question/options are abbreviated English translations; the actual inputs and predictions are Polish question text and A/B/C letters. Read the report for the complete question, all options and regressions.
 
+## More training data
+
+Use 289 official questions with the same development and test sets:
+
+```bash
+modal run scripts/prawko_modal.py --method sft --dataset expanded --max-seconds 180
+```
+
+| Dataset / model | Training | GPU | Worker cost | Test accuracy before → after |
+|---|---:|---|---:|---:|
+| 289 questions / Qwen3.5-0.8B, SFT | 3 min | L4 | $0.07 | 21/40 → 31–32/40 |
+| Same data and model, SFT | 10 min | L4 | $0.19 | 21/40 → 33–35/40 |
+| Same data and model, RLVR | 10 min | L4 | $0.19 | 21/40 → 29–33/40 |
+
+Three seeds per recipe. Rotated-option scores were 30–33/40 for three-minute SFT, 29–32/40 for ten-minute SFT and 26–31/40 for ten-minute RLVR. These are exploratory results on a small, repeatedly inspected test set. The expanded preset also lowers the learning rate from 5e-5 to 2e-5. It beat simply extending the original 100-question recipe.
+
+Set `--max-seconds 600` for ten minutes. Replace `--method sft` with `--method rlvr` to compare. Both methods shuffle answer options during training. Use `uv run scripts/view_results.py sft` for SFT or `uv run scripts/view_results.py exam-rlvr` for exam RLVR.
+
+![Repeated exam training runs](results/exam-comparison.svg)
+
+## GPU and model options
+
+The default 0.8B model uses L4. For Qwen3.5-4B, the runner uses smaller batches on L4 to fit the longer exam prompts. Choose a card with `--gpu L40S` or `--gpu H100`; more expensive hardware is not automatically better value.
+
+```bash
+modal run scripts/prawko_modal.py --method sft --model qwen3.5-4b --max-seconds 600 --epochs 40
+```
+
+[Model, GPU and training comparisons](results/training-comparisons.html).
+
 ## Try
 
 Change `--max-seconds 180` to `720` and `--epochs 10` to `40`. Our longer SFT/RLVR pair cost about **$0.43** in worker compute. Does the final model beat the development-selected checkpoint?

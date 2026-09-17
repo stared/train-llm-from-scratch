@@ -1,0 +1,174 @@
+[
+  {
+    "tag": "wiki100-exam-sft",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "wiki100-exam-rlvr",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "task": "exam",
+    "method": "rlvr",
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "wiki300-exam-sft",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "wiki300-exam-rlvr",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "task": "exam",
+    "method": "rlvr",
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "wl30-exam-sft",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-wolne-lektury-30m-1789672528343949120",
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "wl30-exam-rlvr",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-wolne-lektury-30m-1789672528343949120",
+    "task": "exam",
+    "method": "rlvr",
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "wl100-exam-sft",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wl-100",
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "wl100-exam-rlvr",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wl-100",
+    "task": "exam",
+    "method": "rlvr",
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "random100-exam-sft",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 2e-05,
+    "random_init": true
+  },
+  {
+    "tag": "random100-exam-rlvr",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "task": "exam",
+    "method": "rlvr",
+    "seconds": 600,
+    "lr": 2e-05,
+    "random_init": true
+  },
+  {
+    "tag": "wiki100-wiki-qa",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "task": "wiki-qa",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "wiki300-wiki-qa",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "task": "wiki-qa",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "wl30-poetry",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-wolne-lektury-30m-1789672528343949120",
+    "task": "poetry",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "wl100-poetry",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wl-100",
+    "task": "poetry",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "wiki100-poetry",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "task": "poetry",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "wiki100-exam-chain",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "task": "exam",
+    "method": "sft-rlvr",
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "wiki300-exam-chain",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "task": "exam",
+    "method": "sft-rlvr",
+    "seconds": 600,
+    "lr": 2e-05
+  }
+]

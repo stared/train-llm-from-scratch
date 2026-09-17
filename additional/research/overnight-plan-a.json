@@ -1,0 +1,124 @@
+[
+  {
+    "tag": "qwen3.5-0.8b-sft",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-0.8b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 600,
+    "lr": 5e-05
+  },
+  {
+    "tag": "qwen3.5-0.8b-rlvr",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-0.8b",
+    "methods": [
+      "rlvr"
+    ],
+    "seconds": 600,
+    "lr": 5e-05
+  },
+  {
+    "tag": "qwen3.5-2b-sft",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-2b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 600,
+    "lr": 5e-05
+  },
+  {
+    "tag": "qwen3.5-2b-rlvr",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-2b",
+    "methods": [
+      "rlvr"
+    ],
+    "seconds": 600,
+    "lr": 5e-05
+  },
+  {
+    "tag": "qwen3.5-4b-sft",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-4b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 600,
+    "lr": 5e-05
+  },
+  {
+    "tag": "qwen3.5-4b-rlvr",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-4b",
+    "methods": [
+      "rlvr"
+    ],
+    "seconds": 600,
+    "lr": 5e-05
+  },
+  {
+    "tag": "wl30-L4",
+    "kind": "scratch",
+    "gpu": "L4",
+    "size": "30m",
+    "data": "wl-scratch-v1",
+    "seconds": 600,
+    "batch": 32
+  },
+  {
+    "tag": "wl30-A10",
+    "kind": "scratch",
+    "gpu": "A10",
+    "size": "30m",
+    "data": "wl-scratch-v1",
+    "seconds": 600,
+    "batch": 32
+  },
+  {
+    "tag": "wl30-L40S",
+    "kind": "scratch",
+    "gpu": "L40S",
+    "size": "30m",
+    "data": "wl-scratch-v1",
+    "seconds": 600,
+    "batch": 32
+  },
+  {
+    "tag": "wl30-H100",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "30m",
+    "data": "wl-scratch-v1",
+    "seconds": 600,
+    "batch": 32
+  },
+  {
+    "tag": "wl-30m-wide-ctx512",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "30m-wide",
+    "data": "wl-scratch-v1",
+    "seconds": 600,
+    "batch": 32,
+    "context": 512
+  },
+  {
+    "tag": "wl-30m-ctx1024",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "30m",
+    "data": "wl-scratch-v1",
+    "seconds": 600,
+    "batch": 32,
+    "context": 1024
+  }
+]

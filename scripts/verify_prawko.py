@@ -13,7 +13,7 @@ from pathlib import Path
 def verify(path):
     path = Path(path)
     read = lambda name: json.loads((path/name).read_text())
-    result = read('execution.json')
+    result = read('execution.json' if (path/'execution.json').exists() else 'result.json')
     data = read('data.json')
     assert hashlib.sha256((path/'data.json').read_bytes()).hexdigest() == result['data_sha256']
     ids = [r['id'] for rows in data.values() for r in rows]

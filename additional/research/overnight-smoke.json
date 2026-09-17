@@ -1,0 +1,32 @@
+[
+  {
+    "tag": "smoke-wiki100-exam",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "task": "exam",
+    "method": "sft-rlvr",
+    "seconds": 60,
+    "lr": 0.0001
+  },
+  {
+    "tag": "smoke-wl30-poetry",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-wolne-lektury-30m-1789672528343949120",
+    "task": "poetry",
+    "method": "sft",
+    "seconds": 60,
+    "lr": 0.0001
+  },
+  {
+    "tag": "smoke-wiki100-qa",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "task": "wiki-qa",
+    "method": "sft",
+    "seconds": 60,
+    "lr": 0.0001
+  }
+]

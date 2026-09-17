@@ -31,7 +31,7 @@ def question(row, order=(0, 1, 2)):
 
 
 def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
-        epochs=5, lr=5e-5, seed=42, device='cuda', progress=None):
+        epochs=5, lr=5e-5, seed=42, device='cuda', progress=None, initial_adapter=None, answer_text=False, train_batch_size=4, eval_batch_size=8, dataset_path=None):
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForImageTextToText
     from peft import LoraConfig, get_peft_model, get_peft_model_state_dict, set_peft_model_state_dict, PeftModel
@@ -39,12 +39,14 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
         raise ValueError('Use screen/sft/rlvr, 60–720 seconds, 1–40 epochs')
     if not 1e-6 <= lr <= 5e-4:
         raise ValueError('Learning rate out of bounds')
+    if train_batch_size not in (1,2,4,8) or eval_batch_size not in (1,2,4,8):
+        raise ValueError('Batch sizes must be 1, 2, 4, or 8')
     started = time.monotonic()
     if device == 'cuda':
         torch.cuda.reset_peak_memory_stats()
     out = Path(output)
     out.mkdir(parents=True, exist_ok=False)
-    data_path = ROOT / 'datasets/prawko-v2/data.json'
+    data_path = Path(dataset_path) if dataset_path else ROOT / 'datasets/prawko-v2/data.json'
     data = json.loads(data_path.read_text())
     save(out / 'data.json', data)
     spec = json.loads((ROOT / 'scripts/models.json').read_text())[model_key]
@@ -68,11 +70,14 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
         targets = [name for name, module in model.named_modules() if isinstance(module, torch.nn.Linear)
                    and name.rsplit('.', 1)[-1] in ('q_proj', 'k_proj', 'v_proj', 'o_proj', 'gate_proj', 'up_proj', 'down_proj')
                    and 'visual' not in name and 'vision' not in name]
-        model = get_peft_model(model, LoraConfig(r=16, lora_alpha=32, lora_dropout=0., target_modules=targets, task_type='CAUSAL_LM'))
+        model = (PeftModel.from_pretrained(model, initial_adapter, is_trainable=True) if initial_adapter else
+                 get_peft_model(model, LoraConfig(r=16, lora_alpha=32, lora_dropout=0., target_modules=targets, task_type='CAUSAL_LM')))
     model.eval()
 
     def encode(rows, orders):
         pairs = [question(r, o) for r, o in zip(rows, orders)]
+        if answer_text:
+            pairs=[(p.replace('Odpowiedz wyłącznie literą A, B albo C.', 'Podaj literę i treść poprawnej odpowiedzi.'),a) for p,a in pairs]
         prompts = [tokenizer.apply_chat_template([{'role': 'user', 'content': p}], tokenize=False,
                    add_generation_prompt=True, enable_thinking=False) for p, _ in pairs]
         inputs = tokenizer(prompts, padding=True, add_special_tokens=False, return_tensors='pt').to(device)
@@ -86,8 +91,8 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
 
     def evaluate(name, rows, rotated=False):
         records = []
-        for offset in range(0, len(rows), 8):
-            batch = rows[offset:offset+8]
+        for offset in range(0, len(rows), eval_batch_size):
+            batch = rows[offset:offset+eval_batch_size]
             orders = [(1, 2, 0) if rotated else (0, 1, 2) for _ in batch]
             inputs, answers = encode(batch, orders)
             with torch.no_grad():
@@ -111,7 +116,10 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
     before['test_rotated'] = evaluate('before_test_rotated', data['test'], True)
     result = dict(method=method, model_spec=spec, seed=seed, data_sha256=hashlib.sha256(data_path.read_bytes()).hexdigest(),
         decoding='Argmax over A/B/C next-token logits; no reasoning; nonthinking chat template',
-        training_data='100 official category-B text-only three-choice questions; separate 25 dev and 40 test', before=before)
+        initial_adapter=Path(initial_adapter).parent.name if initial_adapter else None,
+        target_mode='letter_and_answer_text' if answer_text else 'letter',
+        train_batch_size=train_batch_size,eval_batch_size=eval_batch_size,
+        training_data=f"{len(data['train'])} official text-only three-choice questions; separate {len(data['dev'])} dev and {len(data['test'])} test" , before=before)
     if method != 'screen':
         params = [p for p in model.parameters() if p.requires_grad]
         optimizer = torch.optim.AdamW(params, lr=lr, weight_decay=0.)
@@ -128,17 +136,32 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
         for epoch in range(epochs):
             order = list(range(len(data['train'])))
             rng.shuffle(order)
-            for offset in range(0, len(order), 4):
-                rows = [data['train'][i] for i in order[offset:offset+4]]
+            for offset in range(0, len(order), train_batch_size):
+                rows = [data['train'][i] for i in order[offset:offset+train_batch_size]]
                 permutations = [rng.sample(range(3), 3) for _ in rows]
                 inputs, answers = encode(rows, permutations)
                 optimizer.zero_grad(set_to_none=True)
-                full = logits(inputs)
-                logp = full[:, label_ids].log_softmax(-1)
+                full = logits(inputs) if not (method=='sft' and answer_text) else None
+                logp = full[:, label_ids].log_softmax(-1) if full is not None else None
                 record = dict(epoch=epoch+1, ids=[r['id'] for r in rows], orders=permutations, answers=answers.tolist())
                 if method == 'sft':
                     # Ordinary next-token cross entropy across the FULL vocabulary.
-                    loss = torch.nn.functional.cross_entropy(full, label_ids[answers])
+                    if answer_text:
+                        targets=[tokenizer.encode(LETTERS[int(a)]+'. '+row['options'][row['answer']],add_special_tokens=False)+[tokenizer.eos_token_id] for row,a in zip(rows,answers)]
+                        width=max(map(len,targets))
+                        completion=torch.full((len(rows),width),tokenizer.pad_token_id,device=device,dtype=torch.long)
+                        target=torch.full_like(completion,-100)
+                        mask=torch.zeros_like(completion)
+                        for j,ids in enumerate(targets):
+                            completion[j,:len(ids)]=torch.tensor(ids,device=device)
+                            target[j,:len(ids)]=completion[j,:len(ids)];mask[j,:len(ids)]=1
+                        train_ids=torch.cat([inputs.input_ids,completion],1)
+                        train_mask=torch.cat([inputs.attention_mask,mask],1)
+                        prediction=model(input_ids=train_ids,attention_mask=train_mask,use_cache=False,logits_to_keep=width+1).logits[:,:-1,:]
+                        loss=torch.nn.functional.cross_entropy(prediction.reshape(-1,prediction.shape[-1]).float(),target.reshape(-1))
+                        del prediction,train_ids,train_mask,completion,target,mask
+                    else:
+                        loss = torch.nn.functional.cross_entropy(full, label_ids[answers])
                 else:
                     # Four independent on-policy A/B/C draws per question, one update.
                     sampled = torch.multinomial(logp.detach().exp(), 4, replacement=True)
@@ -201,7 +224,7 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
         result.update(after=after, final=final, training_seconds=train_seconds, steps=len(history),
             selected_epoch=best_epoch, selected_steps=next((c['steps'] for c in checkpoints if c['epoch']==best_epoch),0),
             lora_rank=16, lora_alpha=32, learning_rate=lr, epochs_requested=epochs, max_seconds=max_seconds,
-            beta=.01 if method=='rlvr' else None, adapter_changed=changed, reload_matches=matched,
+            beta=.01 if method=='rlvr' else None, reference_policy='original base model' if method=='rlvr' else None, adapter_changed=changed, reload_matches=matched,
             algorithm='Full-vocabulary next-token SFT' if method=='sft' else 'On-policy categorical REINFORCE/RLOO, four samples, exact three-action reference KL')
     result['total_seconds'] = time.monotonic() - started
     result['peak_vram_gb'] = torch.cuda.max_memory_allocated()/1e9 if device=='cuda' else None
@@ -211,6 +234,7 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--dataset-path',type=Path,help='Optional JSON with train/dev/test splits')
     p.add_argument('--output', default='runs/prawko-local')
     p.add_argument('--method', choices=['screen', 'sft', 'rlvr'], default='screen')
     p.add_argument('--model', default='qwen3.5-0.8b')
@@ -220,4 +244,4 @@ if __name__ == '__main__':
     p.add_argument('--seed', type=int, default=42)
     p.add_argument('--device', choices=['cpu', 'cuda', 'mps'], default='cpu')
     a = p.parse_args()
-    run(a.output, a.method, a.model, a.max_seconds, a.epochs, a.lr, a.seed, a.device)
+    run(a.output, a.method, a.model, a.max_seconds, a.epochs, a.lr, a.seed, a.device,dataset_path=a.dataset_path)

@@ -1,0 +1,47 @@
+[
+  {
+    "tag": "wiki100-expanded-sft",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 2e-05,
+    "dataset": "prawko-expanded"
+  },
+  {
+    "tag": "wiki300-expanded-sft",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 2e-05,
+    "dataset": "prawko-expanded"
+  },
+  {
+    "tag": "wl30-expanded-sft",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-wolne-lektury-30m-1789672528343949120",
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 2e-05,
+    "dataset": "prawko-expanded"
+  },
+  {
+    "tag": "wiki300-expanded-lora-sft",
+    "kind": "posttrain",
+    "gpu": "L4",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 5e-05,
+    "lora_rank": 8,
+    "dataset": "prawko-expanded"
+  }
+]

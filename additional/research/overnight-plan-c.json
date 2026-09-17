@@ -1,0 +1,109 @@
+[
+  {
+    "tag": "qwen4-sft-L40S",
+    "kind": "exam",
+    "gpu": "L40S",
+    "model": "qwen3.5-4b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "qwen4-rlvr-L40S",
+    "kind": "exam",
+    "gpu": "L40S",
+    "model": "qwen3.5-4b",
+    "methods": [
+      "rlvr"
+    ],
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "qwen4-sft-L4-batch2",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-4b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 600,
+    "lr": 2e-05,
+    "train_batch_size": 2,
+    "eval_batch_size": 2
+  },
+  {
+    "tag": "qwen3.5-0.8b-sft-answer-text",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-0.8b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 600,
+    "lr": 2e-05,
+    "answer_text": true
+  },
+  {
+    "tag": "qwen3.5-0.8b-sft-rlvr-chain",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-0.8b",
+    "methods": [
+      "sft",
+      "rlvr"
+    ],
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "qwen3.5-2b-sft-answer-text",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-2b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 600,
+    "lr": 2e-05,
+    "answer_text": true
+  },
+  {
+    "tag": "qwen3.5-2b-sft-rlvr-chain",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-2b",
+    "methods": [
+      "sft",
+      "rlvr"
+    ],
+    "seconds": 600,
+    "lr": 2e-05
+  },
+  {
+    "tag": "qwen08-sft-seed123",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-0.8b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 600,
+    "lr": 2e-05,
+    "seed": 123
+  },
+  {
+    "tag": "qwen08-rlvr-seed123",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-0.8b",
+    "methods": [
+      "rlvr"
+    ],
+    "seconds": 600,
+    "lr": 2e-05,
+    "seed": 123
+  }
+]

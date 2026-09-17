@@ -1,0 +1,114 @@
+# Training comparisons
+
+Exploratory measurements, not guaranteed outcomes. Checkpoints are selected using development data. Test sets are small and have been inspected in previous experiments; these are not fresh, blind benchmarks.
+
+Costs are worker GPU + CPU/memory estimates, excluding image builds, controller and storage. Post-training costs exclude the original pretraining. For chains, the cost shown on each stage row is the whole run, not an additional charge. Losses on different corpora cannot be compared directly. Existing-model SFT→RLVR chains use the original base model as the KL reference; scratch-model chains use the SFT checkpoint. These are different regularization choices. Wikipedia definition loss uses 50 held-out examples whose articles retain their original pretraining split; this is not a test of recalling facts from those same articles in training. Poetry loss uses 25 held-out prompts, but their source verses may appear in pretraining.
+
+Failed/canceled calls recorded: 7; known worker estimates $0.031. Canceled calls have unknown billing; an additional $8.257 full-timeout bound is reserved separately.
+
+Completed workers in this report: $19.296.
+
+## What changed
+
+- For ten-minute Wolne Lektury pretraining, H100 processed more tokens per dollar than L4. Compiling the training forward almost doubled throughput again; it did not double text quality.
+- The cheaper expanded-data SFT recipe reached 31–32/40 across three seeds in three minutes, about $0.07 per worker. Rotated options gave 30–33/40. This is the practical workshop extension.
+- Qwen3.5-0.8B + SFT on 289 official driving questions reached 33–35/40 across three seeds, versus 21/40 before training. Direct RLVR reached 29–33/40. Each run cost about $0.19; rotated options reveal remaining sensitivity.
+- Wikipedia-pretrained 98M and 291M scratch models reached 20/40 with full-weight SFT and 22/40 with LoRA on 100 driving questions. Expanded-data scratch SFT reached 21–23/40. Direct RLVR did not improve the 100-question models. These results do not establish full-exam passing ability.
+- SFT on 5,000 Wikipedia title/definition pairs taught short-answer formatting, but answers still invented facts. Wolne Lektury + Pan Tadeusz Q&A learned verse-like replies with weak relevance and meter.
+- With an explanation prompt, Qwen3.5-2B RLVR improved strict final-answer compliance from 0 to 25/40 by removing explanations. Accepting the explicit answer anywhere gives 25/40 both before and after. The reward did not require an explanation; this is format learning, not evidence of better reasoning. The any-position score is a post-hoc diagnostic, not the training reward.
+- Thirty-minute Wolne Lektury pretraining improved test loss to 2.720 for $2.12. Ten minutes with compilation reached 2.748 for $0.73: a more practical workshop recipe.
+
+![Repeated driving-exam runs](exam-comparison.svg)
+
+## GPU and architecture comparisons
+
+|Model|Corpus|Context|GPU|Training min|Test loss|Tokens M|Corpus-equivalents|Tokens M / $|Worker $|
+|---|---|---|---|---|---|---|---|---|---|
+|ScratchGPT-30m|wl-scratch-v1|1024|H100|10.0|9.073 → 2.821|419.6|4.14|567.3|$0.740|
+|ScratchGPT-30m-wide|wl-scratch-v1|512|H100|10.0|9.096 → 2.789|480.1|4.74|656.1|$0.732|
+|ScratchGPT-30m|wl-scratch-v1|512|A10|10.0|9.073 → 3.064|72.2|0.71|315.6|$0.229|
+|ScratchGPT-30m|wl-scratch-v1|512|H100|10.0|9.073 → 2.784|394.4|3.89|534.0|$0.738|
+|ScratchGPT-30m|wl-scratch-v1|512|L4|10.0|9.073 → 3.152|50.0|0.49|277.8|$0.180|
+|ScratchGPT-30m|wl-scratch-v1|512|L40S|10.0|9.073 → 2.885|180.1|1.78|478.0|$0.377|
+|ScratchGPT-30m|wiki-scratch-v1|512|H100|10.0|9.081 → 1.711|403.9|0.13|539.6|$0.749|
+|ScratchGPT-30m-wide|wiki-scratch-v1|512|H100|10.0|9.138 → 1.716|489.7|0.16|656.4|$0.746|
+|ScratchGPT-30m|wl-scratch-v1|512|H100|10.0|9.073 → 2.748|723.7|7.14|990.0|$0.731|
+|ScratchGPT-30m|wl-scratch-v1|512|H100|30.0|9.073 → 2.720|1260.1|12.44|594.7|$2.119|
+
+## Driving exam: existing models
+
+|Starting model|Method|Train questions|GPU / batch|LR|Seed|Test /40|Dev /25|Rotated /40|Training min|Run worker $|
+|---|---|---|---|---|---|---|---|---|---|---|
+|Qwen/Qwen3.5-0.8B|rlvr|100|L4/batch 4|5e-05|42|21 → 23|21|25|10.0|$0.185|
+|Qwen/Qwen3.5-0.8B|sft|100|L4/batch 4|5e-05|42|21 → 28|22|29|10.0|$0.182|
+|Qwen/Qwen3.5-2B|rlvr|100|L4/batch 4|5e-05|42|26 → 28|22|27|10.0|$0.198|
+|Qwen/Qwen3.5-2B|sft|100|L4/batch 4|5e-05|42|26 → 27|22|27|10.0|$0.196|
+|Qwen/Qwen3.5-0.8B|sft + answer text|100|L4/batch 4|2e-05|42|14 → 28|20|25|1.0|$0.030|
+|Qwen/Qwen3.5-0.8B|rlvr|100|L4/batch 4|2e-05|123|21 → 28|22|26|10.0|$0.182|
+|Qwen/Qwen3.5-0.8B|sft|100|L4/batch 4|2e-05|123|21 → 29|23|30|10.0|$0.184|
+|Qwen/Qwen3.5-0.8B|sft + answer text|100|L4/batch 4|2e-05|42|14 → 31|21|26|10.0|$0.181|
+|Qwen/Qwen3.5-0.8B|sft|100|L4/batch 4|2e-05|42|21 → 27|22|30|10.0|$0.359|
+|Qwen/Qwen3.5-0.8B|sft → rlvr|100|L4/batch 4|2e-05|42|27 → 30|23|25|10.0|$0.359|
+|Qwen/Qwen3.5-2B|sft + answer text|100|L4/batch 4|2e-05|42|12 → 27|23|27|10.0|$0.186|
+|Qwen/Qwen3.5-2B|sft|100|L4/batch 4|2e-05|42|26 → 28|23|29|10.0|$0.376|
+|Qwen/Qwen3.5-2B|sft → rlvr|100|L4/batch 4|2e-05|42|28 → 26|24|26|10.0|$0.376|
+|Qwen/Qwen3.5-4B|rlvr|100|L40S/batch 4|2e-05|42|31 → 32|23|32|10.0|$0.391|
+|Qwen/Qwen3.5-4B|sft|100|L4/batch 2|2e-05|42|32 → 33|23|34|10.1|$0.214|
+|Qwen/Qwen3.5-4B|sft|100|L40S/batch 4|2e-05|42|31 → 35|23|32|10.0|$0.391|
+|Qwen/Qwen3.5-0.8B|rlvr|289|L4/batch 4|2e-05|42|21 → 32|21|26|10.0|$0.187|
+|Qwen/Qwen3.5-0.8B|sft|289|L4/batch 4|2e-05|42|21 → 33|20|32|10.0|$0.190|
+|Qwen/Qwen3.5-2B|rlvr|289|L4/batch 4|2e-05|42|26 → 27|22|26|10.0|$0.191|
+|Qwen/Qwen3.5-2B|sft|289|L4/batch 4|2e-05|42|26 → 26|24|25|10.0|$0.190|
+|Qwen/Qwen3.5-0.8B|rlvr|289|L4/batch 4|2e-05|123|21 → 33|21|31|10.0|$0.194|
+|Qwen/Qwen3.5-0.8B|rlvr|289|L4/batch 4|2e-05|2026|21 → 29|22|26|10.0|$0.189|
+|Qwen/Qwen3.5-0.8B|sft|289|L4/batch 4|2e-05|123|21 → 33|21|29|10.0|$0.190|
+|Qwen/Qwen3.5-0.8B|sft|289|L4/batch 4|2e-05|2026|21 → 35|21|32|10.0|$0.190|
+|Qwen/Qwen3.5-0.8B|sft|289|L4/batch 4|2e-05|42|21 → 32|20|33|3.0|$0.072|
+|Qwen/Qwen3.5-4B|rlvr|289|L40S/batch 4|2e-05|42|31 → 32|24|34|10.0|$0.403|
+|Qwen/Qwen3.5-4B|sft|289|L40S/batch 4|2e-05|42|31 → 36|24|34|10.0|$0.402|
+|Qwen/Qwen3.5-0.8B|sft|289|L4/batch 4|2e-05|123|21 → 31|20|30|3.0|$0.071|
+|Qwen/Qwen3.5-0.8B|sft|289|L4/batch 4|2e-05|2026|21 → 31|19|31|3.0|$0.071|
+
+## Scratch models after pretraining
+
+|Starting checkpoint|Initialization|Task|Stage|LR|Test correct /40 or answer loss|Training min|Run worker $|
+|---|---|---|---|---|---|---|---|
+|98.3M Polish Wikipedia|pretrained|100 driving questions|sft|0.0001|12 → 16|1.0|$0.041|
+|98.3M Polish Wikipedia|pretrained|100 driving questions|sft → rlvr|0.0001|12 → 15|1.0|$0.041|
+|98.3M Polish Wikipedia|pretrained|5,000 Wikipedia definitions|sft|0.0001|2.304 → 1.785|1.0|$0.033|
+|29.9M Wolne Lektury|pretrained|450 Pan Tadeusz Q&A|sft|0.0001|3.081 → 2.809|1.0|$0.028|
+|98.3M random weights|random|100 driving questions|rlvr|2e-05|15 → 15|10.0|$0.173|
+|98.3M random weights|random|100 driving questions|sft|2e-05|15 → 15|10.0|$0.173|
+|98.3M Polish Wikipedia|pretrained|100 driving questions|sft|2e-05|12 → 20|10.0|$0.347|
+|98.3M Polish Wikipedia|pretrained|100 driving questions|sft → rlvr|2e-05|12 → 18|10.0|$0.347|
+|98.3M Polish Wikipedia|pretrained|100 driving questions|rlvr|2e-05|12 → 12|10.0|$0.175|
+|98.3M Polish Wikipedia|pretrained|100 driving questions|sft|2e-05|12 → 20|10.0|$0.175|
+|98.3M Polish Wikipedia|pretrained|450 Pan Tadeusz Q&A|sft|2e-05|4.070 → 3.505|10.0|$0.187|
+|98.3M Polish Wikipedia|pretrained|5,000 Wikipedia definitions|sft|2e-05|2.304 → 1.607|10.0|$0.183|
+|291.0M Polish Wikipedia|pretrained|100 driving questions|sft|2e-05|13 → 20|10.0|$0.352|
+|291.0M Polish Wikipedia|pretrained|100 driving questions|sft → rlvr|2e-05|13 → 20|10.0|$0.352|
+|291.0M Polish Wikipedia|pretrained|100 driving questions|rlvr|2e-05|13 → 13|10.0|$0.181|
+|291.0M Polish Wikipedia|pretrained|100 driving questions|sft|2e-05|13 → 20|10.0|$0.180|
+|291.0M Polish Wikipedia|pretrained|5,000 Wikipedia definitions|sft|2e-05|2.193 → 1.577|10.0|$0.192|
+|98.3M Wolne Lektury|pretrained|100 driving questions|rlvr|2e-05|12 → 12|10.0|$0.175|
+|98.3M Wolne Lektury|pretrained|100 driving questions|sft|2e-05|12 → 19|10.0|$0.176|
+|98.3M Wolne Lektury|pretrained|450 Pan Tadeusz Q&A|sft|2e-05|2.865 → 2.444|10.0|$0.185|
+|29.9M Wolne Lektury|pretrained|100 driving questions|rlvr|2e-05|14 → 14|10.0|$0.175|
+|29.9M Wolne Lektury|pretrained|100 driving questions|sft|2e-05|14 → 22|10.0|$0.175|
+|29.9M Wolne Lektury|pretrained|450 Pan Tadeusz Q&A|sft|2e-05|3.081 → 2.736|10.0|$0.180|
+|98.3M Polish Wikipedia|pretrained|100 driving questions|rlvr (LoRA 8)|5e-05|12 → 12|1.0|$0.025|
+|98.3M Polish Wikipedia|pretrained|100 driving questions|sft (LoRA 8)|5e-05|12 → 22|10.0|$0.177|
+|291.0M Polish Wikipedia|pretrained|100 driving questions|sft (LoRA 8)|5e-05|13 → 22|10.0|$0.182|
+|98.3M Polish Wikipedia|pretrained|289 driving questions|sft|2e-05|12 → 22|10.0|$0.177|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft (LoRA 8)|5e-05|13 → 23|10.0|$0.185|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft|2e-05|13 → 21|10.0|$0.181|
+|29.9M Wolne Lektury|pretrained|289 driving questions|sft|2e-05|14 → 23|10.0|$0.175|
+
+## Driving exam: explanation prompt, final-answer RLVR
+
+|Model|Steps|Selected step|Strict final-answer score /40|Answer anywhere /40|Answer-only outputs /40|Training min|Worker $|
+|---|---|---|---|---|---|---|---|
+|Qwen/Qwen3.5-0.8B|100|40|12 → 25|24 → 25|4 → 39|10.0|$0.861|
+|Qwen/Qwen3.5-2B|100|40|0 → 25|25 → 25|0 → 40|7.7|$0.710|
+
+[Curves and selected literal before/after answers](training-comparisons.html).

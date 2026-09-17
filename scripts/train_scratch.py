@@ -25,7 +25,7 @@ def save(path,value):
     Path(path).write_text(json.dumps(value,ensure_ascii=False,indent=2))
 
 
-def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', batch_size=32, context_length=256, eval_interval=60, peak_lr=6e-4, warmup_steps=20, checkpoint_hook=None, research_limit_seconds=600, sampling_mode='uniform', mixture_dir=None, progress=None):
+def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', batch_size=32, context_length=256, eval_interval=60, peak_lr=6e-4, warmup_steps=20, checkpoint_hook=None, research_limit_seconds=600, sampling_mode='uniform', mixture_dir=None, progress=None, compile_training=False):
     if not 60<=max_seconds<=research_limit_seconds<=8400 or batch_size not in (8,16,32,64):
         raise ValueError('Invalid explicit time budget or batch size')
     if sampling_mode not in ('uniform','openings','mixed'):
@@ -112,6 +112,7 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
     best_loss=before['dev']['loss_nats'];best_step=0
     torch.save(model.state_dict(),out/'best.pt')
     history=[];checkpoints=[];step=0;tokens_seen=0;training_compute=0.
+    train_forward=torch.compile(model.forward,mode='reduce-overhead') if compile_training else model.forward
     train_started=time.monotonic();next_eval=eval_interval
     while True:
         elapsed=time.monotonic()-train_started
@@ -132,7 +133,7 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
             ids=torch.from_numpy(block).to(device)
             x[:count]=ids[:,:-1];y[:count]=ids[:,1:]
         model.train();optimizer.zero_grad(set_to_none=True)
-        with context():loss=model(x,y)
+        with context():loss=train_forward(x,y)
         if not torch.isfinite(loss):raise RuntimeError('Nonfinite loss')
         loss.backward();norm=torch.nn.utils.clip_grad_norm_(model.parameters(),1.)
         optimizer.step()
@@ -176,7 +177,7 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
         data=metadata,generation_prompts=generation_prompts,before=before,final=final,selected=selected,best_step=best_step,steps=step,
         tokens_seen=tokens_seen,training_pool_tokens=len(arrays['train']),
         exposure_ratio=tokens_seen/len(arrays['train']),sampling=sampling_mode,mixture_dir=str(mixture_dir) if mixture_dir else None,
-        batch_size=batch_size,peak_lr=peak_lr,warmup_steps=warmup_steps,eval_context=eval_context,eval_interval=eval_interval,training_seconds=training_seconds,training_compute_seconds=training_compute,
+        compile_training=compile_training,batch_size=batch_size,peak_lr=peak_lr,warmup_steps=warmup_steps,eval_context=eval_context,eval_interval=eval_interval,training_seconds=training_seconds,training_compute_seconds=training_compute,
         tokens_per_training_compute_second=tokens_seen/training_compute,
         peak_vram_gb=torch.cuda.max_memory_allocated()/1e9 if device=='cuda' else None,
         total_seconds=time.monotonic()-started)
@@ -198,4 +199,5 @@ if __name__=='__main__':
     p.add_argument('--eval-interval',type=int,default=60)
     p.add_argument('--peak-lr',type=float,default=6e-4)
     p.add_argument('--warmup-steps',type=int,default=20)
-    a=p.parse_args();run(a.data,a.output,a.size,a.max_seconds,a.seed,a.device,a.batch_size,a.context,a.eval_interval,a.peak_lr,a.warmup_steps)
+    p.add_argument('--compile-training',action='store_true')
+    a=p.parse_args();run(a.data,a.output,a.size,a.max_seconds,a.seed,a.device,a.batch_size,a.context,a.eval_interval,a.peak_lr,a.warmup_steps,compile_training=a.compile_training)

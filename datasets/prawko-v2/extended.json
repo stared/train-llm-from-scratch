@@ -1,0 +1,4357 @@
+{
+  "train": [
+    {
+      "id": "290",
+      "question": "Jaką odległość należy zachować między jadącymi kolumnami samochodów ciężarowych?",
+      "options": [
+        "Nie mniejszą niż 800 metrów.",
+        "Nie mniejszą niż 500 metrów.",
+        "Nie mniejszą niż 200 metrów."
+      ],
+      "answer": 1,
+      "categories": "C"
+    },
+    {
+      "id": "293",
+      "question": "Kierujesz samochodem ciężarowym. Który z wymienionych czynników jesteś zobowiązany uwzględnić, aby zachować bezpieczny odstęp od poprzedzającego pojazdu?",
+      "options": [
+        "Prędkość pojazdów.",
+        "Moc silnika.",
+        "Szerokość pojazdów."
+      ],
+      "answer": 0,
+      "categories": "C"
+    },
+    {
+      "id": "1866",
+      "question": "Który z obowiązków dotyczy właściciela samochodu osobowego?",
+      "options": [
+        "Poddawanie pojazdu okresowym badaniom technicznym.",
+        "Zawarcie umowy ubezpieczenia NW.",
+        "Zawarcie umowy ubezpieczenia Autocasco."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "1876",
+      "question": "Kiedy powinieneś sprawdzać ciśnienie w ogumieniu samochodu osobowego?",
+      "options": [
+        "Bezpośrednio przed rozpoczęciem podróży.",
+        "Po zakończeniu jazdy.",
+        "Co najmniej dobę przed zaplanowaną podróżą."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "1881",
+      "question": "W jaki sposób powinien być umieszczony ładunek na samochodzie osobowym?",
+      "options": [
+        "Może nieznacznie zasłaniać tablice rejestracyjne.",
+        "Może zasłaniać tylne światło przeciwmgłowe.",
+        "Nie może ograniczać widoczności drogi."
+      ],
+      "answer": 2,
+      "categories": "B"
+    },
+    {
+      "id": "1882",
+      "question": "Jak umieścisz bagaż w samochodzie osobowym?",
+      "options": [
+        "Najcięższe bagaże włożę najgłębiej i najniżej, w centralnej części bagażnika.",
+        "W dowolny sposób.",
+        "Najcięższe bagaże włożę w górnej części bagażnika, nad lżejszymi."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "1888",
+      "question": "Czego nie możesz robić kierując samochodem osobowym?",
+      "options": [
+        "Ciągnąć za pojazdem osoby na sankach.",
+        "Korzystać z radia CB.",
+        "Przewozić dziecka w foteliku ochronnym na przednim siedzeniu."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "2161",
+      "question": "Jak zabezpieczysz krwawienie z rany przy braku jałowego opatrunku?",
+      "options": [
+        "Wstrzymam się z opatrywaniem.",
+        "Użyję do opatrunku odzieży poszkodowanego.",
+        "Poczekam, aż ktoś użyczy swojej apteczki."
+      ],
+      "answer": 1,
+      "categories": "B,B1"
+    },
+    {
+      "id": "2164",
+      "question": "Kiedy należy założyć opatrunek uciskowy?",
+      "options": [
+        "W przypadku zmiażdżenia kończyny.",
+        "W przypadku wycieku krwistej wydzieliny z ucha.",
+        "W przypadku krwotoku."
+      ],
+      "answer": 2,
+      "categories": "B,B1"
+    },
+    {
+      "id": "2535",
+      "question": "Kierujesz pojazdem w czasie deszczu. Którą z wymienionych czynności powinieneś przede wszystkim wykonać, by jechać bezpieczniej?",
+      "options": [
+        "Wyłączyć system kontroli trakcji.",
+        "Jechać w koleinach.",
+        "Zmniejszyć prędkość."
+      ],
+      "answer": 2,
+      "categories": "B,B1"
+    },
+    {
+      "id": "2536",
+      "question": "Kierujesz samochodem osobowym podczas ulewnego deszczu. Którą z wymienionych czynności należy wykonać po wjechaniu w koleinę wypełnioną wodą?",
+      "options": [
+        "Płynnie zmniejszyć prędkość.",
+        "Zdecydowanie przyhamować.",
+        "Zdecydowanie przyspieszyć."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "3340",
+      "question": "Którą z wymienionych czynności powinieneś wykonać, aby płynnie ruszyć z miejsca?",
+      "options": [
+        "Stopniowo zwalniać pedał sprzęgła.",
+        "Gwałtownie zwolnić pedał sprzęgła.",
+        "Najpierw znacznie zwiększyć obroty silnika, następnie szybko zwolnić pedał sprzęgła."
+      ],
+      "answer": 0,
+      "categories": "B,B1"
+    },
+    {
+      "id": "3353",
+      "question": "Czego nie masz prawa robić, gdy kierujesz samochodem osobowym?",
+      "options": [
+        "Przewozić osób w stanie nietrzeźwości.",
+        "Korzystać z telefonu wymagającego trzymania mikrofonu w ręku.",
+        "Używać tempomatu na obszarze zabudowanym."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "3429",
+      "question": "Którą z wymienionych czynności należy wykonać, kierując samochodem osobowym w nocy podczas mgły?",
+      "options": [
+        "Zmniejszyć prędkość.",
+        "Włączyć światła drogowe w celu polepszenia widoczności.",
+        "Jechać bardzo blisko poprzedzającego pojazdu, aby widzieć jego światła pozycyjne."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "3523",
+      "question": "Kierujesz samochodem osobowym. Jak powinieneś postąpić w czasie przejazdu przez rozległą kałużę?",
+      "options": [
+        "Zdecydowanie przyśpieszyć.",
+        "Gwałtownie przyhamować.",
+        "Płynnie zmniejszyć prędkość jazdy."
+      ],
+      "answer": 2,
+      "categories": "B"
+    },
+    {
+      "id": "3626",
+      "question": "Podczas wykonywania którego z wymienionych manewrów masz obowiązek zachować odstęp nie mniejszy niż 1 metr od pojazdu?",
+      "options": [
+        "Wymijania samochodu osobowego.",
+        "Wyprzedzania roweru.",
+        "Omijania dowolnego pojazdu."
+      ],
+      "answer": 1,
+      "categories": "B,B1"
+    },
+    {
+      "id": "3634",
+      "question": "Jak dwukrotne zwiększenie prędkości samochodu osobowego wpływa na długość jego drogi hamowania?",
+      "options": [
+        "Zwiększa dwukrotnie długość drogi hamowania.",
+        "Zwiększa czterokrotnie długość drogi hamowania.",
+        "Nie powoduje zmiany długości drogi hamowania."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "3651",
+      "question": "Który z czynników ma bezpośredni wpływ na długość drogi zatrzymania samochodu osobowego?",
+      "options": [
+        "Czas reakcji kierującego pojazdem.",
+        "Masa pasażerów.",
+        "Masa pojazdu."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "3652",
+      "question": "Który z czynników ma bezpośredni wpływ na długość drogi zatrzymania samochodu osobowego?",
+      "options": [
+        "Masa pasażera.",
+        "Prędkość i stan nawierzchni.",
+        "Masa pojazdu."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "3723",
+      "question": "Który z wymienionych elementów stanowi obowiązkowe wyposażenie każdego samochodu osobowego?",
+      "options": [
+        "Trójkąt ostrzegawczy.",
+        "Apteczka.",
+        "Koło zapasowe."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "3724",
+      "question": "Który z wymienionych elementów stanowi obowiązkowe wyposażenie każdego samochodu osobowego?",
+      "options": [
+        "Apteczka.",
+        "Gaśnica.",
+        "Koło zapasowe."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "3759",
+      "question": "Którego z wymienionych świateł wolno Ci używać, gdy kierujesz samochodem osobowym podczas mgły?",
+      "options": [
+        "Świateł do jazdy dziennej.",
+        "Świateł przeciwmgłowych przednich.",
+        "Wyłącznie świateł drogowych."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "3761",
+      "question": "Którą z tych czynności masz obowiązek wykonać podczas wyprzedzania samochodem osobowym we mgle poza obszarem zabudowanym?",
+      "options": [
+        "Dawać krótkotrwałe sygnały świetlne.",
+        "Dawać krótkotrwałe sygnały dźwiękowe.",
+        "Włączyć tylne światła przeciwmgłowe, niezależnie od stopnia ograniczenia widoczności."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "3781",
+      "question": "Czy w każdym reflektorze samochodu osobowego wolno Ci zamiast żarówki halogenowej wykorzystywać lampę ksenonową?",
+      "options": [
+        "Tak, w sytuacjach awaryjnych.",
+        "Nie, ponieważ może to doprowadzić do oślepienia innych kierujących.",
+        "Tak, jeżeli trzonek źródła światła pasuje do oprawki w reflektorze."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "3783",
+      "question": "Która z wymienionych czynności jest dozwolona podczas kierowania samochodem osobowym?",
+      "options": [
+        "Korzystanie z nawigacji.",
+        "Odpinanie pasa bezpieczeństwa.",
+        "Korzystanie z telefonu wymagającego trzymania słuchawki w ręku."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "3784",
+      "question": "Jaka jest dopuszczalna minimalna głębokość bieżnika w oponie niewyposażonej we wskaźnik granicznego jej zużycia?",
+      "options": [
+        "1,6 milimetra.",
+        "2,6 milimetra.",
+        "3 milimetry."
+      ],
+      "answer": 0,
+      "categories": "B,B1"
+    },
+    {
+      "id": "3785",
+      "question": "Która z wymienionych usterek, uniemożliwia bezpieczne używanie samochodu w ruchu drogowym?",
+      "options": [
+        "Zanieczyszczony wkład filtra powietrza.",
+        "Przegrzewające się elektrody świec zapłonowych.",
+        "Przepalona żarówka tylnego lewego kierunkowskazu."
+      ],
+      "answer": 2,
+      "categories": "B"
+    },
+    {
+      "id": "3856",
+      "question": "Jaki może być skutek zbyt słabego nacisku na pedał hamulca w samochodzie osobowym?",
+      "options": [
+        "Wydłużenie drogi hamowania.",
+        "Zablokowanie kół.",
+        "Utrata sterowności."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "3857",
+      "question": "Do czego może doprowadzić zbyt mocne hamowanie samochodu osobowego niewyposażonego w system ABS?",
+      "options": [
+        "Do skrócenia o co najmniej połowę drogi hamowania.",
+        "Do utraty sterowności.",
+        "Do zniszczenia hamulców."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "3858",
+      "question": "Który ze sposobów hamowania samochodu osobowego wyposażonego w system ABS jest najbardziej efektywny?",
+      "options": [
+        "Pulsacyjne wciskanie pedału hamulca.",
+        "Szybkie i mocne wciśnięcie pedału hamulca.",
+        "Wciśnięcie pedału sprzęgła, a następnie pedału hamulca."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "3859",
+      "question": "Którą z czynności należy wykonać, gdy działający system ABS wypycha w czasie hamowania pedał hamulca?",
+      "options": [
+        "Utrzymać siłę nacisku na pedał hamulca.",
+        "Zmniejszyć siłę nacisku na pedał hamulca.",
+        "Zwolnić pedał hamulca."
+      ],
+      "answer": 0,
+      "categories": "B,B1"
+    },
+    {
+      "id": "3860",
+      "question": "W którym z przypadków system ABS może pomóc kierującemu pojazdem w utrzymaniu sterowności?",
+      "options": [
+        "Przy hamowaniu, gdy pojazd wpadł w boczny poślizg.",
+        "Wyłącznie podczas hamowania na prostym odcinku drogi.",
+        "Wyłącznie podczas hamowania na zakręcie."
+      ],
+      "answer": 0,
+      "categories": "B,B1"
+    },
+    {
+      "id": "3861",
+      "question": "Jaki efekt może wystąpić, gdy podczas ruszania na wzniesieniu zbyt wcześnie zwolnisz dźwignię hamulca awaryjnego, w porównaniu ze zwolnieniem pedału sprzęgła?",
+      "options": [
+        "Unieruchomienie silnika.",
+        "Stoczenie się pojazdu.",
+        "Gwałtowne ruszenie."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "3882",
+      "question": "Które z wymienionych działań należy podjąć, gdy w czasie jazdy zaświeci się na czerwono lampka kontrolna układu hamulcowego?",
+      "options": [
+        "Zmniejszyć prędkość i czekać, aż lampka zgaśnie.",
+        "Zatrzymać pojazd i sprawdzić poziom płynu hamulcowego.",
+        "Kontynuować jazdę i zgłosić ten stan przy najbliższych badaniach okresowych pojazdu."
+      ],
+      "answer": 1,
+      "categories": "B,B1"
+    },
+    {
+      "id": "3885",
+      "question": "O czym ostrzega świecąca się na czerwono w czasie jazdy samochodem osobowym lampka kontrolna układu chłodzenia?",
+      "options": [
+        "O zbyt wysokiej temperaturze płynu chłodniczego.",
+        "O zbyt niskiej temperaturze płynu chłodniczego.",
+        "O zbyt niskim poziomie płynu do spryskiwania szyby."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "3889",
+      "question": "Która z wymienionych okoliczności może świadczyć o złym stanie technicznym samochodu osobowego?",
+      "options": [
+        "Emisja bezbarwnych spalin.",
+        "Pozostawione na miejscu parkowania ślady wycieków płynów eksploatacyjnych.",
+        "Zaświecenie się na czerwono lampki kontrolnej ładowania akumulatora przed uruchomieniem silnika."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "3890",
+      "question": "Który z wymienionych przypadków może świadczyć o złym stanie technicznym samochodu osobowego?",
+      "options": [
+        "Emisja czarnych lub niebieskich gęstych spalin.",
+        "Emisja bezbarwnych spalin.",
+        "Zaświecenie się na czerwono lampki kontrolnej ciśnienia oleju silnikowego przed uruchomieniem silnika."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "3891",
+      "question": "W którym z wymienionych przypadków, używanie samochodu osobowego nie zagraża bezpieczeństwu ruchu drogowego?",
+      "options": [
+        "Nadmiernie zużyte klocki lub tarcze hamulcowe.",
+        "Uszkodzone przednie amortyzatory.",
+        "Krótkotrwałe użycie koła dojazdowego, gdy jedna z opon uległa uszkodzeniu."
+      ],
+      "answer": 2,
+      "categories": "B"
+    },
+    {
+      "id": "4160",
+      "question": "Która z tych czynności zwiększy bezpieczeństwo jazdy, gdy kierujesz samochodem osobowym podczas mgły ograniczającej widoczność do 40 metrów?",
+      "options": [
+        "Włączenie świateł drogowych.",
+        "Zmniejszenie odstępu od poprzedzającego pojazdu.",
+        "Włączenie świateł przeciwmgłowych tylnych."
+      ],
+      "answer": 2,
+      "categories": "B"
+    },
+    {
+      "id": "4362",
+      "question": "Jakie jest ryzyko poślizgu pojazdu podczas jazdy w czasie deszczu?",
+      "options": [
+        "Największe w początkowej fazie deszczu.",
+        "Najmniejsze w początkowej fazie deszczu.",
+        "Największe w końcowej fazie deszczu."
+      ],
+      "answer": 0,
+      "categories": "B,B1"
+    },
+    {
+      "id": "4374",
+      "question": "Jak powinieneś postąpić, aby rozpędzić samochód osobowy na płaskim odcinku drogi?",
+      "options": [
+        "Wykorzystać maksymalne obroty silnika na każdym biegu.",
+        "Przyspieszyć do takiej prędkości na niższym biegu, by po włączeniu następnego biegu pojazd nie szarpał i nie dusił się.",
+        "W każdym przypadku zwiększyć biegi o dwa."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "4375",
+      "question": "W jaki sposób wolno Ci przewozić rowery samochodem osobowym?",
+      "options": [
+        "Umieszczone w uchwytach z tyłu pojazdu ograniczającym czytelność tablicy rejestracyjnej.",
+        "Umieszczone w uchwytach z tyłu pojazdu zasłaniającym jedno światło pojazdu.",
+        "Umieszczone w uchwytach zamontowanych na bagażniku dachowym."
+      ],
+      "answer": 2,
+      "categories": "B"
+    },
+    {
+      "id": "4472",
+      "question": "W którym z wymienionych przypadków regularne wykonywanie badania technicznego pojazdu ma wpływ na jego bezpieczne używanie w ruchu drogowym?",
+      "options": [
+        "Wyłącznie po upływie okresu gwarancji pojazdu.",
+        "Tylko w okresie gwarancji pojazdu.",
+        "W całym okresie używania pojazdu."
+      ],
+      "answer": 2,
+      "categories": "B,B1"
+    },
+    {
+      "id": "4534",
+      "question": "Jak należy postąpić, podczas jazdy samochodem osobowym po drodze pokrytej śniegiem?",
+      "options": [
+        "Unikać gwałtownych ruchów kierownicą.",
+        "Odłączyć system kontroli trakcji.",
+        "Na podjazdach zwiększyć prędkość."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "4563",
+      "question": "Jak należy postąpić z poszkodowanym w wypadku drogowym, znajdującym się w pojeździe?",
+      "options": [
+        "Należy go ewakuować z pojazdu - w każdym przypadku.",
+        "Należy go ewakuować z pojazdu - w przypadku stwierdzenia u niego zatrzymania akcji serca.",
+        "Należy go zawsze pozostawić w pojeździe - do czasu przybycia lekarza."
+      ],
+      "answer": 1,
+      "categories": "B,B1"
+    },
+    {
+      "id": "4579",
+      "question": "Jesteś uczestnikiem lub świadkiem wypadku drogowego. Jak należy postąpić, gdy na poszkodowanym pali się ubranie?",
+      "options": [
+        "Przewrócić osobę na ziemię i ugasić ogień poprzez przykrycie np. kurtką, kocem, płaszczem.",
+        "Poczekać na przyjazd Straży Pożarnej.",
+        "Ugasić ogień gaśnicą."
+      ],
+      "answer": 0,
+      "categories": "B,B1"
+    },
+    {
+      "id": "4592",
+      "question": "Która z wymienionych awarii, uniemożliwia używanie samochodu osobowego w ruchu drogowym?",
+      "options": [
+        "Niedziałające czujniki parkowania.",
+        "Niedziałająca klimatyzacja.",
+        "Niedziałające światła hamowania \"stop\"."
+      ],
+      "answer": 2,
+      "categories": "B"
+    },
+    {
+      "id": "4593",
+      "question": "Które z wymienionych działań należy podjąć w pierwszej kolejności, gdy w czasie jazdy zaświeci się na czerwono lampka kontrolna ciśnienia oleju silnikowego?",
+      "options": [
+        "Kontynuować jazdę ze zmniejszoną prędkością.",
+        "Zwiększyć obroty silnika.",
+        "Zatrzymać pojazd i wyłączyć silnik."
+      ],
+      "answer": 2,
+      "categories": "B,B1"
+    },
+    {
+      "id": "6340",
+      "question": "Jaką funkcję spełniają poduszki powietrzne?",
+      "options": [
+        "Zmniejszają uszkodzenia pojazdu podczas zderzenia.",
+        "Zapewniają pełną ochronę kierującego i pasażerów podczas zderzenia.",
+        "Zmniejszają obrażenia ciała, jakim może ulec kierujący i pasażerowie w wyniku zderzenia."
+      ],
+      "answer": 2,
+      "categories": "B,B1"
+    },
+    {
+      "id": "6361",
+      "question": "Kiedy masz obowiązek przełączyć światła drogowe na światła mijania?",
+      "options": [
+        "Gdy z przeciwka nadjeżdża inny pojazd.",
+        "Gdy zaczyna padać deszcz.",
+        "Gdy wjeżdżasz na obszar zabudowany."
+      ],
+      "answer": 0,
+      "categories": "B,B1"
+    },
+    {
+      "id": "6362",
+      "question": "Kiedy masz obowiązek przełączyć światła drogowe na światła mijania?",
+      "options": [
+        "Zawsze, gdy widzisz pojazd poprzedzający.",
+        "Zawsze, gdy istnieje możliwość oślepienia kierującego pojazdem poprzedzającym.",
+        "Zawsze, gdy widzisz pojedynczego pieszego na jezdni."
+      ],
+      "answer": 1,
+      "categories": "B,B1"
+    },
+    {
+      "id": "6378",
+      "question": "Co powinieneś widzieć w dobrze ustawionych lusterkach zewnętrznych, gdy kierujesz samochodem osobowym?",
+      "options": [
+        "Tylko boki pojazdu.",
+        "Obszar za pojazdem i boki pojazdu.",
+        "Tylko sąsiedni pas ruchu."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "6443",
+      "question": "Jaki może być skutek nieprawidłowo ustawionych reflektorów świateł mijania?",
+      "options": [
+        "Zwiększone zużycie paliwa.",
+        "Zwiększone zużycie żarówek.",
+        "Oślepianie kierujących nadjeżdżających z przeciwka."
+      ],
+      "answer": 2,
+      "categories": "B,B1"
+    },
+    {
+      "id": "6451",
+      "question": "Jaki może być skutek nieprawidłowo ustawionych reflektorów świateł mijania?",
+      "options": [
+        "Zwiększone zużycie paliwa.",
+        "Pogorszenie widoczności drogi w nocy.",
+        "Zwiększone zużycie żarówek."
+      ],
+      "answer": 1,
+      "categories": "B,B1"
+    },
+    {
+      "id": "6488",
+      "question": "Z którą z wymienionych prędkości możesz jechać przewożąc motorowerem sześcioletnie dziecko?",
+      "options": [
+        "70 km/h.",
+        "50 km/h.",
+        "30 km/h."
+      ],
+      "answer": 2,
+      "categories": "AM"
+    },
+    {
+      "id": "6516",
+      "question": "Jak, w przybliżeniu, wzrasta długość drogi hamowania motocykla przy dwukrotnie większej prędkości?",
+      "options": [
+        "Dwukrotnie.",
+        "Trzykrotnie.",
+        "Czterokrotnie."
+      ],
+      "answer": 2,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "6519",
+      "question": "Jaki odstęp, kierując motocyklem, powinieneś zachować podczas wyprzedzania poza obszarem zabudowanym?",
+      "options": [
+        "Co najmniej 2 m podczas wyprzedzania pieszego.",
+        "Co najmniej 2 m podczas wyprzedzania rowerzysty.",
+        "Co najmniej 1 m podczas wyprzedzania innego motocykla."
+      ],
+      "answer": 2,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "6527",
+      "question": "Co w zasadniczy sposób decyduje o długości drogi hamowania motoroweru?",
+      "options": [
+        "Ilość paliwa w zbiorniku.",
+        "Wielkość pojazdu.",
+        "Rodzaj nawierzchni, po której porusza się pojazd."
+      ],
+      "answer": 2,
+      "categories": "AM"
+    },
+    {
+      "id": "6528",
+      "question": "Jak, w przybliżeniu, wzrasta długość drogi hamowania motoroweru przy dwukrotnie większej prędkości?",
+      "options": [
+        "Dwukrotnie.",
+        "Trzykrotnie.",
+        "Czterokrotnie."
+      ],
+      "answer": 2,
+      "categories": "AM"
+    },
+    {
+      "id": "6530",
+      "question": "Jaki minimalny odstęp, kierując motorowerem, masz obowiązek zachować wyprzedzając pojazd poza obszarem zabudowanym?",
+      "options": [
+        "2 m podczas wyprzedzania rowerzysty.",
+        "2 m podczas wyprzedzania motocykla.",
+        "1 m podczas wyprzedzania innego motoroweru."
+      ],
+      "answer": 2,
+      "categories": "AM"
+    },
+    {
+      "id": "6553",
+      "question": "Gdzie skierujesz wzrok skręcając motorowerem?",
+      "options": [
+        "Na nawierzchnię tuż przed przednim kołem.",
+        "Na prędkościomierz.",
+        "W kierunku, w którym zamierzasz jechać."
+      ],
+      "answer": 2,
+      "categories": "AM"
+    },
+    {
+      "id": "6576",
+      "question": "Czy masz prawo przewozić motorowerem pasażera, który jest w stanie po użyciu alkoholu?",
+      "options": [
+        "Nie, w żadnym wypadku.",
+        "Tak, na tylnym siedzeniu motoroweru.",
+        "Tak, o ile nie przekroczysz prędkości 20 km/h."
+      ],
+      "answer": 0,
+      "categories": "AM"
+    },
+    {
+      "id": "6577",
+      "question": "Czy masz prawo motorowerem przewozić pasażera bez kasku ochronnego?",
+      "options": [
+        "Tak, na tylnym siedzeniu.",
+        "Tak, jadąc z małą prędkością.",
+        "Nie, w żadnym przypadku."
+      ],
+      "answer": 2,
+      "categories": "AM"
+    },
+    {
+      "id": "6623",
+      "question": "Którą z wymienionych czynności powinieneś wykonać przed rozpoczęciem jazdy motocyklem?",
+      "options": [
+        "Sprawdzić wizualnie stan opon motocykla.",
+        "Przeprowadzić regulację światła mijania.",
+        "Sprawdzić poziom elektrolitu w akumulatorze."
+      ],
+      "answer": 0,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "6652",
+      "question": "Ile osób, stanowiących drużynę roboczą, masz prawo przewozić w przyczepie ciągniętej przez ciągnik rolniczy?",
+      "options": [
+        "10",
+        "7",
+        "5"
+      ],
+      "answer": 2,
+      "categories": "T"
+    },
+    {
+      "id": "6678",
+      "question": "Który bieg należy włączyć, aby na oblodzonej nawierzchni ruszyć ciągnikiem rolniczym?",
+      "options": [
+        "Zawsze pierwszy.",
+        "Zawsze bezpośredni.",
+        "Taki, na którym uzyskasz minimalną potrzebną do ruszenia siłę napędową na kołach."
+      ],
+      "answer": 2,
+      "categories": "T"
+    },
+    {
+      "id": "6688",
+      "question": "W jaki sposób należy obserwować otoczenie, kierując ciągnikiem rolniczym z przyczepą, podczas jazdy do przodu?",
+      "options": [
+        "Patrząc przed siebie bez kontroli drogi za zespołem pojazdów.",
+        "Równomiernie obserwując drogę przed i za zespołem pojazdów.",
+        "Patrząc przed siebie oraz regularnie kontrolując drogę za zespołem pojazdów w lusterkach wstecznych."
+      ],
+      "answer": 2,
+      "categories": "T"
+    },
+    {
+      "id": "6760",
+      "question": "Jaki jest maksymalny, nieprzedłużony dzienny czas prowadzenia pojazdu kierowcy wykonującego przewóz drogowy?",
+      "options": [
+        "8 godzin.",
+        "9 godzin.",
+        "11 godzin."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "6827",
+      "question": "Jaki może być skutek wycieku oleju z mechanicznej skrzyni biegów?",
+      "options": [
+        "Zmiana przełożenia przekładni.",
+        "Uszkodzenie skrzyni biegów.",
+        "Spadek temperatury skrzyni biegów."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "6879",
+      "question": "Jak, w przybliżeniu, wzrasta długość drogi hamowania autobusu przy dwukrotnie większej prędkości?",
+      "options": [
+        "Dwukrotnie.",
+        "Trzykrotnie.",
+        "Czterokrotnie."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "6886",
+      "question": "Jaka odległość powinna być zachowana pomiędzy zorganizowanymi kolumnami autobusów?",
+      "options": [
+        "Co najmniej 100 m.",
+        "Co najmniej 200 m.",
+        "Co najmniej 500 m."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "6896",
+      "question": "Co, kierując autobusem, powinieneś widzieć w prawidłowo ustawionych lusterkach zewnętrznych (bocznych)?",
+      "options": [
+        "Tylko boki pojazdu.",
+        "Obszar za pojazdem i boki pojazdu.",
+        "Tylko sąsiedni pas ruchu."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "6932",
+      "question": "Co może być powodem nieszczelności w pneumatycznym układzie hamulcowym stosowanym w autobusach?",
+      "options": [
+        "Uszkodzenie zaworów powietrznych.",
+        "Nadmierne luzy na rozpieraczach szczęk hamulcowych.",
+        "Zużyte tarcze hamulcowe."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "6933",
+      "question": "Który z wymienionych objawów może świadczyć o niesprawności sprężarki powietrza układu hamulcowego w autobusie?",
+      "options": [
+        "W czasie hamowania słychać syk powietrza w siłowniku przeponowym.",
+        "Obniżone ciśnienie w układzie pneumatycznym.",
+        "Nagły wzrost ciśnienia w układzie hamulcowym."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7447",
+      "question": "Która z wymienionych czynności jest zabroniona podczas kierowania pojazdem?",
+      "options": [
+        "Obsługiwanie radia.",
+        "Używanie nawigacji GPS.",
+        "Rozmawianie przez telefon, który wymaga trzymania słuchawki lub mikrofonu w ręku."
+      ],
+      "answer": 2,
+      "categories": "B,B1"
+    },
+    {
+      "id": "7451",
+      "question": "Jakiej barwy chorągiewką wolno Ci oznaczyć ładunek wystający z tyłu samochodu osobowego?",
+      "options": [
+        "Zieloną.",
+        "Żółtą.",
+        "Czerwoną."
+      ],
+      "answer": 2,
+      "categories": "B"
+    },
+    {
+      "id": "7457",
+      "question": "W jakich warunkach drogowych dozwolone jest używanie łańcuchów przeciwślizgowych?",
+      "options": [
+        "Gdy kierujesz pojazdem w okresie od początku grudnia do końca lutego, niezależnie od tego, czy droga jest pokryta śniegiem.",
+        "Gdy temperatura powietrza jest mniejsza niż 0 stopni Celsjusza, niezależnie od tego, czy droga jest pokryta śniegiem.",
+        "Gdy droga jest pokryta śniegiem."
+      ],
+      "answer": 2,
+      "categories": "B,B1"
+    },
+    {
+      "id": "7461",
+      "question": "W jakich warunkach droga hamowania jest najdłuższa?",
+      "options": [
+        "Na drodze suchej.",
+        "Na drodze mokrej.",
+        "Na drodze oblodzonej."
+      ],
+      "answer": 2,
+      "categories": "B,B1"
+    },
+    {
+      "id": "7463",
+      "question": "Jaką funkcję w pojeździe spełnia system przeciwblokujący ABS?",
+      "options": [
+        "Zapobiega poślizgowi kół podczas ruszania.",
+        "Umożliwia zachowanie kontroli nad pojazdem podczas gwałtownego hamowania.",
+        "Zawsze skraca drogę hamowania."
+      ],
+      "answer": 1,
+      "categories": "B,B1"
+    },
+    {
+      "id": "7509",
+      "question": "Czy dozwolone jest przewożenie pasażera znajdującego się w stanie nietrzeźwości?",
+      "options": [
+        "Tak, na tylnym siedzeniu motocykla.",
+        "Tak, ale tylko w przyczepie ciągniętej przez motocykl.",
+        "Tak, w bocznym wózku."
+      ],
+      "answer": 2,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "7510",
+      "question": "Zamierzasz holować motocyklem inny motocykl. W jaki sposób oba pojazdy powinny być ze sobą połączone?",
+      "options": [
+        "Połączeniem giętkim, w sposób wykluczający możliwość odczepienia.",
+        "Połączeniem giętkim, w sposób umożliwiający łatwe odczepienie.",
+        "Połączeniem sztywnym."
+      ],
+      "answer": 1,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "7512",
+      "question": "Jak masz obowiązek oznakować holowany samochód osobowy?",
+      "options": [
+        "Włączyć światła awaryjne.",
+        "Umieścić z tyłu po lewej stronie ostrzegawczy trójkąt odblaskowy.",
+        "Włączyć tylne światło przeciwmgłowe."
+      ],
+      "answer": 1,
+      "categories": "B,B1"
+    },
+    {
+      "id": "7516",
+      "question": "Czy wolno Ci nakleić na pojeździe znak określający inne państwo niż to, w którym pojazd został zarejestrowany?",
+      "options": [
+        "Tak, bez żadnych ograniczeń.",
+        "Tak, ale pod warunkiem, że pojazd posiada tablicę rejestracyjną z oznaczeniem „PL”.",
+        "Nie, jest to zabronione."
+      ],
+      "answer": 2,
+      "categories": "B,B1"
+    },
+    {
+      "id": "7529",
+      "question": "Jaki warunek masz obowiązek spełnić, żeby samochodem ciężarowym przewozić osoby poza kabiną kierowcy?",
+      "options": [
+        "Osoby przewożone są na miejscach stojących.",
+        "Osoby przewożone są na miejscach siedzących.",
+        "Osoby znajdują się między ładunkiem a kabiną kierowcy."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "7531",
+      "question": "Na jaką maksymalną długość ma prawo wystawać drewno długie z tyłu przyczepy kłonicowej?",
+      "options": [
+        "2 m.",
+        "5 m.",
+        "7 m."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "7532",
+      "question": "Kiedy masz obowiązek oznaczyć ładunek wystający poza przednią płaszczyznę obrysu samochodu ciężarowego?",
+      "options": [
+        "Zawsze.",
+        "Tylko wtedy, gdy wystaje na odległość większą niż 0,5 m.",
+        "Tylko wtedy, gdy wystaje na odległość większą niż 1 m."
+      ],
+      "answer": 0,
+      "categories": "C,C1"
+    },
+    {
+      "id": "7533",
+      "question": "Jakiej barwy powinna być chorągiewka, którą zastosujesz do oznaczenia ładunku wystającego z przodu samochodu ciężarowego?",
+      "options": [
+        "Żółtej.",
+        "Pomarańczowej.",
+        "Czerwonej."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "7534",
+      "question": "Która czynność jest zabroniona, gdy samochodem ciężarowym przewozisz osoby poza kabiną kierowcy?",
+      "options": [
+        "Przewożenie innego pasażera w kabinie.",
+        "Rozmowa z pasażerami.",
+        "Spożywanie pokarmów."
+      ],
+      "answer": 2,
+      "categories": "C,C1"
+    },
+    {
+      "id": "7535",
+      "question": "Do jakiego poziomu powinien ograniczać prędkość zamontowany w autobusie ogranicznik prędkości?",
+      "options": [
+        "90 km/h.",
+        "100 km/h.",
+        "120 km/h."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7536",
+      "question": "W ile gaśnic powinien być wyposażony autobus o długości przekraczającej 6 metrów?",
+      "options": [
+        "Jedną.",
+        "Dwie.",
+        "Trzy."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7537",
+      "question": "W ile gaśnic powinien być wyposażony autobus o długości nieprzekraczającej 6 metrów?",
+      "options": [
+        "Co najmniej jedną.",
+        "Dwie.",
+        "Trzy."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7538",
+      "question": "Czy wolno Ci spożywać posiłek podczas kierowania autobusem?",
+      "options": [
+        "Nie, jest to zawsze zabronione.",
+        "Tak, jeśli w autobusie nie jest przewożona inna osoba.",
+        "Tak, zawsze."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7539",
+      "question": "Jakiego pojazdu nie wolno Ci holować?",
+      "options": [
+        "Autobusu z bagażnikiem zewnętrznym.",
+        "Autobusu z przyczepą.",
+        "Autobusu przegubowego."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7540",
+      "question": "Czy wolno Ci holować autobusem samochód ciężarowy z przyczepą?",
+      "options": [
+        "Tak, ale tylko poza autostradą.",
+        "Tak, bez ograniczeń.",
+        "Nie."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7541",
+      "question": "Do jakiej wartości powinna być ograniczona prędkość konstrukcyjna ciągnika rolniczego wchodzącego w skład kolejki turystycznej?",
+      "options": [
+        "20 km/h.",
+        "25 km/h.",
+        "40 km/h."
+      ],
+      "answer": 1,
+      "categories": "T"
+    },
+    {
+      "id": "7542",
+      "question": "W jaki sposób wolno Ci przewozić osoby w przyczepie kolejki turystycznej?",
+      "options": [
+        "Wyłącznie na miejscach stojących.",
+        "Na miejscach stojących i siedzących.",
+        "Wyłącznie na miejscach siedzących."
+      ],
+      "answer": 2,
+      "categories": "T"
+    },
+    {
+      "id": "7545",
+      "question": "Jak powinieneś zachować się, gdy poszkodowany w wypadku odzyska świadomość i chce się oddalić?",
+      "options": [
+        "Nawiązać rozmowę i próbować przekonać go do pozostania na miejscu do chwili przyjazdu służb medycznych.",
+        "Zalecić wizytę u lekarza pierwszego kontaktu i pozwolić na oddalenie się.",
+        "Podać leki uspokajające lub przeciwbólowe, a następnie zalecić oczekiwanie na przyjazd służb medycznych."
+      ],
+      "answer": 0,
+      "categories": "A,AM,A1,A2"
+    },
+    {
+      "id": "7546",
+      "question": "W jaki sposób należy opatrzyć silnie krwawiącą ranę?",
+      "options": [
+        "Założyć opatrunek uciskowy z gazy i bandaża.",
+        "Odkazić ranę jodyną lub gencjaną.",
+        "Osłonić ranę sterylną gazą."
+      ],
+      "answer": 0,
+      "categories": "A,AM,A1,A2"
+    },
+    {
+      "id": "7548",
+      "question": "Jak długo, przed rozpoczęciem resuscytacji krążeniowo-oddechowej, powinieneś sprawdzać, czy osoba nieprzytomna oddycha?",
+      "options": [
+        "Przez 5 sekund.",
+        "Przez 10 sekund.",
+        "Przez 30 sekund."
+      ],
+      "answer": 1,
+      "categories": "A,AM,A1,A2"
+    },
+    {
+      "id": "7553",
+      "question": "Co może być następstwem zbyt wysokiego ciśnienia w oponach motocykla?",
+      "options": [
+        "Zmniejszona skuteczność hamowania.",
+        "Zwiększona skuteczność hamowania.",
+        "Istotne zmniejszenie oporu powietrza."
+      ],
+      "answer": 0,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "7558",
+      "question": "W jaki sposób niesprawne amortyzatory wpływają na jazdę motorowerem?",
+      "options": [
+        "Zmniejszają komfort jazdy, bez wpływu na bezpieczeństwo jazdy.",
+        "Mogą doprowadzić do wypadku.",
+        "Lekko pogarszają stabilność jazdy, bez wpływu na jej bezpieczeństwo."
+      ],
+      "answer": 1,
+      "categories": "AM"
+    },
+    {
+      "id": "7560",
+      "question": "Do kierowania którym z wymienionych pojazdów uprawnia Cię prawo jazdy kategorii A?",
+      "options": [
+        "Motocyklem z bocznym wózkiem.",
+        "Czterokołowym pojazdem samochodowym o masie własnej do 550 kg.",
+        "Pojazdem wolnobieżnym."
+      ],
+      "answer": 0,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "7567",
+      "question": "Czy wolno Ci przewozić motocyklem jednośladowym pasażera znajdującego się w stanie po użyciu środków działających podobnie do alkoholu?",
+      "options": [
+        "Tak, jeśli uważasz, że nie zagrozi to bezpieczeństwu jazdy.",
+        "Tak, pod warunkiem, że jedziesz po drodze gruntowej.",
+        "Nie."
+      ],
+      "answer": 2,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "7568",
+      "question": "W jakich warunkach wolno Ci przewozić motocyklem pasażera, który jest w stanie nietrzeźwości?",
+      "options": [
+        "W każdych warunkach.",
+        "Tylko wtedy, gdy jest on przewożony w bocznym wózku.",
+        "Tylko wtedy, gdy ograniczysz prędkość jazdy do 30 km/h."
+      ],
+      "answer": 1,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "7570",
+      "question": "Której z wymienionych reakcji motoroweru możesz spodziewać się, gdy podczas ruszania gwałtownie zwolnisz dźwignię sprzęgła bez zwiększania obrotów silnika?",
+      "options": [
+        "Zgaśnięcia silnika.",
+        "Poślizgu tylnego koła.",
+        "Gwałtownego ruszenia."
+      ],
+      "answer": 0,
+      "categories": "AM"
+    },
+    {
+      "id": "7572",
+      "question": "Której z tych reakcji motoroweru możesz się spodziewać, gdy zbyt gwałtownie użyjesz przedniego hamulca?",
+      "options": [
+        "Tylne koło wpadnie w poślizg.",
+        "Pojazd może się przewrócić.",
+        "Przednie koło uniesie się do góry."
+      ],
+      "answer": 1,
+      "categories": "AM"
+    },
+    {
+      "id": "7573",
+      "question": "Który ze sposobów hamowania jest najskuteczniejszy dla motoroweru na śliskiej nawierzchni?",
+      "options": [
+        "Tylko przednim hamulcem.",
+        "Tylko tylnym hamulcem.",
+        "Obydwoma hamulcami jednocześnie."
+      ],
+      "answer": 2,
+      "categories": "AM"
+    },
+    {
+      "id": "7575",
+      "question": "Jak zmienia się kąt widzenia motocyklisty wraz ze wzrostem prędkości pojazdu?",
+      "options": [
+        "Pozostaje bez zmian.",
+        "Zmniejsza się.",
+        "Zwiększa się."
+      ],
+      "answer": 1,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "7577",
+      "question": "Który ze sposobów hamowania należy zastosować, jeśli na długim zjeździe zachodzi potrzeba nagłego zmniejszenia prędkości motocykla?",
+      "options": [
+        "Hamowanie wyłącznie hamulcem tylnego koła.",
+        "Hamowanie wyłącznie hamulcem przedniego koła.",
+        "Hamowanie silnikiem i jednocześnie hamulcami przedniego i tylnego koła."
+      ],
+      "answer": 2,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "7578",
+      "question": "Którą technikę jazdy powinieneś zastosować, kierując motocyklem po drodze gruntowej o piaszczystym podłożu?",
+      "options": [
+        "Podniesienie się na ugiętych nogach opartych na podnóżkach i balansowanie ciałem dla zachowania równowagi.",
+        "Mocne osadzenie się na siedzeniu motocykla i zachowanie stałej prędkości.",
+        "Zajęcie wyprostowanej pozycji siedzącej i podpieranie się nogami dla zachowania równowagi."
+      ],
+      "answer": 0,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "7581",
+      "question": "Kierujesz motocyklem. Jakiego zagrożenia powinieneś się spodziewać podczas wymijania autobusu?",
+      "options": [
+        "Podmuchu wiatru z tyłu.",
+        "Podmuchu wiatru najpierw do środka drogi, a następnie w kierunku jej prawej krawędzi.",
+        "Podmuchu wiatru najpierw do prawej krawędzi drogi, a następnie w kierunku jej środka."
+      ],
+      "answer": 2,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "7583",
+      "question": "Jaki odstęp od wyprzedzanego pojazdu lub uczestnika ruchu musisz zachować, kierując motocyklem poza obszarem zabudowanym?",
+      "options": [
+        "Co najmniej 1,5 metra, jeśli wyprzedzasz kolumnę pieszych.",
+        "Co najmniej 2 metry, jeśli wyprzedzasz rower.",
+        "Co najmniej 1 metr, jeśli wyprzedzasz motocykl."
+      ],
+      "answer": 2,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "7586",
+      "question": "Jaki minimalny odstęp powinien być zachowany między kolumnami motorowerów?",
+      "options": [
+        "100 metrów.",
+        "200 metrów.",
+        "500 metrów."
+      ],
+      "answer": 1,
+      "categories": "AM"
+    },
+    {
+      "id": "7588",
+      "question": "Czy kierując motocyklem, masz obowiązek używania kasku ochronnego?",
+      "options": [
+        "Tak, ale tylko w przypadku, gdy przewozisz pasażera.",
+        "Nie, ale jego używanie jest zalecane.",
+        "Tak, chyba że motocykl jest fabrycznie wyposażony w pasy bezpieczeństwa."
+      ],
+      "answer": 2,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "7592",
+      "question": "Którą z funkcji powinien przede wszystkim spełniać kombinezon używany przez motocyklistę?",
+      "options": [
+        "Zapewniać estetyczny wygląd jego sylwetki.",
+        "Zmniejszać wrażliwość na boczne powiewy wiatru.",
+        "Chronić przed urazami w razie upadku."
+      ],
+      "answer": 2,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "7596",
+      "question": "Którym z wymienionych pojazdów wolno Ci kierować, jeśli masz prawo jazdy kategorii AM?",
+      "options": [
+        "Motocyklem.",
+        "Motorowerem.",
+        "Każdym czterokołowcem."
+      ],
+      "answer": 1,
+      "categories": "AM"
+    },
+    {
+      "id": "7599",
+      "question": "Jeżeli długość drogi hamowania motocykla, którym kierujesz z prędkością 30 km/h, wynosi około 6 metrów, to zwiększenie prędkości do 60 km/h spowoduje:",
+      "options": [
+        "wydłużenie drogi hamowania do około 12 metrów.",
+        "wydłużenie drogi hamowania do około 24 metrów.",
+        "wydłużenie drogi hamowania do około 36 metrów."
+      ],
+      "answer": 1,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "7604",
+      "question": "Prawidłowo ustawione lusterko zewnętrzne ciągnika rolniczego pokazuje:",
+      "options": [
+        "tylko obszar przestrzeni obok pojazdu.",
+        "fragment boku pojazdu i odpowiedni do strony pojazdu obszar przestrzeni za pojazdem.",
+        "tylko obszar przestrzeni za pojazdem."
+      ],
+      "answer": 1,
+      "categories": "T"
+    },
+    {
+      "id": "7607",
+      "question": "W jaki sposób kierujący ciągnikiem rolniczym z przyczepą powinien kontrolować swój tor jazdy podczas cofania?",
+      "options": [
+        "Patrząc przez tylną szybę i lusterka zewnętrzne.",
+        "Patrząc tylko przez tylną szybę.",
+        "Patrząc tylko w lusterka zewnętrzne."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "7608",
+      "question": "Czy podczas jazdy ciągnikiem rolniczym po drodze z licznymi zakrętami, zalecane jest włączenie blokady mechanizmu różnicowego?",
+      "options": [
+        "Tak.",
+        "Nie, ze względu na możliwość uszkodzenia mechanizmu.",
+        "Tak, pod warunkiem jazdy z predkością do 12 km/h."
+      ],
+      "answer": 1,
+      "categories": "T"
+    },
+    {
+      "id": "7609",
+      "question": "Kiedy nie powinieneś włączać przedniego napędu kierując ciągnikiem rolniczym?",
+      "options": [
+        "Podczas jazdy po drodze twardej, chyba że zachodzi konieczność pokonania chwilowych oporów.",
+        "Podczas poślizgu kół tylnych.",
+        "Podczas jazdy po grząskim terenie."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "7610",
+      "question": "W którym z przypadków nie należy włączać blokady mechanizmu różnicowego w ciągniku rolniczym?",
+      "options": [
+        "Podczas jazdy po grząskim terenie.",
+        "Podczas jazdy po drodze krętej.",
+        "Podczas prac polowych."
+      ],
+      "answer": 1,
+      "categories": "T"
+    },
+    {
+      "id": "7612",
+      "question": "Którą z wymienionych technik należy zastosować, zjeżdżając ze wzniesienia?",
+      "options": [
+        "Włączyć tym niższy bieg, im większy jest spadek.",
+        "Zjeżdżać przy wyłączonym biegu.",
+        "Włączyć tym wyższy bieg, im większy jest spadek."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "7613",
+      "question": "Co powinieneś uwzględnić podczas jazdy po łuku ciągnikiem rolniczym z przyczepą jednoosiową?",
+      "options": [
+        "Przyczepa jedzie po mniejszym promieniu niż ciągnik.",
+        "Przyczepa jedzie po większym promieniu niż ciągnik.",
+        "Oba pojazdy poruszają się tym samym torem jazdy."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "7621",
+      "question": "Co stwierdza dowód rejestracyjny przyczepy?",
+      "options": [
+        "Dopuszczenie jej do ruchu na drogach publicznych.",
+        "Możliwość jej sprzęgnięcia z każdym pojazdem.",
+        "Jjej sprawność w całym okresie użytkowania."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "7625",
+      "question": "Do kierowania którym z pojazdów uprawnia prawo jazdy kategorii T?",
+      "options": [
+        "Samochodem ciężarowym.",
+        "Ciągnikiem rolniczym lub pojazdem wolnobieżnym.",
+        "Pojazdem samochodowym o masie własnej do 550 kg, z wyjątkiem motocykla."
+      ],
+      "answer": 1,
+      "categories": "T"
+    },
+    {
+      "id": "7626",
+      "question": "Do kierowania którym z pojazdów uprawnia prawo jazdy kategorii T?",
+      "options": [
+        "Ciągnikiem rolniczym z dwiema przyczepami.",
+        "Ciągnikiem balastowym.",
+        "Każdym motocyklem."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "7627",
+      "question": "Jaki obowiązek ma właściciel ciągnika rolniczego, który sprzedał pojazd?",
+      "options": [
+        "Zwrócić dowód rejestracyjny do urzędu.",
+        "Przekazać nowemu właścicielowi dowoód rejestracyjny.",
+        "Zwrócić tablice rejestracyjne do urzędu."
+      ],
+      "answer": 1,
+      "categories": "T"
+    },
+    {
+      "id": "7629",
+      "question": "Który z wymienionych czynników powinieneś, przede wszystkim, uwzględnić dostosowując podczas jazdy odległość od pojazdu jadącego przed Tobą?",
+      "options": [
+        "Rodzaj nawierzchni i warunki panujące na drodze.",
+        "Wyłącznie siłę bocznego wiatru.",
+        "Wyłącznie natężenie ruchu drogowego."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "7633",
+      "question": "Jaka może być minimalna odległość między jadącymi kolumnami ciągników rolniczych?",
+      "options": [
+        "50 metrów.",
+        "100 metrów.",
+        "200 metrów."
+      ],
+      "answer": 2,
+      "categories": "T"
+    },
+    {
+      "id": "7634",
+      "question": "Ile metrów odstępu od pojazdu poprzedzającego masz obowiązek zachować podczas zatrzymania w tunelu wynikającego z warunków ruchu?",
+      "options": [
+        "Co najmniej 5 metrów.",
+        "Co najmniej 10 metrów.",
+        "Co najmniej 15 metrów."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "7635",
+      "question": "Jakich świateł nie należy używać podczas jazdy ciągnikiem rolniczym w gęstej mgle?",
+      "options": [
+        "Mijania.",
+        "Drogowych.",
+        "Przeciwmgłowych tylnych."
+      ],
+      "answer": 1,
+      "categories": "T"
+    },
+    {
+      "id": "7639",
+      "question": "W którym przypadku masz obowiązek dawać krótkotrwałe sygnały dźwiękowe podczas jazdy ciągnikiem rolniczym we mgle?",
+      "options": [
+        "W czasie omijania poza obszarem zabudowanym.",
+        "W czasie wymijania poza obszarem zabudowanym.",
+        "W czasie omijania na obszarze zabudowanym."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "7663",
+      "question": "Ile osób wolno Ci przewozić autobusem przegubowym komunikacji miejskiej?",
+      "options": [
+        "Nie więcej niż ich liczba określona przez przewoźnika.",
+        "Nie więcej niż liczba miejsc określonych w dowodzie rejestracyjnym.",
+        "Tyle, ile się faktycznie zmieści w pojeździe, pod warunkiem, że jego drzwi można zamknąć."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7665",
+      "question": "Ile wynosi maksymalny łączny czas prowadzenia autobusu w ciągu dwóch kolejnych tygodni?",
+      "options": [
+        "100 godzin.",
+        "90 godzin.",
+        "Jest określony wyłącznie umową o pracę."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7666",
+      "question": "Rekompensatą za skrócony tygodniowy okres odpoczynku kierowcy jest dodatkowy odpoczynek, który powinien wykorzystać:",
+      "options": [
+        "w kilku częściach.",
+        "w dwóch równych częściach.",
+        "jednorazowo."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7668",
+      "question": "Jak długi okres odpoczynku musi wykorzystać kierowca jako rekompensatę za skrócony tygodniowy okres odpoczynku, który trwał 24 godziny?",
+      "options": [
+        "15 godzin.",
+        "21 godzin.",
+        "25 godzin."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7674",
+      "question": "Co może być przyczyną niewłaściwej oceny sytuacji na drodze przez kierującego autobusem?",
+      "options": [
+        "Jazda z małą prędkością.",
+        "Duże natężenie ruchu.",
+        "Bardzo złe warunki atmosferyczne."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7675",
+      "question": "W jakiej sytuacji masz prawo używać tylnych świateł przeciwmgłowych, gdy kierujesz autobusem?",
+      "options": [
+        "W deszczu, niezależnie od tego, na jaką odległość ograniczona jest widoczność.",
+        "We mgle ograniczającej widoczność na odległość mniejszą niż 50 metrów.",
+        "Przy opadach śniegu ograniczających widoczność na odległość 100 metrów."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7676",
+      "question": "W jakiej sytuacji masz obowiązek przełączyć światła drogowe na światła mijania, gdy kierujesz autobusem?",
+      "options": [
+        "Gdy widzisz na poboczu światła pozycyjne zaparkowanego pojazdu.",
+        "Gdy widzisz zbliżający się pojazd nadjeżdżającego z przeciwka.",
+        "Gdy widzisz pieszego idącego w tym samym kierunku, w którym jedziesz."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7677",
+      "question": "W jakiej sytuacji powinieneś używać zwalniacza prędkości podczas jazdy autobusem w terenie górzystym?",
+      "options": [
+        "Zawsze podczas hamowania.",
+        "Tylko na zakrętach.",
+        "Tylko podczas dojeżdżania do wierzchołka wzniesienia."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7678",
+      "question": "W jakiej sytuacji system ABS może być nieskuteczny podczas hamowania autobusu?",
+      "options": [
+        "W czasie jazdy w deszczu.",
+        "W czasie jazdy po licznych nierównościach drogi.",
+        "W czasie jazdy na suchej nawierzchni jezdni."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7679",
+      "question": "W jakiej pozycji powinieneś ustawić fotel kierowcy, przygotowując się do jazdy autobusem?",
+      "options": [
+        "Zawsze jak najwyżej, bo wtedy lepiej widać jezdnię bezpośrednio przed pojazdem.",
+        "W takiej pozycji względem urządzeń sterujących, by pedał sprzęgła wciskać lekko ugiętą nogą.",
+        "W każdym przypadku jak najdalej od kierownicy, zapewniając sobie wygodę."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7680",
+      "question": "Co powinieneś widzieć we właściwie ustawionym lusterku zewnętrznym kierując autobusem?",
+      "options": [
+        "Tylko obszar przestrzeni obok pojazdu.",
+        "Tylko obszar przestrzeni za pojazdem.",
+        "Fragment boku pojazdu i odpowiedni do strony pojazdu obszar przestrzeni za nim."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7682",
+      "question": "W jaki sposób powinieneś zwiększać prędkość jazdy autobusu, chcąc jechać ekonomicznie?",
+      "options": [
+        "Tak dobierając bieg, aby wskazówka obrotomierza po zmianie biegu na wyższy, nie spadała poniżej zakresu zielonego pola.",
+        "Jak najszyciej osiągając maksymalne prędkości na każdym biegu.",
+        "Zmieniając kolejno biegi wtedy, gdy wskazówka obrotomierza wychyla się do maksimum."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7683",
+      "question": "Który ze sposobów zatrzymania autobusu przed skrzyżowaniem na jezdni suchej jest właściwy?",
+      "options": [
+        "Wciśnięcie pedału sprzęgła, a następnie hamulca.",
+        "Jednocześne wciśnięcie pedału sprzęgła i hamulca.",
+        "Wciśnięcie pedału hamulca, a w końcowej fazie hamowania - pedału sprzęgła."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7685",
+      "question": "Którą z wymienionych czynności powinieneś wykonać, aby rozpocząć hamowanie silnikiem?",
+      "options": [
+        "Włączyć wyższy bieg, aby silnik miał niskie obroty.",
+        "Włączyć bieg neutralny (\"luz\").",
+        "Zredukować bieg na niższy, aby wzrosły obroty silnika."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7686",
+      "question": "Które z wymienionych czynności powinieneś wykonać, hamując gwałtownie autobusem w sytuacji awaryjnej?",
+      "options": [
+        "Najpierw hamować retarderem, a potem hamulcem zasadniczym.",
+        "Najpierw wcisnąć sprzęgło, a potem hamulec zasadniczy.",
+        "Wcisnąć jednocześnie pedał hamulca i sprzęgła do oporu i kontrolować tor ruchu pojazdu"
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7687",
+      "question": "Którą z wymienionych funkcji spełnia w autobusie retarder?",
+      "options": [
+        "Zwiększa prędkość.",
+        "Stabilizuje tor jazdy na śliskiej drodze.",
+        "Zapewnia stałe hamowanie pojazdu na długotrwałych zjazdach."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7688",
+      "question": "Której z wymienionych czynności nie wolno Ci wykonywać podczas przewożenia pasażerów autobusem?",
+      "options": [
+        "Spożywania pokarmów.",
+        "Prowadzenia rozmów telefonicznych w sposób niewymagający trzymania słuchawki lub mikrofonu w ręku.",
+        "Słuchania radia."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7698",
+      "question": "W jaki sposób powinieneś opatrzyć silnie krwawiącą ranę, by powstrzymać krwawienie?",
+      "options": [
+        "Założyć opatrunek uciskowy.",
+        "Polać ranę jodyną lub gencjaną.",
+        "Założyć zwykły opatrunek np. z gazy lub bandaża.."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "7701",
+      "question": "Której z wymienionych czynności nie należy wykonać przy przeciwdziałaniu krwotokowi z nosa?",
+      "options": [
+        "Przechylanie głowy rannego do tyłu.",
+        "Pochylanie głowy rannego do przodu.",
+        "Kładzenie zimnego kompresu na kark rannego."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "7702",
+      "question": "W jaki sposób powinieneś opatrzyć rannego, u którego wystąpił krwotok z przedramienia?",
+      "options": [
+        "Założyć jałowy opatrunek na ranę, zabandażować ją i docisnąć dodatkowo np. rolką bandaża, po czym podnieść kończynę do góry.",
+        "Przesiąknięte krwią opatrunki zdjąć i zastąpić nowymi.",
+        "Gdy poszkodowany jest przytomny, zostawić go, aby sam udzielił sobie pomocy."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "7703",
+      "question": "Przy podejrzeniu złamania kończyny powinieneś unieruchomić u rannego:",
+      "options": [
+        "wyłącznie najbliższy miejscu złamania staw.",
+        "wyłącznie samo miejsce złamania.",
+        "miejsce złamania oraz dwa sąsiadujące ze sobą stawy (poniżej i powyżej miejsca złamania)"
+      ],
+      "answer": 2,
+      "categories": "T"
+    },
+    {
+      "id": "7705",
+      "question": "W jaki sposób należy postąpić w przypadku gdy poszkodowany uległ oparzeniu?",
+      "options": [
+        "Posmarować miejsce oparzenia tłuszczem.",
+        "Szczelnie miejsce oparzenia zabandażować.",
+        "Schłodzić miejsce oparzenia wodą."
+      ],
+      "answer": 2,
+      "categories": "T"
+    },
+    {
+      "id": "7713",
+      "question": "Jak powinieneś postąpić, gdy w nogę rannego w wypadku wbite jest ciało obce (np. drut, patyk, nóż)?",
+      "options": [
+        "Wyjąć ciało obce z nogi, opatrzyć ranę, wezwać pomoc.",
+        "Nie wyjmować ciała obcego, nie dotykać rany, wezwać pomoc.",
+        "Nie wyjmować ciała obcego, zabezpieczyć ranę przez unieruchomienie ciała obcego, wezwać pomoc."
+      ],
+      "answer": 2,
+      "categories": "T"
+    },
+    {
+      "id": "7714",
+      "question": "W jakich warunkach drogowych technika hamowania silnikiem jest szczególnie zalecana podczas jazdy ciągnikiem rolniczym?",
+      "options": [
+        "Na śliskiej nawierzchni.",
+        "Tylko podczas jazdy w górach.",
+        "Tylko podczas jazdy w grząskim terenie."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "7715",
+      "question": "Której z wymienionych technik hamowania należy użyć, w celu znacznego zmniejszenia prędkości jazdy ciągnika rolniczego, na bardzo śliskiej nawierzchni?",
+      "options": [
+        "Hamować silnikiem.",
+        "Hamować hamulcem przy wyłączonym sprzęgle.",
+        "Zmienić bieg na wyższy."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "7716",
+      "question": "Czy podczas zjeżdżania ze wzniesienia ciągnikiem rolniczym należy wyłączyć bieg?",
+      "options": [
+        "Nie.",
+        "Tak, na całej długości wzniesienia.",
+        "Tak, ale tylko na odcinku nieprzekraczającym 200 metrów."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "7717",
+      "question": "W jaki sposób, dwukrotne zwiększenie prędkości motocykla, wpływa na długość jego drogi hamowania?",
+      "options": [
+        "Zwiększa dwukrotnie długość drogi hamowania.",
+        "Zwiększa czterokrotnie długość drogi hamowania.",
+        "Nie powoduje zmiany długości drogi hamowania."
+      ],
+      "answer": 1,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "7725",
+      "question": "Na jaką odległość nie może z przodu wystawać przewożony ładunek?",
+      "options": [
+        "Większą niż 0,23 m od przedniej płaszczyzny jego obrysu i większą niż 1 m od siedzenia dla kierującego.",
+        "Większą niż 0,5 m od przedniej płaszczyzny jego obrysu i większą niż 1 m od siedzenia dla kierującego.",
+        "Większą niż 0,5 m od przedniej płaszczyzny jego obrysu i większą niż 1,5 m od siedzenia dla kierującego."
+      ],
+      "answer": 2,
+      "categories": "C,C1"
+    },
+    {
+      "id": "7726",
+      "question": "W jaki sposób wolno Ci wykorzystać skrócony dzienny okres odpoczynku?",
+      "options": [
+        "raz w tygodniu.",
+        "trzy razy w każdym tygodniu.",
+        "trzy razy pomiędzy dwoma tygodniowymi okresami odpoczynku."
+      ],
+      "answer": 2,
+      "categories": "C,C1"
+    },
+    {
+      "id": "7727",
+      "question": "Jak długo powinien trwać regularny tygodniowy okres odpoczynku kierującego samochodem ciężarowym, wykonującego przewozy drogowe?",
+      "options": [
+        "Co najmniej 24 godziny.",
+        "Co najmniej 45 godzin.",
+        "Co najmniej 36 godzin."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "7728",
+      "question": "W jakiej pozycji powinien być ustawiony przełącznik tachografu gdy nadzorujesz rozładunek swojego pojazdu ?",
+      "options": [
+        "\"inna praca\".",
+        "\"okres gotowości\".",
+        "\"przerwa w pracy\"."
+      ],
+      "answer": 0,
+      "categories": "C,C1"
+    },
+    {
+      "id": "7731",
+      "question": "Który czynnik ma największy wpływ na przyczepność opony samochodu ciężarowego do podłoża?",
+      "options": [
+        "Wielkość opony.",
+        "Moc silnika pojazdu.",
+        "Rodzaj i stan nawierzchni jezdni."
+      ],
+      "answer": 2,
+      "categories": "C,C1"
+    },
+    {
+      "id": "7746",
+      "question": "Które z podanych zasad należy stosować podczas rozmieszczania lub mocowania ładunku w samochodzie ciężarowym?",
+      "options": [
+        "Środek ciężkości całego ładunku powinien znajdować się jak najbliżej osi wzdłużnej pojazdu.",
+        "Cięższe przedmioty powinny być umieszczone wyżej, a lżejsze niżej.",
+        "Metoda mocowania ładunku jest niezależna od charakterystyki ładunku."
+      ],
+      "answer": 0,
+      "categories": "C,C1"
+    },
+    {
+      "id": "7748",
+      "question": "Jak położenie środka ciężkości ładunku wpływa na sposób zabezpieczenia ładunku?",
+      "options": [
+        "Nie ma żadnego wpływu na sposób zabezpieczenia ładunku.",
+        "Wysokie położenie środka ciężkości ładunku może wymagać zastosowania dodatkowych technik jego zabezpieczania.",
+        "Niskie położenie środka ciężkości sprawia, że ładunek nie musi być zabezpieczony."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "7764",
+      "question": "Który dokument masz obowiązek mieć przy sobie, gdy kierujesz autobusem przewożącym osoby w ramach przewozu regularnego?",
+      "options": [
+        "Zaświadczenie o stanie zdrowia.",
+        "Zaświadczenie o odbytym szkoleniu bhp.",
+        "Rozkład jazdy."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7765",
+      "question": "Którą z czynności należy wykonać, przystępując do wymiany koła w autobusie?",
+      "options": [
+        "Podłożyć kliny zabezpieczające pod przeciwległe koło.",
+        "Zwolnić hamulec postojowy.",
+        "Ustawić dźwignię zmiany biegów w położeniu neutralnym."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7766",
+      "question": "Czy w okresie zimowym zalecane jest dolewanie benzyny do zbiornika paliwa autobusu z silnikiem wysokoprężnym?",
+      "options": [
+        "Tak, jest to wskazane z uwagi na zmniejszenie się krzepliwości benzyny.",
+        "Tak, gdy ilość dolanej benzyny nie jest większa niż 10% objętości zbiornika.",
+        "Nie, gdyż prowadzi to do uszkodzenia układu zasilania i silnika."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7767",
+      "question": "Jaką funkcję w silniku wysokoprężnym spełnia świeca żarowa?",
+      "options": [
+        "Ułatwia rozruch zimnego silnika.",
+        "Podgrzewa paliwo w zbiorniku.",
+        "Podgrzewa płyn chłodzący."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7769",
+      "question": "Który z wymienionych objawów może świadczyć o niedoborze płynu do wspomagania układu kierowniczego w autobusie?",
+      "options": [
+        "Skrzypiąca kolumna kierownicy.",
+        "Zarzucanie przodu pojazdu podczas hamowania.",
+        "Głośniejsza praca pompy wspomagania podczas skrętów kierownicy przy pracującym silniku."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7770",
+      "question": "Który z objawów najbardziej wskazuje na zużycie tarczy sprzęgła?",
+      "options": [
+        "Wyraźny opór dźwigni podczas zmiany biegów.",
+        "Trudności przy włączaniu pierwszego lub wstecznego biegu.",
+        "Gwałtowny wzrost obrotów silnika przy braku wzrostu prędkości podczas przyspieszania."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7771",
+      "question": "W trakcie przewożenia pasażerów autobusem turystycznym zauważyłeś dym wydobywający się z komory silnika. Które z wymienionych działań powinieneś podjąć natychmiast po zatrzymaniu pojazdu?",
+      "options": [
+        "Spróbować ugasić pożar.",
+        "Oddalić się jak najszybciej od autobusu.",
+        "Ewakuować przewożone osoby."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7772",
+      "question": "W którym miejscu na drodze powinieneś zatrzymać swój pojazd, gdy dostrzeżesz przed sobą osoby ranne i rozbite pojazdy oraz podjeżdżające do nich pojazdy służb ratowniczych?",
+      "options": [
+        "Jak najbliżej ofiar wypadku.",
+        "W miejscu zapewniającym odpowiedni dostęp pojazdów ratowniczych do rannych i rozbitych pojazdów.",
+        "Jak najbliżej rozbitych pojazdów."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7775",
+      "question": "Objawem zbyt dużego sumarycznego luzu układu kierowniczego jest:",
+      "options": [
+        "dążność do samoczynnego powrotu skręconych kół kierowanych do położenia środkowego.",
+        "brak występowania drgań przedniego zawieszenia.",
+        "pogorszenie kierowalności i stateczności pojazdu."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7778",
+      "question": "Czy kierując autobusem, wolno Ci spożywać posiłek podczas jazdy?",
+      "options": [
+        "Tak, jeżeli jedziesz bez pasażerów.",
+        "Tak, jeżeli jedziesz tylko z jednym pasażerem.",
+        "Nie, jeżeli jedziesz autostradą lub drogą ekspresową, niezależnie od liczby przewożonych pasażerów."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "7833",
+      "question": "W jaki sposób powinieneś obserwować drogę za kierowanym przez siebie motocyklem, gdy zamierzasz wjechać na pas ruchu po swojej lewej stronie?",
+      "options": [
+        "Tylko patrząc w lewe lusterko.",
+        "Tylko odwracając głowę.",
+        "Patrząc w lewe lusterko, a w razie konieczności odwracając także głowę."
+      ],
+      "answer": 2,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "7856",
+      "question": "W którym z wymienionych przypadków hamulec silnikowy wyłącza się automatycznie?",
+      "options": [
+        "Gdy prędkość obrotowa silnika jest mniejsza niż 1500 obr/min.",
+        "Gdy prędkość pojazdu jest mniejsza niż 30 km/h.",
+        "Gdy uruchomił się system ABS."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "9012",
+      "question": "Które wymienione czynniki zależne od kierującego pojazdem mają istotny wpływ na jego ostrość widzenia?",
+      "options": [
+        "Temperatura i wilgotność powietrza.",
+        "Stan nawierzchni jezdni, pora dnia lub nocy.",
+        "Koncentracja uwagi, aktualne samopoczucie i stan zdrowia."
+      ],
+      "answer": 2,
+      "categories": "B"
+    },
+    {
+      "id": "9058",
+      "question": "Używanie pojazdu w sposób powodujący uciążliwości związane z nadmierną emisją spalin do środowiska lub nadmiernym hałasem jest:",
+      "options": [
+        "zabronione w obszarze zabudowanym.",
+        "zabronione.",
+        "zabronione tylko w strefie zamieszkania."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "9065",
+      "question": "W której z wymienionych niebezpiecznych sytuacji na drodze najlepiej sprawdzi się pojazd wyposażony w tzw. ASR, czyli układ zapobiegający poślizgowi kół napędzanych podczas ruszania?",
+      "options": [
+        "W sytuacji zjeżdżania ze wzniesienia.",
+        "W sytuacji zjeżdżania ze wzniesienia drogą o dużym natężeniu ruchu.",
+        "W sytuacji nagłego przyspieszenia na mokrej nawierzchni."
+      ],
+      "answer": 2,
+      "categories": "B"
+    },
+    {
+      "id": "9067",
+      "question": "W której z wymienionych niebezpiecznych sytuacji na drodze najlepiej sprawdzi się pojazd wyposażony w tzw. ASR, czyli układ zapobiegający poślizgowi kół napędzanych podczas ruszania?",
+      "options": [
+        "W sytuacji zjeżdżania ze wzniesienia drogą o dużym natężeniu ruchu.",
+        "W sytuacji konieczności wjeżdżania na wzniesienie.",
+        "W sytuacji gwałtownego ruszania na śliskiej nawierzchni."
+      ],
+      "answer": 2,
+      "categories": "B"
+    },
+    {
+      "id": "9068",
+      "question": "W której z wymienionych niebezpiecznych sytuacji na drodze najlepiej sprawdzi się pojazd wyposażony w tzw. ESP, czyli układ stabilizacji toru jazdy?",
+      "options": [
+        "W sytuacji pokonywania ostrego zakrętu i trudności z utrzymaniem oczekiwanego toru jazdy.",
+        "W sytuacji konieczności nagłego przyspieszenie na drodze gruntowej.",
+        "W sytuacji konieczności utrzymania stałej prędkości."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "9070",
+      "question": "W której z wymienionych niebezpiecznych sytuacji na drodze najlepiej sprawdzi się pojazd wyposażony w tzw. ESP, czyli układ stabilizacji toru jazdy?",
+      "options": [
+        "W sytuacji konieczności utrzymania stałej prędkości.",
+        "W sytuacji konieczności wjeżdżania na wzniesienie.",
+        "W sytuacji konieczności pokonywania kilku następujących po sobie zakrętów."
+      ],
+      "answer": 2,
+      "categories": "B"
+    },
+    {
+      "id": "10806",
+      "question": "Przewożenie dziecka w foteliku bezpieczeństwa zamontowanym tyłem do kierunku jazdy na przednim siedzeniu pojazdu samochodowego, wyposażonego w poduszkę powietrzną dla pasażera jest:",
+      "options": [
+        "dozwolone bez ograniczeń.",
+        "zabronione.",
+        "dozwolone, jeżeli poduszka powietrzna nie jest aktywna podczas przewożenia."
+      ],
+      "answer": 2,
+      "categories": "B"
+    },
+    {
+      "id": "10807",
+      "question": "Przewożenie dziecka siedzącego tyłem do kierunku jazdy w urządzeniu przytrzymującym dla dzieci, zamontowanym na przednim siedzeniu pojazdu samochodowego wyposażonego w poduszkę powietrzną jest:",
+      "options": [
+        "Dozwolone, jeżeli poduszka powietrzna nie jest aktywna podczas przewożenia.",
+        "Zawsze zabronione.",
+        "Dozwolone bez ograniczeń."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "10808",
+      "question": "Przewożenie samochodem osobowym dziecka w wieku poniżej 3 lat jest:",
+      "options": [
+        "Dozwolone, jeżeli pojazd nie jest wyposażony w pasy bezpieczeństwa.",
+        "Dozwolone, jeżeli pojazd jest wyposażony w pasy bezpieczeństwa i fotelik dla dziecka.",
+        "Zabronione bez względu na wyposażenie pojazdu."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "10809",
+      "question": "Przewożenie dziecka w wieku poniżej trzech lat samochodem osobowym, niewyposażonym w pasy bezpieczeństwa i fotelik bezpieczeństwa dla dziecka lub w pasy bezpieczeństwa i inne urządzenie przytrzymujące dla dzieci jest:",
+      "options": [
+        "Zabronione.",
+        "Dozwolone.",
+        "Dozwolone, jeżeli dziecko trzymane jest na rękach przez pełnoletniego pasażera."
+      ],
+      "answer": 0,
+      "categories": "D1"
+    },
+    {
+      "id": "10810",
+      "question": "Przewożenie dziecka na przednim siedzeniu samochodu bez fotelika bezpieczeństwa dla dziecka jest:",
+      "options": [
+        "Zabronione, jeżeli dziecko ma mniej niż 150 cm wzrostu.",
+        "Zawsze zabronione.",
+        "Dozwolone, jeżeli dziecko ma nie mniej niż 140 cm wzrostu."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "10811",
+      "question": "Obowiązek korzystania z pasów bezpieczeństwa:",
+      "options": [
+        "Dotyczy kierującego taksówką podczas przewożenia pasażera.",
+        "Nie dotyczy dziecka poniżej 3 lat przewożonego autobusem.",
+        "Dotyczy kobiety o widocznej ciąży."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "10812",
+      "question": "Dziecko mające mniej niż 150 cm wzrostu, przewożone samochodem osobowym wyposażonym w pasy bezpieczeństwa, powinno znajdować się w foteliku bezpieczeństwa dla dziecka, zgodnym z:",
+      "options": [
+        "Masą i wzrostem dziecka oraz właściwymi warunkami technicznymi określonymi w przepisach Unii Europejskiej.",
+        "Masą i wzrostem dziecka.",
+        "Wiekiem dziecka."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "10813",
+      "question": "Jeżeli w samochodzie osobowym na tylnym siedzeniu przewożonych jest dwoje dzieci w fotelikach bezpieczeństwa i nie ma możliwości zainstalowania trzeciego fotelika, to:",
+      "options": [
+        "Nie można przewozić trzeciego dziecka.",
+        "Może być przewożone trzecie dziecko, jeżeli ma co najmniej 3 lata i jest przytrzymywane za pomocą pasów bezpieczeństwa. ",
+        "Może być przewożone trzecie dziecko, jeżeli ma co najmniej 5 lat."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "10814",
+      "question": "Przewożenie na tylnym siedzeniu samochodu osobowego dziecka przytrzymywanego za pomocą pasów bezpieczeństwa jest:",
+      "options": [
+        "Dozwolone, jeżeli dziecko ma co najmniej 135 cm wzrostu i nie jest możliwe zapewnienie mu fotelika bezpieczeństwa ze względu na jego wzrost i masę.",
+        "Zabronione bez fotelika bezpieczeństwa.",
+        "Dozwolone, jeżeli dziecko ma co najmniej 125 cm wzrostu i nie jest możliwe zapewnienie mu fotelika bezpieczeństwa ze względu na jego wzrost i masę."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "10816",
+      "question": "Policjant zatrzyma prawo jazdy za pokwitowaniem w przypadku ujawnienia czynu polegającego na:\n\n\nPolicjant zatrzyma",
+      "options": [
+        "kierowaniu pojazdem z prędkością przekraczającą dopuszczalną o 50 km/h na obszarze zabudowanym.",
+        "kierowaniu pojazdem z prędkością przekraczającą dopuszczalną o więcej niż 50 km/h na obszarze zabudowanym.",
+        "kierowaniu pojazdem z prędkością przekraczającą dopuszczalną o 50 km/h poza obszarem zabudowanym."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "10818",
+      "question": "Pokwitowanie zatrzymania wydanego w kraju prawa jazdy z powodu przekroczenia przez kierującego dopuszczalnej prędkości o więcej niż 50 km/h na obszarze zabudowanym, uprawnia do kierowania pojazdem w okresie:",
+      "options": [
+        "7 dni od dnia zatrzymania.",
+        "72 godzin od chwili zatrzymania.",
+        "24 godzin od chwili zatrzymania."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "10819",
+      "question": "Starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy, gdy kierujący pojazdem przekroczył dopuszczalną prędkość o:",
+      "options": [
+        "więcej niż 50 km/h na obszarze zabudowanym.",
+        "50 km/h na obszarze zabudowanym.",
+        "50 km/h poza obszarem zabudowanym."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "10825",
+      "question": "Policjant zatrzyma, za pokwitowaniem, prawo jazdy wydane przez państwo inne niż Rzeczpospolita Polska, w przypadku ujawnienia czynu polegającego na przewożeniu samochodem osobowym:",
+      "options": [
+        "O 1 osobę więcej niż określono w dowodzie rejestracyjnym.",
+        "O 3 osoby więcej niż określono w dowodzie rejestracyjnym.",
+        "O 2 osoby więcej niż określono w dowodzie rejestracyjnym."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "10828",
+      "question": "Obowiązek posiadania przy sobie prawa jazdy, wydanego na terytorium RP, dotyczy:",
+      "options": [
+        "Kierującego autobusem.",
+        "Kierującego samochodem osobowym.",
+        "Nie ma takiego obowiązku, bez względu na rodzaj pojazdu, którym kierujemy."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "10832",
+      "question": "Policjant zatrzyma dowód rejestracyjny pojazdu w razie stwierdzenia, że:",
+      "options": [
+        "Badanie techniczne zostało dokonane przez jednostkę do tego nieupoważnioną.",
+        "Pojazd posiada niesprawne oświetlenie tablicy rejestracyjnej.",
+        "Kierujący nie posiada podczas prowadzenia pojazdu dowodu rejestracyjnego."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "10833",
+      "question": "Utrzymywanie tablic rejestracyjnych w należytym stanie i zapewnienie ich czytelności:",
+      "options": [
+        "Jest nieobowiązkowe, tylko wynika z dbałości o stan estetyczny pojazdu.",
+        "Jest obowiązkiem kierującego pojazdem.",
+        "Jest obowiązkiem właściciela pojazdu."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "10837",
+      "question": "Pojazd zarejestrowany na terytorium RP jest usuwany z drogi na koszt właściciela w przypadku:",
+      "options": [
+        "Pozostawienia pojazdu w miejscu gdzie jest to zabronione i nie zagraża bezpieczeństwu.",
+        "Nieokazania przez kierującego dokumentu potwierdzającego zawarcie umowy OC.",
+        "Kierowania nim przez osobę nieposiadającą uprawnienia do kierowania pojazdami i gdy nie ma możliwości zabezpieczenia pojazdu przez przekazanie go osobie znajdującej się w nim i posiadającej uprawnienia do kierowania tym pojazdem."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "10839",
+      "question": "Kierujący pojazdem wykonujący jazdę testową z wykorzystaniem profesjonalnego dowodu rejestracyjnego jest obowiązany mieć przy sobie i okazywać na żądanie uprawnionego organu:",
+      "options": [
+        "Dokument stwierdzający uprawnienie do kierowania pojazdem, wydany na terytorium RP.",
+        "Dokument stwierdzający dopuszczenie pojazdu do ruchu.",
+        "Dowód opłacenia składki za obowiązkowe ubezpieczenie OC."
+      ],
+      "answer": 1,
+      "categories": "D,D1"
+    },
+    {
+      "id": "10842",
+      "question": "Brak przy sobie wydanego w kraju prawa jazdy, podczas kierowania samochodem osobowym po drogach publicznych w Polsce:",
+      "options": [
+        "Nie rodzi żadnych konsekwencji prawnych.",
+        "Skutkuje nałożeniem mandatu karnego.",
+        "Skutkuje skierowaniem wniosku o ukaranie."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "10844",
+      "question": "Do czego jest uprawniony policjant podczas kontroli ruchu drogowego?",
+      "options": [
+        "Ustalania tożsamości kierującego pojazdem na podstawie danych z Rejestru Dowodów Osobistych.",
+        "Żądania okazania przez kierującego, wydanego w kraju prawa jazdy.",
+        "Żądania okazania przez kierującego, dokumentu potwierdzającego zawarcie umowy OC pojazdu zarejestrowanego na terytorium RP."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "10872",
+      "question": "W jaki sposób w pojeździe zainstalujesz podtrzymujące dziecko urządzenie, które służy do jego przewozu?",
+      "options": [
+        "Tak, jak życzy sobie tego dziecko.",
+        "W sposób wygodny dla siebie.",
+        "Zalecany przez producenta urządzenia."
+      ],
+      "answer": 2,
+      "categories": "B,C,D,B1,C1,D1"
+    },
+    {
+      "id": "10874",
+      "question": "Jakie warunki powinien spełniać samochód osobowy, którym chcesz przewieźć dziecko, które ma mniej niż trzy lata?",
+      "options": [
+        " Powinien być wyposażony w pasy i fotelik bezpieczeństwa.",
+        " Może nie mieć pasów bezpieczeństwa.  ",
+        "Nie musi być wyposażony w pasy i fotelik bezpieczeństwa."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "10882",
+      "question": "Co musisz zrobić, żeby przewieźć trzyletnie dziecko na tylnym siedzeniu samochodu osobowego, na którym w fotelikach już siedzi dwoje dzieci i nie ma możliwości zainstalowania trzeciego fotelika?",
+      "options": [
+        "Musisz zabezpieczyć dziecko pasami bezpieczeństwa.",
+        "Powinieneś posadzić dziecko na kolanach osoby dorosłej. ",
+        "Musisz zablokować tylne drzwi, uniemożliwiając ich otwarcie od zewnątrz."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "10883",
+      "question": "Co musisz zrobić gdy chcesz przewieźć trzyletnie dziecko na tylnym siedzeniu samochodu osobowego, na którym w urządzeniach przytrzymujących już siedzi dwoje dzieci i nie ma możliwości zainstalowania trzeciego urządzenia?",
+      "options": [
+        "Powinieneś zapewnić dziecku podstawkę na nogi.",
+        "Musisz zabezpieczyć dziecko pasami bezpieczeństwa.",
+        "Powinieneś posadzić dziecko na środku tylnego siedzenia."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "10885",
+      "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
+      "options": [
+        "Potwierdzenie opłaty obowiązkowego ubezpieczenia odpowiedzialności cywilnej.",
+        "Pokwitowanie zatrzymania dowodu rejestracyjnego w okresie, w którym uprawnia ono do używania pojazdu.",
+        "W każdym przypadku zaświadczenie o przeprowadzonym badaniu technicznym. "
+      ],
+      "answer": 1,
+      "categories": "A,B,C,D,T,AM,A1,A2,B1,C1,D1"
+    },
+    {
+      "id": "10886",
+      "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
+      "options": [
+        "Potwierdzenie opłaty ubezpieczenia AC.",
+        "Pokwitowanie zatrzymania pozwolenia czasowego w okresie, w którym uprawnia ono do używania pojazdu.",
+        "Zaświadczenie o przeprowadzonym badaniu technicznym, w przypadku, gdy pojazd jest zasilany gazem."
+      ],
+      "answer": 1,
+      "categories": "B,C,D,T,B1,C1,D1"
+    },
+    {
+      "id": "10887",
+      "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
+      "options": [
+        "Dowód rejestracyjny.",
+        "Pokwitowanie zatrzymania dowodu rejestracyjnego w okresie, w którym uprawnia ono do używania pojazdu.",
+        "Świadectwo zgodności z warunkami technicznymi."
+      ],
+      "answer": 1,
+      "categories": "A,B,C,D,T,AM,A1,A2,B1,C1,D1"
+    },
+    {
+      "id": "10888",
+      "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
+      "options": [
+        "Pokwitowanie zatrzymania pozwolenia czasowego w okresie, w którym uprawnia ono do używania pojazdu.",
+        "Świadectwo zgodności WE.",
+        "Dowód rejestracyjny."
+      ],
+      "answer": 0,
+      "categories": "A,B,C,D,T,AM,A1,A2,B1,C1,D1"
+    },
+    {
+      "id": "10892",
+      "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
+      "options": [
+        "Krajowe prawo jazdy.",
+        "Inny dokument stwierdzający uprawnienie do kierowania pojazdem niż wydane w kraju prawo jazdy.",
+        "Świadectwo kwalifikacji."
+      ],
+      "answer": 1,
+      "categories": "A,B,C,D,T,AM,A1,A2,B1,C1,D1"
+    },
+    {
+      "id": "10893",
+      "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
+      "options": [
+        "Orzeczenie lekarskie, jeżeli wykonujesz zarobkowy przewóz osób.",
+        "Pokwitowanie zatrzymania prawa jazdy w okresie, w którym upoważnia ono do kierowania. ",
+        "Orzeczenie psychologiczne."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "10894",
+      "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
+      "options": [
+        "Orzeczenie psychologiczne, jeżeli wykonujesz zarobkowy przewóz osób.",
+        "Pokwitowanie zatrzymania prawa jazdy w okresie, w którym upoważnia ono do kierowania.",
+        "Orzeczenie lekarskie. "
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "10895",
+      "question": "Jaki dokument jesteś zobowiązany mieć przy sobie i okazywać na żądanie uprawnionego organu?",
+      "options": [
+        "Dokument potwierdzający uczestnictwo w kursie kwalifikacji wstępnej.",
+        "Dokument stwierdzający uprawnienie do kierowania pojazdem inny niż wydane w kraju prawo jazdy.",
+        "Dokument stwierdzający ukończenie kursu z pierwszej pomocy przedmedycznej."
+      ],
+      "answer": 1,
+      "categories": "A,B,C,D,T,AM,A1,A2,B1,C1,D1"
+    },
+    {
+      "id": "10930",
+      "question": "Ile czasu jest ważne pokwitowanie zatrzymania polskiego prawa jazdy za przekroczenie prędkości o ponad 50 km/h w obszarze zabudowanym, które wydał Ci policjant?",
+      "options": [
+        "12 godzin.",
+        "24 godziny.",
+        "72 godziny."
+      ],
+      "answer": 1,
+      "categories": "A,B,C,D,A1,A2,B1,C1,D1"
+    },
+    {
+      "id": "10960",
+      "question": "Jak postąpi policjant, jeżeli podczas kontroli drogowej ujawni, że przekroczyłeś prędkość o więcej niż 50 km/h w obszarze zabudowanym, ale było to związane z ratowaniem ludzkiego życia?",
+      "options": [
+        "Zatrzyma prawo jazdy.",
+        "Pouczy i skieruje na egzamin kontrolny.",
+        "Nie zatrzyma prawa jazdy."
+      ],
+      "answer": 2,
+      "categories": "B,C,D,B1,C1,D1"
+    },
+    {
+      "id": "10961",
+      "question": "Jak postąpi policjant, jeżeli podczas kontroli drogowej ujawni, że przekroczyłeś prędkość o więcej niż 50 km/h w obszarze zabudowanym, ale było to związane z ratowaniem ludzkiego życia?",
+      "options": [
+        "Zatrzyma prawo jazdy.",
+        "Skieruje na dodatkowe szkolenie.",
+        "Odstąpi od zatrzymania prawa jazdy."
+      ],
+      "answer": 2,
+      "categories": "B,C,D,B1,C1,D1"
+    },
+    {
+      "id": "10969",
+      "question": "Czy przewożenie na przednim siedzeniu pojazdu dziecka o wzroście co najmniej 135 cm, zabezpieczonego jedynie pasami bezpieczeństwa, jest dozwolone?",
+      "options": [
+        "Tak, ponieważ przepisy na to zezwalają, jeżeli ze względu na masę dziecka nie jest możliwe zapewnienie urządzenia przytrzymującego dla dziecka.",
+        "Nie, ponieważ przepisy dotyczące przewozu dzieci zezwalają na przewóz dzieci o wzroście co najmniej 135 cm bez fotelika lub innego urządzenia przytrzymującego dziecko tylko na tylnym siedzeniu pojazdu.",
+        "Tak, jeżeli pojazd nie jest wyposażony w tylne siedzenia."
+      ],
+      "answer": 1,
+      "categories": "C"
+    },
+    {
+      "id": "10992",
+      "question": "W jakim przypadku możesz przewozić trzecie dziecko, o wzroście poniżej 135 cm, na tylnym siedzeniu samochodu osobowego lub ciężarowego, przytrzymywane jedynie pasami bezpieczeństwa?",
+      "options": [
+        "Jeżeli dwoje dzieci przewożonych jest w fotelikach bezpieczeństwa i nie ma możliwości zainstalowania trzeciego fotelika, a trzecie dziecko ma ukończone 3 lata.",
+        "Tylko, jeżeli trzecie dziecko ma wzrost co najmniej 100 cm wzrostu.",
+        "Tylko, jeżeli trzecie dziecko ukończyło 15 lat."
+      ],
+      "answer": 0,
+      "categories": "B,C"
+    },
+    {
+      "id": "10999",
+      "question": "Który z wymienionych dokumentów musisz mieć przy sobie i okazywać na żądanie uprawnionego organu, gdy wykonujesz zarobkowy transport rzeczy samochodem ciężarowym o dopuszczalnej masie całkowitej powyżej 12 t?",
+      "options": [
+        "Krajowe prawo jazdy.",
+        "Potwierdzenie zawarcia przez właściciela pojazdu umowy  obowiązkowego ubezpieczenia OC lub dowód opłaty składki za ubezpieczenie.",
+        "Pokwitowanie zatrzymania dowodu rejestracyjnego pojazdu w okresie, w którym upoważnia ono do  jego używania,"
+      ],
+      "answer": 2,
+      "categories": "C"
+    },
+    {
+      "id": "11003",
+      "question": "Czy inspektor transportu drogowego podczas kontrolowania pojazdu, który wykonuje transport drogowy, ma prawo weryfikować dane o pojeździe w Centralnej Ewidencji Pojazdów?",
+      "options": [
+        "Tak, w tym zakresie przysługują takie same prawa jak policji.",
+        "Nie, takie uprawnienia posiada tylko policja.",
+        "Nie, do weryfikacji danych o pojeździe w Centralnej Ewidencji Pojazdów uprawnione są tylko: policja, straż graniczna i służby celno-skarbowe. "
+      ],
+      "answer": 0,
+      "categories": "B,C,D"
+    },
+    {
+      "id": "11005",
+      "question": "Kto może zwrócić dowód rejestracyjny, w przypadku jego zatrzymania podczas kontroli ruchu drogowego, w związku ze stwierdzeniem, że pojazd zagraża porządkowi ruchu?",
+      "options": [
+        "Jednostka upoważniona do przeprowadzania badań technicznych po przeprowadzeniu badania technicznego odpowiadającego przyczynie zatrzymania dowodu rejestracyjnego.",
+        "Straż Miejska.",
+        "Zarządca drogi."
+      ],
+      "answer": 0,
+      "categories": "A,B,C,D"
+    },
+    {
+      "id": "11017",
+      "question": "Na jak długo zostanie zatrzymane prawo jazdy kierowcy, który przekroczył prędkość o więcej niż 50 km/h na obszarze zabudowanym?",
+      "options": [
+        "Na 3 miesięce.",
+        "Na 6 miesięcy.",
+        "Na 1 miesiąc."
+      ],
+      "answer": 0,
+      "categories": "A,B,C,D"
+    },
+    {
+      "id": "11018",
+      "question": "Na jak długo pokwitowanie zatrzymania prawa jazdy za przekroczenie dozwolonej prędkości na obszarze zabudowanym o więcej niż 50 km/h uprawnia do kierowania pojazdem?",
+      "options": [
+        "Przez okres 24 godzin od chwili zatrzymania prawa jazdy. ",
+        "Przez okres 7 dni od chwili zatrzymania prawa jazdy.",
+        "Przez okres 72 godzin od chwili zatrzymania prawa jazdy."
+      ],
+      "answer": 0,
+      "categories": "A,B,C,D"
+    },
+    {
+      "id": "11022",
+      "question": "W jakim przypadku nie zostanie zatrzymane prawo jazdy za przekroczenie dozwolonej prędkości o więcej niż 50 km/h na obszarze zabudowanym?",
+      "options": [
+        "Jeżeli kierujący pojazdem dopuścił się naruszenia działając w celu uchylenia bezpośredniego niebezpieczeństwa grożącego dobru chronionemu prawem.",
+        "Jeżeli jadący z tyłu kierowca drugim pojazdem za pomocą świateł ostrzegawczych i sygnału dźwiękowego dawał znaki do zwiększenia prędkości.",
+        "Jeżeli kierujący zwiększył prędkość w celu szybszego zjechania ze skrzyżowania dróg przy świecącym się sygnale zielonym."
+      ],
+      "answer": 0,
+      "categories": "B,C,D"
+    },
+    {
+      "id": "11037",
+      "question": "Który z wymienionych dokumentów stwierdza dopuszczenie ciągnika rolniczego do ruchu drogowego?",
+      "options": [
+        "Karta pojazdu.",
+        "Raport z Centralnej Ewidencji Pojazdów.",
+        "Pozwolenie czasowe."
+      ],
+      "answer": 2,
+      "categories": "T"
+    },
+    {
+      "id": "11042",
+      "question": "W jakim terminie właściciel ciągnika rolniczego jest zobowiązany odebrać decyzję o rejestracji pojazdu i dowód rejestracyjny?",
+      "options": [
+        "30 dni od dnia złożenia wniosku o rejestrację pojazdu. ",
+        "35 dni od dnia złożenia wniosku o rejestrację pojazdu.",
+        "30 dni od dnia pierwszego wyjazdu ciagnikiem rolniczym na drogę."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "11047",
+      "question": "Jaki dokument stwierdza posiadanie uprawnienia do kierowania ciągnikiem rolniczym?",
+      "options": [
+        "Wydane w kraju prawo jazdy kategorii T. ",
+        "Karta pojazdu.",
+        "Wizerunek prawa jazdy w aplikacji mDokumenty."
+      ],
+      "answer": 0,
+      "categories": "T"
+    },
+    {
+      "id": "11059",
+      "question": "Dokumentem stwierdzającym posiadanie uprawnienia do kierowania motocyklem jest:",
+      "options": [
+        "Ważne prawo jazdy stosownie do rodzaju motocykla. ",
+        "Wizerunek prawa jazdy w aplikacji mDokumenty.",
+        "Wydane w kraju pozwolenie czasowe."
+      ],
+      "answer": 0,
+      "categories": "A"
+    },
+    {
+      "id": "11060",
+      "question": "Do kierowania którym z wymienionych pojazdów uprawnia prawo jazdy kategorii A1?",
+      "options": [
+        "Pojazdem wolnobieżnym. ",
+        "Motocyklem trójkołowym o mocy nieprzekraczającej 15 kW.",
+        "Czterokołowcem."
+      ],
+      "answer": 1,
+      "categories": "A"
+    },
+    {
+      "id": "11061",
+      "question": "Posiadacz prawa jazdy kategorii A1 może kierować m. in.:",
+      "options": [
+        "Pojazdem wolnobieżnym.",
+        "Motocyklem o mocy nieprzekraczającej 45kW i stosunku mocy do masy własnej nieprzekraczającym 0,2 kW/kg.",
+        "Czterokołowcem lekkim."
+      ],
+      "answer": 2,
+      "categories": "A"
+    },
+    {
+      "id": "11070",
+      "question": "Osoba posiadająca prawo jazdy kategorii AM, A1, A2, A jest zobowiązana zawiadomić starostę o zniszczeniu tego dokumentu w stopniu powodującym nieczytelność w terminie:",
+      "options": [
+        "30 dni od zaistnienia tego zdarzenia; ",
+        "33 dni od zaistnienia tego zdarzenia; ",
+        "14 dni od zaistnienia tego zdarzenia."
+      ],
+      "answer": 0,
+      "categories": "A"
+    },
+    {
+      "id": "11073",
+      "question": "Starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy kategorii A na okres 3 miesięcy, nadając jej rygor natychmiastowej wykonalności, jeżeli:",
+      "options": [
+        "Kierujący motocyklem na obszarze zabudowanym przekroczył dopuszczalną prędkość o więcej niż 50 km/h.",
+        "Kierujący motocyklem na obszarze zabudowanym przekroczył dopuszczalną prędkość o 45 km/h.",
+        "Kierujący motocyklem na obszarze zabudowanym przekroczył dopuszczalną prędkość o 40 km/h."
+      ],
+      "answer": 0,
+      "categories": "A"
+    },
+    {
+      "id": "11075",
+      "question": "Starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy kat. A na okres 3 miesięcy, nadając jej rygor natychmiastowej wykonalności, jeżeli kierujący motocyklem porusza się na obszarze zabudowanym po drodze, na której występuje ograniczenie prędkości do 40 km/h:",
+      "options": [
+        "z prędkością przekraczającą 90 km/h;",
+        "z prędkością 80 km/h;",
+        "z prędkością 70 km/h."
+      ],
+      "answer": 0,
+      "categories": "A"
+    },
+    {
+      "id": "11077",
+      "question": "Starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy kat. A na okres 3 miesięcy, nadając jej rygor natychmiastowej wykonalności, jeżeli kierujący motocyklem w strefie ograniczonej prędkości do 30 km/h:",
+      "options": [
+        "porusza się z prędkością przekraczającą 80 km/h;",
+        "porusza się z prędkością 70 km/h;",
+        "porusza się z prędkością 60 km/h."
+      ],
+      "answer": 0,
+      "categories": "A"
+    },
+    {
+      "id": "11080",
+      "question": "Starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy kat. A na okres 3 miesięcy, nadając jej rygor natychmiastowej wykonalności, jeżeli:",
+      "options": [
+        "kierujący motocyklem przewozi osoby w liczbie przekraczającej liczbę miejsc określoną w dowodzie rejestracyjnym motocykla;",
+        "kierujący motocyklem porusza się w ciągu dnia na obszarze zabudowanym z prędkością 90 km/h;",
+        "kierujący motocyklem porusza się na drodze ekspresowej z prędkością 180 km/h."
+      ],
+      "answer": 0,
+      "categories": "A"
+    },
+    {
+      "id": "11085",
+      "question": "Jeżeli starosta wydał decyzję administracyjną o zatrzymaniu prawa jazdy kat. A na okres 3 miesięcy, to z uwagi na brak obowiązku posiadania podczas jazdy motocyklem prawa jazdy:",
+      "options": [
+        "możesz kierować motocyklem tylko w granicach właściwego starostwa;",
+        "możesz kierować motocyklem tylko w granicach miejscowości stałego zamieszkania;",
+        "nie wolno Ci kierować motocyklem przez okres zatrzymania prawa jazdy."
+      ],
+      "answer": 2,
+      "categories": "A"
+    },
+    {
+      "id": "11427",
+      "question": "Czy możesz samodzielnie gasić pożar cysterny przewożącej benzynę?",
+      "options": [
+        "Tak.",
+        "Nie.",
+        "Tak, ale tylko gaśnicą proszkową."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11429",
+      "question": "Czy u poszkodowanego, który omyłkowo połknął substancję żrącą, należy wywołać wymioty?",
+      "options": [
+        "Tak, jak najszybciej.",
+        "Nie, w żadnym przypadku.",
+        "Tak, ale tylko w przypadku gdy substancja żrąca była mocno rozcieńczona."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11432",
+      "question": "Po jakim czasie mózg poszkodowanego, u którego doszło do zatrzymania krążenia umiera?",
+      "options": [
+        "Po ok. 4-5 minutach.",
+        "Po 20 minutach.",
+        "Po 1 godzinie."
+      ],
+      "answer": 0,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11438",
+      "question": "Jak jest maksymalna dopuszczalna wysokość pojazdu z ładunkiem?",
+      "options": [
+        "3 m.",
+        "3,5 m.",
+        "4 m."
+      ],
+      "answer": 2,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11440",
+      "question": "Na rozwinięcie jakiej maksymalnej prędkości pozwala ogranicznik prędkości zamontowany w samochodzie ciężarowym o dopuszczalnej masie całkowitej przekraczającej 3,5 t?",
+      "options": [
+        "90 km/h.",
+        "100 km/h.",
+        "120 km/h."
+      ],
+      "answer": 0,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11442",
+      "question": "W ile gaśnic masz obowiązek wyposażyć samochód ciężarowy, którym przewozisz osoby poza kabiną kierowcy?",
+      "options": [
+        "Jedną.",
+        "Dwie.",
+        "Trzy."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11443",
+      "question": "Czy masz prawo przewozić samochodem ciężarowym ładunek sypki, gdy wysokość tego pojazdu wraz z ładunkiem wynosi 4,5 m?",
+      "options": [
+        "Tak, ale wyłącznie na autostradzie.",
+        "Tak, na wszystkich drogach poza obszarem zabudowanym.",
+        "Nie, jest to zabronione na wszystkich drogach."
+      ],
+      "answer": 2,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11444",
+      "question": "Przewozisz samochodem ciężarowym o szerokości 2,55 m ładunek o szerokości 3 m. Na jaką maksymalną odległość może on wystawać z jednej strony pojazdu?",
+      "options": [
+        "45 cm.",
+        "25 cm.",
+        "23 cm."
+      ],
+      "answer": 2,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11445",
+      "question": "Jakiej wartości nie może przekraczać nacisk pojedynczej osi nienapędowej?",
+      "options": [
+        "8 ton.",
+        "10 ton.",
+        "7 ton."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11447",
+      "question": "Jaki odstęp masz obowiązek zachować, wyprzedzając samochodem ciężarowym inny samochód ciężarowy?",
+      "options": [
+        "Bezpieczny.",
+        "Co najmniej 1 metr.",
+        "Co najmniej 2 metry."
+      ],
+      "answer": 0,
+      "categories": "C"
+    },
+    {
+      "id": "11450",
+      "question": "Który czynnik ma największy wpływ na przyczepność opony samochodu ciężarowego do podłoża?",
+      "options": [
+        "Wielkość opony.",
+        "Moc silnika pojazdu.",
+        "Rodzaj i stan nawierzchni jezdni."
+      ],
+      "answer": 2,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11452",
+      "question": "Jaki wpływ na skuteczność hamowania samochodu ciężarowego ma przegrzanie hamulców?",
+      "options": [
+        "Może się ona zwiększyć.",
+        "Może się ona zmniejszyć.",
+        "Nie zmienia się, niezależnie od stopnia ich przegrzania."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11453",
+      "question": "Jaki wpływ na drogę hamowania ma zbyt duże ciśnienie w ogumieniu samochodu ciężarowego?",
+      "options": [
+        "Może skrócić drogę hamowania.",
+        "Może wydłużyć drogę hamowania.",
+        "Nie zmienia długości drogi hamowania."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11469",
+      "question": "W którym z przypadków używanie tempomatu jest najbardziej uzasadnione?",
+      "options": [
+        "Podczas jazdy po drogach w terenie górzystym.",
+        "Podczas jazdy w ruchu miejskim.",
+        "Podczas długotrwałej jazdy ze stałą prędkością."
+      ],
+      "answer": 2,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11471",
+      "question": "Jaką funkcję spełnia system ABS zastosowany w samochodzie ciężarowym?",
+      "options": [
+        "Skraca drogę hamowania w każdych warunkach drogowych.",
+        "Jest niewrażliwy na rodzaj nawierzchni jezdni.",
+        "Umożliwia kierowanie pojazdem w czasie hamowania awaryjnego."
+      ],
+      "answer": 2,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11472",
+      "question": "Który z wymienionych sposobów hamowania samochodu ciężarowego wyposażonego w system ABS zapewnia najszybsze zatrzymanie pojazdu?",
+      "options": [
+        "Pulsacyjne wciskanie pedału hamulca.",
+        "Jak najmocniejsze wciśnięcie pedału hamulca i jednoczesne wciśnięcie pedału sprzęgła.",
+        "Stopniowe wciskanie pedału hamulca."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11477",
+      "question": "Czy masz prawo kierować samochodem ciężarowym, którego szerokość wraz z ładunkiem jest większa od dopuszczalnej?",
+      "options": [
+        "Tak, bez dodatkowego zezwolenia, jeśli trasa przewozu na to pozwala.",
+        "Nie, w żadnym przypadku.",
+        "Tak, ale tylko pod warunkiem uzyskania odpowiedniego zezwolenia."
+      ],
+      "answer": 2,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11489",
+      "question": "Jak sygnalizowana jest niesprawność układu przeciwblokującego (ABS)?",
+      "options": [
+        "Świetlnym sygnałem kontrolnym na tablicy rozdzielczej.",
+        "Sygnałem dźwiękowym.",
+        "Włączeniem się świateł awaryjnych."
+      ],
+      "answer": 0,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11490",
+      "question": "Stwierdziłeś wyciek płynu z amortyzatora hydraulicznego, jakie mogą być jego skutki?",
+      "options": [
+        "Zwiększone tłumienie drgań nadwozia na nierównościach drogi.",
+        "Skrócenie drogi hamowania.",
+        "Zmniejszenie przyczepności kół do jezdni na nierównej drodze."
+      ],
+      "answer": 2,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11491",
+      "question": "Jaki może być skutek uszkodzenia jednej z żarówek kierunkowskazów?",
+      "options": [
+        "Pozostałe żarówki kierunkowskazów także nie będą działać.",
+        "Przerywacz kierunkowskazów będzie pracował ze zwiększoną częstotliwością.",
+        "Włączą się światła awaryjne."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11492",
+      "question": "Ile wynosi minimalna dozwolona głębokość rzeźby bieżnika opony samochodu ciężarowego?",
+      "options": [
+        "3 mm.",
+        "1,6 mm.",
+        "2,6 mm."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11493",
+      "question": "Które z wymienionych działań należy podjąć, gdy w czasie jazdy zaświeci się na czerwono lampka kontrolna temperatury cieczy chłodzącej?",
+      "options": [
+        "Zatrzymać pojazd i wyłączyć silnik.",
+        "Zwolnić.",
+        "Przyspieszyć."
+      ],
+      "answer": 0,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11494",
+      "question": "Które z wymienionych działań należy podjąć, gdy w czasie jazdy zaświeci się na czerwono lampka kontrolna ciśnienia oleju w silniku?",
+      "options": [
+        "Zatrzymać pojazd i wyłączyć silnik.",
+        "Zwolnić.",
+        "Zwiększyć obroty silnika."
+      ],
+      "answer": 0,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11513",
+      "question": "Co należy zrobić, gdy u nieprzytomnego poszkodowanego w wypadku drogowym stwierdzisz brak oddechu?",
+      "options": [
+        "W obawie o ewentualny uraz kręgosłupa pozostawić rannego w pojeździe do przyjazdu ratownictwa medycznego.",
+        "Wydostać rannego z rozbitego pojazdu i przystąpić do resuscytacji.",
+        "Pozostawić rannego w pojeździe i przykryć go kocem termoizolacyjnym, czekając na przybycie ratownictwa medycznego."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11519",
+      "question": "Jakiej wartości nie może przekraczać rzeczywista masa całkowita przyczepy ciągniętej przez samochód ciężarowy o dopuszczalnej masie całkowitej przekraczającej 3,5 t?",
+      "options": [
+        "Masy własnej tego samochodu.",
+        "Rzeczywistej masy całkowitej tego samochodu.",
+        "Rzeczywistej masy całkowitej tego samochodu powiększonej o 40%."
+      ],
+      "answer": 2,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11520",
+      "question": "Czy przejazd zespołu pojazdów składającego się z samochodu ciężarowego i dwóch przyczep wymaga zezwolenia?",
+      "options": [
+        "Nie, nie wymaga zezwolenia, niezależnie od przewożonego ładunku.",
+        "Nie, nie wymaga zezwolenia, jeżeli w przyczepach nie jest przewożony ładunek.",
+        "Tak wymaga zezwolenia."
+      ],
+      "answer": 2,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11521",
+      "question": "W jaki sposób dwukrotne zwiększenie prędkości samochodu ciężarowego wpływa na długość jego drogi hamowania?",
+      "options": [
+        "Zwiększa dwukrotnie długość drogi hamowania.",
+        "Zwiększa czterokrotnie długość drogi hamowania.",
+        "Nie powoduje zmiany długości drogi hamowania."
+      ],
+      "answer": 1,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11524",
+      "question": "Czy fakt, że jedziesz we mgle, ma wpływ na długość drogi hamowania?",
+      "options": [
+        "Tak, może się ona zwiększyć ze względu na zawilgocenie jezdni.",
+        "Tak, może się ona zmniejszyć ze względu na zwiększoną przyczepność opony do nawierzchni jezdni.",
+        "Nie, nie zwiększa się ani nie zmniejsza, bo mgła i wilgotność nie ma na nią wpływu."
+      ],
+      "answer": 0,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11526",
+      "question": "Jak należy trzymać kierownicę podczas jazdy samochodem ciężarowym na wprost?",
+      "options": [
+        "Obiema rękami można trzymać kierownicę w dowolnych jej miejscach.",
+        "Lewa ręka trzyma kierownicę między godziną 9 i 10, a prawa spoczywa na dowolnym miejscu na kierownicy.",
+        "Lewa ręka trzyma kierownicę między godziną 9 i 10, a prawa - między godziną 2 i 3."
+      ],
+      "answer": 2,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11527",
+      "question": "Która z wymienionych technik jazdy jest najlepsza przy zjeżdżaniu ze wzniesienia załadowanym samochodem ciężarowym?",
+      "options": [
+        "Zjeżdżanie na odpowiednio dobranym biegu i z użyciem retardera.",
+        "Zjeżdżanie na możliwie najwyższym biegu i korygowanie prędkości wyłącznie hamulcem zasadniczym.",
+        "Zjeżdżanie na biegu neutralnym i korygowanie prędkości hamulcem zasadniczym."
+      ],
+      "answer": 0,
+      "categories": "C,C1"
+    },
+    {
+      "id": "11528",
+      "question": "Co grozi kierowcy, który samochodem ciężarowym przewozi o trzy osoby więcej od liczby miejsc wpisanej w dowodzie rejestracyjnym pojazdu?",
+      "options": [
+        "Zatrzymanie prawa jazdy na okres 3 miesięcy.",
+        "Zatrzymanie prawa jazdy na okres 3 miesięcy i kontrolne sprawdzenie kwalifikacji.",
+        "Zatrzymanie prawa jazdy na okres 6 miesięcy."
+      ],
+      "answer": 0,
+      "categories": "B,C"
+    },
+    {
+      "id": "12478",
+      "question": "Co grozi kierowcy autobusu, z wyłączeniem autobusu publicznego transportu zbiorowego w gminach z przewidzianymi miejscami stojącymi, za przewóz więcej niż pięciu osób od liczby miejsc wpisanej w dowodzie rejestracyjnym pojazdu?",
+      "options": [
+        "Zatrzymanie prawa jazdy na okres 3 miesięcy.",
+        "Kontrolne sprawdzenie kwalifikacji.",
+        "Mandat karny w wysokości 500 zł i 10 punktów karnych."
+      ],
+      "answer": 0,
+      "categories": "D"
+    },
+    {
+      "id": "13040",
+      "question": "Czy konstrukcja motoroweru powinna ograniczać jego prędkość jazdy?",
+      "options": [
+        "Nie",
+        "Tak, do 40 km/h",
+        "Tak, do 45 km/h."
+      ],
+      "answer": 2,
+      "categories": "AM"
+    },
+    {
+      "id": "13050",
+      "question": "Z jaką maksymalną prędkością wolno poruszać się w obszarze zabudowanym, gdy czterokołowcem lekkim przewozisz pięcioletnie dziecko?",
+      "options": [
+        "45 km/h.",
+        "40 km/h.",
+        "50 km/h."
+      ],
+      "answer": 1,
+      "categories": "AM"
+    },
+    {
+      "id": "13053",
+      "question": "Jakie urządzenia wspomagania kierowcy ułatwiają właściwe utrzymanie odstępu od pojazdu poprzedzającego?",
+      "options": [
+        "Tempomat adaptacyjny (aktywny).",
+        "Asystent pasa ruchu.",
+        "Elektroniczny układ stabilizacji toru jazdy."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "13054",
+      "question": "Jaka jest dopuszczalna prędkość pojazdu z urządzeniem wystającym do przodu więcej niż 1,5 m od siedzenia dla kierującego?",
+      "options": [
+        "40 km/h na obszarze zabudowanym.",
+        "60 km/h poza obszarem zabudowanym.",
+        "30 km/h bez względu na obszar w jakim się porusza."
+      ],
+      "answer": 1,
+      "categories": "B"
+    },
+    {
+      "id": "13057",
+      "question": "Jaka jest wymagana minimalna odległość między zorganizowanymi kolumnami motocykli poruszającymi się autostradą?",
+      "options": [
+        "200 m.",
+        "Równa połowie prędkości w km/h wyrażonej w metrach pierwszego motocyklisty na czele drugiej kolumny.",
+        "500 m."
+      ],
+      "answer": 2,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "13058",
+      "question": "Z jaką prędkością wolno poruszać się po autostradzie kierując samochodem osobowym?",
+      "options": [
+        "Zapewniającą panowanie nad pojazdem z uwzględnieniem warunków, w jakich ruch się odbywa, nie wyższą niż 140 km/h.",
+        "Uwzględniającą warunki atmosferyczne, w jakich ruch się odbywa / śnieżyca, ulewa itp./, nie mniejszą niż 40 km/h.",
+        "Dowolną zapewniającą panowanie nad pojazdem."
+      ],
+      "answer": 0,
+      "categories": "B"
+    },
+    {
+      "id": "13059",
+      "question": "Jaka jest maksymalna dopuszczalna prędkość autobusu na autostradzie?",
+      "options": [
+        "100 km/h, jeżeli spełnia dodatkowe warunki techniczne określone w przepisach.",
+        "80 km/h każdego autobusu.",
+        "70 km/h, jeżeli ciągnie przyczepę."
+      ],
+      "answer": 0,
+      "categories": "D,D1"
+    },
+    {
+      "id": "13064",
+      "question": "Jaka jest dopuszczalna prędkość czterokołowca na obszarze zabudowanym?",
+      "options": [
+        "50 km/h bez względu na jego dopuszczalną masę całkowitą.",
+        "40 km/h, jeżeli jego dopuszczalna masa całkowita przekracza 3,5 t.",
+        "20 km/h."
+      ],
+      "answer": 0,
+      "categories": "B,B1"
+    },
+    {
+      "id": "13088",
+      "question": "Z jaką maksymalną dopuszczalną prędkością możesz holować inny pojazd?",
+      "options": [
+        "50 km/h w obszarze zabudowanym.",
+        "60 km/h poza obszarem zabudowanym.",
+        "80 km/h na drodze dwujezdniowej o co najmniej dwóch pasach przeznaczonych dla każdego kierunku ruchu."
+      ],
+      "answer": 1,
+      "categories": "B,B1"
+    },
+    {
+      "id": "13402",
+      "question": "Widząc osobę z białą laską przechodzącą przez jezdnię należy:",
+      "options": [
+        "zatrzymać pojazd w celu umożliwienia jej przejścia",
+        "użyć sygnału dźwiękowego, jeśli przechodzi poza wyznaczonym przejściem dla pieszych",
+        "w każdym przypadku zmienić bieg na wyższy"
+      ],
+      "answer": 0,
+      "categories": "B,C,D,B1,C1,D1"
+    },
+    {
+      "id": "13560",
+      "question": "Czy każdy kierujący pojazdem ma obowiązek jechać z prędkością zapewniającą panowanie nad pojazdem ?",
+      "options": [
+        "Tak, zawsze obowiązek dotyczy wszystkich kierujących pojazdami.",
+        "Nie, obowiązek dotyczy jedynie kierowców pojazdów samochodowych.",
+        "Tak, ale wyłącznie w obszarze zabudowanym."
+      ],
+      "answer": 0,
+      "categories": "A,B,C,D,T,AM,PT,A1,A2,B1,C1,D1"
+    },
+    {
+      "id": "13562",
+      "question": "Czy prędkość pojazdu powinna być dostosowana do widoczności drogi ?",
+      "options": [
+        "Tak, jadę na tyle szybko na ile mam zapewnioną pełną widoczność drogi - niezależnie od limitów prędkości.",
+        "Tak, wskaźnikiem jest możliwość obserwacji znaków drogowych.",
+        "Tak ,ale wyłącznie po zmroku."
+      ],
+      "answer": 0,
+      "categories": "A,B,C,D,T,AM,PT,A1,A2,B1,C1,D1"
+    },
+    {
+      "id": "13569",
+      "question": "Jaki jest wpływ prędkości pojazdu na reakcję kierującego?",
+      "options": [
+        "Żaden. ",
+        "Im większa prędkość, tym szybsza reakcja.",
+        "Im większa prędkość, tym mniej czasu na reakcję."
+      ],
+      "answer": 2,
+      "categories": "A,B,C,D,T,AM,PT,A1,A2,B1,C1,D1"
+    },
+    {
+      "id": "13684",
+      "question": "Które z poniższych zachowań świadczy o rozważnym i bezpiecznym prowadzeniu pojazdu?",
+      "options": [
+        "Utrzymywanie stałej maksymalnej dopuszczalnej prędkości niezależnie od zmieniających się  warunków drogowych.",
+        "Rozwijanie maksymalnych dopuszczalnych prędkości i maksymalnych możliwych przyspieszeń, wtedy jest większa szansa na uniknięcie zagrożenia bezpieczeństwa.",
+        "Zwiększenie uwagi przy zbliżaniu się do przejścia dla pieszych. "
+      ],
+      "answer": 2,
+      "categories": "A,B,C,D,T,AM,PT,A1,A2,B1,C1,D1"
+    },
+    {
+      "id": "14059",
+      "question": "W jakim terminie należy złożyć wniosek o rejestrację motocykla w starostwie po jego nabyciu na terytorium Rzeczypospolitej?",
+      "options": [
+        "Do 14 dni.",
+        "Do 30 dni.",
+        "Do 60 dni."
+      ],
+      "answer": 1,
+      "categories": "A,A1,A2"
+    },
+    {
+      "id": "14061",
+      "question": "Jeżeli osoba kierowała pojazdem silnikowym pomimo wydania decyzji administracyjnej o zatrzymaniu prawa jazdy i przedłużeniu okresu zatrzymania prawa jazdy do 6 miesięcy, starosta wydaje decyzję administracyjną o:",
+      "options": [
+        "Wydłużeniu okresu zatrzymania prawa jazdy o kolejne 6 miesięcy.",
+        "Wydłużeniu okresu zatrzymania prawa jazdy o kolejne 3 miesiące.",
+        "Cofnięciu uprawnień do kierowania pojazdami na okres 5 lat od dnia stwierdzenia tego zdarzenia."
+      ],
+      "answer": 2,
+      "categories": "D,D1"
+    },
+    {
+      "id": "14062",
+      "question": "Jaką decyzję podejmie starosta, jeśli zostałeś zatrzymany do kontroli kierując pojazdem pomimo przedłużeniu okresu zatrzymania prawa jazdy do sześciu miesięcy za przekroczenie prędkości o więcej niż 50 km/h w obszarze  zabudowanym?",
+      "options": [
+        "Przedłuży okres zatrzymania o kolejne trzy miesiące.",
+        "Przedłuży okres zatrzymania o kolejne cztery miesiące.",
+        "Cofnie uprawnienie do kierowania pojazdami na okres 5 lat od dnia stwierdzenia tego zdarzenia."
+      ],
+      "answer": 2,
+      "categories": "A,B,C,D,A1,A2,B1,C1,D1"
+    }
+  ],
+  "dev": [
+    {
+      "id": "4367",
+      "question": "Który z wymienionych czynników może ograniczyć pole widzenia kierującego samochodem osobowym?",
+      "options": [
+        "Używanie klimatyzacji podczas opadów deszczu.",
+        "Lusterko wewnętrzne.",
+        "Oślepiające światła innych pojazdów jadących z przeciwka."
+      ],
+      "answer": 2,
+      "points": 2,
+      "english_question": "Which of the following factors may restrict the field of view of a passenger car's driver?",
+      "english_options": [
+        "Using air conditioning during the rain.",
+        "Internal mirror.",
+        "Blinding lights of other oncoming vehicles."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "4368",
+      "question": "Który z wymienionych czynników może ograniczyć pole widzenia kierującego samochodem osobowym podczas jazdy nocą?",
+      "options": [
+        "Zmniejszona prędkość.",
+        "Uszkodzony system ABS.",
+        "Niewłaściwie ustawione światła."
+      ],
+      "answer": 2,
+      "points": 2,
+      "english_question": "Which of the following factors may restrict the field of view of a passenger car's driver at night?",
+      "english_options": [
+        "Decreased speed.",
+        "Damaged ABS.",
+        "Improperly adjusted lights."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "4369",
+      "question": "Który z wymienionych czynników ma wpływ na ograniczenie pola widzenia kierującego samochodem osobowym?",
+      "options": [
+        "Mruganie oczami w czasie przerwy w jeździe.",
+        "15 minut odpoczynku po dwugodzinnej jeździe.",
+        "Kierowanie pojazdem w stanie nietrzeźwości."
+      ],
+      "answer": 2,
+      "points": 2,
+      "english_question": "Which of the following factors may restrict the field of view of a passenger car's driver?",
+      "english_options": [
+        "Blinking his eyes during a brake in driving.",
+        "15 minutes of rest after two hours of driving.",
+        "Driving when being intoxicated."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "4370",
+      "question": "Który z wymienionych czynników może powodować ograniczenie pola widzenia kierującego samochodem osobowym?",
+      "options": [
+        "Zbyt nisko lub zbyt wysoko ustawiony fotel kierującego.",
+        "15 minut odpoczynku po dwugodzinnej jeździe.",
+        "Okulary przeciwsłoneczne używane w słoneczny dzień."
+      ],
+      "answer": 0,
+      "points": 2,
+      "english_question": "Which of the following factors may restrict the field of view of a passenger car's driver?",
+      "english_options": [
+        "The driver's seat mounted too low.",
+        "15 minutes of rest after two hours of driving.",
+        "Sunglasses used on a sunny day."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "1877",
+      "question": "W jaki sposób wolno Ci przewozić ładunek w przyczepie ciągniętej przez samochód osobowy?",
+      "options": [
+        "Ładunek może zasłaniać niektóre światła przyczepy.",
+        "Ładunek nie może naruszać stateczności pojazdu.",
+        "Ładunek nie musi być zabezpieczony przed zmianą położenia."
+      ],
+      "answer": 1,
+      "points": 2,
+      "english_question": "How can you carry a load on a trailer pulled by a passenger car?",
+      "english_options": [
+        "The load may cover some lights of the trailer.",
+        "The load must not disturb the steerability of the vehicle.",
+        "The load does not have to be secured against the change of position."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "1878",
+      "question": "W jaki sposób przewieziesz ładunek w przyczepie ciągniętej przez samochód osobowy?",
+      "options": [
+        "Zabezpieczę go przed przemieszczaniem.",
+        "Umieszczę ładunek luźno na przyczepie.",
+        "Nie zabezpieczę ładunku przed przemieszczaniem, jeżeli będę jechał wolno."
+      ],
+      "answer": 0,
+      "points": 2,
+      "english_question": "How will you carry a load on a trailer pulled by a passenger car?",
+      "english_options": [
+        "I will secure it against moving around.",
+        "I will place the load loosely on a trailer.",
+        "I will not secure the load against moving around if I drive slowly."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "1879",
+      "question": "Jak przewieziesz ładunek sypki w przyczepie ciągniętej przez samochód osobowy?",
+      "options": [
+        "Niezasłonięty - umieszczony poniżej wysokości burt.",
+        "Nie przekraczajac prędkości 30 km/h.",
+        "Zasłonięty w szczelnej skrzyni ładunkowej."
+      ],
+      "answer": 2,
+      "points": 2,
+      "english_question": "How will you carry a loose load on a trailer pulled by a passenger car?",
+      "english_options": [
+        "Not covered - placed below the height of the side boards.",
+        "Not exceeding the speed of 30 km/h.",
+        "Covered in a tight load-carrying platform."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "1880",
+      "question": "Jak powinieneś zabezpieczyć urządzenie, którym zamocowałeś ładunek w przyczepie ciągniętej przez samochód osobowy?",
+      "options": [
+        "Tak, żeby mocowanie nie rozluźniło się.",
+        "Może swobodnie zwisać z przyczepy.",
+        "Nie musi być zabezpieczone przed spadnięciem podczas jazdy."
+      ],
+      "answer": 0,
+      "points": 2,
+      "english_question": "How should the device used for fixing the load on a trailer pulled by a passenger car be secured?",
+      "english_options": [
+        "It should be secured against loosening.",
+        "It may hang down freely.",
+        "It does not have to be secured against falling down during driving."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "1883",
+      "question": "W jaki sposób umieścisz ładunek na przyczepie samochodu osobowego?",
+      "options": [
+        "Tak, aby nie zasłaniał świateł przyczepy.",
+        "Umieszczę go po jednej stronie przyczepy.",
+        "Umieszczę go zawsze w tylnej części przyczepy."
+      ],
+      "answer": 0,
+      "points": 2,
+      "english_question": "How will you place a load on a trailer of a passenger car?",
+      "english_options": [
+        "So that it does not cover the lights of the trailer.",
+        "I will put it only on one side of the trailer.",
+        "I will always place it at the rear of the trailer."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "7518",
+      "question": "Co należy sprawdzić, gdy lampka kontrolna kierunkowskazów zaczęła migać dużo szybciej?",
+      "options": [
+        "Napięcie akumulatora.",
+        "Sprawność bezpieczników.",
+        "Sprawność żarówek kierunkowskazów."
+      ],
+      "answer": 2,
+      "points": 1,
+      "english_question": "What must be checked when the control light of indicators began to blink much faster?",
+      "english_options": [
+        "The battery voltage.",
+        "The condition of fuses.",
+        "The condition of direction indicator bulbs."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "13570",
+      "question": "Czy prędkość przy jakiej doszło do wypadku ma wpływ na jego skutki ?",
+      "options": [
+        "Nie.",
+        "Tak, ale tylko przy czołowym zderzeniu.",
+        "Tak."
+      ],
+      "answer": 2,
+      "points": 3,
+      "english_question": "Does the speed at which the accident occurred have an impact on its consequences ?",
+      "english_options": [
+        "No.",
+        "Yes, but only in the case of a head-on collision.",
+        "Yes."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "11028",
+      "question": "Chcesz przewieźć dziecko na przednim siedzeniu pojazdu samochodowego wyposażonego w przednią poduszkę dla pasażera, która jest aktywna. W jaki sposób możesz to zrobić?",
+      "options": [
+        "W foteliku bezpieczeństwa tyłem do kierunku jazdy.",
+        "W foteliku bezpieczeństwa przodem do kierunku jazdy.",
+        "W innym urządzeniu przytrzymującym dziecko tyłem do kierunku jazdy."
+      ],
+      "answer": 1,
+      "points": 2,
+      "english_question": "You want to transport a child in the front seat of a vehicle fitted with a front passenger airbag that is active. How would you proceed?",
+      "english_options": [
+        "Carry the child in a rearward-facing safety seat.",
+        "Carry the child in a forward-facing safety seat.",
+        "Carry the child in another rearward-facing child restraint system."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "10876",
+      "question": "Czym powinieneś się kierować wybierając fotelik lub urządzenie przytrzymujące służące do przewozu dziecka?",
+      "options": [
+        "Estetyką.",
+        "Właściwymi warunkami technicznymi dotyczącymi tych urządzeń.",
+        "Przede wszystkim wygodą."
+      ],
+      "answer": 1,
+      "points": 2,
+      "english_question": "What should you consider when choosing a safety seat or child restraint system for transporting a child?",
+      "english_options": [
+        "Aesthetics",
+        "The appropriate technical specifications for these devices.",
+        "First and foremost, convenience."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "1905",
+      "question": "Który z wymienionych sposobów przewożenia gaśnicy w samochodzie osobowym jest właściwy?",
+      "options": [
+        "Gaśnica umieszczona jest na tylnej półce.",
+        "Gaśnica umieszczona jest luźno między siedzeniami.",
+        "Gaśnica zamocowana pod fotelem pasażera."
+      ],
+      "answer": 2,
+      "points": 2,
+      "english_question": "Which of the listed ways of carrying the extinguisher in a passenger car is proper?",
+      "english_options": [
+        "The extinguisher is placed on the rear shelf.",
+        "The extinguisher is placed loosely between the seats.",
+        "The extinguisher is mounted under the passenger seat."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "2538",
+      "question": "Która z wymienionych czynności może zwiększyć bezpieczeństwo podczas jazdy po zaśnieżonej drodze?",
+      "options": [
+        "Hamowanie wyłącznie przy użyciu hamulca ręcznego.",
+        "Stosowanie opon zimowych.",
+        "Zdecydowane przyspieszanie."
+      ],
+      "answer": 1,
+      "points": 3,
+      "english_question": "Which of the following actions may contribute to an increase in safety level while driving on the road covered with snow?",
+      "english_options": [
+        "Braking only with a hand brake.",
+        "Using winter tires.",
+        "Decided speeding up."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "14064",
+      "question": "Policjant zatrzyma wydane w kraju prawo jazdy za pokwitowaniem, w przypadku ujawnienia czynu polegającego na przewożeniu osób samochodem osobowym, w liczbie przekraczającej liczbę miejsc określoną w dowodzie rejestracyjnym o:",
+      "options": [
+        "1 osobę.",
+        "2 osoby.",
+        "3 osoby."
+      ],
+      "answer": 2,
+      "points": 2,
+      "english_question": "A Police officer will retain a driving licence issued in the country against a receipt if proven that the driver is transporting persons in a passenger car in excess of the number of seats specified in the registration document by:",
+      "english_options": [
+        "1 person.",
+        "2 persons.",
+        "3 persons."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "4364",
+      "question": "Jaki wpływ ma prędkość jazdy na kąt widzenia kierującego samochodem osobowym?",
+      "options": [
+        "Wraz ze wzrostem prędkości kąt widzenia zawęża się.",
+        "Wraz ze wzrostem prędkości kąt widzenia rozszerza się.",
+        "Nie ma żadnego wpływu."
+      ],
+      "answer": 0,
+      "points": 2,
+      "english_question": "What is the influence of the speed of driving on the field of view of a passenger car driver?",
+      "english_options": [
+        "When the speed increases the field of view narrows down.",
+        "When the speed increases the field of view expands.",
+        "It has no influence."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "4371",
+      "question": "Jaki wpływ ma prędkość jazdy na kąt widzenia kierującego samochodem osobowym?",
+      "options": [
+        "Wraz ze wzrostem prędkości kąt widzenia jest większy.",
+        "Wraz ze wzrostem prędkości kąt widzenia jest mniejszy.",
+        "Nie ma żadnego wpływu."
+      ],
+      "answer": 1,
+      "points": 2,
+      "english_question": "What is the influence of the speed of driving on the angle of view of a passenger car's driver?",
+      "english_options": [
+        "The higher the speed the larger the angle of view.",
+        "The higher the speed the smaller the angle of view.",
+        "It has no influence."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "10109",
+      "question": "Czy podczas holowania motocykla powinny być sprawne w nim dwa układy hamulcowe?",
+      "options": [
+        "Tak, ale tylko przy prędkości powyżej 20 km/h.",
+        "Tak.",
+        "Nie, wystarczy jeden."
+      ],
+      "answer": 1,
+      "points": 2,
+      "english_question": "When towing a motocycle, should the two braking systems be in good working order?",
+      "english_options": [
+        "Yes, but only at a speed above 20 km/h.",
+        "Yes.",
+        "No, one is enough."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "13052",
+      "question": "Na jakiej drodze obowiązuje kierującego zachowanie ściśle określonego minimalnego odstępu od pojazdu poprzedzającego?",
+      "options": [
+        "Na drodze ekspresowej.",
+        "Na drodze dwujezdniowej co najmniej o dwóch pasach przeznaczonych dla każdego kierunku ruchu.",
+        "Na drodze jednojezdniowej poza obszarem zabudowanym."
+      ],
+      "answer": 0,
+      "points": 3,
+      "english_question": "On which road does the driver have to keep a strict minimum distance from the preceding vehicle?",
+      "english_options": [
+        "On the expressway.",
+        "On a dual carriageway road with at least two lanes dedicated to each direction of traffic.",
+        "On a single carriageway road outside a built-up area."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "7708",
+      "question": "Który bieg jest właściwy do rozpoczęcia jazdy samochodem osobowym na suchej nawierzchni?",
+      "options": [
+        "Drugi.",
+        "Pierwszy.",
+        "Ten, na którym jazda została zakończona."
+      ],
+      "answer": 1,
+      "points": 2,
+      "english_question": "Which gear is appropriate to start driving a passenger car on a dry surface?",
+      "english_options": [
+        "Second.",
+        "First.",
+        "The one in which the driving stopped."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "14063",
+      "question": "Jaką decyzję podejmie starosta, jeśli zostałeś zatrzymany do kontroli kierując pojazdem pomimo przedłużenia okresu zatrzymania prawa jazdy do sześciu miesięcy za przewożenie osób w liczbie przekraczającej o dwa liczbę miejsc określoną w dowodzie rejestracyjnym samochodu osobowego?",
+      "options": [
+        "Przedłuży okres zatrzymania o kolejne trzy miesiące.",
+        "Przedłuży okres zatrzymania o kolejne cztery miesiące.",
+        "Cofnie uprawnienie do kierowania pojazdami na okres 5 lat od dnia stwierdzenia tego zdarzenia."
+      ],
+      "answer": 2,
+      "points": 2,
+      "english_question": "What decision will the starost make if you are stopped for inspection while driving a vehicle despite the extension of the driving licence suspension period to six months for carrying, in a passenger car, a number of persons exceeding by two the number of seats specified in the vehicle registration certificate?",
+      "english_options": [
+        "The starost will extend the retention period by a further three months.",
+        "the starost will extend the retention period by a further four months.",
+        "Revoke the driving entitlement for a period of 5 years from the date of establishment of that fact."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "2025",
+      "question": "Jaki jest cel stosowania układu ASR w samochodzie osobowym?",
+      "options": [
+        "Przeciwdziałanie poślizgowi podczas hamowania silnikiem.",
+        "Zapobieganie blokowaniu kół hamowanych.",
+        "Przeciwdziałanie poślizgowi kół podczas ruszania."
+      ],
+      "answer": 2,
+      "points": 2,
+      "english_question": "What is the purpose of using the ASR system in a passenger car?",
+      "english_options": [
+        "Preventing skidding while engine braking.",
+        "Preventing blocking of the braked wheels.",
+        "Preventing skidding while moving off."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "2026",
+      "question": "Jaki jest cel stosowania układu ESP w samochodzie osobowym?",
+      "options": [
+        "Przeciwdziałanie poślizgowi kół podczas hamowania silnikiem.",
+        "Zapobieganie blokowaniu kół hamowanych.",
+        "Stabilizowanie ruchu pojazdu podczas jazdy po łuku drogi."
+      ],
+      "answer": 2,
+      "points": 2,
+      "english_question": "What is the purpose of using the ESP system in a passenger car?",
+      "english_options": [
+        "Preventing skidding of the wheels while engine braking.",
+        "Preventing blocking of the braked wheels.",
+        "Stabilizing the movement of the vehicle when driving along the curve."
+      ],
+      "split": "dev"
+    },
+    {
+      "id": "4495",
+      "question": "Jaki jest cel stosowania systemu ABS w samochodzie osobowym?",
+      "options": [
+        "Zapobieganie utracie stabilności i zapewnienie kierowalności pojazdu podczas jego hamowania.",
+        "Zapobieganie przed wpadnięciem pojazdu w poślizg - niezależnie od jego prędkości i warunków na drodze.",
+        "Ułatwianie pokonywania zakrętów."
+      ],
+      "answer": 0,
+      "points": 2,
+      "english_question": "What is the purpose of using the ABS system in a passenger car?",
+      "english_options": [
+        "Preventing losing stability and ensuring steerability of the vehicle while braking.",
+        "Preventing skidding - regardless of its speed and road conditions.",
+        "Facilitating negotiating the bends."
+      ],
+      "split": "dev"
+    }
+  ],
+  "test": [
+    {
+      "id": "10840",
+      "question": "W jaki sposób przewozisz dziecko o wzroście mniejszym niż 150 cm na przednim siedzeniu samochodu osobowego, który ma pięć miejsc siedzących?",
+      "options": [
+        " Na kolanach pasażera.",
+        " W foteliku bezpieczeństwa lub innym urządzeniu przytrzymującym dziecko.",
+        "W foteliku bezpieczeństwa tyłem do kierunku jazdy, jeżeli pojazd ma aktywną poduszkę powietrzną dla pasażera."
+      ],
+      "answer": 1,
+      "points": 2,
+      "english_question": "How do you transport a child less than 150 cm tall in the front seat of a five-seater passenger car?",
+      "english_options": [
+        "On a passenger's lap.",
+        "In a safety seat or other child restraint system.",
+        "In a rear-facing safety seat if the vehicle has an active passenger airbag."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "10869",
+      "question": "W jaki sposób przewozisz dziecko o wzroście mniejszym niż 150 cm samochodem osobowym, w którym jest pięć miejsc siedzących?",
+      "options": [
+        "Na przednim siedzeniu bez fotelika lub innego urządzenia przytrzymującego dziecko.",
+        "Na przednim siedzeniu w innym niż fotelik urządzeniu przytrzymującym dziecko.",
+        "Na tylnym siedzeniu bez zapiętych pasów bezpieczeństwa."
+      ],
+      "answer": 1,
+      "points": 2,
+      "english_question": "How do you transport a child less than 150 cm tall in a passenger car with five seating places?",
+      "english_options": [
+        "In the front seat without a safety seat or other child restraint system.",
+        "In the front seat in a child restraint other than a safety seat.",
+        "In the rear seat without the seat belt fastened."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "11001",
+      "question": "Który z wymienionych dokumentów kierujący pojazdem zarejestrowanym na terytorium RP musi mieć przy sobie i okazywać na żądanie uprawnionego organu?",
+      "options": [
+        "Potwierdzenie opłacenia obowiązkowego ubezpieczenia odpowiedzialności cywilnej właściciela pojazdu.",
+        "Dowód rejestracyjny.",
+        "Jeśli kierujący ma uprawnienia do kierowania ograniczone do pojazdu wyposażonego w blokadę alkoholową - zaświadczenie o pozytywnym wyniku badania technicznego w tym zakresie."
+      ],
+      "answer": 2,
+      "points": 2,
+      "english_question": "Which of these documents must the driver of a vehicle registered in the territory of the Republic of Poland carry and present at the request of an authorised body?",
+      "english_options": [
+        "Which of these documents must the driver of a vehicle registered in the territory of the Republic of Poland carry and present at the request of an authorised body?",
+        "Proof of payment of the compulsory third-party liability insurance of the vehicle owner.",
+        "If the driver has a driving licence limited to a vehicle fitted with an alcohol interlock, a certificate of satisfactory technical examination in this regard."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "10931",
+      "question": "Ile czasu jest ważne pokwitowanie zatrzymania przez policjanta prawa jazdy za przewożenie osób w liczbie przekraczającej o dwa liczbę miejsc określoną w dowodzie rejestracyjnym samochodu osobowego?",
+      "options": [
+        "12 godzin.",
+        "24 godziny.",
+        "72 godziny."
+      ],
+      "answer": 1,
+      "points": 2,
+      "english_question": "What is the validity period of a driving licence retention receipt issued by a police officer for transporting two passengers in excess of the number of seats specified in the passenger car registration document?",
+      "english_options": [
+        "12 hours.",
+        "24 hours.",
+        "72 hours."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "10898",
+      "question": "Za które naruszenie przepisów ruchu drogowego policjant zatrzyma prawo jazdy?",
+      "options": [
+        "Za wyprzedzanie z naruszeniem pojedynczej linii ciągłej.",
+        "Za przewożenie osób w liczbie przekraczającej o dwa liczbę miejsc określoną w dowodzie rejestracyjnym samochodu osobowego.",
+        "Za wymijanie na przejeździe kolejowym."
+      ],
+      "answer": 1,
+      "points": 2,
+      "english_question": "For which road traffic violation will a police officer withhold a driving licence?",
+      "english_options": [
+        "For overtaking in violation of the single continuous line.",
+        "For transporting two passengers in excess of the number of seats specified in the passenger car registration document.",
+        "For overtaking at a railway crossing."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "10899",
+      "question": "Za które naruszenie przepisów ruchu drogowego policjant zatrzyma prawo jazdy?",
+      "options": [
+        "Za wyprzedzanie przed przejściem dla pieszych, gdzie ruch jest kierowany.",
+        "Za przewożenie osób w liczbie przekraczającej o dwa liczbę miejsc określoną w pozwoleniu czasowym samochodu osobowego.",
+        "Za wymijanie na przejeździe dla rowerzystów."
+      ],
+      "answer": 1,
+      "points": 2,
+      "english_question": "For which road traffic violation will a police officer retain a driving licence?",
+      "english_options": [
+        "For overtaking before the pedestrian crossing where traffic is directed.",
+        "For transporting two passengers in excess of the number of seats specified in the temporary permit of a passenger car.",
+        "For overtaking at crossings for cyclists."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "4562",
+      "question": "Kto podlega odpowiedzialności karnej w przypadku nieudzielenia pomocy poszkodowanemu w wypadku drogowym z bezpośrednim zagrożeniu utraty zdrowia i życia?",
+      "options": [
+        "Każda osoba, która mogła udzielić pomocy bez narażenia siebie lub innej osoby na niebezpieczeństwo utraty życia lub ciężkiego uszczerbku zdrowia.",
+        "Tylko lekarz.",
+        "Tylko uczestnik wypadku drogowego."
+      ],
+      "answer": 0,
+      "points": 3,
+      "english_question": "In the case of not giving first aid to the road accident casualty who is in life endangerment situation the criminal responsibility is on:",
+      "english_options": [
+        "any person who could have given them first aid without endangering their own or others' safety.",
+        "only on a doctor.",
+        "only on a road accident participant."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "6442",
+      "question": "Do czego służą światła pozycyjne pojazdu?",
+      "options": [
+        "Do oświetlania drogi.",
+        "Do określania pozycji pojazdu.",
+        "Do sygnalizowania zmiany pasa ruchu."
+      ],
+      "answer": 1,
+      "points": 1,
+      "english_question": "What is the purpose of the position lights of a vehicle?",
+      "english_options": [
+        "To light the road.",
+        "To indicate the position of the vehicle.",
+        "To signal the fact of changing lanes."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "7445",
+      "question": "Której z tych czynności nie masz prawa wykonywać samochodem osobowym?",
+      "options": [
+        "Ciągnąć przyczepy lekkiej.",
+        "Holować innego samochodu osobowego na obszarze zabudowanym.",
+        "Ciągnąć dzieci na sankach."
+      ],
+      "answer": 2,
+      "points": 2,
+      "english_question": "To which of the following activities aren't you allowed to use a passenger car?",
+      "english_options": [
+        "To pull a light trailer.",
+        "To tow another passenger car in the built-up area.",
+        "To pull children on a sleigh."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "7454",
+      "question": "Na której z tych dróg nie masz prawa holować samochodem osobowym innego pojazdu?",
+      "options": [
+        "Na autostradzie.",
+        "Na drodze ekspresowej.",
+        "W strefie zamieszkania."
+      ],
+      "answer": 0,
+      "points": 2,
+      "english_question": "You must not haul another vehicle with your passenger car:",
+      "english_options": [
+        "on a motorway.",
+        "on an expressway.",
+        "in a home zone."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "6463",
+      "question": "Jadąc zimą spotykasz na poboczu sinego, półprzytomnego, wyziębionego człowieka. Jak należy mu pomóc?",
+      "options": [
+        "Podać mu gorący napój.",
+        "Podać mu alkohol.",
+        "Wezwać zespół ratownictwa medycznego, zabrać go do samochodu, okryć i powoli ogrzewać."
+      ],
+      "answer": 2,
+      "points": 3,
+      "english_question": "While driving a car in wintertime and you see a blue, half-conscious, freezing person on the shoulder, how should you help him?",
+      "english_options": [
+        "Give him a hot drink.",
+        "Give him alcohol.",
+        "Take him to the car, cover him and have him warm up slowly."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "10829",
+      "question": "Dokumentem stwierdzającym dopuszczenie pojazdu samochodowego do ruchu jest:",
+      "options": [
+        "dowód rejestracyjny.",
+        "karta pojazdu.",
+        "nalepka kontrolna na przedniej szybie."
+      ],
+      "answer": 0,
+      "points": 2,
+      "english_question": "The document certifying that a vehicle is approved for traffic is:",
+      "english_options": [
+        "registration document.",
+        "vehicle history card.",
+        "inspection sticker on the windshield."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "10815",
+      "question": "Foteliki bezpieczeństwa dla dzieci oraz inne urządzenia przytrzymujące dla dzieci należy instalować w pojeździe:",
+      "options": [
+        "w sposób bezpieczny i estetyczny.",
+        "w sposób umożliwiający łatwy dostęp do dziecka.",
+        "zgodnie z zaleceniami producenta urządzenia."
+      ],
+      "answer": 2,
+      "points": 2,
+      "english_question": "Child safety seats and other child restraints must be installed in the vehicle:",
+      "english_options": [
+        "in a safe and aesthetic manner.",
+        "so as to allow easy access to the child.",
+        "according to the recommendations of the device manufacturer."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "3573",
+      "question": "Jesteś świadkiem potrącenia pieszego. Jak powinieneś się zachować?",
+      "options": [
+        "Nie podejmować działań, gdyż pomocy musi udzielić sprawca wypadku.",
+        "Wezwać pomoc drogową.",
+        "Zatrzymać się, wezwać pomoć medyczną i udzielić pierwszej pomocy poszkodowanemu."
+      ],
+      "answer": 2,
+      "points": 3,
+      "english_question": "You witness a pedestrian being run down. How should you behave?",
+      "english_options": [
+        "Not to take any action because the first aid must be given by the person who caused the accident.",
+        "Call the emergency road service.",
+        "Stop and give the first aid to the injured person."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "7515",
+      "question": "Czy wolno Ci kierować pojazdem, którego tablica rejestracyjna jest niewidoczna?",
+      "options": [
+        "Tak, bez żadnych ograniczeń.",
+        "Tak, gdy tablica jest przesłonięta przez wystający ładunek.",
+        "Nie, jest to zabronione."
+      ],
+      "answer": 2,
+      "points": 1,
+      "english_question": "Are you allowed to drive a vehicle with an invisible number plate?",
+      "english_options": [
+        "Yes, without any limitations.",
+        "Yes, if the plate is covered by a protruding load.",
+        "No, this is prohibited."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "9035",
+      "question": "Jaki wpływ na pole widzenia kierującego pojazdem ma prędkość jazdy?",
+      "options": [
+        "Wraz ze wzrostem prędkości zawęża się pole widzenia.",
+        "Wraz ze wzrostem prędkości rozszerza się pole widzenia.",
+        "Prędkość jazdy nie ma wpływu na pole widzenia kierującego."
+      ],
+      "answer": 0,
+      "points": 2,
+      "english_question": "What influence does driving speed have on the vehicle driver's field of vision?",
+      "english_options": [
+        "As speed increases, the field of view narrows",
+        "As speed increases, the field of view expand",
+        "Driving speed has no influence on the driver's field of vision"
+      ],
+      "split": "test"
+    },
+    {
+      "id": "10081",
+      "question": "Czy dopuszczalne jest holowanie za pomocą połączenia sztywnego pojazdu o niesprawnym układzie kierowniczym?",
+      "options": [
+        "Nie.",
+        "Tak, ale tylko w obszarze niezabudowanym.",
+        "Tak, ale tylko w obszarze zabudowanym."
+      ],
+      "answer": 0,
+      "points": 2,
+      "english_question": "Is it allowed to tow a vehicle using a rigid coupling if the vehicle has a faulty steering wheel system?",
+      "english_options": [
+        "No.",
+        "Yes, but only in an unbuilt area.",
+        "Yes, but only in a built-up area."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "13561",
+      "question": "Prędkość bezpieczna to prędkość :",
+      "options": [
+        "która zapewnia panowanie nad pojazdem. ",
+        "która jest równa dopuszczalnej prędkości na danym odcinku drogi. ",
+        "którą \"podpowiada\" nawigacja w Twoim pojeździe."
+      ],
+      "answer": 0,
+      "points": 2,
+      "english_question": "A safe driving speed is defined as one:",
+      "english_options": [
+        "that ensures optimal control of the vehicle.",
+        "that  complies with the posted speed limit for the specific section of roadway.",
+        "that  aligns with the \"suggested\" speed provided by your vehicle's navigation system."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "1864",
+      "question": "Jakiej kategorii prawo jazdy jest wymagane, gdy chcesz kierować czterokołowcem innym niż lekki?",
+      "options": [
+        "B1.",
+        "A.",
+        "AM."
+      ],
+      "answer": 0,
+      "points": 1,
+      "english_question": "What category driving license should you have when driving a four-wheeled vehicle other than a light one?",
+      "english_options": [
+        "B1.",
+        "A.",
+        "AM."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "7446",
+      "question": "Jaki odstęp od poprzedzającego pojazdu masz obowiązek zachować podczas zatrzymania w zatorze drogowym w tunelu?",
+      "options": [
+        "Nie mniejszy niż 3 metry.",
+        "Nie mniejszy niż 5 metrów.",
+        "Nie mniejszy niż 10 metrów."
+      ],
+      "answer": 1,
+      "points": 3,
+      "english_question": "What distance from the preceding car are you required to keep when stopping in a traffic jam in a tunnel?",
+      "english_options": [
+        "Not shorter than 3 metres.",
+        "Not shorter than 5 metres.",
+        "Not shorter than 10 metres."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "13382",
+      "question": "Po spełnieniu, którego z wymienionych warunków można przewozić samochodem osobowym, poza fotelikiem bezpieczeństwa lub innym urządzeniem przytrzymującym, dziecko mające mniej niż 150 cm wzrostu?",
+      "options": [
+        "Prędkość pojazdu nie przekroczy 40 km/h. ",
+        "Dziecko posiada zaświadczenie lekarskie o przeciwwskazaniu do przewożenia w foteliku lub innym urządzeniu.",
+        "Pojazd posiada dodatkowe oznakowanie, które wskazuje, że jest nim przewożone dziecko."
+      ],
+      "answer": 1,
+      "points": 2,
+      "english_question": "Which of the following conditions besides a safety seat or other restraint system must be met for a child less than 150 cm tall to be transported in a passenger car?",
+      "english_options": [
+        "The vehicle shall not exceed a speed of 40 km/h.",
+        "The child has a medical certificate stating that it should not be transported in a safety seat or other device.",
+        "The vehicle has an additional marking which indicates that a child is on board."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "10871",
+      "question": "W jaki sposób zainstalujesz w pojeździe fotelik bezpieczeństwa służący do przewozu dziecka?",
+      "options": [
+        "W sposób wygodny dla dziecka.",
+        "W sposób wygodny dla siebie.",
+        "Zgodnie z zaleceniami producenta urządzenia."
+      ],
+      "answer": 2,
+      "points": 2,
+      "english_question": "How do you install a child safety seat in your vehicle?",
+      "english_options": [
+        "In a way that is comfortable for the child.",
+        "In a way that is convenient for you.",
+        "As recommended by the device manufacturer."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "10822",
+      "question": "W przypadku gdy kierujący przekroczył dopuszczalną prędkość o więcej niż 50 km/h na obszarze zabudowanym, starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy na okres:",
+      "options": [
+        "1 miesiąca.",
+        "2 miesięcy.",
+        "3 miesięcy."
+      ],
+      "answer": 2,
+      "points": 2,
+      "english_question": "Where a driver has exceeded the speed limit by more than 50 km/h in a built-up area, the starost shall issue an administrative decision to withhold the driving licence for:",
+      "english_options": [
+        "1 month.",
+        "2 months.",
+        "3 months."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "4578",
+      "question": "Jesteś uczestnikiem lub świadkiem wypadku drogowego. Które z wymienionych informacji należy podać dzwoniąc pod numer alarmowy?",
+      "options": [
+        "Miejsce zdarzenia oraz liczbę i stan ofiar wypadku.",
+        "Tylko liczbę pojazdów biorących udział w wypadku.",
+        "Tylko liczbę ofiar wypadku."
+      ],
+      "answer": 0,
+      "points": 3,
+      "english_question": "You are a car accident participant. Which of the listed pieces of information should you give when calling the emergency number?",
+      "english_options": [
+        "The place of the accident, the number and the condition of casualties.",
+        "Only the number of vehicles taking part in the accident.",
+        "Only the number of casualties."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "7519",
+      "question": "Kiedy należy sprawdzać poziom oleju w silniku?",
+      "options": [
+        "Przy uruchomionym silniku.",
+        "Natychmiast po unieruchomieniu silnika.",
+        "Przed uruchomieniem zimnego silnika albo co najmniej po kilku minutach po jego wyłączeniu."
+      ],
+      "answer": 2,
+      "points": 1,
+      "english_question": "For which of the following states of the engine should the oil level in the engine be checked?",
+      "english_options": [
+        "When the engine is on.",
+        "Immediately after the engine is switched off.",
+        "Before the cold engine is started or at least a few minutes after switching it off."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "10878",
+      "question": "Jakie muszą być spełnione warunki podczas przewożenia dziecka na tylnym siedzeniu samochodu osobowego?",
+      "options": [
+        "Przewożone dziecko ma co najmniej 135 cm wzrostu, jest przypięte tylko pasami bezpieczeństwa, gdyż masa i wzrost uniemożliwia przewóz w foteliku lub innym urządzeniu przytrzymującym  dziecko.",
+        "Przewożone dziecko ma co najmniej 125 cm wzrostu, jest przypięte tylko pasami bezpieczeństwa, gdyż masa i wzrost uniemożliwia przewóz w foteliku.",
+        "Nie można przekraczać prędkości 50 km/h."
+      ],
+      "answer": 0,
+      "points": 2,
+      "english_question": "What conditions must be met when transporting a child in the back seat of a passenger car?",
+      "english_options": [
+        "The child being carried is at least 135 cm tall and fastened only with seat belts, as the weight and height precludes carriage in a safety seat or other child restraint systems.",
+        "The child being carried is at least 125 cm tall and is only fastened with seat belts, as its weight and height precludes carriage in a safety seat.",
+        "The speed must not exceed 50 km/h."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "10880",
+      "question": "Jakie musisz spełnić warunki, gdy chcesz przewieźć dziecko na tylnym siedzeniu samochodu osobowego?",
+      "options": [
+        "Przewożone dziecko ma co najmniej 125 cm wzrostu, jest przypięte tylko pasami bezpieczeństwa, gdyż masa i wzrost uniemożliwia przewóz w urządzeniu przytrzymującym.",
+        "Nie można przekraczać prędkości 40 km/h.",
+        "Przewożone dziecko ma co najmniej 135 cm wzrostu, jest przypięte tylko pasami bezpieczeństwa, gdyż masa i wzrost uniemożliwia przewóz w urządzeniu przytrzymującym."
+      ],
+      "answer": 2,
+      "points": 2,
+      "english_question": "What conditions must you meet if you wish to carry a child in the rear seat of a passenger car?",
+      "english_options": [
+        "The child being carried is at least 125 cm tall and fastened only with seat belts, as the weight and height precludes carriage in a child restraint system.",
+        "The speed must not exceed 40 km/h.",
+        "The child being carried is at least 135 cm tall and is only fastened with seat belts, as the weight and height precludes carriage in a child restraint system."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "10994",
+      "question": "Kiedy wolno przewozić samochodem ciężarowym, na przednim siedzeniu, dziecko mające poniżej 150 cm wzrostu, przytrzymywane jedynie za pomocą pasów bezpieczeństwa?",
+      "options": [
+        "Jeżeli dziecko ma co najmniej 135 cm wzrostu.",
+        "Jeżeli w samochodzie tym nie ma możliwości zamontowania fotelika bezpieczeństwa.",
+        "Jeżeli dziecko ma zaświadczenie lekarskie o przeciwwskazaniu do przewożenia w foteliku bezpieczeństwa."
+      ],
+      "answer": 2,
+      "points": 2,
+      "english_question": "When is it permitted to carry a child under 150 cm tall in the front seat of a lorry, only restrained by means of seat belts?",
+      "english_options": [
+        "If the child is at least 135 cm tall.",
+        "If it is impossible to fit a safety seat in the vehicle.",
+        "If the child has a medical certificate indicating that it is cannot be transported in a safety seat."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "7513",
+      "question": "Czy jako właściciel pojazdu masz obowiązek wskazać na żądanie uprawnionego organu, komu powierzyłeś pojazd do kierowania lub używania w określonym czasie?",
+      "options": [
+        "Tak, chyba że jest to pojazd wykorzystywany do prowadzenia działalności gospodarczej.",
+        "Tak, chyba że pojazd został użyty wbrew Twojej woli i wiedzy przez nieznaną osobę, czemu nie mogłeś zapobiec.",
+        "Nie mam takiego obowiązku."
+      ],
+      "answer": 1,
+      "points": 1,
+      "english_question": "As the owner of a vehicle, are you obliged to indicate at the request of an authorised body to whom you entrusted the vehicle for driving or use at a specific time?",
+      "english_options": [
+        "Yes, unless it is a vehicle used for business purposes.",
+        "Yes, unless the vehicle was used contrary to your will and without your knowledge by an unknown person, which you could not prevent.",
+        "I am not obliged to do so."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "10889",
+      "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu, gdy na terytorium Rzeczypospolitej kierujesz pojazdem, który jest zarejestrowany za granicą?",
+      "options": [
+        "Dokument dopuszczający pojazd do ruchu. ",
+        "Dokument potwierdzający zawarcie umowy ubezpieczenia od nieszczęśliwych wypadków.",
+        "Kopię zaświadczenia o przeprowadzonym badaniu technicznym."
+      ],
+      "answer": 0,
+      "points": 2,
+      "english_question": "What documents must you carry with you and present at the request of a competent authority when driving a vehicle registered abroad in the territory of the Republic of Poland?",
+      "english_options": [
+        "A document certifying that the vehicle is roadworthy.",
+        "A document confirming the conclusion of an accident insurance policy.",
+        "Copy of a certificate attesting to the completion of a technical inspection."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "10890",
+      "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu, gdy na terytorium Rzeczypospolitej kierujesz pojazdem, który jest zarejestrowany za granicą?",
+      "options": [
+        "Dowód własności pojazdu.",
+        "Dokument potwierdzający zawarcie umowy obowiązkowego ubezpieczenia odpowiedzialności cywilnej posiadacza pojazdu.",
+        "Dokument potwierdzający opłatę skarbową."
+      ],
+      "answer": 1,
+      "points": 2,
+      "english_question": "What documents are you obliged to carry with you and present at the request of a competent authority when driving a vehicle registered abroad in the territory of the Republic of Poland?",
+      "english_options": [
+        "Proof of vehicle ownership.",
+        "Document confirming the conclusion of a compulsory civil liability insurance contract by the vehicle owner.",
+        "A document confirming payment of the stamp duty."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "10891",
+      "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu, gdy na terytorium Rzeczypospolitej kierujesz pojazdem, który jest zarejestrowany za granicą?",
+      "options": [
+        "Profesjonalny dowód rejestracyjny.",
+        "Dowód opłacenia składki za obowiązkowe ubezpieczenie odpowiedzialności cywilnej.",
+        "Dokument potwierdzający opłatę za korzystanie z autostrad i dróg ekspresowych."
+      ],
+      "answer": 1,
+      "points": 2,
+      "english_question": "What documents are you obliged to carry with you and present at the request of a competent authority when driving a vehicle registered abroad in the territory of the Republic of Poland?",
+      "english_options": [
+        "A professional vehicle registration document.",
+        "Proof of payment of the premium for the compulsory civil liability insurance.",
+        "A document confirming payment for the use of motorways and expressways."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "7452",
+      "question": "Jakiej wielkości nie ma prawa przekroczyć rzeczywista masa całkowita przyczepy ciągniętej przez samochód osobowy?",
+      "options": [
+        "Masy własnej samochodu.",
+        "Rzeczywistej masy całkowitej samochodu.",
+        "Rzeczywistej masy całkowitej samochodu pomniejszonej o 40%."
+      ],
+      "answer": 1,
+      "points": 2,
+      "english_question": "The actual total weight of a trailer pulled by a passenger car must not exceed:",
+      "english_options": [
+        "curb weight of the car.",
+        "gross vehicle weight of the car.",
+        "gross vehicle weight of the car decreased by 40%."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "3625",
+      "question": "Jaki odstęp należy zachować podczas wymijania samochodem osobowym innego pojazdu?",
+      "options": [
+        "Bezpieczny, ale nie mniejszy niż 1,5 metra.",
+        "Bezpieczny, uzależniony od szerokości jezdni i warunków ruchu.",
+        "Bezpieczny, czyli zawsze taki sam."
+      ],
+      "answer": 1,
+      "points": 3,
+      "english_question": "What distance should you keep while passing another vehicle in a passenger car?",
+      "english_options": [
+        "Safe, but not shorter than 1.5 metres.",
+        "Safe, dependent on the width of the road and traffic conditions.",
+        "Safe, that is always the same."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "3627",
+      "question": "Jaki odstęp należy zachować podczas omijania samochodem osobowym przeszkody na drodze?",
+      "options": [
+        "Bezpieczny, ale nie mniejszy niż 0,8 metra.",
+        "Bezpieczny, czyli zawsze jednakowy.",
+        "Bezpieczny, uzależniony od szerokości jezdni i warunków ruchu."
+      ],
+      "answer": 2,
+      "points": 3,
+      "english_question": "What distance should you keep when passing a stationary obstacle on the road in a passenger car?",
+      "english_options": [
+        "Safe, but not less than 0.8 metres.",
+        "Safe, so always the same.",
+        "Safe, depending on the width of the road and traffic conditions."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "3628",
+      "question": "Jaki odstęp należy zachować podczas wyprzedzania samochodu osobowego?",
+      "options": [
+        "Bezpieczny, uzależniony od szerokości jezdni i warunków ruchu.",
+        "Bezpieczny, ale większy niż 1,5 metra.",
+        "Bezpieczny, ale mniejszy niż 0,5 metra."
+      ],
+      "answer": 0,
+      "points": 3,
+      "english_question": "What distance should you keep when overtaking a passenger car?",
+      "english_options": [
+        "Safe, dependent on the width of the road and traffic conditions.",
+        "Safe but longer than 1.5 metres.",
+        "Safe but shorter than 0.5 metres."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "3629",
+      "question": "Jaki odstęp należy zachować podczas wyprzedzania motocykla?",
+      "options": [
+        "Bezpieczny, ale nie większy niż 0,5 metra.",
+        "Bezpieczny, ale nie większy niż 1 metr.",
+        "Bezpieczny, ale nie mniejszy niż 1 metr."
+      ],
+      "answer": 2,
+      "points": 3,
+      "english_question": "What distance should you keep when overtaking a motorcycle?",
+      "english_options": [
+        "Safe but not longer than 0.5 metres.",
+        "Safe but not longer than 1 metre.",
+        "Safe but not shorter than 1 metre."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "3630",
+      "question": "Jaki odstęp należy zachować podczas wyprzedzania kolumny pieszych?",
+      "options": [
+        "Bezpieczny, ale nie mniejszy niż 0,6 metra.",
+        "Bezpieczny, ale nie mniejszy niż 0,8 metra.",
+        "Bezpieczny, ale nie mniejszy niż 1 metr."
+      ],
+      "answer": 2,
+      "points": 3,
+      "english_question": "What distance should you keep while overtaking a group of pedestrians?",
+      "english_options": [
+        "Safe but not shorter than 0.6 metres.",
+        "Safe but not shorter than 0.8 metres.",
+        "Safe but not shorter than 1 metre."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "3778",
+      "question": "Jak należy zachować się podczas wymijania samochodem osobowym w nocy innego pojazdu?",
+      "options": [
+        "Patrzeć prosto w światła pojazdu nadjeżdżającego z przeciwka.",
+        "Zmienić światła mijania na drogowe.",
+        "Patrzeć w prawo od źródła światła pojazdu nadjeżdżającego z przeciwka i wypatrywać tam ewentualnej przeszkody. "
+      ],
+      "answer": 2,
+      "points": 3,
+      "english_question": "How should you behave while passing an oncoming vehicle at night in a passenger car?",
+      "english_options": [
+        "Look straight into the lights of the oncoming vehicle.",
+        "Change the low beam lights into high beam lights.",
+        "Look right to the source of light of the oncoming vehicle and look for possible obstacles there."
+      ],
+      "split": "test"
+    },
+    {
+      "id": "3650",
+      "question": "Jak duży odstęp od poprzedzającego pojazdu należy utrzymywać, kierując samochodem osobowym poza obszarem zabudowanym w tunelu o długości 600 metrów?",
+      "options": [
+        "Nie mniejszy niż 50 metrów.",
+        "Nie mniejszy niż 40 metrów.",
+        "Nie mniejszy niż 30 metrów."
+      ],
+      "answer": 0,
+      "points": 3,
+      "english_question": "What distance from the preceding vehicle should you keep when driving a passenger car outside the built-up area in a tunnel 600 metres long?",
+      "english_options": [
+        "Not shorter than 50 metres.",
+        "Not shorter than 40 metres.",
+        "Not shorter than 30 metres."
+      ],
+      "split": "test"
+    }
+  ]
+}

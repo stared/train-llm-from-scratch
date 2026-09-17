@@ -1,0 +1,28 @@
+[
+  {
+    "tag": "qwen08-expanded-3min-seed123",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-0.8b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 180,
+    "lr": 2e-05,
+    "dataset": "prawko-expanded",
+    "seed": 123
+  },
+  {
+    "tag": "qwen08-expanded-3min-seed2026",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-0.8b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 180,
+    "lr": 2e-05,
+    "dataset": "prawko-expanded",
+    "seed": 2026
+  }
+]

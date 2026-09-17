@@ -1,0 +1,38 @@
+[
+  {
+    "tag": "qwen4-expanded-sft",
+    "kind": "exam",
+    "gpu": "L40S",
+    "model": "qwen3.5-4b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 600,
+    "lr": 2e-05,
+    "dataset": "prawko-expanded"
+  },
+  {
+    "tag": "qwen4-expanded-rlvr",
+    "kind": "exam",
+    "gpu": "L40S",
+    "model": "qwen3.5-4b",
+    "methods": [
+      "rlvr"
+    ],
+    "seconds": 600,
+    "lr": 2e-05,
+    "dataset": "prawko-expanded"
+  },
+  {
+    "tag": "qwen08-expanded-3min",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-0.8b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 180,
+    "lr": 2e-05,
+    "dataset": "prawko-expanded"
+  }
+]

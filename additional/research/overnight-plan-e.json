@@ -1,0 +1,59 @@
+[
+  {
+    "tag": "qwen3.5-0.8b-sft-289questions",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-0.8b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 600,
+    "lr": 2e-05,
+    "dataset": "prawko-expanded"
+  },
+  {
+    "tag": "qwen3.5-0.8b-rlvr-289questions",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-0.8b",
+    "methods": [
+      "rlvr"
+    ],
+    "seconds": 600,
+    "lr": 2e-05,
+    "dataset": "prawko-expanded"
+  },
+  {
+    "tag": "qwen3.5-2b-sft-289questions",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-2b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 600,
+    "lr": 2e-05,
+    "dataset": "prawko-expanded"
+  },
+  {
+    "tag": "qwen3.5-2b-rlvr-289questions",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-2b",
+    "methods": [
+      "rlvr"
+    ],
+    "seconds": 600,
+    "lr": 2e-05,
+    "dataset": "prawko-expanded"
+  },
+  {
+    "tag": "reasoning08-smoke",
+    "kind": "reasoning",
+    "gpu": "H100",
+    "model": "qwen3.5-0.8b",
+    "seconds": 60,
+    "lr": 1e-05,
+    "token_limit": 512
+  }
+]

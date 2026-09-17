@@ -26,12 +26,12 @@ def save(path, obj):
 
 
 def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
-        max_seconds=600, steps=160, lr=5e-5, seed=42, device='cuda', beta=.01, dev_interval=20, progress=None):
+        max_seconds=600, steps=160, lr=5e-5, seed=42, device='cuda', beta=.01, dev_interval=20, progress=None, dataset=None, verifier=None, thinking=False, token_limit=None, evaluation_batch_size=8, training_description=None):
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForImageTextToText, GenerationConfig
     from peft import LoraConfig, get_peft_model, PeftModel, get_peft_model_state_dict, set_peft_model_state_dict
 
-    if task not in TASKS or stage not in ('screen', 'train'):
+    if (task not in TASKS and dataset is None) or stage not in ('screen', 'train'):
         raise ValueError('Unknown task/stage')
     if not 60 <= max_seconds <= 600 or not 1 <= steps <= 400 or not 1e-6 <= lr <= 5e-4:
         raise ValueError('Bounded runs: 60–600 seconds, 1–400 steps, LR 1e-6–5e-4')
@@ -42,7 +42,11 @@ def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
     started = time.monotonic()
     spec = json.loads((ROOT / 'scripts/models.json').read_text())[model_key]
     save(out / 'model_spec.json', spec)
-    data = make_data(task)
+    data = dataset if dataset is not None else make_data(task)
+    checker = verifier or check
+    new_tokens = token_limit if token_limit is not None else MAX_TOKENS[task]
+    if not 1 <= new_tokens <= 512 or evaluation_batch_size not in (1,2,4,8):
+        raise ValueError('Bounded completion length and evaluation batch size required')
     save(out / 'data.json', data)
     data_hash = hashlib.sha256((out / 'data.json').read_bytes()).hexdigest()
     tokenizer = AutoTokenizer.from_pretrained(spec['id'], revision=spec['revision'])
@@ -70,10 +74,10 @@ def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
 
     def generate(rows, sample=False, copies=1):
         prompts = [tokenizer.apply_chat_template([{'role': 'user', 'content': row['prompt']}],
-                    tokenize=False, add_generation_prompt=True, enable_thinking=False)
+                    tokenize=False, add_generation_prompt=True, enable_thinking=thinking)
                    for row in rows for _ in range(copies)]
         inputs = tokenizer(prompts, padding=True, add_special_tokens=False, return_tensors='pt').to(device)
-        config = GenerationConfig(max_new_tokens=MAX_TOKENS[task], do_sample=sample,
+        config = GenerationConfig(max_new_tokens=new_tokens, do_sample=sample,
                     pad_token_id=tokenizer.pad_token_id, eos_token_id=tokenizer.eos_token_id)
         if sample:
             config.temperature, config.top_k, config.top_p = 1., 0, 1.
@@ -89,13 +93,13 @@ def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
     def evaluate(name, rows, sample=False, copies=1):
         torch.manual_seed(2026)
         results = []
-        for start in range(0, len(rows), max(1, 8 // copies)):
-            batch = rows[start:start + max(1, 8 // copies)]
+        for start in range(0, len(rows), max(1, evaluation_batch_size // copies)):
+            batch = rows[start:start + max(1, evaluation_batch_size // copies)]
             seq, _, offset, mask, texts = generate(batch, sample, copies)
             for i, (row, text) in enumerate(zip([r for r in batch for _ in range(copies)], texts)):
                 results.append(dict(id=row['id'], prompt=row['prompt'], text=text,
                     terminated=bool(seq[i, offset:][mask[i]].eq(tokenizer.eos_token_id).any()),
-                    **check(task, row, text)))
+                    **checker(task, row, text)))
         save(out / f'{name}.json', results)
         score = dict(n=len(results), successes=sum(r['success'] for r in results),
                      mean_reward=sum(r['reward'] for r in results) / len(results),
@@ -110,7 +114,11 @@ def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
         save(out / 'result.json', result)
         return result
 
-    before = {split: evaluate(f'before_{split}', data[split]) for split in ('dev', 'test')}
+    before = {}
+    for split in ('dev','test'):
+        before[split]=evaluate(f'before_{split}',data[split])
+        if dataset is not None and split=='dev' and before[split]['terminated']==0:
+            raise RuntimeError('Baseline exhausted its completion budget on every development prompt; stop before spending on training.')
     if progress: progress('Development success', 0, before['dev']['successes']/before['dev']['n'])
     before['sampled_dev'] = evaluate('before_sampled_dev', data['dev'][:12], True, 2)
     best_score = (before['dev']['successes'], before['dev']['mean_reward'])
@@ -135,7 +143,7 @@ def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
         cursor += 2
         seq, prefix_attention, start, mask, texts = generate(rows, True, 4)
         completions = seq[:, start:]
-        scores = [check(task, row, text) for row, text in zip([r for r in rows for _ in range(4)], texts)]
+        scores = [checker(task, row, text) for row, text in zip([r for r in rows for _ in range(4)], texts)]
         rewards = torch.tensor([s['reward'] for s in scores], device=device).reshape(2, 4)
         attention = torch.cat([prefix_attention, mask.long()], dim=1)
         position_ids = (attention.cumsum(-1) - 1).clamp(min=0)
@@ -229,13 +237,14 @@ def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
         raise RuntimeError('Reload differs from saved model predictions')
     result = dict(stage=stage, task=task, model=model_key, model_spec=spec,
         algorithm='on-policy REINFORCE, leave-one-out baseline, sequence-summed log probability',
-        training_data='Pool of 256 synthetic prompts with programmatic rewards; no SFT; no target tokens in loss',
+        training_data=training_description or 'Pool of 256 synthetic prompts with programmatic rewards; no SFT; no target tokens in loss',
+        thinking=thinking,
         unique_training_prompts=len({i for row in history for i in row['ids']}),
         training_prompt_presentations=sum(len(row['ids']) for row in history),
         selected_unique_training_prompts=len({i for row in history[:best_step if dev_interval else len(history)] for i in row['ids']}),
         data_sha256=data_hash, seed=seed, learning_rate=lr, lora_rank=16, lora_alpha=32, beta=beta,
         dev_interval=dev_interval, selected_step=best_step if dev_interval else len(history),
-        prompts_per_step=2, samples_per_prompt=4, microbatch=2, max_new_tokens=MAX_TOKENS[task],
+        prompts_per_step=2, samples_per_prompt=4, microbatch=2, max_new_tokens=new_tokens,
         steps=len(history), updates=updates, adapter_changed=changed, reload_matches=reload_matches,
         before=before, after=after, training_seconds=training_seconds,
         total_seconds=time.monotonic()-started,

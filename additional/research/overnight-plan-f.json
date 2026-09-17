@@ -1,0 +1,74 @@
+[
+  {
+    "tag": "qwen08-sft-289-seed123",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-0.8b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 600,
+    "lr": 2e-05,
+    "dataset": "prawko-expanded",
+    "seed": 123
+  },
+  {
+    "tag": "qwen08-rlvr-289-seed123",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-0.8b",
+    "methods": [
+      "rlvr"
+    ],
+    "seconds": 600,
+    "lr": 2e-05,
+    "dataset": "prawko-expanded",
+    "seed": 123
+  },
+  {
+    "tag": "qwen08-sft-289-seed2026",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-0.8b",
+    "methods": [
+      "sft"
+    ],
+    "seconds": 600,
+    "lr": 2e-05,
+    "dataset": "prawko-expanded",
+    "seed": 2026
+  },
+  {
+    "tag": "qwen08-rlvr-289-seed2026",
+    "kind": "exam",
+    "gpu": "L4",
+    "model": "qwen3.5-0.8b",
+    "methods": [
+      "rlvr"
+    ],
+    "seconds": 600,
+    "lr": 2e-05,
+    "dataset": "prawko-expanded",
+    "seed": 2026
+  },
+  {
+    "tag": "qwen3.5-0.8b-brief-reasoning-rlvr",
+    "kind": "reasoning",
+    "gpu": "H100",
+    "model": "qwen3.5-0.8b",
+    "seconds": 600,
+    "lr": 1e-05,
+    "token_limit": 192,
+    "thinking": false
+  },
+  {
+    "tag": "qwen3.5-2b-brief-reasoning-rlvr",
+    "kind": "reasoning",
+    "gpu": "H100",
+    "model": "qwen3.5-2b",
+    "seconds": 600,
+    "lr": 1e-05,
+    "token_limit": 192,
+    "thinking": false
+  }
+]

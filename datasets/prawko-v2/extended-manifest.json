@@ -1,0 +1,12 @@
+{
+  "source_sha256": "1d569f59c48c1fb76afd95470b91062d7167305caef4f992a0ef9233dec23300",
+  "train": 289,
+  "dev": 25,
+  "test": 40,
+  "filter": "All road-licence categories; exclude tram-only PT, all media and non-three-choice rows",
+  "isolation": "Connected components of bidirectional stem similarity >= .72; remove every component touching original dev/test",
+  "original_training_retained": 100,
+  "source_url": "https://www.gov.pl/attachment/a5c6c329-28a5-4274-a1a8-e2813f0a51bd",
+  "source_page": "https://www.gov.pl/web/infrastruktura/jak-uzyskac-prawo-jazdy",
+  "catalogue": "July 2026"
+}

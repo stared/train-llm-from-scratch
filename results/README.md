@@ -2,12 +2,14 @@
 
 [Latest full workshop check: timings, costs, curves and before/after answers](workshop-check.html).
 
+[GPU, model and post-training comparisons](training-comparisons.html).
+
 These files contain saved experiments, not freshly generated promises. Each comparison identifies the model, training data and evaluation setup.
 
 | Workshop stage | Start here | More detail |
 |---|---|---|
-| Pretraining | [Findings and costs](pretraining-findings.md) | [Learning curves](pretraining-results.html), [near-$10 Polish runs](polish-dollar-results.md) |
-| Polish Driving Licence Exam: SFT vs RLVR | [Learning curves](prawko-training.html) | [Pilot answers](prawko-example-results.md), [longer-run answers](prawko-long-results.md) |
+| Pretraining | [Current flow check](workshop-check.html) | [Learning curves](pretraining-results.html), [near-$10 Polish runs](polish-dollar-results.md) |
+| Polish Driving Licence Exam: SFT vs RLVR | [Repeated SFT/RLVR comparisons](training-comparisons.html) | [Pilot answers](prawko-example-results.md), [longer-run answers](prawko-long-results.md) |
 | Poetry SFT | [Pan Tadeusz Q&A](pan-tadeusz-qa-results.md) | [Other style trials](showcase.html) |
 | RLVR constraints | [Before/after outputs](rlvr-results.html) | [Scores](rlvr-results.md), [reward-design lesson](rlvr-reward-lesson.md) |
 
