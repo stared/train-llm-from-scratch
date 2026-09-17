@@ -1,0 +1,62 @@
+[
+  {
+    "tag": "wiki-100m-compiled-H100",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true
+  },
+  {
+    "tag": "wiki-100m-compiled-L40S",
+    "kind": "scratch",
+    "gpu": "L40S",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true
+  },
+  {
+    "tag": "wiki-300m-compiled-H100",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "300m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true
+  },
+  {
+    "tag": "wiki-300m-compiled-L40S",
+    "kind": "scratch",
+    "gpu": "L40S",
+    "size": "300m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true
+  },
+  {
+    "tag": "wiki30-compiled-H100",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "30m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true
+  },
+  {
+    "tag": "wiki100-compiled-30min-H100",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 1800,
+    "batch": 32,
+    "compile": true
+  }
+]

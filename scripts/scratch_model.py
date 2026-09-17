@@ -25,6 +25,10 @@ def config_for(size, vocab_size=8192):
         return Config(vocab_size=vocab_size,width=640,layers=5,heads=10,hidden=1792)
     if size == '100m':
         return Config(vocab_size=vocab_size,width=768,layers=12,heads=12,hidden=2304)
+    if size == '100m-wide':
+        return Config(vocab_size=vocab_size,width=1024,layers=7,heads=16,hidden=2816)
+    if size == '100m-deep':
+        return Config(vocab_size=vocab_size,width=640,layers=18,heads=10,hidden=1792)
     if size == '300m':
         return Config(vocab_size=vocab_size,width=1024,layers=22,heads=16,hidden=2816)
     raise ValueError('Choose10m,30m,100m or300m')
@@ -89,7 +93,7 @@ class ScratchGPT(nn.Module):
         if isinstance(module,(nn.Linear,nn.Embedding)):
             nn.init.normal_(module.weight,mean=0.,std=.02)
 
-    def forward(self,ids,targets=None):
+    def forward(self,ids,targets=None,positions=None):
         if ids.shape[1]>self.config.context:
             raise ValueError('Context exceeded')
         x=self.embedding(ids)
@@ -97,7 +101,8 @@ class ScratchGPT(nn.Module):
             x=block(x)
         x=self.norm(x)
         if targets is None:
-            return F.linear(x[:,-1,:],self.embedding.weight).float()
+            hidden=x[:,-1,:] if positions is None else x[torch.arange(x.shape[0],device=x.device),positions]
+            return F.linear(hidden,self.embedding.weight).float()
         logits=F.linear(x,self.embedding.weight)
         return F.cross_entropy(logits.reshape(-1,logits.shape[-1]).float(),targets.reshape(-1))
 

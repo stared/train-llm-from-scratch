@@ -1,0 +1,74 @@
+[
+  {
+    "tag": "wiki-100m-batch64-50min",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 3000,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0006,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ],
+    "quality": true,
+    "quality_checkpoints": true
+  },
+  {
+    "tag": "wiki-300m-batch64-50min",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "300m",
+    "data": "wiki-scratch-v1",
+    "seconds": 3000,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0003,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ],
+    "quality": true,
+    "quality_checkpoints": true
+  },
+  {
+    "tag": "wiki-100m-high-lr-50min",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 3000,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0012,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ],
+    "quality": true,
+    "quality_checkpoints": true
+  },
+  {
+    "tag": "wiki-30m-50min",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "30m",
+    "data": "wiki-scratch-v1",
+    "seconds": 3000,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0006,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ],
+    "quality": true,
+    "quality_checkpoints": true
+  }
+]

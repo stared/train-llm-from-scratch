@@ -177,5 +177,5 @@ def evaluate_fixed_pool(model, device, data_dir):
                         losses.append(model(batch[:,:-1],batch[:,1:]).item())
                 result[split]=dict(loss_nats=sum(losses)/len(losses),tokens=16384)
     finally:model.train(was_training)
-    return dict(source='Full Wikipedia fixed held-out windows; comparable to original runs',
+    return dict(source=metadata.get('source_label',folder.name),
                 tokenizer_sha256=metadata['tokenizer_sha256'],**result)

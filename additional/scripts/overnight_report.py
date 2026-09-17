@@ -3,7 +3,7 @@
 # dependencies = ["matplotlib==3.11.2"]
 # ///
 """Curate the fetched overnight measurements, curves, and literal outputs."""
-from html import escape as e
+from html import escape
 import json
 import re
 from pathlib import Path
@@ -12,13 +12,17 @@ ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'scripts'))
 from training_report import chart
 
+def e(text):
+    # Preserve literal generated whitespace without trailing whitespace in HTML source.
+    return escape(text).replace(' \n','&#32;\n').replace('\t\n','&#9;\n')
+
 def render():
     records=[]
     for path in sorted((ROOT/'runs').glob('night-*/execution.json')):
         r=json.loads(path.read_text())
         if 'spec' not in r:continue
         records.append((path.parent,r))
-    tables={'scratch':[], 'exam':[], 'posttrain':[], 'reasoning':[]};details=[]
+    tables={'scratch':[], 'exam':[], 'posttrain':[], 'reasoning':[], 'evaluate':[]};details=[]
     total=0
     for folder,r in records:
         spec=r['spec'];cost=r['estimated_compute_usd'];total+=cost
@@ -64,12 +68,23 @@ def render():
             curves=chart([('Development success',[(0,r['before']['dev']['successes']/25)]+[(v['step'],v['successes']/25) for v in c['checkpoints']])],'Updates','Success')
             old=json.loads((folder/'before_test.json').read_text());new=json.loads((folder/'after_test.json').read_text())
             for x,y in selected_pairs(old,new):examples+=pair(x['prompt'],x['text'],y['text'])
+        elif kind=='evaluate':
+            common=r['common'];names=['wiki-scratch-v1','wiki-leads-v1','wiki-plain-leads-v1']
+            tables[kind].append([r['base_run'],r['base_task']]+[f"{common[n]['test']['loss_nats']:.3f}" if n in common else '—' for n in names]+[str(r['quality_raw']['correct'])+'/10',str(r['quality_plain']['correct'])+'/10',f"${cost:.3f}"])
+            examples='<p>Greedy instruction diagnostics; no instruction fine-tuning unless explicitly labeled. References are illustrative, not an automatic score.</p>'
+            for probe in r['instruction_probes']:
+                examples+='<h4>'+e(probe['prompt'])+'</h4><pre>'+e(probe['text'])+'</pre>'
+            for suffix in ('raw','plain'):
+                quality=json.loads((folder/('quality_'+suffix+'.json')).read_text())
+                examples+='<h3>'+suffix.title()+' continuation prompts</h3>'
+                for row in quality['free_generations']:
+                    examples+='<h4>'+e(row['prompt'])+'</h4><pre>'+e(row['continuation'])+'</pre>'
         else:
             config=r['config'];w=config['width']
             params=config['vocab_size']*w+config['layers']*(2*w+4*w*w+3*w*config['hidden'])+w
             corpus='Wolne Lektury' if ('wolne' in str(r.get('base_data','')).lower() or '-wl-' in r['base_run'] or 'wolne-lektury' in r['base_run']) else 'Polish Wikipedia'
             base_label=f"{params/1e6:.1f}M "+('random weights' if r['initialization']=='random' else corpus)
-            task_label={'exam':f"{len(json.loads((folder/'data.json').read_text())['train'])} driving questions",'poetry':'450 Pan Tadeusz Q&A','wiki-qa':'5,000 Wikipedia definitions'}[spec['task']]
+            task_label={'exam':f"{len(json.loads((folder/'data.json').read_text())['train'])} driving questions",'poetry':'450 Pan Tadeusz Q&A','wiki-qa':'5,000 Wikipedia definitions','instruction':'Polish OWCA instructions'}[spec['task']]
             for stage_index,stage in enumerate(r['stages']):
                 after=stage['after']['test'];before=r['before']['test']
                 metric=(f"{before['correct']} → {after['correct']}" if spec['task']=='exam' else f"{before['loss']:.3f} → {after['loss']:.3f}")
@@ -88,14 +103,16 @@ def render():
         if kind=='scratch':detail_title=f"{r['model']} pretrained on {spec['data']}, {spec['gpu']}"
         elif kind=='exam':detail_title=f"{spec['model']} + {' → '.join(spec['methods']).upper()} on {r['stages'][0]['before']['train']['n']} driving questions, seed {spec.get('seed',42)}"
         elif kind=='reasoning':detail_title=f"{r['model_spec']['id']} + final-answer RLVR, sampled explanations"
+        elif kind=='evaluate':detail_title=f"Saved checkpoint diagnostics: {r['base_run']} ({r['base_task']})"
         else:detail_title=f"{base_label} + {spec['method'].upper()} on {task_label}"
         details.append(f"<details><summary>{e(detail_title)}</summary><p>Run: {e(folder.name)}</p><p>{e(json.dumps(spec,ensure_ascii=False))}</p>{curves}{examples}</details>")
     headers={
       'scratch':['Model','Corpus','Context','GPU','Training min','Test loss','Tokens M','Corpus-equivalents','Tokens M / $','Worker $'],
       'exam':['Starting model','Method','Train questions','GPU / batch','LR','Seed','Test /40','Dev /25','Rotated /40','Training min','Run worker $'],
       'reasoning':['Model','Steps','Selected step','Strict final-answer score /40','Answer anywhere /40','Answer-only outputs /40','Training min','Worker $'],
+      'evaluate':['Checkpoint','Stage','Raw Wikipedia test loss','Raw leads test loss','Plain leads test loss','Raw fact probes','Plain fact probes','Evaluation worker $'],
       'posttrain':['Starting checkpoint','Initialization','Task','Stage','LR','Test correct /40 or answer loss','Training min','Run worker $']}
-    titles={'scratch':'GPU and architecture comparisons','exam':'Driving exam: existing models','posttrain':'Scratch models after pretraining','reasoning':'Driving exam: explanation prompt, final-answer RLVR'}
+    titles={'scratch':'GPU and architecture comparisons','exam':'Driving exam: existing models','posttrain':'Scratch models after pretraining','reasoning':'Driving exam: explanation prompt, final-answer RLVR','evaluate':'Common-corpus and instruction diagnostics'}
     intro="""# Training comparisons
 
 Exploratory measurements, not guaranteed outcomes. Checkpoints are selected using development data. Test sets are small and have been inspected in previous experiments; these are not fresh, blind benchmarks.
@@ -124,6 +141,8 @@ Costs are worker GPU + CPU/memory estimates, excluding image builds, controller 
     if (ROOT/'results/exam-comparison.svg').exists():
         body+='<h2>Driving exam: repeated runs</h2><img src="exam-comparison.svg" alt="Three seeds per exam training recipe" style="width:100%">'
         md+='\n![Repeated driving-exam runs](exam-comparison.svg)\n'
+    body+='<h2>Choosing a checkpoint</h2><img src="checkpoint-selection.svg" alt="Development curves with selected and final checkpoints" style="width:100%">'
+    md+='\n![Development curves: selected and final checkpoints](checkpoint-selection.svg)\n'
     for kind in tables:
         if not tables[kind]:continue
         md+='\n## '+titles[kind]+'\n\n|'+'|'.join(headers[kind])+'|\n|'+'|'.join(['---']*len(headers[kind]))+'|\n'
@@ -207,7 +226,43 @@ def plot_exam():
     fig.suptitle('Qwen3.5-0.8B, 289 official driving questions\nDots: three training seeds; bars: mean. Same 40 test questions.')
     fig.savefig(ROOT/'results/exam-comparison.svg');plt.close(fig)
 
+def plot_stopping():
+    """Fixed illustrative runs; validation selects checkpoints, test only compares them."""
+    import matplotlib.pyplot as plt
+    specs=[('night-1789675548767097321-wiki30-H100',None,'Wikipedia pretraining: 30M'),
+           ('night-1789674358034520778-qwen3.5-0.8b-sft','stage-0-sft','Driving exam: Qwen3.5-0.8B SFT'),
+           ('night-1789674358034520778-qwen3.5-0.8b-rlvr','stage-0-rlvr','Driving exam: Qwen3.5-0.8B RLVR')]
+    if any(not (ROOT/'runs'/name/(sub or '')/'result.json').exists() for name,sub,_ in specs):return
+    fig,axes=plt.subplots(1,3,figsize=(14,5),layout='constrained');audit=[]
+    for ax,(name,sub,title) in zip(axes,specs):
+        folder=ROOT/'runs'/name/(sub or '');r=json.loads((folder/'result.json').read_text());h=json.loads((folder/'checkpoints.json').read_text())
+        if sub:
+            key='steps';best=r['selected_steps'];metric='accuracy';before=r['before']['dev'][metric]
+            points=[(0,before)]+[(v[key],v[metric]) for v in h]
+            selected=r['after']['dev'][metric];final=r['final']['dev'][metric]
+            selected_test=r['after']['test']['correct'];final_test=r['final']['test']['correct']
+            note=f'Test /40: selected {selected_test}, final {final_test}'
+            ax.set_ylabel('Development accuracy');ax.set_ylim(0,1)
+        else:
+            key='step';best=r['best_step'];metric='loss_nats';before=r['before']['dev'][metric]
+            points=[(0,before)]+[(v[key],v[metric]) for v in h]
+            selected=r['selected']['dev'][metric];final=r['final']['dev'][metric]
+            selected_test=r['selected']['test'][metric];final_test=r['final']['test'][metric]
+            note=f'Test loss: selected {selected_test:.3f}, final {final_test:.3f}'
+            ax.set_ylabel('Development cross entropy');ax.set_ylim(1.5, min(4,before))
+        points.append((r['steps'],final));ax.plot(*zip(*points),color='#487aa6')
+        ax.axvline(best,color='#d67a2a',linestyle='--',alpha=.7)
+        ax.scatter([best],[selected],marker='*',s=150,color='#d67a2a',label='Selected using dev',zorder=5)
+        ax.scatter([r['steps']],[final],marker='x',s=65,color='#222',label='Final checkpoint',zorder=6)
+        ax.set_title(title);ax.set_xlabel('Optimizer updates\n'+note);ax.legend(fontsize=8)
+        ax.spines[['top','right']].set_visible(False);ax.grid(alpha=.2)
+        audit.append(dict(run=name,selected_step=best,final_step=r['steps'],selected_dev=selected,final_dev=final,selected_test=selected_test,final_test=final_test))
+    fig.suptitle('When to stop: keep the best development checkpoint\nThe last update is not necessarily the best. Test scores do not select checkpoints.')
+    fig.savefig(ROOT/'results/checkpoint-selection.svg');plt.close(fig)
+    (ROOT/'results/checkpoint-selection.json').write_text(json.dumps(audit,indent=2))
+
 if __name__=='__main__':
+    plot_stopping()
     plot_gpus()
     plot_exam()
     render()

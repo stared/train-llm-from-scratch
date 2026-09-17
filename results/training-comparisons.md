@@ -6,7 +6,7 @@ Costs are worker GPU + CPU/memory estimates, excluding image builds, controller 
 
 Failed/canceled calls recorded: 7; known worker estimates $0.031. Canceled calls have unknown billing; an additional $8.257 full-timeout bound is reserved separately.
 
-Completed workers in this report: $19.296.
+Completed workers in this report: $26.346.
 
 ## What changed
 
@@ -19,6 +19,8 @@ Completed workers in this report: $19.296.
 - Thirty-minute Wolne Lektury pretraining improved test loss to 2.720 for $2.12. Ten minutes with compilation reached 2.748 for $0.73: a more practical workshop recipe.
 
 ![Repeated driving-exam runs](exam-comparison.svg)
+
+![Development curves: selected and final checkpoints](checkpoint-selection.svg)
 
 ## GPU and architecture comparisons
 
@@ -34,6 +36,12 @@ Completed workers in this report: $19.296.
 |ScratchGPT-30m-wide|wiki-scratch-v1|512|H100|10.0|9.138 → 1.716|489.7|0.16|656.4|$0.746|
 |ScratchGPT-30m|wl-scratch-v1|512|H100|10.0|9.073 → 2.748|723.7|7.14|990.0|$0.731|
 |ScratchGPT-30m|wl-scratch-v1|512|H100|30.0|9.073 → 2.720|1260.1|12.44|594.7|$2.119|
+|ScratchGPT-100m|wiki-scratch-v1|512|H100|10.0|9.174 → 1.619|272.5|0.09|356.2|$0.765|
+|ScratchGPT-100m|wiki-scratch-v1|512|L40S|10.0|9.174 → 1.914|79.1|0.03|202.3|$0.391|
+|ScratchGPT-300m|wiki-scratch-v1|512|H100|10.0|9.210 → 1.790|95.0|0.03|119.2|$0.797|
+|ScratchGPT-300m|wiki-scratch-v1|512|L40S|10.0|9.210 → 2.480|23.7|0.01|58.4|$0.406|
+|ScratchGPT-100m|wiki-leads-v1|512|H100|10.0|9.153 → 1.740|285.0|1.61|380.8|$0.748|
+|ScratchGPT-100m|wiki-plain-leads-v1|512|H100|10.0|9.171 → 2.154|284.9|3.63|381.2|$0.747|
 
 ## Driving exam: existing models
 
@@ -103,6 +111,22 @@ Completed workers in this report: $19.296.
 |291.0M Polish Wikipedia|pretrained|289 driving questions|sft (LoRA 8)|5e-05|13 → 23|10.0|$0.185|
 |291.0M Polish Wikipedia|pretrained|289 driving questions|sft|2e-05|13 → 21|10.0|$0.181|
 |29.9M Wolne Lektury|pretrained|289 driving questions|sft|2e-05|14 → 23|10.0|$0.175|
+|98.3M Polish Wikipedia|pretrained|289 driving questions|sft|1e-05|12 → 22|0.2|$0.040|
+|98.3M Polish Wikipedia|pretrained|Polish OWCA instructions|sft|3e-05|2.625 → 1.988|1.0|$0.141|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-05|13 → 23|0.2|$0.067|
+|291.0M Polish Wikipedia|pretrained|Polish OWCA instructions|sft|3e-05|2.603 → 2.011|1.0|$0.164|
+|98.3M Polish Wikipedia|pretrained|Polish OWCA instructions|sft|0.0001|2.625 → 1.962|3.2|$0.291|
+|98.3M Polish Wikipedia|pretrained|Polish OWCA instructions|sft|3e-05|2.625 → 1.876|3.5|$0.304|
+|291.0M Polish Wikipedia|pretrained|Polish OWCA instructions|sft|0.0001|2.603 → 1.953|6.4|$0.548|
+|291.0M Polish Wikipedia|pretrained|Polish OWCA instructions|sft|3e-05|2.603 → 1.902|6.3|$0.538|
+|98.3M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|12 → 25|0.9|$0.086|
+|98.3M Polish Wikipedia|pretrained|289 driving questions|sft|1e-05|12 → 22|1.0|$0.100|
+|98.3M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|12 → 23|0.9|$0.084|
+|98.3M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|22 → 27|1.4|$0.128|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|13 → 27|2.2|$0.194|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-05|13 → 21|1.7|$0.154|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|13 → 25|1.8|$0.168|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|23 → 23|2.1|$0.189|
 
 ## Driving exam: explanation prompt, final-answer RLVR
 

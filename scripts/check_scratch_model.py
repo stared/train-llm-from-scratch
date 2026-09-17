@@ -72,6 +72,25 @@ class ScratchModelChecks(unittest.TestCase):
         x=torch.randn(2,16,32);changed=x.clone();changed[:,8:]=torch.randn(2,8,32)*100
         torch.testing.assert_close(attention(x)[:,:8],attention(changed)[:,:8],atol=1e-6,rtol=1e-6)
 
+    def test_right_padded_batch_matches_individual_logits_and_gradients(self):
+        torch.manual_seed(11)
+        c=Config(vocab_size=32,width=16,layers=2,heads=2,hidden=32,context=16)
+        model=ScratchGPT(c)
+        rows=[torch.randint(0,32,(1,n)) for n in (3,7,11)]
+        individual=torch.cat([model(row) for row in rows])
+        batch=torch.zeros(3,16,dtype=torch.long)
+        for i,row in enumerate(rows):batch[i,:row.shape[1]]=row[0]
+        positions=torch.tensor([row.shape[1]-1 for row in rows])
+        batched=model(batch,positions=positions)
+        torch.testing.assert_close(batched,individual,atol=1e-6,rtol=1e-5)
+        targets=torch.tensor([1,2,3])
+        torch.nn.functional.cross_entropy(individual,targets).backward()
+        expected=[p.grad.clone() for p in model.parameters()]
+        model.zero_grad()
+        torch.nn.functional.cross_entropy(model(batch,positions=positions),targets).backward()
+        for p,grad in zip(model.parameters(),expected):
+            torch.testing.assert_close(p.grad,grad,atol=2e-6,rtol=2e-5)
+
     def test_learns_and_reloads(self):
         torch.manual_seed(8)
         c=Config(vocab_size=64,width=32,layers=2,heads=2,hidden=64,context=16)

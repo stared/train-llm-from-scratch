@@ -6,6 +6,7 @@
 import argparse
 import json
 import math
+import itertools
 from pathlib import Path
 
 
@@ -17,9 +18,11 @@ def verify(folder):
     assert len(ids)==len(set(ids))
     def exam_metric(filename,split,rotated=False):
         rows=read(filename);source=data[split]
-        assert [row['id'] for row in rows]==[row['id'] for row in source]
-        order=(1,2,0) if rotated else (0,1,2)
-        for row,original in zip(rows,source):
+        orders=list(itertools.permutations(range(3))) if split=='dev' and r.get('selection_permutations') else [(1,2,0) if rotated else (0,1,2)]
+        assert [row['id'] for row in rows]==[row['id'] for _ in orders for row in source]
+        originals=[(row,order) for order in orders for row in source]
+        for row,(original,order) in zip(rows,originals):
+            if 'order' in row:assert row['order']==list(order)
             assert row['question']==original['question']
             assert row['options']==[original['options'][i] for i in order]
             assert row['answer']=='ABC'[order.index(original['answer'])]
@@ -43,6 +46,8 @@ def verify(folder):
         if r['task']=='exam':
             for split,metric in stage['after'].items():
                 compare(exam_metric(method+'_after_'+split+'.json',split.replace('_rotated',''),split.endswith('rotated')),metric)
+            for split,metric in stage.get('final',{}).items():
+                compare(exam_metric(method+'_final_'+split+'.json',split.replace('_rotated',''),split.endswith('rotated')),metric)
             candidates=[(0,exam_metric(method+'_dev_initial.json','dev'))]
             for h in history:
                 metric=exam_metric(f"{method}_dev_{h['step']}.json",'dev');compare(metric,h['dev'])

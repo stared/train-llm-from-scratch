@@ -1,0 +1,70 @@
+[
+  {
+    "tag": "wiki-100m-lr0.0012",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0012,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ],
+    "quality": true
+  },
+  {
+    "tag": "wiki-100m-wide-lr0.0006",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m-wide",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0006,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ],
+    "quality": true
+  },
+  {
+    "tag": "wiki-100m-deep-lr0.0006",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m-deep",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0006,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ],
+    "quality": true
+  },
+  {
+    "tag": "wiki-300m-lr0.0012",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "300m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0012,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ],
+    "quality": true
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "tag": "wiki-100m-instruction-batched-smoke",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "task": "instruction",
+    "method": "sft",
+    "seconds": 60,
+    "lr": 3e-05,
+    "dataset": "polish-instructions",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 5,
+    "eval_steps": 25
+  },
+  {
+    "tag": "wiki-100m-exam-batched-smoke",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "task": "exam",
+    "method": "sft",
+    "seconds": 60,
+    "lr": 1e-05,
+    "dataset": "prawko-expanded",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 5,
+    "eval_steps": 25
+  },
+  {
+    "tag": "wiki-300m-instruction-batched-smoke",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "task": "instruction",
+    "method": "sft",
+    "seconds": 60,
+    "lr": 3e-05,
+    "dataset": "polish-instructions",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 5,
+    "eval_steps": 25
+  },
+  {
+    "tag": "wiki-300m-exam-batched-smoke",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "task": "exam",
+    "method": "sft",
+    "seconds": 60,
+    "lr": 1e-05,
+    "dataset": "prawko-expanded",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 5,
+    "eval_steps": 25
+  }
+]

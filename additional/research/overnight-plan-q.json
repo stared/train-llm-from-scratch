@@ -1,0 +1,68 @@
+[
+  {
+    "tag": "eval-100m-base",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ]
+  },
+  {
+    "tag": "eval-100m-instruction",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789681010832431000-wiki-100m-instruction-lr3e-05",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ]
+  },
+  {
+    "tag": "eval-100m-short-pretrain",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789680156069063000-wiki-100m-compiled-H100",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ]
+  },
+  {
+    "tag": "eval-300m-base",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ]
+  },
+  {
+    "tag": "eval-300m-instruction",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789681010832431000-wiki-300m-instruction-lr3e-05",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ]
+  },
+  {
+    "tag": "eval-300m-short-pretrain",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789680156069063000-wiki-300m-compiled-H100",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ]
+  }
+]

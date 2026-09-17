@@ -7,6 +7,7 @@ import argparse
 import copy
 import hashlib
 import json
+import itertools
 from pathlib import Path
 import random
 import sys
@@ -20,10 +21,10 @@ from prawko import question
 def save(path,obj):
     path.write_text(json.dumps(obj,ensure_ascii=False,indent=2))
 
-def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_init=False,lora_rank=0,beta=.01,dataset_path=None):
+def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_init=False,lora_rank=0,beta=.01,dataset_path=None,batch_size=4,max_epochs=None,initial_weights=None,eval_steps=50,batched=False,selection_permutations=False):
     import torch
     from tokenizers import Tokenizer
-    if task not in ('exam','poetry','wiki-qa') or method not in ('sft','rlvr','sft-rlvr'):
+    if task not in ('exam','poetry','wiki-qa','instruction') or method not in ('sft','rlvr','sft-rlvr'):
         raise ValueError('Unsupported task/method')
     if task!='exam' and method!='sft':raise ValueError('Only exam has a verifiable answer key')
     if not 60<=seconds<=1200:raise ValueError('Bounded 60–1200 seconds per stage')
@@ -32,7 +33,7 @@ def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_
     meta=json.loads((base/'result.json').read_text())
     config=Config(**meta['config'])
     model=ScratchGPT(config).cuda()
-    if not random_init:model.load_state_dict(torch.load(base/'best.pt',map_location='cuda',weights_only=True))
+    if not random_init:model.load_state_dict(torch.load(Path(initial_weights) if initial_weights else base/'best.pt',map_location='cuda',weights_only=True))
     if lora_rank:
         class LoRALinear(torch.nn.Module):
             def __init__(self,linear):
@@ -61,7 +62,7 @@ def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_
         data={'train':train,'dev':held[:25],'test':held[25:]}
         source=folder/'train.jsonl'
     else:
-        source=ROOT/'datasets/local/wiki-qa-research/data.json'
+        source=Path(dataset_path) if dataset_path else ROOT/'datasets/local/wiki-qa-research/data.json'
         if not source.exists():source=ROOT/'datasets/wiki-qa-research/data.json'
         data=json.loads(source.read_text())
     save(out/'data.json',data)
@@ -73,18 +74,20 @@ def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_
         if len(ids)>=config.context:raise ValueError(f"Prompt exceeds context: {row['id']}")
         return torch.tensor([ids],device='cuda')
     for rows in data.values():
-        for row in rows:encoded(row)
+        for row in rows:
+            if task=='exam':encoded(row)
     amp=lambda:torch.autocast('cuda',dtype=torch.bfloat16)
     def eval_exam(split,tag,rotate=False):
         model.eval();records=[]
         with torch.no_grad(),amp():
-            for row in data[split]:
-                order=(1,2,0) if rotate else (0,1,2)
-                logits=model(encoded(row,order))[0]
-                probs=logits[labels].softmax(-1)
-                answer=order.index(row['answer']);pred=int(probs.argmax())
-                records.append(dict(id=row['id'],question=row['question'],options=[row['options'][j] for j in order],
-                    answer='ABC'[answer],prediction='ABC'[pred],correct=pred==answer,probabilities=probs.tolist()))
+            orders=list(itertools.permutations(range(3))) if split=='dev' and selection_permutations else [(1,2,0) if rotate else (0,1,2)]
+            for order in orders:
+                for row in data[split]:
+                    logits=model(encoded(row,order))[0]
+                    probs=logits[labels].softmax(-1)
+                    answer=order.index(row['answer']);pred=int(probs.argmax())
+                    records.append(dict(id=row['id'],order=list(order),question=row['question'],options=[row['options'][j] for j in order],
+                        answer='ABC'[answer],prediction='ABC'[pred],correct=pred==answer,probabilities=probs.tolist()))
         save(out/(tag+'.json'),records)
         return {'n':len(records),'correct':sum(r['correct'] for r in records),
                 'accuracy':sum(r['correct'] for r in records)/len(records),
@@ -129,6 +132,18 @@ def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_
     before={split:evaluate(split,'before_'+split) for split in ('train','dev','test')}
     if task=='exam':before['test_rotated']=eval_exam('test','before_test_rotated',True)
     samples('samples_before')
+    def padded_inputs(rows,orders):
+        sequences=[tok.encode(text_prompt(r,o)).ids for r,o in zip(rows,orders)]
+        lengths=torch.tensor([len(x) for x in sequences],device='cuda')
+        x=torch.full((len(rows),int(lengths.max())),eod,device='cuda',dtype=torch.long)
+        for i,ids in enumerate(sequences):x[i,:len(ids)]=torch.tensor(ids,device='cuda')
+        return x,lengths-1
+    def padded_pairs(rows):
+        pairs=[pair(r) for r in rows];length=max(x.shape[1] for x,y in pairs)
+        x=torch.full((len(rows),length),eod,device='cuda',dtype=torch.long)
+        y=torch.full_like(x,-100)
+        for i,(a,b) in enumerate(pairs):x[i,:a.shape[1]]=a[0];y[i,:b.shape[1]]=b[0]
+        return x,y
     stages=[]
     for stage_method in (['sft','rlvr'] if method=='sft-rlvr' else [method]):
         reference=copy.deepcopy(model).eval() if stage_method=='rlvr' else None
@@ -139,33 +154,54 @@ def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_
         best_score=(initial_dev['correct'],initial_dev['correct_probability']) if task=='exam' else (-initial_dev['loss'],)
         best={k:v.detach().cpu().clone() for k,v in model.state_dict().items()};best_step=0
         start=time.monotonic();history=[];step=0;presentations=0
-        while time.monotonic()-start<seconds:
-            rows=rng.sample(data['train'],min(4,len(data['train'])))
+        while time.monotonic()-start<seconds and (max_epochs is None or presentations<max_epochs*len(data['train'])):
+            rows=rng.sample(data['train'],min(batch_size,len(data['train'])))
             model.train();optimizer.zero_grad(set_to_none=True);loss_value=0.
-            for row in rows:
+            if batched:
                 with amp():
                     if task=='exam':
-                        order=rng.sample(range(3),3);x=encoded(row,order);correct=order.index(row['answer'])
-                        full=model(x);logp=full[:,labels].log_softmax(-1)
+                        orders=[rng.sample(range(3),3) for _ in rows]
+                        x,positions=padded_inputs(rows,orders)
+                        correct=torch.tensor([o.index(r['answer']) for r,o in zip(rows,orders)],device='cuda')
+                        full=model(x,positions=positions);logp=full[:,labels].log_softmax(-1)
                         if stage_method=='sft':
-                            loss=torch.nn.functional.cross_entropy(full,labels[torch.tensor([correct],device='cuda')])
+                            loss=torch.nn.functional.cross_entropy(full,labels[correct])
                         else:
                             actions=torch.multinomial(logp.detach().exp(),4,replacement=True)
-                            rewards=actions.eq(correct).float()
+                            rewards=actions.eq(correct[:,None]).float()
                             advantages=rewards-(rewards.sum(-1,keepdim=True)-rewards)/3
-                            with torch.no_grad():ref=reference(x)[:,labels].log_softmax(-1)
+                            with torch.no_grad():ref=reference(x,positions=positions)[:,labels].log_softmax(-1)
                             kl=(logp.exp()*(logp-ref)).sum(-1).mean()
                             loss=-(logp.gather(-1,actions)*advantages).mean()+beta*kl
                     else:
-                        x,y=pair(row);loss=model(x,y)
+                        x,y=padded_pairs(rows);loss=model(x,y)
                 if not torch.isfinite(loss):raise RuntimeError('Nonfinite loss')
-                (loss/len(rows)).backward();loss_value+=float(loss.detach())/len(rows)
+                loss.backward();loss_value=float(loss.detach())
+            else:
+                for row in rows:
+                    with amp():
+                        if task=='exam':
+                            order=rng.sample(range(3),3);x=encoded(row,order);correct=order.index(row['answer'])
+                            full=model(x);logp=full[:,labels].log_softmax(-1)
+                            if stage_method=='sft':
+                                loss=torch.nn.functional.cross_entropy(full,labels[torch.tensor([correct],device='cuda')])
+                            else:
+                                actions=torch.multinomial(logp.detach().exp(),4,replacement=True)
+                                rewards=actions.eq(correct).float()
+                                advantages=rewards-(rewards.sum(-1,keepdim=True)-rewards)/3
+                                with torch.no_grad():ref=reference(x)[:,labels].log_softmax(-1)
+                                kl=(logp.exp()*(logp-ref)).sum(-1).mean()
+                                loss=-(logp.gather(-1,actions)*advantages).mean()+beta*kl
+                        else:
+                            x,y=pair(row);loss=model(x,y)
+                    if not torch.isfinite(loss):raise RuntimeError('Nonfinite loss')
+                    (loss/len(rows)).backward();loss_value+=float(loss.detach())/len(rows)
             torch.nn.utils.clip_grad_norm_(model.parameters(),1.)
             optimizer.step();step+=1;presentations+=len(rows)
-            if step%50==0:
+            if step%eval_steps==0:
                 metric=evaluate('dev',f'{stage_method}_dev_{step}')
                 score=(metric['correct'],metric['correct_probability']) if task=='exam' else (-metric['loss'],)
-                history.append({'step':step,'seconds':time.monotonic()-start,'training_loss':loss_value,'dev':metric})
+                history.append({'step':step,'seconds':time.monotonic()-start,'training_loss':loss_value,'exposure_ratio':presentations/len(data['train']),'dev':metric})
                 if score>best_score:
                     best_score=score;best_step=step
                     best={k:v.detach().cpu().clone() for k,v in model.state_dict().items()}
@@ -176,18 +212,24 @@ def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_
         score=(final_dev['correct'],final_dev['correct_probability']) if task=='exam' else (-final_dev['loss'],)
         if score>best_score:
             best_step=step;best={k:v.detach().cpu().clone() for k,v in model.state_dict().items()}
+        final_metrics={'dev':final_dev,'test':evaluate('test',stage_method+'_final_test')}
+        if task=='exam':final_metrics['test_rotated']=eval_exam('test',stage_method+'_final_test_rotated',True)
         model.load_state_dict(best)
         after={split:evaluate(split,stage_method+'_after_'+split) for split in ('train','dev','test')}
         if task=='exam':after['test_rotated']=eval_exam('test',stage_method+'_after_test_rotated',True)
         torch.save(model.state_dict(),out/(stage_method+'.pt'))
+        if not lora_rank:
+            torch.save(model.state_dict(),out/'best.pt')
+            (out/'tokenizer.json').write_bytes((base/'tokenizer.json').read_bytes())
         samples(stage_method+'_samples_after')
         stages.append({'method':stage_method,'selected_step':best_step,'steps':step,
                        'presentations':presentations,'exposure_ratio':presentations/len(data['train']),
-                       'after':after,'training_seconds':train_seconds})
+                       'after':after,'final':final_metrics,'training_seconds':train_seconds})
         del reference,optimizer
     result={'base_run':base.name,'initialization':'random' if random_init else 'pretrained',
-            'base_data':meta.get('source'),'config':meta['config'],'task':task,'method':method,
-            'seed':seed,'lr':lr,'lora_rank':lora_rank,'beta':beta,'before':before,'stages':stages,'skipped_over_context':skipped,
+            'base_data':meta.get('source',meta.get('base_data')),'base_task':meta.get('task','pretraining'),
+            'config':meta['config'],'task':task,'method':method,
+            'seed':seed,'lr':lr,'batch_size':batch_size,'batched':batched,'selection_permutations':selection_permutations,'max_epochs':max_epochs,'initial_weights_run':Path(initial_weights).parent.name if initial_weights else None,'lora_rank':lora_rank,'beta':beta,'before':before,'stages':stages,'skipped_over_context':skipped,
             'split_sizes':{split:len(rows) for split,rows in data.items()},
             'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
             'limitations':'Small held-out split. Poetry source verses may occur in pretraining; held-out prompts do not.'}

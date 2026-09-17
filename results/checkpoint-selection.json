@@ -1,0 +1,29 @@
+[
+  {
+    "run": "night-1789675548767097321-wiki30-H100",
+    "selected_step": 24655,
+    "final_step": 24655,
+    "selected_dev": 1.8546757102012634,
+    "final_dev": 1.8546757102012634,
+    "selected_test": 1.7113578915596008,
+    "final_test": 1.7113578915596008
+  },
+  {
+    "run": "night-1789674358034520778-qwen3.5-0.8b-sft",
+    "selected_step": 350,
+    "final_step": 856,
+    "selected_dev": 0.88,
+    "final_dev": 0.76,
+    "selected_test": 28,
+    "final_test": 24
+  },
+  {
+    "run": "night-1789674358034520778-qwen3.5-0.8b-rlvr",
+    "selected_step": 75,
+    "final_step": 475,
+    "selected_dev": 0.84,
+    "final_dev": 0.8,
+    "selected_test": 23,
+    "final_test": 24
+  }
+]
