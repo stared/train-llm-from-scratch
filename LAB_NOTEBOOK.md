@@ -1,8 +1,8 @@
 # Workshop preparation lab notebook
 
-**Current workshop scope (2026-09-09): three hours.** See [pipeline and agenda](docs/workshop.md) and [answer-key exam training](docs/notes/exam-posttraining.md). Earlier four-hour plans remain historical notes. Keep the 8k tokenizer; use prawko for the SFT/RLVR comparison. Matura remains a hackathon extension.
+**Current workshop scope (2026-09-09): three hours.** See [workshop contents](README.md) and [answer-key exam training](additional/notes/exam-posttraining.md). Earlier four-hour plans remain historical notes. Keep the 8k tokenizer; use prawko for the SFT/RLVR comparison. Matura remains a hackathon extension.
 
-Maintained during experiments. Dates are Europe/Warsaw. This is the working record of hypotheses, results, failures, costs and next decisions; the learner-facing instructions live in [README](docs/notes/starter-examples.md) and [SHOWCASE](results/showcase.md).
+Maintained during experiments. Dates are Europe/Warsaw. This is the working record of hypotheses, results, failures, costs and next decisions; the learner-facing instructions live in [README](additional/notes/starter-examples.md) and [SHOWCASE](results/showcase.md).
 
 ## Brief and constraints
 
@@ -42,7 +42,7 @@ Full artifacts and commands: [results/test-results.md](results/test-results.md).
 - Start from the LFM350M Polish arithmetic SFT adapter.
 - On-policy REINFORCE with leave-one-out advantages; four sampled answers per group; exact numeric reward. No teacher answer is supplied to the policy-gradient loss. No KL term; deliberately small demonstration, not a production RL recipe.
 - 12 groups / 48 rollouts yielded five mixed-reward groups and five actual updates. Harder held-out arithmetic stayed **4/8 → 4/8**. Training/rollouts took 2.05 s; remote execution 25.35 s; estimate $0.0067. Changed adapter and reload checks passed.
-- **Conclusion:** working verifiable-reward learning signal, no demonstrated generalization improvement. Do not advertise “RL made the model smarter.” See [docs/notes/rlvr.md](docs/notes/rlvr.md) and [raw result](runs/rlvr-1788768609860683095/rl_result.json).
+- **Conclusion:** working verifiable-reward learning signal, no demonstrated generalization improvement. Do not advertise “RL made the model smarter.” See [docs/notes/rlvr.md](additional/notes/rlvr.md) and [raw result](runs/rlvr-1788768609860683095/rl_result.json).
 
 ## September 7: replacing plumbing demos with persona fine-tunes
 
@@ -58,7 +58,7 @@ Eight fixed evaluation questions cover DNS, Git force-push recovery, onion tears
 - 128 question–answer pairs generated; **128/128 passed the four-line filter**. Generation 167.9 s, timed remote 196.6 s, estimated compute **$0.0558**.
 - Manual reading found broken Polish, forced/nonexistent rhymes, language switching and factual errors. For 404, it wrote “forty-four” and described the server as silent. This dataset was **not used for training**.
 - Insight: a cheap teacher can produce expensive-to-repair data. Format metrics can hide unusable content. Do not optimize a poetic RLVR example using line count as the sole reward.
-- Artifacts: [accepted-by-surface-filter answers](runs/style-data-poetry-1788771080241515907/accepted.json), [execution](runs/style-data-poetry-1788771080241515907/execution.json), [annotated data review](docs/notes/data-review.md).
+- Artifacts: [accepted-by-surface-filter answers](runs/style-data-poetry-1788771080241515907/accepted.json), [execution](runs/style-data-poetry-1788771080241515907/execution.json), [annotated data review](additional/notes/data-review.md).
 
 ### Intervention: authored reusable data
 
@@ -172,17 +172,17 @@ The user requested an actual full-book training example and a search for the *Ch
 - **333 updates, 61.3 seconds training**; all **665/665 blocks**, **169,997/169,997 next-token targets** seen exactly once. `full_corpus_seen=true`, coverage 100%. Corpus token count 169,998. Peak allocated VRAM 7.79 GB. All four saved-adapter reload outputs matched; adapter weights nonzero.
 - Timed remote execution **177.7 seconds**, estimated requested compute **$0.0504**. App completed and stopped. This is additional to the prior $0.4916 style batch; combined estimate about $0.5420, excluding startup/storage and the earlier smoke tests.
 - Raw continuations shifted toward narrated scenes with line breaks and dialogue. They remain grammatically uneven and sometimes incoherent; no claim of matching Mickiewicz's verse. Both chat probes emit English planning text under the present template/token cap rather than a finished Polish answer. Raw corpus adaptation did not establish poetic chat behavior; this limitation is retained in the outputs.
-- [Execution and exact coverage](runs/pan-tadeusz-1788776622044561619/execution.json), [before](runs/pan-tadeusz-1788776622044561619/before.json), [after](runs/pan-tadeusz-1788776622044561619/after.json), [reloaded](runs/pan-tadeusz-1788776622044561619/reloaded.json). Sources and runnable commands: [docs/notes/pan-tadeusz.md](docs/notes/pan-tadeusz.md).
+- [Execution and exact coverage](runs/pan-tadeusz-1788776622044561619/execution.json), [before](runs/pan-tadeusz-1788776622044561619/before.json), [after](runs/pan-tadeusz-1788776622044561619/after.json), [reloaded](runs/pan-tadeusz-1788776622044561619/reloaded.json). Sources and runnable commands: [docs/notes/pan-tadeusz.md](additional/notes/pan-tadeusz.md).
 
 ### Screenplay search result
 
-No verified publicly downloadable full screenplay found after searching the title in Polish/ASCII, script/text/PDF/transcript terms, library records and subtitle leads. Official film records credit Mikołaj Korzyński. A specific next lead is Script Fiesta's 2025 panel with the writer and director. A library hit is a DVD, educational PDFs are film descriptions, and Wikicytaty is a quote collection. These are not substitutes for the complete screenplay. No screenplay/subtitle corpus added; no external contact made. Detailed sources: [docs/notes/screenplay-search.md](docs/notes/screenplay-search.md).
+No verified publicly downloadable full screenplay found after searching the title in Polish/ASCII, script/text/PDF/transcript terms, library records and subtitle leads. Official film records credit Mikołaj Korzyński. A specific next lead is Script Fiesta's 2025 panel with the writer and director. A library hit is a DVD, educational PDFs are film descriptions, and Wikicytaty is a quote collection. These are not substitutes for the complete screenplay. No screenplay/subtitle corpus added; no external contact made. Detailed sources: [docs/notes/screenplay-search.md](additional/notes/screenplay-search.md).
 
 ## Bidirectional dialogue conversion
 
 User requested the Wikiquote dialogue collection as user/assistant pairs in both directions. Added [scripts/dialogue_pairs.py](scripts/dialogue_pairs.py) for a supplied local dialogue text: each adjacent cross-speaker pair creates forward and reverse examples. Scene boundaries are preserved, repeated pairs deduplicated, consecutive same-speaker lines merged. Scenes sharing lines stay in the same split to prevent reversed-pair/quotation leakage.
 
-The linked film dialogue was not bulk-copied or transformed; the copyright limitation was explained, with local user-supplied text offered as the supported input. No film dataset or new GPU run was produced. [Usage](docs/notes/dialogue-pairs.md). Four new tests verify adjacency/both directions, scene boundaries, split isolation, merging/deduplication and malformed input rejection; all nine repository tests pass. Reverse-direction pairs are reconstruction examples and may not be natural replies. The existing trainer uses its general persona evaluation, not the converter's validation file automatically.
+The linked film dialogue was not bulk-copied or transformed; the copyright limitation was explained, with local user-supplied text offered as the supported input. No film dataset or new GPU run was produced. [Usage](additional/notes/dialogue-pairs.md). Four new tests verify adjacency/both directions, scene boundaries, split isolation, merging/deduplication and malformed input rejection; all nine repository tests pass. Reverse-direction pairs are reconstruction examples and may not be natural replies. The existing trainer uses its general persona evaluation, not the converter's validation file automatically.
 
 ## User-supplied chlopaki.md: actual film-dialogue adaptation
 
@@ -194,7 +194,7 @@ The user supplied `datasets/chlopaki.md`. Work now uses that local content direc
 - `scripts/prepare_chlopaki.py` produces 71 scenes / 706 merged turns. Nine single-turn scenes are preserved separately. Scene headings/stage directions excluded; unlabelled speech continuation attaches to preceding speaker, recorded in an audit. Character abbreviations resolved locally where possible, source content otherwise retained.
 - **1,270 unique training examples: 635 forward + 635 reverse.** Every pair has its reverse. All usable exchanges are in training; no quotation holdout. Six new ordinary Polish questions are saved for before/after evaluation. Their wording is disjoint from training prompts.
 - No assistant-authored wit examples mixed in. Every resulting pair maps exactly to original source line numbers; all nonempty source lines accounted for as dialogue, heading or parsing audit.
-- Dataset hash: `3f691a2b920c6efa3cc0e2c4b922bbb1658de325baf69777bfb15f7b2799edd6`. [Prepared data](datasets/chlopaki-bidirectional-v1/train.jsonl), [line provenance](datasets/chlopaki-bidirectional-v1/pair_source_lines.json), [instructions](docs/notes/chlopaki.md).
+- Dataset hash: `3f691a2b920c6efa3cc0e2c4b922bbb1658de325baf69777bfb15f7b2799edd6`. [Prepared data](datasets/chlopaki-bidirectional-v1/train.jsonl), [line provenance](datasets/chlopaki-bidirectional-v1/pair_source_lines.json), [instructions](additional/notes/chlopaki.md).
 
 ### Training C1a — Qwen3.5-4B, failed OOM
 
@@ -271,7 +271,7 @@ User suggested a larger context window for full-book adaptation. The original 25
 
 Added `--target-tokens` (256/1024/2048/4096), `--batch-size` (1/2), and `--line-aligned` to local and Modal full-book trainers. Prefer 2048 targets, batch one as the next economical test. Longer sequences enable gradient checkpointing. Optional tokenizer-offset newline boundaries retain every next-token target exactly once with one-token overlap; unusually long lines fall back to fixed cuts and are counted. Default behavior preserves the original fixed-block recipe.
 
-Validation: three new CPU tests check exact coverage with line boundaries, oversized-line fallback and compatibility with the original chunking; all 12 repository tests pass. Modified sources parse. GPU fit/runtime/quality untested; no additional cloud spend. Larger chunks reduce updates per book pass as well as increasing context, which must be disclosed when comparing outcomes. Longer output budgets and question-to-verse supervision remain separate interventions. [Commands](docs/notes/pan-tadeusz.md#larger-training-chunks--tested-at-2048-targets).
+Validation: three new CPU tests check exact coverage with line boundaries, oversized-line fallback and compatibility with the original chunking; all 12 repository tests pass. Modified sources parse. GPU fit/runtime/quality untested; no additional cloud spend. Larger chunks reduce updates per book pass as well as increasing context, which must be disclosed when comparing outcomes. Longer output budgets and question-to-verse supervision remain separate interventions. [Commands](additional/notes/pan-tadeusz.md#larger-training-chunks--tested-at-2048-targets).
 
 ### Training B3 — 2,048-target line-aligned full-book run, launched
 
@@ -314,7 +314,7 @@ Source: existing Wolne Lektury full-book processed text, SHA-256 `e6447a4e4b4ddb
 
 450 train / 50 validation; 293 questions / 207 statements. Line counts: 4:124, 5:50, 6:116, 7:29, 8:83, 9:20, 10:48, 11:8, 12:22. Split groups passages sharing normalized verse lines of 20+ characters, including repetitions in different source positions. Related themes remain across splits, and the validation text was seen by previous full-book adapters. Prefer a fresh base-model adapter for the next Q&A experiment.
 
-Validation passed: 500 unique prompts and answers; exact source text and source-line positions; 4–12 lines each; no overlapping source positions; all twelve books; 450/50 IDs disjoint; no normalized verse-line overlap >=20 characters across splits; manifest counts and data hash agree. Rebuild with `uv run --no-project scripts/prepare_pan_tadeusz_qa.py build`. [Guide and three examples](docs/poetry.md), [all 500 reviewed pairs](datasets/pan-tadeusz-qa-v1/REVIEW.md).
+Validation passed: 500 unique prompts and answers; exact source text and source-line positions; 4–12 lines each; no overlapping source positions; all twelve books; 450/50 IDs disjoint; no normalized verse-line overlap >=20 characters across splits; manifest counts and data hash agree. Rebuild with `uv run --no-project scripts/prepare_pan_tadeusz_qa.py build`. [Guide and three examples](workshop/poetry.md), [all 500 reviewed pairs](datasets/pan-tadeusz-qa-v1/REVIEW.md).
 
 No training launched for this dataset; no new before/after results. GPU and paid teacher API spending for this preparation: $0 (excluding the Codex session itself). Next proposed baseline: fresh Qwen3.5-4B, assistant-only SFT; evaluate 4–12-line compliance rather than the previous exactly-four-line metric, plus comic fit and syllable counts separately.
 
@@ -589,3 +589,17 @@ User confirmed keeping author name and email and requested a privacy-focused rel
 Reorganized the root around the current three-hour workshop. README links the six pipeline stages; participant guides are in `docs/`, older proposals in `docs/notes/`, runnable Python and adjacent uv lockfiles in `scripts/`, model choices in `config/models.json`, standalone results in `results/`, the BPE explorer in `visualizations/`, and unit tests in `tests/`. The notebook stays at the root. Existing `data/`, `datasets/`, `research/` and `runs/` stay in place; recorded run source snapshots and training datasets were not rewritten. Moved the obsolete root bytecode cache into the ignored tool cache.
 
 Updated script-relative repository paths, Modal mounts and remote imports to mirror the new layout; updated documentation links, commands and report output defaults. Validation: 19 standard-library tests and four CPU scratch-model checks passed; all five Prawko artifact verifications passed; 17 Modal modules imported with 61 local/remote file mounts checked; real Modal CLI help loaded the relocated Prawko wrapper. Tokenizer rebuild exactly matches the existing explorer. Prawko and pretraining charts rebuilt into ignored `data/reorganization/`; local documentation links checked. Lockfiles and model registry content unchanged. The full pinned local Prawko environment could not be resolved offline because a Transformers wheel is not cached; its CLI was checked using the standard-library environment. No remote training or paid GPU tests started.
+
+## 2026-09-17 — Participant documentation cleanup
+
+README now lists content and setup, without a timed agenda or instructor instructions. Shortened the four exercise guides; removed redundant agenda and index pages. No additional reference copies: detailed experiment history remains in this notebook, results and Git history. Commands use `uv tool install modal` (tested version 1.5.0), then `modal`. Kept one-time corpus preparation folded into the pretraining guide. No training code, datasets or recorded results changed; no paid experiments run.
+
+Participant cleanup: renamed `docs/` to `workshop/`, moved background notes to `additional/notes/`, expanded acronyms and added workshop attribution. Updated active Modal pins to 1.5.5; historical run records retain their original versions. Research removal is pending the user’s choice.
+
+Validation: Modal client 1.5.5 installed in the local uv cache; Prawko Modal CLI help loaded successfully. All 19 CPU unit tests passed and updated Markdown links resolve. No GPU jobs launched.
+
+## 2026-09-17 — Keep raw runs local
+
+User chose to retain useful research conclusions but untrack the large collection of raw run files. All 1,467 previously tracked files under `runs/` are retained locally, unchanged, and the whole directory is now gitignored. Existing Git history remains intact. `results/`, research manifests, background notes and this notebook remain versioned, including failed experiments and cost comparisons. Fresh clones contain the saved reports, but report regeneration and raw-run verification require the original local artifacts or newly completed runs.
+
+Verified SHA-256 hashes for all 1,467 files before and after untracking: unchanged. Git tracks no `runs/` files, and the ignore rule covers future run outputs.

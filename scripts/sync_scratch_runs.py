@@ -1,6 +1,6 @@
 # /// script
 # requires-python = ">=3.12"
-# dependencies = ["modal==1.5.0"]
+# dependencies = ["modal==1.5.5"]
 # ///
 """Copy experiment artifacts from Modal into visible local runs/ directories."""
 import argparse

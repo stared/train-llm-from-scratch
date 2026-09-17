@@ -93,7 +93,7 @@ No final reply reached within the 192-new-token cap; saved output contains plann
 > Cześć! Dobrej drogi, że jesteśmy razem w tym dniu.
 > Więc kierowca od raz
 
-[Raw outputs and exact corpus/model metadata](../runs/corpus-probe-1788793991034451951/probe.json) · [Training recipe](../docs/notes/pan-tadeusz.md).
+[Raw outputs and exact corpus/model metadata](../runs/corpus-probe-1788793991034451951/probe.json) · [Training recipe](../additional/notes/pan-tadeusz.md).
 
 Successful evaluation: 71.64 s timed remote execution, approximately $0.02033 requested compute, excluding startup/storage.
 

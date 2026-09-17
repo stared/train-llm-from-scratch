@@ -128,7 +128,7 @@ For experiment history, rejected attempts, costs and next ideas, see [LAB_NOTEBO
 
 This later experiment **does** train on the actual entire Wolne Lektury literary text: all twelve books and epilogue. LFM2.5-2.6B, one pass, 61.3 seconds training, 333 updates, 100% next-token target coverage. This is a different model/objective from the Qwen persona examples above. The original completion prompts below were written for the experiment; they are not passages quoted from the book. Saved continuations use a 128-new-token cap and may end mid-sentence.
 
-[Full corpus and instructions](../docs/notes/pan-tadeusz.md) · [Execution record](../runs/pan-tadeusz-1788776622044561619/execution.json).
+[Full corpus and instructions](../additional/notes/pan-tadeusz.md) · [Execution record](../runs/pan-tadeusz-1788776622044561619/execution.json).
 
 **Opening line:**
 
@@ -194,7 +194,7 @@ The two sampled variants use temperature 0.7, top-p 0.8, top-k 20, repetition pe
 
 The full-strength sampled adapter makes the shift to absurd dialogue immediately visible. “Zamieniam się w kaczki!” can be a successful comic response for this workshop. Judge humor, relevance and language separately: absurdity alone is not a failure, and brevity alone is not success. The 25% adapter generally restores explanatory assistant behavior and loses much of the comic transformation in these six probes. Keep full strength plus sampling as the main creative demonstration, with greedy and 25% strength as comparisons.
 
-[Interactive comparison: all 54 saved answers](chlopaki-results.html) · [Experiment notebook](../LAB_NOTEBOOK.md) · [Runnable recipe](../docs/notes/chlopaki.md)
+[Interactive comparison: all 54 saved answers](chlopaki-results.html) · [Experiment notebook](../LAB_NOTEBOOK.md) · [Runnable recipe](../additional/notes/chlopaki.md)
 
 **Question:** Nie wiem, co chcę robić w życiu. Od czego zacząć?
 
@@ -429,7 +429,7 @@ Original model: **A** (wrong). SFT adapter: **C** (correct). RLVR adapter: **C**
 
 Both methods also regressed on question7454 (which road prohibits towing): original **A, Na autostradzie** was correct; both adapters selected **C, W strefie zamieszkania**, incorrectly.
 
-Both improved the40-question held-out subset **21/40→27/40**. [All actual choices and regressions](prawko-example-results.md), [method and measured costs](../docs/prawko.md). This subset is not the full official driving exam.
+Both improved the40-question held-out subset **21/40→27/40**. [All actual choices and regressions](prawko-example-results.md), [method and measured costs](../workshop/prawko.md). This subset is not the full official driving exam.
 
 
 ### Prawko after four times the training budget

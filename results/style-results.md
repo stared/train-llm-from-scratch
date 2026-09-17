@@ -4,7 +4,7 @@ These experiments replace the seconds-long infrastructure checks as the proposed
 
 ## Rejected drafts
 
-**Gemma 4 E2B teacher data:** 128/128 outputs passed the four-line surface check, but manual inspection found broken Polish, non-rhymes and incorrect content. The data was not used for training. Generation took 167.9 seconds, timed remote execution 196.6 seconds, estimated requested compute $0.0558. See [data review](../docs/notes/data-review.md) and [execution record](../runs/style-data-poetry-1788771080241515907/execution.json).
+**Gemma 4 E2B teacher data:** 128/128 outputs passed the four-line surface check, but manual inspection found broken Polish, non-rhymes and incorrect content. The data was not used for training. Generation took 167.9 seconds, timed remote execution 196.6 seconds, estimated requested compute $0.0558. See [data review](../additional/notes/data-review.md) and [execution record](../runs/style-data-poetry-1788771080241515907/execution.json).
 
 **Gemma 4 E2B poetry adapter:** on the authored dataset, 192 updates / 12 epochs took **283.1 seconds (4.7 minutes)**. Four-line outputs: neutral base 1/8, prompted base 8/8, fine-tuned 7/8. Saved-adapter reload matched on four probes. Peak allocated VRAM was 11.53 GB, timed remote execution 392.4 seconds, estimated requested compute $0.1113.
 

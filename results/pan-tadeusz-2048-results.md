@@ -287,6 +287,6 @@ These are completion probes, separate from the ordinary-message tests above. Gre
 - [New training record](../runs/pan-tadeusz-1788794554392255032/execution.json)
 - [New chat probe: all 20 unmodified generations](../runs/corpus-probe-1788794812419147366/probe.json)
 - [Original 256-target chat probe](../runs/corpus-probe-1788793991034451951/probe.json)
-- [Recipe](../docs/notes/pan-tadeusz.md)
+- [Recipe](../additional/notes/pan-tadeusz.md)
 
 New training plus built-in evaluation: **$0.05021**. Additional ordinary-chat and longer-output evaluation: **$0.04155** (146.43 s timed remote). Combined **$0.09176 estimated requested compute**, excluding startup/storage. Both apps completed and stopped. No extra training after the single full pass.

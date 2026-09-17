@@ -1,59 +1,44 @@
 # AI from scratch
 
-A three-hour workshop: Polish training data → tokenization → pretraining → SFT → RLVR → evaluation. Run ordinary **uv scripts**, locally or on **Modal**. Codex and Claude are optional.
+[Model training workshop](https://luma.com/Warsaw-Model-Trainers-w3) by **Piotr Migdał and Anna Olchowik**, part of Warsaw Model Trainers.
 
-Start with the [workshop agenda](docs/workshop.md). Run all commands below from the repository root.
+Train a small language model from scratch, then adapt existing models. Polish materials, English explanations, ordinary runnable scripts.
 
-| Stage | Workshop material | What to open or run |
-|---|---|---|
-| 1. Data | [Polish Wikipedia and Wolne Lektury](docs/pretraining.md) | Inspect the corpus and split before training |
-| 2. Tokenization | [Interactive BPE explorer](visualizations/tokenizer.html) | Open the HTML file in a browser; step through merges |
-| 3. Pretraining | [Train from random weights](docs/pretraining.md) | `scripts/scratch_modal.py`; [measured results](results/pretraining-findings.md) |
-| 4. SFT | [LLM robi prawko](docs/prawko.md) | Teach Qwen3.5-0.8B using official questions and answer keys |
-| 5. RLVR | [The same Prawko task](docs/prawko.md) | Compare separate SFT and RLVR runs from the same base |
-| 6. Evaluation | [Prawko learning curves](results/prawko-training.html) | Compare held-out answers, regressions, cost and checkpoint reload |
+## Setup
 
-The scratch model and the pretrained model used for Prawko are different models. This workshop demonstrates both starting points. The measured Prawko comparison uses separate SFT and RLVR branches; it does not train SFT followed by RLVR.
-
-## Start with Prawko
-
-The prepared dataset is included. Install [uv](https://docs.astral.sh/uv/getting-started/installation/), set up Modal, then run the baseline or the three-minute-per-method comparison:
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then install [Modal](https://modal.com/) to run training on a cloud GPU:
 
 ```bash
-uvx --from modal==1.5.0 modal setup
-uvx --from modal==1.5.0 modal run scripts/prawko_modal.py --method screen
-uvx --from modal==1.5.0 modal run scripts/prawko_modal.py --method compare --epochs 10 --max-seconds 180
+uv tool install modal==1.5.5
+modal setup
 ```
 
-The pilot improved held-out answers from **21/40 to 27/40** with both methods, for about **$0.12** in estimated worker compute. Read the [actual before/after answers](results/prawko-example-results.md). These are 40 text-only questions, not a full driving-exam pass. Builds, startup and storage cost extra.
+Run commands from this folder. Codex or Claude can help, but are optional.
 
-For local NVIDIA GPU commands, longer comparisons and verification, use the [Prawko guide](docs/prawko.md). Pretraining additionally requires [corpus preparation and upload](docs/pretraining.md); do that before the workshop.
+## 1. Data
 
-## Optional exercises
+Polish Wikipedia articles with their original markup, or books from Wolne Lektury. [See the data and a short excerpt](workshop/pretraining.md#data).
 
-- [Poetry SFT](docs/poetry.md): ordinary Polish prompts → 4–12 original lines from *Pan Tadeusz*. [Actual results](results/pan-tadeusz-qa-results.md).
-- [RLVR with visible constraints](docs/rlvr.md): six-word stories, Countdown arithmetic and maze navigation. [Before/after outputs](results/rlvr-results.html).
-- [Small-model choices](docs/models.md) and [starter routing/JSON examples](docs/notes/starter-examples.md).
+## 2. Tokenization
 
-## Where things live
+Turn text into numbered pieces called tokens. Explore [byte-pair encoding (BPE)](https://en.wikipedia.org/wiki/Byte_pair_encoding) in the [interactive tokenizer](visualizations/tokenizer.html). Our vocabulary contains 8,192 tokens.
 
-| Folder / file | Contents |
-|---|---|
-| [`docs/`](docs/README.md) | Workshop guides; background and earlier proposals in `docs/notes/` |
-| [`scripts/`](scripts/README.md) | Runnable trainers, Modal wrappers, data preparation and report tools; adjacent uv lockfiles |
-| [`visualizations/`](visualizations/) | Standalone tokenizer explorer |
-| [`results/`](results/README.md) | Saved comparisons, charts and conclusions |
-| [`datasets/`](datasets/) | Small prepared training sets and source provenance |
-| [`data/`](data/README.md) | Ignored local downloads, full corpora, token files and rebuilds |
-| [`runs/`](runs/) | Recorded metrics, predictions and executed-source snapshots; weights ignored |
-| [`research/`](research/) | Experiment plans, source manifests and cost records |
-| [`config/`](config/) / [`assets/`](assets/) | Model registry, text assets and visualization template |
-| [`tests/`](tests/README.md) | CPU checks for data splits, formatting and reward functions |
-| [`LAB_NOTEBOOK.md`](LAB_NOTEBOOK.md) | Experiment history, costs and lessons |
+## 3. Pretraining
 
-Quick checks, without renting a GPU:
+Start from random weights and learn to predict the next token. [Train a model with 10 or 30 million parameters](workshop/pretraining.md#train); compare its text and learning curves.
 
-```bash
-PYTHONPATH=scripts uv run --no-project -m unittest discover -s tests -v
-uv run scripts/verify_prawko.py runs/prawko-*
-```
+## 4. Supervised fine-tuning (SFT)
+
+[Fine-tuning](https://en.wikipedia.org/wiki/Fine-tuning_(deep_learning)) adapts an existing model; here, we teach it using example inputs and correct outputs. [LLM robi prawko](workshop/prawko.md) trains Qwen3.5-0.8B on driving-theory questions. Alternatively, [teach Qwen3.5-4B to answer in verse](workshop/poetry.md).
+
+## 5. Reinforcement learning with verifiable rewards (RLVR)
+
+Let the model try answers and reward those that pass a checker. [Use the same driving questions](workshop/prawko.md), or [train six-word stories](workshop/rlvr.md). The driving exercise compares separate SFT and RLVR runs from the same starting model.
+
+## 6. Testing
+
+Did it improve on questions it never trained on? [Compare answers, learning curves and cost](results/README.md), including mistakes introduced by training.
+
+## Where to look
+
+`workshop/` contains the exercises; `scripts/` contains their code. Small datasets are in `datasets/`; large downloads stay in gitignored `data/`. Saved examples and charts are in `results/`.

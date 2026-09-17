@@ -33,11 +33,10 @@ htmlcov/
 !.env.template
 .modal.toml
 
-# Downloaded/trained model artifacts (large and reproducible)
-runs/*/adapter/
-runs/*/final_adapter/
-runs/*/tokenizer/
-runs/*/checkpoint-*/
+# Raw experiment runs stay local; share curated reports in results/.
+/runs/
+
+# Downloaded/trained model artifacts
 /downloaded-adapter/
 /downloaded-tokenizer/
 *.safetensors
@@ -45,12 +44,8 @@ runs/*/checkpoint-*/
 *.pt
 *.pth
 *.ckpt
-runs/**/*.bin
-/runs/**/*.log
-/runs/**/*.part
 
-# Keep datasets, uv lockfiles, reports, LAB_NOTEBOOK.md and small run records
-# (metrics, generations, rollouts and source snapshots) under version control.
+# Keep datasets, uv lockfiles, reports and LAB_NOTEBOOK.md versioned.
 
 # Visible local corpora, prepared tokens and dataset rebuilds
 /data/*

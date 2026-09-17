@@ -22,7 +22,7 @@ if __name__ == '__main__':
     out.mkdir(parents=True)
     records = []
     for model, task, steps in JOBS:
-        command = ['uvx', '--from', 'modal==1.5.0', 'modal', 'run', 'scripts/modal_app.py', '--model', model, '--task', task,
+        command = ['modal', 'run', 'scripts/modal_app.py', '--model', model, '--task', task,
                    '--steps', str(steps), '--eval-size', '8', '--max-seconds', '90']
         print('RUN', ' '.join(command), flush=True)
         start = time.monotonic()

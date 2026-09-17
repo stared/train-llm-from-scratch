@@ -10,7 +10,7 @@ The two sampled variants use temperature 0.7, top-p 0.8, top-k 20, repetition pe
 
 The full-strength sampled adapter makes the shift to absurd dialogue immediately visible. “Zamieniam się w kaczki!” can be a successful comic response for this workshop. Judge humor, relevance and language separately: absurdity alone is not a failure, and brevity alone is not success. The 25% adapter generally restores explanatory assistant behavior and loses much of the comic transformation in these six probes. Keep full strength plus sampling as the main creative demonstration, with greedy and 25% strength as comparisons.
 
-[Interactive comparison: all 54 saved answers](chlopaki-results.html) · [Experiment notebook](../LAB_NOTEBOOK.md) · [Runnable recipe](../docs/notes/chlopaki.md)
+[Interactive comparison: all 54 saved answers](chlopaki-results.html) · [Experiment notebook](../LAB_NOTEBOOK.md) · [Runnable recipe](../additional/notes/chlopaki.md)
 
 ### 1. Dlaczego mój komputer znowu się zawiesił?
 
