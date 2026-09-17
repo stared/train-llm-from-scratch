@@ -46,7 +46,7 @@ runs/*/checkpoint-*/
 *.pth
 *.ckpt
 runs/**/*.bin
-/runs/*.log
+/runs/**/*.log
 /runs/**/*.part
 
 # Keep datasets, uv lockfiles, reports, LAB_NOTEBOOK.md and small run records
