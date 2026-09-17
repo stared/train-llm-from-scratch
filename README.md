@@ -1,8 +1,10 @@
 # AI from scratch
 
-[Model training workshop](https://luma.com/Warsaw-Model-Trainers-w3) by **Piotr Migdał and Anna Olchowik**, part of Warsaw Model Trainers.
+[Model training workshop](https://luma.com/Warsaw-Model-Trainers-w3) with **[Piotr Migdał](https://p.migdal.pl/) and Anna Olchowik**, organized by [Kolektyw3](https://luma.com/kolektyw3) as preparation for the [Warsaw Model Trainers hackathon](https://luma.com/Warsaw-Model-Trainers-hackathon?tk=tXTOg3).
 
 Train a small language model from scratch, then adapt existing models. Polish materials, English explanations, ordinary runnable scripts.
+
+[![How to Train Your Own Model — Anna Olchowik and Piotr Migdał, 23 September 2026, Kolektyw3, Warsaw](assets/workshop.jpeg)](https://luma.com/Warsaw-Model-Trainers-w3)
 
 ## Setup
 
