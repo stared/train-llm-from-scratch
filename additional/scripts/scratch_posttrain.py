@@ -21,12 +21,13 @@ from prawko import question
 def save(path,obj):
     path.write_text(json.dumps(obj,ensure_ascii=False,indent=2))
 
-def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_init=False,lora_rank=0,beta=.01,dataset_path=None,batch_size=4,max_epochs=None,initial_weights=None,eval_steps=50,batched=False,selection_permutations=False):
+def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_init=False,lora_rank=0,beta=.01,dataset_path=None,batch_size=4,max_epochs=None,initial_weights=None,eval_steps=50,batched=False,selection_permutations=False,sft_actions_only=False):
     import torch
     from tokenizers import Tokenizer
     if task not in ('exam','poetry','wiki-qa','instruction') or method not in ('sft','rlvr','sft-rlvr'):
         raise ValueError('Unsupported task/method')
     if task!='exam' and method!='sft':raise ValueError('Only exam has a verifiable answer key')
+    if sft_actions_only and (task!='exam' or not batched):raise ValueError('Conditional classification SFT requires batched exam training')
     if not 60<=seconds<=1200:raise ValueError('Bounded 60–1200 seconds per stage')
     torch.set_num_threads(2);torch.manual_seed(seed);rng=random.Random(seed)
     base=Path(base);out=Path(output);out.mkdir(parents=True,exist_ok=False)
@@ -146,7 +147,7 @@ def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_
         return x,y
     stages=[]
     for stage_method in (['sft','rlvr'] if method=='sft-rlvr' else [method]):
-        reference=copy.deepcopy(model).eval() if stage_method=='rlvr' else None
+        reference=copy.deepcopy(model).eval() if stage_method=='rlvr' or sft_actions_only else None
         if reference:
             for p in reference.parameters():p.requires_grad_(False)
         optimizer=torch.optim.AdamW([p for p in model.parameters() if p.requires_grad],lr=lr,weight_decay=.01)
@@ -165,7 +166,12 @@ def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_
                         correct=torch.tensor([o.index(r['answer']) for r,o in zip(rows,orders)],device='cuda')
                         full=model(x,positions=positions);logp=full[:,labels].log_softmax(-1)
                         if stage_method=='sft':
-                            loss=torch.nn.functional.cross_entropy(full,labels[correct])
+                            if sft_actions_only:
+                                with torch.no_grad():ref=reference(x,positions=positions)[:,labels].log_softmax(-1)
+                                kl=(logp.exp()*(logp-ref)).sum(-1).mean()
+                                loss=torch.nn.functional.nll_loss(logp,correct)+beta*kl
+                            else:
+                                loss=torch.nn.functional.cross_entropy(full,labels[correct])
                         else:
                             actions=torch.multinomial(logp.detach().exp(),4,replacement=True)
                             rewards=actions.eq(correct[:,None]).float()
@@ -214,6 +220,8 @@ def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_
             best_step=step;best={k:v.detach().cpu().clone() for k,v in model.state_dict().items()}
         final_metrics={'dev':final_dev,'test':evaluate('test',stage_method+'_final_test')}
         if task=='exam':final_metrics['test_rotated']=eval_exam('test',stage_method+'_final_test_rotated',True)
+        if not lora_rank:torch.save(model.state_dict(),out/(stage_method+'-final.pt'))
+        samples(stage_method+'_samples_final')
         model.load_state_dict(best)
         after={split:evaluate(split,stage_method+'_after_'+split) for split in ('train','dev','test')}
         if task=='exam':after['test_rotated']=eval_exam('test',stage_method+'_after_test_rotated',True)
@@ -224,12 +232,12 @@ def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_
         samples(stage_method+'_samples_after')
         stages.append({'method':stage_method,'selected_step':best_step,'steps':step,
                        'presentations':presentations,'exposure_ratio':presentations/len(data['train']),
-                       'after':after,'final':final_metrics,'training_seconds':train_seconds})
+                       'after':after,'final':final_metrics,'final_checkpoint':stage_method+'-final.pt' if not lora_rank else None,'training_seconds':train_seconds})
         del reference,optimizer
     result={'base_run':base.name,'initialization':'random' if random_init else 'pretrained',
             'base_data':meta.get('source',meta.get('base_data')),'base_task':meta.get('task','pretraining'),
             'config':meta['config'],'task':task,'method':method,
-            'seed':seed,'lr':lr,'batch_size':batch_size,'batched':batched,'selection_permutations':selection_permutations,'max_epochs':max_epochs,'initial_weights_run':Path(initial_weights).parent.name if initial_weights else None,'lora_rank':lora_rank,'beta':beta,'before':before,'stages':stages,'skipped_over_context':skipped,
+            'seed':seed,'lr':lr,'batch_size':batch_size,'batched':batched,'selection_permutations':selection_permutations,'max_epochs':max_epochs,'initial_weights_run':Path(initial_weights).parent.name if initial_weights else None,'lora_rank':lora_rank,'beta':beta,'sft_actions_only':sft_actions_only,'before':before,'stages':stages,'skipped_over_context':skipped,
             'split_sizes':{split:len(rows) for split,rows in data.items()},
             'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
             'limitations':'Small held-out split. Poetry source verses may occur in pretraining; held-out prompts do not.'}

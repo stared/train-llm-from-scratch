@@ -1,0 +1,104 @@
+[
+  {
+    "tag": "100m-batch64-context512",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 64,
+    "context": 512,
+    "compile": true,
+    "lr": 0.0006,
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "100m-batch256-context512",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 256,
+    "context": 512,
+    "compile": true,
+    "lr": 0.0006,
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "300m-batch64-context512",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "300m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 64,
+    "context": 512,
+    "compile": true,
+    "lr": 0.0006,
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "300m-batch128-context512",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "300m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 128,
+    "context": 512,
+    "compile": true,
+    "lr": 0.0006,
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "100m-batch128-context256",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 128,
+    "context": 256,
+    "compile": true,
+    "lr": 0.0006,
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "100m-batch32-context1024",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 32,
+    "context": 1024,
+    "compile": true,
+    "lr": 0.0006,
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  }
+]

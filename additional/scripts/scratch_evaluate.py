@@ -17,9 +17,17 @@ PROBES=[
     ('cities','Podaj trzy przykłady polskich miast.',None),
     ('email','Napisz krótki uprzejmy e-mail z prośbą o przesunięcie spotkania na jutro.',None),
     ('explanation','Wyjaśnij dziecku w dwóch zdaniach, dlaczego warto czytać książki.',None),
+    ('wiki_training_form_warsaw','Opisz: Warszawa.',None),
+    ('wiki_training_form_mickiewicz','Opisz: Adam Mickiewicz.',None),
+    ('wiki_training_form_poland','Wyjaśnij hasło: Polska.',None),
+    ('wiki_form_krakow','Opisz: Kraków.',None),
+    ('wiki_new_wording_warsaw','Czym jest Warszawa? Odpowiedz krótko.',None),
+    ('wiki_new_wording_mickiewicz','Kim był Adam Mickiewicz?',None),
+    ('wiki_new_wording_poland','W jakiej części Europy znajduje się Polska?',None),
+    ('wiki_new_wording_krakow','Co wiesz o Krakowie?',None),
 ]
 
-def run(base,output,corpora):
+def run(base,output,corpora,checkpoint='best.pt'):
     import torch
     from tokenizers import Tokenizer
     from scratch_model import ScratchGPT,Config
@@ -27,7 +35,7 @@ def run(base,output,corpora):
     start=time.monotonic();torch.set_num_threads(2)
     base=Path(base);out=Path(output);out.mkdir(parents=True,exist_ok=False)
     meta=json.loads((base/'result.json').read_text());model=ScratchGPT(Config(**meta['config'])).cuda()
-    model.load_state_dict(torch.load(base/'best.pt',map_location='cuda',weights_only=True));model.eval()
+    model.load_state_dict(torch.load(base/checkpoint,map_location='cuda',weights_only=True));model.eval()
     tok=Tokenizer.from_file(str(base/'tokenizer.json'));eod=tok.token_to_id('<|endoftext|>')
     token_hash=hashlib.sha256((base/'tokenizer.json').read_bytes()).hexdigest();common={}
     for corpus in corpora:
@@ -38,6 +46,24 @@ def run(base,output,corpora):
     plain=evaluate_quality(model,tok,'cuda',out/'quality_plain.json',
         fact_probes=[dict(p,prompt=p['prompt'].replace("'''",'')) for p in FACT_PROBES],
         free_prompts=[p.replace("'''",'') for p in FREE_PROMPTS[:6]])
+    continuations=[]
+    for name in ['Warszawa','Kraków','Polska','Adam Mickiewicz']:
+        for prefix in [name, "'''"+name+"'''"]:
+            for document_start in [False,True]:
+                for temperature in [0,.8]:
+                    ids=torch.tensor([([eod] if document_start else [])+tok.encode(prefix).ids],device='cuda');generated=[]
+                    with torch.random.fork_rng(devices=[torch.cuda.current_device()]),torch.no_grad(),torch.autocast('cuda',dtype=torch.bfloat16):
+                        torch.manual_seed(20260908)
+                        for _ in range(96):
+                            logits=model(ids[:,-model.config.context:])[0]
+                            if temperature==0:token=int(logits.argmax())
+                            else:
+                                logits=logits/temperature;threshold=logits.topk(50).values[-1]
+                                token=int(torch.multinomial(logits.masked_fill(logits<threshold,-float('inf')).softmax(-1),1))
+                            if token==eod:break
+                            generated.append(token);ids=torch.cat([ids,torch.tensor([[token]],device='cuda')],1)
+                    continuations.append(dict(prompt=prefix,document_start=document_start,temperature=temperature,top_k=50 if temperature else None,
+                        seed=20260908,text=tok.decode(generated),tokens=len(generated),terminated=token==eod))
     answers=[]
     for key,prompt,reference in PROBES:
         ids=torch.tensor([tok.encode('Pytanie: '+prompt+'\nOdpowiedź:\n').ids],device='cuda');output_ids=[]
@@ -48,8 +74,8 @@ def run(base,output,corpora):
                 output_ids.append(token);ids=torch.cat([ids,torch.tensor([[token]],device='cuda')],1)
         text=tok.decode(output_ids)
         answers.append(dict(id=key,prompt=prompt,text=text,reference=reference,terminated=token==eod,tokens=len(output_ids)))
-    result=dict(base_run=base.name,base_task=meta.get('task','pretraining'),config=meta['config'],
-        common=common,quality_raw=dict(correct=quality['factual_correct'],n=quality['factual_total']),
+    result=dict(base_run=base.name,base_task=meta.get('task','pretraining'),checkpoint=checkpoint,config=meta['config'],
+        common=common,continuation_decoding=continuations,quality_raw=dict(correct=quality['factual_correct'],n=quality['factual_total']),
         quality_plain=dict(correct=plain['factual_correct'],n=plain['factual_total']),instruction_probes=answers,
         decoding='Greedy, <=160 tokens, stop at EOD; fixed Polish question/answer prefix',
         limitations='Small illustrative probes, not held-out knowledge or instruction benchmark. Reference strings are shown for manual inspection, not used to optimize or select checkpoints.',

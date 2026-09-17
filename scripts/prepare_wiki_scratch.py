@@ -12,11 +12,21 @@ import bz2
 import hashlib
 import heapq
 import json
+import re
 from pathlib import Path
 import time
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def strip_reference_tags(text):
+    """Optional plain-text variants only; original-wikitext extraction never calls this.
+
+    Match self-closing references first, so they cannot consume following prose
+    through the closing tag of a later, unrelated reference.
+    """
+    return re.sub(r'<ref\b[^>]*/>|<ref\b[^>]*>.*?</ref>', '', text, flags=re.S)
 
 
 def save(path, value):

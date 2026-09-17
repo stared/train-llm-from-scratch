@@ -1,0 +1,108 @@
+[
+  {
+    "tag": "100m-plain-v2-fresh-10min",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-plain-leads-v2",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0006,
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "100m-plain-v2-continued-10min",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-plain-leads-v2",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0001,
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ],
+    "initial_run": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform"
+  },
+  {
+    "tag": "300m-plain-v2-fresh-10min",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "300m",
+    "data": "wiki-plain-leads-v2",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0006,
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "300m-plain-v2-continued-10min",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "300m",
+    "data": "wiki-plain-leads-v2",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0001,
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ],
+    "initial_run": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform"
+  },
+  {
+    "tag": "100m-plain-v2-fresh-50min",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-plain-leads-v2",
+    "seconds": 3000,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0006,
+    "quality": true,
+    "quality_checkpoints": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "300m-plain-v2-fresh-50min",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "300m",
+    "data": "wiki-plain-leads-v2",
+    "seconds": 3000,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0003,
+    "quality": true,
+    "quality_checkpoints": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "tag": "grounded-baseline-old100",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "grounded-baseline-old300",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "grounded-baseline-long100",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789681601127509000-wiki-100m-batch64-50min",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ],
+    "depends_on": [
+      "night-1789681601127509000-wiki-100m-batch64-50min"
+    ]
+  },
+  {
+    "tag": "grounded-baseline-long300",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789681601127509000-wiki-300m-batch64-50min",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ],
+    "depends_on": [
+      "night-1789681601127509000-wiki-300m-batch64-50min"
+    ]
+  }
+]

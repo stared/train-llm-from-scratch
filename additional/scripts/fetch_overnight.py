@@ -16,13 +16,18 @@ def fetch(batch, only_run=None):
     out=ROOT/'runs'/('night-'+batch);out.mkdir(parents=True,exist_ok=True)
     raw=b''.join(volume.read_file('/experiments/night-'+batch+'/manifest.json'))
     (out/'manifest.json').write_bytes(raw);manifest=json.loads(raw)
-    jobs=[]
+    jobs=[];folders=[]
+    def status(folder,state):
+        folder.mkdir(parents=True,exist_ok=True)
+        temp=folder/'fetch-status.tmp';temp.write_text(json.dumps({'state':state}))
+        temp.replace(folder/'fetch-status.json')
     for result in manifest['results']:
         if 'run' not in result:continue
         name=result['run']
         if only_run and name!=only_run:continue
         if Path(name).name!=name:raise ValueError('Unexpected run name')
         remote='/runs/'+name;local=ROOT/'runs'/name
+        status(local,'fetching');folders.append(local)
         def entries(path,target):
             for entry in volume.listdir(path):
                 filename=Path(entry.path).name
@@ -36,6 +41,7 @@ def fetch(batch, only_run=None):
         path,target=job;target.parent.mkdir(parents=True,exist_ok=True)
         target.write_bytes(b''.join(volume.read_file(path)))
     with ThreadPoolExecutor(max_workers=8) as pool:list(pool.map(copy,jobs))
+    for folder in folders:status(folder,'complete')
     print(batch,manifest['status'],len(manifest['results']),'completed records',len(jobs),'files downloaded')
     for row in manifest['results']:print(row['status'],row.get('run'),row.get('estimated_compute_usd'))
     return manifest

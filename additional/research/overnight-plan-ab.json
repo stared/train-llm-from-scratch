@@ -1,0 +1,114 @@
+[
+  {
+    "tag": "popular-qa-100m-lr3e-05-selected",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789684048200921000-wiki-100m-popular-qa-lr3e-05",
+    "depends_on": [
+      "night-1789684048200921000-wiki-100m-popular-qa-lr3e-05"
+    ],
+    "checkpoint": "best.pt",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "popular-qa-100m-lr3e-05-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789684048200921000-wiki-100m-popular-qa-lr3e-05",
+    "depends_on": [
+      "night-1789684048200921000-wiki-100m-popular-qa-lr3e-05"
+    ],
+    "checkpoint": "sft-final.pt",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "popular-qa-100m-lr0.0001-selected",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789684048200921000-wiki-100m-popular-qa-lr0.0001",
+    "depends_on": [
+      "night-1789684048200921000-wiki-100m-popular-qa-lr0.0001"
+    ],
+    "checkpoint": "best.pt",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "popular-qa-100m-lr0.0001-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789684048200921000-wiki-100m-popular-qa-lr0.0001",
+    "depends_on": [
+      "night-1789684048200921000-wiki-100m-popular-qa-lr0.0001"
+    ],
+    "checkpoint": "sft-final.pt",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "popular-qa-300m-lr3e-05-selected",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789684048200921000-wiki-300m-popular-qa-lr3e-05",
+    "depends_on": [
+      "night-1789684048200921000-wiki-300m-popular-qa-lr3e-05"
+    ],
+    "checkpoint": "best.pt",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "popular-qa-300m-lr3e-05-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789684048200921000-wiki-300m-popular-qa-lr3e-05",
+    "depends_on": [
+      "night-1789684048200921000-wiki-300m-popular-qa-lr3e-05"
+    ],
+    "checkpoint": "sft-final.pt",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "popular-qa-300m-lr0.0001-selected",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789684048200921000-wiki-300m-popular-qa-lr0.0001",
+    "depends_on": [
+      "night-1789684048200921000-wiki-300m-popular-qa-lr0.0001"
+    ],
+    "checkpoint": "best.pt",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "popular-qa-300m-lr0.0001-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789684048200921000-wiki-300m-popular-qa-lr0.0001",
+    "depends_on": [
+      "night-1789684048200921000-wiki-300m-popular-qa-lr0.0001"
+    ],
+    "checkpoint": "sft-final.pt",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  }
+]

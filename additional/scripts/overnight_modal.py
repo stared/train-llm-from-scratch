@@ -22,10 +22,20 @@ image=image.add_local_file(str(ROOT/'additional/scripts/scratch_posttrain.py'),'
 image=image.add_local_file(str(ROOT/'additional/scripts/scratch_evaluate.py'),'/work/additional/scripts/scratch_evaluate.py')
 image=image.add_local_dir(str(ROOT/'datasets/local/wiki-qa-research'),'/work/datasets/wiki-qa-research')
 image=image.add_local_file(str(ROOT/'datasets/local/polish-instructions/data.json'),'/work/datasets/polish-instructions/data.json')
+image=image.add_local_file(str(ROOT/'datasets/local/wiki-popular-qa/data.json'),'/work/datasets/wiki-popular-qa/data.json')
 RATES = {'L4':.000222,'A10':.000306,'L40S':.000542,'H100':.001097}
 CPU_RATE = 2*.0000131 + 16*.00000222
 TIMEOUT = 3600
 DEADLINE = 1789711200  # 2026-09-18 06:00 UTC / 08:00 Warsaw.
+
+def validate_plan(plan):
+    if not plan or len(plan)>30:raise ValueError('1–30 bounded experiments')
+    for spec in plan:
+        if spec['gpu'] not in RATES:raise ValueError('Unknown GPU')
+        if spec['kind']=='scratch':
+            if spec.get('batch',32) not in (8,16,32,64,128,256):raise ValueError('Unsupported scratch batch')
+            if spec.get('context',512) not in (256,512,1024):raise ValueError('Unsupported scratch context')
+            if not 60<=spec['seconds']<=3000:raise ValueError('Scratch run exceeds its bounded duration')
 
 @app.function(image=image,gpu='H100',cpu=(2,2),memory=(16384,16384),
               timeout=TIMEOUT,retries=0,max_containers=4,scaledown_window=2,
@@ -73,11 +83,12 @@ def experiment(batch, spec):
                        batch_size=spec.get('batch_size',4),max_epochs=spec.get('max_epochs'),
                        initial_weights='/persist/runs/'+spec['base']+'/'+spec['initial_checkpoint'] if spec.get('initial_checkpoint') else None,
                        eval_steps=spec.get('eval_steps',50),batched=spec.get('batched',False),
-                       selection_permutations=spec.get('selection_permutations',False))
+                       selection_permutations=spec.get('selection_permutations',False),
+                       sft_actions_only=spec.get('sft_actions_only',False))
         elif spec['kind']=='evaluate':
             sys.path.insert(0,'/work/additional/scripts')
             from scratch_evaluate import run
-            result=run('/persist/runs/'+spec['base'],out,spec.get('corpora',[]))
+            result=run('/persist/runs/'+spec['base'],out,spec.get('corpora',[]),checkpoint=spec.get('checkpoint','best.pt'))
         elif spec['kind']=='scratch':
             from train_scratch import run
             next_quality=600
@@ -108,6 +119,9 @@ def experiment(batch, spec):
                 spec.get('seed',42),'cuda',spec.get('batch',32),context_length=spec.get('context',512),
                 eval_interval=60 if spec['seconds']<=600 else 300,peak_lr=spec.get('lr',6e-4),warmup_steps=100,
                 research_limit_seconds=3000,compile_training=spec.get('compile',False),
+                initial_checkpoint='/persist/runs/'+spec['initial_run']+'/best.pt' if spec.get('initial_run') else None,
+                sampling_mode=spec.get('sampling','uniform'),
+                mixture_dir='/persist/datasets/'+spec['mixture_data'] if spec.get('mixture_data') else None,
                 checkpoint_hook=selected_diagnostics if spec.get('common_eval') or spec.get('quality') or spec.get('quality_checkpoints') else None)
             subprocess.run([sys.executable,'/work/scripts/sample_scratch.py',str(out),'--device','cuda',
                             '--output',str(out/'reload_samples.json')],check=True,timeout=150)
@@ -141,7 +155,7 @@ def experiment(batch, spec):
 @app.function(image=image,cpu=(1,1),memory=(1024,1024),timeout=18000,
               retries=0,nonpreemptible=True,max_containers=1,scaledown_window=2,volumes={'/persist':volume})
 def orchestrate(plan,batch):
-    if not plan or len(plan)>30:raise ValueError('1–30 bounded experiments')
+    validate_plan(plan)
     bound=sum(TIMEOUT*(RATES[s['gpu']]+CPU_RATE) for s in plan)+3*18000*(.0000131+.00000222)
     if bound>150:raise ValueError('Batch maximum $150 resource-time reservation')
     waves=(len(plan)+3)//4
@@ -162,17 +176,37 @@ def orchestrate(plan,batch):
     for offset in range(0,len(plan),4):
         if offset+len(plan[offset:offset+4])<=len(manifest['results']):continue
         if manifest.get('active_offset')==offset and manifest.get('active_call_ids'):
-            jobs=[modal.FunctionCall.from_id(id) for id in manifest['active_call_ids']]
+            jobs=[modal.FunctionCall.from_id(id) if id else None for id in manifest['active_call_ids']]
         else:
-            jobs=[]
-            for spec in plan[offset:offset+4]:
+            jobs=[];manifest['active_skips']={}
+            for index,spec in enumerate(plan[offset:offset+4]):
+                reason=None
+                wait_until=min(time.time()+3600,DEADLINE-TIMEOUT-60)
+                for dependency in spec.get('depends_on',[]):
+                    print('WAITING FOR',dependency,flush=True)
+                    while True:
+                        prior=(claims.get(dependency) or {}).get('result')
+                        if prior:
+                            if prior['status']!='complete':reason='Dependency did not complete: '+dependency
+                            break
+                        if time.time()>=wait_until:
+                            reason='Dependency wait exceeded its time budget: '+dependency
+                            break
+                        time.sleep(10)
+                    if reason:break
+                if reason:
+                    skipped=dict(run=f"night-{batch}-{spec['tag']}",status='skipped',reason=reason,estimated_compute_usd=0)
+                    manifest['active_skips'][str(index)]=skipped
+                    claims.put(skipped['run'],{'result':skipped})
+                    jobs.append(None)
+                    continue
                 call=experiment.with_options(gpu=spec['gpu']).spawn(batch,spec)
                 jobs.append(call)
             manifest['active_offset']=offset
-            manifest['active_call_ids']=[j.object_id for j in jobs];save()
+            manifest['active_call_ids']=[j.object_id if j else None for j in jobs];save()
         for index,job in enumerate(jobs):
             if offset+index<len(manifest['results']):continue
-            try:record=job.get()
+            try:record=job.get() if job else manifest['active_skips'][str(index)]
             except Exception as exc:record={'status':'failed','error':str(exc),'cost_unknown':True}
             manifest['results'].append(record);save()
     manifest['status']='complete';manifest['active_call_ids']=[];save()
@@ -181,6 +215,7 @@ def orchestrate(plan,batch):
 @app.local_entrypoint()
 def main(plan: str, batch: str = ''):
     specs=json.loads(Path(plan).read_text())
+    validate_plan(specs)
     result=orchestrate.remote(specs,batch or str(time.time_ns()))
     out=ROOT/'runs'/('night-'+result['batch']);out.mkdir(parents=True,exist_ok=True)
     (out/'manifest.json').write_text(json.dumps(result,indent=2))

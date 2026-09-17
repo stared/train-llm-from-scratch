@@ -60,6 +60,36 @@ class ScratchModelChecks(unittest.TestCase):
             self.assertTrue(any(e[0]=='Training loss' and e[1]==25 for e in events))
             self.assertEqual(events[0][0],'Development loss')
             self.assertEqual(events[-1][0],'Development loss')
+            with patch('train_scratch.time.monotonic',side_effect=itertools.count(0,2)), \
+                 patch('train_scratch.config_for',return_value=Config(vocab_size=4,width=16,layers=1,heads=2,hidden=32,context=256)), \
+                 patch.object(ScratchGPT,'generate',lambda self,ids,new_tokens:ids):
+                continued=run(data,Path(temp)/'continued',max_seconds=60,device='cpu',batch_size=8,
+                              initial_checkpoint=Path(temp)/'run/best.pt')
+            self.assertEqual(continued['before']['test'],result['selected']['test'])
+            self.assertEqual(continued['initial_checkpoint_run'],'run')
+            mixture=Path(temp)/'mixture';mixture.mkdir()
+            (mixture/'tokenizer.json').write_bytes((data/'tokenizer.json').read_bytes())
+            meta=json.loads((data/'tokens.json').read_text())
+            for split in ('train','dev','test'):
+                values=np.full(1500,2,dtype='<u2');values.tofile(mixture/f'{split}.bin')
+                meta['splits'][split]=dict(tokens=len(values),sha256=hashlib.sha256(values.tobytes()).hexdigest())
+            (mixture/'tokens.json').write_text(json.dumps(meta))
+            batches=[];original_forward=ScratchGPT.forward
+            def inspect_forward(model,ids,targets=None,positions=None):
+                if model.training and targets is not None:batches.append(ids.clone())
+                return original_forward(model,ids,targets,positions)
+            with patch('train_scratch.time.monotonic',side_effect=itertools.count(0,2)), \
+                 patch('train_scratch.config_for',return_value=Config(vocab_size=4,width=16,layers=1,heads=2,hidden=32,context=256)), \
+                 patch.object(ScratchGPT,'generate',lambda self,ids,new_tokens:ids), \
+                 patch.object(ScratchGPT,'forward',inspect_forward):
+                mixed=run(data,Path(temp)/'mixed',max_seconds=60,device='cpu',batch_size=8,
+                          sampling_mode='mixed-uniform',mixture_dir=mixture)
+            self.assertTrue(batches)
+            for batch in batches:
+                self.assertTrue(torch.all(batch[:4]==2))
+                self.assertFalse(torch.all(batch[4:]==2))
+            self.assertEqual(mixed['source_exposures']['primary']['tokens'],mixed['tokens_seen']//2)
+            self.assertEqual(mixed['source_exposures']['mixture']['tokens'],mixed['tokens_seen']//2)
 
     def test_parameter_counts(self):
         for size,expected in [('10m',10244160),('30m',29893120)]:

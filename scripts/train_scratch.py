@@ -25,10 +25,10 @@ def save(path,value):
     Path(path).write_text(json.dumps(value,ensure_ascii=False,indent=2))
 
 
-def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', batch_size=32, context_length=256, eval_interval=60, peak_lr=6e-4, warmup_steps=20, checkpoint_hook=None, research_limit_seconds=600, sampling_mode='uniform', mixture_dir=None, progress=None, compile_training=False):
-    if not 60<=max_seconds<=research_limit_seconds<=8400 or batch_size not in (8,16,32,64):
+def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', batch_size=32, context_length=256, eval_interval=60, peak_lr=6e-4, warmup_steps=20, checkpoint_hook=None, research_limit_seconds=600, sampling_mode='uniform', mixture_dir=None, progress=None, compile_training=False,initial_checkpoint=None):
+    if not 60<=max_seconds<=research_limit_seconds<=8400 or batch_size not in (8,16,32,64,128,256):
         raise ValueError('Invalid explicit time budget or batch size')
-    if sampling_mode not in ('uniform','openings','mixed'):
+    if sampling_mode not in ('uniform','openings','mixed','mixed-uniform'):
         raise ValueError('Unknown sampling mode')
     if context_length not in (256,512,1024) or eval_interval<60 or warmup_steps<1 or not 0<peak_lr<=.002:
         raise ValueError('Invalid context/evaluation/learning-rate configuration')
@@ -63,12 +63,19 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
         extra=np.memmap(extra_dir/'train.bin',dtype='<u2',mode='r')
         # Only training boundaries are indexed. Half of enriched samples begin
         # at the original article opening; others use random windows.
-        article_starts=np.concatenate(([0],np.flatnonzero(extra==extra_meta['eod_id'])+1))
-        article_starts=article_starts[article_starts<len(extra)-config.context-1]
+        if sampling_mode!='mixed-uniform':
+            article_starts=np.concatenate(([0],np.flatnonzero(extra==extra_meta['eod_id'])+1))
+            article_starts=article_starts[article_starts<len(extra)-config.context-1]
     torch.manual_seed(seed)
     if device=='cuda':
         torch.cuda.reset_peak_memory_stats()
     model=ScratchGPT(config).to(device)
+    if initial_checkpoint:
+        initial_checkpoint=Path(initial_checkpoint)
+        initial_tokenizer=initial_checkpoint.parent/'tokenizer.json'
+        if hashlib.sha256(initial_tokenizer.read_bytes()).hexdigest()!=metadata['tokenizer_sha256']:
+            raise ValueError('Continued pretraining requires the same tokenizer')
+        model.load_state_dict(torch.load(initial_checkpoint,map_location=device,weights_only=True))
     parameters=sum(p.numel() for p in model.parameters())
     decay=[p for p in model.parameters() if p.dim()>=2]
     no_decay=[p for p in model.parameters() if p.dim()<2]
@@ -128,7 +135,7 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
             x=x.clone();y=y.clone()
             count=batch_size if sampling_mode=='openings' else batch_size//2
             starts=rng.integers(0,len(extra)-config.context-1,size=count)
-            starts[:count//2]=rng.choice(article_starts,size=count//2)
+            if article_starts is not None:starts[:count//2]=rng.choice(article_starts,size=count//2)
             block=np.stack([extra[int(i):int(i)+config.context+1] for i in starts]).astype(np.int64)
             ids=torch.from_numpy(block).to(device)
             x[:count]=ids[:,:-1];y[:count]=ids[:,1:]
@@ -170,13 +177,20 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
     selected={s:evaluate('selected_'+s,s) for s in ('train','dev','test')}
     selected_samples=samples('samples_selected')
     if checkpoint_hook:checkpoint_hook(model,tokenizer,'selected',best_step,training_seconds,out)
-    result=dict(model=f'ScratchGPT-{size}',initialization='Random model weights; '+metadata.get('tokenizer_origin','new Wiki8k BPE tokenizer'),config=asdict(config),
+    secondary_tokens=0 if extra is None else step*config.context*(batch_size if sampling_mode=='openings' else batch_size//2)
+    exposures={'primary':dict(corpus=data_dir.name,tokens=tokens_seen-secondary_tokens,ratio=(tokens_seen-secondary_tokens)/len(arrays['train']))}
+    if extra is not None:exposures['mixture']=dict(corpus=extra_dir.name,tokens=secondary_tokens,ratio=secondary_tokens/len(extra))
+    source_label=metadata.get('source_label','Polish Wikipedia20260901, original main-namespace wikitext including redirects')
+    if extra is not None:source_label+='; mixed with '+extra_meta.get('source_label',extra_dir.name)
+    result=dict(model=f'ScratchGPT-{size}',initialization=('Continued pretraining; optimizer reset; ' if initial_checkpoint else 'Random model weights; ')+metadata.get('tokenizer_origin','Wiki8k BPE tokenizer'),config=asdict(config),
+        initial_checkpoint_run=initial_checkpoint.parent.name if initial_checkpoint else None,
+        initial_checkpoint_file=initial_checkpoint.name if initial_checkpoint else None,
         environment=dict(torch=torch.__version__,numpy=np.__version__,tokenizers=importlib.metadata.version('tokenizers'),
                          device=torch.cuda.get_device_name() if device=='cuda' else 'CPU',precision='BF16 autocast with FP32 weights' if device=='cuda' else 'FP32'),
-        parameters=parameters,seed=seed,source=metadata.get('source_label','Polish Wikipedia20260901, original main-namespace wikitext including redirects'),
+        parameters=parameters,seed=seed,source=source_label,source_exposures=exposures,
         data=metadata,generation_prompts=generation_prompts,before=before,final=final,selected=selected,best_step=best_step,steps=step,
         tokens_seen=tokens_seen,training_pool_tokens=len(arrays['train']),
-        exposure_ratio=tokens_seen/len(arrays['train']),sampling=sampling_mode,mixture_dir=str(mixture_dir) if mixture_dir else None,
+        exposure_ratio=tokens_seen/len(arrays['train']),sampling=sampling_mode,mixture_dir=Path(mixture_dir).name if mixture_dir else None,
         compile_training=compile_training,batch_size=batch_size,peak_lr=peak_lr,warmup_steps=warmup_steps,eval_context=eval_context,eval_interval=eval_interval,training_seconds=training_seconds,training_compute_seconds=training_compute,
         tokens_per_training_compute_second=tokens_seen/training_compute,
         peak_vram_gb=torch.cuda.max_memory_allocated()/1e9 if device=='cuda' else None,

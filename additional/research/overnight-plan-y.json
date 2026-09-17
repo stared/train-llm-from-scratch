@@ -1,0 +1,78 @@
+[
+  {
+    "tag": "100m-raw-wiki-wolne-lektury",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "mixture_data": "wl-wiki-bpe-v1",
+    "sampling": "mixed-uniform",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0006,
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v1",
+      "wl-wiki-bpe-v1"
+    ]
+  },
+  {
+    "tag": "100m-plain-wiki-wolne-lektury",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-plain-leads-v1",
+    "mixture_data": "wl-wiki-bpe-v1",
+    "sampling": "mixed-uniform",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0006,
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v1",
+      "wl-wiki-bpe-v1"
+    ]
+  },
+  {
+    "tag": "300m-raw-wiki-wolne-lektury",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "300m",
+    "data": "wiki-scratch-v1",
+    "mixture_data": "wl-wiki-bpe-v1",
+    "sampling": "mixed-uniform",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0006,
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v1",
+      "wl-wiki-bpe-v1"
+    ]
+  },
+  {
+    "tag": "300m-plain-wiki-wolne-lektury",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "300m",
+    "data": "wiki-plain-leads-v1",
+    "mixture_data": "wl-wiki-bpe-v1",
+    "sampling": "mixed-uniform",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0006,
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v1",
+      "wl-wiki-bpe-v1"
+    ]
+  }
+]

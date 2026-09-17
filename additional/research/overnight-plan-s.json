@@ -1,0 +1,76 @@
+[
+  {
+    "tag": "wiki-100m-wide-50min",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m-wide",
+    "data": "wiki-scratch-v1",
+    "seconds": 3000,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0006,
+    "quality": true,
+    "quality_checkpoints": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ]
+  },
+  {
+    "tag": "wiki-300m-plain-50min",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "300m",
+    "data": "wiki-plain-leads-v1",
+    "seconds": 3000,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0003,
+    "quality": true,
+    "quality_checkpoints": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ]
+  },
+  {
+    "tag": "wiki-100m-continue-plain",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-plain-leads-v1",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0001,
+    "quality": true,
+    "quality_checkpoints": false,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ],
+    "initial_run": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform"
+  },
+  {
+    "tag": "wiki-300m-continue-plain",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "300m",
+    "data": "wiki-plain-leads-v1",
+    "seconds": 600,
+    "batch": 32,
+    "compile": true,
+    "lr": 0.0001,
+    "quality": true,
+    "quality_checkpoints": false,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ],
+    "initial_run": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform"
+  }
+]

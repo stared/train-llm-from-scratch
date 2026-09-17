@@ -736,3 +736,44 @@ Continuation measurements and next decisions (still running):
 - Prompt mismatch is worth checking: the Warsaw training lead starts with `Warszawa, miasto stołeczne Warszawa...`, whereas the existing probe forces `Warszawa –`. Source-style prompts and greedy decoding will be diagnostic comparisons, not replacements for the frozen probes or a claim of general factual reliability.
 
 `results/checkpoint-selection.svg` now explicitly marks selected versus final weights. Example: Qwen3.5-0.8B driving SFT selected step350 had28/40 test answers versus24/40 at final step856. The RLVR illustration goes the other way on test (23→24 despite worse dev): dev selection cannot guarantee the best unseen score. The report passed a browser check, and all27 standard tests plus six scratch-model checks passed.
+
+### Reference-removal correction and superseded results
+
+Found and fixed a real extraction bug: the paired-reference regex could treat a self-closing `<ref ... />` as an opening tag and consume prose through a later `</ref>`. Original-markup Wikipedia extraction is unaffected. Added a regression test preserving the sentence between those two references; all28 standard tests pass. The shared `strip_reference_tags` helper lives in `scripts/prepare_wiki_scratch.py` and is called only by optional plain-text preparations.
+
+`wiki-plain-leads-v1` results (including its apparent common-pool improvements noted above) are superseded for recipe selection. The earlier5,000-definition Q&A data used the same faulty expression. Keep these records for audit, not as recommendations. Canceled unfinished S300M plain-text50-minute training and the two plain-v1 mixture jobs in Y; their costs remain conservatively reserved because canceled-job billing is not known. Raw-Wikipedia P runs and raw-Wikipedia/literature Y runs continue. The remote dependency scheduler skips V's canceled plain-v1 branch while retaining its three valid raw-data branches.
+
+Corrected `wiki-plain-leads-v2`:467,058 training articles /81,568,077 tokens;2,327 dev articles /405,664 tokens;2,375 test articles /421,820 tokens. Preparation315 seconds on four CPUs. Exact cleaned-text duplicate exclusion and original source splits remain in place. AA reruns10-minute fresh/continued100M/300M comparisons and50-minute fresh100M/300M runs against this version.
+
+The Wolne Lektury corpus already used exactly the Wikipedia tokenizer. A retokenization check reproduced byte-identical token files (101,330,998 train tokens). `wl-wiki-bpe-v1` is a redundant verified alias used by Y, not new data or a new vocabulary. Future mixtures should use the existing `wl-scratch-v1` directly. CPU preparation cost was small; no need to repeat that work.
+
+### Longer runs, domain SFT and repeated controls
+
+- Thirty-minute compiled98M raw-Wikipedia pretraining reached test loss1.426 after920.4M token presentations for$2.136 worker compute. Ten-minute98M was1.619; the earlier8,000-second98M checkpoint was1.301. This still shows gains from more training. These runs also differ in LR schedules/batch settings; this is not a controlled scaling-law estimate.
+- Matched approximately100M architecture sweep at10 minutes: standard1.619, wider/shallow1.599, deeper/narrow1.696 raw-Wikipedia test loss. Wide model processed336.1M tokens versus272.5M standard. Higher LR0.0012 did not help:100M1.636,291M2.007. Continue the wider model, not the deeper one.
+- The general OWCA instruction stage did not improve the first matched exam comparison.98M direct slow SFT23/40 original and24/40 rotated versus21/40 and25/40 after instruction SFT.291M:25/40 and24/40 direct versus19/40 and18/40 after instruction SFT. Instruction-style answers alone do not establish better task competence.
+- Repeat seeds support a real benefit of pretraining over random weights:291M direct exam RLVR scored27/26/27 original and25/24/22 rotated across seeds42/123/2026. Random291M RLVR was15/40 and12/40; random291M SFT10/40 and16/40.98M short SFT→RLVR scored27/28/27 original and21/24/23 rotated. Still a tiny, previously inspected test set; no official-exam passing claim.
+- X compares RLVR with a fairer supervised classification control: cross-entropy conditioned on the same three answer actions, plus the same exact KL penalty. This separates reinforcement learning from a difference in answer normalization. It does not teach free-form reasoning.
+- Z trains grounded domain instructions from9,602 most-linked Wikipedia articles, with39 dev and43 test articles retaining their original corpus split. Three fixed prompt templates; answers copied from the first plain paragraph and shortened at a sentence-like boundary when needed. The reference-removal bug was fixed **before any Z training**. Warsaw and other familiar entities occur in its training set, so familiar-entity probes test recall, not unseen knowledge. Final as well as dev-selected weights and text are saved.
+- Greedy decoding, source-like title prefixes and explicit article-start tokens were tested rather than assumed to fix factuality. They change continuations but still produce incorrect Warsaw descriptions. Do not hide these failures behind the easier candidate-choice probes.
+
+### 50-minute Wikipedia results and continued training
+
+Batch P completed four original-markup runs on H100. Same fixed16,384-token test pool and8,192-entry tokenizer; weights selected by development loss. Costs below are worker compute including evaluation, not total account billing.
+
+| Parameters | Batch / peak LR | Training | Token presentations | Test loss | Worker USD |
+|---|---|---|---|---|---|
+|29.9M|32 /0.0006|50min|3.618B|1.5090|3.544|
+|98.3M|64 /0.0006|50min|1.633B|1.3387|3.557|
+|98.3M|32 /0.0012|50min|1.528B|1.4018|3.543|
+|291.0M|64 /0.0003|50min|0.607B|1.3761|3.598|
+
+The98M10-minute/30-minute/50-minute results are1.619/1.426/1.339. The earlier8,000-second98M run reached1.301. These are different schedules/batches, so do not fit a scaling law to them, but they do not justify declaring longer pretraining exhausted. `results/wikipedia-scaling.svg` and its JSON preserve measured checkpoint curves, endpoint losses, run IDs and costs. Raw continuation quality remains poor: the50-minute98M model describes Warsaw as a former administrative gromada. Better loss is not equivalent to correct facts.
+
+Batch AD continues P98M/P291M and the earlier8,000-second98M/291M weights for another50minutes each, with batch64 and lower peak LR0.00015/0.0001. Uses new sampler seed43 rather than replaying the original seed42 sample sequence. Optimizer state resets; this is explicitly continued pretraining, not an uninterrupted100-minute run. Each worker has a one-hour hard bound, and all four together reserve$17.513 including controller allowance. Budgets retain prior work and unknown canceled costs.
+
+### Grounded instruction recall versus generalization
+
+Z trained on9,602 Wikipedia definitions. At LR0.00003, both98M and291M selected step500 by development loss; ten passes ended at step6002.98M held-out definition loss worsened from1.800 selected to2.665 final;291M from1.829 to2.574. Final weights can reproduce the Warsaw training paragraph, but that is memorization of a familiar entity. For example,291M final answers `Opisz: Warszawa.` with the recognizable capital-city paragraph, yet `Kim był Adam Mickiewicz?` invents a military biography. Do not use the familiar Warsaw output to claim broad instruction competence. The18 fixed instruction probes include original and new wording; raw baselines were evaluated with the same prompts in AC.
+
+The fairer three-action supervised control X (conditional cross-entropy plus KL0.1) scored25/40 original and23/40 rotated for98M.291M seeds42/123/2026 scored25/26/27 original and23/24/21 rotated. Direct291M RLVR scored27/26/27 and25/24/22. On this small, repeatedly inspected set, those results do not support a large inherent RLVR advantage. All16 T/X/Z records passed the saved-metric/checkpoint audits.

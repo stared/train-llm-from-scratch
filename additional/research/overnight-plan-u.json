@@ -1,0 +1,68 @@
+[
+  {
+    "tag": "decode-old100",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ]
+  },
+  {
+    "tag": "decode-old300",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ]
+  },
+  {
+    "tag": "decode-wide100",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789681284848231000-wiki-100m-wide-lr0.0006",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ]
+  },
+  {
+    "tag": "decode-plain100",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789681093646214000-100m-wiki-plain-leads-v1",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ]
+  },
+  {
+    "tag": "decode-plain300",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789681093646214000-300m-wiki-plain-leads-v1",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ]
+  },
+  {
+    "tag": "decode-leads100",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789681093646214000-100m-wiki-leads-v1",
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-leads-v1",
+      "wiki-plain-leads-v1"
+    ]
+  }
+]

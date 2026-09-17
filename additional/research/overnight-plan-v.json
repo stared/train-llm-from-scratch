@@ -1,0 +1,234 @@
+[
+  {
+    "tag": "100m-raw-instruction",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789681601127509000-wiki-100m-batch64-50min",
+    "depends_on": [
+      "night-1789681601127509000-wiki-100m-batch64-50min"
+    ],
+    "task": "instruction",
+    "method": "sft",
+    "seconds": 1200,
+    "lr": 3e-05,
+    "dataset": "polish-instructions",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 3,
+    "eval_steps": 250
+  },
+  {
+    "tag": "300m-raw-instruction",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789681601127509000-wiki-300m-batch64-50min",
+    "depends_on": [
+      "night-1789681601127509000-wiki-300m-batch64-50min"
+    ],
+    "task": "instruction",
+    "method": "sft",
+    "seconds": 1200,
+    "lr": 3e-05,
+    "dataset": "polish-instructions",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 3,
+    "eval_steps": 250
+  },
+  {
+    "tag": "100m-wide-instruction",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789682325149225000-wiki-100m-wide-50min",
+    "depends_on": [
+      "night-1789682325149225000-wiki-100m-wide-50min"
+    ],
+    "task": "instruction",
+    "method": "sft",
+    "seconds": 1200,
+    "lr": 3e-05,
+    "dataset": "polish-instructions",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 3,
+    "eval_steps": 250
+  },
+  {
+    "tag": "300m-plain-instruction",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789682325149225000-wiki-300m-plain-50min",
+    "depends_on": [
+      "night-1789682325149225000-wiki-300m-plain-50min"
+    ],
+    "task": "instruction",
+    "method": "sft",
+    "seconds": 1200,
+    "lr": 3e-05,
+    "dataset": "polish-instructions",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 3,
+    "eval_steps": 250
+  },
+  {
+    "tag": "100m-raw-direct-exam",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789681601127509000-wiki-100m-batch64-50min",
+    "depends_on": [
+      "night-1789681601127509000-wiki-100m-batch64-50min"
+    ],
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 1e-06,
+    "beta": 0.1,
+    "dataset": "prawko-expanded",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 80,
+    "eval_steps": 100,
+    "selection_permutations": true
+  },
+  {
+    "tag": "300m-raw-direct-exam",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789681601127509000-wiki-300m-batch64-50min",
+    "depends_on": [
+      "night-1789681601127509000-wiki-300m-batch64-50min"
+    ],
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 1e-06,
+    "beta": 0.1,
+    "dataset": "prawko-expanded",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 80,
+    "eval_steps": 100,
+    "selection_permutations": true
+  },
+  {
+    "tag": "100m-wide-direct-exam",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789682325149225000-wiki-100m-wide-50min",
+    "depends_on": [
+      "night-1789682325149225000-wiki-100m-wide-50min"
+    ],
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 1e-06,
+    "beta": 0.1,
+    "dataset": "prawko-expanded",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 80,
+    "eval_steps": 100,
+    "selection_permutations": true
+  },
+  {
+    "tag": "300m-plain-direct-exam",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789682325149225000-wiki-300m-plain-50min",
+    "depends_on": [
+      "night-1789682325149225000-wiki-300m-plain-50min"
+    ],
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 1e-06,
+    "beta": 0.1,
+    "dataset": "prawko-expanded",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 80,
+    "eval_steps": 100,
+    "selection_permutations": true
+  },
+  {
+    "tag": "100m-raw-instructed-exam",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789682769193343000-100m-raw-instruction",
+    "depends_on": [
+      "night-1789682769193343000-100m-raw-instruction"
+    ],
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 1e-06,
+    "beta": 0.1,
+    "dataset": "prawko-expanded",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 80,
+    "eval_steps": 100,
+    "selection_permutations": true
+  },
+  {
+    "tag": "300m-raw-instructed-exam",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789682769193343000-300m-raw-instruction",
+    "depends_on": [
+      "night-1789682769193343000-300m-raw-instruction"
+    ],
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 1e-06,
+    "beta": 0.1,
+    "dataset": "prawko-expanded",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 80,
+    "eval_steps": 100,
+    "selection_permutations": true
+  },
+  {
+    "tag": "100m-wide-instructed-exam",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789682769193343000-100m-wide-instruction",
+    "depends_on": [
+      "night-1789682769193343000-100m-wide-instruction"
+    ],
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 1e-06,
+    "beta": 0.1,
+    "dataset": "prawko-expanded",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 80,
+    "eval_steps": 100,
+    "selection_permutations": true
+  },
+  {
+    "tag": "300m-plain-instructed-exam",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789682769193343000-300m-plain-instruction",
+    "depends_on": [
+      "night-1789682769193343000-300m-plain-instruction"
+    ],
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 1e-06,
+    "beta": 0.1,
+    "dataset": "prawko-expanded",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 80,
+    "eval_steps": 100,
+    "selection_permutations": true
+  }
+]
