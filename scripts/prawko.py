@@ -31,7 +31,7 @@ def question(row, order=(0, 1, 2)):
 
 
 def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
-        epochs=5, lr=5e-5, seed=42, device='cuda'):
+        epochs=5, lr=5e-5, seed=42, device='cuda', progress=None):
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForImageTextToText
     from peft import LoraConfig, get_peft_model, get_peft_model_state_dict, set_peft_model_state_dict, PeftModel
@@ -107,6 +107,7 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
         return metric
 
     before = {k: evaluate('before_' + k, data[k]) for k in ('train', 'dev', 'test')}
+    if progress: progress('Development accuracy', 0, before['dev']['accuracy'])
     before['test_rotated'] = evaluate('before_test_rotated', data['test'], True)
     result = dict(method=method, model_spec=spec, seed=seed, data_sha256=hashlib.sha256(data_path.read_bytes()).hexdigest(),
         decoding='Argmax over A/B/C next-token logits; no reasoning; nonthinking chat template',
@@ -162,6 +163,7 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
             metric = evaluate(f'dev_epoch_{epoch+1}', data['dev'])
             checkpoints.append(dict(epoch=epoch+1, steps=len(history),
                                     elapsed_seconds=time.monotonic()-train_started, **metric))
+            if progress: progress('Development accuracy', len(history), metric['accuracy'])
             score = (metric['correct'], metric['mean_correct_probability'])
             if score > best_score:
                 best_score, best_state, best_epoch = score, state(), epoch+1

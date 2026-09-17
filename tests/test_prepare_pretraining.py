@@ -36,7 +36,7 @@ class PreparationTests(unittest.TestCase):
         modal = Mock()
         modal.Volume.from_name.return_value = volume
         with patch.object(prep, 'ROOT', self.root), patch.dict('sys.modules', {'modal':modal}):
-            prep.prepare('literature')
+            prep.prepare('wolne-lektury')
         volume.batch_upload.assert_not_called()
 
     def test_missing_remote_uploads_all_files(self):
@@ -47,5 +47,5 @@ class PreparationTests(unittest.TestCase):
         upload = modal.enable_output.return_value
         volume.batch_upload.return_value = upload
         with patch.object(prep, 'ROOT', self.root), patch.dict('sys.modules', {'modal':modal}):
-            prep.prepare('literature')
+            prep.prepare('wolne-lektury')
         self.assertEqual(upload.__enter__.return_value.put_file.call_count, 5)

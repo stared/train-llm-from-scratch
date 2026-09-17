@@ -10,21 +10,23 @@ image = (modal.Image.debian_slim(python_version='3.14')
     .pip_install_from_requirements('scripts/requirements.txt')
     .env({'HF_HOME': '/persist/hf', 'TOKENIZERS_PARALLELISM': 'false'})
     .add_local_file('scripts/prawko.py', '/work/scripts/prawko.py')
+    .add_local_file('scripts/training_progress.py', '/work/scripts/training_progress.py')
     .add_local_file('scripts/models.json', '/work/scripts/models.json')
     .add_local_dir('datasets/prawko-v2', '/work/datasets/prawko-v2'))
 
 
 @app.function(image=image, gpu='L4', cpu=2, memory=16384, timeout=1050,
               retries=0, max_containers=1, volumes={'/persist': volume})
-def experiment(method, model, max_seconds, epochs, lr, seed):
+def experiment(method, model, max_seconds, epochs, lr, seed, progress_queue=None):
     import sys
     sys.path.insert(0, '/work/scripts')
     from prawko import run
+    from training_progress import reporter
     started = time.monotonic()
     name = f'prawko-{method}-{time.time_ns()}'
     path = Path('/persist/runs') / name
     try:
-        result = run(str(path), method, model, max_seconds, epochs, lr, seed, 'cuda')
+        result = run(str(path), method, model, max_seconds, epochs, lr, seed, 'cuda', progress=reporter(progress_queue))
         result['remote_seconds'] = time.monotonic() - started
         result['estimated_compute_usd'] = result['remote_seconds'] * (.000222 + 2*.0000131 + 16*.00000222)
         (path / 'executed_prawko.py').write_text(Path('/work/scripts/prawko.py').read_text())
@@ -43,7 +45,8 @@ def main(method: str = 'screen', model: str = 'qwen3.5-0.8b', max_seconds: int =
         raise ValueError('Use 60–720 seconds, 1–40 epochs, learning rate 1e-6–5e-4')
     print('One L4; each worker hard timeout 1050s (~$0.30 requested compute ceiling), excluding startup/storage.', flush=True)
     for selected in (('sft','rlvr') if method=='compare' else (method,)):
-        name, files = experiment.remote(selected, model, max_seconds, epochs, lr, seed)
+        from training_progress import run_live
+        name, files = run_live(experiment, 'sft' if selected in ('sft','screen') else 'exam-rlvr', selected, model, max_seconds, epochs, lr, seed)
         out = Path('runs') / name
         out.mkdir(parents=True, exist_ok=False)
         for filename, content in files.items():

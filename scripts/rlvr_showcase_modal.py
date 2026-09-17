@@ -11,20 +11,22 @@ image = (modal.Image.debian_slim(python_version='3.14')
          .env({'HF_HOME': '/persist/hf', 'TOKENIZERS_PARALLELISM': 'false'})
          .add_local_file('scripts/rlvr_showcase.py', '/work/scripts/rlvr_showcase.py')
          .add_local_file('scripts/rlvr_tasks.py', '/work/scripts/rlvr_tasks.py')
+         .add_local_file('scripts/training_progress.py', '/work/scripts/training_progress.py')
          .add_local_file('scripts/models.json', '/work/scripts/models.json'))
 
 
 @app.function(image=image, gpu='L4', cpu=2, memory=16384, timeout=1100,
               retries=0, max_containers=1, volumes={'/persist': volume})
-def experiment(task, stage, model, max_seconds, steps, lr, seed, beta, dev_interval):
+def experiment(task, stage, model, max_seconds, steps, lr, seed, beta, dev_interval, progress_queue=None):
     import sys
     sys.path.insert(0, '/work/scripts')
     from rlvr_showcase import run
+    from training_progress import reporter
     started = time.monotonic()
     name = f'rlvr-{stage}-{task}-{time.time_ns()}'
     path = Path('/persist/runs') / name
     try:
-        result = run(str(path), task, stage, model, max_seconds, steps, lr, seed, 'cuda', beta, dev_interval)
+        result = run(str(path), task, stage, model, max_seconds, steps, lr, seed, 'cuda', beta, dev_interval, progress=reporter(progress_queue))
         result['remote_seconds'] = time.monotonic() - started
         result['estimated_compute_usd'] = result['remote_seconds'] * (.000222 + 2*.0000131 + 16*.00000222)
         for filename in ['rlvr_showcase.py', 'rlvr_tasks.py']:
@@ -47,7 +49,8 @@ def main(task: str = 'six_words', stage: str = 'train', model: str = 'qwen3.5-4b
         raise ValueError('Invalid regularization/checkpoint settings')
     print('One L4, 16 GiB host RAM, 1100s hard timeout (~$0.31 requested compute ceiling); excludes startup/storage.', flush=True)
     for selected in (('six_words', 'countdown', 'maze') if task == 'all' else (task,)):
-        name, files = experiment.remote(selected, stage, model, max_seconds, steps, lr, seed, beta, dev_interval)
+        from training_progress import run_live
+        name, files = run_live(experiment, 'rlvr', selected, stage, model, max_seconds, steps, lr, seed, beta, dev_interval)
         out = Path('runs') / name
         out.mkdir(parents=True, exist_ok=False)
         for filename, content in files.items():

@@ -26,7 +26,7 @@ def save(path, obj):
 
 
 def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
-        max_seconds=600, steps=160, lr=5e-5, seed=42, device='cuda', beta=.01, dev_interval=20):
+        max_seconds=600, steps=160, lr=5e-5, seed=42, device='cuda', beta=.01, dev_interval=20, progress=None):
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForImageTextToText, GenerationConfig
     from peft import LoraConfig, get_peft_model, PeftModel, get_peft_model_state_dict, set_peft_model_state_dict
@@ -111,6 +111,7 @@ def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
         return result
 
     before = {split: evaluate(f'before_{split}', data[split]) for split in ('dev', 'test')}
+    if progress: progress('Development success', 0, before['dev']['successes']/before['dev']['n'])
     before['sampled_dev'] = evaluate('before_sampled_dev', data['dev'][:12], True, 2)
     best_score = (before['dev']['successes'], before['dev']['mean_reward'])
     best_state = {k: v.detach().cpu().clone() for k, v in get_peft_model_state_dict(model).items()} if dev_interval else None
@@ -189,11 +190,13 @@ def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
                 torch.cuda.set_rng_state(gpu_rng)
             score = (metric['successes'], metric['mean_reward'])
             checkpoints.append(dict(step=step+1, **metric))
+            if progress: progress('Development success', step+1, metric['successes']/metric['n'])
             if score > best_score:
                 best_score, best_step = score, step+1
                 best_state = {k: v.detach().cpu().clone() for k, v in get_peft_model_state_dict(model).items()}
         elapsed = time.monotonic() - training_start
         if step % 10 == 0:
+            if progress: progress('Rollout reward', step+1, rewards.mean().item())
             print(f'{task} step={step} updates={updates} mean_reward={rewards.mean().item():.3f} seconds={elapsed:.1f}', flush=True)
             save(out / 'rollouts.json', history)
         if elapsed >= max_seconds:

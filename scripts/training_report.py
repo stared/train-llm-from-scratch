@@ -15,7 +15,9 @@ def chart(series, xlabel, ylabel):
         return '<p>No curve recorded.</p>'
     xmax = max(1, max(x for x, y in points))
     ymin = min(0, min(y for x, y in points))
-    ymax = max(ymin + 1e-6, max(y for x, y in points))
+    ymax = max(y for x, y in points)
+    if ymax <= ymin or any(word in ylabel.lower() for word in ('accuracy','success','reward')):
+        ymax = max(1., ymax)
     x = lambda v: 65 + 760 * v / xmax
     y = lambda v: 260 - 220 * (v - ymin) / (ymax - ymin)
     parts = ['<svg viewBox="0 0 860 315" role="img" aria-label="Training curve">']
@@ -23,14 +25,15 @@ def chart(series, xlabel, ylabel):
         v = ymin + (ymax-ymin)*i/4
         parts.append(f'<path d="M65 {y(v)} H825" stroke="#ddd"/><text x="5" y="{y(v)}">{v:.2f}</text>')
         t = xmax*i/4
-        parts.append(f'<text x="{x(t)}" y="280" text-anchor="middle">{t:.0f}</text>')
+        parts.append(f'<text x="{x(t)}" y="280" text-anchor="middle">{t:g}</text>')
     for (name, rows), color in zip(series, ['#2067b0', '#d04b16']):
         coords = ' '.join(f'{x(a)},{y(b)}' for a,b in rows)
         parts.append(f'<polyline points="{coords}" fill="none" stroke="{color}" stroke-width="2"/>')
         for a,b in rows:
             parts.append(f'<circle cx="{x(a)}" cy="{y(b)}" r="2" fill="{color}"><title>{escape(name)}: {b:.4f} at {a:.1f}</title></circle>')
     parts.append(f'<text x="65" y="20">{escape(ylabel)}</text><text x="420" y="310">{escape(xlabel)}</text></svg>')
-    return ''.join(parts) + '<p>' + ' · '.join(escape(n) for n,_ in series) + ' (blue, orange)</p>'
+    legend = ''.join(f'<li style="color:{color}">{escape(name)}</li>' for (name,_),color in zip(series,['#2067b0','#d04b16']))
+    return ''.join(parts) + '<ul>' + legend + '</ul>'
 
 
 def render(folder):

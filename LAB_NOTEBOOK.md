@@ -628,3 +628,34 @@ Verified SHA-256 hashes for all 1,467 files before and after untracking: unchang
 - Moved 25 research runners/report builders into `additional/scripts/`. Added a latest-result viewer with explicit offline `--example` mode and six-word RLVR report support.
 - Included a complete report from existing literature run `scratch-wl-30m-1788883120289174941`: test loss 9.073 → 2.782. No new model outputs invented, no GPU retraining performed for this reorganization. The main RLVR exercise is six-word stories; exam RLVR remains optional.
 - Kept the measured full historical literature recipe (123 MB download); a smaller bundled pretraining recipe would require its own training validation and is not presented as tested. Independent post-training exercises and included reports let participants continue while it downloads.
+
+
+## 2026-09-17 — Data guide revision and cloud preparation check
+
+- Rewrote data/tokenization guide with direct dataset links, size bullets, prominent BPE explorer, plain tokenizer path and further reading. Removed the stock literary excerpt and meta-instructions.
+- Renamed the participant recipe `literature` to `wolne-lektury`. Added CPU-side Modal preparation to avoid each laptop downloading and uploading the corpus over workshop Wi-Fi.
+- Cloud Python 3.14 image built successfully; existing Wolne Lektury prepared data passed full checksum validation and was reused.
+- Fresh-path testing found the historical `codebased.xyz/files/i/wolnelektury.zip` endpoint returns HTTP 404. A first temporary test harness also failed due to its import path and was stopped; a corrected worker reached the actual download. No fresh tokenization or GPU training was claimed. Wikipedia cloud preparation is implemented but not rerun.
+- The exact historical ZIP remains locally available (123,071,225 bytes; SHA256 `1a25be256ee13a4a39c9a1c549d4a3f363bf2e4ad673f8e1c34e25473c43e15b`). Requested approval to publish it as a GitHub Release asset; no release has been published. Fresh-account readiness is explicitly marked pending in the guides.
+- All 22 CPU tests passed after recipe renaming. No GPU jobs launched.
+
+
+## 2026-09-17 — Dropbox mirror and participant-flow validation
+
+- Replaced the broken historical source URL with the user-provided Dropbox direct-download link in `additional/research/scratch/sources.json`. Fresh Modal CPU preparation downloaded and SHA256-verified all 123,071,225 bytes, tokenized the corpus, and verified each binary output. Elapsed inside worker: 179.80 s; tokenization 170.95 s. Train/dev/test token counts and hashes exactly match the previous corpus (101,330,998 / 7,149,312 / 6,282,807). Approximate reserved CPU+memory compute: $0.00790; startup/storage excluded. No release publication needed.
+- Added live charts without changing the participant launch commands. Workers send metric records through an ephemeral Modal queue; a local HTML file refreshes every three seconds. `view_results.py` selects a fresh active chart, otherwise a completed report; `--example` remains offline. Pretraining now evaluates development loss every 60 seconds instead of 300 seconds to make progress visible; the wall-time budget remains 600 seconds.
+- One pretraining test failed at update 25: the new callback name collided with the time-based learning-rate schedule variable. Renamed the schedule variable, added a regression test through the actual CPU training loop beyond update 25, and restarted. Failed worker: 26.77 s, estimated $0.0310; included separately from successful-exercise costs.
+- Python 3.14 checks: 25 standard-library tests and five CPU model tests passed. Local tokenization, file inspection, training a tokenizer and decoding passed in 0.04–0.63 s per invocation with dependencies already cached. Main GPU image cold build: 69.85 s.
+- Driving-exam SFT completed: Qwen3.5-0.8B, 100 training questions, 181.45 s training, 230.67 s worker, 321.14 s full CLI including image build. Estimated worker cost $0.06545. Test 21/40 → 27/40; selected epoch 3 via development accuracy 23/25; reload matched. Run: `prawko-sft-1789672433144290591`. The Hugging Face model cache was already present, so these timings do not benchmark a cold model download.
+- Headless Chrome checks: tokenizer loads without JavaScript errors; live pretraining/RLVR charts refresh and contain real streamed points; completed SFT chart stops refreshing and links to its final report. Screenshots and raw logs are in ignored `runs/flow-validation/`.
+
+- Completed Wolne Lektury ScratchGPT-30M: 600.00 s training, 670.06 s worker, 691.71 s full CLI (image already built), $0.77641 estimated worker compute. Test loss 9.073 → 2.820. Fresh-process reload matched; artifact audit passed 493 checks (weights remain on Modal). Run: `scratch-wolne-lektury-30m-1789672528343949120`.
+- Completed Qwen3.5-4B six-word RLVR: 603.60 s training, 669.26 s worker, 762.64 s full CLI including image build, $0.18988 estimated worker compute. Test compliance 1/32 → 24/32; dev 0/24 → 23/24; selected step 60 of 66. Reload matched; all six evaluation files independently rechecked against the verifier. Run: `rlvr-train-six_words-1789672431850535000`. This is weaker than the older 32/32 run; neither result should be presented as guaranteed.
+- Successful default exercises plus fresh data preparation cost approximately $1.040 in worker compute; including the failed pretraining attempt, $1.071. Builds, startup and storage are excluded. GPU weights were cached. Optional exam RLVR and full Wikipedia preparation were not rerun in this validation.
+- Shared `results/workshop-check.html` preserves all three curves and matched before/after outputs, timings and cost assumptions. Browser rendering checked. Raw logs/screenshots stay in ignored `runs/flow-validation/`.
+
+## 2026-09-17 — Edit text directly in the tokenizer explorer
+
+- Main participant activity is now browser-based: open the explorer, Edit text, Show tokens, slide through merges and hover for IDs/history. No HTML rebuild for a new paragraph, no notebook environment required. CLI file inspection and training a new tokenizer remain optional.
+- Embedded the saved 8k vocabulary, byte alphabet and learned merge ranks in the standalone page. Custom text stays local, with a 2,000-character limit. Browser tracing uses the tokenizer's ByteLevel pre-tokenizer rules and exact BPE ranks, not an approximate word split.
+- Verified 40 browser traces against Hugging Face Tokenizers, covering Polish, emoji, combining marks, whitespace, multilingual text and HTML-like input. Browser checks also confirm editable input, unchanged character positions across merges, and token hover history.

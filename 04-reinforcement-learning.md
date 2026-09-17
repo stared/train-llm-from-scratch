@@ -4,6 +4,15 @@
 
 No target stories: the model samples answers; a Python checker gives rewards.
 
+## What to expect
+
+| Dataset / model | Training | End to end | GPU | Worker cost | Held-out success before → after |
+|---|---:|---:|---|---:|---:|
+| Six-word prompts / Qwen3.5-4B, RLVR | 10 min | 12 min 43 s | L4 | $0.19 | 1/32 → 24/32 |
+
+Measured in the [flow check](results/workshop-check.html), including an image build, with model weights cached. Success means satisfying the checker, not literary quality. Worker estimates exclude builds/storage.
+
+
 ## Run
 
 No previous exercise is required. Run:
@@ -21,7 +30,7 @@ About **10 minutes training**, **$0.19 worker compute**; loading/evaluation add 
 | glacier, mermaid | The mermaid kissed the glacier. | Glacier melted to reveal a mermaid. |
 | astronaut, birthday | Astronaut blew birthday candles. | Astronaut blew birthday candles in space. |
 
-Held-out constraint compliance: **1/32 → 32/32**. This measures the rules, not story quality. There is no matched supervised fine-tuning comparison.
+Earlier run: **1/32 → 32/32** held-out constraint compliance. The [latest flow check](results/workshop-check.html) reached **1/32 → 24/32** in ten minutes; results vary between runs. This measures the rules, not story quality. There is no matched supervised fine-tuning comparison.
 
 Open the checker in [rlvr_tasks.py](scripts/rlvr_tasks.py). Can a bad story still pass? What would you change in the reward?
 
@@ -29,13 +38,13 @@ Open the checker in [rlvr_tasks.py](scripts/rlvr_tasks.py). Can a bad story stil
 
 ## Watch and open
 
-The terminal prints rollout rewards and development checks. Once training finishes:
+The terminal prints rollout rewards and development checks. **While training runs, open another terminal** in this repository:
 
 ```bash
 uv run scripts/view_results.py rlvr
 ```
 
-The report shows development constraint success and the same prompts before/after. To open the included result immediately:
+The live chart shows rollout reward every ten steps and development constraint success every twenty steps. After training, the same view opens the before/after answers. To open the included result immediately:
 
 ```bash
 uv run scripts/view_results.py rlvr --example

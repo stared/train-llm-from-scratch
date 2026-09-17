@@ -31,6 +31,36 @@ class ScratchModelChecks(unittest.TestCase):
             self.assertEqual(tok.decode(ids[:-1],skip_special_tokens=False),text)
             self.assertEqual(ids[-1],tok.token_to_id('<|endoftext|>'))
 
+    def test_training_loop_emits_progress(self):
+        # Exercise the real loop beyond update 25 without a minute-long test.
+        import hashlib
+        import itertools
+        import numpy as np
+        from tokenizers import Tokenizer, models
+        from unittest.mock import patch
+        from train_scratch import run
+        with tempfile.TemporaryDirectory() as temp:
+            data=Path(temp)/'data';data.mkdir()
+            tok=Tokenizer(models.WordLevel({'[UNK]':0,'a':1,'b':2,'<|endoftext|>':3},unk_token='[UNK]'))
+            tok.save(str(data/'tokenizer.json'))
+            splits={}
+            for split in ('train','dev','test'):
+                array=np.tile(np.array([1,2,1,2,3],dtype='<u2'),300)
+                array.tofile(data/f'{split}.bin')
+                splits[split]=dict(tokens=len(array),sha256=hashlib.sha256(array.tobytes()).hexdigest())
+            (data/'tokens.json').write_text(json.dumps(dict(vocab_size=4,splits=splits,
+                tokenizer_sha256=hashlib.sha256((data/'tokenizer.json').read_bytes()).hexdigest(),generation_prompts=['a'])))
+            events=[]
+            with patch('train_scratch.time.monotonic',side_effect=itertools.count(0,2)), \
+                 patch('train_scratch.config_for',return_value=Config(vocab_size=4,width=16,layers=1,heads=2,hidden=32,context=256)), \
+                 patch.object(ScratchGPT,'generate',lambda self,ids,new_tokens:ids):
+                result=run(data,Path(temp)/'run',max_seconds=600,device='cpu',batch_size=8,eval_interval=600,
+                           progress=lambda *event:events.append(event))
+            self.assertGreaterEqual(result['steps'],25)
+            self.assertTrue(any(e[0]=='Training loss' and e[1]==25 for e in events))
+            self.assertEqual(events[0][0],'Development loss')
+            self.assertEqual(events[-1][0],'Development loss')
+
     def test_parameter_counts(self):
         for size,expected in [('10m',10244160),('30m',29893120)]:
             model=ScratchGPT(config_for(size))

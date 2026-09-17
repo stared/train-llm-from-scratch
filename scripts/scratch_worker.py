@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 import time
 
-def execute(size,seconds,gpu_rate,tag='workshop',data_name='wiki-scratch-v1',volume=None,batch_size=64,context_length=512,warmup_steps=100,eval_interval=300):
+def execute(size,seconds,gpu_rate,tag='workshop',data_name='wiki-scratch-v1',volume=None,batch_size=64,context_length=512,warmup_steps=100,eval_interval=300,progress=None):
     import sys
     import subprocess
     import traceback
@@ -41,7 +41,7 @@ def execute(size,seconds,gpu_rate,tag='workshop',data_name='wiki-scratch-v1',vol
     try:
         result=run('/persist/datasets/'+data_name,out,size,seconds,42,'cuda',batch_size,
                    context_length=context_length,eval_interval=eval_interval,peak_lr={'10m':6e-4,'30m':6e-4,'100m':4e-4,'300m':3e-4}[size],
-                   warmup_steps=warmup_steps,checkpoint_hook=hook)
+                   warmup_steps=warmup_steps,checkpoint_hook=hook,progress=progress)
         subprocess.run([sys.executable,'/work/scripts/sample_scratch.py',str(out),'--device','cuda',
                         '--output',str(out/'reload_samples.json')],check=True,timeout=120)
         result['fresh_process_reload_matches']=json.loads((out/'reload_samples.json').read_text())==json.loads((out/'samples_selected.json').read_text())

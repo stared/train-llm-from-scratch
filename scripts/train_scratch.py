@@ -25,7 +25,7 @@ def save(path,value):
     Path(path).write_text(json.dumps(value,ensure_ascii=False,indent=2))
 
 
-def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', batch_size=32, context_length=256, eval_interval=60, peak_lr=6e-4, warmup_steps=20, checkpoint_hook=None, research_limit_seconds=600, sampling_mode='uniform', mixture_dir=None):
+def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', batch_size=32, context_length=256, eval_interval=60, peak_lr=6e-4, warmup_steps=20, checkpoint_hook=None, research_limit_seconds=600, sampling_mode='uniform', mixture_dir=None, progress=None):
     if not 60<=max_seconds<=research_limit_seconds<=8400 or batch_size not in (8,16,32,64):
         raise ValueError('Invalid explicit time budget or batch size')
     if sampling_mode not in ('uniform','openings','mixed'):
@@ -107,6 +107,7 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
         return records
     before={s:evaluate('before_'+s,s) for s in ('train','dev','test')}
     samples('samples_before')
+    if progress: progress('Development loss', 0, before['dev']['loss_nats'])
     if checkpoint_hook:checkpoint_hook(model,tokenizer,'before',0,0,out)
     best_loss=before['dev']['loss_nats'];best_step=0
     torch.save(model.state_dict(),out/'best.pt')
@@ -117,8 +118,8 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
         if elapsed>=max_seconds:
             break
         # Fixed wall-time budget, warmup in updates then time-based cosine decay.
-        progress=min(elapsed/max_seconds,1.)
-        lr=peak_lr*min((step+1)/warmup_steps,1.)*(.1+.9*.5*(1+math.cos(math.pi*progress)))
+        budget_fraction=min(elapsed/max_seconds,1.)
+        lr=peak_lr*min((step+1)/warmup_steps,1.)*(.1+.9*.5*(1+math.cos(math.pi*budget_fraction)))
         for group in optimizer.param_groups:group['lr']=lr
         tick=time.monotonic()
         x,y=batch('train',rng.integers(0,len(arrays['train'])-config.context-1,size=batch_size))
@@ -141,10 +142,12 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
         if step%25==0:
             record=dict(step=step,elapsed_seconds=time.monotonic()-train_started,loss=loss.item(),lr=lr,gradient_norm=norm.item(),tokens_seen=tokens_seen)
             history.append(record);print(json.dumps(record),flush=True)
+            if progress: progress('Training loss', step, record['loss'])
         if next_eval<=time.monotonic()-train_started<max_seconds-15:
             metric=evaluate(f'dev_step_{step}','dev')
             checkpoint=dict(step=step,elapsed_seconds=time.monotonic()-train_started,tokens_seen=tokens_seen,**metric)
             checkpoints.append(checkpoint)
+            if progress: progress('Development loss', step, metric['loss_nats'])
             if metric['loss_nats']<best_loss:
                 best_loss=metric['loss_nats'];best_step=step;torch.save(model.state_dict(),out/'best.pt')
             samples(f'samples_step_{step}')
@@ -155,6 +158,7 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
     training_seconds=time.monotonic()-train_started
     final={s:evaluate('final_'+s,s) for s in ('train','dev','test')}
     samples('samples_final')
+    if progress: progress('Development loss', step, final['dev']['loss_nats'])
     if checkpoint_hook:checkpoint_hook(model,tokenizer,'final',step,training_seconds,out)
     torch.save(dict(model=model.state_dict(),optimizer=optimizer.state_dict(),config=asdict(config),step=step,
         numpy_rng=rng.bit_generator.state,torch_rng=torch.get_rng_state(),

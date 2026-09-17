@@ -58,7 +58,7 @@ def build(source, output, extra):
         assert ids == tok.encode(text, add_special_tokens=False).ids, (text, ids)
         assert tok.decode(ids) == text
         examples.append(dict(text=text, initial=initial, steps=steps, ids=ids))
-    payload = dict(sha256=hashlib.sha256(raw).hexdigest(), vocab=len(model['vocab']), examples=examples)
+    payload = dict(sha256=hashlib.sha256(raw).hexdigest(), vocab=len(model['vocab']), vocabulary=model['vocab'], merges=merges, byteAlphabet=dict(zip(bs, map(chr, cs))), examples=examples)
     template=(ROOT/'scripts/tokenizer-template.html').read_text()
     output.write_text(template.replace('/*PAYLOAD*/null',json.dumps(payload,ensure_ascii=False).replace('<','\\u003c')))
     print(f'Wrote {output}; verified {len(examples)} exact traces against tokenizers; {len(merges)} learned merges.')

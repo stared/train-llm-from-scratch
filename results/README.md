@@ -1,5 +1,7 @@
 # Measured results
 
+[Latest full workshop check: timings, costs, curves and before/after answers](workshop-check.html).
+
 These files contain saved experiments, not freshly generated promises. Each comparison identifies the model, training data and evaluation setup.
 
 | Workshop stage | Start here | More detail |

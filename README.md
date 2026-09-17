@@ -24,23 +24,23 @@ modal setup
 
 ## 1. Data and tokenization
 
-[Start here: data and tokens](01-data-and-tokens.md). Prepare Wolne Lektury with one command:
+[Start here: data and tokens](01-data-and-tokens.md). To prepare [Wolne Lektury](https://wolnelektury.pl/), run:
 
 ```bash
-uv run scripts/prepare_pretraining.py literature
+modal run scripts/prepare_data_modal.py
 ```
 
-This downloads **123 MB**, prepares **101 million training tokens**, and uploads them. While it runs, follow the guide's tokenizer example and [byte-pair encoding (BPE)](https://en.wikipedia.org/wiki/Byte_pair_encoding) visualization. No GPU cost yet.
+Modal downloads **123 MB** and prepares **101 million training tokens** in your cloud volume. The corpus does not pass through your laptop. While it runs, follow the guide's tokenizer example and [byte-pair encoding (BPE)](https://en.wikipedia.org/wiki/Byte_pair_encoding) visualization. Preparation uses paid CPU time, not a GPU.
 
 ## 2. Pretraining
 
 After preparation says **Ready**, [train a small model from random weights](02-pretraining.md):
 
 ```bash
-modal run scripts/scratch_recipe_modal.py --recipe literature
+modal run scripts/scratch_recipe_modal.py --recipe wolne-lektury
 ```
 
-**30M parameters · up to 10 minutes · about $0.76 measured worker compute.** Watch loss, then compare random and trained text:
+**30M parameters. up to 10 minutes. about $0.76 measured worker compute.** In another terminal, open the live loss chart; after training, the same view shows random and trained text:
 
 ```bash
 uv run scripts/view_results.py pretrain
@@ -54,7 +54,7 @@ uv run scripts/view_results.py pretrain
 modal run scripts/prawko_modal.py --method sft --epochs 10 --max-seconds 180
 ```
 
-**Up to 3 minutes · about $0.06 measured worker compute.** The included dataset needs no preparation; you can start this while pretraining runs. Inspect accuracy and before/after answers:
+**Up to 3 minutes. about $0.06 measured worker compute.** The included dataset needs no preparation; you can start this while pretraining runs. In another terminal, open live accuracy and, after training, before/after answers:
 
 ```bash
 uv run scripts/view_results.py sft
@@ -68,7 +68,7 @@ uv run scripts/view_results.py sft
 modal run scripts/rlvr_showcase_modal.py --task six_words
 ```
 
-**Up to 10 minutes · about $0.19 measured worker compute.** This starts from the original Qwen model, independently of SFT:
+**Up to 10 minutes. about $0.19 measured worker compute.** This starts from the original Qwen model, independently of SFT. Open its live chart in another terminal:
 
 ```bash
 uv run scripts/view_results.py rlvr
@@ -82,7 +82,7 @@ Every exercise has real saved results. Add `--example` to any view command to op
 uv run scripts/view_results.py tokens
 ```
 
-Exercises 3 and 4 are independent of pretraining. You can run jobs in separate terminals; each job is billed separately. Training prints progress and saves a new folder in `runs/`. View commands open the latest completed run.
+Exercises 3 and 4 are independent of pretraining. You can run jobs in separate terminals; each job is billed separately. Training prints progress and saves a new folder in `runs/`. View commands open the active training chart, or the latest completed run. Charts appear after the first image build; the terminal shows build progress.
 
 The main path used about **$1.01 in worker compute** in our experiments. These are historical measurements, not caps; loading/evaluation add time and builds/storage cost extra.
 

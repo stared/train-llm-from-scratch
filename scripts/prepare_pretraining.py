@@ -33,11 +33,11 @@ def validate(folder):
 
 
 def prepare(corpus, check_only=False):
-    name = 'wl-scratch-v1' if corpus == 'literature' else 'wiki-scratch-v1'
+    name = 'wl-scratch-v1' if corpus == 'wolne-lektury' else 'wiki-scratch-v1'
     folder = ROOT/'datasets/local'/name
     if not folder.exists() and not check_only:
         from download_scratch_corpus import download, MANIFEST
-        source = 'falenty-wl' if corpus == 'literature' else 'wikipedia-pl-20260901'
+        source = 'falenty-wl' if corpus == 'wolne-lektury' else 'wikipedia-pl-20260901'
         info = json.loads(MANIFEST.read_text())['sources'][source]
         downloads = ROOT/'datasets/local/scratch-corpora'/source
         downloads.mkdir(parents=True, exist_ok=True)
@@ -47,7 +47,7 @@ def prepare(corpus, check_only=False):
         print('2/3 Preparing text and tokens on your CPU', flush=True)
         with tempfile.TemporaryDirectory(prefix='preparing-', dir=ROOT/'datasets/local') as temp:
             output = Path(temp)/name
-            if corpus == 'literature':
+            if corpus == 'wolne-lektury':
                 from prepare_wl_scratch import prepare as prepare_wl
                 prepare_wl(downloads/'wolnelektury.zip', ROOT/'datasets/wiki-tokenizer.json', output)
             else:
@@ -77,14 +77,14 @@ def prepare(corpus, check_only=False):
                 upload.put_file(folder/name, remote+'/'+name)
     else:
         print('3/3 Matching prepared files already on Modal; upload skipped.', flush=True)
-    command = ('modal run scripts/scratch_recipe_modal.py --recipe literature' if corpus == 'literature'
+    command = ('modal run scripts/scratch_recipe_modal.py --recipe wolne-lektury' if corpus == 'wolne-lektury'
                else 'modal run scripts/scratch_modal.py --size 10m --max-seconds 300')
     print('Ready. Start training:\n'+command)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('corpus', choices=['literature', 'wikipedia'])
+    parser.add_argument('corpus', choices=['wolne-lektury', 'wikipedia'])
     parser.add_argument('--check-only', action='store_true', help='Validate existing local data without network access')
     args = parser.parse_args()
     prepare(args.corpus, args.check_only)

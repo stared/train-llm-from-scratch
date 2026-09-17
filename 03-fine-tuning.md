@@ -4,6 +4,15 @@
 
 Compare **supervised fine-tuning (SFT)** with **reinforcement learning with verifiable rewards (RLVR)**.
 
+## What to expect
+
+| Dataset / model | Training | End to end | GPU | Worker cost | Test accuracy before → after |
+|---|---:|---:|---|---:|---:|
+| 100 driving questions / Qwen3.5-0.8B, SFT | 3 min | 5 min 21 s | L4 | $0.065 | 21/40 → 27/40 |
+
+Measured in the [flow check](results/workshop-check.html), including an image build, with model weights cached. Accuracy is more useful here than comparing training losses across methods. Worker estimates exclude builds/storage.
+
+
 ## Run
 
 Run this independently of pretraining. The dataset is included, and baseline evaluation runs automatically.
@@ -35,19 +44,21 @@ No reasoning examples or generated reasoning here. Inspect the training loop in 
 | + SFT on 100 driving exam questions | 27 |
 | + RLVR on the same 100 questions | 27 |
 
+The [latest SFT flow check](results/workshop-check.html) also reached **27/40**, taking **5 minutes 21 seconds** including an image build, about **$0.065 worker compute**.
+
 Pilot worker compute: **about $0.12 total**, excluding builds/startup/storage. This is a small text-only subset, not a full driving exam.
 
 Open [before/after answers](results/prawko-example-results.md) and [longer-run curves](results/prawko-training.html). Find a correction, a regression, and a question where SFT and RLVR disagree. Does more training help?
 
 ## Watch and open
 
-The terminal prints development accuracy after each epoch. Once SFT finishes:
+The terminal prints development accuracy after each epoch. **While SFT runs, open another terminal** in this repository:
 
 ```bash
 uv run scripts/view_results.py sft
 ```
 
-The report shows accuracy over training and all 40 test questions with original predictions, trained predictions and the key. To open an included result without training:
+During training, the live chart shows development accuracy after each epoch. After training, the same view opens all 40 test questions with original predictions, trained predictions and the key. To open an included result without training:
 
 ```bash
 uv run scripts/view_results.py sft --example
