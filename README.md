@@ -17,6 +17,8 @@ modal setup
 
 Run commands from this folder. Codex or Claude can help, but are optional.
 
+Other places to run training include [Google Colab](https://colab.research.google.com/) and [Lightning AI](https://lightning.ai/). This workshop's commands use Modal; other environments need their own GPU and dependency setup.
+
 ## 1. Data
 
 Polish Wikipedia articles with their original markup, or books from Wolne Lektury. [See the data and a short excerpt](workshop/pretraining.md#data).
@@ -44,3 +46,11 @@ Did it improve on questions it never trained on? [Compare answers, learning curv
 ## Where to look
 
 `workshop/` contains the exercises; `scripts/` contains their code. Small datasets are in `datasets/`; large downloads stay in gitignored `data/`. Saved examples and charts are in `results/`.
+
+## Learn more
+
+- [MicroGPT — Andrej Karpathy](https://karpathy.github.io/2026/02/12/microgpt/): a complete GPT in 200 lines of Python.
+- [Let's build GPT from scratch](https://www.youtube.com/watch?v=kCc8FmEb1nY): Karpathy's step-by-step coding walkthrough.
+- [Hugging Face LLM Course](https://huggingface.co/learn/llm-course/en/chapter1/4): transformers, pretraining and fine-tuning.
+- [Nanochat](https://github.com/karpathy/nanochat): explore a complete language-model training pipeline.
+- [Thinking in tensors, writing in PyTorch](https://github.com/stared/thinking-in-tensors-writing-in-pytorch): Piotr's hands-on introduction to neural networks.
