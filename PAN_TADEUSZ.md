@@ -31,7 +31,7 @@ uv run corpus_workshop.py --data-dir datasets/pan-tadeusz-full --output runs/my-
 To independently redownload and check the source layout:
 
 ```bash
-uv run prepare_pan_tadeusz.py --output /tmp/pan-tadeusz-check
+uv run prepare_pan_tadeusz.py --output data/pan-tadeusz-check
 ```
 
 The preparer verifies twelve distinct book headings and the epilogue before creating the output directory. It refuses to overwrite an existing dataset. Both original and processed text have SHA-256 hashes.

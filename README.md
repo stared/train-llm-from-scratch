@@ -69,3 +69,7 @@ The adapter needs the exact original model revision in `result.json`; it is not 
 **Supplied film dialogue:** [Chłopaki training](CHLOPAKI.md) uses the user's `datasets/chlopaki.md`, converted into 1,270 bidirectional dialogue examples. This is distinct from the earlier assistant-written comic dataset.
 
 [Actual Polish before/after results](chlopaki_results.md) and [interactive comparison](CHLOPAKI_RESULTS.html): Qwen3.5-4B, all 1,270 examples trained, 10 min 51.5 s on one L4. Compare greedy, sampled and 25%-strength adapter outputs.
+
+**Real exam questions:** [LLM robi prawko](PRAWKO.md) compares Qwen3.5-0.8B SFT and RLVR on 100 official Polish driving-theory questions. Both improved a 40-question held-out text-only subset from21/40 to27/40; [all labelled before/after choices](prawko_example_results.md). Total pilot worker estimate ~$0.12. This is not a full driving-exam pass claim.
+
+**Longer prawko comparison:** [12-minute SFT vs RLVR learning curves](PRAWKO_TRAINING.html). Final SFT28/40 vs RLVR25/40; development-selected SFT28/40 vs RLVR29/40. [All selected and final answers](prawko_long_results.md). Additional worker estimate ~$0.43.

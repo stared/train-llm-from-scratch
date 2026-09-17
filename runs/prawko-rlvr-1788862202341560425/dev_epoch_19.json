@@ -1,0 +1,452 @@
+[
+  {
+    "id": "4367",
+    "question": "Który z wymienionych czynników może ograniczyć pole widzenia kierującego samochodem osobowym?",
+    "options": [
+      "Używanie klimatyzacji podczas opadów deszczu.",
+      "Lusterko wewnętrzne.",
+      "Oślepiające światła innych pojazdów jadących z przeciwka."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      2.536017973397975e-07,
+      3.256311345012364e-07,
+      0.9999994039535522
+    ],
+    "unconstrained_ABC_mass": 0.9999194741249084
+  },
+  {
+    "id": "4368",
+    "question": "Który z wymienionych czynników może ograniczyć pole widzenia kierującego samochodem osobowym podczas jazdy nocą?",
+    "options": [
+      "Zmniejszona prędkość.",
+      "Uszkodzony system ABS.",
+      "Niewłaściwie ustawione światła."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      6.893603767821332e-07,
+      1.0030133807958919e-06,
+      0.9999983310699463
+    ],
+    "unconstrained_ABC_mass": 0.9999375939369202
+  },
+  {
+    "id": "4369",
+    "question": "Który z wymienionych czynników ma wpływ na ograniczenie pola widzenia kierującego samochodem osobowym?",
+    "options": [
+      "Mruganie oczami w czasie przerwy w jeździe.",
+      "15 minut odpoczynku po dwugodzinnej jeździe.",
+      "Kierowanie pojazdem w stanie nietrzeźwości."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      0.1329638808965683,
+      2.678703140190919e-06,
+      0.8670334219932556
+    ],
+    "unconstrained_ABC_mass": 0.999775230884552
+  },
+  {
+    "id": "4370",
+    "question": "Który z wymienionych czynników może powodować ograniczenie pola widzenia kierującego samochodem osobowym?",
+    "options": [
+      "Zbyt nisko lub zbyt wysoko ustawiony fotel kierującego.",
+      "15 minut odpoczynku po dwugodzinnej jeździe.",
+      "Okulary przeciwsłoneczne używane w słoneczny dzień."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.9999983310699463,
+      4.450844812708965e-07,
+      1.2098651041014818e-06
+    ],
+    "unconstrained_ABC_mass": 0.9999138712882996
+  },
+  {
+    "id": "1877",
+    "question": "W jaki sposób wolno Ci przewozić ładunek w przyczepie ciągniętej przez samochód osobowy?",
+    "options": [
+      "Ładunek może zasłaniać niektóre światła przyczepy.",
+      "Ładunek nie może naruszać stateczności pojazdu.",
+      "Ładunek nie musi być zabezpieczony przed zmianą położenia."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      9.609747212380171e-05,
+      0.9998524188995361,
+      5.143726957612671e-05
+    ],
+    "unconstrained_ABC_mass": 0.9995681047439575
+  },
+  {
+    "id": "1878",
+    "question": "W jaki sposób przewieziesz ładunek w przyczepie ciągniętej przez samochód osobowy?",
+    "options": [
+      "Zabezpieczę go przed przemieszczaniem.",
+      "Umieszczę ładunek luźno na przyczepie.",
+      "Nie zabezpieczę ładunku przed przemieszczaniem, jeżeli będę jechał wolno."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.9999990463256836,
+      2.3823673700462678e-07,
+      6.893608315294841e-07
+    ],
+    "unconstrained_ABC_mass": 0.9998565912246704
+  },
+  {
+    "id": "1879",
+    "question": "Jak przewieziesz ładunek sypki w przyczepie ciągniętej przez samochód osobowy?",
+    "options": [
+      "Niezasłonięty - umieszczony poniżej wysokości burt.",
+      "Nie przekraczajac prędkości 30 km/h.",
+      "Zasłonięty w szczelnej skrzyni ładunkowej."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      6.962255611142609e-06,
+      1.5381627349597693e-07,
+      0.9999929666519165
+    ],
+    "unconstrained_ABC_mass": 0.9998980760574341
+  },
+  {
+    "id": "1880",
+    "question": "Jak powinieneś zabezpieczyć urządzenie, którym zamocowałeś ładunek w przyczepie ciągniętej przez samochód osobowy?",
+    "options": [
+      "Tak, żeby mocowanie nie rozluźniło się.",
+      "Może swobodnie zwisać z przyczepy.",
+      "Nie musi być zabezpieczone przed spadnięciem podczas jazdy."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.9999988079071045,
+      4.7379020884363854e-07,
+      6.893607178426464e-07
+    ],
+    "unconstrained_ABC_mass": 0.9998694658279419
+  },
+  {
+    "id": "1883",
+    "question": "W jaki sposób umieścisz ładunek na przyczepie samochodu osobowego?",
+    "options": [
+      "Tak, aby nie zasłaniał świateł przyczepy.",
+      "Umieszczę go po jednej stronie przyczepy.",
+      "Umieszczę go zawsze w tylnej części przyczepy."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.9998562335968018,
+      0.00013982153905089945,
+      3.966431449953234e-06
+    ],
+    "unconstrained_ABC_mass": 0.9989413619041443
+  },
+  {
+    "id": "7518",
+    "question": "Co należy sprawdzić, gdy lampka kontrolna kierunkowskazów zaczęła migać dużo szybciej?",
+    "options": [
+      "Napięcie akumulatora.",
+      "Sprawność bezpieczników.",
+      "Sprawność żarówek kierunkowskazów."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      3.0894730116415303e-06,
+      6.962235147511819e-06,
+      0.9999899864196777
+    ],
+    "unconstrained_ABC_mass": 0.9997265338897705
+  },
+  {
+    "id": "13570",
+    "question": "Czy prędkość przy jakiej doszło do wypadku ma wpływ na jego skutki ?",
+    "options": [
+      "Nie.",
+      "Tak, ale tylko przy czołowym zderzeniu.",
+      "Tak."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      2.561280780355446e-06,
+      5.368736424316012e-07,
+      0.9999969005584717
+    ],
+    "unconstrained_ABC_mass": 0.9994220733642578
+  },
+  {
+    "id": "11028",
+    "question": "Chcesz przewieźć dziecko na przednim siedzeniu pojazdu samochodowego wyposażonego w przednią poduszkę dla pasażera, która jest aktywna. W jaki sposób możesz to zrobić?",
+    "options": [
+      "W foteliku bezpieczeństwa tyłem do kierunku jazdy.",
+      "W foteliku bezpieczeństwa przodem do kierunku jazdy.",
+      "W innym urządzeniu przytrzymującym dziecko tyłem do kierunku jazdy."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5926620364189148,
+      0.4073302447795868,
+      7.708930752414744e-06
+    ],
+    "unconstrained_ABC_mass": 0.999873161315918
+  },
+  {
+    "id": "10876",
+    "question": "Czym powinieneś się kierować wybierając fotelik lub urządzenie przytrzymujące służące do przewozu dziecka?",
+    "options": [
+      "Estetyką.",
+      "Właściwymi warunkami technicznymi dotyczącymi tych urządzeń.",
+      "Przede wszystkim wygodą."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      2.2827371140010655e-05,
+      0.9999496936798096,
+      2.7535064873518422e-05
+    ],
+    "unconstrained_ABC_mass": 0.9995144605636597
+  },
+  {
+    "id": "1905",
+    "question": "Który z wymienionych sposobów przewożenia gaśnicy w samochodzie osobowym jest właściwy?",
+    "options": [
+      "Gaśnica umieszczona jest na tylnej półce.",
+      "Gaśnica umieszczona jest luźno między siedzeniami.",
+      "Gaśnica zamocowana pod fotelem pasażera."
+    ],
+    "answer": "C",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.9998599290847778,
+      1.6699361367500387e-05,
+      0.00012339251406956464
+    ],
+    "unconstrained_ABC_mass": 0.999778151512146
+  },
+  {
+    "id": "2538",
+    "question": "Która z wymienionych czynności może zwiększyć bezpieczeństwo podczas jazdy po zaśnieżonej drodze?",
+    "options": [
+      "Hamowanie wyłącznie przy użyciu hamulca ręcznego.",
+      "Stosowanie opon zimowych.",
+      "Zdecydowane przyspieszanie."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      2.4299266442540102e-05,
+      0.9999356269836426,
+      4.006271410617046e-05
+    ],
+    "unconstrained_ABC_mass": 0.9996280670166016
+  },
+  {
+    "id": "14064",
+    "question": "Policjant zatrzyma wydane w kraju prawo jazdy za pokwitowaniem, w przypadku ujawnienia czynu polegającego na przewożeniu osób samochodem osobowym, w liczbie przekraczającej liczbę miejsc określoną w dowodzie rejestracyjnym o:",
+    "options": [
+      "1 osobę.",
+      "2 osoby.",
+      "3 osoby."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      1.5909356079646386e-05,
+      0.04742511734366417,
+      0.9525589942932129
+    ],
+    "unconstrained_ABC_mass": 0.9998731017112732
+  },
+  {
+    "id": "4364",
+    "question": "Jaki wpływ ma prędkość jazdy na kąt widzenia kierującego samochodem osobowym?",
+    "options": [
+      "Wraz ze wzrostem prędkości kąt widzenia zawęża się.",
+      "Wraz ze wzrostem prędkości kąt widzenia rozszerza się.",
+      "Nie ma żadnego wpływu."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.9999946355819702,
+      4.785092187375994e-06,
+      5.714977078241645e-07
+    ],
+    "unconstrained_ABC_mass": 0.9999333620071411
+  },
+  {
+    "id": "4371",
+    "question": "Jaki wpływ ma prędkość jazdy na kąt widzenia kierującego samochodem osobowym?",
+    "options": [
+      "Wraz ze wzrostem prędkości kąt widzenia jest większy.",
+      "Wraz ze wzrostem prędkości kąt widzenia jest mniejszy.",
+      "Nie ma żadnego wpływu."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.9999985694885254,
+      4.450845949577342e-07,
+      9.42244128054881e-07
+    ],
+    "unconstrained_ABC_mass": 0.999865710735321
+  },
+  {
+    "id": "10109",
+    "question": "Czy podczas holowania motocykla powinny być sprawne w nim dwa układy hamulcowe?",
+    "options": [
+      "Tak, ale tylko przy prędkości powyżej 20 km/h.",
+      "Tak.",
+      "Nie, wystarczy jeden."
+    ],
+    "answer": "B",
+    "prediction": "C",
+    "correct": false,
+    "probabilities": [
+      2.2602537228522124e-06,
+      3.120184192084707e-05,
+      0.9999665021896362
+    ],
+    "unconstrained_ABC_mass": 0.9998636841773987
+  },
+  {
+    "id": "13052",
+    "question": "Na jakiej drodze obowiązuje kierującego zachowanie ściśle określonego minimalnego odstępu od pojazdu poprzedzającego?",
+    "options": [
+      "Na drodze ekspresowej.",
+      "Na drodze dwujezdniowej co najmniej o dwóch pasach przeznaczonych dla każdego kierunku ruchu.",
+      "Na drodze jednojezdniowej poza obszarem zabudowanym."
+    ],
+    "answer": "A",
+    "prediction": "B",
+    "correct": false,
+    "probabilities": [
+      8.479917596559972e-05,
+      0.9997753500938416,
+      0.00013981021766085178
+    ],
+    "unconstrained_ABC_mass": 0.9624221920967102
+  },
+  {
+    "id": "7708",
+    "question": "Który bieg jest właściwy do rozpoczęcia jazdy samochodem osobowym na suchej nawierzchni?",
+    "options": [
+      "Drugi.",
+      "Pierwszy.",
+      "Ten, na którym jazda została zakończona."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      9.609056724002585e-05,
+      0.9997805953025818,
+      0.00012338272063061595
+    ],
+    "unconstrained_ABC_mass": 0.9997448325157166
+  },
+  {
+    "id": "14063",
+    "question": "Jaką decyzję podejmie starosta, jeśli zostałeś zatrzymany do kontroli kierując pojazdem pomimo przedłużenia okresu zatrzymania prawa jazdy do sześciu miesięcy za przewożenie osób w liczbie przekraczającej o dwa liczbę miejsc określoną w dowodzie rejestracyjnym samochodu osobowego?",
+    "options": [
+      "Przedłuży okres zatrzymania o kolejne trzy miesiące.",
+      "Przedłuży okres zatrzymania o kolejne cztery miesiące.",
+      "Cofnie uprawnienie do kierowania pojazdami na okres 5 lat od dnia stwierdzenia tego zdarzenia."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      1.1365635828042286e-06,
+      1.1979291514307988e-07,
+      0.9999986886978149
+    ],
+    "unconstrained_ABC_mass": 0.9999004006385803
+  },
+  {
+    "id": "2025",
+    "question": "Jaki jest cel stosowania układu ASR w samochodzie osobowym?",
+    "options": [
+      "Przeciwdziałanie poślizgowi podczas hamowania silnikiem.",
+      "Zapobieganie blokowaniu kół hamowanych.",
+      "Przeciwdziałanie poślizgowi kół podczas ruszania."
+    ],
+    "answer": "C",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.9999957084655762,
+      3.7266372601152398e-06,
+      5.71498333101772e-07
+    ],
+    "unconstrained_ABC_mass": 0.9999098181724548
+  },
+  {
+    "id": "2026",
+    "question": "Jaki jest cel stosowania układu ESP w samochodzie osobowym?",
+    "options": [
+      "Przeciwdziałanie poślizgowi kół podczas hamowania silnikiem.",
+      "Zapobieganie blokowaniu kół hamowanych.",
+      "Stabilizowanie ruchu pojazdu podczas jazdy po łuku drogi."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      1.0129982001672033e-05,
+      8.851479833538178e-07,
+      0.9999890327453613
+    ],
+    "unconstrained_ABC_mass": 0.999262809753418
+  },
+  {
+    "id": "4495",
+    "question": "Jaki jest cel stosowania systemu ABS w samochodzie osobowym?",
+    "options": [
+      "Zapobieganie utracie stabilności i zapewnienie kierowalności pojazdu podczas jego hamowania.",
+      "Zapobieganie przed wpadnięciem pojazdu w poślizg - niezależnie od jego prędkości i warunków na drodze.",
+      "Ułatwianie pokonywania zakrętów."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.9999992847442627,
+      2.5360176891808806e-07,
+      5.043473265686771e-07
+    ],
+    "unconstrained_ABC_mass": 0.9998904466629028
+  }
+]

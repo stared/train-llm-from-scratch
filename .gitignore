@@ -55,3 +55,6 @@ runs/**/*.bin
 # Visible local corpora, prepared tokens and dataset rebuilds
 /data/*
 !/data/README.md
+
+# Downloaded source spreadsheets; keep prepared questions and provenance
+/datasets/prawko-*/source.xlsx

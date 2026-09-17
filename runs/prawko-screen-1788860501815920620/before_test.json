@@ -1,0 +1,722 @@
+[
+  {
+    "id": "10840",
+    "question": "W jaki sposób przewozisz dziecko o wzroście mniejszym niż 150 cm na przednim siedzeniu samochodu osobowego, który ma pięć miejsc siedzących?",
+    "options": [
+      " Na kolanach pasażera.",
+      " W foteliku bezpieczeństwa lub innym urządzeniu przytrzymującym dziecko.",
+      "W foteliku bezpieczeństwa tyłem do kierunku jazdy, jeżeli pojazd ma aktywną poduszkę powietrzną dla pasażera."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.4321405291557312,
+      0.33655136823654175,
+      0.23130816221237183
+    ],
+    "unconstrained_ABC_mass": 0.9581801295280457
+  },
+  {
+    "id": "10869",
+    "question": "W jaki sposób przewozisz dziecko o wzroście mniejszym niż 150 cm samochodem osobowym, w którym jest pięć miejsc siedzących?",
+    "options": [
+      "Na przednim siedzeniu bez fotelika lub innego urządzenia przytrzymującego dziecko.",
+      "Na przednim siedzeniu w innym niż fotelik urządzeniu przytrzymującym dziecko.",
+      "Na tylnym siedzeniu bez zapiętych pasów bezpieczeństwa."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5922008156776428,
+      0.0908169373869896,
+      0.3169822692871094
+    ],
+    "unconstrained_ABC_mass": 0.9539024233818054
+  },
+  {
+    "id": "11001",
+    "question": "Który z wymienionych dokumentów kierujący pojazdem zarejestrowanym na terytorium RP musi mieć przy sobie i okazywać na żądanie uprawnionego organu?",
+    "options": [
+      "Potwierdzenie opłacenia obowiązkowego ubezpieczenia odpowiedzialności cywilnej właściciela pojazdu.",
+      "Dowód rejestracyjny.",
+      "Jeśli kierujący ma uprawnienia do kierowania ograniczone do pojazdu wyposażonego w blokadę alkoholową - zaświadczenie o pozytywnym wyniku badania technicznego w tym zakresie."
+    ],
+    "answer": "C",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5254167318344116,
+      0.010904676280915737,
+      0.46367862820625305
+    ],
+    "unconstrained_ABC_mass": 0.9440006613731384
+  },
+  {
+    "id": "10931",
+    "question": "Ile czasu jest ważne pokwitowanie zatrzymania przez policjanta prawa jazdy za przewożenie osób w liczbie przekraczającej o dwa liczbę miejsc określoną w dowodzie rejestracyjnym samochodu osobowego?",
+    "options": [
+      "12 godzin.",
+      "24 godziny.",
+      "72 godziny."
+    ],
+    "answer": "B",
+    "prediction": "C",
+    "correct": false,
+    "probabilities": [
+      0.4567118287086487,
+      0.02576591819524765,
+      0.5175222754478455
+    ],
+    "unconstrained_ABC_mass": 0.9195764064788818
+  },
+  {
+    "id": "10898",
+    "question": "Za które naruszenie przepisów ruchu drogowego policjant zatrzyma prawo jazdy?",
+    "options": [
+      "Za wyprzedzanie z naruszeniem pojedynczej linii ciągłej.",
+      "Za przewożenie osób w liczbie przekraczającej o dwa liczbę miejsc określoną w dowodzie rejestracyjnym samochodu osobowego.",
+      "Za wymijanie na przejeździe kolejowym."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5254471898078918,
+      0.1933012306690216,
+      0.28125160932540894
+    ],
+    "unconstrained_ABC_mass": 0.9288662672042847
+  },
+  {
+    "id": "10899",
+    "question": "Za które naruszenie przepisów ruchu drogowego policjant zatrzyma prawo jazdy?",
+    "options": [
+      "Za wyprzedzanie przed przejściem dla pieszych, gdzie ruch jest kierowany.",
+      "Za przewożenie osób w liczbie przekraczającej o dwa liczbę miejsc określoną w pozwoleniu czasowym samochodu osobowego.",
+      "Za wymijanie na przejeździe dla rowerzystów."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.546549379825592,
+      0.12195165455341339,
+      0.3314989507198334
+    ],
+    "unconstrained_ABC_mass": 0.9255049824714661
+  },
+  {
+    "id": "4534",
+    "question": "Jak należy postąpić, podczas jazdy samochodem osobowym po drodze pokrytej śniegiem?",
+    "options": [
+      "Unikać gwałtownych ruchów kierownicą.",
+      "Odłączyć system kontroli trakcji.",
+      "Na podjazdach zwiększyć prędkość."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.8651763796806335,
+      0.0021445578895509243,
+      0.13267908990383148
+    ],
+    "unconstrained_ABC_mass": 0.9400404691696167
+  },
+  {
+    "id": "6378",
+    "question": "Co powinieneś widzieć w dobrze ustawionych lusterkach zewnętrznych, gdy kierujesz samochodem osobowym?",
+    "options": [
+      "Tylko boki pojazdu.",
+      "Obszar za pojazdem i boki pojazdu.",
+      "Tylko sąsiedni pas ruchu."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      0.3131950795650482,
+      0.5851253867149353,
+      0.10167954117059708
+    ],
+    "unconstrained_ABC_mass": 0.9530333876609802
+  },
+  {
+    "id": "6463",
+    "question": "Jadąc zimą spotykasz na poboczu sinego, półprzytomnego, wyziębionego człowieka. Jak należy mu pomóc?",
+    "options": [
+      "Podać mu gorący napój.",
+      "Podać mu alkohol.",
+      "Wezwać zespół ratownictwa medycznego, zabrać go do samochodu, okryć i powoli ogrzewać."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      0.3204505145549774,
+      0.0011557250982150435,
+      0.6783937215805054
+    ],
+    "unconstrained_ABC_mass": 0.9513120055198669
+  },
+  {
+    "id": "6443",
+    "question": "Jaki może być skutek nieprawidłowo ustawionych reflektorów świateł mijania?",
+    "options": [
+      "Zwiększone zużycie paliwa.",
+      "Zwiększone zużycie żarówek.",
+      "Oślepianie kierujących nadjeżdżających z przeciwka."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      0.1324947625398636,
+      0.003530865767970681,
+      0.863974392414093
+    ],
+    "unconstrained_ABC_mass": 0.8810901641845703
+  },
+  {
+    "id": "6451",
+    "question": "Jaki może być skutek nieprawidłowo ustawionych reflektorów świateł mijania?",
+    "options": [
+      "Zwiększone zużycie paliwa.",
+      "Pogorszenie widoczności drogi w nocy.",
+      "Zwiększone zużycie żarówek."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      0.2393675297498703,
+      0.5742128491401672,
+      0.18641962110996246
+    ],
+    "unconstrained_ABC_mass": 0.8712186813354492
+  },
+  {
+    "id": "10829",
+    "question": "Dokumentem stwierdzającym dopuszczenie pojazdu samochodowego do ruchu jest:",
+    "options": [
+      "dowód rejestracyjny.",
+      "karta pojazdu.",
+      "nalepka kontrolna na przedniej szybie."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.5851254463195801,
+      0.10167954862117767,
+      0.3131950795650482
+    ],
+    "unconstrained_ABC_mass": 0.9270955920219421
+  },
+  {
+    "id": "10815",
+    "question": "Foteliki bezpieczeństwa dla dzieci oraz inne urządzenia przytrzymujące dla dzieci należy instalować w pojeździe:",
+    "options": [
+      "w sposób bezpieczny i estetyczny.",
+      "w sposób umożliwiający łatwy dostęp do dziecka.",
+      "zgodnie z zaleceniami producenta urządzenia."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      0.4656766951084137,
+      0.006642521359026432,
+      0.5276808142662048
+    ],
+    "unconstrained_ABC_mass": 0.956596851348877
+  },
+  {
+    "id": "3523",
+    "question": "Kierujesz samochodem osobowym. Jak powinieneś postąpić w czasie przejazdu przez rozległą kałużę?",
+    "options": [
+      "Zdecydowanie przyśpieszyć.",
+      "Gwałtownie przyhamować.",
+      "Płynnie zmniejszyć prędkość jazdy."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      0.13279114663600922,
+      0.0013018384343013167,
+      0.8659069538116455
+    ],
+    "unconstrained_ABC_mass": 0.9301212430000305
+  },
+  {
+    "id": "9065",
+    "question": "W której z wymienionych niebezpiecznych sytuacji na drodze najlepiej sprawdzi się pojazd wyposażony w tzw. ASR, czyli układ zapobiegający poślizgowi kół napędzanych podczas ruszania?",
+    "options": [
+      "W sytuacji zjeżdżania ze wzniesienia.",
+      "W sytuacji zjeżdżania ze wzniesienia drogą o dużym natężeniu ruchu.",
+      "W sytuacji nagłego przyspieszenia na mokrej nawierzchni."
+    ],
+    "answer": "C",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5030444264411926,
+      0.05302048847079277,
+      0.4439351260662079
+    ],
+    "unconstrained_ABC_mass": 0.9579139351844788
+  },
+  {
+    "id": "9067",
+    "question": "W której z wymienionych niebezpiecznych sytuacji na drodze najlepiej sprawdzi się pojazd wyposażony w tzw. ASR, czyli układ zapobiegający poślizgowi kół napędzanych podczas ruszania?",
+    "options": [
+      "W sytuacji zjeżdżania ze wzniesienia drogą o dużym natężeniu ruchu.",
+      "W sytuacji konieczności wjeżdżania na wzniesienie.",
+      "W sytuacji gwałtownego ruszania na śliskiej nawierzchni."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      0.34730005264282227,
+      0.0038581546396017075,
+      0.6488418579101562
+    ],
+    "unconstrained_ABC_mass": 0.9517530202865601
+  },
+  {
+    "id": "9068",
+    "question": "W której z wymienionych niebezpiecznych sytuacji na drodze najlepiej sprawdzi się pojazd wyposażony w tzw. ESP, czyli układ stabilizacji toru jazdy?",
+    "options": [
+      "W sytuacji pokonywania ostrego zakrętu i trudności z utrzymaniem oczekiwanego toru jazdy.",
+      "W sytuacji konieczności nagłego przyspieszenie na drodze gruntowej.",
+      "W sytuacji konieczności utrzymania stałej prędkości."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.694261372089386,
+      0.01632746309041977,
+      0.28941118717193604
+    ],
+    "unconstrained_ABC_mass": 0.9260114431381226
+  },
+  {
+    "id": "9070",
+    "question": "W której z wymienionych niebezpiecznych sytuacji na drodze najlepiej sprawdzi się pojazd wyposażony w tzw. ESP, czyli układ stabilizacji toru jazdy?",
+    "options": [
+      "W sytuacji konieczności utrzymania stałej prędkości.",
+      "W sytuacji konieczności wjeżdżania na wzniesienie.",
+      "W sytuacji konieczności pokonywania kilku następujących po sobie zakrętów."
+    ],
+    "answer": "C",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5224289298057556,
+      0.07070305943489075,
+      0.406868040561676
+    ],
+    "unconstrained_ABC_mass": 0.9292739033699036
+  },
+  {
+    "id": "9035",
+    "question": "Jaki wpływ na pole widzenia kierującego pojazdem ma prędkość jazdy?",
+    "options": [
+      "Wraz ze wzrostem prędkości zawęża się pole widzenia.",
+      "Wraz ze wzrostem prędkości rozszerza się pole widzenia.",
+      "Prędkość jazdy nie ma wpływu na pole widzenia kierującego."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.7264880537986755,
+      0.1621014028787613,
+      0.11141055822372437
+    ],
+    "unconstrained_ABC_mass": 0.9161810874938965
+  },
+  {
+    "id": "10081",
+    "question": "Czy dopuszczalne jest holowanie za pomocą połączenia sztywnego pojazdu o niesprawnym układzie kierowniczym?",
+    "options": [
+      "Nie.",
+      "Tak, ale tylko w obszarze niezabudowanym.",
+      "Tak, ale tylko w obszarze zabudowanym."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.6074815988540649,
+      0.10556446015834808,
+      0.28695398569107056
+    ],
+    "unconstrained_ABC_mass": 0.9319343566894531
+  },
+  {
+    "id": "10878",
+    "question": "Jakie muszą być spełnione warunki podczas przewożenia dziecka na tylnym siedzeniu samochodu osobowego?",
+    "options": [
+      "Przewożone dziecko ma co najmniej 135 cm wzrostu, jest przypięte tylko pasami bezpieczeństwa, gdyż masa i wzrost uniemożliwia przewóz w foteliku lub innym urządzeniu przytrzymującym  dziecko.",
+      "Przewożone dziecko ma co najmniej 125 cm wzrostu, jest przypięte tylko pasami bezpieczeństwa, gdyż masa i wzrost uniemożliwia przewóz w foteliku.",
+      "Nie można przekraczać prędkości 50 km/h."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.61829674243927,
+      0.05075288563966751,
+      0.33095040917396545
+    ],
+    "unconstrained_ABC_mass": 0.9295725226402283
+  },
+  {
+    "id": "10880",
+    "question": "Jakie musisz spełnić warunki, gdy chcesz przewieźć dziecko na tylnym siedzeniu samochodu osobowego?",
+    "options": [
+      "Przewożone dziecko ma co najmniej 125 cm wzrostu, jest przypięte tylko pasami bezpieczeństwa, gdyż masa i wzrost uniemożliwia przewóz w urządzeniu przytrzymującym.",
+      "Nie można przekraczać prędkości 40 km/h.",
+      "Przewożone dziecko ma co najmniej 135 cm wzrostu, jest przypięte tylko pasami bezpieczeństwa, gdyż masa i wzrost uniemożliwia przewóz w urządzeniu przytrzymującym."
+    ],
+    "answer": "C",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5217260122299194,
+      0.017852481454610825,
+      0.4604215621948242
+    ],
+    "unconstrained_ABC_mass": 0.9489626884460449
+  },
+  {
+    "id": "1864",
+    "question": "Jakiej kategorii prawo jazdy jest wymagane, gdy chcesz kierować czterokołowcem innym niż lekki?",
+    "options": [
+      "B1.",
+      "A.",
+      "AM."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.5307289361953735,
+      0.1045067235827446,
+      0.36476433277130127
+    ],
+    "unconstrained_ABC_mass": 0.9281878471374512
+  },
+  {
+    "id": "7445",
+    "question": "Której z tych czynności nie masz prawa wykonywać samochodem osobowym?",
+    "options": [
+      "Ciągnąć przyczepy lekkiej.",
+      "Holować innego samochodu osobowego na obszarze zabudowanym.",
+      "Ciągnąć dzieci na sankach."
+    ],
+    "answer": "C",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.47540873289108276,
+      0.1543426215648651,
+      0.3702487051486969
+    ],
+    "unconstrained_ABC_mass": 0.9578109979629517
+  },
+  {
+    "id": "7454",
+    "question": "Na której z tych dróg nie masz prawa holować samochodem osobowym innego pojazdu?",
+    "options": [
+      "Na autostradzie.",
+      "Na drodze ekspresowej.",
+      "W strefie zamieszkania."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.46439164876937866,
+      0.07121676951646805,
+      0.46439164876937866
+    ],
+    "unconstrained_ABC_mass": 0.9130939841270447
+  },
+  {
+    "id": "13382",
+    "question": "Po spełnieniu, którego z wymienionych warunków można przewozić samochodem osobowym, poza fotelikiem bezpieczeństwa lub innym urządzeniem przytrzymującym, dziecko mające mniej niż 150 cm wzrostu?",
+    "options": [
+      "Prędkość pojazdu nie przekroczy 40 km/h. ",
+      "Dziecko posiada zaświadczenie lekarskie o przeciwwskazaniu do przewożenia w foteliku lub innym urządzeniu.",
+      "Pojazd posiada dodatkowe oznakowanie, które wskazuje, że jest nim przewożone dziecko."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.42231881618499756,
+      0.15536242723464966,
+      0.42231881618499756
+    ],
+    "unconstrained_ABC_mass": 0.9482921957969666
+  },
+  {
+    "id": "10871",
+    "question": "W jaki sposób zainstalujesz w pojeździe fotelik bezpieczeństwa służący do przewozu dziecka?",
+    "options": [
+      "W sposób wygodny dla dziecka.",
+      "W sposób wygodny dla siebie.",
+      "Zgodnie z zaleceniami producenta urządzenia."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      0.40719133615493774,
+      0.0003488138609100133,
+      0.5924598574638367
+    ],
+    "unconstrained_ABC_mass": 0.953008234500885
+  },
+  {
+    "id": "10822",
+    "question": "W przypadku gdy kierujący przekroczył dopuszczalną prędkość o więcej niż 50 km/h na obszarze zabudowanym, starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy na okres:",
+    "options": [
+      "1 miesiąca.",
+      "2 miesięcy.",
+      "3 miesięcy."
+    ],
+    "answer": "C",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.4911949038505554,
+      0.07532718032598495,
+      0.4334779679775238
+    ],
+    "unconstrained_ABC_mass": 0.9302431344985962
+  },
+  {
+    "id": "4563",
+    "question": "Jak należy postąpić z poszkodowanym w wypadku drogowym, znajdującym się w pojeździe?",
+    "options": [
+      "Należy go ewakuować z pojazdu - w każdym przypadku.",
+      "Należy go ewakuować z pojazdu - w przypadku stwierdzenia u niego zatrzymania akcji serca.",
+      "Należy go zawsze pozostawić w pojeździe - do czasu przybycia lekarza."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5378165245056152,
+      0.13598130643367767,
+      0.3262022137641907
+    ],
+    "unconstrained_ABC_mass": 0.9490527510643005
+  },
+  {
+    "id": "7519",
+    "question": "Kiedy należy sprawdzać poziom oleju w silniku?",
+    "options": [
+      "Przy uruchomionym silniku.",
+      "Natychmiast po unieruchomieniu silnika.",
+      "Przed uruchomieniem zimnego silnika albo co najmniej po kilku minutach po jego wyłączeniu."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      0.4373182952404022,
+      0.0011539158876985312,
+      0.5615278482437134
+    ],
+    "unconstrained_ABC_mass": 0.9244552254676819
+  },
+  {
+    "id": "10874",
+    "question": "Jakie warunki powinien spełniać samochód osobowy, którym chcesz przewieźć dziecko, które ma mniej niż trzy lata?",
+    "options": [
+      " Powinien być wyposażony w pasy i fotelik bezpieczeństwa.",
+      " Może nie mieć pasów bezpieczeństwa.  ",
+      "Nie musi być wyposażony w pasy i fotelik bezpieczeństwa."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.4825230836868286,
+      0.03495385870337486,
+      0.4825230836868286
+    ],
+    "unconstrained_ABC_mass": 0.9494258761405945
+  },
+  {
+    "id": "10885",
+    "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
+    "options": [
+      "Potwierdzenie opłaty obowiązkowego ubezpieczenia odpowiedzialności cywilnej.",
+      "Pokwitowanie zatrzymania dowodu rejestracyjnego w okresie, w którym uprawnia ono do używania pojazdu.",
+      "W każdym przypadku zaświadczenie o przeprowadzonym badaniu technicznym. "
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5773094892501831,
+      0.11367897689342499,
+      0.3090115189552307
+    ],
+    "unconstrained_ABC_mass": 0.9370376467704773
+  },
+  {
+    "id": "10886",
+    "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
+    "options": [
+      "Potwierdzenie opłaty ubezpieczenia AC.",
+      "Pokwitowanie zatrzymania pozwolenia czasowego w okresie, w którym uprawnia ono do używania pojazdu.",
+      "Zaświadczenie o przeprowadzonym badaniu technicznym, w przypadku, gdy pojazd jest zasilany gazem."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.4752510190010071,
+      0.19811409711837769,
+      0.32663494348526
+    ],
+    "unconstrained_ABC_mass": 0.9443042874336243
+  },
+  {
+    "id": "10887",
+    "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
+    "options": [
+      "Dowód rejestracyjny.",
+      "Pokwitowanie zatrzymania dowodu rejestracyjnego w okresie, w którym uprawnia ono do używania pojazdu.",
+      "Świadectwo zgodności z warunkami technicznymi."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5489178895950317,
+      0.15726761519908905,
+      0.2938145697116852
+    ],
+    "unconstrained_ABC_mass": 0.9465662837028503
+  },
+  {
+    "id": "10888",
+    "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
+    "options": [
+      "Pokwitowanie zatrzymania pozwolenia czasowego w okresie, w którym uprawnia ono do używania pojazdu.",
+      "Świadectwo zgodności WE.",
+      "Dowód rejestracyjny."
+    ],
+    "answer": "A",
+    "prediction": "C",
+    "correct": false,
+    "probabilities": [
+      0.42436444759368896,
+      0.030740858986973763,
+      0.5448947548866272
+    ],
+    "unconstrained_ABC_mass": 0.952927827835083
+  },
+  {
+    "id": "10892",
+    "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
+    "options": [
+      "Krajowe prawo jazdy.",
+      "Inny dokument stwierdzający uprawnienie do kierowania pojazdem niż wydane w kraju prawo jazdy.",
+      "Świadectwo kwalifikacji."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5122627019882202,
+      0.2135428637266159,
+      0.27419447898864746
+    ],
+    "unconstrained_ABC_mass": 0.9407817125320435
+  },
+  {
+    "id": "10893",
+    "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
+    "options": [
+      "Orzeczenie lekarskie, jeżeli wykonujesz zarobkowy przewóz osób.",
+      "Pokwitowanie zatrzymania prawa jazdy w okresie, w którym upoważnia ono do kierowania. ",
+      "Orzeczenie psychologiczne."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5376593470573425,
+      0.17455242574214935,
+      0.2877883017063141
+    ],
+    "unconstrained_ABC_mass": 0.9401412606239319
+  },
+  {
+    "id": "10894",
+    "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
+    "options": [
+      "Orzeczenie psychologiczne, jeżeli wykonujesz zarobkowy przewóz osób.",
+      "Pokwitowanie zatrzymania prawa jazdy w okresie, w którym upoważnia ono do kierowania.",
+      "Orzeczenie lekarskie. "
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.4443701505661011,
+      0.1634746491909027,
+      0.392155259847641
+    ],
+    "unconstrained_ABC_mass": 0.9405682682991028
+  },
+  {
+    "id": "10895",
+    "question": "Jaki dokument jesteś zobowiązany mieć przy sobie i okazywać na żądanie uprawnionego organu?",
+    "options": [
+      "Dokument potwierdzający uczestnictwo w kursie kwalifikacji wstępnej.",
+      "Dokument stwierdzający uprawnienie do kierowania pojazdem inny niż wydane w kraju prawo jazdy.",
+      "Dokument stwierdzający ukończenie kursu z pierwszej pomocy przedmedycznej."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.6074815988540649,
+      0.10556446015834808,
+      0.28695398569107056
+    ],
+    "unconstrained_ABC_mass": 0.945311427116394
+  },
+  {
+    "id": "7513",
+    "question": "Czy jako właściciel pojazdu masz obowiązek wskazać na żądanie uprawnionego organu, komu powierzyłeś pojazd do kierowania lub używania w określonym czasie?",
+    "options": [
+      "Tak, chyba że jest to pojazd wykorzystywany do prowadzenia działalności gospodarczej.",
+      "Tak, chyba że pojazd został użyty wbrew Twojej woli i wiedzy przez nieznaną osobę, czemu nie mogłeś zapobiec.",
+      "Nie mam takiego obowiązku."
+    ],
+    "answer": "B",
+    "prediction": "C",
+    "correct": false,
+    "probabilities": [
+      0.4514196813106537,
+      0.03705478832125664,
+      0.5115255117416382
+    ],
+    "unconstrained_ABC_mass": 0.9504809975624084
+  }
+]

@@ -1,0 +1,722 @@
+[
+  {
+    "id": "10840",
+    "question": "W jaki sposób przewozisz dziecko o wzroście mniejszym niż 150 cm na przednim siedzeniu samochodu osobowego, który ma pięć miejsc siedzących?",
+    "options": [
+      " W foteliku bezpieczeństwa lub innym urządzeniu przytrzymującym dziecko.",
+      "W foteliku bezpieczeństwa tyłem do kierunku jazdy, jeżeli pojazd ma aktywną poduszkę powietrzną dla pasażera.",
+      " Na kolanach pasażera."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.9999973773956299,
+      2.5612819172238233e-06,
+      1.637372832874462e-07
+    ],
+    "unconstrained_ABC_mass": 0.9999974966049194
+  },
+  {
+    "id": "10869",
+    "question": "W jaki sposób przewozisz dziecko o wzroście mniejszym niż 150 cm samochodem osobowym, w którym jest pięć miejsc siedzących?",
+    "options": [
+      "Na przednim siedzeniu w innym niż fotelik urządzeniu przytrzymującym dziecko.",
+      "Na tylnym siedzeniu bez zapiętych pasów bezpieczeństwa.",
+      "Na przednim siedzeniu bez fotelika lub innego urządzenia przytrzymującego dziecko."
+    ],
+    "answer": "A",
+    "prediction": "C",
+    "correct": false,
+    "probabilities": [
+      0.025957347825169563,
+      2.97961804562874e-07,
+      0.9740422964096069
+    ],
+    "unconstrained_ABC_mass": 0.9999884366989136
+  },
+  {
+    "id": "11001",
+    "question": "Który z wymienionych dokumentów kierujący pojazdem zarejestrowanym na terytorium RP musi mieć przy sobie i okazywać na żądanie uprawnionego organu?",
+    "options": [
+      "Dowód rejestracyjny.",
+      "Jeśli kierujący ma uprawnienia do kierowania ograniczone do pojazdu wyposażonego w blokadę alkoholową - zaświadczenie o pozytywnym wyniku badania technicznego w tym zakresie.",
+      "Potwierdzenie opłacenia obowiązkowego ubezpieczenia odpowiedzialności cywilnej właściciela pojazdu."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      2.561281689850148e-06,
+      0.9999972581863403,
+      2.1024280272285978e-07
+    ],
+    "unconstrained_ABC_mass": 0.9999977350234985
+  },
+  {
+    "id": "10931",
+    "question": "Ile czasu jest ważne pokwitowanie zatrzymania przez policjanta prawa jazdy za przewożenie osób w liczbie przekraczającej o dwa liczbę miejsc określoną w dowodzie rejestracyjnym samochodu osobowego?",
+    "options": [
+      "24 godziny.",
+      "72 godziny.",
+      "12 godzin."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.9999984502792358,
+      1.0677023283278686e-06,
+      5.043468718213262e-07
+    ],
+    "unconstrained_ABC_mass": 0.9999926090240479
+  },
+  {
+    "id": "10898",
+    "question": "Za które naruszenie przepisów ruchu drogowego policjant zatrzyma prawo jazdy?",
+    "options": [
+      "Za przewożenie osób w liczbie przekraczającej o dwa liczbę miejsc określoną w dowodzie rejestracyjnym samochodu osobowego.",
+      "Za wymijanie na przejeździe kolejowym.",
+      "Za wyprzedzanie z naruszeniem pojedynczej linii ciągłej."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.9999963045120239,
+      8.315256536661764e-07,
+      2.902309915953083e-06
+    ],
+    "unconstrained_ABC_mass": 0.9999880194664001
+  },
+  {
+    "id": "10899",
+    "question": "Za które naruszenie przepisów ruchu drogowego policjant zatrzyma prawo jazdy?",
+    "options": [
+      "Za przewożenie osób w liczbie przekraczającej o dwa liczbę miejsc określoną w pozwoleniu czasowym samochodu osobowego.",
+      "Za wymijanie na przejeździe dla rowerzystów.",
+      "Za wyprzedzanie przed przejściem dla pieszych, gdzie ruch jest kierowany."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.9999972581863403,
+      4.450839981018362e-07,
+      2.260323299196898e-06
+    ],
+    "unconstrained_ABC_mass": 0.9999896883964539
+  },
+  {
+    "id": "4562",
+    "question": "Kto podlega odpowiedzialności karnej w przypadku nieudzielenia pomocy poszkodowanemu w wypadku drogowym z bezpośrednim zagrożeniu utraty zdrowia i życia?",
+    "options": [
+      "Tylko lekarz.",
+      "Tylko uczestnik wypadku drogowego.",
+      "Każda osoba, która mogła udzielić pomocy bez narażenia siebie lub innej osoby na niebezpieczeństwo utraty życia lub ciężkiego uszczerbku zdrowia."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      4.05865202557365e-10,
+      2.998960857425459e-09,
+      1.0
+    ],
+    "unconstrained_ABC_mass": 0.9999997615814209
+  },
+  {
+    "id": "6442",
+    "question": "Do czego służą światła pozycyjne pojazdu?",
+    "options": [
+      "Do określania pozycji pojazdu.",
+      "Do sygnalizowania zmiany pasa ruchu.",
+      "Do oświetlania drogi."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.9914202690124512,
+      2.240936282760231e-06,
+      0.008577466011047363
+    ],
+    "unconstrained_ABC_mass": 0.9999847412109375
+  },
+  {
+    "id": "7445",
+    "question": "Której z tych czynności nie masz prawa wykonywać samochodem osobowym?",
+    "options": [
+      "Holować innego samochodu osobowego na obszarze zabudowanym.",
+      "Ciągnąć dzieci na sankach.",
+      "Ciągnąć przyczepy lekkiej."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      9.610239794710651e-05,
+      0.999903678894043,
+      1.8552128722149064e-07
+    ],
+    "unconstrained_ABC_mass": 0.9999976754188538
+  },
+  {
+    "id": "7454",
+    "question": "Na której z tych dróg nie masz prawa holować samochodem osobowym innego pojazdu?",
+    "options": [
+      "Na drodze ekspresowej.",
+      "W strefie zamieszkania.",
+      "Na autostradzie."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      0.07508730888366699,
+      0.010161963291466236,
+      0.9147506952285767
+    ],
+    "unconstrained_ABC_mass": 0.9999487996101379
+  },
+  {
+    "id": "6463",
+    "question": "Jadąc zimą spotykasz na poboczu sinego, półprzytomnego, wyziębionego człowieka. Jak należy mu pomóc?",
+    "options": [
+      "Podać mu alkohol.",
+      "Wezwać zespół ratownictwa medycznego, zabrać go do samochodu, okryć i powoli ogrzewać.",
+      "Podać mu gorący napój."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      2.1024331431362953e-07,
+      0.9999996423721313,
+      9.329490069376334e-08
+    ],
+    "unconstrained_ABC_mass": 0.9999949336051941
+  },
+  {
+    "id": "10829",
+    "question": "Dokumentem stwierdzającym dopuszczenie pojazdu samochodowego do ruchu jest:",
+    "options": [
+      "karta pojazdu.",
+      "nalepka kontrolna na przedniej szybie.",
+      "dowód rejestracyjny."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      4.785094461112749e-06,
+      7.734384155355656e-08,
+      0.9999951124191284
+    ],
+    "unconstrained_ABC_mass": 0.9999961256980896
+  },
+  {
+    "id": "10815",
+    "question": "Foteliki bezpieczeństwa dla dzieci oraz inne urządzenia przytrzymujące dla dzieci należy instalować w pojeździe:",
+    "options": [
+      "w sposób umożliwiający łatwy dostęp do dziecka.",
+      "zgodnie z zaleceniami producenta urządzenia.",
+      "w sposób bezpieczny i estetyczny."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      5.315784790127509e-08,
+      0.9999998807907104,
+      4.139937459513021e-08
+    ],
+    "unconstrained_ABC_mass": 0.9999991655349731
+  },
+  {
+    "id": "3573",
+    "question": "Jesteś świadkiem potrącenia pieszego. Jak powinieneś się zachować?",
+    "options": [
+      "Wezwać pomoc drogową.",
+      "Zatrzymać się, wezwać pomoć medyczną i udzielić pierwszej pomocy poszkodowanemu.",
+      "Nie podejmować działań, gdyż pomocy musi udzielić sprawca wypadku."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      5.04347383412096e-07,
+      0.9999994039535522,
+      7.734417550864237e-08
+    ],
+    "unconstrained_ABC_mass": 0.999994158744812
+  },
+  {
+    "id": "7515",
+    "question": "Czy wolno Ci kierować pojazdem, którego tablica rejestracyjna jest niewidoczna?",
+    "options": [
+      "Tak, gdy tablica jest przesłonięta przez wystający ładunek.",
+      "Nie, jest to zabronione.",
+      "Tak, bez żadnych ograniczeń."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      2.2603239813179243e-06,
+      0.999997615814209,
+      9.931171263133365e-08
+    ],
+    "unconstrained_ABC_mass": 0.9999973773956299
+  },
+  {
+    "id": "9035",
+    "question": "Jaki wpływ na pole widzenia kierującego pojazdem ma prędkość jazdy?",
+    "options": [
+      "Wraz ze wzrostem prędkości rozszerza się pole widzenia.",
+      "Prędkość jazdy nie ma wpływu na pole widzenia kierującego.",
+      "Wraz ze wzrostem prędkości zawęża się pole widzenia."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      6.348800152267131e-09,
+      1.7257828943684217e-08,
+      1.0
+    ],
+    "unconstrained_ABC_mass": 0.9999992847442627
+  },
+  {
+    "id": "10081",
+    "question": "Czy dopuszczalne jest holowanie za pomocą połączenia sztywnego pojazdu o niesprawnym układzie kierowniczym?",
+    "options": [
+      "Tak, ale tylko w obszarze niezabudowanym.",
+      "Tak, ale tylko w obszarze zabudowanym.",
+      "Nie."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      8.764247638737288e-08,
+      3.224186428951725e-08,
+      0.9999998807907104
+    ],
+    "unconstrained_ABC_mass": 0.9999988079071045
+  },
+  {
+    "id": "13561",
+    "question": "Prędkość bezpieczna to prędkość :",
+    "options": [
+      "która jest równa dopuszczalnej prędkości na danym odcinku drogi. ",
+      "którą \"podpowiada\" nawigacja w Twoim pojeździe.",
+      "która zapewnia panowanie nad pojazdem. "
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      6.023573462243803e-08,
+      9.23744902792123e-09,
+      0.9999998807907104
+    ],
+    "unconstrained_ABC_mass": 0.9999993443489075
+  },
+  {
+    "id": "1864",
+    "question": "Jakiej kategorii prawo jazdy jest wymagane, gdy chcesz kierować czterokołowcem innym niż lekki?",
+    "options": [
+      "A.",
+      "AM.",
+      "B1."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      7.338201157836011e-07,
+      1.2098648767278064e-06,
+      0.9999980926513672
+    ],
+    "unconstrained_ABC_mass": 0.999997615814209
+  },
+  {
+    "id": "7446",
+    "question": "Jaki odstęp od poprzedzającego pojazdu masz obowiązek zachować podczas zatrzymania w zatorze drogowym w tunelu?",
+    "options": [
+      "Nie mniejszy niż 5 metrów.",
+      "Nie mniejszy niż 10 metrów.",
+      "Nie mniejszy niż 3 metry."
+    ],
+    "answer": "A",
+    "prediction": "B",
+    "correct": false,
+    "probabilities": [
+      0.0008795465691946447,
+      0.8512035012245178,
+      0.1479169726371765
+    ],
+    "unconstrained_ABC_mass": 0.99998539686203
+  },
+  {
+    "id": "13382",
+    "question": "Po spełnieniu, którego z wymienionych warunków można przewozić samochodem osobowym, poza fotelikiem bezpieczeństwa lub innym urządzeniem przytrzymującym, dziecko mające mniej niż 150 cm wzrostu?",
+    "options": [
+      "Dziecko posiada zaświadczenie lekarskie o przeciwwskazaniu do przewożenia w foteliku lub innym urządzeniu.",
+      "Pojazd posiada dodatkowe oznakowanie, które wskazuje, że jest nim przewożone dziecko.",
+      "Prędkość pojazdu nie przekroczy 40 km/h. "
+    ],
+    "answer": "A",
+    "prediction": "B",
+    "correct": false,
+    "probabilities": [
+      2.0139468404067884e-07,
+      0.9579121470451355,
+      0.042087722569704056
+    ],
+    "unconstrained_ABC_mass": 0.9999951720237732
+  },
+  {
+    "id": "10871",
+    "question": "W jaki sposób zainstalujesz w pojeździe fotelik bezpieczeństwa służący do przewozu dziecka?",
+    "options": [
+      "W sposób wygodny dla siebie.",
+      "Zgodnie z zaleceniami producenta urządzenia.",
+      "W sposób wygodny dla dziecka."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      5.602794228565244e-09,
+      0.9999996423721313,
+      3.0590220490012143e-07
+    ],
+    "unconstrained_ABC_mass": 0.9999993443489075
+  },
+  {
+    "id": "10822",
+    "question": "W przypadku gdy kierujący przekroczył dopuszczalną prędkość o więcej niż 50 km/h na obszarze zabudowanym, starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy na okres:",
+    "options": [
+      "2 miesięcy.",
+      "3 miesięcy.",
+      "1 miesiąca."
+    ],
+    "answer": "B",
+    "prediction": "C",
+    "correct": false,
+    "probabilities": [
+      3.6534821390432626e-08,
+      1.7257828943684217e-08,
+      1.0
+    ],
+    "unconstrained_ABC_mass": 0.9999993443489075
+  },
+  {
+    "id": "4578",
+    "question": "Jesteś uczestnikiem lub świadkiem wypadku drogowego. Które z wymienionych informacji należy podać dzwoniąc pod numer alarmowy?",
+    "options": [
+      "Tylko liczbę pojazdów biorących udział w wypadku.",
+      "Tylko liczbę ofiar wypadku.",
+      "Miejsce zdarzenia oraz liczbę i stan ofiar wypadku."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      9.146313151298102e-10,
+      1.3307807078533074e-09,
+      1.0
+    ],
+    "unconstrained_ABC_mass": 0.9999998807907104
+  },
+  {
+    "id": "7519",
+    "question": "Kiedy należy sprawdzać poziom oleju w silniku?",
+    "options": [
+      "Natychmiast po unieruchomieniu silnika.",
+      "Przed uruchomieniem zimnego silnika albo co najmniej po kilku minutach po jego wyłączeniu.",
+      "Przy uruchomionym silniku."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      0.2942148745059967,
+      0.705784797668457,
+      3.1413438250638137e-07
+    ],
+    "unconstrained_ABC_mass": 0.9999878406524658
+  },
+  {
+    "id": "10878",
+    "question": "Jakie muszą być spełnione warunki podczas przewożenia dziecka na tylnym siedzeniu samochodu osobowego?",
+    "options": [
+      "Przewożone dziecko ma co najmniej 125 cm wzrostu, jest przypięte tylko pasami bezpieczeństwa, gdyż masa i wzrost uniemożliwia przewóz w foteliku.",
+      "Nie można przekraczać prędkości 50 km/h.",
+      "Przewożone dziecko ma co najmniej 135 cm wzrostu, jest przypięte tylko pasami bezpieczeństwa, gdyż masa i wzrost uniemożliwia przewóz w foteliku lub innym urządzeniu przytrzymującym  dziecko."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      1.522997727931852e-08,
+      2.1024332852448424e-07,
+      0.9999997615814209
+    ],
+    "unconstrained_ABC_mass": 0.9999969005584717
+  },
+  {
+    "id": "10880",
+    "question": "Jakie musisz spełnić warunki, gdy chcesz przewieźć dziecko na tylnym siedzeniu samochodu osobowego?",
+    "options": [
+      "Nie można przekraczać prędkości 40 km/h.",
+      "Przewożone dziecko ma co najmniej 135 cm wzrostu, jest przypięte tylko pasami bezpieczeństwa, gdyż masa i wzrost uniemożliwia przewóz w urządzeniu przytrzymującym.",
+      "Przewożone dziecko ma co najmniej 125 cm wzrostu, jest przypięte tylko pasami bezpieczeństwa, gdyż masa i wzrost uniemożliwia przewóz w urządzeniu przytrzymującym."
+    ],
+    "answer": "B",
+    "prediction": "C",
+    "correct": false,
+    "probabilities": [
+      7.483988156309351e-05,
+      8.480468386551365e-05,
+      0.999840259552002
+    ],
+    "unconstrained_ABC_mass": 0.9999727010726929
+  },
+  {
+    "id": "10994",
+    "question": "Kiedy wolno przewozić samochodem ciężarowym, na przednim siedzeniu, dziecko mające poniżej 150 cm wzrostu, przytrzymywane jedynie za pomocą pasów bezpieczeństwa?",
+    "options": [
+      "Jeżeli w samochodzie tym nie ma możliwości zamontowania fotelika bezpieczeństwa.",
+      "Jeżeli dziecko ma zaświadczenie lekarskie o przeciwwskazaniu do przewożenia w foteliku bezpieczeństwa.",
+      "Jeżeli dziecko ma co najmniej 135 cm wzrostu."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.9999595880508423,
+      2.144454265362583e-05,
+      1.8924742107628845e-05
+    ],
+    "unconstrained_ABC_mass": 0.9999878406524658
+  },
+  {
+    "id": "7513",
+    "question": "Czy jako właściciel pojazdu masz obowiązek wskazać na żądanie uprawnionego organu, komu powierzyłeś pojazd do kierowania lub używania w określonym czasie?",
+    "options": [
+      "Tak, chyba że pojazd został użyty wbrew Twojej woli i wiedzy przez nieznaną osobę, czemu nie mogłeś zapobiec.",
+      "Nie mam takiego obowiązku.",
+      "Tak, chyba że jest to pojazd wykorzystywany do prowadzenia działalności gospodarczej."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.974032998085022,
+      9.867045264400076e-06,
+      0.025957100093364716
+    ],
+    "unconstrained_ABC_mass": 0.9999806880950928
+  },
+  {
+    "id": "10889",
+    "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu, gdy na terytorium Rzeczypospolitej kierujesz pojazdem, który jest zarejestrowany za granicą?",
+    "options": [
+      "Dokument potwierdzający zawarcie umowy ubezpieczenia od nieszczęśliwych wypadków.",
+      "Kopię zaświadczenia o przeprowadzonym badaniu technicznym.",
+      "Dokument dopuszczający pojazd do ruchu. "
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      7.194133289090132e-09,
+      1.3440409674103648e-08,
+      1.0
+    ],
+    "unconstrained_ABC_mass": 0.9999990463256836
+  },
+  {
+    "id": "10890",
+    "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu, gdy na terytorium Rzeczypospolitej kierujesz pojazdem, który jest zarejestrowany za granicą?",
+    "options": [
+      "Dokument potwierdzający zawarcie umowy obowiązkowego ubezpieczenia odpowiedzialności cywilnej posiadacza pojazdu.",
+      "Dokument potwierdzający opłatę skarbową.",
+      "Dowód własności pojazdu."
+    ],
+    "answer": "A",
+    "prediction": "C",
+    "correct": false,
+    "probabilities": [
+      0.18242418766021729,
+      7.3088790486508515e-06,
+      0.8175684809684753
+    ],
+    "unconstrained_ABC_mass": 0.999973714351654
+  },
+  {
+    "id": "10891",
+    "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu, gdy na terytorium Rzeczypospolitej kierujesz pojazdem, który jest zarejestrowany za granicą?",
+    "options": [
+      "Dowód opłacenia składki za obowiązkowe ubezpieczenie odpowiedzialności cywilnej.",
+      "Dokument potwierdzający opłatę za korzystanie z autostrad i dróg ekspresowych.",
+      "Profesjonalny dowód rejestracyjny."
+    ],
+    "answer": "A",
+    "prediction": "C",
+    "correct": false,
+    "probabilities": [
+      0.0006263318355195224,
+      3.7243055430735694e-06,
+      0.9993700385093689
+    ],
+    "unconstrained_ABC_mass": 0.9999919533729553
+  },
+  {
+    "id": "7452",
+    "question": "Jakiej wielkości nie ma prawa przekroczyć rzeczywista masa całkowita przyczepy ciągniętej przez samochód osobowy?",
+    "options": [
+      "Rzeczywistej masy całkowitej samochodu.",
+      "Rzeczywistej masy całkowitej samochodu pomniejszonej o 40%.",
+      "Masy własnej samochodu."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.9999773502349854,
+      2.1444922822411172e-05,
+      1.20983975193667e-06
+    ],
+    "unconstrained_ABC_mass": 0.9999922513961792
+  },
+  {
+    "id": "3625",
+    "question": "Jaki odstęp należy zachować podczas wymijania samochodem osobowym innego pojazdu?",
+    "options": [
+      "Bezpieczny, uzależniony od szerokości jezdni i warunków ruchu.",
+      "Bezpieczny, czyli zawsze taki sam.",
+      "Bezpieczny, ale nie mniejszy niż 1,5 metra."
+    ],
+    "answer": "A",
+    "prediction": "C",
+    "correct": false,
+    "probabilities": [
+      7.658115031006218e-09,
+      1.43072416136647e-08,
+      1.0
+    ],
+    "unconstrained_ABC_mass": 0.9999991655349731
+  },
+  {
+    "id": "3627",
+    "question": "Jaki odstęp należy zachować podczas omijania samochodem osobowym przeszkody na drodze?",
+    "options": [
+      "Bezpieczny, czyli zawsze jednakowy.",
+      "Bezpieczny, uzależniony od szerokości jezdni i warunków ruchu.",
+      "Bezpieczny, ale nie mniejszy niż 0,8 metra."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      4.335301184710261e-08,
+      0.9241418242454529,
+      0.07585817575454712
+    ],
+    "unconstrained_ABC_mass": 0.9999913573265076
+  },
+  {
+    "id": "3628",
+    "question": "Jaki odstęp należy zachować podczas wyprzedzania samochodu osobowego?",
+    "options": [
+      "Bezpieczny, ale większy niż 1,5 metra.",
+      "Bezpieczny, ale mniejszy niż 0,5 metra.",
+      "Bezpieczny, uzależniony od szerokości jezdni i warunków ruchu."
+    ],
+    "answer": "C",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.999997615814209,
+      8.315267336911347e-07,
+      1.5534965314145666e-06
+    ],
+    "unconstrained_ABC_mass": 0.9999903440475464
+  },
+  {
+    "id": "3629",
+    "question": "Jaki odstęp należy zachować podczas wyprzedzania motocykla?",
+    "options": [
+      "Bezpieczny, ale nie większy niż 1 metr.",
+      "Bezpieczny, ale nie mniejszy niż 1 metr.",
+      "Bezpieczny, ale nie większy niż 0,5 metra."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      6.825602838489431e-08,
+      0.9999998807907104,
+      5.315784790127509e-08
+    ],
+    "unconstrained_ABC_mass": 0.9999985694885254
+  },
+  {
+    "id": "3630",
+    "question": "Jaki odstęp należy zachować podczas wyprzedzania kolumny pieszych?",
+    "options": [
+      "Bezpieczny, ale nie mniejszy niż 0,8 metra.",
+      "Bezpieczny, ale nie mniejszy niż 1 metr.",
+      "Bezpieczny, ale nie mniejszy niż 0,6 metra."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      2.7535683329915628e-05,
+      0.9999721050262451,
+      3.4662309644772904e-07
+    ],
+    "unconstrained_ABC_mass": 0.9999990463256836
+  },
+  {
+    "id": "3778",
+    "question": "Jak należy zachować się podczas wymijania samochodem osobowym w nocy innego pojazdu?",
+    "options": [
+      "Zmienić światła mijania na drogowe.",
+      "Patrzeć w prawo od źródła światła pojazdu nadjeżdżającego z przeciwka i wypatrywać tam ewentualnej przeszkody. ",
+      "Patrzeć prosto w światła pojazdu nadjeżdżającego z przeciwka."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      7.734421103577915e-08,
+      0.9999998807907104,
+      2.8453344569356886e-08
+    ],
+    "unconstrained_ABC_mass": 0.9999982118606567
+  },
+  {
+    "id": "3650",
+    "question": "Jak duży odstęp od poprzedzającego pojazdu należy utrzymywać, kierując samochodem osobowym poza obszarem zabudowanym w tunelu o długości 600 metrów?",
+    "options": [
+      "Nie mniejszy niż 40 metrów.",
+      "Nie mniejszy niż 30 metrów.",
+      "Nie mniejszy niż 50 metrów."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      0.03308594599366188,
+      1.0323769856768195e-06,
+      0.9669130444526672
+    ],
+    "unconstrained_ABC_mass": 0.999985933303833
+  }
+]

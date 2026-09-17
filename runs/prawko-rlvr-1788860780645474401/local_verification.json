@@ -1,0 +1,12 @@
+{
+  "data_hash_matches": true,
+  "all_metrics_recomputed": true,
+  "split_ids_disjoint": true,
+  "all_training_ids_isolated": true,
+  "dev_selection_recomputed": true,
+  "reload_predictions_match": true,
+  "selected_training_questions": 100,
+  "selected_presentations": 300,
+  "all_sample_rewards_and_advantages_recomputed": true,
+  "selected_sampled_actions": 1200
+}

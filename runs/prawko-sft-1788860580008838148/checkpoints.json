@@ -1,0 +1,82 @@
+[
+  {
+    "epoch": 1,
+    "steps": 25,
+    "n": 25,
+    "correct": 19,
+    "accuracy": 0.76,
+    "mean_correct_probability": 0.6417501471936703
+  },
+  {
+    "epoch": 2,
+    "steps": 50,
+    "n": 25,
+    "correct": 20,
+    "accuracy": 0.8,
+    "mean_correct_probability": 0.7844367868694826
+  },
+  {
+    "epoch": 3,
+    "steps": 75,
+    "n": 25,
+    "correct": 23,
+    "accuracy": 0.92,
+    "mean_correct_probability": 0.8680057064667926
+  },
+  {
+    "epoch": 4,
+    "steps": 100,
+    "n": 25,
+    "correct": 21,
+    "accuracy": 0.84,
+    "mean_correct_probability": 0.8433524345524347
+  },
+  {
+    "epoch": 5,
+    "steps": 125,
+    "n": 25,
+    "correct": 21,
+    "accuracy": 0.84,
+    "mean_correct_probability": 0.8059402384571512
+  },
+  {
+    "epoch": 6,
+    "steps": 150,
+    "n": 25,
+    "correct": 20,
+    "accuracy": 0.8,
+    "mean_correct_probability": 0.817031086273837
+  },
+  {
+    "epoch": 7,
+    "steps": 175,
+    "n": 25,
+    "correct": 18,
+    "accuracy": 0.72,
+    "mean_correct_probability": 0.7492127730625765
+  },
+  {
+    "epoch": 8,
+    "steps": 200,
+    "n": 25,
+    "correct": 19,
+    "accuracy": 0.76,
+    "mean_correct_probability": 0.7534476539547359
+  },
+  {
+    "epoch": 9,
+    "steps": 225,
+    "n": 25,
+    "correct": 19,
+    "accuracy": 0.76,
+    "mean_correct_probability": 0.7670297966295584
+  },
+  {
+    "epoch": 10,
+    "steps": 250,
+    "n": 25,
+    "correct": 19,
+    "accuracy": 0.76,
+    "mean_correct_probability": 0.7792158301535403
+  }
+]

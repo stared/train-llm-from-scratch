@@ -1,0 +1,79 @@
+{
+  "method": "rlvr",
+  "model_spec": {
+    "id": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "multimodal": true
+  },
+  "seed": 42,
+  "data_sha256": "35110c0e71899ae1e8973863f052ea81c0a9b62d5f57479a4c3035e01750e7e0",
+  "decoding": "Argmax over A/B/C next-token logits; no reasoning; nonthinking chat template",
+  "training_data": "100 official category-B text-only three-choice questions; separate 25 dev and 40 test",
+  "before": {
+    "train": {
+      "n": 100,
+      "correct": 53,
+      "accuracy": 0.53,
+      "mean_correct_probability": 0.4484024051949382
+    },
+    "dev": {
+      "n": 25,
+      "correct": 15,
+      "accuracy": 0.6,
+      "mean_correct_probability": 0.5057470217347145
+    },
+    "test": {
+      "n": 40,
+      "correct": 21,
+      "accuracy": 0.525,
+      "mean_correct_probability": 0.4337581583764404
+    },
+    "test_rotated": {
+      "n": 40,
+      "correct": 20,
+      "accuracy": 0.5,
+      "mean_correct_probability": 0.423677876975853
+    }
+  },
+  "after": {
+    "train": {
+      "n": 100,
+      "correct": 80,
+      "accuracy": 0.8,
+      "mean_correct_probability": 0.791898670434673
+    },
+    "dev": {
+      "n": 25,
+      "correct": 22,
+      "accuracy": 0.88,
+      "mean_correct_probability": 0.855637898715322
+    },
+    "test": {
+      "n": 40,
+      "correct": 27,
+      "accuracy": 0.675,
+      "mean_correct_probability": 0.6485375069434213
+    },
+    "test_rotated": {
+      "n": 40,
+      "correct": 25,
+      "accuracy": 0.625,
+      "mean_correct_probability": 0.6363785542494952
+    }
+  },
+  "training_seconds": 181.052677974,
+  "steps": 208,
+  "selected_epoch": 3,
+  "selected_steps": 75,
+  "lora_rank": 16,
+  "lora_alpha": 32,
+  "learning_rate": 5e-05,
+  "epochs_requested": 10,
+  "max_seconds": 180,
+  "beta": 0.01,
+  "adapter_changed": true,
+  "reload_matches": true,
+  "algorithm": "On-policy categorical REINFORCE/RLOO, four samples, exact three-action reference KL",
+  "total_seconds": 194.548082045,
+  "peak_vram_gb": 7.893166592
+}

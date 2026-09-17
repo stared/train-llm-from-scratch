@@ -413,3 +413,37 @@ The mouse bit the vampire.
 ```text
 Mouse fed vampire with tiny cheese.
 ```
+
+
+## LLM robi prawko — real multiple-choice exam pilot
+
+Model before: **Qwen/Qwen3.5-0.8B**, revision `2fc06364715b967f1860aea9cf38778875588b17`, no workshop fine-tuning. After: **the same base plus a fresh SFT adapter** or **the same base plus a fresh RLVR adapter**, each trained on100 official category-B text-only driving questions from the July2026 catalogue. No film/poetry data. Actual constrained A/B/C choices, not generated explanations.
+
+Held-out question7445: **Której z tych czynności nie masz prawa wykonywać samochodem osobowym?**
+
+- A. Ciągnąć przyczepy lekkiej.
+- B. Holować innego samochodu osobowego na obszarze zabudowanym.
+- C. Ciągnąć dzieci na sankach.
+
+Original model: **A** (wrong). SFT adapter: **C** (correct). RLVR adapter: **C** (correct). Official keyC.
+
+Both methods also regressed on question7454 (which road prohibits towing): original **A, Na autostradzie** was correct; both adapters selected **C, W strefie zamieszkania**, incorrectly.
+
+Both improved the40-question held-out subset **21/40→27/40**. [All actual choices and regressions](prawko_example_results.md), [method and measured costs](PRAWKO.md). This subset is not the full official driving exam.
+
+
+### Prawko after four times the training budget
+
+Still **Qwen3.5-0.8B**, separate fresh **SFT/RLVR adapters trained on the same100 official questions**. Original base:21/40. At the final12-minute checkpoints: SFT28/40, RLVR25/40; reordered choices:30/40 vs24/40. With development-selected checkpoints: SFT28/40, RLVR29/40; reordered25/40 vs28/40. The choice of checkpoint changes which method leads.
+
+An actual disagreement between the **development-selected** adapters:
+
+> Prędkość bezpieczna to prędkość:
+>
+> A. która zapewnia panowanie nad pojazdem.
+> B. która jest równa dopuszczalnej prędkości na danym odcinku drogi.
+> C. którą „podpowiada” nawigacja w Twoim pojeździe.
+
+Qwen3.5-0.8B original: **A**, correct. Qwen3.5-0.8B + SFT on100 official questions: **A**, correct. Qwen3.5-0.8B + RLVR on100 official questions: **B**, wrong. This example is a regression for RLVR, not newly learned knowledge for SFT. Option text is from the official catalogue (typography normalized here); model outputs are only letters.
+
+[All long-run comparisons, including cases favoring RLVR](prawko_long_results.md) · [Interactive curves and disagreement filter](PRAWKO_TRAINING.html).

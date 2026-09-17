@@ -1,0 +1,434 @@
+[
+  {
+    "id": "10889",
+    "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu, gdy na terytorium Rzeczypospolitej kierujesz pojazdem, który jest zarejestrowany za granicą?",
+    "options": [
+      "Dokument dopuszczający pojazd do ruchu. ",
+      "Dokument potwierdzający zawarcie umowy ubezpieczenia od nieszczęśliwych wypadków.",
+      "Kopię zaświadczenia o przeprowadzonym badaniu technicznym."
+    ],
+    "answer": "A",
+    "prediction": "C",
+    "correct": false,
+    "probabilities": [
+      0.4567118287086487,
+      0.02576591819524765,
+      0.5175222754478455
+    ],
+    "unconstrained_ABC_mass": 0.9465774297714233
+  },
+  {
+    "id": "10890",
+    "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu, gdy na terytorium Rzeczypospolitej kierujesz pojazdem, który jest zarejestrowany za granicą?",
+    "options": [
+      "Dowód własności pojazdu.",
+      "Dokument potwierdzający zawarcie umowy obowiązkowego ubezpieczenia odpowiedzialności cywilnej posiadacza pojazdu.",
+      "Dokument potwierdzający opłatę skarbową."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5592525601387024,
+      0.14140118658542633,
+      0.29934632778167725
+    ],
+    "unconstrained_ABC_mass": 0.9173867106437683
+  },
+  {
+    "id": "10891",
+    "question": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu, gdy na terytorium Rzeczypospolitej kierujesz pojazdem, który jest zarejestrowany za granicą?",
+    "options": [
+      "Profesjonalny dowód rejestracyjny.",
+      "Dowód opłacenia składki za obowiązkowe ubezpieczenie odpowiedzialności cywilnej.",
+      "Dokument potwierdzający opłatę za korzystanie z autostrad i dróg ekspresowych."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.46689873933792114,
+      0.24991288781166077,
+      0.2831884026527405
+    ],
+    "unconstrained_ABC_mass": 0.9325844049453735
+  },
+  {
+    "id": "13064",
+    "question": "Jaka jest dopuszczalna prędkość czterokołowca na obszarze zabudowanym?",
+    "options": [
+      "50 km/h bez względu na jego dopuszczalną masę całkowitą.",
+      "40 km/h, jeżeli jego dopuszczalna masa całkowita przekracza 3,5 t.",
+      "20 km/h."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.46303674578666687,
+      0.21872307360172272,
+      0.3182401955127716
+    ],
+    "unconstrained_ABC_mass": 0.928415060043335
+  },
+  {
+    "id": "3573",
+    "question": "Jesteś świadkiem potrącenia pieszego. Jak powinieneś się zachować?",
+    "options": [
+      "Nie podejmować działań, gdyż pomocy musi udzielić sprawca wypadku.",
+      "Wezwać pomoc drogową.",
+      "Zatrzymać się, wezwać pomoć medyczną i udzielić pierwszej pomocy poszkodowanemu."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      0.2153456211090088,
+      0.033024322241544724,
+      0.7516300678253174
+    ],
+    "unconstrained_ABC_mass": 0.9361823797225952
+  },
+  {
+    "id": "3634",
+    "question": "Jak dwukrotne zwiększenie prędkości samochodu osobowego wpływa na długość jego drogi hamowania?",
+    "options": [
+      "Zwiększa dwukrotnie długość drogi hamowania.",
+      "Zwiększa czterokrotnie długość drogi hamowania.",
+      "Nie powoduje zmiany długości drogi hamowania."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.7834796905517578,
+      0.018425676971673965,
+      0.1980946809053421
+    ],
+    "unconstrained_ABC_mass": 0.9451634287834167
+  },
+  {
+    "id": "4364",
+    "question": "Jaki wpływ ma prędkość jazdy na kąt widzenia kierującego samochodem osobowym?",
+    "options": [
+      "Wraz ze wzrostem prędkości kąt widzenia zawęża się.",
+      "Wraz ze wzrostem prędkości kąt widzenia rozszerza się.",
+      "Nie ma żadnego wpływu."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.7275693416595459,
+      0.23620717227458954,
+      0.03622354194521904
+    ],
+    "unconstrained_ABC_mass": 0.9465396404266357
+  },
+  {
+    "id": "4371",
+    "question": "Jaki wpływ ma prędkość jazdy na kąt widzenia kierującego samochodem osobowym?",
+    "options": [
+      "Wraz ze wzrostem prędkości kąt widzenia jest większy.",
+      "Wraz ze wzrostem prędkości kąt widzenia jest mniejszy.",
+      "Nie ma żadnego wpływu."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.8391011357307434,
+      0.11355998367071152,
+      0.04733884707093239
+    ],
+    "unconstrained_ABC_mass": 0.9488369226455688
+  },
+  {
+    "id": "1877",
+    "question": "W jaki sposób wolno Ci przewozić ładunek w przyczepie ciągniętej przez samochód osobowy?",
+    "options": [
+      "Ładunek może zasłaniać niektóre światła przyczepy.",
+      "Ładunek nie może naruszać stateczności pojazdu.",
+      "Ładunek nie musi być zabezpieczony przed zmianą położenia."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.6572184562683105,
+      0.12941397726535797,
+      0.21336758136749268
+    ],
+    "unconstrained_ABC_mass": 0.9506253004074097
+  },
+  {
+    "id": "1878",
+    "question": "W jaki sposób przewieziesz ładunek w przyczepie ciągniętej przez samochód osobowy?",
+    "options": [
+      "Zabezpieczę go przed przemieszczaniem.",
+      "Umieszczę ładunek luźno na przyczepie.",
+      "Nie zabezpieczę ładunku przed przemieszczaniem, jeżeli będę jechał wolno."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.6186838746070862,
+      0.00606536353006959,
+      0.37525075674057007
+    ],
+    "unconstrained_ABC_mass": 0.9414119720458984
+  },
+  {
+    "id": "1879",
+    "question": "Jak przewieziesz ładunek sypki w przyczepie ciągniętej przez samochód osobowy?",
+    "options": [
+      "Niezasłonięty - umieszczony poniżej wysokości burt.",
+      "Nie przekraczajac prędkości 30 km/h.",
+      "Zasłonięty w szczelnej skrzyni ładunkowej."
+    ],
+    "answer": "C",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5903093218803406,
+      0.003977472893893719,
+      0.4057132601737976
+    ],
+    "unconstrained_ABC_mass": 0.9545983672142029
+  },
+  {
+    "id": "1883",
+    "question": "W jaki sposób umieścisz ładunek na przyczepie samochodu osobowego?",
+    "options": [
+      "Tak, aby nie zasłaniał świateł przyczepy.",
+      "Umieszczę go po jednej stronie przyczepy.",
+      "Umieszczę go zawsze w tylnej części przyczepy."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.6220058798789978,
+      0.0841793343424797,
+      0.2938147783279419
+    ],
+    "unconstrained_ABC_mass": 0.9420466423034668
+  },
+  {
+    "id": "7518",
+    "question": "Co należy sprawdzić, gdy lampka kontrolna kierunkowskazów zaczęła migać dużo szybciej?",
+    "options": [
+      "Napięcie akumulatora.",
+      "Sprawność bezpieczników.",
+      "Sprawność żarówek kierunkowskazów."
+    ],
+    "answer": "C",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5090141892433167,
+      0.041782427579164505,
+      0.4492034316062927
+    ],
+    "unconstrained_ABC_mass": 0.9049365520477295
+  },
+  {
+    "id": "13570",
+    "question": "Czy prędkość przy jakiej doszło do wypadku ma wpływ na jego skutki ?",
+    "options": [
+      "Nie.",
+      "Tak, ale tylko przy czołowym zderzeniu.",
+      "Tak."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      0.24213053286075592,
+      0.012054969556629658,
+      0.7458145618438721
+    ],
+    "unconstrained_ABC_mass": 0.92033451795578
+  },
+  {
+    "id": "11028",
+    "question": "Chcesz przewieźć dziecko na przednim siedzeniu pojazdu samochodowego wyposażonego w przednią poduszkę dla pasażera, która jest aktywna. W jaki sposób możesz to zrobić?",
+    "options": [
+      "W foteliku bezpieczeństwa tyłem do kierunku jazdy.",
+      "W foteliku bezpieczeństwa przodem do kierunku jazdy.",
+      "W innym urządzeniu przytrzymującym dziecko tyłem do kierunku jazdy."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5870726108551025,
+      0.24472828209400177,
+      0.16819912195205688
+    ],
+    "unconstrained_ABC_mass": 0.950931191444397
+  },
+  {
+    "id": "10876",
+    "question": "Czym powinieneś się kierować wybierając fotelik lub urządzenie przytrzymujące służące do przewozu dziecka?",
+    "options": [
+      "Estetyką.",
+      "Właściwymi warunkami technicznymi dotyczącymi tych urządzeń.",
+      "Przede wszystkim wygodą."
+    ],
+    "answer": "B",
+    "prediction": "B",
+    "correct": true,
+    "probabilities": [
+      0.14127446711063385,
+      0.7174510359764099,
+      0.14127446711063385
+    ],
+    "unconstrained_ABC_mass": 0.9547257423400879
+  },
+  {
+    "id": "1888",
+    "question": "Czego nie możesz robić kierując samochodem osobowym?",
+    "options": [
+      "Ciągnąć za pojazdem osoby na sankach.",
+      "Korzystać z radia CB.",
+      "Przewozić dziecka w foteliku ochronnym na przednim siedzeniu."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.5175222754478455,
+      0.02576591819524765,
+      0.4567118287086487
+    ],
+    "unconstrained_ABC_mass": 0.9237918257713318
+  },
+  {
+    "id": "3353",
+    "question": "Czego nie masz prawa robić, gdy kierujesz samochodem osobowym?",
+    "options": [
+      "Przewozić osób w stanie nietrzeźwości.",
+      "Korzystać z telefonu wymagającego trzymania mikrofonu w ręku.",
+      "Używać tempomatu na obszarze zabudowanym."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.453073114156723,
+      0.14709129929542542,
+      0.39983561635017395
+    ],
+    "unconstrained_ABC_mass": 0.9136483669281006
+  },
+  {
+    "id": "2536",
+    "question": "Kierujesz samochodem osobowym podczas ulewnego deszczu. Którą z wymienionych czynności należy wykonać po wjechaniu w koleinę wypełnioną wodą?",
+    "options": [
+      "Płynnie zmniejszyć prędkość.",
+      "Zdecydowanie przyhamować.",
+      "Zdecydowanie przyspieszyć."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.7111391425132751,
+      0.10905672609806061,
+      0.17980413138866425
+    ],
+    "unconstrained_ABC_mass": 0.950133204460144
+  },
+  {
+    "id": "14064",
+    "question": "Policjant zatrzyma wydane w kraju prawo jazdy za pokwitowaniem, w przypadku ujawnienia czynu polegającego na przewożeniu osób samochodem osobowym, w liczbie przekraczającej liczbę miejsc określoną w dowodzie rejestracyjnym o:",
+    "options": [
+      "1 osobę.",
+      "2 osoby.",
+      "3 osoby."
+    ],
+    "answer": "C",
+    "prediction": "C",
+    "correct": true,
+    "probabilities": [
+      0.3692992925643921,
+      0.09337347745895386,
+      0.5373272895812988
+    ],
+    "unconstrained_ABC_mass": 0.9215558767318726
+  },
+  {
+    "id": "4362",
+    "question": "Jakie jest ryzyko poślizgu pojazdu podczas jazdy w czasie deszczu?",
+    "options": [
+      "Największe w początkowej fazie deszczu.",
+      "Najmniejsze w początkowej fazie deszczu.",
+      "Największe w końcowej fazie deszczu."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.5908291339874268,
+      0.003100386820733547,
+      0.4060705304145813
+    ],
+    "unconstrained_ABC_mass": 0.9265236258506775
+  },
+  {
+    "id": "11018",
+    "question": "Na jak długo pokwitowanie zatrzymania prawa jazdy za przekroczenie dozwolonej prędkości na obszarze zabudowanym o więcej niż 50 km/h uprawnia do kierowania pojazdem?",
+    "options": [
+      "Przez okres 24 godzin od chwili zatrzymania prawa jazdy. ",
+      "Przez okres 7 dni od chwili zatrzymania prawa jazdy.",
+      "Przez okres 72 godzin od chwili zatrzymania prawa jazdy."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.4922131299972534,
+      0.12445096671581268,
+      0.3833359479904175
+    ],
+    "unconstrained_ABC_mass": 0.9070056676864624
+  },
+  {
+    "id": "13052",
+    "question": "Na jakiej drodze obowiązuje kierującego zachowanie ściśle określonego minimalnego odstępu od pojazdu poprzedzającego?",
+    "options": [
+      "Na drodze ekspresowej.",
+      "Na drodze dwujezdniowej co najmniej o dwóch pasach przeznaczonych dla każdego kierunku ruchu.",
+      "Na drodze jednojezdniowej poza obszarem zabudowanym."
+    ],
+    "answer": "A",
+    "prediction": "A",
+    "correct": true,
+    "probabilities": [
+      0.4658356010913849,
+      0.17137135565280914,
+      0.36279311776161194
+    ],
+    "unconstrained_ABC_mass": 0.9067596197128296
+  },
+  {
+    "id": "7708",
+    "question": "Który bieg jest właściwy do rozpoczęcia jazdy samochodem osobowym na suchej nawierzchni?",
+    "options": [
+      "Drugi.",
+      "Pierwszy.",
+      "Ten, na którym jazda została zakończona."
+    ],
+    "answer": "B",
+    "prediction": "A",
+    "correct": false,
+    "probabilities": [
+      0.5122627019882202,
+      0.2135428637266159,
+      0.27419447898864746
+    ],
+    "unconstrained_ABC_mass": 0.9486358165740967
+  }
+]
