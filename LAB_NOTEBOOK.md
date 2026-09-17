@@ -777,3 +777,73 @@ Batch AD continues P98M/P291M and the earlier8,000-second98M/291M weights for an
 Z trained on9,602 Wikipedia definitions. At LR0.00003, both98M and291M selected step500 by development loss; ten passes ended at step6002.98M held-out definition loss worsened from1.800 selected to2.665 final;291M from1.829 to2.574. Final weights can reproduce the Warsaw training paragraph, but that is memorization of a familiar entity. For example,291M final answers `Opisz: Warszawa.` with the recognizable capital-city paragraph, yet `Kim był Adam Mickiewicz?` invents a military biography. Do not use the familiar Warsaw output to claim broad instruction competence. The18 fixed instruction probes include original and new wording; raw baselines were evaluated with the same prompts in AC.
 
 The fairer three-action supervised control X (conditional cross-entropy plus KL0.1) scored25/40 original and23/40 rotated for98M.291M seeds42/123/2026 scored25/26/27 original and23/24/21 rotated. Direct291M RLVR scored27/26/27 and25/24/22. On this small, repeatedly inspected set, those results do not support a large inherent RLVR advantage. All16 T/X/Z records passed the saved-metric/checkpoint audits.
+
+### Larger evaluation pools and continued overnight experiments
+
+AH evaluates eight saved models on1,048,576 tokens per development/test split, seed20260918, context256. This is a **separate** pool from the original16,384-token workshop curves. Defaults still reproduce the old pool exactly; the CPU regression fixture verifies this and deterministic custom-pool sampling. Do not mix the two sets of loss numbers.
+
+|98M original-Wikipedia training|1M-token Wikipedia test loss|1M-token plain-v2 test loss|
+|---|---|---|
+|10min compiled|1.5467|2.8828|
+|30min compiled|1.3744|2.6207|
+|50min compiled, batch64|1.3030|2.5295|
+|Earlier8,000s, uncompiled|1.2646|2.4764|
+
+The larger sample confirms continued improvements and diminishing returns across these practical recipes. The291M50-minute/old8,000-second values are1.3279/1.2463. The wider100M50-minute model scores1.3340, behind the standard98M here despite its earlier10-minute advantage. This remains a schedule/batch comparison, not a controlled scaling law or factuality score.
+
+AE/AF tested H100 batch utilization at10minutes.98M batch64/context512:297.8M tokens, test1.6104,15.4GB peak VRAM; batch256:325.6M,1.6378,57.2GB.291M batch64:101.2M,1.7511,36.5GB; batch128:106.8M,1.7708,68.6GB. Larger batches gave modest throughput gains, not better loss at the matched LR.98M context256/batch128 reached1.5743 on the256-token evaluation pool; the1024-context comparison is separate. Three AE configurations hit the old batch-size guard before training, costing$0.00863 total; AF retries only those after explicit support and pre-launch validation were added.
+
+V completed nine stages and skipped the three dependencies on canceled plain-v1 training. All nine passed saved-metric audits. For50-minute raw-Wikipedia bases, direct exam SFT versus OWCA→exam SFT scored:98M24/40→20/40 (rotated25→24);291M22→27 (rotated21→18); wide100M24→29 (rotated22→20). Apparent gains in original option order do not survive rotation consistently. Do not promote these into a robust instruction-stage improvement.
+
+AG prepares a larger grounded instruction comparison:99,938 training definitions after exact answer deduplication, plus200 dev/200 test, retaining original article splits. Three prompt templates; long answers trimmed at sentence-like boundaries; corrected reference removal. Prepare locally with `uv run additional/scripts/prepare_wiki_qa.py --train-size 100000 --output datasets/local/wiki-qa-100k`. Four pretrained100M/300M runs compare LR1e-5/3e-5, with a random98M LR3e-4 control; cap20minutes and3 sample-equivalent passes. All200 held-out examples are evaluated. Context filtering now validates lengths on CPU instead of allocating GPU tensors twice per example.
+
+AI continues the old8,000-second98M/291M checkpoints for50minutes with either12.5% training-link-ranked popular raw leads or50% corrected plain leads mixed into original markup. Same batch64, seed43 and LR1e-4 as the uniform-data AD controls. This tests sampling and retention separately from simply adding compute. Mixture proportions and exact source token presentations are recorded; the CPU fixture checks a non-default25% mixture.
+
+AJ tests random-initialization exam SFT at LR1e-4/1e-3. The earlier matched low-LR random controls were not tuned from-scratch baselines; do not overstate their contrast with pretrained models.
+
+AK launches four fresh compiled8,000-second H100 runs:98M/291M original Wikipedia;98M with25% Wolne Lektury;98M with12.5% popular raw leads. Batch64, LR0.0004 for98M and0.0003 for291M. Per-worker timeout8,500seconds bounds configured worker compute below$9.85; the batch including controller reserves$40.224. Ordinary short-job bounds remain unchanged. New per-spec deadline checks and resource reservations were verified before launch. These are optional near-$10 comparisons, not a requirement for the main workshop. All training, selected-checkpoint evaluation, output saving and reload checks finish remotely; deadline remains08:00 Warsaw.
+
+### More Wikipedia training helps loss; exam transfer is less consistent
+
+AD finished all four 50-minute continuations. AR independently evaluated selected weights on the fixed million-token pool (context 256, seed 20260918). Optimizer resets and new sampling seed mean these are two-stage recipes, not uninterrupted runs.
+
+| Model and starting checkpoint | Wikipedia test loss before → after, 1M-token pool | Extra worker USD |
+|---|---|---|
+|98M, 50-minute checkpoint|1.3030 → 1.2415|3.552|
+|291M, 50-minute checkpoint|1.3279 → 1.2493|3.618|
+|98M, earlier 8,000-second checkpoint|1.2646 → 1.2223|3.557|
+|291M, earlier 8,000-second checkpoint|1.2463 → 1.2015|3.587|
+
+The separate 16k-token pool gives 1.2772, 1.2837, 1.2558 and 1.2365 respectively. Do not mix pool sizes when comparing losses. All four selected their final checkpoint. Full Wikipedia still benefits from additional compute; fresh training on the much smaller 81.6M-token clean-lead corpus instead selected checkpoints around halfway through its 50-minute runs. Its final training continued to fit the training set while development loss worsened.
+
+AS then trained the same exam SFT/RLVR recipes on these four continued models. Original/rotated scores out of 40, respectively: 98M from 50min, SFT 25/21 and RLVR 27/22; 291M from 50min, SFT 22/24 and RLVR 23/23; 98M from old 8,000s, SFT 25/27 and RLVR 23/26; 291M from old 8,000s, SFT 27/24 and RLVR 25/26. No consistent winning method or proportional transfer from lower pretraining loss. All eight metric/selection/reload audits passed. Repeatedly inspected small exam test remains exploratory.
+
+AO tests another pretraining hypothesis: shuffled complete context windows rather than sampling with replacement. Fresh 98M and 291M, 8,000 seconds each, otherwise matched to AK raw-Wikipedia runs. Each full pass visits every complete non-overlapping block once before reshuffling. The final incomplete block is omitted. Saved sampler state includes seed, epoch, cursor and draws; seven CPU checks cover coverage, determinism, real training, non-default mixture accounting and fixed-pool evaluation.
+
+### Short Wikipedia definitions: a visible but narrow SFT result
+
+AG's 99,938 full-paragraph examples improve held-out answer loss, but generations still invent facts. They also fail to improve driving-exam transfer: AN's 98M SFT/RLVR scores are 20/22 and 22/20 original/rotated; 291M scores are 19/22 and 17/13. Do not present generic instruction SFT as an automatically beneficial prerequisite.
+
+AP instead trains on 8,912 short definitions extracted from training-link-ranked Wikipedia leads. Answers are the first definition clause, at most 48 tokens, checked against their source. Examples include Warsaw's capital-city definition and “Polski poeta.” for Adam Mickiewicz. These are training facts. Held-out article splits contain 36 dev and 38 test entities.
+
+AQ uses 100 dev and 100 test **known training facts with new prompt templates**, frozen before AP training, with exact normalized answer matching. This measures format and recall, not unseen knowledge. Scores below use the predetermined final training checkpoint, not the checkpoint selected by held-out-article loss.
+
+| Pretrained model → short-answer SFT | Known-fact dev / test exact matches | Training | Worker USD |
+|---|---|---|---|
+|98M raw Wikipedia|58/100 / 58/100|30 passes, 367s|0.460|
+|98M raw Wikipedia → 99k paragraph SFT|44/100 / 46/100|30 passes, 479s|0.611|
+|291M raw Wikipedia|58/100 / 69/100|19.58 passes, 600s|0.763|
+|291M raw Wikipedia → 99k paragraph SFT|75/100 / 75/100|22.85 passes, 600s|0.736|
+
+Before short-answer SFT, all four score zero exact matches under this strict short-answer metric; that does not mean they know zero facts. Selecting by loss on unseen articles yields much earlier checkpoints and only 9–16 test exact matches. The objective matters: memorizing a supplied reference collection and predicting definitions of unseen entities are different tasks.
+
+Literal final answers from the 291M Wikipedia → 99k paragraph SFT → short-answer SFT model:
+
+- `Czym jest Warszawa? Odpowiedz krótko.` → `Stolica Polski i województwa mazowieckiego.`
+- `Kim był Adam Mickiewicz?` → `Polski poeta.`
+- `Co wiesz o Krakowie?` → `Miasto na prawach powiatu położone w południowej Polsce nad Wisłą.`
+- `Podaj wynik: 2 + 3. Odpowiedz tylko liczbą.` → `Podstawowa nazwa danej liczby naturalnej.`
+
+Useful narrow demonstration, not a general assistant. AU tests random initialization versus only ten minutes of Wikipedia pretraining, with the same short-answer data and a 30-pass cap, to check how much pretraining contributes. Learning rates are 3e-4 random / 3e-5 pretrained; maximum 20 minutes per worker. AP/AN/AS saved-metric audits all pass.
+
+AT compares H200 and B200 against the existing H100 ten-minute controls at batch 64. Pricing checked against Modal's official page: H100 $0.001097/s, H200 $0.001261/s, B200 $0.001736/s before CPU/memory. Reports now distinguish requested GPU price from actual hardware: Modal can upgrade an H100 request to H200 at H100 pricing. Two AN workers received that upgrade. No B300 request: the installed CUDA build does not meet its documented requirement.

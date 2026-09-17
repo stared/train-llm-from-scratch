@@ -1,0 +1,62 @@
+[
+  {
+    "tag": "100m-raw-short-qa",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "task": "wiki-qa",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 3e-05,
+    "dataset": "wiki-short-qa",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 30,
+    "eval_steps": 250
+  },
+  {
+    "tag": "100m-qa100k-short-qa",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789685768417650000-100m-qa100k-lr1e-05",
+    "task": "wiki-qa",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 3e-05,
+    "dataset": "wiki-short-qa",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 30,
+    "eval_steps": 250
+  },
+  {
+    "tag": "300m-raw-short-qa",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "task": "wiki-qa",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 3e-05,
+    "dataset": "wiki-short-qa",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 30,
+    "eval_steps": 250
+  },
+  {
+    "tag": "300m-qa100k-short-qa",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789685768417650000-300m-qa100k-lr1e-05",
+    "task": "wiki-qa",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 3e-05,
+    "dataset": "wiki-short-qa",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 30,
+    "eval_steps": 250
+  }
+]

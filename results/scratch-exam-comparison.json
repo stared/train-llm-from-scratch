@@ -1,0 +1,182 @@
+[
+  {
+    "run": "night-1789681233954934000-wiki-100m-rlvr-permutations",
+    "model": "98M",
+    "group": 4,
+    "seed": 42,
+    "original": 25,
+    "rotated": 20,
+    "selected_step": 1400
+  },
+  {
+    "run": "night-1789681233954934000-wiki-100m-sft-slow-permutations",
+    "model": "98M",
+    "group": 2,
+    "seed": 42,
+    "original": 23,
+    "rotated": 24,
+    "selected_step": 1200
+  },
+  {
+    "run": "night-1789681233954934000-wiki-100m-sft-then-rlvr-permutations",
+    "model": "98M",
+    "group": 5,
+    "seed": 42,
+    "original": 27,
+    "rotated": 21,
+    "selected_step": 1400
+  },
+  {
+    "run": "night-1789681233954934000-wiki-300m-rlvr-permutations",
+    "model": "291M",
+    "group": 4,
+    "seed": 42,
+    "original": 27,
+    "rotated": 25,
+    "selected_step": 800
+  },
+  {
+    "run": "night-1789681233954934000-wiki-300m-sft-slow-permutations",
+    "model": "291M",
+    "group": 2,
+    "seed": 42,
+    "original": 25,
+    "rotated": 24,
+    "selected_step": 900
+  },
+  {
+    "run": "night-1789681233954934000-wiki-300m-sft-then-rlvr-permutations",
+    "model": "291M",
+    "group": 5,
+    "seed": 42,
+    "original": 23,
+    "rotated": 17,
+    "selected_step": 100
+  },
+  {
+    "run": "night-1789682451250225000-random-100m-rlvr",
+    "model": "98M",
+    "group": 1,
+    "seed": 42,
+    "original": 15,
+    "rotated": 12,
+    "selected_step": 1100
+  },
+  {
+    "run": "night-1789682451250225000-random-100m-sft",
+    "model": "98M",
+    "group": 0,
+    "seed": 42,
+    "original": 14,
+    "rotated": 14,
+    "selected_step": 1100
+  },
+  {
+    "run": "night-1789682451250225000-random-300m-rlvr",
+    "model": "291M",
+    "group": 1,
+    "seed": 42,
+    "original": 15,
+    "rotated": 12,
+    "selected_step": 1000
+  },
+  {
+    "run": "night-1789682451250225000-random-300m-sft",
+    "model": "291M",
+    "group": 0,
+    "seed": 42,
+    "original": 10,
+    "rotated": 16,
+    "selected_step": 1100
+  },
+  {
+    "run": "night-1789682451250225000-wiki-100m-sft-then-rlvr-seed123",
+    "model": "98M",
+    "group": 5,
+    "seed": 123,
+    "original": 28,
+    "rotated": 24,
+    "selected_step": 1445
+  },
+  {
+    "run": "night-1789682451250225000-wiki-100m-sft-then-rlvr-seed2026",
+    "model": "98M",
+    "group": 5,
+    "seed": 2026,
+    "original": 27,
+    "rotated": 23,
+    "selected_step": 1445
+  },
+  {
+    "run": "night-1789682451250225000-wiki-300m-direct-rlvr-seed123",
+    "model": "291M",
+    "group": 4,
+    "seed": 123,
+    "original": 26,
+    "rotated": 24,
+    "selected_step": 1200
+  },
+  {
+    "run": "night-1789682451250225000-wiki-300m-direct-rlvr-seed2026",
+    "model": "291M",
+    "group": 4,
+    "seed": 2026,
+    "original": 27,
+    "rotated": 22,
+    "selected_step": 1100
+  },
+  {
+    "run": "night-1789683433671484000-wiki-100m-conditional-sft-seed42",
+    "model": "98M",
+    "group": 3,
+    "seed": 42,
+    "original": 25,
+    "rotated": 23,
+    "selected_step": 900
+  },
+  {
+    "run": "night-1789683433671484000-wiki-300m-conditional-sft-seed123",
+    "model": "291M",
+    "group": 3,
+    "seed": 123,
+    "original": 26,
+    "rotated": 24,
+    "selected_step": 1100
+  },
+  {
+    "run": "night-1789683433671484000-wiki-300m-conditional-sft-seed2026",
+    "model": "291M",
+    "group": 3,
+    "seed": 2026,
+    "original": 27,
+    "rotated": 21,
+    "selected_step": 700
+  },
+  {
+    "run": "night-1789683433671484000-wiki-300m-conditional-sft-seed42",
+    "model": "291M",
+    "group": 3,
+    "seed": 42,
+    "original": 25,
+    "rotated": 23,
+    "selected_step": 1000
+  },
+  {
+    "run": "night-1789681777371983000-wiki-100m-instruction-then-sft",
+    "model": "98M",
+    "group": 6,
+    "seed": 42,
+    "original": 21,
+    "rotated": 25,
+    "selected_step": 1300
+  },
+  {
+    "run": "night-1789681777371983000-wiki-300m-instruction-then-sft",
+    "model": "291M",
+    "group": 6,
+    "seed": 42,
+    "original": 19,
+    "rotated": 18,
+    "selected_step": 1400
+  }
+]

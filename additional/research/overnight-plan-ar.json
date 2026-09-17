@@ -1,0 +1,74 @@
+[
+  {
+    "tag": "extended-100m-from-50min",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789685113120810000-100m-from-50min",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "extended-100m-from-8000s",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789685113120810000-100m-from-8000s",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "extended-300m-from-50min",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789685113120810000-300m-from-50min",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "extended-300m-from-8000s",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789685113120810000-300m-from-8000s",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "extended-100m-plain-v2-fresh-50min",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789684286971344000-100m-plain-v2-fresh-50min",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "extended-300m-plain-v2-fresh-50min",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789684286971344000-300m-plain-v2-fresh-50min",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  }
+]

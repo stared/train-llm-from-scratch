@@ -1,0 +1,178 @@
+[
+  {
+    "tag": "100m-raw-before-short",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "known_facts": true,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "100m-qa100k-before-short",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789685768417650000-100m-qa100k-lr1e-05",
+    "known_facts": true,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "300m-raw-before-short",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "known_facts": true,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "300m-qa100k-before-short",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789685768417650000-300m-qa100k-lr1e-05",
+    "known_facts": true,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "100m-raw-short-selected",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789688074687510000-100m-raw-short-qa",
+    "depends_on": [
+      "night-1789688074687510000-100m-raw-short-qa"
+    ],
+    "checkpoint": "best.pt",
+    "known_facts": true,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "100m-qa100k-short-selected",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789688074687510000-100m-qa100k-short-qa",
+    "depends_on": [
+      "night-1789688074687510000-100m-qa100k-short-qa"
+    ],
+    "checkpoint": "best.pt",
+    "known_facts": true,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "300m-raw-short-selected",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789688074687510000-300m-raw-short-qa",
+    "depends_on": [
+      "night-1789688074687510000-300m-raw-short-qa"
+    ],
+    "checkpoint": "best.pt",
+    "known_facts": true,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "300m-qa100k-short-selected",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789688074687510000-300m-qa100k-short-qa",
+    "depends_on": [
+      "night-1789688074687510000-300m-qa100k-short-qa"
+    ],
+    "checkpoint": "best.pt",
+    "known_facts": true,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "100m-raw-short-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789688074687510000-100m-raw-short-qa",
+    "depends_on": [
+      "night-1789688074687510000-100m-raw-short-qa"
+    ],
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "100m-qa100k-short-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789688074687510000-100m-qa100k-short-qa",
+    "depends_on": [
+      "night-1789688074687510000-100m-qa100k-short-qa"
+    ],
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "300m-raw-short-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789688074687510000-300m-raw-short-qa",
+    "depends_on": [
+      "night-1789688074687510000-300m-raw-short-qa"
+    ],
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "300m-qa100k-short-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789688074687510000-300m-qa100k-short-qa",
+    "depends_on": [
+      "night-1789688074687510000-300m-qa100k-short-qa"
+    ],
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  }
+]

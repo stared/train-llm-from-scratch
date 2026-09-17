@@ -1,0 +1,130 @@
+[
+  {
+    "tag": "100m-qa100k-1e-05-selected",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789685768417650000-100m-qa100k-lr1e-05",
+    "depends_on": [
+      "night-1789685768417650000-100m-qa100k-lr1e-05"
+    ],
+    "checkpoint": "best.pt",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "100m-qa100k-1e-05-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789685768417650000-100m-qa100k-lr1e-05",
+    "depends_on": [
+      "night-1789685768417650000-100m-qa100k-lr1e-05"
+    ],
+    "checkpoint": "sft-final.pt",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "100m-qa100k-3e-05-selected",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789685768417650000-100m-qa100k-lr3e-05",
+    "depends_on": [
+      "night-1789685768417650000-100m-qa100k-lr3e-05"
+    ],
+    "checkpoint": "best.pt",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "100m-qa100k-3e-05-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789685768417650000-100m-qa100k-lr3e-05",
+    "depends_on": [
+      "night-1789685768417650000-100m-qa100k-lr3e-05"
+    ],
+    "checkpoint": "sft-final.pt",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "300m-qa100k-1e-05-selected",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789685768417650000-300m-qa100k-lr1e-05",
+    "depends_on": [
+      "night-1789685768417650000-300m-qa100k-lr1e-05"
+    ],
+    "checkpoint": "best.pt",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "300m-qa100k-1e-05-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789685768417650000-300m-qa100k-lr1e-05",
+    "depends_on": [
+      "night-1789685768417650000-300m-qa100k-lr1e-05"
+    ],
+    "checkpoint": "sft-final.pt",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "300m-qa100k-3e-05-selected",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789685768417650000-300m-qa100k-lr3e-05",
+    "depends_on": [
+      "night-1789685768417650000-300m-qa100k-lr3e-05"
+    ],
+    "checkpoint": "best.pt",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "300m-qa100k-3e-05-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789685768417650000-300m-qa100k-lr3e-05",
+    "depends_on": [
+      "night-1789685768417650000-300m-qa100k-lr3e-05"
+    ],
+    "checkpoint": "sft-final.pt",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  }
+]

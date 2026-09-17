@@ -1,0 +1,80 @@
+[
+  {
+    "tag": "wiki100-8000s",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 8000,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0004,
+    "quality": true,
+    "quality_checkpoints": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "wiki300-8000s",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "300m",
+    "data": "wiki-scratch-v1",
+    "seconds": 8000,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0003,
+    "quality": true,
+    "quality_checkpoints": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "wiki100-wl25-8000s",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 8000,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0004,
+    "quality": true,
+    "quality_checkpoints": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ],
+    "sampling": "mixed-uniform",
+    "mixture_data": "wl-scratch-v1",
+    "mixture_fraction": 0.25
+  },
+  {
+    "tag": "wiki100-popular12.5-8000s",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 8000,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0004,
+    "quality": true,
+    "quality_checkpoints": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ],
+    "sampling": "mixed-uniform",
+    "mixture_data": "wiki-popular-v1",
+    "mixture_fraction": 0.125
+  }
+]

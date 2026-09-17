@@ -150,20 +150,21 @@ if __name__ == '__main__':
     print(json.dumps({key: result[key] for key in ('factual_correct', 'factual_total', 'evaluation_seconds')}, indent=2))
 
 
-def evaluate_fixed_pool(model, device, data_dir):
-    """Same 256-token dev/test windows as the original Wikipedia experiments."""
+def evaluate_fixed_pool(model, device, data_dir, batch_count=8, batch_size=8, seed=20260908):
+    """Defaults preserve the original 16k-token pool; explicit settings allow larger audits."""
     import hashlib
     import numpy as np
     folder=Path(data_dir)
     metadata=json.loads((folder/'tokens.json').read_text())
-    rng=np.random.default_rng(20260908)
+    if batch_count<1 or batch_size<1:raise ValueError('Positive evaluation batch dimensions required')
+    rng=np.random.default_rng(seed)
     result={}
     was_training=model.training;model.eval()
     try:
         with torch.no_grad():
             for split in ('train','dev','test'):
                 size=metadata['splits'][split]['tokens']
-                starts=rng.integers(0,size-257,size=(8,8))
+                starts=rng.integers(0,size-257,size=(batch_count,batch_size))
                 if split=='train':continue
                 path=folder/f'{split}.bin'
                 with path.open('rb') as file:
@@ -175,7 +176,7 @@ def evaluate_fixed_pool(model, device, data_dir):
                     batch=torch.from_numpy(block).to(device)
                     with torch.autocast('cuda',dtype=torch.bfloat16) if str(device).startswith('cuda') else nullcontext():
                         losses.append(model(batch[:,:-1],batch[:,1:]).item())
-                result[split]=dict(loss_nats=sum(losses)/len(losses),tokens=16384)
+                result[split]=dict(loss_nats=sum(losses)/len(losses),tokens=batch_count*batch_size*256)
     finally:model.train(was_training)
     return dict(source=metadata.get('source_label',folder.name),
-                tokenizer_sha256=metadata['tokenizer_sha256'],**result)
+                tokenizer_sha256=metadata['tokenizer_sha256'],seed=seed,batch_count=batch_count,batch_size=batch_size,**result)

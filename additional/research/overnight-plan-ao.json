@@ -1,0 +1,40 @@
+[
+  {
+    "tag": "100m-shuffled-8000s",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 8000,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0004,
+    "sampling": "shuffled",
+    "quality": true,
+    "quality_checkpoints": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "300m-shuffled-8000s",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "300m",
+    "data": "wiki-scratch-v1",
+    "seconds": 8000,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0003,
+    "sampling": "shuffled",
+    "quality": true,
+    "quality_checkpoints": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  }
+]

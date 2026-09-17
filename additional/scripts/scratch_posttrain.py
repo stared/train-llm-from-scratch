@@ -21,7 +21,7 @@ from prawko import question
 def save(path,obj):
     path.write_text(json.dumps(obj,ensure_ascii=False,indent=2))
 
-def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_init=False,lora_rank=0,beta=.01,dataset_path=None,batch_size=4,max_epochs=None,initial_weights=None,eval_steps=50,batched=False,selection_permutations=False,sft_actions_only=False):
+def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_init=False,lora_rank=0,beta=.01,dataset_path=None,batch_size=4,max_epochs=None,initial_weights=None,eval_steps=50,batched=False,selection_permutations=False,sft_actions_only=False,text_eval_limit=50):
     import torch
     from tokenizers import Tokenizer
     if task not in ('exam','poetry','wiki-qa','instruction') or method not in ('sft','rlvr','sft-rlvr'):
@@ -29,6 +29,7 @@ def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_
     if task!='exam' and method!='sft':raise ValueError('Only exam has a verifiable answer key')
     if sft_actions_only and (task!='exam' or not batched):raise ValueError('Conditional classification SFT requires batched exam training')
     if not 60<=seconds<=1200:raise ValueError('Bounded 60–1200 seconds per stage')
+    if not 1<=text_eval_limit<=1000:raise ValueError('Text evaluation needs 1–1000 examples per split')
     torch.set_num_threads(2);torch.manual_seed(seed);rng=random.Random(seed)
     base=Path(base);out=Path(output);out.mkdir(parents=True,exist_ok=False)
     meta=json.loads((base/'result.json').read_text())
@@ -104,13 +105,14 @@ def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_
     skipped={}
     if task!='exam':
         for split,rows in data.items():
-            skipped[split]=sum(pair(r) is None for r in rows)
-            data[split]=[r for r in rows if pair(r) is not None]
+            # Length validation needs no GPU allocation, especially for large SFT sets.
+            data[split]=[r for r in rows if len(tok.encode(text_prompt(r)).ids)+len(tok.encode(r['answer']).ids)+1<=config.context+1]
+            skipped[split]=len(rows)-len(data[split])
             if not data[split]:raise ValueError('No examples fit the context')
     def eval_text(split,tag):
         model.eval();losses=[]
         with torch.no_grad(),amp():
-            for row in data[split][:50]:
+            for row in data[split][:text_eval_limit]:
                 x,y=pair(row);losses.append(float(model(x,y)))
         return {'loss':sum(losses)/len(losses),'n':len(losses)}
     def samples(tag):
@@ -238,7 +240,7 @@ def run(base,output,task='exam',method='sft',seconds=600,lr=1e-4,seed=42,random_
             'base_data':meta.get('source',meta.get('base_data')),'base_task':meta.get('task','pretraining'),
             'config':meta['config'],'task':task,'method':method,
             'seed':seed,'lr':lr,'batch_size':batch_size,'batched':batched,'selection_permutations':selection_permutations,'max_epochs':max_epochs,'initial_weights_run':Path(initial_weights).parent.name if initial_weights else None,'lora_rank':lora_rank,'beta':beta,'sft_actions_only':sft_actions_only,'before':before,'stages':stages,'skipped_over_context':skipped,
-            'split_sizes':{split:len(rows) for split,rows in data.items()},
+            'split_sizes':{split:len(rows) for split,rows in data.items()},'text_eval_limit':text_eval_limit,
             'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
             'limitations':'Small held-out split. Poetry source verses may occur in pretraining; held-out prompts do not.'}
     save(out/'result.json',result)

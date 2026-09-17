@@ -25,11 +25,36 @@ def save(path,value):
     Path(path).write_text(json.dumps(value,ensure_ascii=False,indent=2))
 
 
-def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', batch_size=32, context_length=256, eval_interval=60, peak_lr=6e-4, warmup_steps=20, checkpoint_hook=None, research_limit_seconds=600, sampling_mode='uniform', mixture_dir=None, progress=None, compile_training=False,initial_checkpoint=None):
+class ShuffledWindows:
+    """Visit every full training block once before reshuffling the next pass."""
+    def __init__(self, token_count, context, seed):
+        self.windows=(token_count-1)//context
+        if self.windows<1:raise ValueError('Training corpus is shorter than one window')
+        self.context=context;self.seed=seed;self.epoch=0;self.cursor=0;self.draws=0
+        self.order=np.random.default_rng(seed).permutation(self.windows)
+
+    def next(self,count):
+        chunks=[];remaining=count
+        while remaining:
+            if self.cursor==self.windows:
+                self.epoch+=1;self.cursor=0
+                self.order=np.random.default_rng(self.seed+self.epoch).permutation(self.windows)
+            take=min(remaining,self.windows-self.cursor)
+            chunks.append(self.order[self.cursor:self.cursor+take]*self.context)
+            self.cursor+=take;self.draws+=take;remaining-=take
+        return np.concatenate(chunks)
+
+    def state(self):
+        return dict(seed=self.seed,epoch=self.epoch,cursor=self.cursor,windows=self.windows,
+                    context=self.context,draws=self.draws,passes=self.draws/self.windows)
+
+
+def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', batch_size=32, context_length=256, eval_interval=60, peak_lr=6e-4, warmup_steps=20, checkpoint_hook=None, research_limit_seconds=600, sampling_mode='uniform', mixture_dir=None, progress=None, compile_training=False,initial_checkpoint=None,mixture_fraction=.5):
     if not 60<=max_seconds<=research_limit_seconds<=8400 or batch_size not in (8,16,32,64,128,256):
         raise ValueError('Invalid explicit time budget or batch size')
-    if sampling_mode not in ('uniform','openings','mixed','mixed-uniform'):
+    if sampling_mode not in ('uniform','openings','mixed','mixed-uniform','shuffled'):
         raise ValueError('Unknown sampling mode')
+    if not 0<mixture_fraction<=1 or int(batch_size*mixture_fraction)<1:raise ValueError('Mixture must contain at least one sample per batch')
     if context_length not in (256,512,1024) or eval_interval<60 or warmup_steps<1 or not 0<peak_lr<=.002:
         raise ValueError('Invalid context/evaluation/learning-rate configuration')
     if device=='cuda' and not torch.cuda.is_bf16_supported():
@@ -52,7 +77,7 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
                 raise ValueError('Token file checksum mismatch')
     config=config_for(size,metadata['vocab_size']);config.context=context_length
     extra=None;article_starts=None
-    if sampling_mode!='uniform':
+    if sampling_mode not in ('uniform','shuffled'):
         extra_dir=Path(mixture_dir) if mixture_dir else data_dir
         extra_meta=json.loads((extra_dir/'tokens.json').read_text())
         if extra_meta['tokenizer_sha256']!=metadata['tokenizer_sha256']:
@@ -82,6 +107,7 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
     optimizer=torch.optim.AdamW([{'params':decay,'weight_decay':.1},{'params':no_decay,'weight_decay':0.}],
         lr=peak_lr,betas=(.9,.95),fused=device=='cuda')
     rng=np.random.default_rng(seed)
+    sampler=ShuffledWindows(len(arrays['train']),config.context,seed) if sampling_mode=='shuffled' else None
     eval_rng=np.random.default_rng(20260908)
     eval_context=256  # Same fixed evaluation windows as the original five-minute runs.
     offsets={s:eval_rng.integers(0,len(arr)-eval_context-1,size=(8,8)) for s,arr in arrays.items()}
@@ -130,10 +156,11 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
         lr=peak_lr*min((step+1)/warmup_steps,1.)*(.1+.9*.5*(1+math.cos(math.pi*budget_fraction)))
         for group in optimizer.param_groups:group['lr']=lr
         tick=time.monotonic()
-        x,y=batch('train',rng.integers(0,len(arrays['train'])-config.context-1,size=batch_size))
+        starts=sampler.next(batch_size) if sampler else rng.integers(0,len(arrays['train'])-config.context-1,size=batch_size)
+        x,y=batch('train',starts)
         if extra is not None:
             x=x.clone();y=y.clone()
-            count=batch_size if sampling_mode=='openings' else batch_size//2
+            count=batch_size if sampling_mode=='openings' else int(batch_size*mixture_fraction)
             starts=rng.integers(0,len(extra)-config.context-1,size=count)
             if article_starts is not None:starts[:count//2]=rng.choice(article_starts,size=count//2)
             block=np.stack([extra[int(i):int(i)+config.context+1] for i in starts]).astype(np.int64)
@@ -170,6 +197,7 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
     if checkpoint_hook:checkpoint_hook(model,tokenizer,'final',step,training_seconds,out)
     torch.save(dict(model=model.state_dict(),optimizer=optimizer.state_dict(),config=asdict(config),step=step,
         numpy_rng=rng.bit_generator.state,torch_rng=torch.get_rng_state(),
+        sampler_state=sampler.state() if sampler else None,
         cuda_rng=torch.cuda.get_rng_state() if device=='cuda' else None),out/'final.pt')
     if final['dev']['loss_nats']<best_loss:
         best_loss=final['dev']['loss_nats'];best_step=step;torch.save(model.state_dict(),out/'best.pt')
@@ -177,7 +205,8 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
     selected={s:evaluate('selected_'+s,s) for s in ('train','dev','test')}
     selected_samples=samples('samples_selected')
     if checkpoint_hook:checkpoint_hook(model,tokenizer,'selected',best_step,training_seconds,out)
-    secondary_tokens=0 if extra is None else step*config.context*(batch_size if sampling_mode=='openings' else batch_size//2)
+    secondary_count=0 if extra is None else (batch_size if sampling_mode=='openings' else int(batch_size*mixture_fraction))
+    secondary_tokens=step*config.context*secondary_count
     exposures={'primary':dict(corpus=data_dir.name,tokens=tokens_seen-secondary_tokens,ratio=(tokens_seen-secondary_tokens)/len(arrays['train']))}
     if extra is not None:exposures['mixture']=dict(corpus=extra_dir.name,tokens=secondary_tokens,ratio=secondary_tokens/len(extra))
     source_label=metadata.get('source_label','Polish Wikipedia20260901, original main-namespace wikitext including redirects')
@@ -187,10 +216,10 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
         initial_checkpoint_file=initial_checkpoint.name if initial_checkpoint else None,
         environment=dict(torch=torch.__version__,numpy=np.__version__,tokenizers=importlib.metadata.version('tokenizers'),
                          device=torch.cuda.get_device_name() if device=='cuda' else 'CPU',precision='BF16 autocast with FP32 weights' if device=='cuda' else 'FP32'),
-        parameters=parameters,seed=seed,source=source_label,source_exposures=exposures,
+        parameters=parameters,seed=seed,source=source_label,source_exposures=exposures,sampler_state=sampler.state() if sampler else None,
         data=metadata,generation_prompts=generation_prompts,before=before,final=final,selected=selected,best_step=best_step,steps=step,
         tokens_seen=tokens_seen,training_pool_tokens=len(arrays['train']),
-        exposure_ratio=tokens_seen/len(arrays['train']),sampling=sampling_mode,mixture_dir=Path(mixture_dir).name if mixture_dir else None,
+        exposure_ratio=tokens_seen/len(arrays['train']),sampling=sampling_mode,mixture_dir=Path(mixture_dir).name if mixture_dir else None,mixture_fraction=secondary_count/batch_size,
         compile_training=compile_training,batch_size=batch_size,peak_lr=peak_lr,warmup_steps=warmup_steps,eval_context=eval_context,eval_interval=eval_interval,training_seconds=training_seconds,training_compute_seconds=training_compute,
         tokens_per_training_compute_second=tokens_seen/training_compute,
         peak_vram_gb=torch.cuda.max_memory_allocated()/1e9 if device=='cuda' else None,

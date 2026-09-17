@@ -1,0 +1,98 @@
+[
+  {
+    "tag": "extended-old100",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-100-uniform",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "extended-old300",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "extended-50min100",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789681601127509000-wiki-100m-batch64-50min",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "extended-50min300",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789681601127509000-wiki-300m-batch64-50min",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "extended-50min30",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789681601127509000-wiki-30m-50min",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "extended-50minwide",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789682325149225000-wiki-100m-wide-50min",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "extended-1800sec100",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789680156069063000-wiki100-compiled-30min-H100",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "extended-600sec100",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789680156069063000-wiki-100m-compiled-H100",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  }
+]

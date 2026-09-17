@@ -14,6 +14,17 @@ torch.set_num_threads(2)
 
 
 class ScratchModelChecks(unittest.TestCase):
+    def test_shuffled_windows_cover_each_pass_without_replacement(self):
+        import numpy as np
+        from train_scratch import ShuffledWindows
+        sampler=ShuffledWindows(193,8,7)
+        starts=np.concatenate([sampler.next(9),sampler.next(31)])
+        self.assertEqual(sorted(starts[:24].tolist()),list(range(0,192,8)))
+        self.assertEqual(len(set(starts[24:].tolist())),16)
+        self.assertTrue(np.all(starts+8<193))
+        self.assertEqual(starts.tolist(),ShuffledWindows(193,8,7).next(40).tolist())
+        self.assertEqual(sampler.state()['draws'],40)
+
     def test_full_tokenization_keeps_original_markup(self):
         import numpy as np
         from tokenizers import Tokenizer
@@ -64,9 +75,19 @@ class ScratchModelChecks(unittest.TestCase):
                  patch('train_scratch.config_for',return_value=Config(vocab_size=4,width=16,layers=1,heads=2,hidden=32,context=256)), \
                  patch.object(ScratchGPT,'generate',lambda self,ids,new_tokens:ids):
                 continued=run(data,Path(temp)/'continued',max_seconds=60,device='cpu',batch_size=8,
-                              initial_checkpoint=Path(temp)/'run/best.pt')
+                              initial_checkpoint=Path(temp)/'run/best.pt',sampling_mode='shuffled')
             self.assertEqual(continued['before']['test'],result['selected']['test'])
             self.assertEqual(continued['initial_checkpoint_run'],'run')
+            self.assertEqual(continued['sampler_state']['draws'],continued['steps']*8)
+            from scratch_quality import evaluate_fixed_pool
+            loaded=ScratchGPT(Config(**result['config']))
+            loaded.load_state_dict(torch.load(Path(temp)/'run/best.pt',weights_only=True))
+            original_pool=evaluate_fixed_pool(loaded,'cpu',data)
+            self.assertEqual(original_pool['test'],result['selected']['test'])
+            other_pool=evaluate_fixed_pool(loaded,'cpu',data,batch_count=2,batch_size=4,seed=17)
+            self.assertEqual(other_pool['test']['tokens'],2048)
+            self.assertTrue(loaded.training)
+            self.assertEqual(other_pool,evaluate_fixed_pool(loaded,'cpu',data,batch_count=2,batch_size=4,seed=17))
             mixture=Path(temp)/'mixture';mixture.mkdir()
             (mixture/'tokenizer.json').write_bytes((data/'tokenizer.json').read_bytes())
             meta=json.loads((data/'tokens.json').read_text())
@@ -83,13 +104,14 @@ class ScratchModelChecks(unittest.TestCase):
                  patch.object(ScratchGPT,'generate',lambda self,ids,new_tokens:ids), \
                  patch.object(ScratchGPT,'forward',inspect_forward):
                 mixed=run(data,Path(temp)/'mixed',max_seconds=60,device='cpu',batch_size=8,
-                          sampling_mode='mixed-uniform',mixture_dir=mixture)
+                          sampling_mode='mixed-uniform',mixture_dir=mixture,mixture_fraction=.25)
             self.assertTrue(batches)
             for batch in batches:
-                self.assertTrue(torch.all(batch[:4]==2))
-                self.assertFalse(torch.all(batch[4:]==2))
-            self.assertEqual(mixed['source_exposures']['primary']['tokens'],mixed['tokens_seen']//2)
-            self.assertEqual(mixed['source_exposures']['mixture']['tokens'],mixed['tokens_seen']//2)
+                self.assertTrue(torch.all(batch[:2]==2))
+                self.assertFalse(torch.all(batch[2:]==2))
+            self.assertEqual(mixed['source_exposures']['primary']['tokens'],mixed['tokens_seen']*3//4)
+            self.assertEqual(mixed['source_exposures']['mixture']['tokens'],mixed['tokens_seen']//4)
+            self.assertEqual(mixed['mixture_fraction'],.25)
 
     def test_parameter_counts(self):
         for size,expected in [('10m',10244160),('30m',29893120)]:

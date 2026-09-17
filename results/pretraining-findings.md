@@ -1,5 +1,7 @@
 # From-scratch experiments: workshop recipes
 
+**Latest Polish-only follow-up:** [longer Wikipedia curves](wikipedia-scaling.svg) and [training comparisons](training-comparisons.html), including separate million-token evaluations. The September8 experiments below are historical results.
+
 **Follow-up:** [Near-$10 Polish experiments](polish-dollar-results.md) tested four 2h13m runs. Wikipedia improved but remained factually unreliable; Wolne Lektury overfit. The ten-minute experiments below are the earlier workshop comparison.
 
 Measured on 2026-09-08. **Use 30M + TinyStories for the clearest readable-text demo; 30M + Wolne Lektury for Polish literary style; full Wikipedia for learning markup and examining factual failure.** All models start from random weights. None uses a pretrained language model, SFT, or RLVR. These are continuation models, not assistants.

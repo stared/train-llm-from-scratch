@@ -4,23 +4,27 @@ Exploratory measurements, not guaranteed outcomes. Checkpoints are selected usin
 
 Plain-text corpus v1 and the earlier 5,000-definition data used a faulty reference-removal expression. It could delete intervening prose after a self-closing ref. Those data comparisons are superseded; original-markup Wikipedia and Wolne Lektury are unaffected. Version2 fixes this with a regression test.
 
-Costs are worker GPU + CPU/memory estimates, excluding image builds, controller and storage. Post-training and continued-pretraining costs exclude the earlier pretraining. For chains, the cost shown on each stage row is the whole run, not an additional charge. Losses on different corpora cannot be compared directly. Existing-model SFT→RLVR chains use the original base model as the KL reference; scratch-model chains use the SFT checkpoint. These are different regularization choices. Wikipedia definition loss uses 50 held-out examples whose articles retain their original pretraining split; this is not a test of recalling facts from those same articles in training. Poetry loss uses 25 held-out prompts, but their source verses may appear in pretraining.
+Costs are worker GPU + CPU/memory estimates, excluding image builds, controller and storage. Post-training and continued-pretraining costs exclude the earlier pretraining. For chains, the cost shown on each stage row is the whole run, not an additional charge. Losses on different corpora cannot be compared directly. Existing-model SFT→RLVR chains use the original base model as the KL reference; scratch-model chains use the SFT checkpoint. These are different regularization choices. Wikipedia definition loss uses up to50 held-out examples in earlier runs and200 in the100k-example study, retaining original pretraining splits. This differs from recall of familiar training entities. Poetry loss uses25 held-out prompts, but their source verses may appear in pretraining. Larger corpus evaluations use a separate fixed seed and1,048,576 tokens per split; keep them separate from the original16,384-token live curves.
 
-Failed/canceled calls recorded: 9; known worker estimates $0.031. Canceled calls have unknown billing; an additional $8.257 full-timeout bound is reserved separately.
+Failed/canceled calls recorded: 13; known worker estimates $0.040. Canceled calls with unknown billing retain conservative timeout reservations in the local budget ledger; they are not counted as free.
 
-Completed workers in this report: $54.834.
+Completed workers in this report: $115.446.
 
 ## What changed
 
 - For ten-minute Wolne Lektury pretraining, H100 processed more tokens per dollar than L4. Compiling the training forward almost doubled throughput again; it did not double text quality.
 - The cheaper expanded-data SFT recipe reached 31–32/40 across three seeds in three minutes, about $0.07 per worker. Rotated options gave 30–33/40. This is the practical workshop extension.
 - Qwen3.5-0.8B + SFT on 289 official driving questions reached 33–35/40 across three seeds, versus 21/40 before training. Direct RLVR reached 29–33/40. Each run cost about $0.19; rotated options reveal remaining sensitivity.
-- Wikipedia-pretrained 98M and 291M scratch models reached 20/40 with full-weight SFT and 22/40 with LoRA on 100 driving questions. Expanded-data scratch SFT reached 21–23/40. Direct RLVR did not improve the 100-question models. These results do not establish full-exam passing ability.
-- SFT on 5,000 Wikipedia title/definition pairs taught short-answer formatting, but answers still invented facts. Wolne Lektury + Pan Tadeusz Q&A learned verse-like replies with weak relevance and meter.
+- On 289 driving questions, Wikipedia-pretrained 291M direct RLVR reached 26–27/40 across three seeds. A matched three-action supervised loss plus the same KL penalty reached 25–27/40; rotated options gave 22–25 and 21–24 respectively. This small, repeatedly inspected test does not establish a large RLVR advantage or official-exam passing ability.
+- Grounded SFT on 9,602 Wikipedia definitions learned answer formatting and some familiar paragraphs. Longer training worsened held-out definition loss while improving recall of a Warsaw training example. The earlier 5,000-definition experiment used faulty reference removal and is superseded. Wolne Lektury + Pan Tadeusz Q&A learned verse-like replies with weak relevance and meter.
 - With an explanation prompt, Qwen3.5-2B RLVR improved strict final-answer compliance from 0 to 25/40 by removing explanations. Accepting the explicit answer anywhere gives 25/40 both before and after. The reward did not require an explanation; this is format learning, not evidence of better reasoning. The any-position score is a post-hoc diagnostic, not the training reward.
 - Thirty-minute Wolne Lektury pretraining improved test loss to 2.720 for $2.12. Ten minutes with compilation reached 2.748 for $0.73: a more practical workshop recipe.
+- Original-markup Wikipedia 98M test loss improved from 1.619 at ten minutes to 1.426 at thirty and 1.339 at fifty ($3.56 worker compute). The older 133-minute recipe reached 1.301. Schedules and batches differ; loss gains continue, but generated facts remain unreliable.
+- A general Polish instruction stage did not improve the first matched scratch-model driving comparison: 291M direct SFT scored 25/40 versus 19/40 after instruction SFT. Treat instruction formatting and task competence as separate measurements.
 
 ![Repeated driving-exam runs](exam-comparison.svg)
+
+![Wikipedia to the driving exam: measured controls](scratch-exam-comparison.svg)
 
 ![Development curves: selected and final checkpoints](checkpoint-selection.svg)
 
@@ -62,6 +66,30 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |ScratchGPT-100m|wiki-scratch-v1|512|H100|50.0|9.174 → 1.402|1528.3|0.49|431.4|$3.543|
 |ScratchGPT-300m|wiki-scratch-v1|512|H100|50.0|9.210 → 1.376|606.9|0.19|168.7|$3.598|
 |ScratchGPT-30m|wiki-scratch-v1|512|H100|50.0|9.081 → 1.509|3618.1|1.15|1021.0|$3.544|
+|ScratchGPT-100m (continued) [superseded data]|wiki-plain-leads-v1|512|H100|10.0|2.444 → 1.940|282.1|3.59|374.2|$0.754|
+|ScratchGPT-100m-wide|wiki-scratch-v1|512|H100|50.0|9.223 → 1.380|1773.7|0.56|500.9|$3.541|
+|ScratchGPT-300m (continued) [superseded data]|wiki-plain-leads-v1|512|H100|10.0|2.401 → 1.908|95.4|1.21|119.5|$0.798|
+|ScratchGPT-100m|wiki-scratch-v1 + wl-wiki-bpe-v1|512|H100|10.0|9.174 → 1.773|272.4|0.04 + 1.34|352.0|$0.774|
+|ScratchGPT-300m|wiki-scratch-v1 + wl-wiki-bpe-v1|512|H100|10.0|9.210 → 1.964|101.3|0.02 + 0.50|128.2|$0.790|
+|ScratchGPT-100m (continued)|wiki-plain-leads-v2|512|H100|10.0|2.479 → 2.020|280.6|3.44|368.0|$0.762|
+|ScratchGPT-100m|wiki-plain-leads-v2|512|H100|10.0|9.162 → 2.227|266.4|3.27|346.8|$0.768|
+|ScratchGPT-100m|wiki-plain-leads-v2|512|H100|50.0|9.162 → 2.238|1658.5|20.33|468.9|$3.537|
+|ScratchGPT-300m (continued)|wiki-plain-leads-v2|512|H100|10.0|2.426 → 1.989|97.6|1.20|119.8|$0.815|
+|ScratchGPT-300m|wiki-plain-leads-v2|512|H100|10.0|9.221 → 2.276|103.3|1.27|132.3|$0.781|
+|ScratchGPT-300m|wiki-plain-leads-v2|512|H100|50.0|9.221 → 2.226|609.0|7.47|170.3|$3.575|
+|ScratchGPT-100m (continued)|wiki-scratch-v1|512|H100|50.0|1.339 → 1.277|1633.6|0.52|460.0|$3.551|
+|ScratchGPT-100m (continued)|wiki-scratch-v1|512|H100|50.0|1.301 → 1.256|1634.9|0.52|459.7|$3.557|
+|ScratchGPT-300m (continued)|wiki-scratch-v1|512|H100|50.0|1.376 → 1.284|616.1|0.20|170.3|$3.618|
+|ScratchGPT-300m (continued)|wiki-scratch-v1|512|H100|50.0|1.286 → 1.236|614.3|0.20|171.3|$3.586|
+|ScratchGPT-100m|wiki-scratch-v1|1024|H100|10.0|9.174 → 1.666|264.8|0.08|347.5|$0.762|
+|ScratchGPT-100m|wiki-scratch-v1|512|H100|10.0|9.174 → 1.610|297.8|0.09|377.8|$0.788|
+|ScratchGPT-300m|wiki-scratch-v1|512|H100|10.0|9.210 → 1.751|101.2|0.03|124.4|$0.813|
+|ScratchGPT-100m|wiki-scratch-v1|256|H100|10.0|9.174 → 1.574|290.1|0.09|365.8|$0.793|
+|ScratchGPT-100m|wiki-scratch-v1|512|H100|10.0|9.174 → 1.638|325.6|0.10|425.4|$0.765|
+|ScratchGPT-300m|wiki-scratch-v1|512|H100|10.0|9.210 → 1.771|106.8|0.03|131.5|$0.812|
+|ScratchGPT-100m (continued)|wiki-scratch-v1 + wiki-plain-leads-v2|512|H100|50.0|1.301 → 1.301|1580.5|0.25 + 9.69|442.6|$3.571|
+|ScratchGPT-100m (continued)|wiki-scratch-v1 + wiki-popular-v1|512|H100|50.0|1.301 → 1.287|1652.7|0.46 + 45.49|466.2|$3.545|
+|ScratchGPT-300m (continued)|wiki-scratch-v1 + wiki-popular-v1|512|H100|50.0|1.286 → 1.260|656.6|0.18 + 18.07|183.3|$3.583|
 
 ## Driving exam: existing models
 
@@ -147,18 +175,27 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-05|13 → 21|1.7|$0.154|
 |291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|13 → 25|1.8|$0.168|
 |291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|23 → 23|2.1|$0.189|
-|98.3M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|11 → 17|1.1|$0.106|
-|98.3M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|11 → 21|0.9|$0.088|
-|291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|9 → 17|1.9|$0.203|
-|291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|9 → 19|1.9|$0.177|
+|98.3M Polish Wikipedia + 25,874 examples of OWCA instruction SFT|pretrained|289 driving questions|rlvr|1e-06|11 → 17|1.1|$0.106|
+|98.3M Polish Wikipedia + 25,874 examples of OWCA instruction SFT|pretrained|289 driving questions|sft|1e-06|11 → 21|0.9|$0.088|
+|291.0M Polish Wikipedia + 25,874 examples of OWCA instruction SFT|pretrained|289 driving questions|rlvr|1e-06|9 → 17|1.9|$0.203|
+|291.0M Polish Wikipedia + 25,874 examples of OWCA instruction SFT|pretrained|289 driving questions|sft|1e-06|9 → 19|1.9|$0.177|
 |98.3M random weights|random|289 driving questions|rlvr|1e-06|15 → 15|1.4|$0.130|
 |98.3M random weights|random|289 driving questions|sft|1e-06|15 → 14|1.0|$0.090|
 |291.0M random weights|random|289 driving questions|rlvr|1e-06|10 → 15|2.1|$0.188|
 |291.0M random weights|random|289 driving questions|sft|1e-06|10 → 10|2.1|$0.196|
-|98.3M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|22 → 28|1.2|$0.118|
-|98.3M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|22 → 27|1.5|$0.197|
+|98.3M Polish Wikipedia + 289 examples of exam post-training|pretrained|289 driving questions|rlvr|1e-06|22 → 28|1.2|$0.118|
+|98.3M Polish Wikipedia + 289 examples of exam post-training|pretrained|289 driving questions|rlvr|1e-06|22 → 27|1.5|$0.197|
 |291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|13 → 26|2.2|$0.200|
 |291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|13 → 27|2.1|$0.194|
+|98.3M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|12 → 24|1.2|$0.103|
+|98.3M Polish Wikipedia + 25,874 examples of OWCA instruction SFT|pretrained|289 driving questions|sft|1e-06|15 → 20|1.0|$0.095|
+|98.3M Polish Wikipedia|pretrained|Polish OWCA instructions|sft|3e-05|2.682 → 1.943|3.2|$0.342|
+|98.3M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|12 → 24|0.7|$0.092|
+|98.3M Polish Wikipedia + 25,874 examples of OWCA instruction SFT|pretrained|289 driving questions|sft|1e-06|14 → 29|0.7|$0.070|
+|98.3M Polish Wikipedia|pretrained|Polish OWCA instructions|sft|3e-05|2.702 → 1.916|3.3|$0.297|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|12 → 22|1.8|$0.170|
+|291.0M Polish Wikipedia + 25,874 examples of OWCA instruction SFT|pretrained|289 driving questions|sft|1e-06|16 → 27|2.0|$0.189|
+|291.0M Polish Wikipedia|pretrained|Polish OWCA instructions|sft|3e-05|2.728 → 1.962|7.3|$0.647|
 |98.3M Polish Wikipedia|pretrained|289 driving questions|sft (3-action CE + KL)|1e-06|12 → 25|1.0|$0.090|
 |291.0M Polish Wikipedia|pretrained|289 driving questions|sft (3-action CE + KL)|1e-06|13 → 26|2.2|$0.199|
 |291.0M Polish Wikipedia|pretrained|289 driving questions|sft (3-action CE + KL)|1e-06|13 → 27|1.7|$0.152|
@@ -167,6 +204,31 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |98.3M Polish Wikipedia|pretrained|9,602 Wikipedia definitions|sft|3e-05|2.503 → 1.800|3.3|$0.275|
 |291.0M Polish Wikipedia|pretrained|9,602 Wikipedia definitions|sft|0.0001|2.440 → 1.905|7.0|$0.588|
 |291.0M Polish Wikipedia|pretrained|9,602 Wikipedia definitions|sft|3e-05|2.440 → 1.829|6.5|$0.546|
+|98.3M random weights|random|99,938 Wikipedia definitions|sft|0.0003|9.161 → 2.007|9.8|$0.756|
+|98.3M Polish Wikipedia|pretrained|99,938 Wikipedia definitions|sft|1e-05|2.273 → 1.399|9.4|$0.726|
+|98.3M Polish Wikipedia|pretrained|99,938 Wikipedia definitions|sft|3e-05|2.273 → 1.431|11.2|$0.860|
+|291.0M Polish Wikipedia|pretrained|99,938 Wikipedia definitions|sft|1e-05|2.167 → 1.379|16.5|$1.236|
+|291.0M Polish Wikipedia|pretrained|99,938 Wikipedia definitions|sft|3e-05|2.167 → 1.416|16.6|$1.245|
+|98.3M random weights|random|289 driving questions|sft|0.0001|15 → 18|0.8|$0.077|
+|98.3M random weights|random|289 driving questions|sft|0.001|15 → 15|0.8|$0.080|
+|291.0M random weights|random|289 driving questions|sft|0.0001|10 → 18|1.6|$0.149|
+|291.0M random weights|random|289 driving questions|sft|0.001|10 → 13|1.8|$0.172|
+|98.3M Polish Wikipedia + 99,938 examples of Wikipedia-definition SFT|pretrained|289 driving questions|rlvr|1e-06|13 → 22|0.9|$0.096|
+|98.3M Polish Wikipedia + 99,938 examples of Wikipedia-definition SFT|pretrained|289 driving questions|sft|1e-06|13 → 20|0.8|$0.084|
+|291.0M Polish Wikipedia + 99,938 examples of Wikipedia-definition SFT|pretrained|289 driving questions|rlvr|1e-06|15 → 17|1.7|$0.156|
+|291.0M Polish Wikipedia + 99,938 examples of Wikipedia-definition SFT|pretrained|289 driving questions|sft|1e-06|15 → 19|1.4|$0.137|
+|98.3M Polish Wikipedia + 99,938 examples of Wikipedia-definition SFT|pretrained|8,912 Wikipedia definitions|sft|3e-05|3.850 → 1.409|8.0|$0.611|
+|98.3M Polish Wikipedia|pretrained|8,912 Wikipedia definitions|sft|3e-05|3.987 → 1.424|6.1|$0.460|
+|291.0M Polish Wikipedia + 99,938 examples of Wikipedia-definition SFT|pretrained|8,912 Wikipedia definitions|sft|3e-05|3.511 → 1.391|10.0|$0.736|
+|291.0M Polish Wikipedia|pretrained|8,912 Wikipedia definitions|sft|3e-05|3.980 → 1.399|10.0|$0.763|
+|98.3M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|13 → 27|1.1|$0.109|
+|98.3M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|13 → 25|0.8|$0.080|
+|98.3M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|12 → 23|1.6|$0.147|
+|98.3M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|12 → 25|1.3|$0.125|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|13 → 23|1.9|$0.189|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|13 → 22|1.5|$0.158|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|15 → 25|1.9|$0.181|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|15 → 27|1.7|$0.167|
 
 ## Driving exam: explanation prompt, final-answer RLVR
 
@@ -175,7 +237,7 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |Qwen/Qwen3.5-0.8B|100|40|12 → 25|24 → 25|4 → 39|10.0|$0.861|
 |Qwen/Qwen3.5-2B|100|40|0 → 25|25 → 25|0 → 40|7.7|$0.710|
 
-## Common-corpus and instruction diagnostics
+## Common-corpus and instruction diagnostics (16k-token pools)
 
 |Checkpoint|Stage|Raw Wikipedia test loss|Raw leads test loss|Plain v1 test loss (superseded)|Plain v2 test loss|Raw fact probes|Plain fact probes|Evaluation worker $|
 |---|---|---|---|---|---|---|---|---|
@@ -203,5 +265,101 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |night-1789684048200921000-wiki-300m-popular-qa-lr0.0001|wiki-qa|1.489|—|—|2.497|9/10|7/10|$0.048|
 |night-1789684048200921000-wiki-300m-popular-qa-lr3e-05|wiki-qa|2.009|—|—|3.305|9/10|7/10|$0.053|
 |night-1789684048200921000-wiki-300m-popular-qa-lr3e-05|wiki-qa|1.384|—|—|2.366|9/10|7/10|$0.054|
+|night-1789681601127509000-wiki-100m-batch64-50min|pretraining|1.339|—|—|2.541|5/10|6/10|$0.045|
+|night-1789681601127509000-wiki-300m-batch64-50min|pretraining|1.376|—|—|2.559|8/10|6/10|$0.044|
+|scratch-polish-dollar-1788900395083493729-wiki-100-uniform|pretraining|1.301|—|—|2.479|7/10|8/10|$0.044|
+|scratch-polish-dollar-1788900395083493729-wiki-300-uniform|pretraining|1.286|—|—|2.427|7/10|6/10|$0.044|
+|night-1789680156069063000-wiki100-compiled-30min-H100|pretraining|1.426|—|—|2.623|7/10|7/10|$0.054|
+|night-1789681601127509000-wiki-100m-batch64-50min|pretraining|1.339|—|—|2.541|5/10|6/10|$0.053|
+|night-1789681601127509000-wiki-30m-50min|pretraining|1.509|—|—|2.760|8/10|8/10|$0.033|
+|night-1789681601127509000-wiki-300m-batch64-50min|pretraining|1.376|—|—|2.559|8/10|6/10|$0.096|
+|night-1789682325149225000-wiki-100m-wide-50min|pretraining|1.380|—|—|2.573|7/10|8/10|$0.035|
+|night-1789680156069063000-wiki-100m-compiled-H100|pretraining|1.619|—|—|2.899|7/10|5/10|$0.036|
+|scratch-polish-dollar-1788900395083493729-wiki-100-uniform|pretraining|1.301|—|—|2.479|7/10|8/10|$0.054|
+|scratch-polish-dollar-1788900395083493729-wiki-300-uniform|pretraining|1.286|—|—|2.427|7/10|6/10|$0.101|
+|scratch-polish-dollar-1788900395083493729-wiki-100-uniform|pretraining|1.301|—|—|2.479|7/10|8/10|$0.057|
+|night-1789685768417650000-100m-qa100k-lr1e-05|wiki-qa|1.876|—|—|2.369|8/10|7/10|$0.037|
+|night-1789685768417650000-100m-qa100k-lr1e-05|wiki-qa|1.728|—|—|2.329|7/10|7/10|$0.026|
+|night-1789685768417650000-100m-qa100k-lr3e-05|wiki-qa|2.798|—|—|2.678|7/10|6/10|$0.040|
+|night-1789685768417650000-100m-qa100k-lr3e-05|wiki-qa|1.782|—|—|2.379|9/10|8/10|$0.039|
+|night-1789685768417650000-300m-qa100k-lr1e-05|wiki-qa|1.803|—|—|2.400|7/10|7/10|$0.070|
+|night-1789685768417650000-300m-qa100k-lr1e-05|wiki-qa|1.516|—|—|2.261|9/10|7/10|$0.065|
+|night-1789685768417650000-300m-qa100k-lr3e-05|wiki-qa|2.601|—|—|2.735|7/10|4/10|$0.073|
+|night-1789685768417650000-300m-qa100k-lr3e-05|wiki-qa|1.616|—|—|2.322|9/10|7/10|$0.068|
+|night-1789685768417650000-100m-qa100k-lr1e-05|wiki-qa|1.728|—|—|2.329|7/10|7/10|$0.060|
+|night-1789688074687510000-100m-qa100k-short-qa|wiki-qa|4.938|—|—|4.495|6/10|5/10|$0.037|
+|night-1789688074687510000-100m-qa100k-short-qa|wiki-qa|1.885|—|—|2.641|9/10|8/10|$0.025|
+|scratch-polish-dollar-1788900395083493729-wiki-100-uniform|pretraining|1.301|—|—|2.479|7/10|8/10|$0.078|
+|night-1789688074687510000-100m-raw-short-qa|wiki-qa|3.467|—|—|4.441|8/10|7/10|$0.035|
+|night-1789688074687510000-100m-raw-short-qa|wiki-qa|1.402|—|—|2.609|9/10|8/10|$0.041|
+|night-1789685768417650000-300m-qa100k-lr1e-05|wiki-qa|1.516|—|—|2.261|9/10|7/10|$0.153|
+|night-1789688074687510000-300m-qa100k-short-qa|wiki-qa|3.114|—|—|3.879|9/10|7/10|$0.071|
+|night-1789688074687510000-300m-qa100k-short-qa|wiki-qa|1.636|—|—|2.565|9/10|7/10|$0.068|
+|scratch-polish-dollar-1788900395083493729-wiki-300-uniform|pretraining|1.286|—|—|2.427|7/10|6/10|$0.211|
+|night-1789688074687510000-300m-raw-short-qa|wiki-qa|2.268|—|—|3.800|8/10|7/10|$0.058|
+|night-1789688074687510000-300m-raw-short-qa|wiki-qa|1.374|—|—|2.569|9/10|8/10|$0.074|
+|night-1789685113120810000-100m-from-50min|pretraining|1.277|—|—|2.452|8/10|7/10|$0.053|
+|night-1789685113120810000-100m-from-8000s|pretraining|1.256|—|—|2.427|7/10|8/10|$0.054|
+|night-1789684286971344000-100m-plain-v2-fresh-50min|pretraining|5.431|—|—|2.238|7/10|6/10|$0.048|
+|night-1789685113120810000-300m-from-50min|pretraining|1.284|—|—|2.452|8/10|7/10|$0.098|
+|night-1789685113120810000-300m-from-8000s|pretraining|1.236|—|—|2.366|8/10|7/10|$0.099|
+|night-1789684286971344000-300m-plain-v2-fresh-50min|pretraining|5.107|—|—|2.226|8/10|7/10|$0.086|
+
+## Larger held-out evaluations (1M-token pools)
+
+|Starting run|Weights|Original Wikipedia test loss|Plain Wikipedia v2 test loss|Wolne Lektury test loss|Tokens per split|
+|---|---|---|---|---|---|
+|night-1789680156069063000-wiki100-compiled-30min-H100|best.pt|1.3744|2.6207|3.6897|1,048,576|
+|night-1789681601127509000-wiki-100m-batch64-50min|best.pt|1.3030|2.5295|3.6067|1,048,576|
+|night-1789681601127509000-wiki-30m-50min|best.pt|1.4495|2.7580|3.8000|1,048,576|
+|night-1789681601127509000-wiki-300m-batch64-50min|best.pt|1.3279|2.5490|3.6203|1,048,576|
+|night-1789682325149225000-wiki-100m-wide-50min|best.pt|1.3340|2.5697|3.6539|1,048,576|
+|night-1789680156069063000-wiki-100m-compiled-H100|best.pt|1.5467|2.8828|3.8977|1,048,576|
+|scratch-polish-dollar-1788900395083493729-wiki-100-uniform|best.pt|1.2646|2.4764|3.5540|1,048,576|
+|scratch-polish-dollar-1788900395083493729-wiki-300-uniform|best.pt|1.2463|2.4244|3.5106|1,048,576|
+|scratch-polish-dollar-1788900395083493729-wiki-100-uniform|final.pt|1.2646|2.4764|3.5540|1,048,576|
+|night-1789685768417650000-100m-qa100k-lr1e-05|sft-final.pt|1.8430|2.3662|3.8903|1,048,576|
+|night-1789685768417650000-100m-qa100k-lr1e-05|best.pt|1.6945|2.3275|3.8129|1,048,576|
+|night-1789685768417650000-100m-qa100k-lr3e-05|sft-final.pt|2.7779|2.6671|4.4241|1,048,576|
+|night-1789685768417650000-100m-qa100k-lr3e-05|best.pt|1.7488|2.3776|3.8858|1,048,576|
+|night-1789685768417650000-300m-qa100k-lr1e-05|sft-final.pt|1.7391|2.4062|3.9300|1,048,576|
+|night-1789685768417650000-300m-qa100k-lr1e-05|best.pt|1.4633|2.2655|3.7061|1,048,576|
+|night-1789685768417650000-300m-qa100k-lr3e-05|sft-final.pt|2.5306|2.7349|4.5116|1,048,576|
+|night-1789685768417650000-300m-qa100k-lr3e-05|best.pt|1.5628|2.3239|3.8371|1,048,576|
+|night-1789685768417650000-100m-qa100k-lr1e-05|best.pt|1.6945|2.3275|—|1,048,576|
+|night-1789688074687510000-100m-qa100k-short-qa|sft-final.pt|5.0272|4.4256|—|1,048,576|
+|night-1789688074687510000-100m-qa100k-short-qa|best.pt|1.8537|2.6249|—|1,048,576|
+|scratch-polish-dollar-1788900395083493729-wiki-100-uniform|best.pt|1.2646|2.4764|—|1,048,576|
+|night-1789688074687510000-100m-raw-short-qa|sft-final.pt|3.4391|4.3461|—|1,048,576|
+|night-1789688074687510000-100m-raw-short-qa|best.pt|1.3623|2.5971|—|1,048,576|
+|night-1789685768417650000-300m-qa100k-lr1e-05|best.pt|1.4633|2.2655|—|1,048,576|
+|night-1789688074687510000-300m-qa100k-short-qa|sft-final.pt|3.1289|3.8416|—|1,048,576|
+|night-1789688074687510000-300m-qa100k-short-qa|best.pt|1.5842|2.5619|—|1,048,576|
+|scratch-polish-dollar-1788900395083493729-wiki-300-uniform|best.pt|1.2463|2.4244|—|1,048,576|
+|night-1789688074687510000-300m-raw-short-qa|sft-final.pt|2.2092|3.7687|—|1,048,576|
+|night-1789688074687510000-300m-raw-short-qa|best.pt|1.3313|2.5592|—|1,048,576|
+|night-1789685113120810000-100m-from-50min|best.pt|1.2415|2.4434|3.5240|1,048,576|
+|night-1789685113120810000-100m-from-8000s|best.pt|1.2223|2.4218|3.4993|1,048,576|
+|night-1789684286971344000-100m-plain-v2-fresh-50min|best.pt|5.4219|2.2379|4.8798|1,048,576|
+|night-1789685113120810000-300m-from-50min|best.pt|1.2493|2.4439|3.5236|1,048,576|
+|night-1789685113120810000-300m-from-8000s|best.pt|1.2015|2.3653|3.4599|1,048,576|
+|night-1789684286971344000-300m-plain-v2-fresh-50min|best.pt|5.1180|2.2250|4.8001|1,048,576|
+
+## Short-answer recall: facts from training, new question templates
+
+|Starting run|Weights|Development exact answers|Test exact answers|
+|---|---|---|---|
+|night-1789685768417650000-100m-qa100k-lr1e-05|best.pt|0/100|0/100|
+|night-1789688074687510000-100m-qa100k-short-qa|sft-final.pt|44/100|46/100|
+|night-1789688074687510000-100m-qa100k-short-qa|best.pt|16/100|9/100|
+|scratch-polish-dollar-1788900395083493729-wiki-100-uniform|best.pt|0/100|0/100|
+|night-1789688074687510000-100m-raw-short-qa|sft-final.pt|58/100|58/100|
+|night-1789688074687510000-100m-raw-short-qa|best.pt|16/100|10/100|
+|night-1789685768417650000-300m-qa100k-lr1e-05|best.pt|0/100|0/100|
+|night-1789688074687510000-300m-qa100k-short-qa|sft-final.pt|75/100|75/100|
+|night-1789688074687510000-300m-qa100k-short-qa|best.pt|13/100|13/100|
+|scratch-polish-dollar-1788900395083493729-wiki-300-uniform|best.pt|0/100|0/100|
+|night-1789688074687510000-300m-raw-short-qa|sft-final.pt|58/100|69/100|
+|night-1789688074687510000-300m-raw-short-qa|best.pt|15/100|16/100|
 
 [Curves and selected literal before/after answers](training-comparisons.html).

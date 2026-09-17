@@ -27,7 +27,7 @@ PROBES=[
     ('wiki_new_wording_krakow','Co wiesz o Krakowie?',None),
 ]
 
-def run(base,output,corpora,checkpoint='best.pt'):
+def run(base,output,corpora,checkpoint='best.pt',extended=False,known_fact_probes=None):
     import torch
     from tokenizers import Tokenizer
     from scratch_model import ScratchGPT,Config
@@ -35,13 +35,21 @@ def run(base,output,corpora,checkpoint='best.pt'):
     start=time.monotonic();torch.set_num_threads(2)
     base=Path(base);out=Path(output);out.mkdir(parents=True,exist_ok=False)
     meta=json.loads((base/'result.json').read_text());model=ScratchGPT(Config(**meta['config'])).cuda()
-    model.load_state_dict(torch.load(base/checkpoint,map_location='cuda',weights_only=True));model.eval()
+    saved=torch.load(base/checkpoint,map_location='cpu',weights_only=True)
+    model.load_state_dict(saved.get('model',saved));del saved
+    model.eval()  # Pretraining final.pt also contains optimizer/RNG state; evaluate only its weights.
     tok=Tokenizer.from_file(str(base/'tokenizer.json'));eod=tok.token_to_id('<|endoftext|>')
     token_hash=hashlib.sha256((base/'tokenizer.json').read_bytes()).hexdigest();common={}
     for corpus in corpora:
         metrics=evaluate_fixed_pool(model,'cuda','/persist/datasets/'+corpus)
         if metrics['tokenizer_sha256']!=token_hash:raise ValueError('Tokenizers differ')
         common[corpus]=metrics
+    extended_common={}
+    if extended:
+        for corpus in corpora:
+            metrics=evaluate_fixed_pool(model,'cuda','/persist/datasets/'+corpus,batch_count=128,batch_size=32,seed=20260918)
+            if metrics['tokenizer_sha256']!=token_hash:raise ValueError('Tokenizers differ')
+            extended_common[corpus]=metrics
     quality=evaluate_quality(model,tok,'cuda',out/'quality_raw.json')
     plain=evaluate_quality(model,tok,'cuda',out/'quality_plain.json',
         fact_probes=[dict(p,prompt=p['prompt'].replace("'''",'')) for p in FACT_PROBES],
@@ -74,8 +82,26 @@ def run(base,output,corpora,checkpoint='best.pt'):
                 output_ids.append(token);ids=torch.cat([ids,torch.tensor([[token]],device='cuda')],1)
         text=tok.decode(output_ids)
         answers.append(dict(id=key,prompt=prompt,text=text,reference=reference,terminated=token==eod,tokens=len(output_ids)))
-    result=dict(base_run=base.name,base_task=meta.get('task','pretraining'),checkpoint=checkpoint,config=meta['config'],
-        common=common,continuation_decoding=continuations,quality_raw=dict(correct=quality['factual_correct'],n=quality['factual_total']),
+    known_scores={}
+    if known_fact_probes:
+        raw=Path(known_fact_probes).read_bytes();probes=json.loads(raw);records={}
+        normalize=lambda s:' '.join(s.casefold().split()).strip(' .!?,;:')
+        for split,rows in probes.items():
+            records[split]=[]
+            for row in rows:
+                ids=torch.tensor([tok.encode('Pytanie: '+row['prompt']+'\nOdpowiedź:\n').ids],device='cuda');generated=[]
+                with torch.no_grad(),torch.autocast('cuda',dtype=torch.bfloat16):
+                    for _ in range(64):
+                        token=int(model(ids[:,-model.config.context:])[0].argmax())
+                        if token==eod:break
+                        generated.append(token);ids=torch.cat([ids,torch.tensor([[token]],device='cuda')],1)
+                text=tok.decode(generated)
+                records[split].append(dict(**row,text=text,exact=normalize(text)==normalize(row['answer']),tokens=len(generated),terminated=token==eod))
+            correct=sum(r['exact'] for r in records[split]);known_scores[split]=dict(correct=correct,n=len(rows),accuracy=correct/len(rows))
+        known_scores.update(probes_sha256=hashlib.sha256(raw).hexdigest(),meaning='Known training facts, unseen prompt templates; exact normalized answer matching, not an unseen-knowledge benchmark')
+        (out/'known_facts.json').write_text(json.dumps(records,ensure_ascii=False,indent=2))
+    result=dict(base_run=base.name,base_task=meta.get('task','pretraining'),checkpoint=checkpoint,config=meta['config'],known_fact_recall=known_scores,
+        common=common,extended_common=extended_common,continuation_decoding=continuations,quality_raw=dict(correct=quality['factual_correct'],n=quality['factual_total']),
         quality_plain=dict(correct=plain['factual_correct'],n=plain['factual_total']),instruction_probes=answers,
         decoding='Greedy, <=160 tokens, stop at EOD; fixed Polish question/answer prefix',
         limitations='Small illustrative probes, not held-out knowledge or instruction benchmark. Reference strings are shown for manual inspection, not used to optimize or select checkpoints.',

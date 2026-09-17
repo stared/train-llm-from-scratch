@@ -23,6 +23,7 @@ def fetch(batch, only_run=None):
         temp.replace(folder/'fetch-status.json')
     for result in manifest['results']:
         if 'run' not in result:continue
+        if result['status']=='skipped':continue  # Dependency skips never created a GPU run directory.
         name=result['run']
         if only_run and name!=only_run:continue
         if Path(name).name!=name:raise ValueError('Unexpected run name')

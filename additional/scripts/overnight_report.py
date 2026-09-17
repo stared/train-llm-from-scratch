@@ -20,7 +20,7 @@ def superseded(spec):
     return (spec.get('data')=='wiki-plain-leads-v1' or spec.get('mixture_data')=='wiki-plain-leads-v1'
             or 'wiki-plain-leads-v1' in spec.get('base','')
             or (spec.get('base','').startswith('night-1789682325149225000-') and 'continue-plain' in spec['base'])
-            or (spec.get('task')=='wiki-qa' and spec.get('dataset')!='wiki-popular-qa'))
+            or (spec.get('task')=='wiki-qa' and spec.get('dataset') in (None,'wiki-qa-research')))
 
 def render():
     records=[]
@@ -30,7 +30,7 @@ def render():
         r=json.loads(path.read_text())
         if 'spec' not in r:continue
         records.append((path.parent,r))
-    tables={'scratch':[], 'exam':[], 'posttrain':[], 'reasoning':[], 'evaluate':[]};details=[]
+    tables={'scratch':[], 'exam':[], 'posttrain':[], 'reasoning':[], 'evaluate':[], 'extended':[], 'known':[]};details=[]
     total=0
     for folder,r in records:
         spec=r['spec'];cost=r['estimated_compute_usd'];total+=cost
@@ -79,9 +79,20 @@ def render():
         elif kind=='evaluate':
             common=r['common'];names=['wiki-scratch-v1','wiki-leads-v1','wiki-plain-leads-v1','wiki-plain-leads-v2']
             tables[kind].append([r['base_run'],r['base_task']]+[f"{common[n]['test']['loss_nats']:.3f}" if n in common else '—' for n in names]+[str(r['quality_raw']['correct'])+'/10',str(r['quality_plain']['correct'])+'/10',f"${cost:.3f}"])
+            extended=r.get('extended_common',{})
+            if extended:
+                names=['wiki-scratch-v1','wiki-plain-leads-v2','wl-scratch-v1']
+                tables['extended'].append([r['base_run'],r['checkpoint']]+[f"{extended[n]['test']['loss_nats']:.4f}" if n in extended else '—' for n in names]+[f"{next(iter(extended.values()))['test']['tokens']:,}"])
             examples='<p>Greedy instruction diagnostics; no instruction fine-tuning unless explicitly labeled. References are illustrative, not an automatic score.</p>'
+            known=r.get('known_fact_recall')
+            if known:
+                tables['known'].append([r['base_run'],r['checkpoint']]+[f"{known[s]['correct']}/{known[s]['n']}" for s in ('dev','test')])
+                examples+='<p><strong>Known-fact probes:</strong> facts from the short-answer training set with new prompt templates. Exact matching checks format and recall, not unseen knowledge.</p>'
+                for row in json.loads((folder/'known_facts.json').read_text())['test'][:4]:
+                    examples+='<h4>'+e(row['prompt'])+'</h4><pre>'+e(row['text'])+'</pre><p>Source-derived reference: '+e(row['answer'])+'</p>'
             for probe in r['instruction_probes']:
                 examples+='<h4>'+e(probe['prompt'])+'</h4><pre>'+e(probe['text'])+'</pre>'
+                if probe.get('reference') is not None:examples+='<p>Reference: '+e(probe['reference'])+'</p>'
             for row in r.get('continuation_decoding',[]):
                 examples+='<h4>'+e(row['prompt'])+('; new article' if row.get('document_start') else '')+'; temperature '+str(row['temperature'])+'</h4><pre>'+e(row['text'])+'</pre>'
             for suffix in ('raw','plain'):
@@ -94,7 +105,16 @@ def render():
             params=config['vocab_size']*w+config['layers']*(2*w+4*w*w+3*w*config['hidden'])+w
             corpus='Wolne Lektury' if ('wolne' in str(r.get('base_data','')).lower() or '-wl-' in r['base_run'] or 'wolne-lektury' in r['base_run']) else 'Polish Wikipedia'
             base_label=f"{params/1e6:.1f}M "+('random weights' if r['initialization']=='random' else corpus)
-            task_label={'exam':f"{len(json.loads((folder/'data.json').read_text())['train'])} driving questions",'poetry':'450 Pan Tadeusz Q&A','wiki-qa':f"{len(json.loads((folder/'data.json').read_text())['train']):,} Wikipedia definitions",'instruction':'Polish OWCA instructions'}[spec['task']]
+            if r['initialization']!='random' and r.get('base_task','pretraining')!='pretraining':
+                prior_label={'instruction':'OWCA instruction SFT','wiki-qa':'Wikipedia-definition SFT','exam':'exam post-training','poetry':'poetry SFT'}.get(r['base_task'],r['base_task'])
+                prior_path=ROOT/'runs'/r['base_run']/'result.json'
+                if prior_path.exists():
+                    count=json.loads(prior_path.read_text()).get('split_sizes',{}).get('train')
+                    if count:prior_label=f'{count:,} examples of '+prior_label
+                base_label+=' + '+prior_label
+            train_count=r.get('split_sizes',{}).get('train')
+            if train_count is None:train_count=len(json.loads((folder/'data.json').read_text())['train'])
+            task_label={'exam':f"{train_count} driving questions",'poetry':'450 Pan Tadeusz Q&A','wiki-qa':f"{train_count:,} Wikipedia definitions",'instruction':'Polish OWCA instructions'}[spec['task']]
             for stage_index,stage in enumerate(r['stages']):
                 after=stage['after']['test'];before=r['before']['test']
                 metric=(f"{before['correct']} → {after['correct']}" if spec['task']=='exam' else f"{before['loss']:.3f} → {after['loss']:.3f}")
@@ -109,44 +129,51 @@ def render():
                         examples+=pair(x['question']+'\nKey: '+x['answer'],x['prediction'],y['prediction'])
                 else:
                     old=json.loads((folder/'samples_before.json').read_text());new=json.loads((folder/f"{stage['method']}_samples_after.json").read_text())
-                    for x,y in selected_pairs(old,new):examples+=pair(x['prompt'],x['text'],y['text'])
+                    for x,y in selected_pairs(old,new):
+                        examples+=pair(x['prompt'],x['text'],y['text'])
+                        if y.get('reference') is not None:examples+='<p><b>Dataset reference</b></p><pre>'+e(y['reference'])+'</pre>'
         if kind=='scratch':detail_title=f"{model} trained on {spec['data']}, {spec['gpu']}"
         elif kind=='exam':detail_title=f"{spec['model']} + {' → '.join(spec['methods']).upper()} on {r['stages'][0]['before']['train']['n']} driving questions, seed {spec.get('seed',42)}"
         elif kind=='reasoning':detail_title=f"{r['model_spec']['id']} + final-answer RLVR, sampled explanations"
         elif kind=='evaluate':detail_title=f"Saved checkpoint diagnostics: {r['base_run']} ({r['base_task']})"
         else:detail_title=f"{base_label} + {spec['method'].upper()} on {task_label}"
         if superseded(spec):examples='<p><strong>Superseded data:</strong> the v1 reference-removal expression could remove prose after self-closing references. Retained for audit; do not use to select a workshop recipe.</p>'+examples
-        details.append(f"<details><summary>{e(detail_title)}</summary><p>Run: {e(folder.name)}</p><p>{e(json.dumps(spec,ensure_ascii=False))}</p>{curves}{examples}</details>")
+        hardware=r.get('actual_gpu') or r.get('environment',{}).get('device') or 'Not recorded by this older runner'
+        details.append(f"<details><summary>{e(detail_title)}</summary><p>Run: {e(folder.name)}</p><p>Hardware: {e(hardware)}. Requested GPU / billing rate: {e(spec['gpu'])}.</p><p>{e(json.dumps(spec,ensure_ascii=False))}</p>{curves}{examples}</details>")
     headers={
       'scratch':['Model','Corpus','Context','GPU','Training min','Test loss','Tokens M','Corpus-equivalents','Tokens M / $','Worker $'],
       'exam':['Starting model','Method','Train questions','GPU / batch','LR','Seed','Test /40','Dev /25','Rotated /40','Training min','Run worker $'],
       'reasoning':['Model','Steps','Selected step','Strict final-answer score /40','Answer anywhere /40','Answer-only outputs /40','Training min','Worker $'],
       'evaluate':['Checkpoint','Stage','Raw Wikipedia test loss','Raw leads test loss','Plain v1 test loss (superseded)','Plain v2 test loss','Raw fact probes','Plain fact probes','Evaluation worker $'],
+      'extended':['Starting run','Weights','Original Wikipedia test loss','Plain Wikipedia v2 test loss','Wolne Lektury test loss','Tokens per split'],
+      'known':['Starting run','Weights','Development exact answers','Test exact answers'],
       'posttrain':['Starting checkpoint','Initialization','Task','Stage','LR','Test correct /40 or answer loss','Training min','Run worker $']}
-    titles={'scratch':'GPU and architecture comparisons','exam':'Driving exam: existing models','posttrain':'Scratch models after pretraining','reasoning':'Driving exam: explanation prompt, final-answer RLVR','evaluate':'Common-corpus and instruction diagnostics'}
+    titles={'scratch':'GPU and architecture comparisons','exam':'Driving exam: existing models','posttrain':'Scratch models after pretraining','reasoning':'Driving exam: explanation prompt, final-answer RLVR','evaluate':'Common-corpus and instruction diagnostics (16k-token pools)','extended':'Larger held-out evaluations (1M-token pools)','known':'Short-answer recall: facts from training, new question templates'}
     intro="""# Training comparisons
 
 Exploratory measurements, not guaranteed outcomes. Checkpoints are selected using development data. Test sets are small and have been inspected in previous experiments; these are not fresh, blind benchmarks.
 
 Plain-text corpus v1 and the earlier 5,000-definition data used a faulty reference-removal expression. It could delete intervening prose after a self-closing ref. Those data comparisons are superseded; original-markup Wikipedia and Wolne Lektury are unaffected. Version2 fixes this with a regression test.
 
-Costs are worker GPU + CPU/memory estimates, excluding image builds, controller and storage. Post-training and continued-pretraining costs exclude the earlier pretraining. For chains, the cost shown on each stage row is the whole run, not an additional charge. Losses on different corpora cannot be compared directly. Existing-model SFT→RLVR chains use the original base model as the KL reference; scratch-model chains use the SFT checkpoint. These are different regularization choices. Wikipedia definition loss uses 50 held-out examples whose articles retain their original pretraining split; this is not a test of recalling facts from those same articles in training. Poetry loss uses 25 held-out prompts, but their source verses may appear in pretraining.
+Costs are worker GPU + CPU/memory estimates, excluding image builds, controller and storage. Post-training and continued-pretraining costs exclude the earlier pretraining. For chains, the cost shown on each stage row is the whole run, not an additional charge. Losses on different corpora cannot be compared directly. Existing-model SFT→RLVR chains use the original base model as the KL reference; scratch-model chains use the SFT checkpoint. These are different regularization choices. Wikipedia definition loss uses up to50 held-out examples in earlier runs and200 in the100k-example study, retaining original pretraining splits. This differs from recall of familiar training entities. Poetry loss uses25 held-out prompts, but their source verses may appear in pretraining. Larger corpus evaluations use a separate fixed seed and1,048,576 tokens per split; keep them separate from the original16,384-token live curves.
 """
     findings = [
         'For ten-minute Wolne Lektury pretraining, H100 processed more tokens per dollar than L4. Compiling the training forward almost doubled throughput again; it did not double text quality.',
         'The cheaper expanded-data SFT recipe reached 31–32/40 across three seeds in three minutes, about $0.07 per worker. Rotated options gave 30–33/40. This is the practical workshop extension.',
         'Qwen3.5-0.8B + SFT on 289 official driving questions reached 33–35/40 across three seeds, versus 21/40 before training. Direct RLVR reached 29–33/40. Each run cost about $0.19; rotated options reveal remaining sensitivity.',
-        'Wikipedia-pretrained 98M and 291M scratch models reached 20/40 with full-weight SFT and 22/40 with LoRA on 100 driving questions. Expanded-data scratch SFT reached 21–23/40. Direct RLVR did not improve the 100-question models. These results do not establish full-exam passing ability.',
-        'SFT on 5,000 Wikipedia title/definition pairs taught short-answer formatting, but answers still invented facts. Wolne Lektury + Pan Tadeusz Q&A learned verse-like replies with weak relevance and meter.',
+        'On 289 driving questions, Wikipedia-pretrained 291M direct RLVR reached 26–27/40 across three seeds. A matched three-action supervised loss plus the same KL penalty reached 25–27/40; rotated options gave 22–25 and 21–24 respectively. This small, repeatedly inspected test does not establish a large RLVR advantage or official-exam passing ability.',
+        'Grounded SFT on 9,602 Wikipedia definitions learned answer formatting and some familiar paragraphs. Longer training worsened held-out definition loss while improving recall of a Warsaw training example. The earlier 5,000-definition experiment used faulty reference removal and is superseded. Wolne Lektury + Pan Tadeusz Q&A learned verse-like replies with weak relevance and meter.',
         'With an explanation prompt, Qwen3.5-2B RLVR improved strict final-answer compliance from 0 to 25/40 by removing explanations. Accepting the explicit answer anywhere gives 25/40 both before and after. The reward did not require an explanation; this is format learning, not evidence of better reasoning. The any-position score is a post-hoc diagnostic, not the training reward.',
         'Thirty-minute Wolne Lektury pretraining improved test loss to 2.720 for $2.12. Ten minutes with compilation reached 2.748 for $0.73: a more practical workshop recipe.',
+        'Original-markup Wikipedia 98M test loss improved from 1.619 at ten minutes to 1.426 at thirty and 1.339 at fifty ($3.56 worker compute). The older 133-minute recipe reached 1.301. Schedules and batches differ; loss gains continue, but generated facts remain unreliable.',
+        'A general Polish instruction stage did not improve the first matched scratch-model driving comparison: 291M direct SFT scored 25/40 versus 19/40 after instruction SFT. Treat instruction formatting and task competence as separate measurements.',
     ]
     failures={}
     for p in (ROOT/'runs').glob('night-*/manifest.json'):
         for index,item in enumerate(json.loads(p.read_text()).get('results',[])):
             if item['status']=='failed':failures[item.get('run',str(p)+':'+str(index))]=item
     failed_cost=sum(f.get('estimated_compute_usd',0) for f in failures.values())
-    intro+=f"\nFailed/canceled calls recorded: {len(failures)}; known worker estimates $"+"{:.3f}".format(failed_cost)+". Canceled calls have unknown billing; an additional $8.257 full-timeout bound is reserved separately.\n"
+    intro+=f"\nFailed/canceled calls recorded: {len(failures)}; known worker estimates $"+"{:.3f}".format(failed_cost)+". Canceled calls with unknown billing retain conservative timeout reservations in the local budget ledger; they are not counted as free.\n"
     md=intro+f"\nCompleted workers in this report: ${total:.3f}.\n"
     md+='\n## What changed\n\n'+'\n'.join('- '+f for f in findings)+'\n'
     body='<h1>Training comparisons</h1><p>'+e(intro.split('\n\n',1)[1])+'</p>'+f'<p>Completed workers: ${total:.3f}.</p>'
@@ -154,6 +181,9 @@ Costs are worker GPU + CPU/memory estimates, excluding image builds, controller 
     if (ROOT/'results/exam-comparison.svg').exists():
         body+='<h2>Driving exam: repeated runs</h2><img src="exam-comparison.svg" alt="Three seeds per exam training recipe" style="width:100%">'
         md+='\n![Repeated driving-exam runs](exam-comparison.svg)\n'
+    if (ROOT/'results/scratch-exam-comparison.svg').exists():
+        body+='<h2>Wikipedia to the driving exam</h2><img src="scratch-exam-comparison.svg" alt="Scratch-model supervised and reinforcement-learning controls" style="width:100%">'
+        md+='\n![Wikipedia to the driving exam: measured controls](scratch-exam-comparison.svg)\n'
     body+='<h2>Choosing a checkpoint</h2><img src="checkpoint-selection.svg" alt="Development curves with selected and final checkpoints" style="width:100%">'
     md+='\n![Development curves: selected and final checkpoints](checkpoint-selection.svg)\n'
     if (ROOT/'results/wikipedia-scaling.svg').exists():
@@ -297,31 +327,96 @@ def plot_wikipedia_scaling():
     ]
     fig,axes=plt.subplots(1,2,figsize=(12,4.8),layout='constrained')
     audit=[]
+    continued={
+        names[1][1]:'night-1789685113120810000-100m-from-50min',
+        names[2][1]:'night-1789685113120810000-300m-from-50min',
+        names[3][1]:'night-1789685113120810000-100m-from-8000s',
+        names[4][1]:'night-1789685113120810000-300m-from-8000s',
+    }
     for label,name in names:
         folder=ROOT/'runs'/name
         if not (folder/'execution.json').exists():continue
-        r=json.loads((folder/'execution.json').read_text())
-        checkpoints=json.loads((folder/'checkpoints.json').read_text())
-        minutes=[x['elapsed_seconds']/60 for x in checkpoints]+[r['training_seconds']/60]
-        losses=[x['loss_nats'] for x in checkpoints]+[r['final']['dev']['loss_nats']]
-        line,=axes[0].plot(minutes,losses, '--' if 'earlier' in label else '-',label=label)
-        cost=r['estimated_compute_usd'];loss=r['selected']['test']['loss_nats']
+        folders=[folder]
+        follow=ROOT/'runs'/continued.get(name,'missing')
+        if (follow/'execution.json').exists():folders.append(follow)
+        minutes=[];losses=[];stages=[];offset=0;cost=0;restarts=[]
+        for current in folders:
+            r=json.loads((current/'execution.json').read_text())
+            if offset:restarts.append((offset,r['before']['dev']['loss_nats']))
+            checkpoints=json.loads((current/'checkpoints.json').read_text())
+            minutes.extend([offset+x['elapsed_seconds']/60 for x in checkpoints]+[offset+r['training_seconds']/60])
+            losses.extend([x['loss_nats'] for x in checkpoints]+[r['final']['dev']['loss_nats']])
+            cost+=r['estimated_compute_usd'];offset+=r['training_seconds']/60
+            stages.append(dict(run=current.name,training_minutes=r['training_seconds']/60,worker_usd=r['estimated_compute_usd'],
+                               tokens_seen=r['tokens_seen'],batch=r['batch_size'],peak_lr=r['peak_lr'],compile_training=r.get('compile_training',False),
+                               cumulative_cost=cost,selected_test_loss=r['selected']['test']['loss_nats']))
+        line,=axes[0].plot(minutes,losses, '--' if 'earlier' in label else '-',label=label+(' + continuation' if restarts else ''))
+        for x,y in restarts:axes[0].scatter(x,y,color=line.get_color(),marker='D',s=22)
+        loss=r['selected']['test']['loss_nats']
+        if len(stages)>1:
+            axes[1].scatter(stages[0]['cumulative_cost'],stages[0]['selected_test_loss'],facecolors='none',edgecolors=line.get_color())
+            axes[1].plot([s['cumulative_cost'] for s in stages],[s['selected_test_loss'] for s in stages],color=line.get_color(),alpha=.5)
         axes[1].scatter(cost,loss,color=line.get_color(),marker='s' if 'earlier' in label else 'o')
-        axes[1].annotate(label,(cost,loss),xytext=(4,5),textcoords='offset points',fontsize=8)
-        audit.append(dict(run=name,label=label,training_minutes=r['training_seconds']/60,
+        axes[1].annotate(label.replace(', earlier recipe',' (old base)'),(cost,loss),xytext=(4,5),textcoords='offset points',fontsize=8)
+        audit.append(dict(run=folders[-1].name,label=label,training_minutes=offset,
                           worker_usd=cost,test_loss=loss,dev_minutes=minutes,dev_losses=losses,
-                          tokens_seen=r['tokens_seen'],batch=r['batch_size'],peak_lr=r['peak_lr'],
-                          compile_training=r.get('compile_training',False)))
-    axes[0].set(xlabel='Training minutes',ylabel='Development loss (nats)',title='Measured checkpoints; lower is better')
+                          tokens_seen=sum(s['tokens_seen'] for s in stages),stages=stages))
+    axes[0].set(xlabel='Total training minutes',ylabel='Development loss (nats)',title='Diamonds mark continuation with optimizer reset')
     axes[0].legend(fontsize=8);axes[0].grid(alpha=.2)
-    axes[1].set(xlabel='Estimated worker compute (USD)',ylabel='Selected test loss (nats)',title='Completed runs: quality versus cost',xlim=(0,12))
+    axes[1].set(xlabel='Cumulative worker compute (USD)',ylabel='Selected test loss (16k-token sample)',title='Open markers: before continuation',xlim=(0,max(a['worker_usd'] for a in audit)*1.3))
     axes[1].grid(alpha=.2)
     fig.suptitle('Polish Wikipedia from scratch: gains continue beyond short runs')
     save_svg(fig,'wikipedia-scaling.svg');plt.close(fig)
     (ROOT/'results/wikipedia-scaling.json').write_text(json.dumps(audit,indent=2)+'\n')
 
+def plot_scratch_exam():
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    groups=['Random\n+ SFT','Random\n+ RLVR','Wiki\n+ SFT','Wiki\n+ conditional SFT','Wiki\n+ RLVR','Wiki + short SFT\n+ RLVR','Wiki + instruction\n+ SFT']
+    batches=('1789681233954934000','1789682451250225000','1789683433671484000','1789681777371983000')
+    rows=[]
+    for batch in batches:
+        for path in sorted((ROOT/'runs').glob('night-'+batch+'-*/execution.json')):
+            r=json.loads(path.read_text())
+            if r['task']!='exam' or r['lr']!=1e-6:continue
+            spec=r['spec'];tag=spec['tag']
+            if r['initialization']=='random':group=0 if r['method']=='sft' else 1
+            elif 'instruction' in tag:
+                if r['method']!='sft':continue
+                group=6
+            elif r.get('sft_actions_only'):group=3
+            elif 'sft-then-rlvr' in tag:group=5
+            else:group=2 if r['method']=='sft' else 4
+            stage=r['stages'][-1]
+            rows.append(dict(run=path.parent.name,model='98M' if r['config']['width']==768 else '291M',
+                group=group,seed=r['seed'],original=stage['after']['test']['correct'],
+                rotated=stage['after']['test_rotated']['correct'],selected_step=stage['selected_step']))
+    fig,axes=plt.subplots(1,2,figsize=(14,5.6),layout='constrained',sharey=True)
+    for ax,model in zip(axes,['98M','291M']):
+        for group in range(len(groups)):
+            records=[r for r in rows if r['model']==model and r['group']==group]
+            for metric,color,shift in [('original','#2166ac',-.13),('rotated','#d95f02',.13)]:
+                for i,r in enumerate(records):
+                    x=group+shift+(i-(len(records)-1)/2)*.035
+                    ax.scatter(x,r[metric],color=color,s=35,alpha=.8)
+                if records:
+                    mean=sum(r[metric] for r in records)/len(records)
+                    ax.plot([group+shift-.08,group+shift+.08],[mean,mean],color=color,lw=2)
+        ax.axhline(40/3,color='gray',ls=':',label='Uniform random expectation')
+        ax.set(title=model+' parameters',xticks=range(len(groups)),xticklabels=groups,ylim=(0,40),ylabel='Correct answers out of 40')
+        ax.tick_params(axis='x',rotation=30,labelsize=8);ax.grid(axis='y',alpha=.2)
+    axes[0].scatter([],[],color='#2166ac',label='Original option order')
+    axes[0].scatter([],[],color='#d95f02',label='Rotated options')
+    axes[0].legend(fontsize=8,loc='upper left')
+    fig.suptitle('Polish Driving Licence Exam: Wikipedia pretraining and post-training\n289 training questions; dev-selected weights. Dots = runs, bars = means; 1–3 seeds per recipe.')
+    fig.supxlabel('Exploratory, repeatedly inspected 40-question test. Random controls use the same low LR, not a tuned scratch baseline.',fontsize=9)
+    save_svg(fig,'scratch-exam-comparison.svg');plt.close(fig)
+    (ROOT/'results/scratch-exam-comparison.json').write_text(json.dumps(rows,indent=2)+'\n')
+
 if __name__=='__main__':
     plot_wikipedia_scaling()
+    plot_scratch_exam()
     plot_stopping()
     plot_gpus()
     plot_exam()

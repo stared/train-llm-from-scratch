@@ -1,0 +1,98 @@
+[
+  {
+    "tag": "100m-popular12.5-best",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789686246426969000-100m-continue-popular12.5",
+    "depends_on": [
+      "night-1789686246426969000-100m-continue-popular12.5"
+    ],
+    "checkpoint": "best.pt",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "100m-plain50-checkpoint-1800s",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789686246426969000-100m-continue-plain50",
+    "depends_on": [
+      "night-1789686246426969000-100m-continue-plain50"
+    ],
+    "checkpoint": "checkpoint-1800s.pt",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "100m-plain50-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789686246426969000-100m-continue-plain50",
+    "depends_on": [
+      "night-1789686246426969000-100m-continue-plain50"
+    ],
+    "checkpoint": "final.pt",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "300m-popular12.5-best",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789686246426969000-300m-continue-popular12.5",
+    "depends_on": [
+      "night-1789686246426969000-300m-continue-popular12.5"
+    ],
+    "checkpoint": "best.pt",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "300m-plain50-checkpoint-1800s",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789686246426969000-300m-continue-plain50",
+    "depends_on": [
+      "night-1789686246426969000-300m-continue-plain50"
+    ],
+    "checkpoint": "checkpoint-1800s.pt",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "300m-plain50-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789686246426969000-300m-continue-plain50",
+    "depends_on": [
+      "night-1789686246426969000-300m-continue-plain50"
+    ],
+    "checkpoint": "final.pt",
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  }
+]

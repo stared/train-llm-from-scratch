@@ -23,10 +23,16 @@ image=image.add_local_file(str(ROOT/'additional/scripts/scratch_evaluate.py'),'/
 image=image.add_local_dir(str(ROOT/'datasets/local/wiki-qa-research'),'/work/datasets/wiki-qa-research')
 image=image.add_local_file(str(ROOT/'datasets/local/polish-instructions/data.json'),'/work/datasets/polish-instructions/data.json')
 image=image.add_local_file(str(ROOT/'datasets/local/wiki-popular-qa/data.json'),'/work/datasets/wiki-popular-qa/data.json')
-RATES = {'L4':.000222,'A10':.000306,'L40S':.000542,'H100':.001097}
+image=image.add_local_file(str(ROOT/'datasets/local/wiki-qa-100k/data.json'),'/work/datasets/wiki-qa-100k/data.json')
+image=image.add_local_dir(str(ROOT/'datasets/local/wiki-short-qa'),'/work/datasets/wiki-short-qa')
+# GPU USD/second, checked against https://modal.com/pricing on 2026-09-18.
+RATES = {'L4':.000222,'A10':.000306,'L40S':.000542,'H100':.001097,'H200':.001261,'B200':.001736}
 CPU_RATE = 2*.0000131 + 16*.00000222
 TIMEOUT = 3600
 DEADLINE = 1789711200  # 2026-09-18 06:00 UTC / 08:00 Warsaw.
+
+def timeout_for(spec):
+    return 8500 if spec['kind']=='scratch' and spec['seconds']>3000 else TIMEOUT
 
 def validate_plan(plan):
     if not plan or len(plan)>30:raise ValueError('1–30 bounded experiments')
@@ -35,7 +41,7 @@ def validate_plan(plan):
         if spec['kind']=='scratch':
             if spec.get('batch',32) not in (8,16,32,64,128,256):raise ValueError('Unsupported scratch batch')
             if spec.get('context',512) not in (256,512,1024):raise ValueError('Unsupported scratch context')
-            if not 60<=spec['seconds']<=3000:raise ValueError('Scratch run exceeds its bounded duration')
+            if not 60<=spec['seconds']<=8000:raise ValueError('Scratch run exceeds its bounded duration')
 
 @app.function(image=image,gpu='H100',cpu=(2,2),memory=(16384,16384),
               timeout=TIMEOUT,retries=0,max_containers=4,scaledown_window=2,
@@ -47,13 +53,14 @@ def experiment(batch, spec):
     name=f"night-{batch}-{spec['tag']}"
     out=Path('/persist/runs')/name
     rate=RATES[spec['gpu']]+CPU_RATE
+    timeout=timeout_for(spec)
     # Infrastructure preemption can retry despite retries=0. Never repeat paid training.
     if not claims.put(name,{'started_at':time.time()},skip_if_exists=True):
         previous=claims.get(name)
         return previous.get('result',dict(run=name,status='interrupted',cost_unknown=True,
-            resource_bound_usd=TIMEOUT*rate,reason='Prior attempt claimed this run; automatic retraining disabled'))
+            resource_bound_usd=timeout*rate,reason='Prior attempt claimed this run; automatic retraining disabled'))
     try:
-        if time.time()+TIMEOUT>DEADLINE:
+        if time.time()+timeout>DEADLINE:
             raise RuntimeError('Insufficient time before 08:00 Warsaw hard deadline')
         volume.reload()
         if spec['kind']=='exam':
@@ -84,11 +91,12 @@ def experiment(batch, spec):
                        initial_weights='/persist/runs/'+spec['base']+'/'+spec['initial_checkpoint'] if spec.get('initial_checkpoint') else None,
                        eval_steps=spec.get('eval_steps',50),batched=spec.get('batched',False),
                        selection_permutations=spec.get('selection_permutations',False),
-                       sft_actions_only=spec.get('sft_actions_only',False))
+                       sft_actions_only=spec.get('sft_actions_only',False),text_eval_limit=spec.get('text_eval_limit',50))
         elif spec['kind']=='evaluate':
             sys.path.insert(0,'/work/additional/scripts')
             from scratch_evaluate import run
-            result=run('/persist/runs/'+spec['base'],out,spec.get('corpora',[]),checkpoint=spec.get('checkpoint','best.pt'))
+            result=run('/persist/runs/'+spec['base'],out,spec.get('corpora',[]),checkpoint=spec.get('checkpoint','best.pt'),extended=spec.get('extended',False),
+                       known_fact_probes='/work/datasets/wiki-short-qa/known-probes.json' if spec.get('known_facts') else None)
         elif spec['kind']=='scratch':
             from train_scratch import run
             next_quality=600
@@ -118,10 +126,11 @@ def experiment(batch, spec):
             result=run('/persist/datasets/'+spec['data'],out,spec['size'],spec['seconds'],
                 spec.get('seed',42),'cuda',spec.get('batch',32),context_length=spec.get('context',512),
                 eval_interval=60 if spec['seconds']<=600 else 300,peak_lr=spec.get('lr',6e-4),warmup_steps=100,
-                research_limit_seconds=3000,compile_training=spec.get('compile',False),
+                research_limit_seconds=8000,compile_training=spec.get('compile',False),
                 initial_checkpoint='/persist/runs/'+spec['initial_run']+'/best.pt' if spec.get('initial_run') else None,
                 sampling_mode=spec.get('sampling','uniform'),
                 mixture_dir='/persist/datasets/'+spec['mixture_data'] if spec.get('mixture_data') else None,
+                mixture_fraction=spec.get('mixture_fraction',.5),
                 checkpoint_hook=selected_diagnostics if spec.get('common_eval') or spec.get('quality') or spec.get('quality_checkpoints') else None)
             subprocess.run([sys.executable,'/work/scripts/sample_scratch.py',str(out),'--device','cuda',
                             '--output',str(out/'reload_samples.json')],check=True,timeout=150)
@@ -156,10 +165,11 @@ def experiment(batch, spec):
               retries=0,nonpreemptible=True,max_containers=1,scaledown_window=2,volumes={'/persist':volume})
 def orchestrate(plan,batch):
     validate_plan(plan)
-    bound=sum(TIMEOUT*(RATES[s['gpu']]+CPU_RATE) for s in plan)+3*18000*(.0000131+.00000222)
+    bound=sum(timeout_for(s)*(RATES[s['gpu']]+CPU_RATE) for s in plan)+3*18000*(.0000131+.00000222)
     if bound>150:raise ValueError('Batch maximum $150 resource-time reservation')
-    waves=(len(plan)+3)//4
-    if time.time()+waves*TIMEOUT+120>DEADLINE:raise ValueError('Batch cannot finish before deadline')
+    wave_seconds=sum(max(timeout_for(s) for s in plan[offset:offset+4]) for offset in range(0,len(plan),4))
+    if wave_seconds+120>18000:raise ValueError('Batch exceeds controller timeout')
+    if time.time()+wave_seconds+120>DEADLINE:raise ValueError('Batch cannot finish before deadline')
     if not batch.isdigit():raise ValueError('Numeric stable batch ID required')
     root=Path('/persist/experiments')/('night-'+batch);root.mkdir(parents=True,exist_ok=True)
     manifest={'batch':batch,'status':'running','resource_bound_usd':bound,'deadline_utc':'2026-09-18T06:00:00Z',
@@ -181,7 +191,7 @@ def orchestrate(plan,batch):
             jobs=[];manifest['active_skips']={}
             for index,spec in enumerate(plan[offset:offset+4]):
                 reason=None
-                wait_until=min(time.time()+3600,DEADLINE-TIMEOUT-60)
+                wait_until=min(time.time()+3600,DEADLINE-timeout_for(spec)-60)
                 for dependency in spec.get('depends_on',[]):
                     print('WAITING FOR',dependency,flush=True)
                     while True:
@@ -200,7 +210,7 @@ def orchestrate(plan,batch):
                     claims.put(skipped['run'],{'result':skipped})
                     jobs.append(None)
                     continue
-                call=experiment.with_options(gpu=spec['gpu']).spawn(batch,spec)
+                call=experiment.with_options(gpu=spec['gpu'],timeout=timeout_for(spec)).spawn(batch,spec)
                 jobs.append(call)
             manifest['active_offset']=offset
             manifest['active_call_ids']=[j.object_id if j else None for j in jobs];save()
