@@ -1,0 +1,66 @@
+[
+  {
+    "tag": "wiki100-8000s",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789686602382545000-wiki100-8000s",
+    "depends_on": [
+      "night-1789686602382545000-wiki100-8000s"
+    ],
+    "dependency_wait_seconds": 7200,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "wiki300-8000s",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789686602382545000-wiki300-8000s",
+    "depends_on": [
+      "night-1789686602382545000-wiki300-8000s"
+    ],
+    "dependency_wait_seconds": 7200,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "wiki100-wl25-8000s",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789686602382545000-wiki100-wl25-8000s",
+    "depends_on": [
+      "night-1789686602382545000-wiki100-wl25-8000s"
+    ],
+    "dependency_wait_seconds": 7200,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "wiki100-popular12.5-8000s",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789686602382545000-wiki100-popular12.5-8000s",
+    "depends_on": [
+      "night-1789686602382545000-wiki100-popular12.5-8000s"
+    ],
+    "dependency_wait_seconds": 7200,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  }
+]

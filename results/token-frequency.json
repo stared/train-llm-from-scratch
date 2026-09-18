@@ -1,0 +1,560 @@
+[
+  {
+    "corpus": "wiki-scratch-v1",
+    "split": "train",
+    "tokens": 3140443962,
+    "vocabulary": 8192,
+    "tokenizer_sha256": "3737eb9cd337d85ccf077f13d1fe79512007abb03d1b27a37a92e57759259fe4",
+    "train_sha256": "91558e2729a02c989120befb97c5d30e28f09571b1e50518592e624a61821b62",
+    "zero_count": 49,
+    "entries_below": {
+      "10": 54,
+      "100": 67,
+      "1000": 104,
+      "10000": 294
+    },
+    "occurrence_quantiles": {
+      "0": 0.0,
+      "0.01": 233.09999999999997,
+      "0.1": 31165.3,
+      "0.5": 91848.0,
+      "0.9": 555023.0000000002,
+      "0.99": 4589852.8900000015,
+      "1": 120333463.0
+    },
+    "most_frequent": [
+      {
+        "id": 199,
+        "token": "Ċ",
+        "count": 120333463
+      },
+      {
+        "id": 92,
+        "token": "|",
+        "count": 88056815
+      },
+      {
+        "id": 261,
+        "token": "Ġ|",
+        "count": 70834235
+      },
+      {
+        "id": 262,
+        "token": "Ġ=",
+        "count": 66478715
+      },
+      {
+        "id": 14,
+        "token": ".",
+        "count": 57774126
+      },
+      {
+        "id": 13,
+        "token": "-",
+        "count": 50166397
+      },
+      {
+        "id": 269,
+        "token": "Ġ[[",
+        "count": 48879292
+      },
+      {
+        "id": 263,
+        "token": "]]",
+        "count": 41369780
+      },
+      {
+        "id": 15,
+        "token": "/",
+        "count": 28157815
+      },
+      {
+        "id": 12,
+        "token": ",",
+        "count": 27258409
+      },
+      {
+        "id": 271,
+        "token": "Ġw",
+        "count": 26190489
+      },
+      {
+        "id": 29,
+        "token": "=",
+        "count": 26077643
+      },
+      {
+        "id": 26,
+        "token": ":",
+        "count": 20686541
+      },
+      {
+        "id": 295,
+        "token": "}}",
+        "count": 17890564
+      },
+      {
+        "id": 297,
+        "token": "ĠĊ",
+        "count": 16860632
+      },
+      {
+        "id": 318,
+        "token": "ref",
+        "count": 16604247
+      },
+      {
+        "id": 309,
+        "token": "Ġ(",
+        "count": 16457295
+      },
+      {
+        "id": 372,
+        "token": "=\"",
+        "count": 11769026
+      },
+      {
+        "id": 330,
+        "token": "Ġi",
+        "count": 11031987
+      },
+      {
+        "id": 10,
+        "token": "*",
+        "count": 10876353
+      }
+    ],
+    "least_frequent": [
+      {
+        "id": 219,
+        "token": "Ğ",
+        "count": 0
+      },
+      {
+        "id": 195,
+        "token": "Ć",
+        "count": 0
+      },
+      {
+        "id": 196,
+        "token": "ć",
+        "count": 0
+      },
+      {
+        "id": 197,
+        "token": "Ĉ",
+        "count": 0
+      },
+      {
+        "id": 200,
+        "token": "ċ",
+        "count": 0
+      },
+      {
+        "id": 201,
+        "token": "Č",
+        "count": 0
+      },
+      {
+        "id": 202,
+        "token": "č",
+        "count": 0
+      },
+      {
+        "id": 203,
+        "token": "Ď",
+        "count": 0
+      },
+      {
+        "id": 204,
+        "token": "ď",
+        "count": 0
+      },
+      {
+        "id": 205,
+        "token": "Đ",
+        "count": 0
+      },
+      {
+        "id": 206,
+        "token": "đ",
+        "count": 0
+      },
+      {
+        "id": 207,
+        "token": "Ē",
+        "count": 0
+      },
+      {
+        "id": 209,
+        "token": "Ĕ",
+        "count": 0
+      },
+      {
+        "id": 210,
+        "token": "ĕ",
+        "count": 0
+      },
+      {
+        "id": 211,
+        "token": "Ė",
+        "count": 0
+      },
+      {
+        "id": 212,
+        "token": "ė",
+        "count": 0
+      },
+      {
+        "id": 213,
+        "token": "Ę",
+        "count": 0
+      },
+      {
+        "id": 214,
+        "token": "ę",
+        "count": 0
+      },
+      {
+        "id": 194,
+        "token": "ą",
+        "count": 0
+      },
+      {
+        "id": 193,
+        "token": "Ą",
+        "count": 0
+      },
+      {
+        "id": 192,
+        "token": "ă",
+        "count": 0
+      },
+      {
+        "id": 191,
+        "token": "Ă",
+        "count": 0
+      },
+      {
+        "id": 125,
+        "token": "À",
+        "count": 0
+      },
+      {
+        "id": 126,
+        "token": "Á",
+        "count": 0
+      },
+      {
+        "id": 2100,
+        "token": "ekkoatlety",
+        "count": 0
+      },
+      {
+        "id": 174,
+        "token": "ñ",
+        "count": 0
+      },
+      {
+        "id": 175,
+        "token": "ò",
+        "count": 0
+      },
+      {
+        "id": 178,
+        "token": "õ",
+        "count": 0
+      },
+      {
+        "id": 179,
+        "token": "ö",
+        "count": 0
+      },
+      {
+        "id": 180,
+        "token": "÷",
+        "count": 0
+      }
+    ],
+    "note": "Counts in the full prepared corpus, not the subset sampled by a particular training run. Token strings use the tokenizer byte alphabet."
+  },
+  {
+    "corpus": "wl-scratch-v1",
+    "split": "train",
+    "tokens": 101330998,
+    "vocabulary": 8192,
+    "tokenizer_sha256": "3737eb9cd337d85ccf077f13d1fe79512007abb03d1b27a37a92e57759259fe4",
+    "train_sha256": "eae6747ed3120111ac2f4d1d8d19d2a0503441f1d6c6c5731552bd58ab4ab356",
+    "zero_count": 645,
+    "entries_below": {
+      "10": 1328,
+      "100": 2391,
+      "1000": 4429,
+      "10000": 6880
+    },
+    "occurrence_quantiles": {
+      "0": 0.0,
+      "0.01": 0.0,
+      "0.1": 2.0,
+      "0.5": 741.0,
+      "0.9": 19517.400000000016,
+      "0.99": 203803.85000000003,
+      "1": 4404249.0
+    },
+    "most_frequent": [
+      {
+        "id": 12,
+        "token": ",",
+        "count": 4404249
+      },
+      {
+        "id": 199,
+        "token": "Ċ",
+        "count": 3095585
+      },
+      {
+        "id": 14,
+        "token": ".",
+        "count": 2156773
+      },
+      {
+        "id": 271,
+        "token": "Ġw",
+        "count": 1409521
+      },
+      {
+        "id": 330,
+        "token": "Ġi",
+        "count": 1222132
+      },
+      {
+        "id": 291,
+        "token": "Ġz",
+        "count": 1172105
+      },
+      {
+        "id": 627,
+        "token": "Ġnie",
+        "count": 999765
+      },
+      {
+        "id": 303,
+        "token": "Ġna",
+        "count": 995982
+      },
+      {
+        "id": 526,
+        "token": "ĠsiÄĻ",
+        "count": 992871
+      },
+      {
+        "id": 243,
+        "token": "Ķ",
+        "count": 966906
+      },
+      {
+        "id": 396,
+        "token": "Äĩ",
+        "count": 783696
+      },
+      {
+        "id": 266,
+        "token": "ÅĤ",
+        "count": 671936
+      },
+      {
+        "id": 313,
+        "token": "Ġm",
+        "count": 615826
+      },
+      {
+        "id": 342,
+        "token": "ÅĤa",
+        "count": 596463
+      },
+      {
+        "id": 276,
+        "token": "ÄĻ",
+        "count": 573653
+      },
+      {
+        "id": 4402,
+        "token": "ĠâĢ",
+        "count": 557765
+      },
+      {
+        "id": 415,
+        "token": "Ġza",
+        "count": 557260
+      },
+      {
+        "id": 298,
+        "token": "Äħ",
+        "count": 507476
+      },
+      {
+        "id": 281,
+        "token": "Ġp",
+        "count": 501323
+      },
+      {
+        "id": 446,
+        "token": "Ġdo",
+        "count": 497939
+      }
+    ],
+    "least_frequent": [
+      {
+        "id": 6293,
+        "token": "kontynuacja",
+        "count": 0
+      },
+      {
+        "id": 483,
+        "token": "]].",
+        "count": 0
+      },
+      {
+        "id": 2874,
+        "token": "medale",
+        "count": 0
+      },
+      {
+        "id": 6886,
+        "token": "ĠSkinheads",
+        "count": 0
+      },
+      {
+        "id": 486,
+        "token": "|-",
+        "count": 0
+      },
+      {
+        "id": 2866,
+        "token": "nagÅĤÃ³wek",
+        "count": 0
+      },
+      {
+        "id": 2839,
+        "token": ">[[",
+        "count": 0
+      },
+      {
+        "id": 2832,
+        "token": "biologia",
+        "count": 0
+      },
+      {
+        "id": 2805,
+        "token": "Ġ'''[[",
+        "count": 0
+      },
+      {
+        "id": 2771,
+        "token": "png",
+        "count": 0
+      },
+      {
+        "id": 2759,
+        "token": "2025",
+        "count": 0
+      },
+      {
+        "id": 2747,
+        "token": "!--",
+        "count": 0
+      },
+      {
+        "id": 2731,
+        "token": "ĠLekkoatletyce",
+        "count": 0
+      },
+      {
+        "id": 2693,
+        "token": "|''",
+        "count": 0
+      },
+      {
+        "id": 2688,
+        "token": "2002",
+        "count": 0
+      },
+      {
+        "id": 2666,
+        "token": "interwiki",
+        "count": 0
+      },
+      {
+        "id": 2664,
+        "token": "Reprezentacja",
+        "count": 0
+      },
+      {
+        "id": 501,
+        "token": "/>",
+        "count": 0
+      },
+      {
+        "id": 2876,
+        "token": "istrzostw",
+        "count": 0
+      },
+      {
+        "id": 2891,
+        "token": "ĠâĢŀ[[",
+        "count": 0
+      },
+      {
+        "id": 2918,
+        "token": "''',",
+        "count": 0
+      },
+      {
+        "id": 6855,
+        "token": "Rejon",
+        "count": 0
+      },
+      {
+        "id": 7911,
+        "token": "]]</",
+        "count": 0
+      },
+      {
+        "id": 6838,
+        "token": "singel",
+        "count": 0
+      },
+      {
+        "id": 7909,
+        "token": "ÙĦ",
+        "count": 0
+      },
+      {
+        "id": 6840,
+        "token": "||||||",
+        "count": 0
+      },
+      {
+        "id": 3046,
+        "token": "Ġtrenerska",
+        "count": 0
+      },
+      {
+        "id": 462,
+        "token": ">{{",
+        "count": 0
+      },
+      {
+        "id": 3027,
+        "token": "->",
+        "count": 0
+      },
+      {
+        "id": 3025,
+        "token": "azimierz",
+        "count": 0
+      }
+    ],
+    "note": "Counts in the full prepared corpus, not the subset sampled by a particular training run. Token strings use the tokenizer byte alphabet."
+  }
+]

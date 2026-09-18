@@ -1,0 +1,42 @@
+[
+  {
+    "tag": "100m-random-original-prompts",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789689411690422000-100m-random-short-qa",
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "known_training_prompts": true,
+    "corpora": []
+  },
+  {
+    "tag": "100m-10min-original-prompts",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789689411690422000-100m-10min-short-qa",
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "known_training_prompts": true,
+    "corpora": []
+  },
+  {
+    "tag": "300m-random-original-prompts",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789689411690422000-300m-random-short-qa",
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "known_training_prompts": true,
+    "corpora": []
+  },
+  {
+    "tag": "300m-10min-original-prompts",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789689411690422000-300m-10min-short-qa",
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "known_training_prompts": true,
+    "corpora": []
+  }
+]

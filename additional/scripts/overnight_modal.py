@@ -25,6 +25,7 @@ image=image.add_local_file(str(ROOT/'datasets/local/polish-instructions/data.jso
 image=image.add_local_file(str(ROOT/'datasets/local/wiki-popular-qa/data.json'),'/work/datasets/wiki-popular-qa/data.json')
 image=image.add_local_file(str(ROOT/'datasets/local/wiki-qa-100k/data.json'),'/work/datasets/wiki-qa-100k/data.json')
 image=image.add_local_dir(str(ROOT/'datasets/local/wiki-short-qa'),'/work/datasets/wiki-short-qa')
+image=image.add_local_file(str(ROOT/'datasets/local/wiki-short-qa-varied/data.json'),'/work/datasets/wiki-short-qa-varied/data.json')
 # GPU USD/second, checked against https://modal.com/pricing on 2026-09-18.
 RATES = {'L4':.000222,'A10':.000306,'L40S':.000542,'H100':.001097,'H200':.001261,'B200':.001736}
 CPU_RATE = 2*.0000131 + 16*.00000222
@@ -32,16 +33,19 @@ TIMEOUT = 3600
 DEADLINE = 1789711200  # 2026-09-18 06:00 UTC / 08:00 Warsaw.
 
 def timeout_for(spec):
-    return 8500 if spec['kind']=='scratch' and spec['seconds']>3000 else TIMEOUT
+    return spec['seconds']+500 if spec['kind']=='scratch' and spec['seconds']>3000 else TIMEOUT
 
 def validate_plan(plan):
     if not plan or len(plan)>30:raise ValueError('1–30 bounded experiments')
     for spec in plan:
         if spec['gpu'] not in RATES:raise ValueError('Unknown GPU')
+        if not 1<=spec.get('dependency_wait_seconds',3600)<=7200:raise ValueError('Dependency wait must fit two hours')
+        if any(Path(name).name!=name for name in spec.get('depends_on_data',[])):raise ValueError('Dataset dependency must be a folder name')
         if spec['kind']=='scratch':
             if spec.get('batch',32) not in (8,16,32,64,128,256):raise ValueError('Unsupported scratch batch')
             if spec.get('context',512) not in (256,512,1024):raise ValueError('Unsupported scratch context')
             if not 60<=spec['seconds']<=8000:raise ValueError('Scratch run exceeds its bounded duration')
+            if spec.get('optimizer','adamw') not in ('adamw','muon'):raise ValueError('Unsupported optimizer')
 
 @app.function(image=image,gpu='H100',cpu=(2,2),memory=(16384,16384),
               timeout=TIMEOUT,retries=0,max_containers=4,scaledown_window=2,
@@ -96,7 +100,8 @@ def experiment(batch, spec):
             sys.path.insert(0,'/work/additional/scripts')
             from scratch_evaluate import run
             result=run('/persist/runs/'+spec['base'],out,spec.get('corpora',[]),checkpoint=spec.get('checkpoint','best.pt'),extended=spec.get('extended',False),
-                       known_fact_probes='/work/datasets/wiki-short-qa/known-probes.json' if spec.get('known_facts') else None)
+                       known_fact_probes='/work/datasets/wiki-short-qa/known-probes.json' if spec.get('known_facts') else None,
+                       known_fact_training_data='/work/datasets/wiki-short-qa/data.json' if spec.get('known_training_prompts') else None)
         elif spec['kind']=='scratch':
             from train_scratch import run
             next_quality=600
@@ -131,6 +136,7 @@ def experiment(batch, spec):
                 sampling_mode=spec.get('sampling','uniform'),
                 mixture_dir='/persist/datasets/'+spec['mixture_data'] if spec.get('mixture_data') else None,
                 mixture_fraction=spec.get('mixture_fraction',.5),
+                optimizer_kind=spec.get('optimizer','adamw'),
                 checkpoint_hook=selected_diagnostics if spec.get('common_eval') or spec.get('quality') or spec.get('quality_checkpoints') else None)
             subprocess.run([sys.executable,'/work/scripts/sample_scratch.py',str(out),'--device','cuda',
                             '--output',str(out/'reload_samples.json')],check=True,timeout=150)
@@ -164,6 +170,7 @@ def experiment(batch, spec):
 @app.function(image=image,cpu=(1,1),memory=(1024,1024),timeout=18000,
               retries=0,nonpreemptible=True,max_containers=1,scaledown_window=2,volumes={'/persist':volume})
 def orchestrate(plan,batch):
+    controller_started=time.time()
     validate_plan(plan)
     bound=sum(timeout_for(s)*(RATES[s['gpu']]+CPU_RATE) for s in plan)+3*18000*(.0000131+.00000222)
     if bound>150:raise ValueError('Batch maximum $150 resource-time reservation')
@@ -191,8 +198,22 @@ def orchestrate(plan,batch):
             jobs=[];manifest['active_skips']={}
             for index,spec in enumerate(plan[offset:offset+4]):
                 reason=None
-                wait_until=min(time.time()+3600,DEADLINE-timeout_for(spec)-60)
+                remaining_gpu_seconds=sum(max(timeout_for(s) for s in plan[o:o+4]) for o in range(offset,len(plan),4))
+                wait_until=min(time.time()+spec.get('dependency_wait_seconds',3600),
+                               DEADLINE-timeout_for(spec)-60,
+                               controller_started+18000-remaining_gpu_seconds-120)
+                for dataset in spec.get('depends_on_data',[]):
+                    print('WAITING FOR DATASET',dataset,flush=True)
+                    while True:
+                        volume.reload()
+                        if (Path('/persist/datasets')/dataset/'tokens.json').exists():break
+                        if time.time()>=wait_until:
+                            reason='Dataset preparation exceeded its wait budget: '+dataset
+                            break
+                        time.sleep(10)
+                    if reason:break
                 for dependency in spec.get('depends_on',[]):
+                    if reason:break
                     print('WAITING FOR',dependency,flush=True)
                     while True:
                         prior=(claims.get(dependency) or {}).get('result')

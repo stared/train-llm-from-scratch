@@ -27,7 +27,7 @@ PROBES=[
     ('wiki_new_wording_krakow','Co wiesz o Krakowie?',None),
 ]
 
-def run(base,output,corpora,checkpoint='best.pt',extended=False,known_fact_probes=None):
+def run(base,output,corpora,checkpoint='best.pt',extended=False,known_fact_probes=None,known_fact_training_data=None):
     import torch
     from tokenizers import Tokenizer
     from scratch_model import ScratchGPT,Config
@@ -85,6 +85,16 @@ def run(base,output,corpora,checkpoint='best.pt',extended=False,known_fact_probe
     known_scores={}
     if known_fact_probes:
         raw=Path(known_fact_probes).read_bytes();probes=json.loads(raw);records={}
+        training_hash=None
+        if known_fact_training_data:
+            training_raw=Path(known_fact_training_data).read_bytes()
+            training_hash=hashlib.sha256(training_raw).hexdigest()
+            originals={r['id']:r for r in json.loads(training_raw)['train']}
+            for rows in probes.values():
+                for row in rows:
+                    original=originals[row['id'].split(':known-')[0]]
+                    assert original['answer']==row['answer']
+                    row['prompt']=original['prompt']
         normalize=lambda s:' '.join(s.casefold().split()).strip(' .!?,;:')
         for split,rows in probes.items():
             records[split]=[]
@@ -98,7 +108,9 @@ def run(base,output,corpora,checkpoint='best.pt',extended=False,known_fact_probe
                 text=tok.decode(generated)
                 records[split].append(dict(**row,text=text,exact=normalize(text)==normalize(row['answer']),tokens=len(generated),terminated=token==eod))
             correct=sum(r['exact'] for r in records[split]);known_scores[split]=dict(correct=correct,n=len(rows),accuracy=correct/len(rows))
-        known_scores.update(probes_sha256=hashlib.sha256(raw).hexdigest(),meaning='Known training facts, unseen prompt templates; exact normalized answer matching, not an unseen-knowledge benchmark')
+        condition='original training prompts' if known_fact_training_data else 'unseen prompt templates'
+        known_scores.update(probes_sha256=hashlib.sha256(raw).hexdigest(),training_data_sha256=training_hash,prompt_condition=condition,
+            meaning=f'Known training facts, {condition}; exact normalized answer matching, not an unseen-knowledge benchmark')
         (out/'known_facts.json').write_text(json.dumps(records,ensure_ascii=False,indent=2))
     result=dict(base_run=base.name,base_task=meta.get('task','pretraining'),checkpoint=checkpoint,config=meta['config'],known_fact_recall=known_scores,
         common=common,extended_common=extended_common,continuation_decoding=continuations,quality_raw=dict(correct=quality['factual_correct'],n=quality['factual_total']),

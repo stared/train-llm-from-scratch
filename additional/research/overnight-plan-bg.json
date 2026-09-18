@@ -1,0 +1,50 @@
+[
+  {
+    "tag": "100m-random-varied-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789691613092240000-100m-random-varied-qa",
+    "depends_on": [
+      "night-1789691613092240000-100m-random-varied-qa"
+    ],
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "corpora": []
+  },
+  {
+    "tag": "100m-10min-varied-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789691613092240000-100m-10min-varied-qa",
+    "depends_on": [
+      "night-1789691613092240000-100m-10min-varied-qa"
+    ],
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "corpora": []
+  },
+  {
+    "tag": "300m-10min-varied-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789691613092240000-300m-10min-varied-qa",
+    "depends_on": [
+      "night-1789691613092240000-300m-10min-varied-qa"
+    ],
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "corpora": []
+  },
+  {
+    "tag": "300m-8000s-varied-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789691613092240000-300m-8000s-varied-qa",
+    "depends_on": [
+      "night-1789691613092240000-300m-8000s-varied-qa"
+    ],
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "corpora": []
+  }
+]

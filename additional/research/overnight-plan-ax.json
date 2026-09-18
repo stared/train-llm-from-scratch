@@ -1,0 +1,70 @@
+[
+  {
+    "tag": "100m-muon-lr0.0003",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0003,
+    "optimizer": "muon",
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "100m-muon-lr0.0006",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0006,
+    "optimizer": "muon",
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "100m-muon-lr0.0012",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0012,
+    "optimizer": "muon",
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "300m-muon-lr0.0006",
+    "kind": "scratch",
+    "gpu": "H100",
+    "size": "300m",
+    "data": "wiki-scratch-v1",
+    "seconds": 600,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0006,
+    "optimizer": "muon",
+    "quality": true,
+    "common_eval": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  }
+]

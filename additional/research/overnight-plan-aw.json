@@ -1,0 +1,35 @@
+[
+  {
+    "tag": "100m-B200-5000s",
+    "kind": "scratch",
+    "gpu": "B200",
+    "size": "100m",
+    "data": "wiki-scratch-v1",
+    "seconds": 5000,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0004
+  },
+  {
+    "tag": "300m-B200-5000s",
+    "kind": "scratch",
+    "gpu": "B200",
+    "size": "300m",
+    "data": "wiki-scratch-v1",
+    "seconds": 5000,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0003
+  },
+  {
+    "tag": "100m-wide-B200-5000s",
+    "kind": "scratch",
+    "gpu": "B200",
+    "size": "100m-wide",
+    "data": "wiki-scratch-v1",
+    "seconds": 5000,
+    "batch": 64,
+    "compile": true,
+    "lr": 0.0004
+  }
+]

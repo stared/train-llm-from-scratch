@@ -4,6 +4,7 @@
 # ///
 """Curate the fetched overnight measurements, curves, and literal outputs."""
 from html import escape
+from collections import Counter
 import json
 import re
 from pathlib import Path
@@ -36,7 +37,7 @@ def render():
         spec=r['spec'];cost=r['estimated_compute_usd'];total+=cost
         curves='';examples='';kind=spec['kind']
         if kind=='scratch':
-            model=r['model']+(' (continued)' if r.get('initial_checkpoint_run') else '')+(' [superseded data]' if superseded(spec) else '');dataset=spec['data']+(' + '+spec['mixture_data'] if spec.get('mixture_data') else '')
+            model=r['model']+(' (continued)' if r.get('initial_checkpoint_run') else '')+(' [Muon]' if r.get('optimizer_kind')=='muon' else '')+(' [superseded data]' if superseded(spec) else '');dataset=spec['data']+(' + '+spec['mixture_data'] if spec.get('mixture_data') else '')
             before=r['before']['test']['loss_nats'];after=r['selected']['test']['loss_nats']
             tokens=r['tokens_seen'];elapsed=r['training_seconds']
             tables[kind].append([model,dataset,str(spec.get('context',512)),spec['gpu'],f"{elapsed/60:.1f}",f"{before:.3f} → {after:.3f}",
@@ -86,8 +87,8 @@ def render():
             examples='<p>Greedy instruction diagnostics; no instruction fine-tuning unless explicitly labeled. References are illustrative, not an automatic score.</p>'
             known=r.get('known_fact_recall')
             if known:
-                tables['known'].append([r['base_run'],r['checkpoint']]+[f"{known[s]['correct']}/{known[s]['n']}" for s in ('dev','test')])
-                examples+='<p><strong>Known-fact probes:</strong> facts from the short-answer training set with new prompt templates. Exact matching checks format and recall, not unseen knowledge.</p>'
+                tables['known'].append([r['base_run'],r['checkpoint'],known.get('prompt_condition','unseen prompt templates')]+[f"{known[s]['correct']}/{known[s]['n']}" for s in ('dev','test')])
+                examples+='<p><strong>Known-fact probes:</strong> '+e(known['meaning'])+'.</p>'
                 for row in json.loads((folder/'known_facts.json').read_text())['test'][:4]:
                     examples+='<h4>'+e(row['prompt'])+'</h4><pre>'+e(row['text'])+'</pre><p>Source-derived reference: '+e(row['answer'])+'</p>'
             for probe in r['instruction_probes']:
@@ -146,12 +147,12 @@ def render():
       'reasoning':['Model','Steps','Selected step','Strict final-answer score /40','Answer anywhere /40','Answer-only outputs /40','Training min','Worker $'],
       'evaluate':['Checkpoint','Stage','Raw Wikipedia test loss','Raw leads test loss','Plain v1 test loss (superseded)','Plain v2 test loss','Raw fact probes','Plain fact probes','Evaluation worker $'],
       'extended':['Starting run','Weights','Original Wikipedia test loss','Plain Wikipedia v2 test loss','Wolne Lektury test loss','Tokens per split'],
-      'known':['Starting run','Weights','Development exact answers','Test exact answers'],
+      'known':['Starting run','Weights','Question wording','Development exact answers','Test exact answers'],
       'posttrain':['Starting checkpoint','Initialization','Task','Stage','LR','Test correct /40 or answer loss','Training min','Run worker $']}
-    titles={'scratch':'GPU and architecture comparisons','exam':'Driving exam: existing models','posttrain':'Scratch models after pretraining','reasoning':'Driving exam: explanation prompt, final-answer RLVR','evaluate':'Common-corpus and instruction diagnostics (16k-token pools)','extended':'Larger held-out evaluations (1M-token pools)','known':'Short-answer recall: facts from training, new question templates'}
+    titles={'scratch':'GPU and architecture comparisons','exam':'Driving exam: existing models','posttrain':'Scratch models after pretraining','reasoning':'Driving exam: explanation prompt, final-answer RLVR','evaluate':'Common-corpus and instruction diagnostics (16k-token pools)','extended':'Larger held-out evaluations (1M-token pools)','known':'Short-answer recall of facts from training'}
     intro="""# Training comparisons
 
-Exploratory measurements, not guaranteed outcomes. Checkpoints are selected using development data. Test sets are small and have been inspected in previous experiments; these are not fresh, blind benchmarks.
+Exploratory measurements, not guaranteed outcomes. Training checkpoints are selected using development data; separately labeled final-weight diagnostics expose what this selection can miss. Test sets are small and have been inspected in previous experiments; these are not fresh, blind benchmarks.
 
 Plain-text corpus v1 and the earlier 5,000-definition data used a faulty reference-removal expression. It could delete intervening prose after a self-closing ref. Those data comparisons are superseded; original-markup Wikipedia and Wolne Lektury are unaffected. Version2 fixes this with a regression test.
 
@@ -166,6 +167,9 @@ Costs are worker GPU + CPU/memory estimates, excluding image builds, controller 
         'With an explanation prompt, Qwen3.5-2B RLVR improved strict final-answer compliance from 0 to 25/40 by removing explanations. Accepting the explicit answer anywhere gives 25/40 both before and after. The reward did not require an explanation; this is format learning, not evidence of better reasoning. The any-position score is a post-hoc diagnostic, not the training reward.',
         'Thirty-minute Wolne Lektury pretraining improved test loss to 2.720 for $2.12. Ten minutes with compilation reached 2.748 for $0.73: a more practical workshop recipe.',
         'Original-markup Wikipedia 98M test loss improved from 1.619 at ten minutes to 1.426 at thirty and 1.339 at fifty ($3.56 worker compute). The older 133-minute recipe reached 1.301. Schedules and batches differ; loss gains continue, but generated facts remain unreliable.',
+        'Another fifty minutes improved all four Wikipedia checkpoints. On the separate million-token test pool, 98M improved 1.303→1.241 from the fifty-minute base; 291M improved 1.328→1.249. The older 133-minute bases improved 1.265→1.222 and 1.246→1.201. Extra worker cost: $3.55–3.62 each. Driving-exam transfer did not improve consistently.',
+        'Short-definition SFT produces a visible narrow result: 291M Wikipedia → paragraph SFT → short-answer SFT recalls 75/100 known training definitions under new wording at the final checkpoint, versus zero exact short answers before. It still fails arithmetic and general instructions. This is recall of supplied facts, not an unseen-knowledge benchmark.',
+        'B200 processed 567M tokens for $1.14 with 98M parameters in ten minutes, versus 298M for $0.79 on H100 and 328M for $0.87 on H200, at batch64/context512. Hardware and compilation startup matter; token throughput alone is not model quality.',
         'A general Polish instruction stage did not improve the first matched scratch-model driving comparison: 291M direct SFT scored 25/40 versus 19/40 after instruction SFT. Treat instruction formatting and task competence as separate measurements.',
     ]
     failures={}
@@ -174,9 +178,13 @@ Costs are worker GPU + CPU/memory estimates, excluding image builds, controller 
             if item['status']=='failed':failures[item.get('run',str(p)+':'+str(index))]=item
     failed_cost=sum(f.get('estimated_compute_usd',0) for f in failures.values())
     intro+=f"\nFailed/canceled calls recorded: {len(failures)}; known worker estimates $"+"{:.3f}".format(failed_cost)+". Canceled calls with unknown billing retain conservative timeout reservations in the local budget ledger; they are not counted as free.\n"
-    md=intro+f"\nCompleted workers in this report: ${total:.3f}.\n"
+    counts=Counter(r['spec']['kind'] for _,r in records)
+    count_summary=(f"Completed workers: {counts['scratch']} pretraining, "
+                   f"{counts['posttrain']+counts['exam']+counts['reasoning']} post-training, "
+                   f"{counts['evaluate']} evaluation only. These are runs, not distinct model architectures.")
+    md=intro+f"\n{count_summary}\n\nWorker compute in this report: ${total:.3f}.\n"
     md+='\n## What changed\n\n'+'\n'.join('- '+f for f in findings)+'\n'
-    body='<h1>Training comparisons</h1><p>'+e(intro.split('\n\n',1)[1])+'</p>'+f'<p>Completed workers: ${total:.3f}.</p>'
+    body='<h1>Training comparisons</h1><p>'+e(intro.split('\n\n',1)[1])+'</p>'+f'<p>{e(count_summary)} Worker compute: ${total:.3f}.</p>'
     body+='<h2>What changed</h2><ul>'+''.join('<li>'+e(f)+'</li>' for f in findings)+'</ul>'
     if (ROOT/'results/exam-comparison.svg').exists():
         body+='<h2>Driving exam: repeated runs</h2><img src="exam-comparison.svg" alt="Three seeds per exam training recipe" style="width:100%">'
@@ -196,6 +204,9 @@ Costs are worker GPU + CPU/memory estimates, excluding image builds, controller 
         body+='<h2>'+titles[kind]+'</h2><div class="table"><table><thead><tr>'+''.join('<th>'+e(h)+'</th>' for h in headers[kind])+'</tr></thead><tbody>'
         body+=''.join('<tr>'+''.join('<td>'+e(v)+'</td>' for v in row)+'</tr>' for row in tables[kind])+'</tbody></table></div>'
     body+='<h2>GPU throughput and cost</h2><img src="gpu-comparison.svg" alt="GPU tokens and tokens per dollar" style="width:100%">'
+    if (ROOT/'results/wikipedia-gpus.svg').exists():
+        body+='<h2>Wikipedia GPU comparison</h2><img src="wikipedia-gpus.svg" alt="Measured Wikipedia tokens per dollar and loss on H100, H200 and B200" style="width:100%">'
+        md+='\n![Wikipedia GPU comparison](wikipedia-gpus.svg)\n'
     body+='<h2>Curves and selected examples</h2><p>First four examples per run, plus the first correction and regression when available. Complete predictions remain in the local run records.</p>'+''.join(details)
     md+='\n[Curves and selected literal before/after answers](training-comparisons.html).\n'
     (ROOT/'results/training-comparisons.md').write_text(md)
@@ -252,6 +263,39 @@ def plot_gpus():
     save_svg(fig,'gpu-comparison.svg')
     fig.savefig(ROOT/'results/gpu-comparison.png',dpi=160)
     plt.close(fig)
+
+def plot_wikipedia_gpus():
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    rows=[]
+    for size in ('100m','300m'):
+        for gpu in ('H100','H200','B200'):
+            name=(f'night-1789685347749346000-{size}-batch64-context512' if gpu=='H100'
+                  else f'night-1789688810710019000-{size}-{gpu}-batch64')
+            path=ROOT/'runs'/name/'execution.json'
+            if not path.exists():return
+            r=json.loads(path.read_text())
+            rows.append(dict(run=name,size=size,gpu=gpu,actual_gpu=r['environment']['device'],
+                tokens=r['tokens_seen'],worker_usd=r['estimated_compute_usd'],
+                training_seconds=r['training_seconds'],compute_seconds=r['training_compute_seconds'],
+                test_loss=r['selected']['test']['loss_nats']))
+    fig,axes=plt.subplots(2,2,figsize=(11,7),layout='constrained')
+    for i,size in enumerate(('100m','300m')):
+        group=[r for r in rows if r['size']==size];labels=[r['gpu'] for r in group]
+        values=[r['tokens']/r['worker_usd']/1e6 for r in group]
+        bars=axes[i,0].bar(labels,values,color=['#487aa6','#6c9c72','#d67a2a'])
+        axes[i,0].bar_label(bars,fmt='%.0fM',padding=4)
+        axes[i,0].set(ylabel='Million tokens per worker dollar',ylim=(0,max(values)*1.2),title=('98M' if i==0 else '291M')+' parameters')
+        losses=[r['test_loss'] for r in group]
+        bars=axes[i,1].bar(labels,losses,color=['#487aa6','#6c9c72','#d67a2a'])
+        axes[i,1].bar_label(bars,labels=[f'{r["test_loss"]:.3f}\n${r["worker_usd"]:.2f}' for r in group],padding=4)
+        axes[i,1].set(ylabel='Selected test loss (lower is better)',ylim=(0,max(losses)*1.25))
+        for ax in axes[i]:ax.grid(axis='y',alpha=.2);ax.set_axisbelow(True)
+    fig.suptitle('Polish Wikipedia: ten-minute GPU comparisons\nBatch 64, context 512, compiled forward, AdamW LR 0.0006')
+    fig.supxlabel('Includes compilation inside training budget; worker cost includes loading/evaluation. One run per setting.',fontsize=9)
+    save_svg(fig,'wikipedia-gpus.svg');plt.close(fig)
+    (ROOT/'results/wikipedia-gpus.json').write_text(json.dumps(rows,indent=2)+'\n')
 
 
 # A compact comparison of the repeated, budget-sized exam recipes.
@@ -419,5 +463,6 @@ if __name__=='__main__':
     plot_scratch_exam()
     plot_stopping()
     plot_gpus()
+    plot_wikipedia_gpus()
     plot_exam()
     render()

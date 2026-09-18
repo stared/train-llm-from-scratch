@@ -112,6 +112,14 @@ class ScratchModelChecks(unittest.TestCase):
             self.assertEqual(mixed['source_exposures']['primary']['tokens'],mixed['tokens_seen']*3//4)
             self.assertEqual(mixed['source_exposures']['mixture']['tokens'],mixed['tokens_seen']//4)
             self.assertEqual(mixed['mixture_fraction'],.25)
+            with patch('train_scratch.time.monotonic',side_effect=itertools.count(0,2)), \
+                 patch('train_scratch.config_for',return_value=Config(vocab_size=4,width=16,layers=1,heads=2,hidden=32,context=256)), \
+                 patch.object(ScratchGPT,'generate',lambda self,ids,new_tokens:ids):
+                muon=run(data,Path(temp)/'muon',max_seconds=60,device='cpu',batch_size=8,optimizer_kind='muon')
+            self.assertLess(muon['final']['train']['loss_nats'],muon['before']['train']['loss_nats'])
+            saved=torch.load(Path(temp)/'muon/final.pt',weights_only=True)
+            self.assertEqual(len(saved['optimizer']['state']),4)  # Embedding and three RMS norms.
+            self.assertEqual(len(saved['matrix_optimizer']['state']),5)  # Attention and feed-forward matrices.
 
     def test_parameter_counts(self):
         for size,expected in [('10m',10244160),('30m',29893120)]:

@@ -5,6 +5,7 @@
 [GPU, model and post-training comparisons](training-comparisons.html).
 
 - [Wikipedia: training time, loss and cost](wikipedia-scaling.svg).
+- [Wikipedia: H100, H200 and B200](wikipedia-gpus.svg).
 - [Wikipedia to the Polish Driving Licence Exam](scratch-exam-comparison.svg).
 
 These files contain saved experiments, not freshly generated promises. Each comparison identifies the model, training data and evaluation setup.

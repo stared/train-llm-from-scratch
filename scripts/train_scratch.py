@@ -49,11 +49,12 @@ class ShuffledWindows:
                     context=self.context,draws=self.draws,passes=self.draws/self.windows)
 
 
-def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', batch_size=32, context_length=256, eval_interval=60, peak_lr=6e-4, warmup_steps=20, checkpoint_hook=None, research_limit_seconds=600, sampling_mode='uniform', mixture_dir=None, progress=None, compile_training=False,initial_checkpoint=None,mixture_fraction=.5):
+def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', batch_size=32, context_length=256, eval_interval=60, peak_lr=6e-4, warmup_steps=20, checkpoint_hook=None, research_limit_seconds=600, sampling_mode='uniform', mixture_dir=None, progress=None, compile_training=False,initial_checkpoint=None,mixture_fraction=.5,optimizer_kind='adamw'):
     if not 60<=max_seconds<=research_limit_seconds<=8400 or batch_size not in (8,16,32,64,128,256):
         raise ValueError('Invalid explicit time budget or batch size')
     if sampling_mode not in ('uniform','openings','mixed','mixed-uniform','shuffled'):
         raise ValueError('Unknown sampling mode')
+    if optimizer_kind not in ('adamw','muon'):raise ValueError('Unknown optimizer')
     if not 0<mixture_fraction<=1 or int(batch_size*mixture_fraction)<1:raise ValueError('Mixture must contain at least one sample per batch')
     if context_length not in (256,512,1024) or eval_interval<60 or warmup_steps<1 or not 0<peak_lr<=.002:
         raise ValueError('Invalid context/evaluation/learning-rate configuration')
@@ -102,10 +103,13 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
             raise ValueError('Continued pretraining requires the same tokenizer')
         model.load_state_dict(torch.load(initial_checkpoint,map_location=device,weights_only=True))
     parameters=sum(p.numel() for p in model.parameters())
-    decay=[p for p in model.parameters() if p.dim()>=2]
+    # Muon is a research comparison; tied embeddings and norms stay on AdamW.
+    matrices=[p for n,p in model.named_parameters() if p.dim()==2 and n!='embedding.weight']
+    decay=[p for n,p in model.named_parameters() if p.dim()>=2 and (optimizer_kind=='adamw' or n=='embedding.weight')]
     no_decay=[p for p in model.parameters() if p.dim()<2]
     optimizer=torch.optim.AdamW([{'params':decay,'weight_decay':.1},{'params':no_decay,'weight_decay':0.}],
         lr=peak_lr,betas=(.9,.95),fused=device=='cuda')
+    matrix_optimizer=torch.optim.Muon(matrices,lr=peak_lr,weight_decay=.1,adjust_lr_fn='match_rms_adamw') if optimizer_kind=='muon' else None
     rng=np.random.default_rng(seed)
     sampler=ShuffledWindows(len(arrays['train']),config.context,seed) if sampling_mode=='shuffled' else None
     eval_rng=np.random.default_rng(20260908)
@@ -155,6 +159,8 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
         budget_fraction=min(elapsed/max_seconds,1.)
         lr=peak_lr*min((step+1)/warmup_steps,1.)*(.1+.9*.5*(1+math.cos(math.pi*budget_fraction)))
         for group in optimizer.param_groups:group['lr']=lr
+        if matrix_optimizer:
+            for group in matrix_optimizer.param_groups:group['lr']=lr
         tick=time.monotonic()
         starts=sampler.next(batch_size) if sampler else rng.integers(0,len(arrays['train'])-config.context-1,size=batch_size)
         x,y=batch('train',starts)
@@ -167,10 +173,12 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
             ids=torch.from_numpy(block).to(device)
             x[:count]=ids[:,:-1];y[:count]=ids[:,1:]
         model.train();optimizer.zero_grad(set_to_none=True)
+        if matrix_optimizer:matrix_optimizer.zero_grad(set_to_none=True)
         with context():loss=train_forward(x,y)
         if not torch.isfinite(loss):raise RuntimeError('Nonfinite loss')
         loss.backward();norm=torch.nn.utils.clip_grad_norm_(model.parameters(),1.)
         optimizer.step()
+        if matrix_optimizer:matrix_optimizer.step()
         if device=='cuda':torch.cuda.synchronize()
         training_compute+=time.monotonic()-tick
         step+=1;tokens_seen+=batch_size*config.context
@@ -196,6 +204,7 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
     if progress: progress('Development loss', step, final['dev']['loss_nats'])
     if checkpoint_hook:checkpoint_hook(model,tokenizer,'final',step,training_seconds,out)
     torch.save(dict(model=model.state_dict(),optimizer=optimizer.state_dict(),config=asdict(config),step=step,
+        matrix_optimizer=matrix_optimizer.state_dict() if matrix_optimizer else None,
         numpy_rng=rng.bit_generator.state,torch_rng=torch.get_rng_state(),
         sampler_state=sampler.state() if sampler else None,
         cuda_rng=torch.cuda.get_rng_state() if device=='cuda' else None),out/'final.pt')
@@ -217,6 +226,7 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
         environment=dict(torch=torch.__version__,numpy=np.__version__,tokenizers=importlib.metadata.version('tokenizers'),
                          device=torch.cuda.get_device_name() if device=='cuda' else 'CPU',precision='BF16 autocast with FP32 weights' if device=='cuda' else 'FP32'),
         parameters=parameters,seed=seed,source=source_label,source_exposures=exposures,sampler_state=sampler.state() if sampler else None,
+        optimizer_kind=optimizer_kind,muon_adjust_lr='match_rms_adamw' if matrix_optimizer else None,
         data=metadata,generation_prompts=generation_prompts,before=before,final=final,selected=selected,best_step=best_step,steps=step,
         tokens_seen=tokens_seen,training_pool_tokens=len(arrays['train']),
         exposure_ratio=tokens_seen/len(arrays['train']),sampling=sampling_mode,mixture_dir=Path(mixture_dir).name if mixture_dir else None,mixture_fraction=secondary_count/batch_size,

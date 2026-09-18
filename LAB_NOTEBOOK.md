@@ -847,3 +847,56 @@ Literal final answers from the 291M Wikipedia → 99k paragraph SFT → short-an
 Useful narrow demonstration, not a general assistant. AU tests random initialization versus only ten minutes of Wikipedia pretraining, with the same short-answer data and a 30-pass cap, to check how much pretraining contributes. Learning rates are 3e-4 random / 3e-5 pretrained; maximum 20 minutes per worker. AP/AN/AS saved-metric audits all pass.
 
 AT compares H200 and B200 against the existing H100 ten-minute controls at batch 64. Pricing checked against Modal's official page: H100 $0.001097/s, H200 $0.001261/s, B200 $0.001736/s before CPU/memory. Reports now distinguish requested GPU price from actual hardware: Modal can upgrade an H100 request to H200 at H100 pricing. Two AN workers received that upgrade. No B300 request: the installed CUDA build does not meet its documented requirement.
+
+### GPU results and the next controlled comparisons
+
+AT completed with the requested H200/B200 hardware. Same 10-minute budget, batch 64, context 512, compiled forward and LR 0.0006. H100 controls are AE. Compilation is inside the training budget; evaluation/loading are included in worker cost.
+
+| Parameters | GPU | Tokens, millions | Test loss, 16k pool | Worker USD |
+|---|---|---|---|---|
+|98M|H100|297.8|1.6104|0.788|
+|98M|H200|327.9|1.5901|0.872|
+|98M|B200|566.8|1.4920|1.144|
+|291M|H100|101.2|1.7511|0.813|
+|291M|H200|87.5|1.8066|0.981|
+|291M|B200|213.4|1.5710|1.172|
+
+B200 is worth a longer test for this implementation. AW runs 98M, 291M and wide100M for 5,000 seconds each on B200. Timeout is training budget +500 seconds, so each worker is bounded at $9.88746 including configured CPU/memory. It records ordinary loss checkpoints; separate final evaluations will compare the same common corpora. Existing 8,000-second H100 jobs retain their 8,500-second timeout.
+
+AV measured final weights after AI's 50% clean-lead continued pretraining. 291M preserves original Wikipedia test loss approximately (1.2463→1.2447 on the 1M pool) while improving clean-lead loss 2.4244→1.9539. The raw-only continuation instead gets 1.2015/2.3653: a data-distribution tradeoff. 98M mixed final scores 1.2852/2.0056 versus raw-only continuation 1.2223/2.4218. Raw-dev selection can choose the initial checkpoint and hide the clean-text improvement. Free continuations still invent facts and can loop; the candidate-preference diagnostic is not a substitute for reading them.
+
+Preparing `wiki-plain-full-v1` remotely, using full article bodies rather than only introductions. Same tokenizer, original article splits, corrected reference removal and cross-split exact cleaned-text deduplication. This separates corpus-size effects from markup effects. Original-markup data remains the primary comparison. CPU preparation is bounded at two hours and under $2 with non-preemptible CPU pricing.
+
+AX tests PyTorch Muon on hidden matrices, with AdamW retained for the tied embedding/output matrix and RMS norms. Uses `match_rms_adamw` learning-rate scaling from the [PyTorch Muon documentation](https://docs.pytorch.org/docs/2.14/generated/torch.optim.Muon.html). Three 98M learning rates (0.0003/0.0006/0.0012) and a 291M 0.0006 control, ten minutes each. CPU checks exercise loss reduction and verify that all five block matrices and four embedding/norm parameters have the intended saved optimizer state. Default workshop optimizer remains AdamW pending measured results.
+
+### Is the 8k vocabulary too sparse?
+
+Counted the actual prepared training tokens, verifying corpus and tokenizer SHA256 hashes. Reproduce with `uv run additional/scripts/token_frequency.py datasets/local/wiki-scratch-v1 datasets/local/wl-scratch-v1 --output results/token-frequency.json`.
+
+| Corpus | Training tokens | Unused vocabulary entries | Entries seen fewer than 100 times | Median occurrences per entry |
+|---|---|---|---|---|
+|Wikipedia|3,140,443,962|49/8,192|67/8,192|91,848|
+|Wolne Lektury, shared Wikipedia tokenizer|101,330,998|645/8,192|2,391/8,192|741|
+
+No evidence that 8k is broadly too large for this Wikipedia corpus: 90% of entries occur at least about 31k times. Counts are full-corpus availability, not how often a short training run actually samples each token. The literature corpus has a larger unused/rare tail, including Wikipedia markup and foreign-name fragments; a domain-specific tokenizer could improve efficiency there. These counts alone do not establish an optimal vocabulary size.
+
+### Pretraining, memorization and question wording
+
+AU completed 30 mean presentations per short-definition fact in all four controls. AY evaluated the frozen reworded questions; BE used the same facts with their original training questions. Final weights, greedy decoding, identical exact-match normalization. These probe IDs identify training facts; neither column is an unseen-knowledge benchmark.
+
+| Model before short-answer SFT | Original training wording, /100 | New wording, /100 |
+|---|---|---|
+|98M random weights|58|2|
+|98M after 10min Wikipedia pretraining|98|29|
+|291M random weights|36|1|
+|291M after 10min Wikipedia pretraining|98|20|
+
+Random models used LR 0.0003 and pretrained models 0.00003; this is a comparison of these recipes, not a claim that random-initialization SFT was exhaustively tuned. All four saved-metric audits pass. The test contains 98 distinct normalized answers among 100 facts. Always predicting the most common training answer (“Powiat w Polsce.”) scores 1/100; the training set has 7,239 distinct answers among 8,912 facts.
+
+Pretraining helps both fitting and handling new wording, but the remaining gap is substantial. Prepared an eight-wording variant of the same facts: original question plus seven hand-written Polish templates, unchanged answers, unchanged held-out article rows. None of the frozen probe questions appears verbatim in it; all pairs fit the smallest 256-token context. 71,296 rows ×3.75 passes gives the same 30 mean presentations per fact. This tests whether more varied SFT inputs improve robustness without buying more pretraining. Dataset construction: `additional/scripts/augment_wiki_questions.py`.
+
+AX's ten-minute Muon pilot: 98M LR 0.0003/0.0006/0.0012 gives test loss 1.6749/1.6095/1.5773, processing 249–254M tokens for about $0.77 each. AdamW LR 0.0006 processed 298M and scored 1.6104. Muon improves loss per token here but is slower; its best pilot also used a higher LR. 291M Muon LR 0.0006 scores 1.7714 versus AdamW 1.7511. BD checks an AdamW higher-LR control, higher Muon rates and B200 before attributing gains to the optimizer.
+
+The full-prose preparation was initially serial and was stopped after roughly 50k retained training articles because projected throughput was poor. Restarted with six parsing processes on eight CPU cores, bounded prefetch and a two-hour limit. A local Python 3.14 fixture verifies output order and identical serial/parallel cleaning. Remote dev/test hashes match the serial pass exactly. The ledger retains the canceled call's allowance; total CPU-preparation reserve is $6, including earlier work. BC waits on CPU for the completed dataset manifest before allocating GPUs: fresh 98M/291M on B200 for 5,000s, plus a 98M raw-Wikipedia→full-prose 3,000s continuation. Dataset waiting and model-dependency waiting both respect controller and overnight deadlines.
+
+AZ/BA/BB are detached follow-up evaluations for all nine long raw/mixture/shuffled/B200 runs. They wait for saved weights on CPU, then record fixed million-token pools and literal generations. A disconnected laptop does not prevent those evaluations from finishing.

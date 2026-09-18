@@ -1,0 +1,66 @@
+[
+  {
+    "tag": "100m-random-short-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789689411690422000-100m-random-short-qa",
+    "depends_on": [
+      "night-1789689411690422000-100m-random-short-qa"
+    ],
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "100m-10min-short-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789689411690422000-100m-10min-short-qa",
+    "depends_on": [
+      "night-1789689411690422000-100m-10min-short-qa"
+    ],
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "300m-random-short-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789689411690422000-300m-random-short-qa",
+    "depends_on": [
+      "night-1789689411690422000-300m-random-short-qa"
+    ],
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  },
+  {
+    "tag": "300m-10min-short-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789689411690422000-300m-10min-short-qa",
+    "depends_on": [
+      "night-1789689411690422000-300m-10min-short-qa"
+    ],
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2"
+    ]
+  }
+]

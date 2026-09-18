@@ -1,0 +1,34 @@
+[
+  {
+    "tag": "100m-shuffled",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789687464977579000-100m-shuffled-8000s",
+    "depends_on": [
+      "night-1789687464977579000-100m-shuffled-8000s"
+    ],
+    "dependency_wait_seconds": 7200,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "300m-shuffled",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789687464977579000-300m-shuffled-8000s",
+    "depends_on": [
+      "night-1789687464977579000-300m-shuffled-8000s"
+    ],
+    "dependency_wait_seconds": 7200,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  }
+]

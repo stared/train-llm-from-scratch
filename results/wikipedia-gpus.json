@@ -1,0 +1,68 @@
+[
+  {
+    "run": "night-1789685347749346000-100m-batch64-context512",
+    "size": "100m",
+    "gpu": "H100",
+    "actual_gpu": "NVIDIA H100 80GB HBM3",
+    "tokens": 297795584,
+    "worker_usd": 0.7882540888572365,
+    "training_seconds": 600.038931273,
+    "compute_seconds": 565.2550120640049,
+    "test_loss": 1.6103729903697968
+  },
+  {
+    "run": "night-1789688810710019000-100m-H200-batch64",
+    "size": "100m",
+    "gpu": "H200",
+    "actual_gpu": "NVIDIA H200",
+    "tokens": 327909376,
+    "worker_usd": 0.8717343701468404,
+    "training_seconds": 600.019128898,
+    "compute_seconds": 568.3592487230059,
+    "test_loss": 1.5900555402040482
+  },
+  {
+    "run": "night-1789688810710019000-100m-B200-batch64",
+    "size": "100m",
+    "gpu": "B200",
+    "actual_gpu": "NVIDIA B200",
+    "tokens": 566820864,
+    "worker_usd": 1.144165035818696,
+    "training_seconds": 600.012969434,
+    "compute_seconds": 582.5818471190023,
+    "test_loss": 1.4920196682214737
+  },
+  {
+    "run": "night-1789685347749346000-300m-batch64-context512",
+    "size": "300m",
+    "gpu": "H100",
+    "actual_gpu": "NVIDIA H100 80GB HBM3",
+    "tokens": 101154816,
+    "worker_usd": 0.8129736843748014,
+    "training_seconds": 600.0515314700001,
+    "compute_seconds": 527.7150008909988,
+    "test_loss": 1.7511004507541656
+  },
+  {
+    "run": "night-1789688810710019000-300m-H200-batch64",
+    "size": "300m",
+    "gpu": "H200",
+    "actual_gpu": "NVIDIA H200",
+    "tokens": 87523328,
+    "worker_usd": 0.9808702972177882,
+    "training_seconds": 600.062938548,
+    "compute_seconds": 487.01868074500453,
+    "test_loss": 1.806638464331627
+  },
+  {
+    "run": "night-1789688810710019000-300m-B200-batch64",
+    "size": "300m",
+    "gpu": "B200",
+    "actual_gpu": "NVIDIA B200",
+    "tokens": 213385216,
+    "worker_usd": 1.1724247514276762,
+    "training_seconds": 600.0289618950001,
+    "compute_seconds": 568.3096554169998,
+    "test_loss": 1.5710440576076508
+  }
+]
