@@ -8,9 +8,9 @@ Costs are worker GPU + CPU/memory estimates, excluding image builds, controller 
 
 Failed/canceled calls recorded: 14; known worker estimates $0.042. Canceled calls with unknown billing retain conservative timeout reservations in the local budget ledger; they are not counted as free.
 
-Completed workers: 79 pretraining, 162 post-training, 106 evaluation only. These are runs, not distinct model architectures.
+Completed workers: 81 pretraining, 162 post-training, 108 evaluation only. These are runs, not distinct model architectures.
 
-Worker compute in this report: $254.724.
+Worker compute in this report: $273.178.
 
 ## What changed
 
@@ -25,6 +25,7 @@ Worker compute in this report: $254.724.
 - Another fifty minutes improved all four Wikipedia checkpoints. On the separate million-token test pool, 98M improved 1.303→1.241 from the fifty-minute base; 291M improved 1.328→1.249. The older 133-minute bases improved 1.265→1.222 and 1.246→1.201. Extra worker cost: $3.55–3.62 each. Driving-exam transfer did not improve consistently.
 - Short-definition SFT produces a visible narrow result: the historical 291M Wikipedia model recalls 72/100 known definitions after single-wording SFT versus 93/100 after eight-wording SFT, with 30 presentations per fact in both. It still fails arithmetic and general instructions. This is recall of supplied facts, not an unseen-knowledge benchmark.
 - The first seven fresh raw-Wikipedia candidates near $10 were compared using the same million-token development pool. They selected the 291M B200 run: 83 minutes, $9.13, test loss1.184. Its generated facts remain unreliable. Downstream exam scores also do not beat the earlier checkpoint: SFT21–26/40, three-action SFT+KL25–26/40, RLVR21–23/40 across three seeds.
+- Two further 83-minute B200 runs did not beat that selection: raising peak LR to0.0006 for291M gives test loss1.190 ($9.19), and to0.0012 for98M gives1.249 ($9.10). The original291M recipe remains best on development loss among all nine raw-Wikipedia candidates. These new runs include extra diagnostics, so they are equal-time recipe comparisons rather than a perfectly isolated learning-rate ablation.
 - B200 processed 567M tokens for $1.14 with 98M parameters in ten minutes, versus 298M for $0.79 on H100 and 328M for $0.87 on H200, at batch64/context512. Hardware and compilation startup matter; token throughput alone is not model quality.
 - On a fresh, frozen 200-question wording audit, all three 291M bases went from 0 exact answers to 190/200 (both markup models) or 197/200 (prose) after definition SFT. Answers were supplied during SFT; this measures known-fact recall under new wording, not unseen knowledge. The older-versus-newer markup gap on the original probes did not repeat.
 - General Polish instruction SFT did not consistently help the prose-model driving comparison across three seeds: direct SFT24–28/40 versus instruction→SFT23–26/40; direct RLVR24/40 versus instruction→RLVR21–24/40. Rotating options lowers these scores. General instruction probes still fail arithmetic, copying and reading comprehension.
@@ -130,6 +131,8 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |ScratchGPT-100m|wiki-scratch-v1|512|H100|10.0|9.174 → 1.582|307.0|0.10|406.9|$0.754|
 |ScratchGPT-100m [Muon]|wiki-scratch-v1|512|H100|10.0|9.174 → 1.591|251.1|0.08|327.0|$0.768|
 |ScratchGPT-300m [Muon]|wiki-scratch-v1|512|H100|10.0|9.210 → 1.801|71.9|0.02|85.0|$0.846|
+|ScratchGPT-100m|wiki-scratch-v1|512|B200|83.3|9.174 → 1.275|4881.9|1.55|536.2|$9.104|
+|ScratchGPT-300m|wiki-scratch-v1|512|B200|83.3|9.210 → 1.215|1854.4|0.59|201.7|$9.194|
 
 ## Driving exam: existing models
 
@@ -413,6 +416,8 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |night-1789692884416637000-wiki30-varied-qa|wiki-qa|—|—|—|—|8/10|7/10|$0.020|
 |night-1789692884416637000-wl30-varied-qa|wiki-qa|—|—|—|—|7/10|6/10|$0.022|
 |night-1789694072817506000-300m-8000s-single-30passes|wiki-qa|—|—|—|—|9/10|7/10|$0.061|
+|night-1789695054599616000-100m-B200-higher-lr|pretraining|1.275|—|—|2.417|7/10|7/10|$0.058|
+|night-1789695054599616000-300m-B200-higher-lr|pretraining|1.215|—|—|2.347|7/10|6/10|$0.098|
 |night-1789696207346333000-291m-prose-instruction|instruction|—|—|—|—|6/10|5/10|$0.052|
 |night-1789696207346333000-291m-prose-varied|wiki-qa|—|—|—|—|7/10|8/10|$0.054|
 |night-1789696207346333000-291m-raw-best-varied|wiki-qa|—|—|—|—|8/10|7/10|$0.057|
@@ -485,6 +490,8 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |night-1789690708055537000-100m-plain-full-5000s|best.pt|3.9502|1.9473|1.9244|3.7847|1,048,576|
 |night-1789690708055537000-100m-raw-to-plain-full-3000s|best.pt|3.7236|1.9687|1.9507|3.8361|1,048,576|
 |night-1789690708055537000-300m-plain-full-5000s|best.pt|3.8606|1.8826|1.8604|3.7287|1,048,576|
+|night-1789695054599616000-100m-B200-higher-lr|best.pt|1.2487|2.4159|—|3.5157|1,048,576|
+|night-1789695054599616000-300m-B200-higher-lr|best.pt|1.1896|2.3333|—|3.4371|1,048,576|
 
 ## Short-answer recall of facts from training
 
