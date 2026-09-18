@@ -8,9 +8,9 @@ Costs are worker GPU + CPU/memory estimates, excluding image builds, controller 
 
 Failed/canceled calls recorded: 14; known worker estimates $0.042. Canceled calls with unknown billing retain conservative timeout reservations in the local budget ledger; they are not counted as free.
 
-Completed workers: 77 pretraining, 146 post-training, 93 evaluation only. These are runs, not distinct model architectures.
+Completed workers: 79 pretraining, 162 post-training, 106 evaluation only. These are runs, not distinct model architectures.
 
-Worker compute in this report: $230.764.
+Worker compute in this report: $254.724.
 
 ## What changed
 
@@ -24,9 +24,10 @@ Worker compute in this report: $230.764.
 - Original-markup Wikipedia 98M test loss improved from 1.619 at ten minutes to 1.426 at thirty and 1.339 at fifty ($3.56 worker compute). The older 133-minute recipe reached 1.301. Schedules and batches differ; loss gains continue, but generated facts remain unreliable.
 - Another fifty minutes improved all four Wikipedia checkpoints. On the separate million-token test pool, 98M improved 1.303→1.241 from the fifty-minute base; 291M improved 1.328→1.249. The older 133-minute bases improved 1.265→1.222 and 1.246→1.201. Extra worker cost: $3.55–3.62 each. Driving-exam transfer did not improve consistently.
 - Short-definition SFT produces a visible narrow result: the historical 291M Wikipedia model recalls 72/100 known definitions after single-wording SFT versus 93/100 after eight-wording SFT, with 30 presentations per fact in both. It still fails arithmetic and general instructions. This is recall of supplied facts, not an unseen-knowledge benchmark.
-- Seven fresh raw-Wikipedia candidates near $10 were compared using the same million-token development pool. The 291M B200 run leads: 83 minutes, $9.13, test loss1.184. Its generated facts remain unreliable. Downstream exam scores also do not beat the earlier checkpoint: SFT21–26/40, three-action SFT+KL25–26/40, RLVR21–23/40 across three seeds.
+- The first seven fresh raw-Wikipedia candidates near $10 were compared using the same million-token development pool. They selected the 291M B200 run: 83 minutes, $9.13, test loss1.184. Its generated facts remain unreliable. Downstream exam scores also do not beat the earlier checkpoint: SFT21–26/40, three-action SFT+KL25–26/40, RLVR21–23/40 across three seeds.
 - B200 processed 567M tokens for $1.14 with 98M parameters in ten minutes, versus 298M for $0.79 on H100 and 328M for $0.87 on H200, at batch64/context512. Hardware and compilation startup matter; token throughput alone is not model quality.
-- A general Polish instruction stage did not improve the first matched scratch-model driving comparison: 291M direct SFT scored 25/40 versus 19/40 after instruction SFT. Treat instruction formatting and task competence as separate measurements.
+- On a fresh, frozen 200-question wording audit, all three 291M bases went from 0 exact answers to 190/200 (both markup models) or 197/200 (prose) after definition SFT. Answers were supplied during SFT; this measures known-fact recall under new wording, not unseen knowledge. The older-versus-newer markup gap on the original probes did not repeat.
+- General Polish instruction SFT did not consistently help the prose-model driving comparison across three seeds: direct SFT24–28/40 versus instruction→SFT23–26/40; direct RLVR24/40 versus instruction→RLVR21–24/40. Rotating options lowers these scores. General instruction probes still fail arithmetic, copying and reading comprehension.
 
 ![Repeated driving-exam runs](exam-comparison.svg)
 
@@ -35,6 +36,10 @@ Worker compute in this report: $230.764.
 ![Latest Wikipedia checkpoint: exam transfer](scratch-exam-transfer.svg)
 
 ![Known-fact recall and SFT question wording](wiki-qa-recall.svg)
+
+![Fresh before/after definition audit](wiki-qa-fresh-audit.svg)
+
+[Model, data, costs and literal answers](wiki-qa-example-results.md).
 
 ![Development curves: selected and final checkpoints](checkpoint-selection.svg)
 
@@ -118,7 +123,9 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |ScratchGPT-100m [Muon]|wiki-scratch-v1|512|H100|10.0|9.174 → 1.610|249.6|0.08|323.9|$0.771|
 |ScratchGPT-100m [Muon]|wiki-scratch-v1|512|H100|10.0|9.174 → 1.577|253.9|0.08|329.3|$0.771|
 |ScratchGPT-300m [Muon]|wiki-scratch-v1|512|H100|10.0|9.210 → 1.771|85.5|0.03|105.9|$0.807|
+|ScratchGPT-100m|wiki-plain-full-v1|512|B200|83.3|9.171 → 1.978|5067.9|4.69|559.6|$9.056|
 |ScratchGPT-100m (continued)|wiki-plain-full-v1|512|B200|50.0|2.771 → 2.008|3032.4|2.80|555.3|$5.461|
+|ScratchGPT-300m|wiki-plain-full-v1|512|B200|83.3|9.208 → 1.912|1984.7|1.84|218.4|$9.086|
 |ScratchGPT-100m [Muon]|wiki-scratch-v1|512|B200|10.0|9.174 → 1.475|475.9|0.15|418.2|$1.138|
 |ScratchGPT-100m|wiki-scratch-v1|512|H100|10.0|9.174 → 1.582|307.0|0.10|406.9|$0.754|
 |ScratchGPT-100m [Muon]|wiki-scratch-v1|512|H100|10.0|9.174 → 1.591|251.1|0.08|327.0|$0.768|
@@ -276,12 +283,28 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |291.0M Polish Wikipedia|pretrained|289 driving questions|sft (3-action CE + KL)|1e-06|15 → 25|1.8|$0.163|
 |291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|15 → 21|2.0|$0.179|
 |291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|15 → 26|1.4|$0.138|
+|291.0M Polish Wikipedia|pretrained|Polish OWCA instructions|sft|3e-05|2.431 → 1.717|5.7|$0.474|
+|291.0M Polish Wikipedia|pretrained|71,296 QA rows / 8,912 facts|sft|3e-05|3.538 → 1.206|10.5|$0.782|
+|291.0M Polish Wikipedia|pretrained|71,296 QA rows / 8,912 facts|sft|3e-05|3.818 → 1.346|13.6|$1.011|
+|98.3M Polish Wikipedia|pretrained|71,296 QA rows / 8,912 facts|sft|3e-05|3.716 → 1.244|7.3|$0.551|
 |291.0M Polish Wikipedia|pretrained|289 driving questions|sft (3-action CE + KL)|1e-06|15 → 26|2.1|$0.190|
 |291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|15 → 23|2.0|$0.184|
 |291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|15 → 22|1.8|$0.171|
 |291.0M Polish Wikipedia|pretrained|289 driving questions|sft (3-action CE + KL)|1e-06|15 → 25|1.9|$0.176|
 |291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|15 → 21|2.3|$0.211|
 |291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|15 → 21|1.5|$0.148|
+|291.0M Polish Wikipedia + 25,874 examples of OWCA instruction SFT|pretrained|289 driving questions|rlvr|1e-06|12 → 21|1.7|$0.153|
+|291.0M Polish Wikipedia + 25,874 examples of OWCA instruction SFT|pretrained|289 driving questions|sft|1e-06|12 → 26|1.4|$0.134|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|15 → 24|1.6|$0.151|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|15 → 28|1.4|$0.135|
+|291.0M Polish Wikipedia + 25,874 examples of OWCA instruction SFT|pretrained|289 driving questions|rlvr|1e-06|12 → 21|1.8|$0.168|
+|291.0M Polish Wikipedia + 25,874 examples of OWCA instruction SFT|pretrained|289 driving questions|sft|1e-06|12 → 25|1.7|$0.168|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|15 → 24|2.1|$0.195|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|15 → 24|1.4|$0.133|
+|291.0M Polish Wikipedia + 25,874 examples of OWCA instruction SFT|pretrained|289 driving questions|rlvr|1e-06|12 → 24|2.2|$0.199|
+|291.0M Polish Wikipedia + 25,874 examples of OWCA instruction SFT|pretrained|289 driving questions|sft|1e-06|12 → 23|1.9|$0.185|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|15 → 24|2.3|$0.207|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|15 → 24|1.8|$0.176|
 
 ## Driving exam: explanation prompt, final-answer RLVR
 
@@ -384,9 +407,22 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |night-1789691613092240000-100m-random-varied-qa|wiki-qa|—|—|—|—|3/10|5/10|$0.022|
 |night-1789691613092240000-300m-10min-varied-qa|wiki-qa|—|—|—|—|7/10|7/10|$0.068|
 |night-1789691613092240000-300m-8000s-varied-qa|wiki-qa|—|—|—|—|8/10|7/10|$0.034|
+|night-1789690708055537000-100m-plain-full-5000s|pretraining|3.990|—|—|1.970|8/10|7/10|$0.057|
+|night-1789690708055537000-100m-raw-to-plain-full-3000s|pretraining|3.775|—|—|1.991|8/10|7/10|$0.045|
+|night-1789690708055537000-300m-plain-full-5000s|pretraining|3.909|—|—|1.895|6/10|6/10|$0.108|
 |night-1789692884416637000-wiki30-varied-qa|wiki-qa|—|—|—|—|8/10|7/10|$0.020|
 |night-1789692884416637000-wl30-varied-qa|wiki-qa|—|—|—|—|7/10|6/10|$0.022|
 |night-1789694072817506000-300m-8000s-single-30passes|wiki-qa|—|—|—|—|9/10|7/10|$0.061|
+|night-1789696207346333000-291m-prose-instruction|instruction|—|—|—|—|6/10|5/10|$0.052|
+|night-1789696207346333000-291m-prose-varied|wiki-qa|—|—|—|—|7/10|8/10|$0.054|
+|night-1789696207346333000-291m-raw-best-varied|wiki-qa|—|—|—|—|8/10|7/10|$0.057|
+|night-1789696207346333000-98m-prose-varied|wiki-qa|—|—|—|—|7/10|7/10|$0.032|
+|night-1789691613092240000-300m-8000s-varied-qa|wiki-qa|—|—|—|—|8/10|7/10|$0.058|
+|night-1789696207346333000-291m-prose-varied|wiki-qa|—|—|—|—|7/10|8/10|$0.056|
+|night-1789696207346333000-291m-raw-best-varied|wiki-qa|—|—|—|—|8/10|7/10|$0.058|
+|scratch-polish-dollar-1788900395083493729-wiki-300-uniform|pretraining|—|—|—|—|7/10|6/10|$0.200|
+|night-1789690708055537000-300m-plain-full-5000s|pretraining|—|—|—|—|6/10|6/10|$0.109|
+|night-1789689694697165000-300m-B200-5000s|pretraining|—|—|—|—|6/10|5/10|$0.109|
 
 ## Larger held-out evaluations (1M-token pools)
 
@@ -446,6 +482,9 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |night-1789689694697165000-100m-B200-5000s|best.pt|1.2213|2.4035|—|3.4964|1,048,576|
 |night-1789689694697165000-100m-wide-B200-5000s|best.pt|1.2280|2.4311|—|3.5171|1,048,576|
 |night-1789689694697165000-300m-B200-5000s|best.pt|1.1838|2.3250|—|3.4375|1,048,576|
+|night-1789690708055537000-100m-plain-full-5000s|best.pt|3.9502|1.9473|1.9244|3.7847|1,048,576|
+|night-1789690708055537000-100m-raw-to-plain-full-3000s|best.pt|3.7236|1.9687|1.9507|3.8361|1,048,576|
+|night-1789690708055537000-300m-plain-full-5000s|best.pt|3.8606|1.8826|1.8604|3.7287|1,048,576|
 
 ## Short-answer recall of facts from training
 
@@ -478,6 +517,15 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |night-1789692884416637000-wiki30-varied-qa|sft-final.pt|unseen prompt templates|38/100|36/100|
 |night-1789692884416637000-wl30-varied-qa|sft-final.pt|unseen prompt templates|51/100|53/100|
 |night-1789694072817506000-300m-8000s-single-30passes|sft-final.pt|unseen prompt templates|64/100|72/100|
+|night-1789696207346333000-291m-prose-varied|sft-final.pt|unseen prompt templates|90/100|89/100|
+|night-1789696207346333000-291m-raw-best-varied|sft-final.pt|unseen prompt templates|81/100|86/100|
+|night-1789696207346333000-98m-prose-varied|sft-final.pt|unseen prompt templates|88/100|91/100|
+|night-1789691613092240000-300m-8000s-varied-qa|sft-final.pt|fresh wording audit; neither half used for selection|96/100|94/100|
+|night-1789696207346333000-291m-prose-varied|sft-final.pt|fresh wording audit; neither half used for selection|99/100|98/100|
+|night-1789696207346333000-291m-raw-best-varied|sft-final.pt|fresh wording audit; neither half used for selection|95/100|95/100|
+|scratch-polish-dollar-1788900395083493729-wiki-300-uniform|best.pt|fresh wording audit; neither half used for selection|0/100|0/100|
+|night-1789690708055537000-300m-plain-full-5000s|best.pt|fresh wording audit; neither half used for selection|0/100|0/100|
+|night-1789689694697165000-300m-B200-5000s|best.pt|fresh wording audit; neither half used for selection|0/100|0/100|
 
 ![Wikipedia GPU comparison](wikipedia-gpus.svg)
 

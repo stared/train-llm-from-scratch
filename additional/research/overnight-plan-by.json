@@ -1,0 +1,35 @@
+[
+  {
+    "tag": "historical-291m-before",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "worker_timeout_seconds": 900,
+    "checkpoint": "best.pt",
+    "known_facts": true,
+    "known_probe_file": "known-audit.json",
+    "corpora": []
+  },
+  {
+    "tag": "raw-291m-before",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789689694697165000-300m-B200-5000s",
+    "worker_timeout_seconds": 900,
+    "checkpoint": "best.pt",
+    "known_facts": true,
+    "known_probe_file": "known-audit.json",
+    "corpora": []
+  },
+  {
+    "tag": "prose-291m-before",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789690708055537000-300m-plain-full-5000s",
+    "worker_timeout_seconds": 900,
+    "checkpoint": "best.pt",
+    "known_facts": true,
+    "known_probe_file": "known-audit.json",
+    "corpora": []
+  }
+]

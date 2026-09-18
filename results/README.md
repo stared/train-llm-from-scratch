@@ -10,6 +10,7 @@
 - [Wikipedia to the Polish Driving Licence Exam](scratch-exam-comparison.svg).
 - [Longer Wikipedia pretraining: exam transfer across three seeds](scratch-exam-transfer.svg).
 - [Wikipedia definitions: pretraining and question wording](wiki-qa-recall.svg).
+- [Wikipedia definitions: fresh before/after SFT audit and example answers](wiki-qa-example-results.md).
 
 These files contain saved experiments, not freshly generated promises. Each comparison identifies the model, training data and evaluation setup.
 

@@ -89,8 +89,15 @@ def render():
             if known:
                 tables['known'].append([r['base_run'],r['checkpoint'],known.get('prompt_condition','unseen prompt templates')]+[f"{known[s]['correct']}/{known[s]['n']}" for s in ('dev','test')])
                 examples+='<p><strong>Known-fact probes:</strong> '+e(known['meaning'])+'.</p>'
-                for row in json.loads((folder/'known_facts.json').read_text())['test'][:4]:
-                    examples+='<h4>'+e(row['prompt'])+'</h4><pre>'+e(row['text'])+'</pre><p>Source-derived reference: '+e(row['answer'])+'</p>'
+                probe_rows=json.loads((folder/'known_facts.json').read_text())['test']
+                indices=list(range(min(4,len(probe_rows))))
+                mismatch=next((i for i,row in enumerate(probe_rows) if not row['exact']),None)
+                if mismatch is not None and mismatch not in indices:indices.append(mismatch)
+                examples+='<p>First four probes and first exact-match failure, if different. Exact matching can reject correct paraphrases.</p>'
+                for i in indices:
+                    row=probe_rows[i]
+                    source=(' <a href="'+e(row['source_url'])+'">Wikipedia source</a>.') if row.get('source_url') else ''
+                    examples+='<h4>'+e(row['prompt'])+'</h4><pre>'+e(row['text'])+'</pre><p>Source-derived reference: '+e(row['answer'])+source+'</p>'
             for probe in r['instruction_probes']:
                 examples+='<h4>'+e(probe['prompt'])+'</h4><pre>'+e(probe['text'])+'</pre>'
                 if probe.get('reference') is not None:examples+='<p>Reference: '+e(probe['reference'])+'</p>'
@@ -170,9 +177,10 @@ Costs are worker GPU + CPU/memory estimates, excluding image builds, controller 
         'Original-markup Wikipedia 98M test loss improved from 1.619 at ten minutes to 1.426 at thirty and 1.339 at fifty ($3.56 worker compute). The older 133-minute recipe reached 1.301. Schedules and batches differ; loss gains continue, but generated facts remain unreliable.',
         'Another fifty minutes improved all four Wikipedia checkpoints. On the separate million-token test pool, 98M improved 1.303→1.241 from the fifty-minute base; 291M improved 1.328→1.249. The older 133-minute bases improved 1.265→1.222 and 1.246→1.201. Extra worker cost: $3.55–3.62 each. Driving-exam transfer did not improve consistently.',
         'Short-definition SFT produces a visible narrow result: the historical 291M Wikipedia model recalls 72/100 known definitions after single-wording SFT versus 93/100 after eight-wording SFT, with 30 presentations per fact in both. It still fails arithmetic and general instructions. This is recall of supplied facts, not an unseen-knowledge benchmark.',
-        'Seven fresh raw-Wikipedia candidates near $10 were compared using the same million-token development pool. The 291M B200 run leads: 83 minutes, $9.13, test loss1.184. Its generated facts remain unreliable. Downstream exam scores also do not beat the earlier checkpoint: SFT21–26/40, three-action SFT+KL25–26/40, RLVR21–23/40 across three seeds.',
+        'The first seven fresh raw-Wikipedia candidates near $10 were compared using the same million-token development pool. They selected the 291M B200 run: 83 minutes, $9.13, test loss1.184. Its generated facts remain unreliable. Downstream exam scores also do not beat the earlier checkpoint: SFT21–26/40, three-action SFT+KL25–26/40, RLVR21–23/40 across three seeds.',
         'B200 processed 567M tokens for $1.14 with 98M parameters in ten minutes, versus 298M for $0.79 on H100 and 328M for $0.87 on H200, at batch64/context512. Hardware and compilation startup matter; token throughput alone is not model quality.',
-        'A general Polish instruction stage did not improve the first matched scratch-model driving comparison: 291M direct SFT scored 25/40 versus 19/40 after instruction SFT. Treat instruction formatting and task competence as separate measurements.',
+        'On a fresh, frozen 200-question wording audit, all three 291M bases went from 0 exact answers to 190/200 (both markup models) or 197/200 (prose) after definition SFT. Answers were supplied during SFT; this measures known-fact recall under new wording, not unseen knowledge. The older-versus-newer markup gap on the original probes did not repeat.',
+        'General Polish instruction SFT did not consistently help the prose-model driving comparison across three seeds: direct SFT24–28/40 versus instruction→SFT23–26/40; direct RLVR24/40 versus instruction→RLVR21–24/40. Rotating options lowers these scores. General instruction probes still fail arithmetic, copying and reading comprehension.',
     ]
     failures={}
     for p in (ROOT/'runs').glob('night-*/manifest.json'):
@@ -200,6 +208,9 @@ Costs are worker GPU + CPU/memory estimates, excluding image builds, controller 
     if (ROOT/'results/wiki-qa-recall.svg').exists():
         body+='<h2>Pretraining and question wording</h2><img src="wiki-qa-recall.svg" alt="Known-fact recall after supervised training, comparing pretraining and question diversity" style="width:100%">'
         md+='\n![Known-fact recall and SFT question wording](wiki-qa-recall.svg)\n'
+    if (ROOT/'results/wiki-qa-fresh-audit.svg').exists():
+        body+='<h2>Fresh before/after definition audit</h2><img src="wiki-qa-fresh-audit.svg" alt="Matched fresh-question audit before and after definition SFT" style="width:100%"><p><a href="wiki-qa-example-results.md">Model, data, costs and literal example answers</a>.</p>'
+        md+='\n![Fresh before/after definition audit](wiki-qa-fresh-audit.svg)\n\n[Model, data, costs and literal answers](wiki-qa-example-results.md).\n'
     body+='<h2>Choosing a checkpoint</h2><img src="checkpoint-selection.svg" alt="Development curves with selected and final checkpoints" style="width:100%">'
     md+='\n![Development curves: selected and final checkpoints](checkpoint-selection.svg)\n'
     if (ROOT/'results/wikipedia-scaling.svg').exists():
@@ -427,7 +438,7 @@ def plot_wikipedia_scaling():
 def plot_long_wikipedia():
     """Fresh near-$10 raw-Wikipedia recipes, evaluated on one fixed pool."""
     import matplotlib.pyplot as plt
-    batches={'1789686602382545000','1789687464977579000','1789689694697165000'}
+    batches={'1789686602382545000','1789687464977579000','1789689694697165000','1789695054599616000'}
     evaluations={}
     for path in (ROOT/'runs').glob('night-*/execution.json'):
         result=json.loads(path.read_text())
@@ -444,8 +455,10 @@ def plot_long_wikipedia():
             label=f"{result['parameters']/1e6:.0f}M {spec['gpu']}"
             if 'wide' in spec['size']:label+=' wide'
             if spec.get('sampling')=='shuffled':label+=' shuffled'
+            if 'higher-lr' in spec['tag']:label+=f" LR {result['peak_lr']:g}"
             rows.append(dict(run=path.parent.name,evaluation=evaluation,label=label,
                 minutes=result['training_seconds']/60,worker_usd=result['estimated_compute_usd'],
+                peak_lr=result['peak_lr'],batch_size=result['batch_size'],context=result['config']['context'],
                 tokens=result['tokens_seen'],dev_loss=common['dev']['loss_nats'],test_loss=common['test']['loss_nats'],
                 checkpoints=json.loads((path.parent/'checkpoints.json').read_text())+[
                     dict(step=result['steps'],elapsed_seconds=result['training_seconds'],loss_nats=result['final']['dev']['loss_nats'])],
@@ -593,12 +606,82 @@ def plot_latest_exam_transfer():
     save_svg(fig,'scratch-exam-transfer.svg');plt.close(fig)
     (ROOT/'results/scratch-exam-transfer.json').write_text(json.dumps([r for rows in groups.values() for r in rows],indent=2)+'\n')
 
+
+def write_fresh_qa_results():
+    """Matched, frozen before/after audit; no checkpoint selected on these scores."""
+    import matplotlib.pyplot as plt
+    found={}
+    for path in (ROOT/'runs').glob('night-*/execution.json'):
+        status=path.parent/'fetch-status.json'
+        if status.exists() and json.loads(status.read_text())['state']!='complete':continue
+        r=json.loads(path.read_text());spec=r.get('spec',{})
+        if spec.get('known_probe_file')=='known-audit.json':found[spec['tag']]=(path.parent,r)
+    rows=[];pairs={}
+    for tag,label in [('historical-291m','Raw Wikipedia\n133min (earlier run)'),('raw-291m','Raw Wikipedia\n83min B200'),('prose-291m','Wikipedia prose\n83min B200')]:
+        if tag+'-before' not in found or tag+'-fresh-audit' not in found:return
+        before,after=found[tag+'-before'],found[tag+'-fresh-audit'];a,b=before[1],after[1]
+        assert a['known_fact_recall']['probes_sha256']==b['known_fact_recall']['probes_sha256']
+        assert all(sum(r['known_fact_recall'][s]['n'] for s in ('dev','test'))==200 for r in (a,b))
+        training=json.loads((ROOT/'runs'/b['base_run']/'execution.json').read_text())
+        assert training['base_run']==a['base_run']
+        assert abs(training['stages'][-1]['exposure_ratio']*8-30)<.01
+        pretraining=json.loads((ROOT/'runs'/a['base_run']/'execution.json').read_text())
+        old=json.loads((before[0]/'known_facts.json').read_text());new=json.loads((after[0]/'known_facts.json').read_text())
+        for split in ('dev','test'):assert [r['id'] for r in old[split]]==[r['id'] for r in new[split]]
+        pairs[tag]=(old,new)
+        rows.append(dict(label=label,pretraining_run=a['base_run'],sft_run=b['base_run'],
+            before_evaluation=before[0].name,after_evaluation=after[0].name,
+            before=sum(a['known_fact_recall'][s]['correct'] for s in ('dev','test')),
+            after=sum(b['known_fact_recall'][s]['correct'] for s in ('dev','test')),n=200,
+            pretraining_minutes=pretraining['training_seconds']/60,pretraining_worker_usd=pretraining['estimated_compute_usd'],
+            sft_minutes=training['stages'][-1]['training_seconds']/60,sft_worker_usd=training['estimated_compute_usd'],
+            audit_sha256=b['known_fact_recall']['probes_sha256']))
+    fig,ax=plt.subplots(figsize=(10,5),layout='constrained')
+    for key,shift,color in [('before',-.18,'#aaa'),('after',.18,'#487aa6')]:
+        bars=ax.bar([i+shift for i in range(3)],[r[key] for r in rows],width=.34,color=color,label='Before SFT' if key=='before' else 'After definition SFT')
+        ax.bar_label(bars,labels=[f"{r[key]}/200" for r in rows],padding=4)
+    ax.set(xticks=range(3),xticklabels=[r['label'] for r in rows],ylim=(0,220),ylabel='Exact answers / 200')
+    ax.legend();ax.grid(axis='y',alpha=.2);ax.set_axisbelow(True)
+    fig.suptitle('291M Wikipedia models learn to answer definition questions\n8,912 facts, eight training wordings, 30 presentations per fact')
+    fig.supxlabel('Fresh question forms and different training facts; neither audit half used for tuning. Known facts, not unseen knowledge.',fontsize=9)
+    save_svg(fig,'wiki-qa-fresh-audit.svg');plt.close(fig)
+    (ROOT/'results/wiki-qa-fresh-audit.json').write_text(json.dumps(rows,indent=2)+'\n')
+    focus=rows[1];old,new=pairs['raw-291m'];indices=[3]
+    first_failure=next((i for i,r in enumerate(new['test']) if not r['exact']),None)
+    if first_failure is not None and first_failure not in indices:indices.append(first_failure)
+    def cell(text,limit=None):
+        if limit:
+            excerpt=''.join(text.splitlines(keepends=True)[:4])[:limit]
+            if excerpt!=text:text=excerpt+'… [truncated]'
+        return escape(text,quote=False).replace('|','\\|').replace('\n','<br>')
+    lines=['# Wikipedia model: before and after question-answer SFT','',
+        '**Model:** ScratchGPT-300M (291M parameters), trained from random weights on Polish Wikipedia markup, then supervised fine-tuning (SFT) on 8,912 short definitions. Each fact has eight question forms and 30 training presentations.','',
+        f"Pretraining on B200: **{focus['pretraining_minutes']:.1f} min / ${focus['pretraining_worker_usd']:.2f}**. SFT on H100: **{focus['sft_minutes']:.1f} min / ${focus['sft_worker_usd']:.2f}**. Worker estimates; audit inference, controller and storage are separate.",'',
+        '## Fresh wording audit','',
+        'The same 200 questions before and after SFT. Ten fresh question forms and different facts from the earlier probes; all answers belong to the SFT training dataset. Neither half of this audit selected or tuned a checkpoint.','',
+        '| Pretraining | Before SFT | After SFT |','|---|---:|---:|']
+    lines += [f"| {r['label'].replace(chr(10),' / ')} | {r['before']}/200 | {r['after']}/200 |" for r in rows]
+    lines += ['', '![Fresh definition-question audit](wiki-qa-fresh-audit.svg)','',
+        '## Actual answers from the 83-minute markup model','',
+        'Fourth audit test item and first exact-match failure. Baseline excerpts end after four lines or 120 characters; trained outputs are unchanged.','',
+        '| Question | Before SFT | After SFT |','|---|---|---|']
+    for i in indices:
+        a,b=old['test'][i],new['test'][i]
+        lines.append('| '+cell(b['prompt'])+' | '+cell(a['text'],120)+' | '+cell(b['text'])+' |')
+    lines.append('')
+    for i in indices:
+        r=new['test'][i];lines.append(f"- [{r['title']}]({r['source_url']}): reference answer — {r['answer']}")
+    lines += ['', 'This measures answering supplied definitions under new wording. The gain combines learning the question-answer format and rehearsing the facts; it does not establish general instruction following or unseen knowledge. Exact matching can reject valid paraphrases.','',
+        f"Recorded checkpoints: `{focus['pretraining_run']}` → `{focus['sft_run']}` (`sft-final.pt`). Audit SHA256: `{focus['audit_sha256']}`.",'']
+    (ROOT/'results/wiki-qa-example-results.md').write_text('\n'.join(lines))
+
 if __name__=='__main__':
     plot_wikipedia_scaling()
     plot_long_wikipedia()
     plot_scratch_exam()
     plot_known_recall()
     plot_latest_exam_transfer()
+    write_fresh_qa_results()
     plot_stopping()
     plot_gpus()
     plot_wikipedia_gpus()

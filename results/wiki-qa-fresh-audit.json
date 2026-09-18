@@ -1,0 +1,47 @@
+[
+  {
+    "label": "Raw Wikipedia\n133min (earlier run)",
+    "pretraining_run": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "sft_run": "night-1789691613092240000-300m-8000s-varied-qa",
+    "before_evaluation": "night-1789698213755439000-historical-291m-before",
+    "after_evaluation": "night-1789697610199604000-historical-291m-fresh-audit",
+    "before": 0,
+    "after": 190,
+    "n": 200,
+    "pretraining_minutes": 133.3336639719,
+    "pretraining_worker_usd": 9.397918653243613,
+    "sft_minutes": 13.773111327633334,
+    "sft_worker_usd": 1.0220256040822713,
+    "audit_sha256": "35d3e0b901b3f212fb7cac8660c1ba542b8394f2ac2738b285801cad0031a3d6"
+  },
+  {
+    "label": "Raw Wikipedia\n83min B200",
+    "pretraining_run": "night-1789689694697165000-300m-B200-5000s",
+    "sft_run": "night-1789696207346333000-291m-raw-best-varied",
+    "before_evaluation": "night-1789698213755439000-raw-291m-before",
+    "after_evaluation": "night-1789697610199604000-raw-291m-fresh-audit",
+    "before": 0,
+    "after": 190,
+    "n": 200,
+    "pretraining_minutes": 83.33420859498332,
+    "pretraining_worker_usd": 9.131852041924319,
+    "sft_minutes": 13.585159088966666,
+    "sft_worker_usd": 1.011461870111419,
+    "audit_sha256": "35d3e0b901b3f212fb7cac8660c1ba542b8394f2ac2738b285801cad0031a3d6"
+  },
+  {
+    "label": "Wikipedia prose\n83min B200",
+    "pretraining_run": "night-1789690708055537000-300m-plain-full-5000s",
+    "sft_run": "night-1789696207346333000-291m-prose-varied",
+    "before_evaluation": "night-1789698213755439000-prose-291m-before",
+    "after_evaluation": "night-1789697610199604000-prose-291m-fresh-audit",
+    "before": 0,
+    "after": 197,
+    "n": 200,
+    "pretraining_minutes": 83.3339810951,
+    "pretraining_worker_usd": 9.086127283862675,
+    "sft_minutes": 10.503078907966666,
+    "sft_worker_usd": 0.7824678646569523,
+    "audit_sha256": "35d3e0b901b3f212fb7cac8660c1ba542b8394f2ac2738b285801cad0031a3d6"
+  }
+]
