@@ -8,8 +8,7 @@ Train a **30-million-parameter generative pretrained transformer (GPT)** from ra
 |---|---:|---:|---|---:|---:|
 | Wolne Lektury / ScratchGPT-30M | 10 min | 11 min 32 s | H100 | $0.78 | 9.073 → 2.820 |
 
-Measured in the [flow check](results/workshop-check.html), with the image already built. Costs include worker CPU/memory, exclude builds/storage, and are estimates. Results vary.
-
+Measured with the image already built. Cost includes GPU, CPU and memory; builds and storage are separate. [Run report](results/workshop-check.html).
 
 ## Run
 
@@ -19,7 +18,7 @@ Complete [data preparation](01-data-and-tokens.md#prepare-wolne-lektury) first, 
 modal run scripts/scratch_recipe_modal.py --recipe wolne-lektury
 ```
 
-Uses **H100 by default**, with **10 minutes training / about 11½ minutes total / $0.78 measured worker compute**. Builds/storage cost extra. Context: 512 tokens; vocabulary: 8,192 tokens. You can start [fine-tuning](03-fine-tuning.md) in another terminal while this runs; each GPU job is billed separately.
+The command uses H100, a 512-token context and an 8,192-token vocabulary. You can start [fine-tuning](03-fine-tuning.md) in another terminal while it runs.
 
 ## Watch and open
 
@@ -39,32 +38,29 @@ uv run scripts/view_results.py pretrain --example
 
 ## Actual result
 
-**ScratchGPT-30M**, random → pretrained on the historical Wolne Lektury corpus, ten-minute run `scratch-wl-30m-1788883120289174941`. Literal opening excerpts of generated continuations; ellipses mark truncation.
+**ScratchGPT-30M**, before and after ten minutes of pretraining on Wolne Lektury. Excerpts from an earlier run, `scratch-wl-30m-1788883120289174941`; ellipses mark truncation.
 
 | Input | Random model | After pretraining |
 |---|---|---|
 | — Nie wiem, | 99okraty Juni Griiennikózózniemie… | ale mówiła o pani zaraz. … |
 | Test loss (lower is better) | 9.073 | 2.782 |
 
-The [latest flow check](results/workshop-check.html) took 11 minutes 32 seconds including loading and evaluation, with test loss **9.073 → 2.820**.
-
-The full report preserves unedited continuations. The model learned recognizable prose but still makes grammatical and logical mistakes.
+The model learned recognizable prose but still makes grammatical and logical mistakes.
 
 ## Choosing a GPU
 
-**H100 is the default.** L4 costs less per run, but learns less within the same time. To use it, add `--gpu L4` to the training command.
+Choose another card with `--gpu L4`, `--gpu A10` or `--gpu L40S`.
 
-Measured comparison on Wolne Lektury: the same 30M model, batch 32, context 512 and **10 minutes of training** per run. Worker time includes loading and evaluation; preparation and image builds are separate.
+Wolne Lektury, 30M parameters, batch 32, context 512, ten minutes of training. Worker time includes loading and evaluation; preparation and image builds are separate.
 
 | GPU | Worker time | Worker cost | Tokens processed | Test loss ↓ |
 |---|---:|---:|---:|---:|
-| **H100 (default GPU)** | 10 min 37 s | $0.74 | 394M | 2.784 |
-| H100, compiled training | 10 min 31 s | $0.73 | 724M | 2.748 |
+| H100 | 10 min 37 s | $0.74 | 394M | 2.784 |
 | L4 | 10 min 34 s | $0.18 | 50M | 3.152 |
 | A10 | 10 min 22 s | $0.23 | 72M | 3.064 |
 | L40S | 10 min 24 s | $0.38 | 180M | 2.885 |
 
-H100 processed more tokens per dollar in this comparison. Compilation speeds up the training loop; its initial compilation time is included in the ten minutes. These research runs use batch 32 and omit the workshop worker's extra quality diagnostics; the default command uses batch 64 and took 11 min 32 s / $0.78. Costs include worker CPU/memory and are estimates from single runs.
+H100 processed more tokens per dollar; L4 cost less per run. These measurements use batch 32 and fewer diagnostics than the main command, which uses batch 64. Costs include CPU and memory.
 
 To compare cards, use the same batch size on both runs:
 
@@ -73,9 +69,9 @@ modal run scripts/scratch_recipe_modal.py --gpu L4 --batch-size 32
 modal run scripts/scratch_recipe_modal.py --gpu H100 --batch-size 32
 ```
 
-Add `--compile-training` to try compiled training. The complete participant command with batch 32 was also tested: 578M token presentations, test loss 2.760, 11 min 4 s worker time, $0.77. A larger GPU can also fit larger models or batches; speed and memory requirements depend on the workload. [Modal GPU options](https://modal.com/docs/guide/gpu) and [pricing](https://modal.com/pricing). [Measured comparisons](results/training-comparisons.html).
+Add `--compile-training` to compile the training loop. With H100 and batch 32, the workshop script processed 578M tokens in ten minutes, with test loss 2.760. Including evaluation: 11 min 4 s, $0.77.
 
-![GPU throughput and cost](results/gpu-comparison.svg)
+[Measured comparisons](results/training-comparisons.html). [Modal GPU options](https://modal.com/docs/guide/gpu) and [pricing](https://modal.com/pricing).
 
 ## Tokens and epochs
 

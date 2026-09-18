@@ -8,8 +8,7 @@ For pretraining, we turn text into token IDs and teach a model to predict the ne
 |---|---:|---|---:|---|
 | Wolne Lektury preparation | 3 min | CPU | $0.008 | 101M training tokens |
 | Tokenizer explorer | Immediate | Your browser | $0 | Token IDs and merge history |
-| Full Polish Wikipedia preparation | Not timed on the new cloud path | CPU | Not measured | 3.14B training tokens |
-
+| Full Polish Wikipedia preparation | Not measured | CPU | Not measured | 3.14B training tokens |
 
 ## Wolne Lektury
 
@@ -37,7 +36,7 @@ modal run scripts/prepare_data_modal.py
 
 Modal downloads the texts, converts them into token IDs using our saved tokenizer, and stores them in your Modal volume. Books are split into training, development and test sets before training. The large files stay in the cloud, without passing through your laptop or the workshop Wi-Fi.
 
-Measured preparation: **3 minutes, under $0.01 estimated CPU worker compute**, plus startup/storage. No GPU is used. Existing prepared data is checked and reused. Wait for **Ready** before [pretraining](02-pretraining.md). While it runs, try the BPE explorer below.
+Existing prepared data is checked and reused. Wait for **Ready** before [pretraining](02-pretraining.md). While it runs, try the BPE explorer below.
 
 ## Text → tokens
 
