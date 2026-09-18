@@ -1,0 +1,36 @@
+[
+  {
+    "tag": "100m-B200-higher-lr",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789695054599616000-100m-B200-higher-lr",
+    "depends_on": [
+      "night-1789695054599616000-100m-B200-higher-lr"
+    ],
+    "dependency_wait_seconds": 7200,
+    "worker_timeout_seconds": 1200,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  },
+  {
+    "tag": "300m-B200-higher-lr",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789695054599616000-300m-B200-higher-lr",
+    "depends_on": [
+      "night-1789695054599616000-300m-B200-higher-lr"
+    ],
+    "dependency_wait_seconds": 7200,
+    "worker_timeout_seconds": 1200,
+    "extended": true,
+    "corpora": [
+      "wiki-scratch-v1",
+      "wiki-plain-leads-v2",
+      "wl-scratch-v1"
+    ]
+  }
+]

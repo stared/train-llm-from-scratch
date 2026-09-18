@@ -5,6 +5,7 @@
 [GPU, model and post-training comparisons](training-comparisons.html).
 
 - [Wikipedia: training time, loss and cost](wikipedia-scaling.svg).
+- [Fresh near-$10 Wikipedia runs](wikipedia-long-runs.svg).
 - [Wikipedia: H100, H200 and B200](wikipedia-gpus.svg).
 - [Wikipedia to the Polish Driving Licence Exam](scratch-exam-comparison.svg).
 - [Wikipedia definitions: pretraining and question wording](wiki-qa-recall.svg).

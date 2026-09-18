@@ -33,12 +33,19 @@ TIMEOUT = 3600
 DEADLINE = 1789711200  # 2026-09-18 06:00 UTC / 08:00 Warsaw.
 
 def timeout_for(spec):
+    if 'worker_timeout_seconds' in spec:return spec['worker_timeout_seconds']
     return spec['seconds']+500 if spec['kind']=='scratch' and spec['seconds']>3000 else TIMEOUT
 
 def validate_plan(plan):
     if not plan or len(plan)>30:raise ValueError('1–30 bounded experiments')
     for spec in plan:
         if spec['gpu'] not in RATES:raise ValueError('Unknown GPU')
+        if 'worker_timeout_seconds' in spec:
+            bound=spec['worker_timeout_seconds']
+            if spec['kind'] not in ('posttrain','evaluate'):raise ValueError('Explicit worker timeout is for post-training or evaluation')
+            if spec['kind']=='posttrain' and spec['method'] not in ('sft','rlvr'):raise ValueError('Explicit timeout requires a single training stage')
+            minimum=spec.get('seconds',0)+300 if spec['kind']=='posttrain' else 300
+            if type(bound) is not int or not minimum<=bound<=TIMEOUT:raise ValueError('Timeout must allow training plus 300 seconds and stay within one hour')
         if not 1<=spec.get('dependency_wait_seconds',3600)<=7200:raise ValueError('Dependency wait must fit two hours')
         if any(Path(name).name!=name for name in spec.get('depends_on_data',[])):raise ValueError('Dataset dependency must be a folder name')
         if spec['kind']=='scratch':

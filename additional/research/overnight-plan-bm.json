@@ -1,0 +1,15 @@
+[
+  {
+    "tag": "300m-single-30passes-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789694072817506000-300m-8000s-single-30passes",
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "corpora": [],
+    "depends_on": [
+      "night-1789694072817506000-300m-8000s-single-30passes"
+    ],
+    "worker_timeout_seconds": 1200
+  }
+]

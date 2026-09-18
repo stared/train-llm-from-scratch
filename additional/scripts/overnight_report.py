@@ -210,6 +210,9 @@ Costs are worker GPU + CPU/memory estimates, excluding image builds, controller 
     if (ROOT/'results/wikipedia-gpus.svg').exists():
         body+='<h2>Wikipedia GPU comparison</h2><img src="wikipedia-gpus.svg" alt="Measured Wikipedia tokens per dollar and loss on H100, H200 and B200" style="width:100%">'
         md+='\n![Wikipedia GPU comparison](wikipedia-gpus.svg)\n'
+    if (ROOT/'results/wikipedia-long-runs.svg').exists():
+        body+='<h2>Longer Wikipedia runs</h2><img src="wikipedia-long-runs.svg" alt="Near-$10 Wikipedia training curves and common-pool evaluation" style="width:100%">'
+        md+='\n![Longer Wikipedia runs](wikipedia-long-runs.svg)\n'
     body+='<h2>Curves and selected examples</h2><p>First four examples per run, plus the first correction and regression when available. Complete predictions remain in the local run records.</p>'+''.join(details)
     md+='\n[Curves and selected literal before/after answers](training-comparisons.html).\n'
     (ROOT/'results/training-comparisons.md').write_text(md)
@@ -439,7 +442,8 @@ def plot_long_wikipedia():
             rows.append(dict(run=path.parent.name,evaluation=evaluation,label=label,
                 minutes=result['training_seconds']/60,worker_usd=result['estimated_compute_usd'],
                 tokens=result['tokens_seen'],dev_loss=common['dev']['loss_nats'],test_loss=common['test']['loss_nats'],
-                checkpoints=json.loads((path.parent/'checkpoints.json').read_text()),
+                checkpoints=json.loads((path.parent/'checkpoints.json').read_text())+[
+                    dict(step=result['steps'],elapsed_seconds=result['training_seconds'],loss_nats=result['final']['dev']['loss_nats'])],
                 selected_step=result['best_step'],final_step=result['steps']))
     if not rows:return
     rows.sort(key=lambda r:r['dev_loss'])  # Declared selection uses development, never test.
@@ -515,7 +519,7 @@ def plot_known_recall():
         ('98M\nrandom weights','1789690403457968000','100m-random-short-final','100m-random-varied-final'),
         ('98M\n10min Wikipedia','1789690403457968000','100m-10min-short-final','100m-10min-varied-final'),
         ('291M\n10min Wikipedia','1789690403457968000','300m-10min-short-final','300m-10min-varied-final'),
-        ('291M\n133min Wikipedia','1789688231535564000','300m-raw-short-final','300m-8000s-varied-final'),
+        ('291M\n133min Wikipedia','1789694506585130000','300m-single-30passes-final','300m-8000s-varied-final'),
     ]
     rows=[]
     for i,(label,batch,plain,varied) in enumerate(groups):
@@ -540,7 +544,7 @@ def plot_known_recall():
     ax.set(xticks=range(len(groups)),xticklabels=[g[0] for g in groups],ylim=(0,105),ylabel='Exact definitions out of 100',
            title='Known Wikipedia facts, new question wording\nSame 8,912 training facts; four frozen evaluation question templates')
     ax.legend(loc='upper left');ax.grid(axis='y',alpha=.2);ax.set_axisbelow(True)
-    fig.supxlabel('Final SFT weights; 30 presentations/fact except *19.6 (time cap). Known facts, not unseen knowledge. Single runs.',fontsize=9)
+    fig.supxlabel('Final SFT weights; 30 presentations per fact. Known facts, not unseen knowledge. Single runs.',fontsize=9)
     save_svg(fig,'wiki-qa-recall.svg');plt.close(fig)
     (ROOT/'results/wiki-qa-recall.json').write_text(json.dumps(rows,indent=2)+'\n')
 
