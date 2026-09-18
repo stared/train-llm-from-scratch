@@ -46,10 +46,10 @@ Our tokenizer has **8,192 vocabulary entries**. It was trained on 2,048 Wikipedi
 
 ## BPE explorer
 
-Open the [interactive BPE explorer](results/tokenizer.html) in your browser:
+Open the visualization and select **Tokenization**:
 
 ```bash
-uv run scripts/view_results.py tokens
+pnpm visualization
 ```
 
 **Click Edit text**, paste a paragraph, then **Show tokens**. Start with the full tokenization, then move the slider towards bytes. Colors show token boundaries; hover over a token to see its ID and merge history. Everything runs locally in your browser, without Modal or a corpus download.

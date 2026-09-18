@@ -92,15 +92,26 @@ def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
 
     def evaluate(name, rows, sample=False, copies=1):
         torch.manual_seed(2026)
-        results = []
+        results = []; previews=[]
+        show=progress is not None and not sample and (name in ('before_dev','after_dev') or name.startswith('checkpoint_dev_'))
         for start in range(0, len(rows), max(1, evaluation_batch_size // copies)):
             batch = rows[start:start + max(1, evaluation_batch_size // copies)]
-            seq, _, offset, mask, texts = generate(batch, sample, copies)
+            seq, prefix_attention, offset, mask, texts = generate(batch, sample, copies)
             for i, (row, text) in enumerate(zip([r for r in batch for _ in range(copies)], texts)):
                 results.append(dict(id=row['id'], prompt=row['prompt'], text=text,
                     terminated=bool(seq[i, offset:][mask[i]].eq(tokenizer.eos_token_id).any()),
                     **checker(task, row, text)))
+            if show and start==0:
+                from training_progress import completion_trace
+                preview={**results[0],'tokens':completion_trace(model,tokenizer,seq,prefix_attention,offset)}
+                previews=[preview]+results[1:8]
         save(out / f'{name}.json', results)
+        if show:
+            save(out / f'visualization_{name}.json',previews)
+            current_step=0 if name=='before_dev' else (best_step if name=='after_dev' else step+1)
+            getattr(progress,'preview',lambda **kw:None)(label=name.replace('_',' ').capitalize(),step=current_step,
+                split='dev',rows=previews,metadata=dict(model=spec['id'],source=training_description or f'{task}: 256 training prompts',
+                    training=[dict(prompt=data['train'][0]['prompt'],target='Reward from the checker; no target answer.')]))
         score = dict(n=len(results), successes=sum(r['success'] for r in results),
                      mean_reward=sum(r['reward'] for r in results) / len(results),
                      terminated=sum(r['terminated'] for r in results))
@@ -204,6 +215,9 @@ def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
                 best_state = {k: v.detach().cpu().clone() for k, v in get_peft_model_state_dict(model).items()}
         elapsed = time.monotonic() - training_start
         if step % 10 == 0:
+            if progress:
+                getattr(progress,'preview',lambda **kw:None)(rollout=dict(step=step+1,prompt=rows[0]['prompt'],rows=[
+                    dict(text=t,**s,advantage=a) for t,s,a in zip(texts[:4],scores[:4],advantage.tolist()[:4])]))
             if progress: progress('Rollout reward', step+1, rewards.mean().item())
             print(f'{task} step={step} updates={updates} mean_reward={rewards.mean().item():.3f} seconds={elapsed:.1f}', flush=True)
             save(out / 'rollouts.json', history)

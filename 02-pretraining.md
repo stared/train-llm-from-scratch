@@ -20,21 +20,18 @@ modal run scripts/scratch_recipe_modal.py --recipe wolne-lektury
 
 The command uses H100, a 512-token context and an 8,192-token vocabulary. You can start [fine-tuning](03-fine-tuning.md) in another terminal while it runs.
 
-## Watch and open
+## Watch training
 
-The terminal prints training loss and checkpoint evaluations. Lower loss means better next-token predictions. **While training runs, open another terminal** in this repository and run:
-
-```bash
-uv run scripts/view_results.py pretrain
-```
-
-The live chart refreshes every three seconds. Training-loss points arrive about every five seconds; development loss is checked about once a minute. After training, the same view opens the completed report with before/after text. Development loss chooses the checkpoint; test loss evaluates it separately.
-
-To inspect an included result while waiting:
+In another terminal, run:
 
 ```bash
-uv run scripts/view_results.py pretrain --example
+pnpm visualization
 ```
+
+Open **Pretraining** and select your run. The loss curve updates during training. Select a checkpoint to compare the same prompt before and after training. Hover over colored tokens for their probabilities and alternatives.
+
+Choose **Saved example** to explore a recorded run immediately. Older runs may not include token probabilities.
+
 
 ## Actual result
 
@@ -108,7 +105,7 @@ After **Ready**, start training:
 modal run scripts/scratch_recipe_modal.py --recipe wiki-100m --compile-training
 ```
 
-Open the live chart with `uv run scripts/view_results.py pretrain`. Add `--gpu B200` to compare cards, or use `--recipe wiki-cheap --max-seconds 300` for a smaller 10M model on L4 (earlier measured worker cost about $0.10).
+Watch it in the **Pretraining** section of the visualization. Add `--gpu B200` to compare cards, or use `--recipe wiki-cheap --max-seconds 300` for a smaller 10M model on L4 (earlier measured worker cost about $0.10).
 
 Longer Wikipedia runs continue improving held-out loss. See the [training-time and cost curves](results/wikipedia-scaling.svg); those research runs take longer than this exercise.
 

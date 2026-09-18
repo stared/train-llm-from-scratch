@@ -47,19 +47,17 @@ The two pilot runs cost about $0.12 combined in worker compute. This is a small 
 
 Open [before/after answers](results/prawko-example-results.md) and [longer-run curves](results/prawko-training.html). Find a correction, a regression, and a question where SFT and RLVR disagree. Does more training help?
 
-## Watch and open
+## Watch training
 
-While SFT runs, open another terminal in this repository:
-
-```bash
-uv run scripts/view_results.py sft
-```
-
-During training, the live chart shows development accuracy after each epoch. After training, the same view opens all 40 test questions with original predictions, trained predictions and the key. To open an included result without training:
+In another terminal, run:
 
 ```bash
-uv run scripts/view_results.py sft --example
+pnpm visualization
 ```
+
+Open **SFT** and select your run. See a training question and its target letter, then compare A/B/C probabilities on development questions across checkpoints. The test score is reported separately.
+
+Choose **Saved example** to explore a recorded run immediately. Older runs may not include token probabilities.
 
 One actual correction, from the pilot linked above:
 
@@ -87,7 +85,7 @@ modal run scripts/prawko_modal.py --method sft --dataset expanded --max-seconds 
 
 Three seeds per recipe. Rotated-option scores were 30–33/40 for three-minute SFT, 29–32/40 for ten-minute SFT and 26–31/40 for ten-minute RLVR. These are exploratory results on a small, repeatedly inspected test set. The expanded preset also lowers the learning rate from 5e-5 to 2e-5. It beat simply extending the original 100-question recipe.
 
-Set `--max-seconds 600` for ten minutes. Replace `--method sft` with `--method rlvr` to compare. Both methods shuffle answer options during training. Use `uv run scripts/view_results.py sft` for SFT or `uv run scripts/view_results.py exam-rlvr` for exam RLVR.
+Set `--max-seconds 600` for ten minutes. Replace `--method sft` with `--method rlvr` to compare. Both methods shuffle answer options during training. View SFT runs under **SFT**, and exam RLVR runs under **RLVR**.
 
 ![Repeated exam training runs](results/exam-comparison.svg)
 

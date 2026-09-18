@@ -134,13 +134,27 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
         # Preserve training RNG; same sampling seed for every time checkpoint.
         with torch.random.fork_rng(devices=[torch.cuda.current_device()] if device=='cuda' else []):
             torch.manual_seed(2026)
-            records=[]
-            for prompt in generation_prompts:
+            records=[]; previews=[]
+            for index,prompt in enumerate(generation_prompts):
                 ids=torch.tensor([tokenizer.encode(prompt).ids],device=device)
+                trace_enabled=hasattr(progress,'preview') and index<2
                 with context():
-                    generated=model.generate(ids,new_tokens=128)
-                records.append(dict(prompt=prompt,continuation=tokenizer.decode(generated[0,ids.shape[1]:].tolist(),skip_special_tokens=False)))
+                    generated=model.generate(ids,new_tokens=128,return_trace=True) if trace_enabled else model.generate(ids,new_tokens=128)
+                if trace_enabled: generated,trace=generated
+                row=dict(prompt=prompt,continuation=tokenizer.decode(generated[0,ids.shape[1]:].tolist(),skip_special_tokens=False))
+                records.append(row)
+                if trace_enabled:
+                    from training_progress import token_records
+                    row={**row,'tokens':token_records([t['id'] for t in trace],[t['probability'] for t in trace],
+                        [t['alternatives'] for t in trace],tokenizer,[t['sampling_probability'] for t in trace])}
+                previews.append(row)
         save(out/f'{name}.json',records)
+        if progress is not None:
+            save(out/f'visualization_{name}.json',previews)
+            current_step=0 if name=='samples_before' else (best_step if name=='samples_selected' else step)
+            getattr(progress,'preview',lambda **kw:None)(label=name.removeprefix('samples_').replace('_',' ').capitalize(),
+                step=current_step,split='fixed prompts',rows=previews,
+                metadata=dict(model=f'ScratchGPT-{size}',source=metadata.get('source_label','Polish Wikipedia')))
         return records
     before={s:evaluate('before_'+s,s) for s in ('train','dev','test')}
     samples('samples_before')

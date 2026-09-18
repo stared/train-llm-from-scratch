@@ -107,11 +107,20 @@ class ScratchGPT(nn.Module):
         return F.cross_entropy(logits.reshape(-1,logits.shape[-1]).float(),targets.reshape(-1))
 
     @torch.no_grad()
-    def generate(self,ids,new_tokens=128,temperature=.8,top_k=50):
+    def generate(self,ids,new_tokens=128,temperature=.8,top_k=50,return_trace=False):
         self.eval()
+        trace=[]
         for _ in range(new_tokens):
-            logits=self(ids[:,-self.config.context:])/temperature
+            raw=self(ids[:,-self.config.context:])
+            logits=raw/temperature
             threshold=logits.topk(min(top_k,logits.shape[-1]),dim=-1).values[:,-1,None]
             logits=logits.masked_fill(logits<threshold,-float('inf'))
-            ids=torch.cat([ids,torch.multinomial(logits.softmax(-1),1)],dim=1)
-        return ids
+            distribution=logits.softmax(-1)
+            next_id=torch.multinomial(distribution,1)
+            if return_trace:
+                probabilities=raw.softmax(-1)
+                values,indices=probabilities[0].topk(5)
+                trace.append(dict(id=next_id[0,0].item(), probability=probabilities[0,next_id[0,0]].item(),
+                    sampling_probability=distribution[0,next_id[0,0]].item(), alternatives=list(zip(indices.tolist(),values.tolist()))))
+            ids=torch.cat([ids,next_id],dim=1)
+        return (ids,trace) if return_trace else ids

@@ -105,6 +105,13 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
                     options=[row['options'][j] for j in order], answer=LETTERS[answer], prediction=LETTERS[pred],
                     correct=pred == answer, probabilities=probs, unconstrained_ABC_mass=m))
         save(out / f'{name}.json', records)
+        if progress and (name in ('before_dev','after_dev') or name.startswith('dev_epoch_')):
+            train_row=data['train'][0]
+            prompt=question(train_row,(0,1,2))[0]
+            getattr(progress,'preview',lambda **kw:None)(label=name.replace('_',' ').capitalize(),
+                step=0 if name=='before_dev' else (next((c['steps'] for c in checkpoints if c['epoch']==best_epoch),0) if name=='after_dev' else len(history)),split='dev',rows=records[:8],
+                metadata=dict(model=spec['id'],source=f"{len(data['train'])} Polish driving questions",
+                    training=[dict(prompt=prompt,target=LETTERS[train_row['answer']])]))
         metric = dict(n=len(records), correct=sum(r['correct'] for r in records),
             accuracy=sum(r['correct'] for r in records)/len(records),
             mean_correct_probability=sum(r['probabilities'][LETTERS.index(r['answer'])] for r in records)/len(records))
@@ -179,6 +186,9 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
                 optimizer.step()
                 record.update(loss=loss.item(), gradient_norm=grad.item())
                 history.append(record)
+                if progress and method=='rlvr' and len(history)%25==0:
+                    getattr(progress,'preview',lambda **kw:None)(rollout=dict(step=len(history),prompt=question(rows[0],permutations[0])[0],
+                        rows=[dict(text=LETTERS[a],reward=b,advantage=c) for a,b,c in zip(record['samples'][0],record['rewards'][0],record['advantages'][0])]))
                 del full, logp, loss
                 if time.monotonic() - train_started >= max_seconds:
                     stop = True

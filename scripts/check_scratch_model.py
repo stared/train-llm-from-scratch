@@ -14,6 +14,19 @@ torch.set_num_threads(2)
 
 
 class ScratchModelChecks(unittest.TestCase):
+    def test_probability_trace_preserves_sampling(self):
+        torch.manual_seed(42)
+        model=ScratchGPT(Config(vocab_size=32,width=16,layers=1,heads=2,hidden=32,context=16)).eval()
+        ids=torch.tensor([[1,2]])
+        torch.manual_seed(9); plain=model.generate(ids,new_tokens=4,top_k=5)
+        torch.manual_seed(9); traced,trace=model.generate(ids,new_tokens=4,top_k=5,return_trace=True)
+        self.assertTrue(torch.equal(plain,traced))
+        for j,row in enumerate(trace):
+            raw=model(traced[:,:2+j]).softmax(-1)[0]
+            self.assertAlmostEqual(row['probability'],raw[row['id']].item(),places=7)
+            self.assertEqual([i for i,_ in row['alternatives']],raw.topk(5).indices.tolist())
+            self.assertGreater(row['sampling_probability'],row['probability'])
+
     def test_shuffled_windows_cover_each_pass_without_replacement(self):
         import numpy as np
         from train_scratch import ShuffledWindows

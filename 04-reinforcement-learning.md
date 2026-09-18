@@ -33,19 +33,18 @@ Open the checker in [rlvr_tasks.py](scripts/rlvr_tasks.py). Can a bad story stil
 
 [All before/after answers](results/rlvr-results.html)
 
-## Watch and open
+## Watch training
 
-The terminal prints rollout rewards and development checks. **While training runs, open another terminal** in this repository:
-
-```bash
-uv run scripts/view_results.py rlvr
-```
-
-The live chart shows rollout reward every ten steps and development constraint success every twenty steps. After training, the same view opens the before/after answers. To open the included result immediately:
+In another terminal, run:
 
 ```bash
-uv run scripts/view_results.py rlvr --example
+pnpm visualization
 ```
+
+Open **RLVR** and select your run. See sampled answers and their rewards. Select a checkpoint to compare fixed development prompts before and after training.
+
+Choose **Saved example** to explore a recorded run immediately. Older runs may not include token probabilities.
+
 
 ## Try
 

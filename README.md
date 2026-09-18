@@ -8,7 +8,7 @@ Train a small language model from scratch, then adapt existing models. Polish ma
 
 ## Setup
 
-Install [uv](https://docs.astral.sh/uv/getting-started/installation/). Run commands from this repository's folder. Scripts use **Python 3.14**; uv downloads it if needed.
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and [pnpm](https://pnpm.io/installation/). Run commands from this repository's folder. Scripts use **Python 3.14**; uv downloads it if needed.
 
 Install [Modal](https://modal.com/) to run GPU jobs:
 
@@ -21,6 +21,14 @@ Connect your account and follow the browser login:
 ```bash
 modal setup
 ```
+
+## Visualization
+
+```bash
+pnpm visualization
+```
+
+Opens the tokenizer, training curves and before/after examples. Each section has a saved example; live runs appear in the run selector. Leave it open while training.
 
 ## 1. Data and tokenization
 
@@ -42,11 +50,7 @@ modal run scripts/scratch_recipe_modal.py --recipe wolne-lektury
 
 30M parameters on H100. Training takes 10 minutes; the measured run took 11 min 32 s including evaluation and cost $0.78. [Compare GPUs](02-pretraining.md#choosing-a-gpu).
 
-In another terminal, open the live loss chart and before/after text:
-
-```bash
-uv run scripts/view_results.py pretrain
-```
+Open **Pretraining** in the visualization to watch loss and generated text at each checkpoint.
 
 ## 3. Supervised fine-tuning (SFT)
 
@@ -56,11 +60,7 @@ uv run scripts/view_results.py pretrain
 modal run scripts/prawko_modal.py --method sft --epochs 10 --max-seconds 180
 ```
 
-**Up to 3 minutes, about $0.065 measured worker compute.** The included dataset needs no preparation; you can start this while pretraining runs. In another terminal, open live accuracy and, after training, before/after answers:
-
-```bash
-uv run scripts/view_results.py sft
-```
+**Up to 3 minutes, about $0.065 measured worker compute.** The included dataset needs no preparation; you can start this while pretraining runs. Open **SFT** to see the training input, target answer and changing A/B/C probabilities.
 
 ## 4. Reinforcement learning with verifiable rewards (RLVR)
 
@@ -70,21 +70,13 @@ uv run scripts/view_results.py sft
 modal run scripts/rlvr_showcase_modal.py --task six_words
 ```
 
-**Up to 10 minutes, about $0.19 measured worker compute.** This starts from the original Qwen model, independently of SFT. Open its live chart in another terminal:
-
-```bash
-uv run scripts/view_results.py rlvr
-```
+**Up to 10 minutes, about $0.19 measured worker compute.** This starts from the original Qwen model, independently of SFT. Open **RLVR** to see sampled answers, their rewards and development success.
 
 ## If you are waiting or catching up
 
-Every exercise has real saved results. Add `--example` to any view command to open those immediately, without training or a Modal account. The tokenizer also works without downloading the corpus:
+Choose **Saved example** in any visualization section to explore recorded results without training or a Modal account. The tokenizer also works without downloading a corpus.
 
-```bash
-uv run scripts/view_results.py tokens
-```
-
-Exercises 3 and 4 are independent of pretraining. You can run jobs in separate terminals; each job is billed separately. Training prints progress and saves a new folder in `runs/`. View commands open the active training chart, or the latest completed run. Charts appear after the first image build; the terminal shows build progress.
+Exercises 3 and 4 are independent of pretraining. You can run jobs in separate terminals; each job is billed separately. Keep the training terminal connected for live updates. Results are saved in `runs/`.
 
 The main path used about **$1.04 in worker compute** in our experiments. These are historical measurements, not caps; loading/evaluation add time and builds/storage cost extra.
 
@@ -94,7 +86,7 @@ Each exercise ends with a small experiment. Options include Wikipedia pretrainin
 
 ## Files
 
-The four numbered guides are the main path. `scripts/` contains runnable code and its model settings (`models.json`). `datasets/` contains inputs; large downloads in `datasets/local/` are gitignored. `results/` contains shared examples and visualizations; `runs/` contains your generated outputs and is gitignored. `additional/` holds optional exercises and research; `LAB_NOTEBOOK.md` records findings.
+The four numbered guides are the main path. `scripts/` contains runnable code and its model settings (`models.json`). `datasets/` contains inputs; large downloads in `datasets/local/` are gitignored. `visualization/` contains the browser app; `results/` contains shared reports; `runs/` contains your generated outputs and is gitignored. `additional/` holds optional exercises and research; `LAB_NOTEBOOK.md` records findings.
 
 Codex or Claude are optional helpers. Other GPU platforms include [Google Colab](https://colab.research.google.com/) and [Lightning AI](https://lightning.ai/); these commands use Modal.
 

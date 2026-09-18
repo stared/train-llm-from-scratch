@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI from scratch · Visualizations</title>
+<link rel="stylesheet" href="/style.css">
+<header class="masthead"><a href="#tokens">AI from scratch</a><a class="repository" href="https://github.com/stared/train-llm-from-scratch" target="_blank" rel="noopener noreferrer">Repository ↗</a></header>
+<nav aria-label="Workshop sections">
+  <a href="#tokens"><span>01</span>Tokenization</a>
+  <a href="#pretrain"><span>02</span>Pretraining</a>
+  <a href="#sft"><span>03</span>SFT</a>
+  <a href="#rlvr"><span>04</span>RLVR</a>
+</nav>
+<main>
+  <div class="heading"><div><h1 id="title"></h1><p id="intro"></p></div><label id="run-control">Run<select id="run"></select></label></div>
+  <p id="notice" role="status" hidden></p>
+  <section id="tokens" hidden><iframe title="Interactive byte-pair encoding explorer" src="/tokenizer"></iframe></section>
+  <div id="training" hidden>
+    <div id="metadata" class="metadata"></div>
+    <details id="training-data"><summary>Training example</summary><div id="data-example"></div></details>
+    <section class="curve-section" aria-label="Training curve">
+      <div class="section-heading"><h2>Training progress</h2><label class="inline">Measure<select id="metric"></select></label></div>
+      <div id="curve"></div>
+      <div class="timeline"><button id="previous" aria-label="Previous checkpoint">←</button><input id="checkpoint" type="range" min="0" value="0" aria-label="Training checkpoint"><button id="next" aria-label="Next checkpoint">→</button><output id="checkpoint-label"></output></div>
+    </section>
+    <section class="examples-section">
+      <div class="section-heading"><h2 id="example-heading">Same prompt, over time</h2><label class="inline">Example<select id="example"></select></label></div>
+      <p id="split-note" class="small"></p>
+      <div class="prompt"><span class="caption">Input</span><pre id="prompt"></pre><p id="answer-key"></p></div>
+      <div class="output-controls"><label><input id="probabilities" type="checkbox" checked> Token probabilities</label><span id="probability-note" class="small"></span></div>
+      <div class="pair"><section><h3>Before training</h3><div id="before"></div></section><section><h3 id="after-label">Selected checkpoint</h3><div id="after"></div></section></div>
+      <p id="probability-legend" class="small" hidden><span class="gradient"></span> Less likely → more likely. Raw next-token probability, not factual correctness. Hover or focus a token for alternatives.</p>
+    </section>
+    <section id="rollouts" hidden><div class="section-heading"><h2>Learning from rewards</h2><label class="inline">Update<select id="rollout"></select></label></div><p class="small">Four answers sampled for one training prompt. The checker assigns rewards; relative reward determines the update.</p><pre id="rollout-prompt" class="prompt"></pre><div id="rollout-table"></div></section>
+    <footer id="provenance"></footer>
+  </div>
+</main>
+<aside id="tooltip" role="tooltip" hidden></aside>
+<script type="module" src="/app.js"></script>
+</html>
