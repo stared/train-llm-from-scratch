@@ -19,7 +19,7 @@ Complete [data preparation](01-data-and-tokens.md#prepare-wolne-lektury) first, 
 modal run scripts/scratch_recipe_modal.py --recipe wolne-lektury
 ```
 
-Up to **10 minutes training / about $0.78 measured worker compute**. Loading and evaluation add time; builds/storage cost extra. Context: 512 tokens; vocabulary: 8,192 tokens. You can start [fine-tuning](03-fine-tuning.md) in another terminal while this runs; each GPU job is billed separately.
+Uses **H100 by default**, with **10 minutes training / about 11½ minutes total / $0.78 measured worker compute**. Builds/storage cost extra. Context: 512 tokens; vocabulary: 8,192 tokens. You can start [fine-tuning](03-fine-tuning.md) in another terminal while this runs; each GPU job is billed separately.
 
 ## Watch and open
 
@@ -52,17 +52,19 @@ The full report preserves unedited continuations. The model learned recognizable
 
 ## Choosing a GPU
 
-Measured on Wolne Lektury: the same 30M model, batch 32, context 512 and ten-minute training budget.
+**H100 is the default.** L4 costs less per run, but learns less within the same time. To use it, add `--gpu L4` to the training command.
 
-| GPU | Tokens processed | Worker cost | Test loss after training |
-|---|---:|---:|---:|
-| L4 | 50M | $0.18 | 3.152 |
-| A10 | 72M | $0.23 | 3.064 |
-| L40S | 180M | $0.38 | 2.885 |
-| H100 | 394M | $0.74 | 2.784 |
-| H100, compiled training | 724M | $0.73 | 2.748 |
+Measured comparison on Wolne Lektury: the same 30M model, batch 32, context 512 and **10 minutes of training** per run. Worker time includes loading and evaluation; preparation and image builds are separate.
 
-H100 processed more tokens per dollar in this comparison. Compilation speeds up the training loop; its initial compilation time is included in the ten minutes. These research runs omit the workshop worker's extra quality diagnostics.
+| GPU | Worker time | Worker cost | Tokens processed | Test loss ↓ |
+|---|---:|---:|---:|---:|
+| **H100 (default GPU)** | 10 min 37 s | $0.74 | 394M | 2.784 |
+| H100, compiled training | 10 min 31 s | $0.73 | 724M | 2.748 |
+| L4 | 10 min 34 s | $0.18 | 50M | 3.152 |
+| A10 | 10 min 22 s | $0.23 | 72M | 3.064 |
+| L40S | 10 min 24 s | $0.38 | 180M | 2.885 |
+
+H100 processed more tokens per dollar in this comparison. Compilation speeds up the training loop; its initial compilation time is included in the ten minutes. These research runs use batch 32 and omit the workshop worker's extra quality diagnostics; the default command uses batch 64 and took 11 min 32 s / $0.78. Costs include worker CPU/memory and are estimates from single runs.
 
 To compare cards, use the same batch size on both runs:
 

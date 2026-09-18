@@ -40,7 +40,7 @@ After preparation says **Ready**, [train a small model from random weights](02-p
 modal run scripts/scratch_recipe_modal.py --recipe wolne-lektury
 ```
 
-**30M parameters, up to 10 minutes, about $0.78 measured worker compute.** In another terminal, open the live loss chart; after training, the same view shows random and trained text:
+**H100 by default: 30M parameters, 10 minutes of training, about 11½ minutes total and $0.78 measured worker compute.** See [other GPUs: time and cost](02-pretraining.md#choosing-a-gpu). In another terminal, open the live loss chart; after training, the same view shows random and trained text:
 
 ```bash
 uv run scripts/view_results.py pretrain
