@@ -109,6 +109,7 @@ def run(base,output,corpora,checkpoint='best.pt',extended=False,known_fact_probe
                 records[split].append(dict(**row,text=text,exact=normalize(text)==normalize(row['answer']),tokens=len(generated),terminated=token==eod))
             correct=sum(r['exact'] for r in records[split]);known_scores[split]=dict(correct=correct,n=len(rows),accuracy=correct/len(rows))
         condition='original training prompts' if known_fact_training_data else 'unseen prompt templates'
+        if Path(known_fact_probes).name=='known-audit.json':condition='fresh wording audit; neither half used for selection'
         known_scores.update(probes_sha256=hashlib.sha256(raw).hexdigest(),training_data_sha256=training_hash,prompt_condition=condition,
             meaning=f'Known training facts, {condition}; exact normalized answer matching, not an unseen-knowledge benchmark')
         (out/'known_facts.json').write_text(json.dumps(records,ensure_ascii=False,indent=2))

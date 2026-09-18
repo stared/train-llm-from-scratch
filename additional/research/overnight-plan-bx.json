@@ -1,0 +1,47 @@
+[
+  {
+    "tag": "historical-291m-fresh-audit",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789691613092240000-300m-8000s-varied-qa",
+    "depends_on": [
+      "night-1789691613092240000-300m-8000s-varied-qa"
+    ],
+    "dependency_wait_seconds": 7200,
+    "worker_timeout_seconds": 900,
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "known_probe_file": "known-audit.json",
+    "corpora": []
+  },
+  {
+    "tag": "raw-291m-fresh-audit",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789696207346333000-291m-raw-best-varied",
+    "depends_on": [
+      "night-1789696207346333000-291m-raw-best-varied"
+    ],
+    "dependency_wait_seconds": 7200,
+    "worker_timeout_seconds": 900,
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "known_probe_file": "known-audit.json",
+    "corpora": []
+  },
+  {
+    "tag": "prose-291m-fresh-audit",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789696207346333000-291m-prose-varied",
+    "depends_on": [
+      "night-1789696207346333000-291m-prose-varied"
+    ],
+    "dependency_wait_seconds": 7200,
+    "worker_timeout_seconds": 900,
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "known_probe_file": "known-audit.json",
+    "corpora": []
+  }
+]

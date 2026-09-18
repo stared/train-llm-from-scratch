@@ -8,9 +8,9 @@ Costs are worker GPU + CPU/memory estimates, excluding image builds, controller 
 
 Failed/canceled calls recorded: 14; known worker estimates $0.042. Canceled calls with unknown billing retain conservative timeout reservations in the local budget ledger; they are not counted as free.
 
-Completed workers: 77 pretraining, 137 post-training, 93 evaluation only. These are runs, not distinct model architectures.
+Completed workers: 77 pretraining, 146 post-training, 93 evaluation only. These are runs, not distinct model architectures.
 
-Worker compute in this report: $229.204.
+Worker compute in this report: $230.764.
 
 ## What changed
 
@@ -23,13 +23,16 @@ Worker compute in this report: $229.204.
 - Thirty-minute Wolne Lektury pretraining improved test loss to 2.720 for $2.12. Ten minutes with compilation reached 2.748 for $0.73: a more practical workshop recipe.
 - Original-markup Wikipedia 98M test loss improved from 1.619 at ten minutes to 1.426 at thirty and 1.339 at fifty ($3.56 worker compute). The older 133-minute recipe reached 1.301. Schedules and batches differ; loss gains continue, but generated facts remain unreliable.
 - Another fifty minutes improved all four Wikipedia checkpoints. On the separate million-token test pool, 98M improved 1.303→1.241 from the fifty-minute base; 291M improved 1.328→1.249. The older 133-minute bases improved 1.265→1.222 and 1.246→1.201. Extra worker cost: $3.55–3.62 each. Driving-exam transfer did not improve consistently.
-- Short-definition SFT produces a visible narrow result: 291M Wikipedia → paragraph SFT → short-answer SFT recalls 75/100 known training definitions under new wording at the final checkpoint, versus zero exact short answers before. It still fails arithmetic and general instructions. This is recall of supplied facts, not an unseen-knowledge benchmark.
+- Short-definition SFT produces a visible narrow result: the historical 291M Wikipedia model recalls 72/100 known definitions after single-wording SFT versus 93/100 after eight-wording SFT, with 30 presentations per fact in both. It still fails arithmetic and general instructions. This is recall of supplied facts, not an unseen-knowledge benchmark.
+- Seven fresh raw-Wikipedia candidates near $10 were compared using the same million-token development pool. The 291M B200 run leads: 83 minutes, $9.13, test loss1.184. Its generated facts remain unreliable. Downstream exam scores also do not beat the earlier checkpoint: SFT21–26/40, three-action SFT+KL25–26/40, RLVR21–23/40 across three seeds.
 - B200 processed 567M tokens for $1.14 with 98M parameters in ten minutes, versus 298M for $0.79 on H100 and 328M for $0.87 on H200, at batch64/context512. Hardware and compilation startup matter; token throughput alone is not model quality.
 - A general Polish instruction stage did not improve the first matched scratch-model driving comparison: 291M direct SFT scored 25/40 versus 19/40 after instruction SFT. Treat instruction formatting and task competence as separate measurements.
 
 ![Repeated driving-exam runs](exam-comparison.svg)
 
 ![Wikipedia to the driving exam: measured controls](scratch-exam-comparison.svg)
+
+![Latest Wikipedia checkpoint: exam transfer](scratch-exam-transfer.svg)
 
 ![Known-fact recall and SFT question wording](wiki-qa-recall.svg)
 
@@ -263,13 +266,22 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |98.3M random weights|random|8,912 Wikipedia definitions|sft|0.0003|9.207 → 3.006|9.1|$0.696|
 |291.0M Polish Wikipedia|pretrained|8,912 Wikipedia definitions|sft|3e-05|4.282 → 1.721|17.6|$1.312|
 |291.0M random weights|random|8,912 Wikipedia definitions|sft|0.0003|9.155 → 3.116|17.9|$1.336|
-|98.3M Polish Wikipedia|pretrained|71,296 Wikipedia definitions|sft|3e-05|4.268 → 1.731|7.6|$0.586|
-|98.3M random weights|random|71,296 Wikipedia definitions|sft|0.0003|9.207 → 2.889|6.8|$0.511|
-|291.0M Polish Wikipedia|pretrained|71,296 Wikipedia definitions|sft|3e-05|4.282 → 1.828|10.6|$0.794|
-|291.0M Polish Wikipedia|pretrained|71,296 Wikipedia definitions|sft|3e-05|3.980 → 1.393|13.8|$1.022|
-|29.9M Polish Wikipedia|pretrained|71,296 Wikipedia definitions|sft|3e-05|4.166 → 1.688|5.3|$0.407|
-|29.9M Wolne Lektury|pretrained|71,296 Wikipedia definitions|sft|3e-05|6.000 → 2.153|5.4|$0.419|
+|98.3M Polish Wikipedia|pretrained|71,296 QA rows / 8,912 facts|sft|3e-05|4.268 → 1.731|7.6|$0.586|
+|98.3M random weights|random|71,296 QA rows / 8,912 facts|sft|0.0003|9.207 → 2.889|6.8|$0.511|
+|291.0M Polish Wikipedia|pretrained|71,296 QA rows / 8,912 facts|sft|3e-05|4.282 → 1.828|10.6|$0.794|
+|291.0M Polish Wikipedia|pretrained|71,296 QA rows / 8,912 facts|sft|3e-05|3.980 → 1.393|13.8|$1.022|
+|29.9M Polish Wikipedia|pretrained|71,296 QA rows / 8,912 facts|sft|3e-05|4.166 → 1.688|5.3|$0.407|
+|29.9M Wolne Lektury|pretrained|71,296 QA rows / 8,912 facts|sft|3e-05|6.000 → 2.153|5.4|$0.419|
 |291.0M Polish Wikipedia|pretrained|8,912 Wikipedia definitions|sft|3e-05|3.980 → 1.399|13.8|$1.024|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft (3-action CE + KL)|1e-06|15 → 25|1.8|$0.163|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|15 → 21|2.0|$0.179|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|15 → 26|1.4|$0.138|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft (3-action CE + KL)|1e-06|15 → 26|2.1|$0.190|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|15 → 23|2.0|$0.184|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|15 → 22|1.8|$0.171|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft (3-action CE + KL)|1e-06|15 → 25|1.9|$0.176|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|rlvr|1e-06|15 → 21|2.3|$0.211|
+|291.0M Polish Wikipedia|pretrained|289 driving questions|sft|1e-06|15 → 21|1.5|$0.148|
 
 ## Driving exam: explanation prompt, final-answer RLVR
 

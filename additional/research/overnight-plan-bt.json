@@ -1,0 +1,58 @@
+[
+  {
+    "tag": "291m-raw-best-varied-eval",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789696207346333000-291m-raw-best-varied",
+    "depends_on": [
+      "night-1789696207346333000-291m-raw-best-varied"
+    ],
+    "dependency_wait_seconds": 7200,
+    "worker_timeout_seconds": 900,
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "corpora": []
+  },
+  {
+    "tag": "98m-prose-varied-eval",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789696207346333000-98m-prose-varied",
+    "depends_on": [
+      "night-1789696207346333000-98m-prose-varied"
+    ],
+    "dependency_wait_seconds": 7200,
+    "worker_timeout_seconds": 900,
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "corpora": []
+  },
+  {
+    "tag": "291m-prose-varied-eval",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789696207346333000-291m-prose-varied",
+    "depends_on": [
+      "night-1789696207346333000-291m-prose-varied"
+    ],
+    "dependency_wait_seconds": 7200,
+    "worker_timeout_seconds": 900,
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "corpora": []
+  },
+  {
+    "tag": "291m-prose-instruction-eval",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789696207346333000-291m-prose-instruction",
+    "depends_on": [
+      "night-1789696207346333000-291m-prose-instruction"
+    ],
+    "dependency_wait_seconds": 7200,
+    "worker_timeout_seconds": 900,
+    "checkpoint": "best.pt",
+    "known_facts": false,
+    "corpora": []
+  }
+]

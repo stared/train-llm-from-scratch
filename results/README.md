@@ -8,6 +8,7 @@
 - [Fresh near-$10 Wikipedia runs](wikipedia-long-runs.svg).
 - [Wikipedia: H100, H200 and B200](wikipedia-gpus.svg).
 - [Wikipedia to the Polish Driving Licence Exam](scratch-exam-comparison.svg).
+- [Longer Wikipedia pretraining: exam transfer across three seeds](scratch-exam-transfer.svg).
 - [Wikipedia definitions: pretraining and question wording](wiki-qa-recall.svg).
 
 These files contain saved experiments, not freshly generated promises. Each comparison identifies the model, training data and evaluation setup.

@@ -115,7 +115,8 @@ def render():
                 base_label+=' + '+prior_label
             train_count=r.get('split_sizes',{}).get('train')
             if train_count is None:train_count=len(json.loads((folder/'data.json').read_text())['train'])
-            task_label={'exam':f"{train_count} driving questions",'poetry':'450 Pan Tadeusz Q&A','wiki-qa':f"{train_count:,} Wikipedia definitions",'instruction':'Polish OWCA instructions'}[spec['task']]
+            definition_label=(f"{train_count:,} QA rows / {train_count//8:,} facts" if spec.get('dataset')=='wiki-short-qa-varied' else f"{train_count:,} Wikipedia definitions")
+            task_label={'exam':f"{train_count} driving questions",'poetry':'450 Pan Tadeusz Q&A','wiki-qa':definition_label,'instruction':'Polish OWCA instructions'}[spec['task']]
             for stage_index,stage in enumerate(r['stages']):
                 after=stage['after']['test'];before=r['before']['test']
                 metric=(f"{before['correct']} → {after['correct']}" if spec['task']=='exam' else f"{before['loss']:.3f} → {after['loss']:.3f}")
@@ -168,7 +169,8 @@ Costs are worker GPU + CPU/memory estimates, excluding image builds, controller 
         'Thirty-minute Wolne Lektury pretraining improved test loss to 2.720 for $2.12. Ten minutes with compilation reached 2.748 for $0.73: a more practical workshop recipe.',
         'Original-markup Wikipedia 98M test loss improved from 1.619 at ten minutes to 1.426 at thirty and 1.339 at fifty ($3.56 worker compute). The older 133-minute recipe reached 1.301. Schedules and batches differ; loss gains continue, but generated facts remain unreliable.',
         'Another fifty minutes improved all four Wikipedia checkpoints. On the separate million-token test pool, 98M improved 1.303→1.241 from the fifty-minute base; 291M improved 1.328→1.249. The older 133-minute bases improved 1.265→1.222 and 1.246→1.201. Extra worker cost: $3.55–3.62 each. Driving-exam transfer did not improve consistently.',
-        'Short-definition SFT produces a visible narrow result: 291M Wikipedia → paragraph SFT → short-answer SFT recalls 75/100 known training definitions under new wording at the final checkpoint, versus zero exact short answers before. It still fails arithmetic and general instructions. This is recall of supplied facts, not an unseen-knowledge benchmark.',
+        'Short-definition SFT produces a visible narrow result: the historical 291M Wikipedia model recalls 72/100 known definitions after single-wording SFT versus 93/100 after eight-wording SFT, with 30 presentations per fact in both. It still fails arithmetic and general instructions. This is recall of supplied facts, not an unseen-knowledge benchmark.',
+        'Seven fresh raw-Wikipedia candidates near $10 were compared using the same million-token development pool. The 291M B200 run leads: 83 minutes, $9.13, test loss1.184. Its generated facts remain unreliable. Downstream exam scores also do not beat the earlier checkpoint: SFT21–26/40, three-action SFT+KL25–26/40, RLVR21–23/40 across three seeds.',
         'B200 processed 567M tokens for $1.14 with 98M parameters in ten minutes, versus 298M for $0.79 on H100 and 328M for $0.87 on H200, at batch64/context512. Hardware and compilation startup matter; token throughput alone is not model quality.',
         'A general Polish instruction stage did not improve the first matched scratch-model driving comparison: 291M direct SFT scored 25/40 versus 19/40 after instruction SFT. Treat instruction formatting and task competence as separate measurements.',
     ]
@@ -192,6 +194,9 @@ Costs are worker GPU + CPU/memory estimates, excluding image builds, controller 
     if (ROOT/'results/scratch-exam-comparison.svg').exists():
         body+='<h2>Wikipedia to the driving exam</h2><img src="scratch-exam-comparison.svg" alt="Scratch-model supervised and reinforcement-learning controls" style="width:100%">'
         md+='\n![Wikipedia to the driving exam: measured controls](scratch-exam-comparison.svg)\n'
+    if (ROOT/'results/scratch-exam-transfer.svg').exists():
+        body+='<h2>Latest Wikipedia checkpoint: exam transfer</h2><img src="scratch-exam-transfer.svg" alt="Three-seed exam transfer after longer Wikipedia pretraining" style="width:100%">'
+        md+='\n![Latest Wikipedia checkpoint: exam transfer](scratch-exam-transfer.svg)\n'
     if (ROOT/'results/wiki-qa-recall.svg').exists():
         body+='<h2>Pretraining and question wording</h2><img src="wiki-qa-recall.svg" alt="Known-fact recall after supervised training, comparing pretraining and question diversity" style="width:100%">'
         md+='\n![Known-fact recall and SFT question wording](wiki-qa-recall.svg)\n'
@@ -548,11 +553,52 @@ def plot_known_recall():
     save_svg(fig,'wiki-qa-recall.svg');plt.close(fig)
     (ROOT/'results/wiki-qa-recall.json').write_text(json.dumps(rows,indent=2)+'\n')
 
+
+def plot_latest_exam_transfer():
+    import matplotlib.pyplot as plt
+    groups={label:[] for label in ['Markup\nSFT','Markup\n3-letter SFT + KL','Markup\nRLVR',
+        'Prose\nSFT','Prose\nRLVR','Prose + instruction\nSFT','Prose + instruction\nRLVR']}
+    for path in (ROOT/'runs').glob('night-*/execution.json'):
+        r=json.loads(path.read_text());spec=r.get('spec',{});tag=spec.get('tag','')
+        if spec.get('task')!='exam':continue
+        if tag.startswith('best-wiki-'):prefix='Markup'
+        elif tag.startswith('full-prose-instruction-'):prefix='Prose + instruction'
+        elif tag.startswith('full-prose-'):prefix='Prose'
+        else:continue
+        method='3-letter SFT + KL' if spec.get('sft_actions_only') else spec['method'].upper()
+        stage=r['stages'][-1];label=prefix+'\n'+method
+        if label not in groups:continue
+        groups[label].append(dict(run=path.parent.name,label=label,base=r['base_run'],seed=spec['seed'],
+            before=r['before']['test']['correct'],test=stage['after']['test']['correct'],
+            before_rotated=r['before']['test_rotated']['correct'],rotated=stage['after']['test_rotated']['correct'],
+            selected_step=stage['selected_step'],steps=stage['steps'],worker_usd=r['estimated_compute_usd']))
+    groups={label:sorted(rows,key=lambda r:r['seed']) for label,rows in groups.items()
+            if len(rows)==3 and {r['seed'] for r in rows}=={42,123,2026}}
+    if not groups:return
+    fig,axes=plt.subplots(2,1,figsize=(12,8),sharex=True,layout='constrained')
+    for ax,metric,before,title in zip(axes,['test','rotated'],['before','before_rotated'],['Original option order','Rotated option order']):
+        for i,(label,rows) in enumerate(groups.items()):
+            scores=[r[metric] for r in rows];baselines={r[before] for r in rows}
+            assert len(baselines)==1
+            color='#d67a2a' if label.endswith('RLVR') else '#6c9c72' if '3-letter' in label else '#487aa6'
+            ax.bar(i,sum(scores)/3,color=color,alpha=.7,width=.65)
+            ax.scatter([i-.13,i,i+.13],scores,color='#222',s=25,zorder=4)
+            ax.scatter(i,baselines.pop(),marker='D',color='#aaa',edgecolor='#555',zorder=5,label='Before exam training' if i==0 else None)
+            ax.text(i,max(scores)+1,' / '.join(map(str,scores)),ha='center',fontsize=9)
+        ax.set(title=title,ylabel='Correct answers / 40',ylim=(0,40),yticks=range(0,41,5))
+        ax.grid(axis='y',alpha=.2);ax.set_axisbelow(True);ax.legend(loc='upper right',fontsize=9)
+    axes[-1].set(xticks=range(len(groups)),xticklabels=list(groups))
+    fig.suptitle('291M Wikipedia models → Polish Driving Licence Exam\nSame 289 training questions and 80-presentation limit; dots are three training seeds')
+    fig.supxlabel('Development selects checkpoints using all six option permutations. Small, repeatedly inspected test; not official-exam passing evidence.',fontsize=9)
+    save_svg(fig,'scratch-exam-transfer.svg');plt.close(fig)
+    (ROOT/'results/scratch-exam-transfer.json').write_text(json.dumps([r for rows in groups.values() for r in rows],indent=2)+'\n')
+
 if __name__=='__main__':
     plot_wikipedia_scaling()
     plot_long_wikipedia()
     plot_scratch_exam()
     plot_known_recall()
+    plot_latest_exam_transfer()
     plot_stopping()
     plot_gpus()
     plot_wikipedia_gpus()

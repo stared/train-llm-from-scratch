@@ -40,6 +40,7 @@ def validate_plan(plan):
     if not plan or len(plan)>30:raise ValueError('1–30 bounded experiments')
     for spec in plan:
         if spec['gpu'] not in RATES:raise ValueError('Unknown GPU')
+        if spec.get('known_probe_file','known-probes.json') not in ('known-probes.json','known-audit.json'):raise ValueError('Unknown frozen recall probe file')
         if 'worker_timeout_seconds' in spec:
             bound=spec['worker_timeout_seconds']
             if spec['kind'] not in ('posttrain','evaluate'):raise ValueError('Explicit worker timeout is for post-training or evaluation')
@@ -107,7 +108,7 @@ def experiment(batch, spec):
             sys.path.insert(0,'/work/additional/scripts')
             from scratch_evaluate import run
             result=run('/persist/runs/'+spec['base'],out,spec.get('corpora',[]),checkpoint=spec.get('checkpoint','best.pt'),extended=spec.get('extended',False),
-                       known_fact_probes='/work/datasets/wiki-short-qa/known-probes.json' if spec.get('known_facts') else None,
+                       known_fact_probes='/work/datasets/wiki-short-qa/'+spec.get('known_probe_file','known-probes.json') if spec.get('known_facts') else None,
                        known_fact_training_data='/work/datasets/wiki-short-qa/data.json' if spec.get('known_training_prompts') else None)
         elif spec['kind']=='scratch':
             from train_scratch import run

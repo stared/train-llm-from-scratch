@@ -1,0 +1,94 @@
+[
+  {
+    "tag": "full-prose-sft-123",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789690708055537000-300m-plain-full-5000s",
+    "depends_on": [
+      "night-1789690708055537000-300m-plain-full-5000s"
+    ],
+    "dependency_wait_seconds": 7200,
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "worker_timeout_seconds": 900,
+    "lr": 1e-06,
+    "beta": 0.1,
+    "dataset": "prawko-expanded",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 80,
+    "eval_steps": 100,
+    "selection_permutations": true,
+    "seed": 123
+  },
+  {
+    "tag": "full-prose-rlvr-123",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789690708055537000-300m-plain-full-5000s",
+    "depends_on": [
+      "night-1789690708055537000-300m-plain-full-5000s"
+    ],
+    "dependency_wait_seconds": 7200,
+    "task": "exam",
+    "method": "rlvr",
+    "seconds": 600,
+    "worker_timeout_seconds": 900,
+    "lr": 1e-06,
+    "beta": 0.1,
+    "dataset": "prawko-expanded",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 80,
+    "eval_steps": 100,
+    "selection_permutations": true,
+    "seed": 123
+  },
+  {
+    "tag": "full-prose-instruction-sft-123",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789696207346333000-291m-prose-instruction",
+    "depends_on": [
+      "night-1789696207346333000-291m-prose-instruction"
+    ],
+    "dependency_wait_seconds": 7200,
+    "task": "exam",
+    "method": "sft",
+    "seconds": 600,
+    "worker_timeout_seconds": 900,
+    "lr": 1e-06,
+    "beta": 0.1,
+    "dataset": "prawko-expanded",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 80,
+    "eval_steps": 100,
+    "selection_permutations": true,
+    "seed": 123
+  },
+  {
+    "tag": "full-prose-instruction-rlvr-123",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789696207346333000-291m-prose-instruction",
+    "depends_on": [
+      "night-1789696207346333000-291m-prose-instruction"
+    ],
+    "dependency_wait_seconds": 7200,
+    "task": "exam",
+    "method": "rlvr",
+    "seconds": 600,
+    "worker_timeout_seconds": 900,
+    "lr": 1e-06,
+    "beta": 0.1,
+    "dataset": "prawko-expanded",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 80,
+    "eval_steps": 100,
+    "selection_permutations": true,
+    "seed": 123
+  }
+]

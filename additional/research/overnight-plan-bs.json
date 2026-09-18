@@ -1,0 +1,78 @@
+[
+  {
+    "tag": "291m-raw-best-varied",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789689694697165000-300m-B200-5000s",
+    "depends_on": [
+      "night-1789689694697165000-300m-B200-5000s"
+    ],
+    "task": "wiki-qa",
+    "method": "sft",
+    "seconds": 1200,
+    "worker_timeout_seconds": 1800,
+    "lr": 3e-05,
+    "dataset": "wiki-short-qa-varied",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 3.75,
+    "eval_steps": 500
+  },
+  {
+    "tag": "98m-prose-varied",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789690708055537000-100m-plain-full-5000s",
+    "depends_on": [
+      "night-1789690708055537000-100m-plain-full-5000s"
+    ],
+    "task": "wiki-qa",
+    "method": "sft",
+    "seconds": 1200,
+    "worker_timeout_seconds": 1800,
+    "lr": 3e-05,
+    "dataset": "wiki-short-qa-varied",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 3.75,
+    "eval_steps": 500
+  },
+  {
+    "tag": "291m-prose-varied",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789690708055537000-300m-plain-full-5000s",
+    "depends_on": [
+      "night-1789690708055537000-300m-plain-full-5000s"
+    ],
+    "task": "wiki-qa",
+    "method": "sft",
+    "seconds": 1200,
+    "worker_timeout_seconds": 1800,
+    "lr": 3e-05,
+    "dataset": "wiki-short-qa-varied",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 3.75,
+    "eval_steps": 500
+  },
+  {
+    "tag": "291m-prose-instruction",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789690708055537000-300m-plain-full-5000s",
+    "depends_on": [
+      "night-1789690708055537000-300m-plain-full-5000s"
+    ],
+    "task": "instruction",
+    "method": "sft",
+    "seconds": 1200,
+    "worker_timeout_seconds": 1800,
+    "lr": 3e-05,
+    "dataset": "polish-instructions",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 3,
+    "eval_steps": 250
+  }
+]
