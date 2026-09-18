@@ -82,7 +82,7 @@ def render():
             tables[kind].append([r['base_run'],r['base_task']]+[f"{common[n]['test']['loss_nats']:.3f}" if n in common else '—' for n in names]+[str(r['quality_raw']['correct'])+'/10',str(r['quality_plain']['correct'])+'/10',f"${cost:.3f}"])
             extended=r.get('extended_common',{})
             if extended:
-                names=['wiki-scratch-v1','wiki-plain-leads-v2','wl-scratch-v1']
+                names=['wiki-scratch-v1','wiki-plain-leads-v2','wiki-plain-full-v1','wl-scratch-v1']
                 tables['extended'].append([r['base_run'],r['checkpoint']]+[f"{extended[n]['test']['loss_nats']:.4f}" if n in extended else '—' for n in names]+[f"{next(iter(extended.values()))['test']['tokens']:,}"])
             examples='<p>Greedy instruction diagnostics; no instruction fine-tuning unless explicitly labeled. References are illustrative, not an automatic score.</p>'
             known=r.get('known_fact_recall')
@@ -146,7 +146,7 @@ def render():
       'exam':['Starting model','Method','Train questions','GPU / batch','LR','Seed','Test /40','Dev /25','Rotated /40','Training min','Run worker $'],
       'reasoning':['Model','Steps','Selected step','Strict final-answer score /40','Answer anywhere /40','Answer-only outputs /40','Training min','Worker $'],
       'evaluate':['Checkpoint','Stage','Raw Wikipedia test loss','Raw leads test loss','Plain v1 test loss (superseded)','Plain v2 test loss','Raw fact probes','Plain fact probes','Evaluation worker $'],
-      'extended':['Starting run','Weights','Original Wikipedia test loss','Plain Wikipedia v2 test loss','Wolne Lektury test loss','Tokens per split'],
+      'extended':['Starting run','Weights','Original Wikipedia test loss','Plain leads v2 test loss','Full prose test loss','Wolne Lektury test loss','Tokens per split'],
       'known':['Starting run','Weights','Question wording','Development exact answers','Test exact answers'],
       'posttrain':['Starting checkpoint','Initialization','Task','Stage','LR','Test correct /40 or answer loss','Training min','Run worker $']}
     titles={'scratch':'GPU and architecture comparisons','exam':'Driving exam: existing models','posttrain':'Scratch models after pretraining','reasoning':'Driving exam: explanation prompt, final-answer RLVR','evaluate':'Common-corpus and instruction diagnostics (16k-token pools)','extended':'Larger held-out evaluations (1M-token pools)','known':'Short-answer recall of facts from training'}
@@ -192,6 +192,9 @@ Costs are worker GPU + CPU/memory estimates, excluding image builds, controller 
     if (ROOT/'results/scratch-exam-comparison.svg').exists():
         body+='<h2>Wikipedia to the driving exam</h2><img src="scratch-exam-comparison.svg" alt="Scratch-model supervised and reinforcement-learning controls" style="width:100%">'
         md+='\n![Wikipedia to the driving exam: measured controls](scratch-exam-comparison.svg)\n'
+    if (ROOT/'results/wiki-qa-recall.svg').exists():
+        body+='<h2>Pretraining and question wording</h2><img src="wiki-qa-recall.svg" alt="Known-fact recall after supervised training, comparing pretraining and question diversity" style="width:100%">'
+        md+='\n![Known-fact recall and SFT question wording](wiki-qa-recall.svg)\n'
     body+='<h2>Choosing a checkpoint</h2><img src="checkpoint-selection.svg" alt="Development curves with selected and final checkpoints" style="width:100%">'
     md+='\n![Development curves: selected and final checkpoints](checkpoint-selection.svg)\n'
     if (ROOT/'results/wikipedia-scaling.svg').exists():
@@ -413,6 +416,52 @@ def plot_wikipedia_scaling():
     save_svg(fig,'wikipedia-scaling.svg');plt.close(fig)
     (ROOT/'results/wikipedia-scaling.json').write_text(json.dumps(audit,indent=2)+'\n')
 
+def plot_long_wikipedia():
+    """Fresh near-$10 raw-Wikipedia recipes, evaluated on one fixed pool."""
+    import matplotlib.pyplot as plt
+    batches={'1789686602382545000','1789687464977579000','1789689694697165000'}
+    evaluations={}
+    for path in (ROOT/'runs').glob('night-*/execution.json'):
+        result=json.loads(path.read_text())
+        common=result.get('extended_common',{}).get('wiki-scratch-v1')
+        if common and result.get('checkpoint')=='best.pt':
+            evaluations[result['base_run']]=(path.parent.name,common)
+    rows=[]
+    for batch in sorted(batches):
+        for path in sorted((ROOT/'runs').glob(f'night-{batch}-*/execution.json')):
+            result=json.loads(path.read_text());spec=result.get('spec',{})
+            if spec.get('kind')!='scratch' or spec.get('mixture_data') or path.parent.name not in evaluations:continue
+            evaluation,common=evaluations[path.parent.name]
+            assert common['seed']==20260918 and common['test']['tokens']==1048576
+            label=f"{result['parameters']/1e6:.0f}M {spec['gpu']}"
+            if 'wide' in spec['size']:label+=' wide'
+            if spec.get('sampling')=='shuffled':label+=' shuffled'
+            rows.append(dict(run=path.parent.name,evaluation=evaluation,label=label,
+                minutes=result['training_seconds']/60,worker_usd=result['estimated_compute_usd'],
+                tokens=result['tokens_seen'],dev_loss=common['dev']['loss_nats'],test_loss=common['test']['loss_nats'],
+                checkpoints=json.loads((path.parent/'checkpoints.json').read_text()),
+                selected_step=result['best_step'],final_step=result['steps']))
+    if not rows:return
+    rows.sort(key=lambda r:r['dev_loss'])  # Declared selection uses development, never test.
+    fig,axes=plt.subplots(1,2,figsize=(13,5.5),layout='constrained')
+    for i,row in enumerate(rows):
+        points=row['checkpoints'];color=f'C{i}'
+        axes[0].plot([p['elapsed_seconds']/60 for p in points],[p['loss_nats'] for p in points],color=color,label=row['label'])
+        chosen=next((p for p in points if p['step']==row['selected_step']),None)
+        if chosen:axes[0].scatter(chosen['elapsed_seconds']/60,chosen['loss_nats'],color=color,marker='*',s=80,zorder=4)
+        axes[1].scatter(row['test_loss'],i,color=color,s=70)
+        axes[1].annotate(f"  ${row['worker_usd']:.2f}, {row['minutes']:.0f} min, {row['tokens']/1e9:.2f}B tokens",
+                         (row['test_loss'],i),xytext=(5,6),textcoords='offset points',fontsize=8)
+    axes[0].set(xlabel='Training minutes',ylabel='Development loss (16k-token pool)',title='Stars: checkpoints selected using development loss')
+    axes[0].legend(fontsize=8);axes[0].grid(alpha=.2)
+    axes[1].set(yticks=range(len(rows)),yticklabels=[r['label'] for r in rows],xlabel='Test loss (fixed 1,048,576-token pool)',title='Rows ordered by million-token development loss')
+    axes[1].invert_yaxis();axes[1].margins(x=.8,y=.2);axes[1].grid(axis='x',alpha=.2)
+    fig.suptitle('Fresh Polish Wikipedia pretraining near $10 per run')
+    fig.supxlabel('Same raw markup, 8k tokenizer, batch64 and context512. Single runs; GPU recipes have different wall-clock budgets.',fontsize=9)
+    save_svg(fig,'wikipedia-long-runs.svg');plt.close(fig)
+    (ROOT/'results/wikipedia-long-runs.json').write_text(json.dumps(rows,indent=2)+'\n')
+
+
 def plot_scratch_exam():
     import matplotlib
     matplotlib.use('Agg')
@@ -458,9 +507,48 @@ def plot_scratch_exam():
     save_svg(fig,'scratch-exam-comparison.svg');plt.close(fig)
     (ROOT/'results/scratch-exam-comparison.json').write_text(json.dumps(rows,indent=2)+'\n')
 
+def plot_known_recall():
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    groups=[
+        ('98M\nrandom weights','1789690403457968000','100m-random-short-final','100m-random-varied-final'),
+        ('98M\n10min Wikipedia','1789690403457968000','100m-10min-short-final','100m-10min-varied-final'),
+        ('291M\n10min Wikipedia','1789690403457968000','300m-10min-short-final','300m-10min-varied-final'),
+        ('291M\n133min Wikipedia','1789688231535564000','300m-raw-short-final','300m-8000s-varied-final'),
+    ]
+    rows=[]
+    for i,(label,batch,plain,varied) in enumerate(groups):
+        for condition,name in [('one wording',f'night-{batch}-{plain}'),('eight wordings',f'night-1789691672093057000-{varied}')]:
+            folder=ROOT/'runs'/name
+            if not (folder/'execution.json').exists():return
+            result=json.loads((folder/'execution.json').read_text());score=result['known_fact_recall']
+            training=json.loads((ROOT/'runs'/result['base_run']/'execution.json').read_text())
+            stage=training['stages'][-1]
+            rows.append(dict(group=i,label=label.replace('\n',' '),wording=condition,run=name,
+                pretraining_run=training['base_run'],sft_run=result['base_run'],weights=result['checkpoint'],
+                dev_correct=score['dev']['correct'],test_correct=score['test']['correct'],n=score['test']['n'],
+                mean_fact_presentations=stage['exposure_ratio']*(8 if condition=='eight wordings' else 1),
+                sft_seconds=stage['training_seconds'],sft_worker_usd=training['estimated_compute_usd'],
+                probes_sha256=score['probes_sha256']))
+    assert len({r['probes_sha256'] for r in rows})==1
+    fig,ax=plt.subplots(figsize=(11,5),layout='constrained')
+    for condition,shift,color in [('one wording',-.18,'#487aa6'),('eight wordings',.18,'#d67a2a')]:
+        group=[r for r in rows if r['wording']==condition]
+        bars=ax.bar([r['group']+shift for r in group],[r['test_correct'] for r in group],width=.34,color=color,label=condition.capitalize()+' per fact')
+        ax.bar_label(bars,labels=[str(r['test_correct'])+('*' if r['mean_fact_presentations']<29.9 else '') for r in group],padding=4)
+    ax.set(xticks=range(len(groups)),xticklabels=[g[0] for g in groups],ylim=(0,105),ylabel='Exact definitions out of 100',
+           title='Known Wikipedia facts, new question wording\nSame 8,912 training facts; four frozen evaluation question templates')
+    ax.legend(loc='upper left');ax.grid(axis='y',alpha=.2);ax.set_axisbelow(True)
+    fig.supxlabel('Final SFT weights; 30 presentations/fact except *19.6 (time cap). Known facts, not unseen knowledge. Single runs.',fontsize=9)
+    save_svg(fig,'wiki-qa-recall.svg');plt.close(fig)
+    (ROOT/'results/wiki-qa-recall.json').write_text(json.dumps(rows,indent=2)+'\n')
+
 if __name__=='__main__':
     plot_wikipedia_scaling()
+    plot_long_wikipedia()
     plot_scratch_exam()
+    plot_known_recall()
     plot_stopping()
     plot_gpus()
     plot_wikipedia_gpus()

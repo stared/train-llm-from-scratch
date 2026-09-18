@@ -8,9 +8,9 @@ Costs are worker GPU + CPU/memory estimates, excluding image builds, controller 
 
 Failed/canceled calls recorded: 13; known worker estimates $0.040. Canceled calls with unknown billing retain conservative timeout reservations in the local budget ledger; they are not counted as free.
 
-Completed workers: 63 pretraining, 130 post-training, 77 evaluation only. These are runs, not distinct model architectures.
+Completed workers: 67 pretraining, 136 post-training, 83 evaluation only. These are runs, not distinct model architectures.
 
-Worker compute in this report: $131.246.
+Worker compute in this report: $138.677.
 
 ## What changed
 
@@ -30,6 +30,8 @@ Worker compute in this report: $131.246.
 ![Repeated driving-exam runs](exam-comparison.svg)
 
 ![Wikipedia to the driving exam: measured controls](scratch-exam-comparison.svg)
+
+![Known-fact recall and SFT question wording](wiki-qa-recall.svg)
 
 ![Development curves: selected and final checkpoints](checkpoint-selection.svg)
 
@@ -104,6 +106,10 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |ScratchGPT-100m [Muon]|wiki-scratch-v1|512|H100|10.0|9.174 → 1.610|249.6|0.08|323.9|$0.771|
 |ScratchGPT-100m [Muon]|wiki-scratch-v1|512|H100|10.0|9.174 → 1.577|253.9|0.08|329.3|$0.771|
 |ScratchGPT-300m [Muon]|wiki-scratch-v1|512|H100|10.0|9.210 → 1.771|85.5|0.03|105.9|$0.807|
+|ScratchGPT-100m [Muon]|wiki-scratch-v1|512|B200|10.0|9.174 → 1.475|475.9|0.15|418.2|$1.138|
+|ScratchGPT-100m|wiki-scratch-v1|512|H100|10.0|9.174 → 1.582|307.0|0.10|406.9|$0.754|
+|ScratchGPT-100m [Muon]|wiki-scratch-v1|512|H100|10.0|9.174 → 1.591|251.1|0.08|327.0|$0.768|
+|ScratchGPT-300m [Muon]|wiki-scratch-v1|512|H100|10.0|9.210 → 1.801|71.9|0.02|85.0|$0.846|
 
 ## Driving exam: existing models
 
@@ -247,6 +253,12 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |98.3M random weights|random|8,912 Wikipedia definitions|sft|0.0003|9.207 → 3.006|9.1|$0.696|
 |291.0M Polish Wikipedia|pretrained|8,912 Wikipedia definitions|sft|3e-05|4.282 → 1.721|17.6|$1.312|
 |291.0M random weights|random|8,912 Wikipedia definitions|sft|0.0003|9.155 → 3.116|17.9|$1.336|
+|98.3M Polish Wikipedia|pretrained|71,296 Wikipedia definitions|sft|3e-05|4.268 → 1.731|7.6|$0.586|
+|98.3M random weights|random|71,296 Wikipedia definitions|sft|0.0003|9.207 → 2.889|6.8|$0.511|
+|291.0M Polish Wikipedia|pretrained|71,296 Wikipedia definitions|sft|3e-05|4.282 → 1.828|10.6|$0.794|
+|291.0M Polish Wikipedia|pretrained|71,296 Wikipedia definitions|sft|3e-05|3.980 → 1.393|13.8|$1.022|
+|29.9M Polish Wikipedia|pretrained|71,296 Wikipedia definitions|sft|3e-05|4.166 → 1.688|5.3|$0.407|
+|29.9M Wolne Lektury|pretrained|71,296 Wikipedia definitions|sft|3e-05|6.000 → 2.153|5.4|$0.419|
 
 ## Driving exam: explanation prompt, final-answer RLVR
 
@@ -336,56 +348,62 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |night-1789689411690422000-100m-random-short-qa|wiki-qa|—|—|—|—|4/10|4/10|$0.034|
 |night-1789689411690422000-300m-10min-short-qa|wiki-qa|—|—|—|—|6/10|7/10|$0.049|
 |night-1789689411690422000-300m-random-short-qa|wiki-qa|—|—|—|—|2/10|1/10|$0.045|
+|night-1789691613092240000-100m-10min-varied-qa|wiki-qa|—|—|—|—|6/10|7/10|$0.020|
+|night-1789691613092240000-100m-random-varied-qa|wiki-qa|—|—|—|—|3/10|5/10|$0.022|
+|night-1789691613092240000-300m-10min-varied-qa|wiki-qa|—|—|—|—|7/10|7/10|$0.068|
+|night-1789691613092240000-300m-8000s-varied-qa|wiki-qa|—|—|—|—|8/10|7/10|$0.034|
+|night-1789692884416637000-wiki30-varied-qa|wiki-qa|—|—|—|—|8/10|7/10|$0.020|
+|night-1789692884416637000-wl30-varied-qa|wiki-qa|—|—|—|—|7/10|6/10|$0.022|
 
 ## Larger held-out evaluations (1M-token pools)
 
-|Starting run|Weights|Original Wikipedia test loss|Plain Wikipedia v2 test loss|Wolne Lektury test loss|Tokens per split|
-|---|---|---|---|---|---|
-|night-1789680156069063000-wiki100-compiled-30min-H100|best.pt|1.3744|2.6207|3.6897|1,048,576|
-|night-1789681601127509000-wiki-100m-batch64-50min|best.pt|1.3030|2.5295|3.6067|1,048,576|
-|night-1789681601127509000-wiki-30m-50min|best.pt|1.4495|2.7580|3.8000|1,048,576|
-|night-1789681601127509000-wiki-300m-batch64-50min|best.pt|1.3279|2.5490|3.6203|1,048,576|
-|night-1789682325149225000-wiki-100m-wide-50min|best.pt|1.3340|2.5697|3.6539|1,048,576|
-|night-1789680156069063000-wiki-100m-compiled-H100|best.pt|1.5467|2.8828|3.8977|1,048,576|
-|scratch-polish-dollar-1788900395083493729-wiki-100-uniform|best.pt|1.2646|2.4764|3.5540|1,048,576|
-|scratch-polish-dollar-1788900395083493729-wiki-300-uniform|best.pt|1.2463|2.4244|3.5106|1,048,576|
-|scratch-polish-dollar-1788900395083493729-wiki-100-uniform|final.pt|1.2646|2.4764|3.5540|1,048,576|
-|night-1789685768417650000-100m-qa100k-lr1e-05|sft-final.pt|1.8430|2.3662|3.8903|1,048,576|
-|night-1789685768417650000-100m-qa100k-lr1e-05|best.pt|1.6945|2.3275|3.8129|1,048,576|
-|night-1789685768417650000-100m-qa100k-lr3e-05|sft-final.pt|2.7779|2.6671|4.4241|1,048,576|
-|night-1789685768417650000-100m-qa100k-lr3e-05|best.pt|1.7488|2.3776|3.8858|1,048,576|
-|night-1789685768417650000-300m-qa100k-lr1e-05|sft-final.pt|1.7391|2.4062|3.9300|1,048,576|
-|night-1789685768417650000-300m-qa100k-lr1e-05|best.pt|1.4633|2.2655|3.7061|1,048,576|
-|night-1789685768417650000-300m-qa100k-lr3e-05|sft-final.pt|2.5306|2.7349|4.5116|1,048,576|
-|night-1789685768417650000-300m-qa100k-lr3e-05|best.pt|1.5628|2.3239|3.8371|1,048,576|
-|night-1789685768417650000-100m-qa100k-lr1e-05|best.pt|1.6945|2.3275|—|1,048,576|
-|night-1789688074687510000-100m-qa100k-short-qa|sft-final.pt|5.0272|4.4256|—|1,048,576|
-|night-1789688074687510000-100m-qa100k-short-qa|best.pt|1.8537|2.6249|—|1,048,576|
-|scratch-polish-dollar-1788900395083493729-wiki-100-uniform|best.pt|1.2646|2.4764|—|1,048,576|
-|night-1789688074687510000-100m-raw-short-qa|sft-final.pt|3.4391|4.3461|—|1,048,576|
-|night-1789688074687510000-100m-raw-short-qa|best.pt|1.3623|2.5971|—|1,048,576|
-|night-1789685768417650000-300m-qa100k-lr1e-05|best.pt|1.4633|2.2655|—|1,048,576|
-|night-1789688074687510000-300m-qa100k-short-qa|sft-final.pt|3.1289|3.8416|—|1,048,576|
-|night-1789688074687510000-300m-qa100k-short-qa|best.pt|1.5842|2.5619|—|1,048,576|
-|scratch-polish-dollar-1788900395083493729-wiki-300-uniform|best.pt|1.2463|2.4244|—|1,048,576|
-|night-1789688074687510000-300m-raw-short-qa|sft-final.pt|2.2092|3.7687|—|1,048,576|
-|night-1789688074687510000-300m-raw-short-qa|best.pt|1.3313|2.5592|—|1,048,576|
-|night-1789685113120810000-100m-from-50min|best.pt|1.2415|2.4434|3.5240|1,048,576|
-|night-1789685113120810000-100m-from-8000s|best.pt|1.2223|2.4218|3.4993|1,048,576|
-|night-1789684286971344000-100m-plain-v2-fresh-50min|best.pt|5.4219|2.2379|4.8798|1,048,576|
-|night-1789685113120810000-300m-from-50min|best.pt|1.2493|2.4439|3.5236|1,048,576|
-|night-1789685113120810000-300m-from-8000s|best.pt|1.2015|2.3653|3.4599|1,048,576|
-|night-1789684286971344000-300m-plain-v2-fresh-50min|best.pt|5.1180|2.2250|4.8001|1,048,576|
-|night-1789686246426969000-100m-continue-plain50|checkpoint-1800s.pt|1.3031|2.0011|3.6264|1,048,576|
-|night-1789686246426969000-100m-continue-plain50|final.pt|1.2852|2.0056|3.6181|1,048,576|
-|night-1789686246426969000-100m-continue-popular12.5|best.pt|1.2534|2.5789|3.5498|1,048,576|
-|night-1789686246426969000-300m-continue-plain50|checkpoint-1800s.pt|1.2643|1.9587|3.5624|1,048,576|
-|night-1789686246426969000-300m-continue-plain50|final.pt|1.2447|1.9539|3.5574|1,048,576|
-|night-1789686246426969000-300m-continue-popular12.5|best.pt|1.2248|2.4939|3.4983|1,048,576|
-|night-1789689411690422000-100m-10min-short-qa|sft-final.pt|3.7175|4.6645|—|1,048,576|
-|night-1789689411690422000-100m-random-short-qa|sft-final.pt|15.4049|13.3777|—|1,048,576|
-|night-1789689411690422000-300m-10min-short-qa|sft-final.pt|4.8331|5.1664|—|1,048,576|
-|night-1789689411690422000-300m-random-short-qa|sft-final.pt|15.1183|12.4609|—|1,048,576|
+|Starting run|Weights|Original Wikipedia test loss|Plain leads v2 test loss|Full prose test loss|Wolne Lektury test loss|Tokens per split|
+|---|---|---|---|---|---|---|
+|night-1789680156069063000-wiki100-compiled-30min-H100|best.pt|1.3744|2.6207|—|3.6897|1,048,576|
+|night-1789681601127509000-wiki-100m-batch64-50min|best.pt|1.3030|2.5295|—|3.6067|1,048,576|
+|night-1789681601127509000-wiki-30m-50min|best.pt|1.4495|2.7580|—|3.8000|1,048,576|
+|night-1789681601127509000-wiki-300m-batch64-50min|best.pt|1.3279|2.5490|—|3.6203|1,048,576|
+|night-1789682325149225000-wiki-100m-wide-50min|best.pt|1.3340|2.5697|—|3.6539|1,048,576|
+|night-1789680156069063000-wiki-100m-compiled-H100|best.pt|1.5467|2.8828|—|3.8977|1,048,576|
+|scratch-polish-dollar-1788900395083493729-wiki-100-uniform|best.pt|1.2646|2.4764|—|3.5540|1,048,576|
+|scratch-polish-dollar-1788900395083493729-wiki-300-uniform|best.pt|1.2463|2.4244|—|3.5106|1,048,576|
+|scratch-polish-dollar-1788900395083493729-wiki-100-uniform|final.pt|1.2646|2.4764|—|3.5540|1,048,576|
+|night-1789685768417650000-100m-qa100k-lr1e-05|sft-final.pt|1.8430|2.3662|—|3.8903|1,048,576|
+|night-1789685768417650000-100m-qa100k-lr1e-05|best.pt|1.6945|2.3275|—|3.8129|1,048,576|
+|night-1789685768417650000-100m-qa100k-lr3e-05|sft-final.pt|2.7779|2.6671|—|4.4241|1,048,576|
+|night-1789685768417650000-100m-qa100k-lr3e-05|best.pt|1.7488|2.3776|—|3.8858|1,048,576|
+|night-1789685768417650000-300m-qa100k-lr1e-05|sft-final.pt|1.7391|2.4062|—|3.9300|1,048,576|
+|night-1789685768417650000-300m-qa100k-lr1e-05|best.pt|1.4633|2.2655|—|3.7061|1,048,576|
+|night-1789685768417650000-300m-qa100k-lr3e-05|sft-final.pt|2.5306|2.7349|—|4.5116|1,048,576|
+|night-1789685768417650000-300m-qa100k-lr3e-05|best.pt|1.5628|2.3239|—|3.8371|1,048,576|
+|night-1789685768417650000-100m-qa100k-lr1e-05|best.pt|1.6945|2.3275|—|—|1,048,576|
+|night-1789688074687510000-100m-qa100k-short-qa|sft-final.pt|5.0272|4.4256|—|—|1,048,576|
+|night-1789688074687510000-100m-qa100k-short-qa|best.pt|1.8537|2.6249|—|—|1,048,576|
+|scratch-polish-dollar-1788900395083493729-wiki-100-uniform|best.pt|1.2646|2.4764|—|—|1,048,576|
+|night-1789688074687510000-100m-raw-short-qa|sft-final.pt|3.4391|4.3461|—|—|1,048,576|
+|night-1789688074687510000-100m-raw-short-qa|best.pt|1.3623|2.5971|—|—|1,048,576|
+|night-1789685768417650000-300m-qa100k-lr1e-05|best.pt|1.4633|2.2655|—|—|1,048,576|
+|night-1789688074687510000-300m-qa100k-short-qa|sft-final.pt|3.1289|3.8416|—|—|1,048,576|
+|night-1789688074687510000-300m-qa100k-short-qa|best.pt|1.5842|2.5619|—|—|1,048,576|
+|scratch-polish-dollar-1788900395083493729-wiki-300-uniform|best.pt|1.2463|2.4244|—|—|1,048,576|
+|night-1789688074687510000-300m-raw-short-qa|sft-final.pt|2.2092|3.7687|—|—|1,048,576|
+|night-1789688074687510000-300m-raw-short-qa|best.pt|1.3313|2.5592|—|—|1,048,576|
+|night-1789685113120810000-100m-from-50min|best.pt|1.2415|2.4434|—|3.5240|1,048,576|
+|night-1789685113120810000-100m-from-8000s|best.pt|1.2223|2.4218|—|3.4993|1,048,576|
+|night-1789684286971344000-100m-plain-v2-fresh-50min|best.pt|5.4219|2.2379|—|4.8798|1,048,576|
+|night-1789685113120810000-300m-from-50min|best.pt|1.2493|2.4439|—|3.5236|1,048,576|
+|night-1789685113120810000-300m-from-8000s|best.pt|1.2015|2.3653|—|3.4599|1,048,576|
+|night-1789684286971344000-300m-plain-v2-fresh-50min|best.pt|5.1180|2.2250|—|4.8001|1,048,576|
+|night-1789686246426969000-100m-continue-plain50|checkpoint-1800s.pt|1.3031|2.0011|—|3.6264|1,048,576|
+|night-1789686246426969000-100m-continue-plain50|final.pt|1.2852|2.0056|—|3.6181|1,048,576|
+|night-1789686246426969000-100m-continue-popular12.5|best.pt|1.2534|2.5789|—|3.5498|1,048,576|
+|night-1789686246426969000-300m-continue-plain50|checkpoint-1800s.pt|1.2643|1.9587|—|3.5624|1,048,576|
+|night-1789686246426969000-300m-continue-plain50|final.pt|1.2447|1.9539|—|3.5574|1,048,576|
+|night-1789686246426969000-300m-continue-popular12.5|best.pt|1.2248|2.4939|—|3.4983|1,048,576|
+|night-1789689411690422000-100m-10min-short-qa|sft-final.pt|3.7175|4.6645|—|—|1,048,576|
+|night-1789689411690422000-100m-random-short-qa|sft-final.pt|15.4049|13.3777|—|—|1,048,576|
+|night-1789689411690422000-300m-10min-short-qa|sft-final.pt|4.8331|5.1664|—|—|1,048,576|
+|night-1789689411690422000-300m-random-short-qa|sft-final.pt|15.1183|12.4609|—|—|1,048,576|
 
 ## Short-answer recall of facts from training
 
@@ -411,6 +429,12 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 |night-1789689411690422000-100m-random-short-qa|sft-final.pt|original training prompts|64/100|58/100|
 |night-1789689411690422000-300m-10min-short-qa|sft-final.pt|original training prompts|93/100|98/100|
 |night-1789689411690422000-300m-random-short-qa|sft-final.pt|original training prompts|30/100|36/100|
+|night-1789691613092240000-100m-10min-varied-qa|sft-final.pt|unseen prompt templates|48/100|55/100|
+|night-1789691613092240000-100m-random-varied-qa|sft-final.pt|unseen prompt templates|8/100|6/100|
+|night-1789691613092240000-300m-10min-varied-qa|sft-final.pt|unseen prompt templates|62/100|47/100|
+|night-1789691613092240000-300m-8000s-varied-qa|sft-final.pt|unseen prompt templates|90/100|93/100|
+|night-1789692884416637000-wiki30-varied-qa|sft-final.pt|unseen prompt templates|38/100|36/100|
+|night-1789692884416637000-wl30-varied-qa|sft-final.pt|unseen prompt templates|51/100|53/100|
 
 ![Wikipedia GPU comparison](wikipedia-gpus.svg)
 

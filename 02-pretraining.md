@@ -89,14 +89,14 @@ For a shorter run, add `--max-seconds 300`. Compare the generated text and test 
 
 [September 2026 dump](https://dumps.wikimedia.org/plwiki/20260901/): **2.73 GB compressed**, original markup retained. Preparation runs on Modal CPU and needs considerably more time and cloud storage than Wolne Lektury.
 
-Earlier measured runs on the prepared Wikipedia corpus (L4, context 256):
+Measured on the prepared corpus, with the 98M-parameter model, batch 64, context 512 and compiled training:
 
-| Model | Training | Worker time | Worker cost | Test loss before → after |
+| GPU | Training | Worker time | Worker cost | Test loss before → after |
 |---|---:|---:|---:|---:|
-| ScratchGPT-10M | 5 min | 5 min 51 s | $0.10 | 9.063 → 2.285 |
-| ScratchGPT-30M | 5 min | 5 min 52 s | $0.10 | 9.081 → 2.400 |
+| H100 | 10 min | 11 min 3 s | $0.77 | 9.174 → 1.627 |
+| B200 | 10 min | 11 min | $1.19 | 9.174 → 1.509 |
 
-Preparation is separate; these are historical measurements, not a fresh-download timing. Both learned markup while inventing facts. [Recorded results](results/pretraining-results.html).
+Preparation is separate. Both learned markup while inventing facts; lower loss does not mean reliable knowledge. H100 processed 302M token presentations; B200 processed 565M. These are single runs, including compilation, diagnostics and successful checkpoint reload checks. [Experiment records](LAB_NOTEBOOK.md#participant-wikipedia-command-and-full-prose-data).
 
 Prepare it:
 
@@ -104,12 +104,14 @@ Prepare it:
 modal run scripts/prepare_data_modal.py --corpus wikipedia
 ```
 
-After **Ready**, train for five minutes, about **$0.10 measured worker compute**:
+After **Ready**, start training:
 
 ```bash
-modal run scripts/scratch_modal.py --size 10m --max-seconds 300
+modal run scripts/scratch_recipe_modal.py --recipe wiki-100m --compile-training
 ```
 
-Repeat with `--size 30m` to compare sizes. Both use a 256-token context. Open with the same `view_results.py pretrain` command.
+Open the live chart with `uv run scripts/view_results.py pretrain`. Add `--gpu B200` to compare cards, or use `--recipe wiki-cheap --max-seconds 300` for a smaller 10M model on L4 (earlier measured worker cost about $0.10).
+
+Longer Wikipedia runs continue improving held-out loss. See the [training-time and cost curves](results/wikipedia-scaling.svg); those research runs take longer than this exercise.
 
 **Next:** [3. Supervised fine-tuning](03-fine-tuning.md).

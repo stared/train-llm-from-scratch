@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "wl30-varied-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789692884416637000-wl30-varied-qa",
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "corpora": []
+  },
+  {
+    "tag": "wiki30-varied-final",
+    "kind": "evaluate",
+    "gpu": "L40S",
+    "base": "night-1789692884416637000-wiki30-varied-qa",
+    "checkpoint": "sft-final.pt",
+    "known_facts": true,
+    "corpora": []
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "tag": "wl30-varied-qa",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789674358034520778-wl30-H100",
+    "task": "wiki-qa",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 3e-05,
+    "dataset": "wiki-short-qa-varied",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 3.75,
+    "eval_steps": 500
+  },
+  {
+    "tag": "wiki30-varied-qa",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "night-1789675548767097321-wiki30-H100",
+    "task": "wiki-qa",
+    "method": "sft",
+    "seconds": 600,
+    "lr": 3e-05,
+    "dataset": "wiki-short-qa-varied",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 3.75,
+    "eval_steps": 500
+  }
+]

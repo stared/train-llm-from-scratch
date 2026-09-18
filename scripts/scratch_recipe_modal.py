@@ -5,12 +5,14 @@ import modal
 RECIPES = {
     'wiki-cheap': ('10m', 'wiki-scratch-v1', 'L4', 32, 256, 20),
     'wiki': ('30m', 'wiki-scratch-v1', 'H100', 64, 512, 100),
+    'wiki-100m': ('100m', 'wiki-scratch-v1', 'H100', 64, 512, 100),
     'wolne-lektury': ('30m', 'wl-scratch-v1', 'H100', 64, 512, 100),
     'stories-cheap': ('10m', 'tinystories-v1', 'L4', 32, 256, 20),
     'stories': ('30m', 'tinystories-v1', 'H100', 64, 512, 100),
     'popular-wiki': ('30m', 'wiki-popular-v1', 'H100', 64, 512, 100),
 }
-GPU_RATES = {'L4': .000222, 'A10': .000306, 'L40S': .000542, 'H100': .001097}
+GPU_RATES = {'L4': .000222, 'A10': .000306, 'L40S': .000542, 'H100': .001097,
+             'H200': .001261, 'B200': .001736}  # modal.com/pricing, checked 2026-09-18.
 
 app = modal.App('workshop-scratch-single-recipe')
 volume = modal.Volume.from_name('model-training-workshop')
@@ -53,8 +55,8 @@ def main(recipe: str = 'wolne-lektury', max_seconds: int = 600, gpu: str = '', b
         raise ValueError('Workshop training must be between 60 and 600 seconds')
     gpu = gpu or RECIPES[recipe][2]
     if gpu not in GPU_RATES or batch_size not in (0,8,16,32,64):
-        raise ValueError('GPU: L4, A10, L40S, H100; batch size: 8, 16, 32, 64')
-    batch_size = batch_size or min(RECIPES[recipe][3], 64 if gpu == 'H100' else 32)
+        raise ValueError('GPU: '+', '.join(GPU_RATES)+'; batch size: 8, 16, 32, 64')
+    batch_size = batch_size or min(RECIPES[recipe][3], 64 if gpu in ('H100','H200','B200') else 32)
     worker = (cheap if gpu == 'L4' else fast).with_options(gpu=gpu)
     print(f'{gpu}, batch {batch_size}; training budget {max_seconds}s', flush=True)
     from training_progress import run_live

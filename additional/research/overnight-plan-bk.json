@@ -1,0 +1,18 @@
+[
+  {
+    "tag": "300m-8000s-single-30passes",
+    "kind": "posttrain",
+    "gpu": "H100",
+    "base": "scratch-polish-dollar-1788900395083493729-wiki-300-uniform",
+    "task": "wiki-qa",
+    "method": "sft",
+    "seconds": 1200,
+    "lr": 3e-05,
+    "random_init": false,
+    "dataset": "wiki-short-qa",
+    "batch_size": 16,
+    "batched": true,
+    "max_epochs": 30,
+    "eval_steps": 500
+  }
+]
