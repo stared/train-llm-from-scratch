@@ -52,7 +52,7 @@ Open the visualization and select **Tokenization**:
 pnpm visualization
 ```
 
-**Click Edit text**, paste a paragraph, then **Show tokens**. Start with the full tokenization, then move the slider towards bytes. Colors show token boundaries; hover over a token to see its ID and merge history. Everything runs locally in your browser, without Modal or a corpus download.
+Edit the colored text directly. Switch between the workshop tokenizer, Small BPE, or your own byte-level BPE `tokenizer.json` to compare the same text. Move the slider towards bytes to undo merges; hover over a token to see its ID and merge history.
 
 ## Optional: tokenize files or train a tokenizer
 

@@ -5,36 +5,39 @@
 <title>Polish BPE</title>
 <style>
 body{max-width:920px;margin:40px auto;padding:0 24px;color:#242424;font:15px/1.5 system-ui;background:#fff}
-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}select{font:inherit;padding:6px 10px;max-width:70%;border:1px solid #ddd;border-radius:5px;background:white}#count{font-variant-numeric:tabular-nums;color:#555}
+header{flex-wrap:wrap;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}select{font:inherit;padding:6px 10px;max-width:100%;border:1px solid #ddd;border-radius:5px;background:white}#count{font-variant-numeric:tabular-nums;color:#555}
 #text{font:18px/1.85 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;font-variant-ligatures:none;font-kerning:none}
-button,textarea{font:inherit}button{padding:6px 12px;cursor:pointer}textarea{box-sizing:border-box;width:100%;min-height:220px;font-family:ui-monospace,monospace}#editor{margin-bottom:24px}#error{color:#a21}#text span{padding:0;margin:0;border:0;border-radius:0}
+#text{min-height:120px;padding:12px;border:1px solid #ddd;border-radius:5px}#text:focus{outline:2px solid #236c70;outline-offset:2px}header label{display:grid;gap:4px;font-size:13px}#error{color:#a21}#text span{padding:0;margin:0;border:0;border-radius:0}
 .controls{margin:28px 0 0}.labels{display:flex;justify-content:space-between;color:#555;font-size:14px}#step{display:block;width:100%;margin:10px 0;accent-color:#555}footer{margin:32px 0;color:#777;font-size:13px}a{color:#536578}
 #hover{position:fixed;z-index:10;background:#fff;border:1px solid #ddd;border-radius:8px;box-shadow:0 6px 28px #0002;padding:14px;width:min(600px,calc(100vw - 56px));pointer-events:none;box-sizing:border-box}
 #hover[hidden]{display:none}#hover svg{width:100%;display:block;max-height:320px}#hover small{color:#666}#hover strong{font-family:ui-monospace,monospace}
 </style>
-<header><select id="example" aria-label="Example paragraph"></select><button id="edit" type="button">Edit text</button><span id="count"></span></header>
-<form id="editor" hidden><label for="input">Your text (up to 2,000 characters)</label><textarea id="input" maxlength="2000"></textarea><button type="submit">Show tokens</button> <button id="cancel" type="button">Cancel</button><p id="error" role="alert"></p></form>
-<div id="text"></div>
+<header><label>Tokenizer<select id="tokenizer"><option value="workshop">Polish Wikipedia (8,192 tokens)</option><option value="small">Small BPE (512 tokens)</option><option value="custom">Load tokenizer.json…</option></select></label><label>Text<select id="example"></select></label><span id="count" aria-live="polite"></span></header>
+<input id="tokenizer-file" type="file" accept=".json,application/json" hidden>
+<div id="text" contenteditable="plaintext-only" role="textbox" aria-label="Text to tokenize" aria-multiline="true" spellcheck="false"></div>
+<p id="error" role="alert"></p>
 <div class="controls"><div class="labels"><label for="step">Bytes</label><span>Full merges</span></div><input id="step" type="range" min="0" value="0" aria-label="BPE merges: bytes to full merges"></div>
-<footer>Polish Wikipedia tokenizer. Text stays in your browser.<br><a href="https://www.cs.cornell.edu/courses/cs4782/2026sp/demos/bytepair/">Cornell: interactive BPE / WordPiece visualizer</a></footer>
+<footer>Small BPE uses the first 255 merges of the workshop tokenizer.<br><a href="https://www.cs.cornell.edu/courses/cs4782/2026sp/demos/bytepair/">Cornell: interactive BPE / WordPiece visualizer</a></footer>
 <aside id="hover" hidden role="tooltip"></aside>
 <script>
 const D=/*PAYLOAD*/null;
 const $=id=>document.getElementById(id),encoder=new TextEncoder();
 const palette=['#cde7fa','#fbe1be','#ded6f5','#cfead4','#f5cfdb','#f3edbd'];
-let characters=[],byteOwners=[],byteColors=[];
+let characters=[],byteOwners=[],byteColors=[],ownText='';
 
-const ranks=new Map(D.merges.map((pair,i)=>[JSON.stringify(pair),i]));
+let vocabulary=D.vocabulary,ranks=new Map(D.merges.map((pair,i)=>[JSON.stringify(pair),i])),current=D.examples[0],activeTokenizer='workshop';
 const reverse=new Map(Object.entries(D.byteAlphabet).map(([byte,char])=>[char,+byte]));
+const workshop={vocabulary:D.vocabulary,ranks};
+const smallMerges=D.merges.slice(0,255);
+const small={vocabulary:Object.fromEntries(Object.entries(D.vocabulary).filter(([token])=>token==='<|endoftext|>'||reverse.has(token)||smallMerges.some(pair=>pair.join('')===token))),ranks:new Map(smallMerges.map((pair,i)=>[JSON.stringify(pair),i]))};
 function token(raw){
  const bytes=Uint8Array.from([...raw].map(c=>reverse.get(c)));
  let label;
  try{label=new TextDecoder('utf-8',{fatal:true}).decode(bytes).replaceAll(' ','·').replaceAll('\n','↵').replaceAll('\t','⇥')}
  catch{label=[...bytes].map(b=>b.toString(16).padStart(2,'0').toUpperCase()).join(' ')}
- return {raw,label,hex:[...bytes].map(b=>b.toString(16).padStart(2,'0')).join(' '),id:D.vocabulary[raw]};
+ return {raw,label,hex:[...bytes].map(b=>b.toString(16).padStart(2,'0')).join(' '),id:vocabulary[raw]};
 }
 function trace(text){
- if(!text.trim())throw Error('Enter some text first.');
  if(text.length>2000)throw Error('Use up to 2,000 characters.');
  if(text.includes('<|endoftext|>'))throw Error('Please use ordinary text without the reserved end-of-text token.');
  // ByteLevel's GPT-2 pre-tokenizer, followed by the saved tokenizer's merge ranks.
@@ -52,12 +55,12 @@ function trace(text){
   groups[gi].splice(i,2,a+b);
   steps.push({rank:rank+1,group:gi,index:i,left:token(a),right:token(b),merged:token(a+b)});
  }
- return {text,initial,steps,ids:groups.flat().map(s=>D.vocabulary[s])};
+ return {text,initial,steps,ids:groups.flat().map(s=>vocabulary[s])};
 }
 
 function render(){
  $('hover').hidden=true;
- const e=D.examples[+$('example').value],n=+$('step').value,groups=e.initial.map(g=>g.slice());
+ const e=current,n=+$('step').value,groups=e.initial.map(g=>g.slice());
  for(const s of e.steps.slice(0,n)){const children=groups[s.group].slice(s.index,s.index+2);groups[s.group].splice(s.index,2,{...s.merged,children,rank:s.rank})}
  const colors=[];byteOwners=[];let start=0;
  for(const t of groups.flat()){
@@ -108,22 +111,86 @@ function inspect(character,event){
 }
 
 function choose(){
- const e=D.examples[+$('example').value];$('text').replaceChildren();characters=[];let offset=0;
+ const e=current;$('text').replaceChildren();characters=[];let offset=0;
  for(const c of e.text){const span=document.createElement('span');span.textContent=c;$('text').append(span);const length=encoder.encode(c).length;const character={span,offset,length};characters.push(character);span.onmousemove=event=>inspect(character,event);span.onmouseleave=clearHover;offset+=length}
  $('step').max=e.steps.length;$('step').value=e.steps.length;render();
 }
 D.examples.forEach((e,i)=>{const option=document.createElement('option');option.value=i;option.textContent=['Polish paragraphs','Wikipedia markup','Polish letters & mixed text'][i]||`Custom paragraph ${i-2}`;$('example').append(option)});
-$('edit').onclick=()=>{$('input').value=D.examples[+$('example').value].text;$('editor').hidden=false;$('error').textContent='';$('input').focus();clearHover()};
-$('cancel').onclick=()=>{$('editor').hidden=true};
-$('editor').onsubmit=event=>{
- event.preventDefault();
+function editorText(){return $('text').textContent===''?'':$('text').innerText}
+function caretOffset(){
+ const selection=window.getSelection();
+ if(!selection.rangeCount||!$('text').contains(selection.focusNode))return 0;
+ const range=document.createRange();range.selectNodeContents($('text'));range.setEnd(selection.focusNode,selection.focusOffset);return range.toString().length;
+}
+function restoreCaret(caret){
+ const selection=window.getSelection(),walker=document.createTreeWalker($('text'),NodeFilter.SHOW_TEXT);let node;
+ while(node=walker.nextNode()){
+  if(caret<=node.length){selection.collapse(node,caret);return}caret-=node.length;
+ }
+ selection.selectAllChildren($('text'));selection.collapseToEnd();
+}
+function updateText(){
+ const caret=caretOffset();
  try{
-  const e=trace($('input').value);
-  let option=$('example').querySelector('[data-custom]');
-  if(!option){option=document.createElement('option');option.dataset.custom='true';option.value=D.examples.length;option.textContent='Your text';$('example').append(option)}
-  D.examples[+option.value]=e;$('example').value=option.value;$('editor').hidden=true;choose();
- }catch(error){$('error').textContent=error.message}
+  current=trace(editorText());ownText=current.text;$('error').textContent='';
+  $('example').value='custom';choose();
+  restoreCaret(caret);
+ }catch(error){$('error').textContent=error.message;$('count').textContent='';$('step').disabled=true;return}
+ $('step').disabled=false;
+}
+const customText=new Option('Your text','custom');$('example').append(customText);
+const undo=[],redo=[];
+function historyMove(from,to){
+ if(!from.length)return;
+ to.push({text:editorText(),caret:caretOffset()});const state=from.pop();
+ $('text').textContent=state.text;updateText();restoreCaret(state.caret);
+}
+$('text').addEventListener('beforeinput',event=>{
+ if(event.inputType==='historyUndo'||event.inputType==='historyRedo'){
+  event.preventDefault();historyMove(event.inputType==='historyUndo'?undo:redo,event.inputType==='historyUndo'?redo:undo);return;
+ }
+ if(!event.isComposing){undo.push({text:editorText(),caret:caretOffset()});if(undo.length>100)undo.shift();redo.length=0}
+});
+$('text').addEventListener('keydown',event=>{
+ if((event.metaKey||event.ctrlKey)&&!event.altKey&&event.key.toLowerCase()==='z'){
+  event.preventDefault();historyMove(event.shiftKey?redo:undo,event.shiftKey?undo:redo);
+ }
+});
+$('text').addEventListener('input',event=>{if(!event.isComposing)updateText()});
+$('text').addEventListener('compositionend',updateText);
+$('example').onchange=()=>{
+ undo.length=0;redo.length=0;
+ current=trace($('example').value==='custom'?ownText:D.examples[+$('example').value].text);$('error').textContent='';$('step').disabled=false;choose();
 };
-$('example').onchange=choose;$('step').oninput=render;choose();
+function selectTokenizer(value){
+ const previous={vocabulary,ranks};
+ try{vocabulary=value.vocabulary;ranks=value.ranks;current=trace(editorText())}catch(error){vocabulary=previous.vocabulary;ranks=previous.ranks;throw error}
+ choose();$('error').textContent='';$('step').disabled=false;
+}
+$('tokenizer').onchange=()=>{
+ const selected=$('tokenizer').value;
+ if(selected==='custom'){$('tokenizer').value=activeTokenizer;$('tokenizer-file').click();return}
+ try{selectTokenizer(selected==='workshop'?workshop:selected==='small'?small:$('tokenizer').selectedOptions[0].tokenizer);activeTokenizer=selected}
+ catch(error){$('tokenizer').value=activeTokenizer;$('error').textContent=error.message}
+};
+$('tokenizer-file').onchange=async()=>{
+ const file=$('tokenizer-file').files[0];if(!file)return;
+ try{
+  const data=JSON.parse(await file.text()),m=data.model,p=data.pre_tokenizer;
+  if(m?.type!=='BPE'||p?.type!=='ByteLevel'||p.add_prefix_space||p.use_regex===false||data.normalizer||m.dropout||m.byte_fallback||m.ignore_merges||m.continuing_subword_prefix||m.end_of_word_suffix)
+   throw Error('Choose a byte-level BPE tokenizer with no normalization or prefix space, like the workshop tokenizer.');
+  if(!Object.values(D.byteAlphabet).every(c=>Number.isInteger(m.vocab[c])))throw Error('The tokenizer must include all 256 bytes.');
+  const merges=m.merges.map(pair=>Array.isArray(pair)?pair:pair.split(' '));
+  if(!merges.every(pair=>pair.length===2&&pair.every(t=>Number.isInteger(m.vocab[t]))&&Number.isInteger(m.vocab[pair.join('')])))throw Error('Invalid BPE merge vocabulary.');
+  const value={vocabulary:m.vocab,ranks:new Map(merges.map((pair,i)=>[JSON.stringify(pair),i]))};
+  selectTokenizer(value);
+  let option=$('tokenizer').querySelector('[data-upload]');
+  if(!option){option=new Option('','uploaded');option.dataset.upload='true';$('tokenizer').insertBefore(option,$('tokenizer').lastElementChild)}
+  option.textContent=file.name.replace(/\.json$/,'')+' ('+Object.keys(m.vocab).length.toLocaleString()+' tokens)';option.tokenizer=value;
+  activeTokenizer='uploaded';$('tokenizer').value=activeTokenizer;
+ }catch(error){$('error').textContent=error.message}
+ $('tokenizer-file').value='';
+};
+$('step').oninput=render;choose();
 </script>
 </html>
