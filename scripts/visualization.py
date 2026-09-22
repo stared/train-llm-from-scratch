@@ -57,7 +57,10 @@ def normalize(folder):
                source=r.get('training_data', r.get('source', '')), snapshots=[], curves=[], training=[], rollouts=[],
                seconds=r.get('training_seconds'), cost=r.get('estimated_compute_usd'), xLabel='Updates')
     def snapshot(file, label, step, split='dev'):
-        rows = read(folder/('visualization_'+file+'.json')) or read(folder/(file+'.json'), [])
+        rows = read(folder/('visualization_'+file+'.json'), [])
+        if out.get('exam'):
+            rows = read(folder/(file+'.json'), [])
+        rows = [row for row in rows if row.get('tokens') or row.get('probabilities')]
         if rows:
             out['snapshots'].append(dict(label=label, step=step, split=split, rows=rows))
     if (folder/'samples_before.json').exists():
@@ -121,9 +124,15 @@ def normalize(folder):
                     for a,b,c in zip(v['samples'][0],v['rewards'][0],v['advantages'][0])]))
     else:
         raise ValueError('Unsupported run')
-    # Keep the viewer light; all these are the first fixed examples, not selected successes.
+    if len(out['snapshots']) < 2:
+        raise ValueError('Run needs before/after examples with probabilities')
+    key = 'id' if 'id' in out['snapshots'][0]['rows'][0] else 'prompt'
+    shared = set.intersection(*(set(row[key] for row in s['rows']) for s in out['snapshots']))
+    if not shared:
+        raise ValueError('Run needs matching examples across checkpoints')
+    # Keep the first fixed, fully traced examples, not selected successes.
     for s in out['snapshots']:
-        s['rows'] = s['rows'][:8]
+        s['rows'] = [row for row in s['rows'] if row[key] in shared][:8]
     return out
 
 
@@ -170,7 +179,7 @@ def folders():
 
 
 def catalog():
-    items = [dict(id='example-'+r['stage'],stage=r['stage'],label='Saved example',model=r['model'],status='Saved') for r in examples()]
+    items = [dict(id='example-'+r['stage'],stage=r['stage'],model=r['model'],status='Completed') for r in examples()]
     recent=folders()[:80]
     linked={read(p/'progress.json',{}).get('final') for p in recent if p.name.startswith('live-')}
     counts={}
@@ -180,10 +189,7 @@ def catalog():
             if p.name.startswith('live-'):
                 r=live(p)
             else:
-                v=read(p/'result.json', {})
-                if not v: continue
-                stage='pretrain' if (p/'samples_before.json').exists() else ('sft' if v.get('method')=='sft' else 'rlvr')
-                r=dict(stage=stage, model=v.get('model_spec',{}).get('id',v.get('model','ScratchGPT')),status='Completed')
+                r=normalize(p)
             counts[r['stage']]=counts.get(r['stage'],0)+1
             if counts[r['stage']]<=10:
                 items.append(dict(id=p.name, stage=r['stage'], model=r['model'],status=r['status'],label=p.name))

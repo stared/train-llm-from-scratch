@@ -36,6 +36,17 @@ class VisualizationTests(unittest.TestCase):
             key='id' if 'id' in before[0] else 'prompt'
             for snap in run['snapshots']:
                 self.assertEqual([r[key] for r in snap['rows']],[r[key] for r in before])
+                for row in snap['rows']:
+                    if run.get('exam'):
+                        self.assertEqual(len(row['probabilities']), 3)
+                        self.assertAlmostEqual(sum(row['probabilities']), 1, places=5)
+                    else:
+                        self.assertTrue(row['tokens'])
+                        decoded = bytes(b for t in row['tokens'] for b in t['bytes']).decode(errors='replace')
+                        self.assertEqual(decoded, row.get('continuation', row.get('text')))
+                        for token in row['tokens']:
+                            self.assertGreaterEqual(token['probability'], 0)
+                            self.assertLessEqual(token['probability'], 1)
             if run['stage']!='pretrain':self.assertTrue(run['training'])
         self.assertTrue(next(x for x in examples if x['stage']=='rlvr')['rollouts'])
 

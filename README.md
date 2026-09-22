@@ -72,9 +72,11 @@ modal run scripts/rlvr_showcase_modal.py --task six_words
 
 **Up to 10 minutes, about $0.19 measured worker compute.** This starts from the original Qwen model, independently of SFT. Open **RLVR** to see sampled answers, their rewards and development success.
 
-## If you are waiting or catching up
+## Additional tasks
 
-Choose **Saved example** in any visualization section to explore recorded results without training or a Modal account. The tokenizer also works without downloading a corpus.
+Experiment with the tokenizer using your own text.
+
+## Running the exercises
 
 Exercises 3 and 4 are independent of pretraining. You can run jobs in separate terminals; each job is billed separately. Keep the training terminal connected for live updates. Results are saved in `runs/`.
 
@@ -92,6 +94,8 @@ Codex or Claude are optional helpers. Other GPU platforms include [Google Colab]
 
 ## Learn more
 
+- [RecurrentJS — Andrej Karpathy](https://cs.stanford.edu/people/karpathy/recurrentjs/): train an RNN/LSTM in your browser and watch it learn to generate text.
+- [MiMo-V2.6 RL dashboard](https://mimo.xiaomi.com/rl/): public post-training dashboard from Xiaomi's MiMo team, led by Luo Fuli. See also [HN discussion](https://news.ycombinator.com/item?id=49732270).
 - [MicroGPT — Andrej Karpathy](https://karpathy.github.io/2026/02/12/microgpt/): a complete GPT in 200 lines of Python.
 - [Let's build GPT from scratch](https://www.youtube.com/watch?v=kCc8FmEb1nY): Karpathy's step-by-step coding walkthrough.
 - [Hugging Face LLM Course](https://huggingface.co/learn/llm-course/en/chapter1/4): transformers, pretraining and fine-tuning.

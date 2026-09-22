@@ -16,7 +16,7 @@ async function route(){stage=location.hash.slice(1);if(!sections[stage])stage='t
 async function refresh(first=false){if(stage==='tokens')return;const version=++request,wasStage=stage;
  try{const catalog=await get('/api/runs');if(version!==request||stage!==wasStage)return;items=catalog.filter(r=>r.stage===stage);
   const active=items.find(r=>r.status==='Running');const id=chosen.get(stage)||active?.id||'example-'+stage;
-  options($('run'),items.map(r=>[r.id,r.label==='Saved example'?`Saved example — ${r.model}`:`${r.status} — ${r.model} · ${r.id.split('-').at(-1).slice(-6)}`]),id);
+  options($('run'),items.map(r=>[r.id,r.id.startsWith('example-')?r.model:`${r.model} (${r.status.toLowerCase()}, ${r.id.split('-').at(-1).slice(-6)})`]),id);
   const selected=$('run').value;if(active&&!chosen.has(stage))chosen.set(stage,selected);if(!selected){notice('No recorded runs for this section yet.');return;}
   const data=await get('/api/run?id='+encodeURIComponent(selected));if(version!==request)return;
   const signature=JSON.stringify(data);if(signature===lastSignature&&!first)return;
@@ -61,7 +61,7 @@ function renderCheckpoint(){const snap=run.snapshots[checkpoint],base=run.snapsh
  $('answer-key').textContent=a.answer?'Correct answer: '+a.answer:'';
  $('split-note').textContent=snap.split==='fixed prompts'?'Fixed continuation prompts; the prompt is not an instruction.':'Development examples, separate from training. The same inputs are shown at every checkpoint.';
  $('after-label').textContent=snap.label;
- const traces=!!(a.tokens?.length||b.tokens?.length);$('probabilities').disabled=!traces;$('probabilities').parentElement.hidden=!traces;$('probability-legend').hidden=!traces;$('probability-note').textContent=run.exam?'Probabilities are normalized over A/B/C only.':traces?'':'Token probabilities were not recorded for this run.';
+ const traces=!!(a.tokens?.length||b.tokens?.length);$('probabilities').disabled=!traces;$('probabilities').parentElement.hidden=!traces;$('probability-legend').hidden=!traces;$('probability-note').textContent=run.exam?'Probabilities are normalized over A/B/C only.':'';
  output($('before'),a);output($('after'),b);
 }
 function output(el,row){el.replaceChildren();if(row.probabilities){const pred=row.prediction;el.innerHTML=`<div class="prob-bars">${row.probabilities.map((p,i)=>`<div class="prob-row ${'ABC'[i]===row.answer?'correct':''}"><strong>${'ABC'[i]}</strong><div class="bar-track"><div class="bar-fill" style="width:${Math.max(0,Math.min(100,p*100))}%"></div></div><span>${pct(p)}</span></div>`).join('')}</div><p class="output-note">Prediction: ${esc(pred)}${pred===row.answer?' · correct':' · incorrect'}${row.unconstrained_ABC_mass!=null?`<br>Total full-vocabulary probability of A/B/C: ${pct(row.unconstrained_ABC_mass)}`:''}</p>`;return;}

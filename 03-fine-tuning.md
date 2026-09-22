@@ -57,8 +57,6 @@ pnpm visualization
 
 Open **SFT** and select your run. See a training question and its target letter, then compare A/B/C probabilities on development questions across checkpoints. The test score is reported separately.
 
-Choose **Saved example** to explore a recorded run immediately. Older runs may not include token probabilities.
-
 One actual correction, from the pilot linked above:
 
 | Question 10840: how do you transport a child under 150 cm in the front passenger seat? | Answer |

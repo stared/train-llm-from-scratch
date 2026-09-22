@@ -43,8 +43,6 @@ pnpm visualization
 
 Open **RLVR** and select your run. See sampled answers and their rewards. Select a checkpoint to compare fixed development prompts before and after training.
 
-Choose **Saved example** to explore a recorded run immediately. Older runs may not include token probabilities.
-
 
 ## Try
 

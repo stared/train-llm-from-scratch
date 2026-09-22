@@ -30,8 +30,6 @@ pnpm visualization
 
 Open **Pretraining** and select your run. The loss curve updates during training. Select a checkpoint to compare the same prompt before and after training. Hover over colored tokens for their probabilities and alternatives.
 
-Choose **Saved example** to explore a recorded run immediately. Older runs may not include token probabilities.
-
 
 ## Actual result
 
