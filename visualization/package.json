@@ -1,0 +1,7 @@
+{
+  "name": "workshop-visualization",
+  "private": true,
+  "scripts": {
+    "dev": "uv run server.py"
+  }
+}

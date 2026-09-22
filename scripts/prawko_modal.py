@@ -66,5 +66,4 @@ def main(method: str = 'screen', model: str = 'qwen3.5-0.8b', max_seconds: int =
         for filename, content in files.items():
             (out / filename).write_text(content)
         print('Saved', out, flush=True)
-        from training_report import render
-        print('Open in your browser:', render(out))
+        print('View results: pnpm dev', flush=True)

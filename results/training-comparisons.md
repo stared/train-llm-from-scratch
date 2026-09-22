@@ -538,4 +538,4 @@ Original markup, shared 8k tokenizer. Schedules, batches and compilation differ;
 
 ![Longer Wikipedia runs](wikipedia-long-runs.svg)
 
-[Curves and selected literal before/after answers](training-comparisons.html).
+[Curves and selected literal before/after answers](http://localhost:5173/reports#training-comparisons.html).

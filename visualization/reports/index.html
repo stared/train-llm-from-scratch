@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Experiment reports</title>
+<link rel="stylesheet" href="/style.css">
+<header class="masthead"><a href="/">AI from scratch</a></header>
+<nav aria-label="Workshop sections">
+  <a href="/#tokens"><span>01</span>Tokenization</a>
+  <a href="/#pretrain"><span>02</span>Pretraining</a>
+  <a href="/#sft"><span>03</span>SFT</a>
+  <a href="/#rlvr"><span>04</span>RLVR</a>
+  <a href="/reports" aria-current="page">Reports</a>
+</nav>
+<main>
+  <div class="heading"><h1>Experiment reports</h1><label>Report <select id="report"></select></label></div>
+  <p id="notice" role="status" hidden></p>
+  <iframe id="report-frame" title="Selected experiment report" style="width:100%;min-height:800px;border:0"></iframe>
+</main>
+<script type="module" src="/reports/app.js"></script>
+</html>

@@ -5,12 +5,47 @@ import queue
 import tempfile
 import time
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 from training_progress import reporter, write_live, token_records
-import visualization
+from visualization import server as visualization
 
 
 class VisualizationTests(unittest.TestCase):
+    def test_local_report_is_rendered_without_writing_html(self):
+        with tempfile.TemporaryDirectory() as d:
+            folder=Path(d)
+            records={'style_result':dict(model='Example',examples=1,teacher='authored'),
+                     'dataset':{},'loss':[dict(step=1,loss=2)],
+                     'base':[dict(prompt='<question>',answer='before')],
+                     'finetuned':[dict(prompt='<question>',answer='after')]}
+            for name,value in records.items():
+                (folder/(name+'.json')).write_text(json.dumps(value))
+            report=visualization.render_report(folder)
+            self.assertIn('&lt;question&gt;',report)
+            self.assertIn('before',report)
+            self.assertIn('after',report)
+            self.assertFalse((folder/'report.html').exists())
+
+    def test_app_routes_use_source_files(self):
+        for route, marker in [('/', b'/app.js'), ('/tokenizer', b'/tokenizer/app.js'),
+                              ('/tokenizer/app.js', b"fetch('/api/tokenizer')"),
+                              ('/reports', b'/reports/app.js')]:
+            handler=object.__new__(visualization.Handler)
+            handler.path=route
+            handler.reply=Mock()
+            handler.send_error=Mock()
+            handler.do_GET()
+            handler.send_error.assert_not_called()
+            self.assertIn(marker, handler.reply.call_args.args[0])
+
+    def test_report_routes_exclude_private_files(self):
+        for route in ['/reports/../package.json', '/reports/../../runs/private.json', '/runs/private.json']:
+            handler=object.__new__(visualization.Handler)
+            handler.path=route
+            handler.send_error=Mock()
+            handler.do_GET()
+            handler.send_error.assert_called_once_with(404)
+
     def test_live_previews_coexist_with_metrics_and_disconnect(self):
         q=queue.Queue();send=reporter(q)
         send('Development loss',0,8.)

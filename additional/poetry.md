@@ -23,12 +23,11 @@ Measured training: **370 seconds**. All 12 sampled held-out replies had 4–12 l
 
 ## Watch and compare
 
-The terminal prints loss every ten updates. At completion, open the printed `runs/.../report.html`: training-loss curve and every evaluation prompt with original and fine-tuned answers. A lower loss does not guarantee good poetry.
+The terminal prints loss every ten updates. At completion, run `pnpm dev` and select your run under **Reports** to compare the training-loss curve and original and fine-tuned answers. A lower loss does not guarantee good poetry.
 
-To rebuild the report or ask your own question, replace `RUN_NAME` with the training run name:
+To ask your own question, replace `RUN_NAME` with the training run name:
 
 ```bash
-uv run scripts/training_report.py runs/RUN_NAME
 modal run scripts/style_modal.py --stage chat --data-run RUN_NAME --prompt "Co zrobić, gdy sąsiad hałasuje?"
 ```
 

@@ -75,5 +75,4 @@ def main(stage:str='data',style:str='poetry',model:str='qwen3.5-4b',languages:st
         (out/filename).write_text(contents)
     print('Saved:',out)
     if stage == 'train':
-        from training_report import render
-        print('Open in your browser:', render(out))
+        print('View results: pnpm dev', flush=True)

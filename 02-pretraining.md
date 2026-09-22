@@ -8,7 +8,7 @@ Train a **30-million-parameter generative pretrained transformer (GPT)** from ra
 |---|---:|---:|---|---:|---:|
 | Wolne Lektury / ScratchGPT-30M | 10 min | 11 min 32 s | H100 | $0.78 | 9.073 → 2.820 |
 
-Measured with the image already built. Cost includes GPU, CPU and memory; builds and storage are separate. [Run report](results/workshop-check.html).
+Measured with the image already built. Cost includes GPU, CPU and memory; builds and storage are separate. [Run report](http://localhost:5173/reports#workshop-check.html).
 
 ## Run
 
@@ -25,7 +25,7 @@ The command uses H100, a 512-token context and an 8,192-token vocabulary. You ca
 In another terminal, run:
 
 ```bash
-pnpm visualization
+pnpm dev
 ```
 
 Open **Pretraining** and select your run. The loss curve updates during training. Select a checkpoint to compare the same prompt before and after training. Hover over colored tokens for their probabilities and alternatives.
@@ -66,7 +66,7 @@ modal run scripts/scratch_recipe_modal.py --gpu H100 --batch-size 32
 
 Add `--compile-training` to compile the training loop. With H100 and batch 32, the workshop script processed 578M tokens in ten minutes, with test loss 2.760. Including evaluation: 11 min 4 s, $0.77.
 
-[Measured comparisons](results/training-comparisons.html). [Modal GPU options](https://modal.com/docs/guide/gpu) and [pricing](https://modal.com/pricing).
+[Measured comparisons](http://localhost:5173/reports#training-comparisons.html). [Modal GPU options](https://modal.com/docs/guide/gpu) and [pricing](https://modal.com/pricing).
 
 ## Tokens and epochs
 
@@ -76,7 +76,7 @@ For Wikipedia, the training pool is much larger: 3.14B tokens. A ten-minute 30M/
 
 ## Try
 
-For a shorter run, add `--max-seconds 300`. Compare the generated text and test loss, not just the training loss. Each run saves a new folder under `runs/`; the view command opens the latest completed run.
+For a shorter run, add `--max-seconds 300`. Compare the generated text and test loss, not just the training loss. Each run saves a new folder under `runs/`; select your run in the visualization.
 
 ## Wikipedia alternative
 

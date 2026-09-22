@@ -21,7 +21,7 @@ Both learned an obvious output format change without a style prompt. Poetry prod
 
 A fixed-seed sampled-decoding probe on the poetry adapter cost $0.0184 and did not resolve these issues. All attempts and observations are in the lab notebook. The explicit style-prompt baseline is included throughout; it also had quality problems.
 
-The comic adapter's sampled probe cost $0.0305 and had similar limitations. [Open the complete offline comparison](showcase.html): 32 prompt cards, 96 real answers, and a Polish/English filter. The Gemma attempt has a [separate rejected-run comparison](rejected-gemma.html).
+The comic adapter's sampled probe cost $0.0305 and had similar limitations. [Open the complete offline comparison](http://localhost:5173/reports#showcase.html): 32 prompt cards, 96 real answers, and a Polish/English filter. The Gemma attempt has a [separate rejected-run comparison](http://localhost:5173/reports#rejected-gemma.html).
 
 ## Accounting and interpretation
 

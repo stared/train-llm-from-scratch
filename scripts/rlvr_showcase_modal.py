@@ -57,5 +57,4 @@ def main(task: str = 'six_words', stage: str = 'train', model: str = 'qwen3.5-4b
             (out / filename).write_text(content)
         print('Saved:', out, flush=True)
         if stage == 'train':
-            from training_report import render
-            print('Open in your browser:', render(out))
+            print('View results: pnpm dev', flush=True)

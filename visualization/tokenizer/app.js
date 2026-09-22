@@ -1,31 +1,17 @@
-<!doctype html>
-<html lang="en">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Polish BPE</title>
-<style>
-body{max-width:920px;margin:40px auto;padding:0 24px;color:#242424;font:15px/1.5 system-ui;background:#fff}
-header{flex-wrap:wrap;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}select{font:inherit;padding:6px 10px;max-width:100%;border:1px solid #ddd;border-radius:5px;background:white}#count{font-variant-numeric:tabular-nums;color:#555}
-#text{font:18px/1.85 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;font-variant-ligatures:none;font-kerning:none}
-#text{min-height:120px;padding:12px;border:1px solid #ddd;border-radius:5px}#text:focus{outline:2px solid #236c70;outline-offset:2px}header label{display:grid;gap:4px;font-size:13px}#error{color:#a21}#text span{padding:0;margin:0;border:0;border-radius:0}
-.controls{margin:28px 0 0}.labels{display:flex;justify-content:space-between;color:#555;font-size:14px}#step{display:block;width:100%;margin:10px 0;accent-color:#555}footer{margin:32px 0;color:#777;font-size:13px}a{color:#536578}
-#hover{position:fixed;z-index:10;background:#fff;border:1px solid #ddd;border-radius:8px;box-shadow:0 6px 28px #0002;padding:14px;width:min(600px,calc(100vw - 56px));pointer-events:none;box-sizing:border-box}
-#hover[hidden]{display:none}#hover svg{width:100%;display:block;max-height:320px}#hover small{color:#666}#hover strong{font-family:ui-monospace,monospace}
-</style>
-<header><label>Tokenizer<select id="tokenizer"><option value="workshop">Polish Wikipedia (8,192 tokens)</option><option value="small">Small BPE (512 tokens)</option><option value="custom">Load tokenizer.json…</option></select></label><label>Text<select id="example"></select></label><span id="count" aria-live="polite"></span></header>
-<input id="tokenizer-file" type="file" accept=".json,application/json" hidden>
-<div id="text" contenteditable="plaintext-only" role="textbox" aria-label="Text to tokenize" aria-multiline="true" spellcheck="false"></div>
-<p id="error" role="alert"></p>
-<div class="controls"><div class="labels"><label for="step">Bytes</label><span>Full merges</span></div><input id="step" type="range" min="0" value="0" aria-label="BPE merges: bytes to full merges"></div>
-<footer>Small BPE uses the first 255 merges of the workshop tokenizer.<br><a href="https://www.cs.cornell.edu/courses/cs4782/2026sp/demos/bytepair/">Cornell: interactive BPE / WordPiece visualizer</a></footer>
-<aside id="hover" hidden role="tooltip"></aside>
-<script>
-const D=/*PAYLOAD*/null;
+const response=await fetch('/api/tokenizer');
+if(!response.ok)throw Error('Could not load the workshop tokenizer.');
+const source=await response.json();
+// ByteLevel BPE maps each byte to a printable Unicode character.
+const bytes=[...Array.from({length:94},(_,i)=>i+33),...Array.from({length:12},(_,i)=>i+161),...Array.from({length:82},(_,i)=>i+174)];
+const byteAlphabet=Object.fromEntries(bytes.map(b=>[b,String.fromCharCode(b)]));
+let extra=256;
+for(let b=0;b<256;b++)if(!(b in byteAlphabet))byteAlphabet[b]=String.fromCharCode(extra++);
+const D={vocabulary:source.model.vocab,merges:source.model.merges,byteAlphabet,examples:[{"text": "Warszawa jest stolicą Polski i miastem położonym nad Wisłą. Jej historia obejmuje zarówno okresy rozwoju, jak i zniszczenia oraz odbudowę. Na ulicach spotykają się różne epoki: obok starych kamienic stoją współczesne biurowce, a tramwaje przejeżdżają między parkami, placami i osiedlami.\n\nW encyklopedii opis miasta dzieli się na części poświęcone geografii, historii, kulturze i transportowi. Każda z nich zawiera nazwy, daty oraz odsyłacze do innych artykułów. Ten sam tekst można podzielić na pojedyncze bajty lub większe fragmenty, których tokenizer nauczył się na polskiej Wikipedii."}, {"text": "'''Warszawa''' – stolica [[Polska|Polski]], położona nad [[Wisła|Wisłą]]. Jest ośrodkiem administracyjnym, naukowym i kulturalnym. Artykuł zawiera odsyłacze do innych haseł oraz informacje uporządkowane w sekcjach.\n\n== Historia ==\nHistoria miasta wiąże się z rozwojem osadnictwa, zmianami politycznymi i odbudową po zniszczeniach wojennych. Dodatkowe informacje można znaleźć w artykule [[Historia Warszawy]].\n\n{{Infobox\n | nazwa = Warszawa\n | państwo = Polska\n}}\n[[Kategoria:Miasta w Polsce]]"}, {"text": "Łódź, łódka i łódki mają podobne litery, ale nie muszą mieć identycznych tokenów. Żółw powoli przechodzi przez ścieżkę, a gęś przygląda mu się z brzegu jeziora. W zdaniu pojawiają się polskie znaki: ą, ć, ę, ł, ń, ó, ś, ź oraz ż. Każdy z nich zajmuje więcej niż jeden bajt w kodowaniu UTF-8.\n\nHello, world! Cześć, świecie! Ten akapit miesza polski z angielskim, liczbami 2026 i 12345 oraz symbolami: [[link]], {{szablon}} i 🦆. Kolory pokazują podział tekstu, ale sam tekst pozostaje dokładnie w tym samym miejscu."}]};
 const $=id=>document.getElementById(id),encoder=new TextEncoder();
 const palette=['#cde7fa','#fbe1be','#ded6f5','#cfead4','#f5cfdb','#f3edbd'];
 let characters=[],byteOwners=[],byteColors=[],ownText='';
 
-let vocabulary=D.vocabulary,ranks=new Map(D.merges.map((pair,i)=>[JSON.stringify(pair),i])),current=D.examples[0],activeTokenizer='workshop';
+let vocabulary=D.vocabulary,ranks=new Map(D.merges.map((pair,i)=>[JSON.stringify(pair),i])),current=null,activeTokenizer='workshop';
 const reverse=new Map(Object.entries(D.byteAlphabet).map(([byte,char])=>[char,+byte]));
 const workshop={vocabulary:D.vocabulary,ranks};
 const smallMerges=D.merges.slice(0,255);
@@ -191,6 +177,4 @@ $('tokenizer-file').onchange=async()=>{
  }catch(error){$('error').textContent=error.message}
  $('tokenizer-file').value='';
 };
-$('step').oninput=render;choose();
-</script>
-</html>
+$('step').oninput=render;current=trace(D.examples[0].text);choose();

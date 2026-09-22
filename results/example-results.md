@@ -2,7 +2,7 @@
 
 Actual saved Qwen3.5-4B outputs, September 7, 2026. These questions were absent from training. Both before and after use the ordinary question with **no style instruction** and greedy decoding. Full saved responses are reproduced below; the common 192-new-token generation cap cuts off some long baseline answers.
 
-The visible behavior change is the main teaching result. Content quality, especially Polish, remains uneven. These selected examples illustrate both; [the full comparison](showcase.html) also includes the explicit style-prompt baseline and sampled decoding.
+The visible behavior change is the main teaching result. Content quality, especially Polish, remains uneven. These selected examples illustrate both; [the full comparison](http://localhost:5173/reports#showcase.html) also includes the explicit style-prompt baseline and sampled decoding.
 
 ## What data was used?
 
@@ -194,7 +194,7 @@ The two sampled variants use temperature 0.7, top-p 0.8, top-k 20, repetition pe
 
 The full-strength sampled adapter makes the shift to absurd dialogue immediately visible. “Zamieniam się w kaczki!” can be a successful comic response for this workshop. Judge humor, relevance and language separately: absurdity alone is not a failure, and brevity alone is not success. The 25% adapter generally restores explanatory assistant behavior and loses much of the comic transformation in these six probes. Keep full strength plus sampling as the main creative demonstration, with greedy and 25% strength as comparisons.
 
-[Interactive comparison: all 54 saved answers](chlopaki-results.html) · [Experiment notebook](../LAB_NOTEBOOK.md) · [Runnable recipe](../additional/notes/chlopaki.md)
+[Interactive comparison: all 54 saved answers](http://localhost:5173/reports#chlopaki-results.html) · [Experiment notebook](../LAB_NOTEBOOK.md) · [Runnable recipe](../additional/notes/chlopaki.md)
 
 **Question:** Nie wiem, co chcę robić w życiu. Od czego zacząć?
 
@@ -364,7 +364,7 @@ A za to wy dostanieście trzy dni wolnego».
 
 Actual first-attempt greedy outputs. **Before:** original Qwen/Qwen3.5-4B, revision `851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a`. **After:** the same model plus a fresh LoRA trained with programmatic rewards on synthetic six-word prompts. No workshop SFT, Pan Tadeusz/film data, teacher answers, or best-of-N output selection.
 
-Saved adapter: 120 distinct training prompts, 480 self-sampled completions, 60 RLVR updates; selected on development prompts only. The full exploration run took 603.6 seconds. Held-out strict compliance **1/32 → 32/32**. The checker does not establish literary quality; some responses are formulaic or awkward. [Every output](rlvr-results.html).
+Saved adapter: 120 distinct training prompts, 480 self-sampled completions, 60 RLVR updates; selected on development prompts only. The full exploration run took 603.6 seconds. Held-out strict compliance **1/32 → 32/32**. The checker does not establish literary quality; some responses are formulaic or awkward. [Every output](http://localhost:5173/reports#rlvr-results.html).
 
 ### six_words-test-029
 
@@ -446,4 +446,4 @@ An actual disagreement between the **development-selected** adapters:
 
 Qwen3.5-0.8B original: **A**, correct. Qwen3.5-0.8B + SFT on100 official questions: **A**, correct. Qwen3.5-0.8B + RLVR on100 official questions: **B**, wrong. This example is a regression for RLVR, not newly learned knowledge for SFT. Option text is from the official catalogue (typography normalized here); model outputs are only letters.
 
-[All long-run comparisons, including cases favoring RLVR](prawko-long-results.md) · [Interactive curves and disagreement filter](prawko-training.html).
+[All long-run comparisons, including cases favoring RLVR](prawko-long-results.md) · [Interactive curves and disagreement filter](http://localhost:5173/reports#prawko-training.html).

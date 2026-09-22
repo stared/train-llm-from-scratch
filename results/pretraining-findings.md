@@ -1,6 +1,6 @@
 # From-scratch experiments: workshop recipes
 
-**Latest Polish-only follow-up:** [longer Wikipedia curves](wikipedia-scaling.svg) and [training comparisons](training-comparisons.html), including separate million-token evaluations. The September8 experiments below are historical results.
+**Latest Polish-only follow-up:** [longer Wikipedia curves](wikipedia-scaling.svg) and [training comparisons](http://localhost:5173/reports#training-comparisons.html), including separate million-token evaluations. The September8 experiments below are historical results.
 
 **Follow-up:** [Near-$10 Polish experiments](polish-dollar-results.md) tested four 2h13m runs. Wikipedia improved but remained factually unreliable; Wolne Lektury overfit. The ten-minute experiments below are the earlier workshop comparison.
 
@@ -25,7 +25,7 @@ The current session's completed training workers total **$8.3059**, inference-on
 
 ## Actual generated examples
 
-Examples below are selected illustrations, not aggregate quality measurements. Complete outputs, failures, initialization samples, and intermediate checkpoints are in [the interactive report](pretraining-results.html) and [all example results](pretraining-example-results.md). Generated EOD separates documents; these excerpts stop at the first EOD or an indicated sentence boundary. Raw outputs are preserved.
+Examples below are selected illustrations, not aggregate quality measurements. Complete outputs, failures, initialization samples, and intermediate checkpoints are in [the interactive report](http://localhost:5173/reports#pretraining-results.html) and [all example results](pretraining-example-results.md). Generated EOD separates documents; these excerpts stop at the first EOD or an indicated sentence boundary. Raw outputs are preserved.
 
 **ScratchGPT-30M, trained from random weights on the English TinyStories subset, ten minutes, $0.764.** Run `scratch-tiny-30m-1788884529630737279`, development-selected checkpoint. Prompt: `When the rain stopped,`
 

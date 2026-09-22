@@ -1,6 +1,6 @@
 # A tiny, runnable RLVR experiment
 
-For the newer minute-scale task comparison, see [RLVR workshop examples](../../04-reinforcement-learning.md), [all before/after outputs](../../results/rlvr-results.html), and [what the failed runs teach about rewards](../../results/rlvr-reward-lesson.md). The old pipeline below changed adapter weights but remained at 4/8 accuracy.
+For the newer minute-scale task comparison, see [RLVR workshop examples](../../04-reinforcement-learning.md), [all before/after outputs](http://localhost:5173/reports#rlvr-results.html), and [what the failed runs teach about rewards](../../results/rlvr-reward-lesson.md). The old pipeline below changed adapter weights but remained at 4/8 accuracy.
 
 Run the Polish SFT exercise first, then reuse its saved adapter. SFT learns from supplied answer tokens; RLVR samples its own answers, gets a numerical reward from a checker, and updates the policy from that reward.
 

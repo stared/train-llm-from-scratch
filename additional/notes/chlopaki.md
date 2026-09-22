@@ -50,7 +50,7 @@ Successful training calls cost an estimated **$0.2343**. Two sampling comparison
 
 Full-strength sampling produces a visibly absurd comic voice; greedy decoding mostly gives terse replies. Reducing adapter strength to 25% brings back longer explanatory answers and reduces the comic effect in these six questions. For the workshop, use full-strength sampling as the creative demonstration. Assess humor and coherence separately rather than treating every absurd answer as a failure.
 
-[Selected examples](../../results/example-results.md) · [All six questions with exact model/data labels](../../results/chlopaki-results.md) · [Offline interactive report, 54 answers](../../results/chlopaki-results.html).
+[Selected examples](../../results/example-results.md) · [All six questions with exact model/data labels](../../results/chlopaki-results.md) · [Offline interactive report, 54 answers](http://localhost:5173/reports#chlopaki-results.html).
 
 Reproduce the sampled comparison without training again:
 

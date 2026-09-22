@@ -3,6 +3,6 @@
   "private": true,
   "packageManager": "pnpm@12.3.4",
   "scripts": {
-    "visualization": "uv run scripts/visualization.py"
+    "dev": "pnpm --dir visualization dev"
   }
 }

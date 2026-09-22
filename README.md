@@ -25,10 +25,10 @@ modal setup
 ## Visualization
 
 ```bash
-pnpm visualization
+pnpm dev
 ```
 
-Opens the tokenizer, training curves and before/after examples. Each section has a saved example; live runs appear in the run selector. Leave it open while training.
+Opens http://localhost:5173 with tokenization, pretraining, SFT, RLVR, and experiment reports. Leave it open while training; your runs appear automatically.
 
 ## 1. Data and tokenization
 
@@ -88,7 +88,7 @@ Each exercise ends with a small experiment. Options include Wikipedia pretrainin
 
 ## Files
 
-The four numbered guides are the main path. `scripts/` contains runnable code and its model settings (`models.json`). `datasets/` contains inputs; large downloads in `datasets/local/` are gitignored. `visualization/` contains the browser app; `results/` contains shared reports; `runs/` contains your generated outputs and is gitignored. `additional/` holds optional exercises and research; `LAB_NOTEBOOK.md` records findings.
+The four numbered guides are the main path. `scripts/` contains runnable code and its model settings (`models.json`). `datasets/` contains inputs; large downloads in `datasets/local/` are gitignored. `visualization/` contains the app and its local server; `results/` contains experiment reports available through the app; `runs/` contains your generated outputs and is gitignored. `additional/` holds optional exercises and research; `LAB_NOTEBOOK.md` records findings.
 
 Codex or Claude are optional helpers. Other GPU platforms include [Google Colab](https://colab.research.google.com/) and [Lightning AI](https://lightning.ai/); these commands use Modal.
 

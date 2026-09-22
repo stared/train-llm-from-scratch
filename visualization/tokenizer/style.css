@@ -1,0 +1,7 @@
+body{max-width:920px;margin:40px auto;padding:0 24px;color:#242424;font:15px/1.5 system-ui;background:#fff}
+header{flex-wrap:wrap;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}select{font:inherit;padding:6px 10px;max-width:100%;border:1px solid #ddd;border-radius:5px;background:white}#count{font-variant-numeric:tabular-nums;color:#555}
+#text{font:18px/1.85 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;font-variant-ligatures:none;font-kerning:none}
+#text{min-height:120px;padding:12px;border:1px solid #ddd;border-radius:5px}#text:focus{outline:2px solid #236c70;outline-offset:2px}header label{display:grid;gap:4px;font-size:13px}#error{color:#a21}#text span{padding:0;margin:0;border:0;border-radius:0}
+.controls{margin:28px 0 0}.labels{display:flex;justify-content:space-between;color:#555;font-size:14px}#step{display:block;width:100%;margin:10px 0;accent-color:#555}footer{margin:32px 0;color:#777;font-size:13px}a{color:#536578}
+#hover{position:fixed;z-index:10;background:#fff;border:1px solid #ddd;border-radius:8px;box-shadow:0 6px 28px #0002;padding:14px;width:min(600px,calc(100vw - 56px));pointer-events:none;box-sizing:border-box}
+#hover[hidden]{display:none}#hover svg{width:100%;display:block;max-height:320px}#hover small{color:#666}#hover strong{font-family:ui-monospace,monospace}

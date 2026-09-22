@@ -66,5 +66,4 @@ def main(recipe: str = 'wolne-lektury', max_seconds: int = 600, gpu: str = '', b
     for filename, content in files.items():
         (out / filename).write_text(content)
     print('Saved', out)
-    from training_report import render
-    print('Open in your browser:', render(out))
+    print('View results: pnpm dev', flush=True)

@@ -52,5 +52,4 @@ def main(size:str='compare',max_seconds:int=300,batch_size:int=32):
         out=Path('runs')/name;out.mkdir(parents=True,exist_ok=False)
         for filename,text in files.items():(out/filename).write_text(text)
         print('Saved',out,flush=True)
-        from training_report import render
-        print('Open in your browser:', render(out))
+        print('View results: pnpm dev', flush=True)

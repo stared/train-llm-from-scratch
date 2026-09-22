@@ -2,8 +2,7 @@
 # requires-python = ">=3.14"
 # dependencies = []
 # ///
-"""Make an offline curve and before/after report from a scratch, poetry or Prawko run."""
-import argparse
+"""Render completed local experiments inside the visualization app."""
 from html import escape
 import json
 from pathlib import Path
@@ -90,12 +89,4 @@ def render(folder):
     body = f'<h1>{escape(title)}</h1><p>Data: {escape(source)}</p><p>{escape(note)}</p>{curve}<h2>Same inputs, before and after</h2>'
     for prompt,before,after in examples:
         body += f'<h3>{escape(prompt)}</h3><div class="pair"><section><b>Before</b><pre>{escape(before)}</pre></section><section><b>After</b><pre>{escape(after)}</pre></section></div>'
-    output = folder/'report.html'
-    output.write_text('<!doctype html><meta charset="utf-8"><title>Training report</title><style>body{font:16px system-ui;max-width:1100px;margin:32px auto;padding:0 16px}svg{max-width:860px;width:100%}text{font:13px system-ui}pre{white-space:pre-wrap;overflow-wrap:anywhere}h3{white-space:pre-wrap}.pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}section{min-width:0;background:#f4f6f8;padding:16px}@media(max-width:650px){.pair{grid-template-columns:1fr}}</style>'+body, encoding='utf-8')
-    return output
-
-
-if __name__ == '__main__':
-    p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('run', type=Path, help='The Saved runs/... directory printed by training')
-    print('Open in your browser:', render(p.parse_args().run))
+    return '<!doctype html><meta charset="utf-8"><title>Training report</title><style>body{font:16px system-ui;max-width:1100px;margin:32px auto;padding:0 16px}svg{max-width:860px;width:100%}text{font:13px system-ui}pre{white-space:pre-wrap;overflow-wrap:anywhere}h3{white-space:pre-wrap}.pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}section{min-width:0;background:#f4f6f8;padding:16px}@media(max-width:650px){.pair{grid-template-columns:1fr}}</style>'+body

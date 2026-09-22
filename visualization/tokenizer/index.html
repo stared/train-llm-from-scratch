@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Polish BPE</title>
+<link rel="stylesheet" href="/tokenizer/style.css">
+<header><label>Tokenizer<select id="tokenizer"><option value="workshop">Polish Wikipedia (8,192 tokens)</option><option value="small">Small BPE (512 tokens)</option><option value="custom">Load tokenizer.json…</option></select></label><label>Text<select id="example"></select></label><span id="count" aria-live="polite"></span></header>
+<input id="tokenizer-file" type="file" accept=".json,application/json" hidden>
+<div id="text" contenteditable="plaintext-only" role="textbox" aria-label="Text to tokenize" aria-multiline="true" spellcheck="false"></div>
+<p id="error" role="alert"></p>
+<div class="controls"><div class="labels"><label for="step">Bytes</label><span>Full merges</span></div><input id="step" type="range" min="0" value="0" aria-label="BPE merges: bytes to full merges"></div>
+<footer>Small BPE uses the first 255 merges of the workshop tokenizer.<br><a href="https://www.cs.cornell.edu/courses/cs4782/2026sp/demos/bytepair/">Cornell: interactive BPE / WordPiece visualizer</a></footer>
+<aside id="hover" hidden role="tooltip"></aside>
+<script type="module" src="/tokenizer/app.js"></script>
+</html>

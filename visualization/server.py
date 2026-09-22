@@ -4,16 +4,25 @@
 # ///
 """Local, read-only workshop viewer. No model or Modal account required."""
 import argparse
+import html
 import json
+import mimetypes
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import re
 import time
 from urllib.parse import urlsplit, parse_qs
 import webbrowser
+from datetime import datetime
 from urllib.request import urlopen
 
+if __package__:
+    from .report import render as render_report
+else:
+    from report import render as render_report
+
 ROOT = Path(__file__).resolve().parents[1]
+APP = ROOT/'visualization'
 EXAMPLE_RUNS = {
     'pretrain': 'scratch-wolne-lektury-30m-1789676785288825614',
     'sft': 'prawko-sft-1789672433144290591',
@@ -198,6 +207,14 @@ def catalog():
     return items
 
 
+def report_runs():
+    runs=ROOT/'runs'
+    candidates={p for pattern in ('scratch-*','style-train-*','prawko-*','rlvr-train-*')
+                for p in runs.glob(pattern) if p.is_dir() and not p.is_symlink()
+                and ((p/'result.json').is_file() or (p/'style_result.json').is_file())}
+    return sorted(candidates,key=lambda p:p.stat().st_mtime,reverse=True)[:20]
+
+
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         url=urlsplit(self.path)
@@ -206,6 +223,26 @@ class Handler(BaseHTTPRequestHandler):
                 return self.json({'app':'ai-from-scratch-visualization'})
             if url.path=='/api/runs':
                 return self.json(catalog())
+            if url.path=='/api/tokenizer':
+                return self.json(read(ROOT/'datasets/wiki-tokenizer.json'))
+            if url.path=='/api/reports':
+                reports=[]
+                for path in sorted((ROOT/'results').glob('*.html')):
+                    if path.is_symlink(): continue
+                    match=re.search(r'<title>(.*?)</title>',path.read_text(),re.S)
+                    reports.append(dict(url='/reports/'+path.name,
+                        title=html.unescape(match.group(1)) if match else path.stem.replace('-',' '),name=path.stem))
+                for path in report_runs():
+                    r=read(path/'style_result.json') or read(path/'result.json',{})
+                    model=r.get('model_spec',{}).get('id',r.get('model','Model'))
+                    when=datetime.fromtimestamp(path.stat().st_mtime).strftime('%d %b %H:%M')
+                    reports.append(dict(url='/reports/local/'+path.name,name=path.name,
+                        title=f"{model} ({r.get('task',r.get('method','training'))}, {when})"))
+                return self.json(reports)
+            if url.path.startswith('/reports/local/'):
+                allowed={'/reports/local/'+p.name:p for p in report_runs()}
+                if url.path not in allowed: return self.send_error(404)
+                return self.reply(render_report(allowed[url.path]).encode(),'text/html; charset=utf-8')
             if url.path=='/api/run':
                 name=parse_qs(url.query).get('id',[''])[0]
                 if name.startswith('example-'):
@@ -215,12 +252,20 @@ class Handler(BaseHTTPRequestHandler):
                 if name not in allowed: return self.send_error(404)
                 folder=allowed[name]
                 return self.json(live(folder) if name.startswith('live-') else normalize(folder))
-            files={'/':'visualization/index.html','/app.js':'visualization/app.js','/style.css':'visualization/style.css','/tokenizer':'results/tokenizer.html'}
+            files={'/':APP/'index.html','/app.js':APP/'app.js','/style.css':APP/'style.css',
+                   '/tokenizer':APP/'tokenizer/index.html','/tokenizer/app.js':APP/'tokenizer/app.js',
+                   '/tokenizer/style.css':APP/'tokenizer/style.css',
+                   '/reports':APP/'reports/index.html','/reports/app.js':APP/'reports/app.js'}
+            # Reports are published artifacts, never arbitrary files from runs/.
+            files.update({'/reports/'+p.name:p for p in (ROOT/'results').iterdir()
+                          if p.is_file() and not p.is_symlink() and p.suffix in ('.html','.svg','.png','.json','.md')})
             if url.path not in files: return self.send_error(404)
-            path=ROOT/files[url.path]
+            path=files[url.path]
             content=path.read_bytes()
-            mime='text/html' if path.suffix=='.html' else ('text/css' if path.suffix=='.css' else 'text/javascript')
+            mime=mimetypes.guess_type(path.name)[0] or 'application/octet-stream'
             self.reply(content,mime+'; charset=utf-8')
+        except (BrokenPipeError, ConnectionResetError):
+            pass
         except (OSError, ValueError, KeyError, TypeError):
             self.json({'error':'Run is not ready yet. Retry after the next checkpoint.'},503)
 

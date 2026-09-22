@@ -10,7 +10,7 @@ Compare **supervised fine-tuning (SFT)** with **reinforcement learning with veri
 |---|---:|---:|---|---:|---:|
 | 100 driving questions / Qwen3.5-0.8B, SFT | 3 min | 5 min 21 s | L4 | $0.065 | 21/40 → 27/40 |
 
-Time includes an image build, with model weights cached. Cost covers the training worker; builds and storage are separate. [Run report](results/workshop-check.html).
+Time includes an image build, with model weights cached. Cost covers the training worker; builds and storage are separate. [Run report](http://localhost:5173/reports#workshop-check.html).
 
 ## Run
 
@@ -45,14 +45,14 @@ No reasoning examples or generated reasoning here. Inspect the training loop in 
 
 The two pilot runs cost about $0.12 combined in worker compute. This is a small text-only subset, not a full driving exam.
 
-Open [before/after answers](results/prawko-example-results.md) and [longer-run curves](results/prawko-training.html). Find a correction, a regression, and a question where SFT and RLVR disagree. Does more training help?
+Open [before/after answers](results/prawko-example-results.md) and [longer-run curves](http://localhost:5173/reports#prawko-training.html). Find a correction, a regression, and a question where SFT and RLVR disagree. Does more training help?
 
 ## Watch training
 
 In another terminal, run:
 
 ```bash
-pnpm visualization
+pnpm dev
 ```
 
 Open **SFT** and select your run. See a training question and its target letter, then compare A/B/C probabilities on development questions across checkpoints. The test score is reported separately.
@@ -95,7 +95,7 @@ The default 0.8B model uses L4. For Qwen3.5-4B, the runner uses smaller batches 
 modal run scripts/prawko_modal.py --method sft --model qwen3.5-4b --max-seconds 600 --epochs 40
 ```
 
-[Model, GPU and training comparisons](results/training-comparisons.html).
+[Model, GPU and training comparisons](http://localhost:5173/reports#training-comparisons.html).
 
 ## Try
 

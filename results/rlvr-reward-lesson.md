@@ -23,4 +23,4 @@ The earlier unregularized Qwen/Qwen3-0.6B runs show three different failures:
 - Countdown puzzles converged to **`a + b - c`**, with `a`, `b`, `c` taken in input order. It used the right numbers but largely ignored the target. Final held-out success: 2/32.
 - Maze navigation converged to **`UD` for every map**. Partial reward increased, but final held-out success remained 0/32.
 
-Each of these was a fresh task-specific RLVR adapter, not a shared adapter trained on all three tasks. All generations are preserved in [the initial comparison](rlvr-initial-results.html). This makes a concrete debugging lesson: a rising training reward is not sufficient evidence that the intended behavior improved.
+Each of these was a fresh task-specific RLVR adapter, not a shared adapter trained on all three tasks. All generations are preserved in [the initial comparison](http://localhost:5173/reports#rlvr-initial-results.html). This makes a concrete debugging lesson: a rising training reward is not sufficient evidence that the intended behavior improved.

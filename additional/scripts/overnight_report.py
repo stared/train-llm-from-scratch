@@ -10,8 +10,8 @@ import re
 from pathlib import Path
 import sys
 ROOT=Path(__file__).resolve().parents[2]
-sys.path.insert(0,str(ROOT/'scripts'))
-from training_report import chart
+sys.path.insert(0,str(ROOT))
+from visualization.report import chart
 
 def e(text):
     # Preserve literal generated whitespace without trailing whitespace in HTML source.

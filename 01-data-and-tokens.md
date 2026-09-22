@@ -49,7 +49,7 @@ Our tokenizer has **8,192 vocabulary entries**. It was trained on 2,048 Wikipedi
 Open the visualization and select **Tokenization**:
 
 ```bash
-pnpm visualization
+pnpm dev
 ```
 
 Edit the colored text directly. Switch between the workshop tokenizer, Small BPE, or your own byte-level BPE `tokenizer.json` to compare the same text. Move the slider towards bytes to undo merges; hover over a token to see its ID and merge history.
