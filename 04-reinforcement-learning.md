@@ -2,7 +2,7 @@
 
 **Model:** Qwen3.5-4B. **Task:** write one line with exactly six words, including two requested words, with no repeated words.
 
-No target stories: the model samples answers; a Python checker gives rewards. This is the mechanism behind [AlphaGo Zero](https://deepmind.google/blog/alphago-zero-starting-from-scratch/) (the reward was winning) and behind [DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1) (the reward was a checkable maths or code answer), scaled down to one GPU and ten minutes.
+No target stories: the model samples answers; a Python checker gives rewards.
 
 ## What to expect
 
@@ -43,17 +43,16 @@ pnpm dev
 
 Open **RLVR** and select your run. See sampled answers and their rewards. Select a checkpoint to compare fixed development prompts before and after training.
 
-
 ## Try
 
 Check whether the successful stories are interesting, as well as valid. For another task, rerun with `--task countdown`; our earlier result was **7/32 → 11/32**, a smaller improvement. Each task starts from the original model.
 
 ## Check what the reward actually teaches
 
-We also prompted **Qwen3.5-2B** to explain Polish driving-exam answers, then trained with RLVR rewarding only a correct final letter. Strict success rose **0 → 25/40**, but the model stopped explaining. Reading the explicit answer anywhere in the response gave **25/40 both before and after**. It learned the rewarded format, not better exam knowledge. [Actual outputs and curves](http://localhost:5173/reports#training-comparisons.html). This is the ordinary failure mode of reward design; [Deep Reinforcement Learning Doesn't Work Yet](https://www.alexirpan.com/2018/02/14/rl-hard.html) (2018) collects the classic cases, and every one of them still applies to language models.
+We also prompted **Qwen3.5-2B** to explain Polish driving-exam answers, then trained with RLVR rewarding only a correct final letter. Strict success rose **0 → 25/40**, but the model stopped explaining. Reading the explicit answer anywhere in the response gave **25/40 both before and after**. It learned the rewarded format, not better exam knowledge. [Actual outputs and curves](http://localhost:5173/reports#training-comparisons.html).
 
 ## See also
 
-- [State of GPT](https://www.youtube.com/watch?v=bZQun8Y4L2A) (Karpathy, 2023) — pretraining, SFT, reward modelling and RL as one pipeline; the three exercises here are its first, second and fourth stage.
-- [TRL: GRPO trainer](https://huggingface.co/docs/trl/grpo_trainer) and [RLOO trainer](https://huggingface.co/docs/trl/rloo_trainer) — `scripts/rlvr_showcase.py` is on-policy REINFORCE with a leave-one-out baseline (RLOO); GRPO is the close relative used for DeepSeek-R1.
-- [DeepSeek-R1 paper](https://arxiv.org/abs/2501.12948) — RLVR at scale, including the "aha moment" and the format-reward problems you can reproduce above in miniature.
+- [State of GPT](https://www.youtube.com/watch?v=bZQun8Y4L2A) (Karpathy, 2023) — an overview of pretraining, SFT and reinforcement learning from human feedback.
+- [TRL: GRPO trainer](https://huggingface.co/docs/trl/grpo_trainer) and [RLOO trainer](https://huggingface.co/docs/trl/rloo_trainer) — `scripts/rlvr_showcase.py` uses on-policy REINFORCE with a leave-one-out baseline (RLOO); GRPO is the close relative used for DeepSeek-R1.
+- [DeepSeek-R1 paper](https://arxiv.org/abs/2501.12948) — RLVR at scale, with a detailed account of training and evaluation.

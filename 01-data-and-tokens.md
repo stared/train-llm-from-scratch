@@ -89,7 +89,7 @@ uv run scripts/tokenize_text.py --tokenizer datasets/local/my-tokenizer.json --t
 
 Use the included tokenizer for the next exercise. Changing it requires encoding the training corpus again and training a new model. For fine-tuning, keep the existing model's tokenizer.
 
-Why not simply words or characters? Polish inflects and compounds words, so a word vocabulary explodes and misses rare forms; characters keep the vocabulary tiny but make every sequence long. BPE sits in between, and the same trade-off applies to markup such as Wikipedia templates, which get their own tokens.
+Polish has many inflected word forms. A whole-word vocabulary needs many entries to cover them; character tokens use a smaller vocabulary but produce longer sequences. BPE uses reusable pieces of words and can also learn frequent pieces of markup.
 
 **Next:** [2. Pretraining](02-pretraining.md). If preparation is still running, you can start [3. Fine-tuning](03-fine-tuning.md) independently.
 
@@ -98,5 +98,5 @@ Why not simply words or characters? Polish inflects and compounds words, so a wo
 - [Hugging Face: how BPE works](https://huggingface.co/learn/llm-course/en/chapter6/5).
 - [Hugging Face Tokenizers tutorial](https://huggingface.co/docs/tokenizers/quicktour).
 - [Cornell: interactive BPE / WordPiece visualizer](https://www.cs.cornell.edu/courses/cs4782/2026sp/demos/bytepair/).
-- [Fully Character-Level Neural Machine Translation](https://arxiv.org/abs/1610.03017) — the other end of the vocabulary axis: no tokenizer at all, one character per step.
-- [Shannon, A Mathematical Theory of Communication (1948)](https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf) — section 3 generates text by predicting the next letter, then the next word, from counts; the model in the next exercise does the same with a network.
+- [Fully Character-Level Neural Machine Translation](https://arxiv.org/abs/1610.03017) — translation using characters instead of word or subword segmentation.
+- [Shannon, A Mathematical Theory of Communication (1948)](https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf) — section 3 illustrates statistical models of text with character and word sequences.

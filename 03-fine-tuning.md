@@ -28,7 +28,7 @@ Run this next to compare the two methods:
 modal run scripts/prawko_modal.py --method rlvr --epochs 10 --max-seconds 180
 ```
 
-Each training run starts from the same original model and trains a [low-rank adaptation (LoRA)](https://huggingface.co/docs/peft/conceptual_guides/lora) adapter for up to three minutes: the original weights stay frozen and only small added matrices are trained, which is why a 0.8B model fits on an L4. Loading and evaluation add time.
+Each training run starts from the same original model and trains a [low-rank adaptation (LoRA)](https://huggingface.co/docs/peft/conceptual_guides/lora) adapter for up to three minutes. LoRA freezes the original weights and trains small added matrices, reducing the number of trainable parameters and optimizer memory. Loading and evaluation add time.
 
 - **SFT:** input = question + options; target = correct letter.
 - **RLVR:** sample four letters; reward each correct answer with 1, wrong answer with 0.
@@ -43,7 +43,7 @@ No reasoning examples or generated reasoning here. Inspect the training loop in 
 | + SFT on 100 driving exam questions | 27 |
 | + RLVR on the same 100 questions | 27 |
 
-The two pilot runs cost about $0.12 combined in worker compute. This is a small text-only subset, not a full driving exam. Accuracy on 40 questions moves in steps of 2.5 points, so treat single-run differences with care; the development set exists to pick a checkpoint, the test set to report once ([Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml), rules 14 and 24).
+The two pilot runs cost about $0.12 combined in worker compute. This is a small text-only subset, not a full driving exam. Each question changes accuracy by 2.5 percentage points. We select the checkpoint using the development set and report its score on the separate test set.
 
 Open [before/after answers](results/prawko-example-results.md) and [longer-run curves](http://localhost:5173/reports#prawko-training.html). Find a correction, a regression, and a question where SFT and RLVR disagree. Does more training help?
 
@@ -107,8 +107,6 @@ For a different task, [teach a model to answer in verse](additional/poetry.md).
 
 ## See also
 
-- [Can Generalist Foundation Models Outcompete Special-Purpose Tuning?](https://arxiv.org/abs/2311.16452) (Medprompt, 2023) — on medical exams, careful prompting of a large general model beat fine-tuned specialists. Before training, check what the base model does with a better prompt.
-- [Which ML are you?](https://github.com/stared/which-ml-are-you) — accuracy, log-loss, precision and recall as one interactive; the SFT tab shows A/B/C probabilities, which log-loss scores and accuracy ignores.
-- [Benchmarking Qwen3.8-27B quantizations](https://quesma.com/blog/qwen38-27b-quantizations-benchmarked/) and [Do Qwen3.6-27B quantizations break the pelican?](https://quesma.com/blog/qwen-quantization-quality/) (Quesma) — what you keep and lose when running a Qwen model at 4-bit; relevant once you take a fine-tuned model out of the cloud.
-- [Model cards: Qwen3.5-0.8B](https://huggingface.co/Qwen/Qwen3.5-0.8B), [Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B) — chat template, context length and the recommended sampling settings.
-- [TRL SFTTrainer](https://huggingface.co/docs/trl/sft_trainer) — the library version of the loop in `scripts/prawko.py`, for when you want the standard tooling.
+- [Which ML are you?](https://github.com/stared/which-ml-are-you): explore accuracy, log-loss, precision and recall.
+- [TRL SFTTrainer](https://huggingface.co/docs/trl/sft_trainer): a configurable SFT training implementation.
+- [More on fine-tuning, prompting and quantization](additional/reading.md#fine-tuning).

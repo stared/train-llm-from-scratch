@@ -1,5 +1,7 @@
 # Measured results
 
+Run `pnpm dev` from the repository and open **Reports** to browse these experiments.
+
 [Latest full workshop check: timings, costs, curves and before/after answers](http://localhost:5173/reports#workshop-check.html).
 
 [GPU, model and post-training comparisons](http://localhost:5173/reports#training-comparisons.html).
@@ -12,7 +14,7 @@
 - [Wikipedia definitions: pretraining and question wording](wiki-qa-recall.svg).
 - [Wikipedia definitions: fresh before/after SFT audit and example answers](wiki-qa-example-results.md).
 
-These files contain saved experiments, not freshly generated promises. Each comparison identifies the model, training data and evaluation setup.
+Each comparison records the model, training data and evaluation setup.
 
 | Workshop stage | Start here | More detail |
 |---|---|---|
@@ -23,4 +25,4 @@ These files contain saved experiments, not freshly generated promises. Each comp
 
 Earlier results remain here for comparison, including unsuccessful experiments. Raw predictions, metrics and source snapshots stay locally in gitignored `runs/`; they are not included in a fresh clone. Rebuilding reports from those records requires the original runs. See the [`LAB_NOTEBOOK.md`](../LAB_NOTEBOOK.md) for experiment history.
 
-Run `pnpm dev` from the repository and open **Reports** to browse these experiments. Report-generation scripts write their outputs here.
+Report-generation scripts write their outputs here.
