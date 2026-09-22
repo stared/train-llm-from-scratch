@@ -100,4 +100,17 @@ Codex or Claude are optional helpers. Other GPU platforms include [Google Colab]
 - [Let's build GPT from scratch](https://www.youtube.com/watch?v=kCc8FmEb1nY): Karpathy's step-by-step coding walkthrough.
 - [Hugging Face LLM Course](https://huggingface.co/learn/llm-course/en/chapter1/4): transformers, pretraining and fine-tuning.
 - [Nanochat](https://github.com/karpathy/nanochat): explore a complete language-model training pipeline.
+- [State of GPT](https://www.youtube.com/watch?v=bZQun8Y4L2A): Karpathy's 2023 talk on the full pipeline, pretraining → SFT → reward model → RL; the map this workshop follows.
+- [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) and [LLM Visualization](https://bbycroft.net/llm): the architecture animated in the browser, on GPT-2 and nano-GPT.
+- [Interactive Machine Learning List](https://p.migdal.pl/interactive-machine-learning-list/): more explorables of this kind, including the [TensorFlow Playground](https://playground.tensorflow.org/).
 - [Thinking in tensors, writing in PyTorch](https://github.com/stared/thinking-in-tensors-writing-in-pytorch): Piotr's hands-on introduction to neural networks.
+
+## Which model is good at what
+
+Leaderboards change monthly; check them before choosing a model for the hackathon.
+
+- [Artificial Analysis](https://artificialanalysis.ai/): intelligence, speed and price of hosted models on one page.
+- [Arena leaderboard](https://arena.ai/leaderboard): human pairwise preferences, with per-category views; [LiveBench](https://livebench.ai/) refreshes its questions to limit contamination.
+- [Epoch AI: GPQA Diamond](https://epoch.ai/benchmarks/gpqa-diamond), [ARC Prize](https://arcprize.org/leaderboard) and [Terminal-Bench](https://www.tbench.ai/?version=2.0): hard reasoning, abstraction and agentic coding.
+- [Quesma benchmarks](https://quesma.com/benchmarks/): our own, including [BabaIsBench](https://quesma.com/benchmarks/babaisbench/) (puzzle solving) and [mushroom identification](https://quesma.com/blog/mushroom-llm-vision/) (vision, with real consequences).
+- [Sparks of AGI](https://arxiv.org/abs/2303.12712) and [GPT-4 gets a B on my quantum computing final exam](https://scottaaronson.blog/?p=7209): why exams are a reasonable yardstick, and where they mislead.

@@ -1,6 +1,6 @@
 # 2. Pretraining
 
-Train a **30-million-parameter generative pretrained transformer (GPT)** from random weights on Wolne Lektury. It learns next-token prediction, not how to answer chat questions.
+Train a **30-million-parameter generative pretrained transformer (GPT)** from random weights on Wolne Lektury. It learns next-token prediction, not how to answer chat questions. If "transformer" is new to you, spend five minutes with the [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) first; it animates the same architecture ([Vaswani et al., 2017](https://arxiv.org/abs/1706.03762)) on a small GPT-2.
 
 ## What to expect
 
@@ -30,6 +30,8 @@ pnpm dev
 
 Open **Pretraining** and select your run. The loss curve updates during training. Select a checkpoint to compare the same prompt before and after training. Hover over colored tokens for their probabilities and alternatives.
 
+The loss is the cross-entropy of the next token: 9.07 at the start is close to ln 8192 ≈ 9.01, a model that treats all 8,192 tokens as equally likely. Every drop below that is structure the model found. If you have never watched a network learn, the [TensorFlow Playground](https://playground.tensorflow.org/) shows the same loss curve on a toy problem in the browser.
+
 
 ## Actual result
 
@@ -40,7 +42,7 @@ Open **Pretraining** and select your run. The loss curve updates during training
 | — Nie wiem, | 99okraty Juni Griiennikózózniemie… | ale mówiła o pani zaraz. … |
 | Test loss (lower is better) | 9.073 | 2.782 |
 
-The model learned recognizable prose but still makes grammatical and logical mistakes.
+The model learned recognizable prose but still makes grammatical and logical mistakes. This is the experiment from Karpathy's [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) (2015), with a transformer in place of the LSTM; the [RecurrentJS demo](https://cs.stanford.edu/people/karpathy/recurrentjs/) lets you watch the original in a browser tab.
 
 ## Choosing a GPU
 
@@ -108,3 +110,10 @@ Watch it in the **Pretraining** section of the visualization. Add `--gpu B200` t
 Longer Wikipedia runs continue improving held-out loss. See the [training-time and cost curves](results/wikipedia-scaling.svg); those research runs take longer than this exercise.
 
 **Next:** [3. Supervised fine-tuning](03-fine-tuning.md).
+
+## See also
+
+- [Computation used to train notable AI systems](https://ourworldindata.org/grapher/computation-used-to-train-notable-artificial-intelligence-systems) (Our World in Data) — where a ten-minute H100 run sits on the axis that runs up to GPT-4.
+- [Unsupervised sentiment neuron](https://openai.com/index/unsupervised-sentiment-neuron/) (OpenAI, 2017) — a model trained only to predict the next character of Amazon reviews grew a single unit tracking sentiment; the earliest clear evidence that next-token prediction learns more than spelling.
+- [Why Momentum Really Works](https://distill.pub/2017/momentum/) and [An overview of gradient descent optimization algorithms](https://www.ruder.io/optimizing-gradient-descent/) — what the optimizer does between two points of the loss curve. The script uses AdamW with warm-up and a peak learning rate of 6e-4 (`scripts/train_scratch.py`); [Muon](https://docs.pytorch.org/docs/2.14/generated/torch.optim.Muon.html) is available as a research comparison.
+- [MicroGPT](https://karpathy.ai/microgpt.html) — the same training loop as here, in 200 lines with no dependencies; read it side by side with `scripts/scratch_recipe_modal.py`.
