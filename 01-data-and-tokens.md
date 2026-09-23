@@ -58,7 +58,7 @@ This video shows how our tokenizer was trained on **2,048 Wikipedia training art
 
 https://github.com/user-attachments/assets/99bce2a0-4c99-462d-bd85-bd31b27c2de0
 
-[Open or download the tokenizer video](https://github.com/user-attachments/assets/99bce2a0-4c99-462d-bd85-bd31b27c2de0).
+[Download the tokenizer video](assets/videos/tokenizer-explainer.mp4).
 
 Byte-pair encoding (BPE) starts with small pieces and repeatedly merges frequent adjacent pairs. A trained tokenizer applies those merges and assigns each piece an integer ID.
 
