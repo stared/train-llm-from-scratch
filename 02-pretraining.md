@@ -209,6 +209,44 @@ Leave **Temperature** at its default initially. Lower values favor the most like
 
 If the panel says **No local model weights**, check that `best.pt`, `result.json` and `tokenizer.json` are together inside the same `runs/scratch-.../` folder.
 
+## Optional: train on the Sejm corpus
+
+The Sejm corpus contains the sitting transcripts of the first three terms of the Polish Sejm, 1991–2001. It is published as [sejm.zip](https://pliki.danieljanus.pl/sejm.zip) (112 MB compressed, 342 MB of text) and yields about **98 million training tokens**, similar to Wolne Lektury. The text is used exactly as it is. It is only cut into chunks at blank lines; the chunks are divided into training, development and test groups and converted to token IDs with the same 8,192-token tokenizer.
+
+### On Modal
+
+Prepare the data once, on a Modal CPU. This takes about a minute of tokenizing plus the download:
+
+```bash
+modal run scripts/prepare_data_modal.py --corpus sejm
+```
+
+Then train with the same settings as the `wolne-lektury` recipe (ScratchGPT-30M, H100 GPU, batch size 64, 512-token context):
+
+```bash
+modal run scripts/scratch_recipe_modal.py --recipe sejm
+```
+
+Everything in sections 3–5 above applies, including downloading `best.pt` to try the model.
+
+### On your own computer
+
+This variant needs no Modal account. Prepare the tokens once on your CPU; they are saved in `datasets/local/sejm-scratch-v1/`:
+
+```bash
+uv run scripts/prepare_pretraining.py sejm
+```
+
+The script uses `~/corpora/sejm.txt` if you have it, otherwise it downloads the archive. Use `--source path/to/file.txt` to prepare a different file. Then train:
+
+```bash
+uv run scripts/scratch_local.py --recipe sejm
+```
+
+The script uses your Mac's GPU (MPS) when available, otherwise CUDA, otherwise the CPU. The `sejm` recipe trains **ScratchGPT-10M with batch size 32 and a 256-token context** for 10 minutes. `--recipe sejm-30m` trains the 30M model with a 512-token context. Change the budget with `--max-seconds`, up to 8,400.
+
+Progress appears in the viewer (`pnpm dev`) as usual. The run folder `runs/scratch-sejm-.../` already contains `best.pt`, so you can try it in **Next-token prediction** without downloading anything.
+
 ## You have finished pretraining
 
 You have completed this part when your run has finished, you have compared its initial and selected outputs, and you know where the model is saved. Trying a new prompt is optional.

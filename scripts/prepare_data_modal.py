@@ -8,7 +8,7 @@ image = (modal.Image.debian_slim(python_version='3.14')
          .pip_install('numpy==2.5.3', 'tokenizers==0.23.2')
          .add_local_file('datasets/wiki-tokenizer.json', '/work/datasets/wiki-tokenizer.json')
          .add_local_file('additional/research/scratch/sources.json', '/work/additional/research/scratch/sources.json'))
-for script in ('download_scratch_corpus', 'prepare_wl_scratch', 'prepare_wiki_scratch', 'prepare_pretraining'):
+for script in ('download_scratch_corpus', 'prepare_wl_scratch', 'prepare_sejm_scratch', 'prepare_wiki_scratch', 'prepare_pretraining'):
     image = image.add_local_file(f'scripts/{script}.py', f'/work/scripts/{script}.py')
 
 
@@ -18,14 +18,14 @@ def prepare_on_volume(corpus, persist=Path('/persist')):
     import tempfile
     sys.path.insert(0, '/work/scripts')
     from download_scratch_corpus import download, MANIFEST
-    from prepare_pretraining import validate
-    name = 'wl-scratch-v1' if corpus == 'wolne-lektury' else 'wiki-scratch-v1'
+    from prepare_pretraining import validate, NAMES, SOURCES
+    name = NAMES[corpus]
     target = persist/'datasets'/name
     if target.exists():
         validate(target)
         print('Prepared data verified; reusing it.', flush=True)
         return name
-    source = 'falenty-wl' if corpus == 'wolne-lektury' else 'wikipedia-pl-20260901'
+    source = SOURCES[corpus]
     info = json.loads(MANIFEST.read_text())['sources'][source]
     downloads = persist/'datasets/sources'/source
     downloads.mkdir(parents=True, exist_ok=True)
@@ -40,6 +40,9 @@ def prepare_on_volume(corpus, persist=Path('/persist')):
         if corpus == 'wolne-lektury':
             from prepare_wl_scratch import prepare
             prepare(downloads/'wolnelektury.zip', Path('/work/datasets/wiki-tokenizer.json'), output)
+        elif corpus == 'sejm':
+            from prepare_sejm_scratch import prepare
+            prepare(downloads/'sejm.zip', Path('/work/datasets/wiki-tokenizer.json'), output)
         else:
             from prepare_wiki_scratch import extract, tokenize
             extract(downloads/info['files'][0]['name'], output)
@@ -58,6 +61,15 @@ def prepare_wolne_lektury():
         volume.commit()
 
 
+@app.function(image=image, cpu=2, memory=8192, timeout=1800, retries=0,
+              max_containers=1, volumes={'/persist': volume})
+def prepare_sejm():
+    try:
+        return prepare_on_volume('sejm')
+    finally:
+        volume.commit()
+
+
 @app.function(image=image, cpu=4, memory=16384, timeout=7200, retries=0,
               max_containers=1, volumes={'/persist': volume})
 def prepare_wikipedia():
@@ -69,9 +81,10 @@ def prepare_wikipedia():
 
 @app.local_entrypoint()
 def main(corpus: str = 'wolne-lektury'):
-    if corpus not in ('wolne-lektury', 'wikipedia'):
-        raise ValueError('Choose wolne-lektury or wikipedia')
-    worker = prepare_wolne_lektury if corpus == 'wolne-lektury' else prepare_wikipedia
+    workers = {'wolne-lektury': prepare_wolne_lektury, 'sejm': prepare_sejm, 'wikipedia': prepare_wikipedia}
+    if corpus not in workers:
+        raise ValueError('Choose ' + ', '.join(workers))
+    worker = workers[corpus]
     name = worker.remote()
     print(f'Ready: {name} in your Modal volume.')
 

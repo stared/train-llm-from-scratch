@@ -2,7 +2,12 @@
 # requires-python = ">=3.14"
 # dependencies = ["modal==1.5.5", "tokenizers==0.23.2", "numpy==2.5.3"]
 # ///
-"""Download, prepare, verify and upload a pretraining corpus. Safe to run again."""
+"""Download, prepare, verify and upload a pretraining corpus. Safe to run again.
+
+Sejm tokens are prepared for training on this computer and not uploaded; Modal
+prepares its own copy with prepare_data_modal.py. The source is ~/corpora/sejm.txt
+when present, otherwise the pinned sejm.zip is downloaded.
+"""
 import argparse
 import hashlib
 import json
@@ -11,6 +16,8 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 FILES = ('train.bin', 'dev.bin', 'test.bin', 'tokenizer.json', 'tokens.json')
+NAMES = {'wolne-lektury': 'wl-scratch-v1', 'wikipedia': 'wiki-scratch-v1', 'sejm': 'sejm-scratch-v1'}
+SOURCES = {'wolne-lektury': 'falenty-wl', 'wikipedia': 'wikipedia-pl-20260901', 'sejm': 'sejm'}
 
 
 def validate(folder):
@@ -32,9 +39,46 @@ def validate(folder):
     return metadata
 
 
-def prepare(corpus, check_only=False):
-    name = 'wl-scratch-v1' if corpus == 'wolne-lektury' else 'wiki-scratch-v1'
+def sejm_source(source):
+    """An explicit file, else the local text file, else the pinned download."""
+    from prepare_sejm_scratch import DEFAULT_SOURCE
+    if source or DEFAULT_SOURCE.is_file():
+        return Path(source or DEFAULT_SOURCE).expanduser()
+    from download_scratch_corpus import download, MANIFEST
+    downloads = ROOT/'datasets/local/scratch-corpora/sejm'
+    downloads.mkdir(parents=True, exist_ok=True)
+    print(f'{DEFAULT_SOURCE} not found; downloading the published archive (existing downloads are verified and reused)', flush=True)
+    for item in json.loads(MANIFEST.read_text())['sources']['sejm']['files']:
+        download(item, downloads)
+    return downloads/'sejm.zip'
+
+
+def prepare_sejm(folder, source, check_only=False):
+    from prepare_sejm_scratch import prepare as prepare_text
+    source = None if check_only else sejm_source(source)
+    recorded = json.loads((folder/'tokens.json').read_text())['extraction'] if folder.exists() else {}
+    if source and recorded.get('source') == str(source):
+        with source.open('rb') as stream:
+            if hashlib.file_digest(stream, 'sha256').hexdigest() != recorded['source_sha256']:
+                raise ValueError(f'{source} changed since {folder.relative_to(ROOT)} was prepared; delete that folder to prepare again')
+    if not folder.exists() and not check_only:
+        print('1/2 Preparing tokens from', source, 'on your CPU', flush=True)
+        with tempfile.TemporaryDirectory(prefix='preparing-', dir=ROOT/'datasets/local') as temp:
+            output = Path(temp)/folder.name
+            prepare_text(source, ROOT/'datasets/wiki-tokenizer.json', output)
+            validate(output)
+            output.rename(folder)
+    print('2/2 Checking prepared files:', folder.relative_to(ROOT), flush=True)
+    validate(folder)
+    print('Ready. Start training on this computer:\nuv run scripts/scratch_local.py --recipe sejm')
+
+
+def prepare(corpus, check_only=False, source=None):
+    name = NAMES[corpus]
     folder = ROOT/'datasets/local'/name
+    if corpus == 'sejm':
+        (ROOT/'datasets/local').mkdir(parents=True, exist_ok=True)
+        return prepare_sejm(folder, source, check_only)
     if not folder.exists() and not check_only:
         from download_scratch_corpus import download, MANIFEST
         source = 'falenty-wl' if corpus == 'wolne-lektury' else 'wikipedia-pl-20260901'
@@ -84,7 +128,8 @@ def prepare(corpus, check_only=False):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('corpus', choices=['wolne-lektury', 'wikipedia'])
+    parser.add_argument('corpus', choices=list(NAMES))
     parser.add_argument('--check-only', action='store_true', help='Validate existing local data without network access')
+    parser.add_argument('--source', type=Path, help='Sejm only: plain-text corpus (default ~/corpora/sejm.txt)')
     args = parser.parse_args()
-    prepare(args.corpus, args.check_only)
+    prepare(args.corpus, args.check_only, args.source)

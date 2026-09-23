@@ -87,7 +87,8 @@ def normalize(folder):
         snapshot('samples_final', 'Final checkpoint', r['steps'], 'fixed prompts')
         snapshot('samples_selected', 'Selected checkpoint', r['best_step'], 'fixed prompts')
         out['score'] = dict(label='Test loss', before=r['before']['test']['loss_nats'], after=r['selected']['test']['loss_nats'])
-        out['source'] = 'Wolne Lektury' if 'wl-' in str(r.get('data', '')) or 'lektury' in folder.name else r.get('source', 'Polish Wikipedia')
+        out['source'] = ('Sejm' if folder.name.startswith('scratch-sejm') else 'Wolne Lektury' if 'wl-' in str(r.get('data', '')) or 'lektury' in folder.name
+                         else r.get('source', 'Polish Wikipedia'))
     elif (folder/'rollouts.json').exists():
         out['stage'] = 'rlvr'
         data = source_data(folder, r)
@@ -160,7 +161,8 @@ def describe_run(out, record, folder):
         out['dataset_label'] = f'Polish driving exam ({n:,} questions)' if n else 'Polish driving exam'
     elif out['stage'] == 'pretrain':
         source = str(record.get('source', out.get('source', '')))
-        dataset = 'Wolne Lektury' if 'lektury' in source.lower() else 'Polish Wikipedia' if 'wiki' in source.lower() else out.get('source', '')
+        dataset = ('Sejm' if 'sejm' in source.lower() else 'Wolne Lektury' if 'lektury' in source.lower()
+                   else 'Polish Wikipedia' if 'wiki' in source.lower() else out.get('source', ''))
         n = record.get('training_pool_tokens')
         def size(n):
             return f'{n/1e9:.2f}B' if n >= 1e9 else f'{n/1e6:.0f}M' if n >= 1e6 else f'{n:,}'

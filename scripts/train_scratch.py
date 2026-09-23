@@ -60,6 +60,8 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
         raise ValueError('Invalid context/evaluation/learning-rate configuration')
     if device=='cuda' and not torch.cuda.is_bf16_supported():
         raise ValueError('This GPU recipe requires BF16 support')
+    if device=='mps' and not torch.backends.mps.is_available():
+        raise ValueError('MPS is unavailable on this machine')
     started=time.monotonic()
     if device=='cuda':torch.set_num_threads(2)  # Match reserved host CPU; avoid initialization oversubscription.
     out=Path(output);out.mkdir(parents=True,exist_ok=False)
@@ -132,7 +134,8 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
         return result
     def samples(name):
         # Preserve training RNG; same sampling seed for every time checkpoint.
-        with torch.random.fork_rng(devices=[torch.cuda.current_device()] if device=='cuda' else []):
+        with torch.random.fork_rng(devices=[] if device=='cpu' else [torch.cuda.current_device()] if device=='cuda' else [0],
+                                   device_type='mps' if device=='mps' else 'cuda'):
             torch.manual_seed(2026)
             records=[]; previews=[]
             for index,prompt in enumerate(generation_prompts):
@@ -194,6 +197,7 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
         optimizer.step()
         if matrix_optimizer:matrix_optimizer.step()
         if device=='cuda':torch.cuda.synchronize()
+        elif device=='mps':torch.mps.synchronize()
         training_compute+=time.monotonic()-tick
         step+=1;tokens_seen+=batch_size*config.context
         if step%25==0:
@@ -221,7 +225,8 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
         matrix_optimizer=matrix_optimizer.state_dict() if matrix_optimizer else None,
         numpy_rng=rng.bit_generator.state,torch_rng=torch.get_rng_state(),
         sampler_state=sampler.state() if sampler else None,
-        cuda_rng=torch.cuda.get_rng_state() if device=='cuda' else None),out/'final.pt')
+        cuda_rng=torch.cuda.get_rng_state() if device=='cuda' else None,
+        mps_rng=torch.mps.get_rng_state() if device=='mps' else None),out/'final.pt')
     if final['dev']['loss_nats']<best_loss:
         best_loss=final['dev']['loss_nats'];best_step=step;torch.save(model.state_dict(),out/'best.pt')
     model.load_state_dict(torch.load(out/'best.pt',map_location=device,weights_only=True))
@@ -238,7 +243,7 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
         initial_checkpoint_run=initial_checkpoint.parent.name if initial_checkpoint else None,
         initial_checkpoint_file=initial_checkpoint.name if initial_checkpoint else None,
         environment=dict(torch=torch.__version__,numpy=np.__version__,tokenizers=importlib.metadata.version('tokenizers'),
-                         device=torch.cuda.get_device_name() if device=='cuda' else 'CPU',precision='BF16 autocast with FP32 weights' if device=='cuda' else 'FP32'),
+                         device=torch.cuda.get_device_name() if device=='cuda' else 'Apple MPS' if device=='mps' else 'CPU',precision='BF16 autocast with FP32 weights' if device=='cuda' else 'FP32'),
         parameters=parameters,seed=seed,source=source_label,source_exposures=exposures,sampler_state=sampler.state() if sampler else None,
         optimizer_kind=optimizer_kind,muon_adjust_lr='match_rms_adamw' if matrix_optimizer else None,
         data=metadata,generation_prompts=generation_prompts,before=before,final=final,selected=selected,best_step=best_step,steps=step,
@@ -261,7 +266,7 @@ if __name__=='__main__':
     p.add_argument('--max-seconds',type=int,default=300)
     p.add_argument('--seed',type=int,default=42)
     p.add_argument('--batch-size',type=int,default=32)
-    p.add_argument('--device',choices=['cpu','cuda'],default='cpu')
+    p.add_argument('--device',choices=['cpu','cuda','mps'],default='cpu')
     p.add_argument('--context',type=int,default=256,choices=[256,512,1024])
     p.add_argument('--eval-interval',type=int,default=60)
     p.add_argument('--peak-lr',type=float,default=6e-4)
