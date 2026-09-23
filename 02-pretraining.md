@@ -7,6 +7,8 @@ Train a **30-million-parameter generative pretrained transformer (GPT)** from ra
 
 **Watch the explanation** — 3 min 57 s, English narration and on-screen captions.
 
+**This video has sound.** Click the speaker icon to unmute; you may want to use headphones.
+
 https://github.com/user-attachments/assets/07683947-1b8d-4cf9-b16a-c78bdadb5eb5
 
 [Download the video](assets/videos/wolne-lektury-training.mp4).

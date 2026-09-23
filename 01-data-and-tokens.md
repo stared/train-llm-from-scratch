@@ -60,6 +60,8 @@ Our tokenizer has **8,192 vocabulary entries**. It was trained on 2,048 Wikipedi
 
 This video shows how our tokenizer was trained on **2,048 Wikipedia training articles**, using up to **8,192 characters per article**, to build an **8,192-entry vocabulary**. It then shows how we use that saved tokenizer on Wolne Lektury. You do not need to train the tokenizer or download Wikipedia yourself.
 
+**This video has sound.** Click the speaker icon to unmute; you may want to use headphones.
+
 https://github.com/user-attachments/assets/99bce2a0-4c99-462d-bd85-bd31b27c2de0
 
 [Download the tokenizer video](assets/videos/tokenizer-explainer.mp4).
