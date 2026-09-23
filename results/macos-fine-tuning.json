@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-22",
+  "date": "2026-09-22 to 2026-09-23",
   "hardware": "Apple M5 Max, 128 GB unified memory",
   "runs": [
     {
@@ -660,6 +660,1198 @@
           "mlp.down_proj"
         ]
       }
+    },
+    {
+      "run": "prawko-rlvr-macos-bf16-20260923",
+      "label": "MPS BF16 RLVR, learning rate 5e-5",
+      "training_questions": 100,
+      "method": "rlvr",
+      "model_spec": {
+        "id": "Qwen/Qwen3.5-0.8B",
+        "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "multimodal": true
+      },
+      "seed": 42,
+      "data_sha256": "35110c0e71899ae1e8973863f052ea81c0a9b62d5f57479a4c3035e01750e7e0",
+      "decoding": "Argmax over A/B/C next-token logits; no reasoning; nonthinking chat template",
+      "initial_adapter": null,
+      "target_mode": "letter",
+      "train_batch_size": 4,
+      "eval_batch_size": 8,
+      "training_data": "100 official text-only three-choice questions; separate 25 dev and 40 test",
+      "before": {
+        "train": {
+          "n": 100,
+          "correct": 53,
+          "accuracy": 0.53,
+          "mean_correct_probability": 0.44769029134418814
+        },
+        "dev": {
+          "n": 25,
+          "correct": 15,
+          "accuracy": 0.6,
+          "mean_correct_probability": 0.5071477973461151
+        },
+        "test": {
+          "n": 40,
+          "correct": 19,
+          "accuracy": 0.475,
+          "mean_correct_probability": 0.4319909393787384
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 20,
+          "accuracy": 0.5,
+          "mean_correct_probability": 0.42222136865602805
+        }
+      },
+      "after": {
+        "train": {
+          "n": 100,
+          "correct": 53,
+          "accuracy": 0.53,
+          "mean_correct_probability": 0.44769029134418814
+        },
+        "dev": {
+          "n": 25,
+          "correct": 15,
+          "accuracy": 0.6,
+          "mean_correct_probability": 0.5071477973461151
+        },
+        "test": {
+          "n": 40,
+          "correct": 19,
+          "accuracy": 0.475,
+          "mean_correct_probability": 0.4319909393787384
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 20,
+          "accuracy": 0.5,
+          "mean_correct_probability": 0.42222136865602805
+        }
+      },
+      "final": {
+        "train": {
+          "n": 100,
+          "correct": 34,
+          "accuracy": 0.34,
+          "mean_correct_probability": 0.3400000195841958
+        },
+        "dev": {
+          "n": 25,
+          "correct": 7,
+          "accuracy": 0.28,
+          "mean_correct_probability": 0.2799999920705971
+        },
+        "test": {
+          "n": 40,
+          "correct": 13,
+          "accuracy": 0.325,
+          "mean_correct_probability": 0.3250000023587052
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 15,
+          "accuracy": 0.375,
+          "mean_correct_probability": 0.3749999870345743
+        }
+      },
+      "training_seconds": 117.77242666701204,
+      "steps": 250,
+      "selected_epoch": 0,
+      "selected_steps": 0,
+      "lora_rank": 16,
+      "lora_alpha": 32,
+      "learning_rate": 5e-05,
+      "epochs_requested": 10,
+      "max_seconds": 180,
+      "beta": 0.01,
+      "reference_policy": "original base model",
+      "adapter_changed": false,
+      "reload_matches": true,
+      "algorithm": "On-policy categorical REINFORCE/RLOO, four samples, exact three-action reference KL",
+      "environment": {
+        "device": "mps",
+        "precision": "bfloat16",
+        "torch": "2.14.0",
+        "platform": "macOS-26.6.1-arm64-arm-64bit-Mach-O"
+      },
+      "sampled_peak_mps_gb": 8.403759872,
+      "total_seconds": 136.4808320000011,
+      "peak_vram_gb": null,
+      "verification": {
+        "data_hash_matches": true,
+        "all_metrics_recomputed": true,
+        "split_ids_disjoint": true,
+        "all_training_ids_isolated": true,
+        "dev_selection_recomputed": true,
+        "reload_predictions_match": true,
+        "selected_training_questions": 0,
+        "selected_presentations": 0,
+        "all_sample_rewards_and_advantages_recomputed": true,
+        "selected_sampled_actions": 0
+      }
+    },
+    {
+      "run": "prawko-rlvr-macos-bf16-lr5e6-20260923",
+      "label": "MPS BF16 RLVR, learning rate 5e-6",
+      "training_questions": 100,
+      "method": "rlvr",
+      "model_spec": {
+        "id": "Qwen/Qwen3.5-0.8B",
+        "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "multimodal": true
+      },
+      "seed": 42,
+      "data_sha256": "35110c0e71899ae1e8973863f052ea81c0a9b62d5f57479a4c3035e01750e7e0",
+      "decoding": "Argmax over A/B/C next-token logits; no reasoning; nonthinking chat template",
+      "initial_adapter": null,
+      "target_mode": "letter",
+      "train_batch_size": 4,
+      "eval_batch_size": 8,
+      "training_data": "100 official text-only three-choice questions; separate 25 dev and 40 test",
+      "before": {
+        "train": {
+          "n": 100,
+          "correct": 53,
+          "accuracy": 0.53,
+          "mean_correct_probability": 0.44769029134418814
+        },
+        "dev": {
+          "n": 25,
+          "correct": 15,
+          "accuracy": 0.6,
+          "mean_correct_probability": 0.5071477973461151
+        },
+        "test": {
+          "n": 40,
+          "correct": 19,
+          "accuracy": 0.475,
+          "mean_correct_probability": 0.4319909393787384
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 20,
+          "accuracy": 0.5,
+          "mean_correct_probability": 0.42222136865602805
+        }
+      },
+      "after": {
+        "train": {
+          "n": 100,
+          "correct": 73,
+          "accuracy": 0.73,
+          "mean_correct_probability": 0.6883845649439536
+        },
+        "dev": {
+          "n": 25,
+          "correct": 23,
+          "accuracy": 0.92,
+          "mean_correct_probability": 0.8011161917820573
+        },
+        "test": {
+          "n": 40,
+          "correct": 25,
+          "accuracy": 0.625,
+          "mean_correct_probability": 0.6409708479244728
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 25,
+          "accuracy": 0.625,
+          "mean_correct_probability": 0.6109998210231424
+        }
+      },
+      "final": {
+        "train": {
+          "n": 100,
+          "correct": 79,
+          "accuracy": 0.79,
+          "mean_correct_probability": 0.7683725946639243
+        },
+        "dev": {
+          "n": 25,
+          "correct": 20,
+          "accuracy": 0.8,
+          "mean_correct_probability": 0.7916037878941279
+        },
+        "test": {
+          "n": 40,
+          "correct": 27,
+          "accuracy": 0.675,
+          "mean_correct_probability": 0.6671988162248453
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 23,
+          "accuracy": 0.575,
+          "mean_correct_probability": 0.6022338423084875
+        }
+      },
+      "training_seconds": 120.04975612499402,
+      "steps": 250,
+      "selected_epoch": 3,
+      "selected_steps": 75,
+      "lora_rank": 16,
+      "lora_alpha": 32,
+      "learning_rate": 5e-06,
+      "epochs_requested": 10,
+      "max_seconds": 180,
+      "beta": 0.01,
+      "reference_policy": "original base model",
+      "adapter_changed": true,
+      "reload_matches": true,
+      "algorithm": "On-policy categorical REINFORCE/RLOO, four samples, exact three-action reference KL",
+      "environment": {
+        "device": "mps",
+        "precision": "bfloat16",
+        "torch": "2.14.0",
+        "platform": "macOS-26.6.1-arm64-arm-64bit-Mach-O"
+      },
+      "sampled_peak_mps_gb": 8.399566592,
+      "total_seconds": 138.61042637500213,
+      "peak_vram_gb": null,
+      "verification": {
+        "data_hash_matches": true,
+        "all_metrics_recomputed": true,
+        "split_ids_disjoint": true,
+        "all_training_ids_isolated": true,
+        "dev_selection_recomputed": true,
+        "reload_predictions_match": true,
+        "selected_training_questions": 100,
+        "selected_presentations": 300,
+        "all_sample_rewards_and_advantages_recomputed": true,
+        "selected_sampled_actions": 1200
+      }
+    },
+    {
+      "run": "rlvr-train-six_words-macos-bf16-20260923",
+      "label": "MPS BF16, six-word RLVR",
+      "method": "rlvr",
+      "stage": "train",
+      "task": "six_words",
+      "model": "qwen3.5-4b",
+      "model_spec": {
+        "id": "Qwen/Qwen3.5-4B",
+        "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+        "multimodal": true
+      },
+      "algorithm": "on-policy REINFORCE, leave-one-out baseline, sequence-summed log probability",
+      "training_data": "Pool of 256 synthetic prompts with programmatic rewards; no SFT; no target tokens in loss",
+      "thinking": false,
+      "unique_training_prompts": 256,
+      "training_prompt_presentations": 320,
+      "selected_unique_training_prompts": 256,
+      "data_sha256": "750abfd1a44f8d94e03f7f686577aa146f0ae4c486279c6f0bb6966ba9b16570",
+      "seed": 42,
+      "learning_rate": 5e-05,
+      "lora_rank": 16,
+      "lora_alpha": 32,
+      "beta": 0.01,
+      "dev_interval": 20,
+      "selected_step": 140,
+      "prompts_per_step": 2,
+      "samples_per_prompt": 4,
+      "microbatch": 2,
+      "max_new_tokens": 40,
+      "steps": 160,
+      "updates": 160,
+      "adapter_changed": true,
+      "reload_matches": true,
+      "before": {
+        "dev": {
+          "n": 24,
+          "successes": 0,
+          "mean_reward": 0.37777777777777777,
+          "terminated": 24
+        },
+        "test": {
+          "n": 32,
+          "successes": 1,
+          "mean_reward": 0.4072916666666667,
+          "terminated": 32
+        },
+        "sampled_dev": {
+          "n": 24,
+          "successes": 3,
+          "mean_reward": 0.4763888888888889,
+          "terminated": 23
+        }
+      },
+      "after": {
+        "dev": {
+          "n": 24,
+          "successes": 24,
+          "mean_reward": 1.0,
+          "terminated": 24
+        },
+        "test": {
+          "n": 32,
+          "successes": 31,
+          "mean_reward": 0.98125,
+          "terminated": 32
+        },
+        "sampled_dev": {
+          "n": 24,
+          "successes": 23,
+          "mean_reward": 0.975,
+          "terminated": 24
+        }
+      },
+      "training_seconds": 577.5124808340042,
+      "total_seconds": 873.1889972499921,
+      "environment": {
+        "device": "mps",
+        "precision": "bfloat16",
+        "torch": "2.14.0",
+        "platform": "macOS-26.6.1-arm64-arm-64bit-Mach-O"
+      },
+      "peak_vram_gb": null,
+      "verification": {
+        "metrics_recomputed": true,
+        "rewards_and_advantages_recomputed": true,
+        "split_ids_disjoint": true,
+        "training_ids_isolated": true,
+        "development_selection_verified": true,
+        "reload_matches": true
+      },
+      "timing_note": "Total includes the first model weight download, about 4 min 23 s according to downloader progress; excludes uv dependency installation.",
+      "test_examples": [
+        {
+          "before": {
+            "id": "six_words-test-000",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dog\" and \"painter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The dog bit the painter.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-000",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dog\" and \"painter\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Painter saw dog paint the wall.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-001",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"island\" and \"pilot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The pilot landed on the island.",
+            "terminated": true,
+            "reward": 0.4,
+            "success": false,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-001",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"island\" and \"pilot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Pilot flew to the small island.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-002",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"library\" and \"sunrise\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The library woke at sunrise.",
+            "terminated": true,
+            "reward": 0.4666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-002",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"library\" and \"sunrise\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Sunrise came in the library room.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-003",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"vampire\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The mouse bit the vampire.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-003",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"vampire\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Vampire ate mouse while mouse slept.",
+            "terminated": true,
+            "reward": 0.4,
+            "success": false,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-004",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dragon\" and \"raven\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The dragon saw the raven.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-004",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dragon\" and \"raven\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Raven saw dragon fly into sky.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-005",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"rabbit\" and \"spaceship\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The rabbit rode the spaceship.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-005",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"rabbit\" and \"spaceship\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Rabbit rode spaceship to the moon.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-006",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"thunder\" and \"tiger\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The tiger heard thunder.",
+            "terminated": true,
+            "reward": 0.43333333333333335,
+            "success": false,
+            "word_count": 4,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-006",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"thunder\" and \"tiger\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Tiger ran from the loud thunder.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-007",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The mouse hid from the wolf.",
+            "terminated": true,
+            "reward": 0.4,
+            "success": false,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-007",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mouse\" and \"wolf\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Wolf saw mouse and ran away.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-008",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"castle\" and \"wedding\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The castle wedding was tiny.",
+            "terminated": true,
+            "reward": 0.4666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-008",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"castle\" and \"wedding\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Castle wedding was not very fun.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-009",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"suitcase\" and \"tiger\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The tiger opened the suitcase.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-009",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"suitcase\" and \"tiger\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Tiger put suitcase in the sky.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-010",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"astronaut\" and \"birthday\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Astronaut blew birthday candles.",
+            "terminated": true,
+            "reward": 0.43333333333333335,
+            "success": false,
+            "word_count": 4,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-010",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"astronaut\" and \"birthday\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Astronaut celebrated birthday in space ship.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-011",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"coffee\" and \"key\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "She found the key in the coffee.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 7,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-011",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"coffee\" and \"key\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Coffee made me find the key.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-012",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"candle\" and \"robot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The robot lit the candle.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-012",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"candle\" and \"robot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Robot lit the candle in fear.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-013",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"funeral\" and \"umbrella\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "He bought an umbrella for the funeral.",
+            "terminated": true,
+            "reward": 0.4666666666666667,
+            "success": false,
+            "word_count": 7,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-013",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"funeral\" and \"umbrella\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Funeral guest held umbrella in rain.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-014",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"chef\" and \"robot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The chef fed the robot.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-014",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"chef\" and \"robot\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Robot fired chef into the kitchen.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-015",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clown\" and \"forest\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The clown entered the forest.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-015",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"clown\" and \"forest\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Clown walked into the dark forest.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-016",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"portrait\" and \"violinist\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The portrait of the violinist played.",
+            "terminated": true,
+            "reward": 0.4,
+            "success": false,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-016",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"portrait\" and \"violinist\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Portrait of silent violinist playing now.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-017",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"penguin\" and \"portrait\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The penguin posed for the portrait.",
+            "terminated": true,
+            "reward": 0.4,
+            "success": false,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-017",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"penguin\" and \"portrait\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Penguin sat in the portrait frame.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-018",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"circus\" and \"glacier\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The circus saw the glacier.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-018",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"circus\" and \"glacier\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Circus clown fell on the glacier.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-019",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"circus\" and \"dinosaur\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The circus dinosaur ran away.",
+            "terminated": true,
+            "reward": 0.4666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-019",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"circus\" and \"dinosaur\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Dinosaur ran away from the circus.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-020",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"desert\" and \"telescope\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "He looked through the telescope in the desert.",
+            "terminated": true,
+            "reward": 0.33333333333333337,
+            "success": false,
+            "word_count": 8,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-020",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"desert\" and \"telescope\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Desert man looked through telescope sadly.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-021",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"telescope\" and \"volcano\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "He looked through the telescope at the volcano.",
+            "terminated": true,
+            "reward": 0.33333333333333337,
+            "success": false,
+            "word_count": 8,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-021",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"telescope\" and \"volcano\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Telescope saw volcano erupt in sky.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-022",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"balloon\" and \"telescope\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The balloon floated past the telescope.",
+            "terminated": true,
+            "reward": 0.4,
+            "success": false,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-022",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"balloon\" and \"telescope\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Telescope watched balloon float into sky.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-023",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mermaid\" and \"notebook\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The mermaid wrote in her notebook.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-023",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mermaid\" and \"notebook\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Mermaid wrote story in notebook today.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-024",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mushroom\" and \"violinist\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The violinist ate the mushroom.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-024",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"mushroom\" and \"violinist\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Violinist heard mushroom grow in sky.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-025",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dinosaur\" and \"mushroom\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The dinosaur ate the mushroom.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-025",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"dinosaur\" and \"mushroom\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Dinosaur ate red mushroom in forest.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-026",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"balloon\" and \"circus\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The balloon popped at the circus.",
+            "terminated": true,
+            "reward": 0.4,
+            "success": false,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-026",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"balloon\" and \"circus\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Circus man popped the red balloon.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-027",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"balloon\" and \"mermaid\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The mermaid popped the balloon.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-027",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"balloon\" and \"mermaid\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Mermaid popped the red balloon away.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-028",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"submarine\" and \"volcano\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The submarine saw the volcano.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-028",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"submarine\" and \"volcano\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Submarine saw volcano erupt in sea.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-029",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"glacier\" and \"mermaid\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The mermaid touched the glacier.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-029",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"glacier\" and \"mermaid\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Mermaid saw glacier melt into sea.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-030",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"comet\" and \"dinosaur\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The comet hit the dinosaur.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-030",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"comet\" and \"dinosaur\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Dinosaur saw comet and ran away.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        },
+        {
+          "before": {
+            "id": "six_words-test-031",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"penguin\" and \"volcano\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "The penguin watched the volcano.",
+            "terminated": true,
+            "reward": 0.3666666666666667,
+            "success": false,
+            "word_count": 5,
+            "anchors": 1.0,
+            "distinct": false,
+            "clean": true
+          },
+          "after": {
+            "id": "six_words-test-031",
+            "prompt": "Write a tiny story in exactly SIX English words. Include the exact words \"penguin\" and \"volcano\". Use each word only once. Return only the story, on one line, with no title or explanation. Words are sequences of letters; punctuation does not count.",
+            "text": "Penguin saw volcano erupt in snow.",
+            "terminated": true,
+            "reward": 1.0,
+            "success": true,
+            "word_count": 6,
+            "anchors": 1.0,
+            "distinct": true,
+            "clean": true
+          }
+        }
+      ],
+      "approximate_download_seconds": 264
     }
   ]
 }

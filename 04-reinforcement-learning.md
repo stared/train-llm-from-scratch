@@ -71,6 +71,15 @@ The checker does not judge whether a story is interesting or makes sense. A dull
 
 </details>
 
+## What to expect
+
+| Dataset / model | Training | End to end | Hardware | Cloud worker cost | Held-out success before → after |
+|---|---:|---:|---|---:|---:|
+| Six-word prompts / Qwen3.5-4B, RLVR | 10 min | 12 min 43 s | L4 | $0.19 | 1/32 → 24/32 |
+| Same task, MPS BF16 | 9 min 38 s | 14 min 33 s | M5 Max, 128 GB | None | 1/32 → 31/32 |
+
+Cloud time includes an image build, with model weights cached. Mac time includes the first model download, about 4 min 23 s, and excludes dependency installation. These are separate training runs. [Cloud report](http://localhost:5173/reports#workshop-check.html), [Mac measurements](results/macos-fine-tuning.md#six-word-rlvr).
+
 ## 2. Start reinforcement learning
 
 Run from the repository directory:
@@ -168,6 +177,14 @@ Count the words yourself. Did the answer include both requested words without re
 This loads the original model and your selected adapter from Modal storage onto an L4 GPU. **It incurs cloud inference charges**, including model-loading time, but does not train or change the adapter. No manual download is needed. Loading can take time; the answer appears in the terminal, not the visualization.
 
 The helper uses deterministic generation, as in the workshop evaluation. Repeating the same input is expected to give the same answer. Try a different word pair to explore the result. See [the inference script](scripts/try_adapter_modal.py).
+
+## Run on a Mac
+
+```bash
+uv run scripts/rlvr_showcase.py --device mps --precision bfloat16 --task six_words --model qwen3.5-4b --max-seconds 600 --output runs/rlvr-six-words-mac
+```
+
+Use a new output directory for each run. The selected adapter is saved in `adapter/`.
 
 **Optional reading:** [Countdown and what a reward can accidentally teach](additional/reinforcement-learning-experiments.md).
 

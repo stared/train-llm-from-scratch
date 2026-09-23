@@ -81,6 +81,17 @@ For each training question, the model predicts the next token. The correct lette
 
 </details>
 
+## What to expect
+
+| Dataset / model | Training | End to end | Hardware | Cloud worker cost | Test accuracy before → after |
+|---|---:|---:|---|---:|---:|
+| 100 driving questions / Qwen3.5-0.8B, SFT | 3 min | 5 min 21 s | L4 | $0.065 | 21/40 → 27/40 |
+| Same task, MPS BF16 | 1 min 35 s | 1 min 54 s | M5 Max, 128 GB | None | 19/40 → 28/40 |
+| 289 driving questions / same model, MPS FP32 | 3 min 1 s | 3 min 53 s | M5 Max, 128 GB | None | 20/40 → 35/40 |
+| 100 driving questions / same model, RLVR, MPS BF16, LR 5e-6 | 2 min | 2 min 19 s | M5 Max, 128 GB | None | 19/40 → 25/40 |
+
+Cloud time includes an image build, with model weights cached. Mac totals include loading, evaluation and adapter saving, but exclude dependency installation and model downloads. These are separate runs; precision changes can also change the baseline score. [Cloud report](http://localhost:5173/reports#workshop-check.html), [Mac measurements](results/macos-fine-tuning.md).
+
 ## 2. Start fine-tuning
 
 Run from the repository directory:
@@ -189,18 +200,22 @@ This loads the original model and your selected adapter from Modal storage onto 
 
 The helper uses the same A/B/C selection as the workshop evaluation. It does not generate explanations. See [the inference script](scripts/try_adapter_modal.py) for how the model and adapter are loaded.
 
-<details>
-<summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: Optional alternative — run on a Mac</strong></summary>
-
-On a Mac with a supported Apple GPU, you can run locally instead of using Modal:
+## Run on a Mac
 
 ```bash
 uv run scripts/prawko.py --device mps --precision bfloat16 --method sft --max-seconds 180 --epochs 10
 ```
 
-This downloads the pretrained model to your Mac and uses local memory and compute. Results appear under **SFT** when the run finishes. The adapter and reports are saved locally in the output folder printed by the script. [Mac experiment results](results/macos-fine-tuning.md).
+On the M5 Max, this took **1 min 54 s total**, improving held-out accuracy **19/40 → 28/40**. Results appear under **SFT** when the run finishes. The adapter and reports are saved locally in the output folder printed by the script.
 
-</details>
+To compare with local RLVR:
+
+```bash
+uv run scripts/prawko.py --device mps --precision bfloat16 --method rlvr --max-seconds 180 --epochs 10 --lr 5e-6
+```
+
+This took **2 min 19 s total** and improved held-out accuracy **19/40 → 25/40**. [Mac RLVR measurements](results/macos-fine-tuning.md#driving-exam-rlvr).
+
 
 **Next:** [4. Reinforcement learning with verifiable rewards](04-reinforcement-learning.md).
 

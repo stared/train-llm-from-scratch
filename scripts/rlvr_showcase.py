@@ -14,6 +14,7 @@ import hashlib
 import json
 from pathlib import Path
 import random
+import platform
 import time
 
 from rlvr_tasks import TASKS, MAX_TOKENS, make_data, check
@@ -26,7 +27,7 @@ def save(path, obj):
 
 
 def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
-        max_seconds=600, steps=160, lr=5e-5, seed=42, device='cuda', beta=.01, dev_interval=20, progress=None, dataset=None, verifier=None, thinking=False, token_limit=None, evaluation_batch_size=8, training_description=None):
+        max_seconds=600, steps=160, lr=5e-5, seed=42, device='cuda', beta=.01, dev_interval=20, progress=None, dataset=None, verifier=None, thinking=False, token_limit=None, evaluation_batch_size=8, training_description=None, precision=None):
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForImageTextToText, GenerationConfig
     from peft import LoraConfig, get_peft_model, PeftModel, get_peft_model_state_dict, set_peft_model_state_dict
@@ -53,7 +54,12 @@ def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
     tokenizer.padding_side = 'left'
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
-    dtype = torch.bfloat16 if device == 'cuda' else torch.float32
+    precision = precision or ('bfloat16' if device == 'cuda' else 'float32')
+    if precision not in ('float32', 'bfloat16'):
+        raise ValueError('Use float32 or bfloat16 precision')
+    if device == 'mps' and not torch.backends.mps.is_available():
+        raise RuntimeError('Apple GPU (MPS) is not available')
+    dtype = getattr(torch, precision)
     cls = AutoModelForImageTextToText if spec['multimodal'] else AutoModelForCausalLM
 
     def load_base():
@@ -202,11 +208,11 @@ def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
         if dev_interval and (step + 1) % dev_interval == 0:
             # Preserve rollout RNG: evaluation must not reset future exploration.
             cpu_rng = torch.random.get_rng_state()
-            gpu_rng = torch.cuda.get_rng_state() if device == 'cuda' else None
+            gpu_rng = torch.cuda.get_rng_state() if device == 'cuda' else torch.mps.get_rng_state() if device == 'mps' else None
             metric = evaluate(f'checkpoint_dev_{step+1}', data['dev'])
             torch.random.set_rng_state(cpu_rng)
             if gpu_rng is not None:
-                torch.cuda.set_rng_state(gpu_rng)
+                (torch.mps if device == 'mps' else torch.cuda).set_rng_state(gpu_rng)
             score = (metric['successes'], metric['mean_reward'])
             checkpoints.append(dict(step=step+1, **metric))
             if progress: progress('Development success', step+1, metric['successes']/metric['n'])
@@ -262,6 +268,7 @@ def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
         steps=len(history), updates=updates, adapter_changed=changed, reload_matches=reload_matches,
         before=before, after=after, training_seconds=training_seconds,
         total_seconds=time.monotonic()-started,
+        environment=dict(device=device, precision=precision, torch=torch.__version__, platform=platform.platform()),
         peak_vram_gb=torch.cuda.max_memory_allocated()/1e9 if device == 'cuda' else None)
     save(out / 'result.json', result)
     print(json.dumps(result), flush=True)
@@ -281,5 +288,6 @@ if __name__ == '__main__':
     p.add_argument('--beta', type=float, default=.01)
     p.add_argument('--dev-interval', type=int, default=20)
     p.add_argument('--device', choices=['cpu', 'cuda', 'mps'], default='cuda')
+    p.add_argument('--precision', choices=['float32', 'bfloat16'])
     a = p.parse_args()
-    run(a.output, a.task, a.stage, a.model, a.max_seconds, a.steps, a.lr, a.seed, a.device, a.beta, a.dev_interval)
+    run(a.output, a.task, a.stage, a.model, a.max_seconds, a.steps, a.lr, a.seed, a.device, a.beta, a.dev_interval, precision=a.precision)

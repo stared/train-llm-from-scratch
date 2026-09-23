@@ -1001,3 +1001,16 @@ Six local Qwen3.5-0.8B LoRA runs on an M5 Max with 128 GB memory; no Modal jobs.
 The existing PyTorch runner works with MPS. BF16 completed ten epochs in 95 seconds (114 seconds including loading, evaluations and reload verification), improving 19/40 to 28/40. FP32 seeds 42 and 17 reached 28/40 and 29/40. Expanding to 289 training questions reached 35/40 in 181 seconds, with 29/40 on rotated options. All selection used development results. The four MPS runs passed `scripts/verify_prawko.py`, including independent score recomputation and training-ID isolation.
 
 MLX 0.31.3 also trained and reloaded adapters: 18/40 to 28/40 with microbatch size 1 and gradient accumulation to batch 4; 18/40 to 26/40 with a true batch of 4. Both used a three-minute budget, rank 16, effective scale 2 and answer-only full-vocabulary cross entropy. Raw baseline predictions differ between FP32 MPS, BF16 MPS and MLX. The MLX loop is in `additional/scripts/prawko_mlx.py`; these are configuration measurements, not a general backend benchmark.
+
+
+## 2026-09-23: RLVR on the M5 Max
+
+Tested locally, sequentially, using PyTorch MPS BF16. No Modal jobs.
+
+- Driving exam, Qwen3.5-0.8B, 100 training questions, ten epochs: default LR 5e-5 collapsed toward one answer. Development selection retained epoch 0, test 19/40 unchanged; training 117.8 s, total 136.5 s. Run: `prawko-rlvr-macos-bf16-20260923`.
+- Same task with LR 5e-6: development selected epoch 3, test 19/40 to 25/40, rotated test 20/40 to 25/40; training 120.0 s, total 138.6 s, sampled MPS tensor allocation 8.4 GB. Final epoch had 27/40 test but worse development performance and was not selected. Run: `prawko-rlvr-macos-bf16-lr5e6-20260923`.
+- Six-word RLVR, Qwen3.5-4B, LR 5e-5: 160 updates in 577.5 s; total 873.2 s including first weight download (about 4 min 23 s). Development selected update 140, 24/24 dev, test 1/32 to 31/32; sampled dev 3/24 to 23/24. Run: `rlvr-train-six_words-macos-bf16-20260923`.
+
+Both exam runs passed `scripts/verify_prawko.py`. The six-word audit recomputed saved metrics, checker rewards, KL-adjusted leave-one-out advantages, training-ID isolation and development checkpoint selection. All three saved adapters passed their reload checks. Summaries and all six-word test outputs are in `results/macos-fine-tuning.json`; commands and tables are in the companion Markdown report.
+
+Added explicit precision selection and environment metadata to `rlvr_showcase.py`, and preserved the MPS RNG around development evaluation, as already done for CUDA. Six RLVR unit tests and three driving-exam tests passed. These are individual exploratory runs, not a controlled hardware comparison or a multi-seed result.

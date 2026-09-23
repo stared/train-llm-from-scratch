@@ -61,6 +61,8 @@ modal run scripts/prawko_modal.py --method sft --epochs 10 --max-seconds 180
 
 **Up to 3 minutes, about $0.065 measured worker compute.** The included dataset needs no preparation; you can start this while pretraining runs. Open **SFT** to see the training input, target answer and changing A/B/C probabilities.
 
+On an M5 Max, the same SFT exercise took **1 min 54 s total** using the laptop GPU. [Run on a Mac](03-fine-tuning.md#run-on-a-mac), [local training support and timings](results/macos-fine-tuning.md#local-training-support).
+
 ## 4. Reinforcement learning with verifiable rewards (RLVR)
 
 [Teach Qwen3.5-4B to write exactly six words](04-reinforcement-learning.md). The model tries answers; code checks them and supplies rewards:
@@ -70,6 +72,8 @@ modal run scripts/rlvr_showcase_modal.py --task six_words
 ```
 
 **Up to 10 minutes, about $0.19 measured worker compute.** This starts from the original Qwen model, independently of SFT. Open **RLVR** to see sampled answers, their rewards and development success.
+
+On an M5 Max, training took **9 min 38 s**, or **14 min 33 s total** including the first model download. [Run RLVR on a Mac](04-reinforcement-learning.md#run-on-a-mac).
 
 ## Running the exercises
 
