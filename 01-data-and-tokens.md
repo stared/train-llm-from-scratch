@@ -1,6 +1,6 @@
 # 1. Data and tokens
 
-For pretraining, we turn text into token IDs and teach a model to predict the next token. Start with Wolne Lektury; Wikipedia is an alternative.
+For pretraining, we turn text into token IDs and teach a model to predict the next token. **In this workshop, we use Wolne Lektury. You do not need to download any dataset to your laptop.** The preparation command below handles the download and processing in Modal. Wikipedia is described only for context; we will not work with that dataset.
 
 ## What to expect
 
@@ -11,17 +11,17 @@ For pretraining, we turn text into token IDs and teach a model to predict the ne
 
 ## Wolne Lektury
 
-[Wolne Lektury](https://wolnelektury.pl/) provides literary texts. We use the snapshot linked below.
+[Wolne Lektury](https://wolnelektury.pl/) provides literary texts. This is our workshop dataset. Modal fetches the snapshot automatically; the link below identifies the source, so you do not need to download it yourself.
 
-- [Download the historical snapshot](https://www.dropbox.com/scl/fi/xe53n90v40l9xuvodecq9/wolnelektury.zip?rlkey=z88vhfdl0cojsacqv5hu7w09u&dl=1): 123 MB compressed.
+- [Source snapshot](https://www.dropbox.com/scl/fi/xe53n90v40l9xuvodecq9/wolnelektury.zip?rlkey=z88vhfdl0cojsacqv5hu7w09u&dl=1): 123 MB compressed.
 - Training split: 5,263 works, 287 MB of text, 101 million tokens.
 - Some works in this snapshot are not in Polish.
 
-## Polish Wikipedia
+## Polish Wikipedia — context only
 
-[Polish Wikipedia dump, September 2026](https://dumps.wikimedia.org/plwiki/20260901/).
+The [Polish Wikipedia dump from September 2026](https://dumps.wikimedia.org/plwiki/20260901/) shows how much larger another training dataset can be. **We will not use it in this workshop. No download is needed.**
 
-- Download: 2.73 GB compressed.
+- Archive size: 2.73 GB compressed.
 - Training split: 9.28 GB of text, 3.14 billion tokens.
 - Original markup is retained, including links, headings and templates.
 
@@ -52,9 +52,17 @@ Wait for **Ready** before [pretraining](02-pretraining.md). While it runs, try t
 
 ## Text → tokens
 
+**Watch: how a tokenizer works** — 3 min 36 s, English question-and-answer narration with on-screen explanations and subtitles.
+
+This video shows how our tokenizer was trained on **2,048 Wikipedia training articles**, using up to **8,192 characters per article**, to build an **8,192-entry vocabulary**. It then shows how we use that saved tokenizer on Wolne Lektury. You do not need to train the tokenizer or download Wikipedia yourself.
+
+https://github.com/user-attachments/assets/99bce2a0-4c99-462d-bd85-bd31b27c2de0
+
+[Open or download the tokenizer video](https://github.com/user-attachments/assets/99bce2a0-4c99-462d-bd85-bd31b27c2de0).
+
 Byte-pair encoding (BPE) starts with small pieces and repeatedly merges frequent adjacent pairs. A trained tokenizer applies those merges and assigns each piece an integer ID.
 
-Our tokenizer has **8,192 vocabulary entries**. It was trained on 2,048 Wikipedia training articles, using up to 8,192 characters per article. It is included at `datasets/wiki-tokenizer.json`.
+Our tokenizer has **8,192 vocabulary entries**. It was trained on 2,048 Wikipedia training articles, using up to 8,192 characters per article. It is included at `datasets/wiki-tokenizer.json`, ready to use with Wolne Lektury. You do not need the Wikipedia dataset to use this saved tokenizer.
 
 ## BPE explorer
 
