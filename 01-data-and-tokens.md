@@ -8,7 +8,6 @@ For pretraining, we turn text into token IDs and teach a model to predict the ne
 |---|---:|---|---:|---|
 | Wolne Lektury preparation | 3 min | CPU | $0.008 | 101M training tokens |
 | Tokenizer explorer | Immediate | Your browser | $0 | Token IDs and merge history |
-| Full Polish Wikipedia preparation | Not measured | CPU | Not measured | 3.14B training tokens |
 
 ## Wolne Lektury
 
