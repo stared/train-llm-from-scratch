@@ -40,6 +40,14 @@ Here, the model proposes answers and the checker supplies feedback. We do not ne
 <details>
 <summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: How can a score teach the model?</strong></summary>
 
+**Watch: How can a score teach Qwen to write six words?** — 4 min 32 s, English question-and-answer narration, no subtitles.
+
+**This video has sound.** Click the speaker icon to unmute; you may want to use headphones.
+
+https://github.com/user-attachments/assets/2a32743a-e792-48dc-911b-8bb65d1d2f8d
+
+[Download the full-quality video](assets/videos/qwen-six-words-rlvr.mp4).
+
 For each training prompt, the model samples four possible answers. The checker scores each one. The training update encourages answers that scored better than their alternatives and discourages those that scored worse. Only the LoRA adapter changes.
 
 **Reward** is a number from 0 to 1. The six-word checker gives partial credit for getting close to six words, including the requested words, and avoiding repetitions while using the required format. Meeting every rule adds a bonus and gives the maximum reward of 1.

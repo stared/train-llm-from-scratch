@@ -54,6 +54,14 @@ An **adapter** is a small set of extra trainable weights added to the existing m
 <details>
 <summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: If the original weights stay frozen, how can the answer change?</strong></summary>
 
+**Watch: How does Qwen learn a driving-test answer?** — 4 min 8 s, English question-and-answer narration, no subtitles.
+
+**This video has sound.** Click the speaker icon to unmute; you may want to use headphones.
+
+https://github.com/user-attachments/assets/61b2711a-e324-40ac-a145-c209b852275c
+
+[Download the full-quality video](assets/videos/qwen-driving-sft.mp4).
+
 Frozen means those original numbers are not updated. The adapter adds a learned adjustment to some of the model's calculations. The combined result affects the probabilities of the next token.
 
 For example, the original model might favor `B`. After training, the adapter's adjustments may make `A` more likely for the same question. We changed the extra weights that participate in the calculation, so the answer can change even though the original weights stayed fixed.
