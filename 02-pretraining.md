@@ -2,6 +2,59 @@
 
 Train a **30-million-parameter generative pretrained transformer (GPT)** from random weights on Wolne Lektury. It learns next-token prediction, not how to answer chat questions.
 
+<details>
+<summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: What actually changes during training?</strong></summary>
+
+**Watch the explanation** — 3 min 57 s, English narration and on-screen captions.
+
+https://github.com/user-attachments/assets/07683947-1b8d-4cf9-b16a-c78bdadb5eb5
+
+[Download the video](assets/videos/wolne-lektury-training.mp4).
+
+**The model's parameters change.** Parameters, often called weights, are numbers used in the model's calculations. Our ScratchGPT-30M has roughly 30 million of them. Its main weight matrices start with random numbers, so it has not yet learned Polish. Training adjusts these numbers to make better predictions.
+
+**The books supply the correct answers.** We use the Wolne Lektury texts prepared in the previous step. The provided tokenizer has already converted them into token IDs. Its vocabulary of 8,192 tokens stays fixed during this exercise.
+
+Here is a short illustration using the same tokenizer. This is an example sentence, not a quotation from the training books. `_` marks a space in this example:
+
+```text
+Text:    Ala ma kota.
+Tokens:  A | la | _ma | _ko | ta | .
+Input:   A | la | _ma | _ko | ta
+Target:  la | _ma | _ko | ta | .
+```
+
+The target is the same sequence shifted by one token. After seeing `A`, the model should predict `la`. After seeing `A | la`, it should predict `_ma`. At each position, it can use only the tokens up to that position. It cannot peek at the next token.
+
+**One training step in our default Wolne Lektury run:**
+
+1. Pick **64 random text fragments** from the training data. This group is a *batch*. Each fragment supplies 512 input tokens and their next-token targets.
+2. Feed the inputs through the model's **eight transformer layers**. These layers combine information from earlier tokens. At each position, the model assigns probabilities to all **8,192 possible next tokens**.
+3. Compare those probabilities with the real next tokens. The average error score is called **loss**. Giving the correct token a very low probability produces a larger loss. This batch supplies **64 × 512 = 32,768 predictions** to learn from.
+4. Calculate how each parameter affects that loss. This is *backpropagation*. The **AdamW optimizer** uses those calculations to make small adjustments to the parameters.
+5. Repeat with another batch, until the **ten-minute training budget** runs out.
+
+The model learns patterns that help it continue literary text: spelling, grammar and common phrases. This does not guarantee sensible or factual writing.
+
+**What you see in the visualization:** the loss curve records prediction errors during training. At checkpoints—saved stages of training—the script also generates continuations of the same prompts. These show how the output changes. Generating these previews does not update the weights; learning happens in the training steps above.
+
+</details>
+
+<details>
+<summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: What do these settings mean?</strong></summary>
+
+For our default Wolne Lektury run:
+
+- **Parameters (weights):** adjustable numbers inside the model. ScratchGPT-30M has roughly **30 million**. Training changes them; this number is not the number of books or tokens.
+- **Random weights:** the starting point before learning. The main weight matrices begin with random values, rather than knowledge from a pretrained model.
+- **Context — 512 tokens:** the length of each input fragment. To predict the next token at a position, the model can use only the tokens up to that position, not later ones. A token can be part of a word, so 512 tokens does not mean 512 words.
+- **Batch size — 64:** how many fragments are used together for one training update. With 512 positions per fragment, that is **32,768 next-token predictions** before one weight update.
+- **Checkpoint:** a saved model version from a particular stage of training. We keep the weights with the best development loss in `best.pt`. The viewer also records progress and sample text at checkpoints; those records are not themselves the model weights.
+- **Loss:** a prediction-error score. It is lower when the model gives the real next tokens higher probabilities. Training loss measures practice performance; development loss measures performance on separate texts.
+- **Nats:** the unit used for this loss, because its calculation uses the natural logarithm. You do not need the formula to read the graph: lower is better when comparing runs on the same data and tokenizer.
+
+</details>
+
 ## What to expect
 
 | Dataset / model | Training | End to end | GPU | Worker cost | Test loss before → after |

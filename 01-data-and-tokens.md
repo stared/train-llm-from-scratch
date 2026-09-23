@@ -36,6 +36,19 @@ modal run scripts/prepare_data_modal.py
 
 Modal downloads the texts, converts them into token IDs using our saved tokenizer, and stores them in your Modal volume. Books are split into training, development and test sets before training.
 
+<details>
+<summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: Why are there three datasets?</strong></summary>
+
+We split the Wolne Lektury books into three separate groups. Each group has a different job:
+
+- **Training set:** the practice material. The model predicts the next tokens, checks its mistakes and updates its weights using these texts.
+- **Development set (dev):** the progress check. During training, we measure prediction loss on these separate texts without updating weights. Our script keeps the model version with the lowest development loss. This is the **best checkpoint**; it may come before the final training step.
+- **Test set:** the final assessment. We measure the selected model on another separate group of texts. Test results do not decide which checkpoint to keep.
+
+Why separate them? A model can improve on its practice material without improving on other books. Development and test results help us check whether it learned patterns that also work on text it did not train on.
+
+</details>
+
 Wait for **Ready** before [pretraining](02-pretraining.md). While it runs, try the BPE explorer below.
 
 ## Text → tokens

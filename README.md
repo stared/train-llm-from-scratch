@@ -73,7 +73,21 @@ modal run scripts/rlvr_showcase_modal.py --task six_words
 
 ## Running the exercises
 
-Keep the training terminal connected for live updates. Results are saved in `runs/`.
+Keep the training terminal connected for live updates. Reports and generated samples are saved locally in `runs/`; pretraining model weights stay in your Modal volume.
+
+<details>
+<summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: Where is my trained model?</strong></summary>
+
+For the Wolne Lektury pretraining command, there are two places to look:
+
+- **On your laptop — `runs/<run-name>/`:** downloaded results, loss measurements and generated text samples. The visualization reads these records. They let you inspect a run, but they do not contain its learned weights.
+- **In Modal — the `model-training-workshop` volume:** the saved model files remain in `runs/<run-name>/` inside the volume. The worker sees this as `/persist/runs/<run-name>/`. `best.pt` contains the weights selected using development loss. The saved tokenizer and model configuration are needed to use those weights.
+
+**Trying a new prompt** means loading that saved model and its matching tokenizer, giving it a starting phrase, and generating a continuation one token at a time. This is called *inference*. It uses the learned weights without changing them, so you do not need to train again.
+
+The visualization's **Next-token prediction** panel can try new prompts when the model files are available locally. It needs `best.pt`, `result.json` and `tokenizer.json` together in your run folder. Select the model, enter a starting phrase in **Input**, and use **Next token** to extend it. The Modal training command does not download the weights automatically, so reports and saved samples alone are not enough to enable this panel.
+
+</details>
 
 Measured compute for the four exercises: about **$1.04**. See the [run measurements](http://localhost:5173/reports#workshop-check.html).
 
