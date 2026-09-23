@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Workshop overview · Four chapters</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f4ef;color:#242a2d;font-family:system-ui,-apple-system,sans-serif}main{max-width:1120px;margin:auto;padding:6vh 6vw 100px}section[hidden]{display:none}section{min-height:70vh}.chapter{color:#236c70;font-size:18px;font-weight:650;letter-spacing:.06em}h1{font-size:clamp(32px,4.5vw,58px);line-height:1.12;letter-spacing:-.035em;margin:24px 0}.analogy{font-size:clamp(21px,2.5vw,30px);color:#52686b;margin:0 0 36px}p,li{font-size:clamp(18px,2.1vw,26px);line-height:1.5}li{margin:12px 0}ul{padding-left:28px}.message{margin-top:34px;padding-top:24px;border-top:1px solid #c9d2ce;color:#236c70;font-weight:650}nav{position:fixed;bottom:0;width:100%;background:#f5f4ef;display:flex;align-items:center;justify-content:center;gap:24px;padding:18px;border-top:1px solid #dce0da}button{font:inherit;font-size:17px;color:#236c70;background:transparent;border:1px solid #9aaca7;border-radius:4px;padding:9px 18px;cursor:pointer}button:disabled{opacity:.35;cursor:default}button:focus-visible{outline:3px solid #236c70;outline-offset:3px}#count{font-variant-numeric:tabular-nums}.note{font-size:18px;color:#59615e}@media(max-height:650px){main{padding-top:24px}h1{margin:14px 0}.analogy{margin-bottom:20px}}@media print{body{background:white}main{padding:0;max-width:none}section,section[hidden]{display:block;break-after:page;min-height:0;padding:30px}nav{display:none}@page{size:landscape;margin:15mm}}
+</style>
+</head>
+<body>
+<main>
+<section aria-labelledby="title1">
+<div class="chapter">01 · DATA AND TOKENS</div>
+<h1 id="title1">The tools and materials</h1>
+<p class="analogy">Think of arriving at a workshop before building anything.</p>
+<ul>
+<li><strong>Datasets:</strong> explore the books in Wolne Lektury.</li>
+<li><strong>Tokenizers:</strong> see how text becomes numbered pieces. Use our saved tokenizer and explore how tokenizers learn.</li>
+<li><strong>Modal:</strong> learn to run tasks on cloud computers.</li>
+</ul>
+<p>We also download and prepare the books for chapter 2. Training your own tokenizer is optional.</p>
+<p class="message">“Get to know the text, the tools and where we’ll work.”</p>
+</section>
+<section aria-labelledby="title2" hidden>
+<div class="chapter">02 · PRETRAINING</div>
+<h1 id="title2">Learning the next token</h1>
+<p class="analogy">Think of practising autocomplete while reading books.</p>
+<p>Our small model starts with random weights: the numbers controlling its behaviour.</p>
+<p>It predicts the next token, compares its prediction with the actual text, and adjusts those weights.</p>
+<p>It gradually learns patterns in Polish text. It can still produce nonsense.</p>
+<p class="message">“Guess what comes next. Learn from your mistakes.”</p>
+</section>
+<section aria-labelledby="title3" hidden>
+<div class="chapter">03 · SUPERVISED FINE-TUNING (SFT)</div>
+<h1 id="title3">Learning from correct answers</h1>
+<p class="analogy">Think of studying with an answer key.</p>
+<p>We switch to <strong>Qwen3.5-0.8B</strong>, an existing pretrained model.</p>
+<p>We supply Polish driving-test questions and correct answers, such as <strong>“C.”</strong> Training makes those answers more likely.</p>
+<p>We then check its performance on questions outside the training set.</p>
+<p class="message">“Here is the answer you should give.”</p>
+</section>
+<section aria-labelledby="title4" hidden>
+<div class="chapter">04 · REINFORCEMENT LEARNING WITH VERIFIABLE REWARDS (RLVR)</div>
+<h1 id="title4">Learning from scores</h1>
+<p class="analogy">Think of practising a game with a scoreboard.</p>
+<p>In a separate experiment, <strong>Qwen3.5-4B</strong> tries to write six-word stories containing two requested words, with no repeats.</p>
+<p>A program checks each attempt. Training makes rewarded answers more likely. Passing the rules does not guarantee a good story.</p>
+<p class="message">“Try an answer. I’ll check whether it succeeds.”</p>
+<p class="note">SFT learns from supplied answers. RLVR learns from scores for its own attempts.</p>
+</section>
+</main>
+<nav aria-label="Slide navigation"><button id="previous" type="button">Previous</button><span id="count" aria-live="polite"></span><button id="next" type="button">Next</button></nav>
+<script>
+const slides=[...document.querySelectorAll('section')];
+let current=0;
+const previous=document.getElementById('previous'),next=document.getElementById('next');
+function show(index){current=Math.max(0,Math.min(slides.length-1,index));slides.forEach((slide,i)=>slide.hidden=i!==current);document.getElementById('count').textContent=`${current+1} / ${slides.length}`;previous.disabled=current===0;next.disabled=current===slides.length-1;window.scrollTo(0,0)}
+previous.onclick=()=>show(current-1);next.onclick=()=>show(current+1);
+document.addEventListener('keydown',event=>{if(event.key==='ArrowRight'){event.preventDefault();show(current+1)}if(event.key==='ArrowLeft'){event.preventDefault();show(current-1)}});
+show(0);
+</script>
+</body></html>
