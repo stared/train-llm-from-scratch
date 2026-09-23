@@ -8,19 +8,11 @@ Train a small language model from scratch, then adapt existing models. Polish ma
 
 ## Setup
 
-Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and [pnpm](https://pnpm.io/installation/). Run commands from this repository's folder. Scripts use **Python 3.14**; uv downloads it if needed.
+### Create your Modal account
 
-Install [Modal](https://modal.com/) to run GPU jobs:
+[Modal](https://modal.com/) runs the workshop code on cloud computers. **You do not need a GPU on your laptop.** Data preparation uses cloud CPU time; training uses cloud GPU time. Both can incur charges, as can stored files.
 
-```bash
-uv tool install modal==1.5.5
-```
-
-Connect your account and follow the browser login:
-
-```bash
-modal setup
-```
+**[Follow the Modal setup guide →](modal-setup.md)** Complete it before continuing below.
 
 ## Visualization
 
@@ -28,7 +20,14 @@ modal setup
 pnpm dev
 ```
 
-Opens http://localhost:5173 with tokenization, pretraining, SFT, RLVR, and experiment reports. Leave it open while training; your runs appear automatically.
+Opens http://localhost:5173 in your browser. The app combines an interactive explanation with a viewer for real training results:
+
+- **Tokenization:** explore how text becomes tokens. You can use this before training any model.
+- **Pretraining, SFT and RLVR:** watch your actual training progress, including learning curves and generated text or answers. Select your job in the **Run** menu. Move between checkpoints to compare outputs at different stages of training.
+- **Before you run anything:** the training sections show included example results from earlier experiments. These are not results from your own model.
+- **Reports:** browse saved experiment reports and comparisons.
+
+**`pnpm dev` only opens the viewer. It does not start training.** Start training separately using the Modal commands below. Keep the viewer open and the training terminal connected for live updates; your runs appear automatically.
 
 ## 1. Data and tokenization
 

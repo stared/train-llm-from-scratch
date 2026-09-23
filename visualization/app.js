@@ -16,7 +16,7 @@ async function route(){stage=location.hash.slice(1);if(!sections[stage])stage='t
 async function refresh(first=false){if(stage==='tokens')return;const version=++request,wasStage=stage;
  try{const catalog=await get('/api/runs');if(version!==request||stage!==wasStage)return;items=catalog.filter(r=>r.stage===stage);
   const active=items.find(r=>r.status==='Running');const id=chosen.get(stage)||active?.id||'example-'+stage;
-  options($('run'),items.map(r=>[r.id,r.id.startsWith('example-')?r.model:`${r.model} (${r.status.toLowerCase()}, ${r.id.split('-').at(-1).slice(-6)})`]),id);
+  options($('run'),items.map(r=>[r.id,r.id.startsWith('example-')?`${r.model} (Example run)`:`${r.model} (${r.status.toLowerCase()}, ${r.id.split('-').at(-1).slice(-6)})`]),id);
   const selected=$('run').value;if(active&&!chosen.has(stage))chosen.set(stage,selected);if(!selected){notice('No recorded runs for this section yet.');return;}
   const data=await get('/api/run?id='+encodeURIComponent(selected));if(version!==request)return;
   const signature=JSON.stringify(data);if(signature===lastSignature&&!first)return;
@@ -26,7 +26,7 @@ async function refresh(first=false){if(stage==='tokens')return;const version=++r
  }catch(e){if(version===request)notice(e.message);}
 }
 function render(){ $('training').hidden=false;
- const score=run.score;const parts=[`<strong>${esc(run.model)}</strong>`,`<span class="status">${esc(run.status)}</span>`,esc(run.source)];
+ const score=run.score;const parts=[`<strong>${esc(run.model)}</strong>`,`<span class="status">${$('run').value.startsWith('example-')?'Example run':esc(run.status)}</span>`,esc(run.source)];
  if(score)parts.push(`${esc(score.label)}: <strong>${number(score.before)}${score.n?'/'+score.n:''} → ${number(score.after)}${score.n?'/'+score.n:''}</strong>`);
  if(run.cost!=null)parts.push(`Worker cost $${run.cost.toFixed(2)}`);
  if(run.seconds!=null)parts.push(`${(run.seconds/60).toFixed(1)} min ${run.status==='Completed'?'training':'elapsed'}`);
