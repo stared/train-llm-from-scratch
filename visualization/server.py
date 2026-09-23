@@ -1,12 +1,14 @@
 # /// script
 # requires-python = ">=3.14"
-# dependencies = []
+# dependencies = ["torch==2.14.0", "tokenizers==0.23.2", "tiktoken==0.12.0", "numpy==2.5.3"]
 # ///
 """Local, read-only workshop viewer. No model or Modal account required."""
 import argparse
 import html
 import json
 import mimetypes
+import os
+import sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import re
@@ -18,8 +20,10 @@ from urllib.request import urlopen
 
 if __package__:
     from .report import render as render_report
+    from . import inference, standard_tokenizers
 else:
     from report import render as render_report
+    import inference, standard_tokenizers
 
 ROOT = Path(__file__).resolve().parents[1]
 APP = ROOT/'visualization'
@@ -142,7 +146,39 @@ def normalize(folder):
     # Keep the first fixed, fully traced examples, not selected successes.
     for s in out['snapshots']:
         s['rows'] = [row for row in s['rows'] if row[key] in shared][:8]
+    return describe_run(out, r, folder)
+
+
+def describe_run(out, record, folder):
+    """Identity and training size, shared by saved runs and curated examples."""
+    model = out['model'].split('/')[-1]
+    match = re.fullmatch(r'(.*?)-(\d+(?:\.\d+)?[mMbB])', model)
+    out['model_label'] = f'{match[1]} ({match[2].upper()})' if match else model
+    if out.get('exam'):
+        data = source_data(folder, record)
+        n = len(data.get('train', []))
+        out['dataset_label'] = f'Polish driving exam ({n:,} questions)' if n else 'Polish driving exam'
+    elif out['stage'] == 'pretrain':
+        source = str(record.get('source', out.get('source', '')))
+        dataset = 'Wolne Lektury' if 'lektury' in source.lower() else 'Polish Wikipedia' if 'wiki' in source.lower() else out.get('source', '')
+        n = record.get('training_pool_tokens')
+        def size(n):
+            return f'{n/1e9:.2f}B' if n >= 1e9 else f'{n/1e6:.0f}M' if n >= 1e6 else f'{n:,}'
+        out['dataset_label'] = f'{dataset} ({size(n)} tokens)' if n else dataset
+    else:
+        data = source_data(folder, record)
+        n = len(data.get('train', []))
+        dataset = record.get('task', out.get('source', '')).replace('_', ' ').capitalize()
+        out['dataset_label'] = f'{dataset} ({n:,} prompts)' if n else dataset
+    epoch = record.get('selected_epoch')
+    out['training_label'] = f'epoch {epoch}' if epoch is not None else (f"{out['seconds']:.0f} s" if out['seconds'] < 60 else f"{out['seconds']/60:.0f} min") if out.get('seconds') is not None else ''
     return out
+
+
+def run_label(run):
+    model = run.get('model_label', run.get('model', '').split('/')[-1])
+    dataset = run.get('dataset_label', run.get('source', ''))
+    return ', '.join(part for part in (model, dataset, run.get('training_label', '')) if part)
 
 
 def live(folder):
@@ -154,7 +190,7 @@ def live(folder):
     stage = 'rlvr' if r.get('stage')=='exam-rlvr' else r.get('stage')
     metadata = next((v.get('metadata', {}) for v in previews if v.get('metadata')), {})
     result = dict(id=folder.name, stage=stage, status='Disconnected' if stale else r.get('status', 'Starting'),
-        model=metadata.get('model', 'Loading model'), source=metadata.get('source', ''),
+        model=metadata.get('model', ''), source=metadata.get('source', ''),
         exam=r.get('stage') in ('sft','exam-rlvr'), seconds=r.get('elapsed_seconds'), xLabel='Updates',
         curves=[series(n, [v for v in metrics if v['series']==n], 'step', 'value') for n in dict.fromkeys(v['series'] for v in metrics)],
         snapshots=[{**{k:v for k,v in e.items() if k in ('label','step','rows','split')},'label':preview_label(e)} for e in previews if e.get('rows')],
@@ -163,7 +199,7 @@ def live(folder):
         try:
             result = {**normalize(ROOT/'runs'/r['final']), 'id':folder.name}
         except (ValueError, KeyError):
-            result['status']='Finishing'
+            result['status']=r.get('status', 'Completed')
     return result
 
 
@@ -188,23 +224,34 @@ def folders():
 
 
 def catalog():
-    items = [dict(id='example-'+r['stage'],stage=r['stage'],model=r['model'],status='Completed') for r in examples()]
-    recent=folders()[:80]
-    linked={read(p/'progress.json',{}).get('final') for p in recent if p.name.startswith('live-')}
-    counts={}
-    for p in recent:
+    curated = examples()
+    items = [{**r, 'id':'example-'+r['stage'], 'label':run_label(r)} for r in curated]
+    seen = {r['id'] for r in curated}
+    counts = {}
+    for folder in folders()[:80]:
         try:
-            if p.name in linked: continue
-            if p.name.startswith('live-'):
-                r=live(p)
-            else:
-                r=normalize(p)
-            counts[r['stage']]=counts.get(r['stage'],0)+1
-            if counts[r['stage']]<=10:
-                items.append(dict(id=p.name, stage=r['stage'], model=r['model'],status=r['status'],label=p.name))
+            final = read(folder/'progress.json', {}).get('final') if folder.name.startswith('live-') else None
+            identity = final or folder.name
+            if identity in seen:
+                continue
+            run = live(folder) if folder.name.startswith('live-') else normalize(folder)
+            # A launch with no identified model or viewable output is not a run to explore.
+            if not run.get('model') or not run.get('snapshots'):
+                continue
+            seen.add(identity)
+            counts[run['stage']] = counts.get(run['stage'], 0) + 1
+            if counts[run['stage']] <= 10:
+                items.append({**run, 'id':folder.name, 'label':run_label(run)})
         except (ValueError, KeyError, OSError):
             continue
-    return items
+    labels = [r['label'] for r in items]
+    for item in items:
+        if labels.count(item['label']) > 1:
+            identity = next((r['id'] for r in curated if item['id']=='example-'+r['stage']), item['id'])
+            stamp = re.search(r'(\d{19})$', identity)
+            if stamp:
+                item['label'] += datetime.fromtimestamp(int(stamp[1])/1e9).strftime(' (%d %b %H:%M)')
+    return [{k:r[k] for k in ('id','stage','model','status','label')} for r in items]
 
 
 def report_runs():
@@ -215,10 +262,43 @@ def report_runs():
     return sorted(candidates,key=lambda p:p.stat().st_mtime,reverse=True)[:20]
 
 
+class DevelopmentServer(ThreadingHTTPServer):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.sources = [*APP.glob('*.py'), ROOT/'scripts/scratch_model.py']
+        self.modified = [path.stat().st_mtime_ns for path in self.sources]
+
+    def service_actions(self):
+        if [path.stat().st_mtime_ns for path in self.sources] != self.modified:
+            self.server_close()
+            os.execv(sys.executable, [sys.executable, *sys.argv])
+
+
 class Handler(BaseHTTPRequestHandler):
+    def do_POST(self):
+        if self.path not in ('/api/prediction', '/api/tokenize'):
+            return self.send_error(404)
+        try:
+            size = int(self.headers.get('Content-Length', '0'))
+            if not 0 < size <= 20000:
+                return self.json({'error': 'Input is too long.'}, 400)
+            request = json.loads(self.rfile.read(size))
+            if not isinstance(request, dict):
+                raise ValueError('Expected a prediction request.')
+            return self.json(standard_tokenizers.tokenize(request) if self.path == '/api/tokenize' else inference.predict(request))
+        except (BrokenPipeError, ConnectionResetError):
+            return
+        except (ValueError, TypeError) as error:
+            return self.json({'error': str(error)}, 400)
+        except (OSError, RuntimeError, ImportError) as error:
+            print(f'Local prediction failed: {error}', flush=True)
+            return self.json({'error': 'Could not load the local model.'}, 503)
+
     def do_GET(self):
         url=urlsplit(self.path)
         try:
+            if url.path=='/api/prediction/models':
+                return self.json(inference.models())
             if url.path=='/api/info':
                 return self.json({'app':'ai-from-scratch-visualization'})
             if url.path=='/api/runs':
@@ -252,7 +332,7 @@ class Handler(BaseHTTPRequestHandler):
                 if name not in allowed: return self.send_error(404)
                 folder=allowed[name]
                 return self.json(live(folder) if name.startswith('live-') else normalize(folder))
-            files={'/':APP/'index.html','/app.js':APP/'app.js','/style.css':APP/'style.css',
+            files={'/':APP/'index.html','/app.js':APP/'app.js','/prediction.js':APP/'prediction.js','/live-prediction.js':APP/'live-prediction.js','/style.css':APP/'style.css',
                    '/tokenizer':APP/'tokenizer/index.html','/tokenizer/app.js':APP/'tokenizer/app.js',
                    '/tokenizer/style.css':APP/'tokenizer/style.css',
                    '/reports':APP/'reports/index.html','/reports/app.js':APP/'reports/app.js'}
@@ -296,7 +376,7 @@ if __name__=='__main__':
         print('Exported three recorded runs; no model inference performed.')
     else:
         try:
-            server=ThreadingHTTPServer(('127.0.0.1',a.port),Handler)
+            server=DevelopmentServer(('127.0.0.1',a.port),Handler)
         except OSError:
             url=f'http://127.0.0.1:{a.port}'
             try:

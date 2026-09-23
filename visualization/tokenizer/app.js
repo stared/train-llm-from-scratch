@@ -9,13 +9,12 @@ for(let b=0;b<256;b++)if(!(b in byteAlphabet))byteAlphabet[b]=String.fromCharCod
 const D={vocabulary:source.model.vocab,merges:source.model.merges,byteAlphabet,examples:[{"text": "Warszawa jest stolicą Polski i miastem położonym nad Wisłą. Jej historia obejmuje zarówno okresy rozwoju, jak i zniszczenia oraz odbudowę. Na ulicach spotykają się różne epoki: obok starych kamienic stoją współczesne biurowce, a tramwaje przejeżdżają między parkami, placami i osiedlami.\n\nW encyklopedii opis miasta dzieli się na części poświęcone geografii, historii, kulturze i transportowi. Każda z nich zawiera nazwy, daty oraz odsyłacze do innych artykułów. Ten sam tekst można podzielić na pojedyncze bajty lub większe fragmenty, których tokenizer nauczył się na polskiej Wikipedii."}, {"text": "'''Warszawa''' – stolica [[Polska|Polski]], położona nad [[Wisła|Wisłą]]. Jest ośrodkiem administracyjnym, naukowym i kulturalnym. Artykuł zawiera odsyłacze do innych haseł oraz informacje uporządkowane w sekcjach.\n\n== Historia ==\nHistoria miasta wiąże się z rozwojem osadnictwa, zmianami politycznymi i odbudową po zniszczeniach wojennych. Dodatkowe informacje można znaleźć w artykule [[Historia Warszawy]].\n\n{{Infobox\n | nazwa = Warszawa\n | państwo = Polska\n}}\n[[Kategoria:Miasta w Polsce]]"}, {"text": "Łódź, łódka i łódki mają podobne litery, ale nie muszą mieć identycznych tokenów. Żółw powoli przechodzi przez ścieżkę, a gęś przygląda mu się z brzegu jeziora. W zdaniu pojawiają się polskie znaki: ą, ć, ę, ł, ń, ó, ś, ź oraz ż. Każdy z nich zajmuje więcej niż jeden bajt w kodowaniu UTF-8.\n\nHello, world! Cześć, świecie! Ten akapit miesza polski z angielskim, liczbami 2026 i 12345 oraz symbolami: [[link]], {{szablon}} i 🦆. Kolory pokazują podział tekstu, ale sam tekst pozostaje dokładnie w tym samym miejscu."}]};
 const $=id=>document.getElementById(id),encoder=new TextEncoder();
 const palette=['#cde7fa','#fbe1be','#ded6f5','#cfead4','#f5cfdb','#f3edbd'];
-let characters=[],byteOwners=[],byteColors=[],ownText='';
+let characters=[],byteOwners=[],byteColors=[],ownText='',revision=0;
+const isStandard=()=>['cl100k_base','o200k_base'].includes(activeTokenizer);
 
 let vocabulary=D.vocabulary,ranks=new Map(D.merges.map((pair,i)=>[JSON.stringify(pair),i])),current=null,activeTokenizer='workshop';
 const reverse=new Map(Object.entries(D.byteAlphabet).map(([byte,char])=>[char,+byte]));
 const workshop={vocabulary:D.vocabulary,ranks};
-const smallMerges=D.merges.slice(0,255);
-const small={vocabulary:Object.fromEntries(Object.entries(D.vocabulary).filter(([token])=>token==='<|endoftext|>'||reverse.has(token)||smallMerges.some(pair=>pair.join('')===token))),ranks:new Map(smallMerges.map((pair,i)=>[JSON.stringify(pair),i]))};
 function token(raw){
  const bytes=Uint8Array.from([...raw].map(c=>reverse.get(c)));
  let label;
@@ -89,7 +88,7 @@ function inspect(character,event){
  const token=byteOwners[character.offset+Math.floor(fraction*character.length)];
  paint(token);
  const box=$('hover');
- box.innerHTML=`<strong>${escapeHTML(token.label)}</strong> · Token ID ${token.id}`+treeSVG(token)+'<small>Steps = learned BPE merge order. · = space; leaf byte fragments shown in hex.</small>';
+ box.innerHTML=`<strong>${escapeHTML(token.label)}</strong><p>Token ID: ${token.id}</p>`+(current.standard?'':treeSVG(token));
  box.hidden=false;
  const rect=box.getBoundingClientRect();
  box.style.left=Math.max(12,Math.min(event.clientX+16,window.innerWidth-rect.width-12))+'px';
@@ -115,21 +114,29 @@ function restoreCaret(caret){
  }
  selection.selectAllChildren($('text'));selection.collapseToEnd();
 }
-function updateText(){
- const caret=caretOffset();
+async function applyText(text,caret=null){
+ const turn=++revision;
  try{
-  current=trace(editorText());ownText=current.text;$('error').textContent='';
-  $('example').value='custom';choose();
-  restoreCaret(caret);
- }catch(error){$('error').textContent=error.message;$('count').textContent='';$('step').disabled=true;return}
- $('step').disabled=false;
+  if(isStandard()){
+   $('count').textContent='Tokenizing…';
+   const response=await fetch('/api/tokenize',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tokenizer:activeTokenizer,text})});
+   const result=await response.json();if(turn!==revision)return;
+   if(!response.ok)throw Error(result.error);current=result;
+  }else current=trace(text);
+  $('error').textContent='';choose();
+  document.querySelector('.controls').hidden=!!current.standard;
+  if(caret!==null&&document.activeElement===$('text'))restoreCaret(caret);
+ }catch(error){if(turn===revision){$('error').textContent=error.message;$('count').textContent=''}}
+}
+function updateText(){
+ ownText=editorText();$('example').value='custom';applyText(ownText,caretOffset());
 }
 const customText=new Option('Your text','custom');$('example').append(customText);
 const undo=[],redo=[];
 function historyMove(from,to){
  if(!from.length)return;
  to.push({text:editorText(),caret:caretOffset()});const state=from.pop();
- $('text').textContent=state.text;updateText();restoreCaret(state.caret);
+ $('text').textContent=state.text;ownText=state.text;$('example').value='custom';applyText(state.text,state.caret);
 }
 $('text').addEventListener('beforeinput',event=>{
  if(event.inputType==='historyUndo'||event.inputType==='historyRedo'){
@@ -146,18 +153,17 @@ $('text').addEventListener('input',event=>{if(!event.isComposing)updateText()});
 $('text').addEventListener('compositionend',updateText);
 $('example').onchange=()=>{
  undo.length=0;redo.length=0;
- current=trace($('example').value==='custom'?ownText:D.examples[+$('example').value].text);$('error').textContent='';$('step').disabled=false;choose();
+ applyText($('example').value==='custom'?ownText:D.examples[+$('example').value].text);
 };
 function selectTokenizer(value){
- const previous={vocabulary,ranks};
- try{vocabulary=value.vocabulary;ranks=value.ranks;current=trace(editorText())}catch(error){vocabulary=previous.vocabulary;ranks=previous.ranks;throw error}
- choose();$('error').textContent='';$('step').disabled=false;
+ vocabulary=value.vocabulary;ranks=value.ranks;applyText(editorText());
 }
 $('tokenizer').onchange=()=>{
  const selected=$('tokenizer').value;
  if(selected==='custom'){$('tokenizer').value=activeTokenizer;$('tokenizer-file').click();return}
- try{selectTokenizer(selected==='workshop'?workshop:selected==='small'?small:$('tokenizer').selectedOptions[0].tokenizer);activeTokenizer=selected}
- catch(error){$('tokenizer').value=activeTokenizer;$('error').textContent=error.message}
+ activeTokenizer=selected;
+ if(isStandard()){applyText(editorText());return}
+ selectTokenizer(selected==='workshop'?workshop:$('tokenizer').selectedOptions[0].tokenizer);
 };
 $('tokenizer-file').onchange=async()=>{
  const file=$('tokenizer-file').files[0];if(!file)return;
@@ -169,7 +175,7 @@ $('tokenizer-file').onchange=async()=>{
   const merges=m.merges.map(pair=>Array.isArray(pair)?pair:pair.split(' '));
   if(!merges.every(pair=>pair.length===2&&pair.every(t=>Number.isInteger(m.vocab[t]))&&Number.isInteger(m.vocab[pair.join('')])))throw Error('Invalid BPE merge vocabulary.');
   const value={vocabulary:m.vocab,ranks:new Map(merges.map((pair,i)=>[JSON.stringify(pair),i]))};
-  selectTokenizer(value);
+  activeTokenizer='uploaded';selectTokenizer(value);
   let option=$('tokenizer').querySelector('[data-upload]');
   if(!option){option=new Option('','uploaded');option.dataset.upload='true';$('tokenizer').insertBefore(option,$('tokenizer').lastElementChild)}
   option.textContent=file.name.replace(/\.json$/,'')+' ('+Object.keys(m.vocab).length.toLocaleString()+' tokens)';option.tokenizer=value;

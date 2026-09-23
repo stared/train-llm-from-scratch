@@ -8,7 +8,7 @@ Train a **30-million-parameter generative pretrained transformer (GPT)** from ra
 |---|---:|---:|---|---:|---:|
 | Wolne Lektury / ScratchGPT-30M | 10 min | 11 min 32 s | H100 | $0.78 | 9.073 → 2.820 |
 
-Measured with the image already built. Cost includes GPU, CPU and memory; builds and storage are separate. [Run report](http://localhost:5173/reports#workshop-check.html).
+Measured with the image already built. [Run report](http://localhost:5173/reports#workshop-check.html).
 
 ## Run
 
@@ -28,7 +28,7 @@ In another terminal, run:
 pnpm dev
 ```
 
-Open **Pretraining** and select your run. The loss curve updates during training. Select a checkpoint to compare the same prompt before and after training. Hover over colored tokens for their probabilities and alternatives.
+Open **Pretraining** and select your run. The loss curve updates during training. Select a checkpoint to compare the same prompt before and after training. Token colors run from blue (likely) to red (unlikely) on a logarithmic scale. Hover over a token for its probability and alternatives.
 
 Cross-entropy loss measures how much probability the model assigns to the actual next tokens; lower is better. A uniform prediction over 8,192 tokens has loss ln(8192) ≈ 9.01 nats, close to our random model's 9.07. Falling development loss means better predictions on text excluded from training.
 
@@ -47,7 +47,7 @@ The model learned recognizable prose but still makes grammatical and logical mis
 
 Choose another card with `--gpu L4`, `--gpu A10` or `--gpu L40S`.
 
-Wolne Lektury, 30M parameters, batch 32, context 512, ten minutes of training. Worker time includes loading and evaluation; preparation and image builds are separate.
+Wolne Lektury, 30M parameters, batch 32, context 512, ten minutes of training. Worker time includes loading and evaluation.
 
 | GPU | Worker time | Worker cost | Tokens processed | Test loss ↓ |
 |---|---:|---:|---:|---:|
@@ -68,6 +68,10 @@ modal run scripts/scratch_recipe_modal.py --gpu H100 --batch-size 32
 Add `--compile-training` to compile the training loop. With H100 and batch 32, the workshop script processed 578M tokens in ten minutes, with test loss 2.760. Including evaluation: 11 min 4 s, $0.77.
 
 [Measured comparisons](http://localhost:5173/reports#training-comparisons.html). [Modal GPU options](https://modal.com/docs/guide/gpu) and [pricing](https://modal.com/pricing).
+
+## Predict the next token
+
+At the top of **Pretraining**, choose a local model and edit the input. Click a candidate to append it, or **Next token** to sample one. Temperature changes the probabilities across the full vocabulary.
 
 ## Tokens and epochs
 
@@ -90,7 +94,7 @@ Measured on the prepared corpus, with the 98M-parameter model, batch 64, context
 | H100 | 10 min | 11 min 3 s | $0.77 | 9.174 → 1.627 |
 | B200 | 10 min | 11 min | $1.19 | 9.174 → 1.509 |
 
-Preparation is separate. Both learned markup while inventing facts; lower loss does not mean reliable knowledge. H100 processed 302M token presentations; B200 processed 565M. These are single runs, including compilation, diagnostics and successful checkpoint reload checks. [Experiment records](LAB_NOTEBOOK.md#participant-wikipedia-command-and-full-prose-data).
+Both learned markup while inventing facts; lower loss does not mean reliable knowledge. H100 processed 302M token presentations; B200 processed 565M. One run per GPU. [Experiment records](LAB_NOTEBOOK.md#participant-wikipedia-command-and-full-prose-data).
 
 Prepare it:
 

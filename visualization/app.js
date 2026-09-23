@@ -1,4 +1,8 @@
+import {setupLivePrediction} from '/live-prediction.js';
+import {createPredictionExplorer,probabilityColor,tokenCharacters} from '/prediction.js';
 const $=id=>document.getElementById(id);
+const prediction=createPredictionExplorer($('prediction'));
+const startLivePrediction=setupLivePrediction($('live-prediction'));
 const sections={tokens:['Tokenization','The same text, split into pieces. Explore how byte-pair encoding builds tokens.'],pretrain:['Pretraining','From random weights to text continuation. Compare the same prompts as training progresses.'],sft:['Supervised fine-tuning','Learn from a question and its correct answer. Watch how the answer probabilities change.'],rlvr:['Reinforcement learning with verifiable rewards','Sample answers, check them, then learn from the rewards.']};
 let stage='tokens',run=null,items=[],checkpoint=0,example=0,request=0,lastSignature='',chosen=new Map();
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -11,18 +15,19 @@ async function route(){stage=location.hash.slice(1);if(!sections[stage])stage='t
  $('title').textContent=sections[stage][0];$('intro').textContent=sections[stage][1];document.title=sections[stage][0]+' · AI from scratch';
  document.querySelectorAll('nav a').forEach(a=>{if(a.hash==='#'+stage)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
  $('tokens').hidden=stage!=='tokens';$('training').hidden=true;$('run-control').hidden=stage==='tokens';
+ $('live-prediction').hidden=stage!=='pretrain';if(stage==='pretrain')startLivePrediction();
  if(stage!=='tokens')await refresh(true);
 }
 async function refresh(first=false){if(stage==='tokens')return;const version=++request,wasStage=stage;
  try{const catalog=await get('/api/runs');if(version!==request||stage!==wasStage)return;items=catalog.filter(r=>r.stage===stage);
   const active=items.find(r=>r.status==='Running');const id=chosen.get(stage)||active?.id||'example-'+stage;
-  options($('run'),items.map(r=>[r.id,r.id.startsWith('example-')?`${r.model} (Example run)`:`${r.model} (${r.status.toLowerCase()}, ${r.id.split('-').at(-1).slice(-6)})`]),id);
+  options($('run'),items.map(r=>[r.id,r.label]),id);
   const selected=$('run').value;if(active&&!chosen.has(stage))chosen.set(stage,selected);if(!selected){notice('No recorded runs for this section yet.');return;}
   const data=await get('/api/run?id='+encodeURIComponent(selected));if(version!==request)return;
   const signature=JSON.stringify(data);if(signature===lastSignature&&!first)return;
   const follow=!run||checkpoint===run.snapshots.length-1;const same=run?.id===data.id;
   run=data;lastSignature=signature;checkpoint=same&&!follow?Math.min(checkpoint,data.snapshots.length-1):data.snapshots.length-1;
-  if(!same)example=0;notice();render();if(!same)$('training-data').open=true;
+  if(!same)example=0;notice();render();if(!same)$('training-data').open=false;
  }catch(e){if(version===request)notice(e.message);}
 }
 function render(){ $('training').hidden=false;
@@ -31,13 +36,12 @@ function render(){ $('training').hidden=false;
  if(run.cost!=null)parts.push(`Worker cost $${run.cost.toFixed(2)}`);
  if(run.seconds!=null)parts.push(`${(run.seconds/60).toFixed(1)} min ${run.status==='Completed'?'training':'elapsed'}`);
  $('metadata').innerHTML=parts.map(x=>`<span>${x}</span>`).join('');
- $('training-data').hidden=!run.training?.length;if(run.training?.length){const row=run.training[0];$('data-example').innerHTML=`<div class="training-pair"><div><span class="caption">Input · training set</span><pre>${esc(row.prompt)}</pre></div><div><span class="caption">${stage==='sft'?'Target answer':'Feedback'}</span><pre>${esc(row.target)}</pre></div></div>`;}
+ $('training-data').hidden=!run.training?.length;if(run.training?.length){const row=run.training[0];$('data-example').innerHTML=`<div class="training-pair"><div><span class="caption">Input</span><pre>${esc(row.prompt)}</pre></div><div><span class="caption">${stage==='sft'?'Target answer':'Feedback'}</span><pre>${esc(row.target)}</pre></div></div>`;}
  options($('metric'),run.curves.map((s,i)=>[i,s.name]),$('metric').value);$('metric').parentElement.hidden=run.curves.length<2;
  $('checkpoint').max=Math.max(0,run.snapshots.length-1);$('checkpoint').value=Math.max(0,checkpoint);
- const rows=run.snapshots[0]?.rows||[];options($('example'),rows.map((r,i)=>[i,(i+1)+'. '+(r.question||r.prompt||r.id).slice(0,52)]),example);
+ const rows=run.snapshots[0]?.rows||[];options($('example'),rows.map((r,i)=>[i,r.question?`Question ${r.id}`:r.prompt||r.id]),example);
  $('rollouts').hidden=!run.rollouts?.length;
  if(run.rollouts?.length){options($('rollout'),run.rollouts.map((r,i)=>[i,'Update '+r.step]),$('rollout').value);renderRollout();}
- $('provenance').textContent=`Recorded run: ${run.id}. ${run.status==='Completed'?'The selected checkpoint uses development results; the test score is reported separately.':'Updates arrive from your training terminal. Keep it connected for live previews.'}`;
  renderCheckpoint();
 }
 function renderCurve(){const s=run.curves[+$('metric').value];if(!s?.points.length){$('curve').innerHTML='<p class="small">Loading the model and evaluating its starting point. The first metric will appear here.</p>';return;}
@@ -55,30 +59,34 @@ function renderCurve(){const s=run.curves[+$('metric').value];if(!s?.points.leng
 }
 function renderCheckpoint(){const snap=run.snapshots[checkpoint],base=run.snapshots[0];$('checkpoint').value=Math.max(0,checkpoint);$('checkpoint').disabled=!snap;$('previous').disabled=checkpoint<=0;$('next').disabled=checkpoint>=run.snapshots.length-1;
  $('checkpoint-label').textContent=snap?`${snap.label} (${checkpoint+1}/${run.snapshots.length})`:'Waiting for a checkpoint';renderCurve();
- if(!snap){$('prompt').textContent='Examples appear after baseline evaluation.';$('before').replaceChildren();$('after').replaceChildren();$('answer-key').textContent='';$('probabilities').disabled=true;return;}
+ if(!snap){prediction.set(null);$('prompt').textContent='Examples appear after baseline evaluation.';$('before').replaceChildren();$('after').replaceChildren();$('answer-key').textContent='';$('probabilities').disabled=true;return;}
  example=Math.min(example,base.rows.length-1);const a=base.rows[example];const b=snap.rows.find(r=>a.id!=null?r.id===a.id:r.prompt===a.prompt)||a;
  $('prompt').textContent=a.question?a.question+'\n'+a.options.map((v,i)=>'ABC'[i]+'. '+v).join('\n'):a.prompt;
+ $('question-input').hidden=!a.question;$('token-hint').hidden=!!a.question;
  $('answer-key').textContent=a.answer?'Correct answer: '+a.answer:'';
- $('split-note').textContent=snap.split==='fixed prompts'?'Fixed continuation prompts; the prompt is not an instruction.':'Development examples, separate from training. The same inputs are shown at every checkpoint.';
  $('after-label').textContent=snap.label;
- const traces=!!(a.tokens?.length||b.tokens?.length);$('probabilities').disabled=!traces;$('probabilities').parentElement.hidden=!traces;$('probability-legend').hidden=!traces;$('probability-note').textContent=run.exam?'Probabilities are normalized over A/B/C only.':'';
+ const traces=!!(a.tokens?.length||b.tokens?.length);$('probabilities').disabled=!traces;$('probabilities').parentElement.hidden=!traces;$('probability-legend').hidden=!traces||!$('probabilities').checked;$('probability-note').textContent=run.exam?'Probabilities are normalized over A/B/C only.':'';
+ prediction.set(b.tokens?.length?b:null);
  output($('before'),a);output($('after'),b);
 }
-function output(el,row){el.replaceChildren();if(row.probabilities){const pred=row.prediction;el.innerHTML=`<div class="prob-bars">${row.probabilities.map((p,i)=>`<div class="prob-row ${'ABC'[i]===row.answer?'correct':''}"><strong>${'ABC'[i]}</strong><div class="bar-track"><div class="bar-fill" style="width:${Math.max(0,Math.min(100,p*100))}%"></div></div><span>${pct(p)}</span></div>`).join('')}</div><p class="output-note">Prediction: ${esc(pred)}${pred===row.answer?' · correct':' · incorrect'}${row.unconstrained_ABC_mass!=null?`<br>Total full-vocabulary probability of A/B/C: ${pct(row.unconstrained_ABC_mass)}`:''}</p>`;return;}
+function output(el,row){el.replaceChildren();if(row.probabilities){const pred=row.prediction;el.innerHTML=`<div class="prob-bars">${row.probabilities.map((p,i)=>`<div class="prob-row ${'ABC'[i]===row.answer?'correct':''}"><strong>${'ABC'[i]}</strong><div class="bar-track"><div class="bar-fill" style="width:${Math.max(0,Math.min(100,p*100))}%"></div></div><span>${pct(p)}</span></div>`).join('')}</div><p class="output-note">Prediction: ${esc(pred)}${pred===row.answer?' (correct)':' (incorrect)'}${row.unconstrained_ABC_mass!=null?`<br>Probability of an A/B/C answer: ${pct(row.unconstrained_ABC_mass)}`:''}</p>`;return;}
  const pre=document.createElement('pre');const text=row.continuation??row.text??'';
- if(row.tokens?.length){let offset=0;const all=row.tokens.flatMap(t=>t.bytes||[]);const decoded=new TextDecoder().decode(Uint8Array.from(all));
-  // Byte-level tokens can split a Unicode character. Paint characters without changing the text.
-  if(decoded===text){const owners=[];row.tokens.forEach((t,i)=>(t.bytes||[]).forEach(()=>owners.push(i)));for(const char of text){const n=new TextEncoder().encode(char).length;const ids=owners.slice(offset,offset+n);const span=document.createElement('span');span.textContent=char;span.className='token';span.dataset.owners=ids.join(',');span.tabIndex=offset===0||owners[offset-1]!==ids[0]?0:-1;span.setAttribute('aria-describedby','tooltip');const paint=p=>{const t=Math.max(0,Math.min(1,Math.sqrt(p)));return `hsl(${28+130*t} ${65-30*t}% ${91-4*t}%)`;};if($('probabilities').checked){const colors=ids.map(i=>paint(row.tokens[i].probability));span.style.background=colors.every(c=>c===colors[0])?colors[0]:`linear-gradient(to right,${colors.map((c,i)=>`${c} ${i/n*100}% ${(i+1)/n*100}%`).join(',')})`;}
-    const show=()=>{hideTooltip();for(const part of pre.children)if(part.dataset.owners.split(',').some(i=>ids.includes(+i)))part.classList.add('active-token');tooltip(span,ids.map(i=>row.tokens[i]).filter((t,i,a)=>a.indexOf(t)===i));};span.onmouseenter=show;span.onfocus=show;span.onmouseleave=hideTooltip;span.onblur=hideTooltip;pre.append(span);offset+=n;}
+ if(row.tokens?.length){
+  const chars=tokenCharacters(row.tokens);
+  if(chars.map(c=>c.text).join('')===text){let previous=-1;
+   for(const {text:char,ids} of chars){
+    const span=document.createElement('span');span.textContent=char;span.className='token';span.dataset.owners=ids.join(',');span.tabIndex=previous!==ids[0]?0:-1;previous=ids.at(-1);span.setAttribute('role','button');span.setAttribute('aria-label',`Explore token ${row.tokens[ids[0]].id}: ${row.tokens[ids[0]].piece}`);
+    if($('probabilities').checked){const colors=ids.map(i=>probabilityColor(row.tokens[i].probability));span.style.background=colors.every(c=>c===colors[0])?colors[0]:`linear-gradient(to right,${colors.map((c,i)=>`${c} ${i/ids.length*100}% ${(i+1)/ids.length*100}%`).join(',')})`}
+    span.onmouseenter=()=>prediction.inspect(row,ids[0],span);span.onmouseleave=prediction.leave;span.onfocus=()=>prediction.inspect(row,ids[0],span);span.onblur=prediction.leave;span.onclick=()=>prediction.inspect(row,ids[0],span);span.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();prediction.inspect(row,ids[0],span)}};
+    pre.append(span);
+   }
   }else pre.textContent=text;
  }else pre.textContent=text;el.append(pre);
- if(row.reward!=null){const p=document.createElement('p');p.className='output-note';p.textContent=`Reward ${row.reward.toFixed(2)} · ${row.success?'passes':'does not pass'}${row.word_count!=null?' · '+row.word_count+' words':''}`;el.append(p);}
+ if(row.reward!=null){const p=document.createElement('p');p.className='output-note';p.textContent=`${row.success?'Pass':'Fail'}. Reward: ${row.reward.toFixed(2)}.${row.word_count!=null?' '+row.word_count+' words.':''}`;el.append(p);}
 }
-function tooltip(span,tokens){const t=tokens[0];$('tooltip').innerHTML=`<strong>${esc(t.piece)} · token ${t.id}</strong><p>Model probability: ${pct(t.probability)}</p>${t.sampling_probability!=null?`<p>After sampling filters: ${pct(t.sampling_probability)}</p>`:''}<table><thead><tr><th>Alternative</th><th>Probability</th></tr></thead><tbody>${(t.alternatives||[]).map(a=>`<tr><td>${esc(a.piece)}</td><td>${pct(a.probability)}</td></tr>`).join('')}</tbody></table>${tokens.length>1?'<p>This character spans more than one byte token.</p>':''}`;$('tooltip').hidden=false;const r=span.getBoundingClientRect();$('tooltip').style.left=Math.max(8,Math.min(innerWidth-290,r.left))+'px';$('tooltip').style.top=Math.max(8,Math.min(innerHeight-$('tooltip').offsetHeight-8,r.bottom+8))+'px';}
-function hideTooltip(){$('tooltip').hidden=true;document.querySelectorAll('.active-token').forEach(e=>e.classList.remove('active-token'));}
 function renderRollout(){const r=run.rollouts[+$('rollout').value];if(!r)return;$('rollout-prompt').textContent=r.prompt;$('rollout-table').innerHTML=`<table><thead><tr><th>Sampled answer</th><th>Reward</th><th>Relative reward</th><th>Check</th></tr></thead><tbody>${r.rows.map(v=>`<tr><td>${esc(v.text)}</td><td>${Number(v.reward).toFixed(2)}</td><td>${v.advantage>=0?'+':''}${Number(v.advantage).toFixed(2)}</td><td class="${v.success?'pass':'fail'}">${v.word_count!=null?v.word_count+' words; ':''}${v.success==null?'':v.success?'passes':'fails'}</td></tr>`).join('')}</tbody></table>`;}
 $('run').onchange=()=>{chosen.set(stage,$('run').value);lastSignature='';refresh(true);};$('metric').onchange=renderCurve;$('example').onchange=()=>{example=+$('example').value;renderCheckpoint();};$('checkpoint').oninput=()=>{checkpoint=+$('checkpoint').value;renderCheckpoint();};$('previous').onclick=()=>{checkpoint--;renderCheckpoint();};$('next').onclick=()=>{checkpoint++;renderCheckpoint();};$('probabilities').onchange=renderCheckpoint;$('rollout').onchange=renderRollout;
-window.addEventListener('hashchange',route);window.addEventListener('scroll',hideTooltip,true);window.addEventListener('keydown',e=>{if(e.key==='Escape')hideTooltip();});
+window.addEventListener('hashchange',()=>{prediction.set(null);route()});
 const frame=document.querySelector('iframe');frame.onload=()=>{const doc=frame.contentDocument;new ResizeObserver(()=>{frame.style.height=doc.documentElement.scrollHeight+'px';}).observe(doc.body);};
-window.addEventListener('resize',()=>{hideTooltip();if(run&&stage!=='tokens')renderCurve();});
+window.addEventListener('resize',()=>{if(run&&stage!=='tokens')renderCurve();});
 route();setInterval(()=>refresh(),3000);

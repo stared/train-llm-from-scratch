@@ -26,3 +26,5 @@ Each comparison records the model, training data and evaluation setup.
 Earlier results remain here for comparison, including unsuccessful experiments. Raw predictions, metrics and source snapshots stay locally in gitignored `runs/`; they are not included in a fresh clone. Rebuilding reports from those records requires the original runs. See the [`LAB_NOTEBOOK.md`](../LAB_NOTEBOOK.md) for experiment history.
 
 Report-generation scripts write their outputs here.
+
+[Mac fine-tuning: MPS and MLX measurements](macos-fine-tuning.md).

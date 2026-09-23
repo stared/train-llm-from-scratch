@@ -1,0 +1,665 @@
+{
+  "date": "2026-09-22",
+  "hardware": "Apple M5 Max, 128 GB unified memory",
+  "runs": [
+    {
+      "run": "prawko-macos-sft-180-20260922",
+      "label": "MPS FP32, seed 42",
+      "training_questions": 100,
+      "method": "sft",
+      "model_spec": {
+        "id": "Qwen/Qwen3.5-0.8B",
+        "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "multimodal": true
+      },
+      "seed": 42,
+      "data_sha256": "35110c0e71899ae1e8973863f052ea81c0a9b62d5f57479a4c3035e01750e7e0",
+      "decoding": "Argmax over A/B/C next-token logits; no reasoning; nonthinking chat template",
+      "initial_adapter": null,
+      "target_mode": "letter",
+      "train_batch_size": 4,
+      "eval_batch_size": 8,
+      "training_data": "100 official text-only three-choice questions; separate 25 dev and 40 test",
+      "before": {
+        "train": {
+          "n": 100,
+          "correct": 54,
+          "accuracy": 0.54,
+          "mean_correct_probability": 0.4493026735633612
+        },
+        "dev": {
+          "n": 25,
+          "correct": 16,
+          "accuracy": 0.64,
+          "mean_correct_probability": 0.50676459223032
+        },
+        "test": {
+          "n": 40,
+          "correct": 20,
+          "accuracy": 0.5,
+          "mean_correct_probability": 0.43183009945787487
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 19,
+          "accuracy": 0.475,
+          "mean_correct_probability": 0.4256702776998281
+        }
+      },
+      "after": {
+        "train": {
+          "n": 100,
+          "correct": 92,
+          "accuracy": 0.92,
+          "mean_correct_probability": 0.9170528884977103
+        },
+        "dev": {
+          "n": 25,
+          "correct": 23,
+          "accuracy": 0.92,
+          "mean_correct_probability": 0.8771204847712943
+        },
+        "test": {
+          "n": 40,
+          "correct": 28,
+          "accuracy": 0.7,
+          "mean_correct_probability": 0.7085068719123229
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 25,
+          "accuracy": 0.625,
+          "mean_correct_probability": 0.640285156473692
+        }
+      },
+      "final": {
+        "train": {
+          "n": 100,
+          "correct": 99,
+          "accuracy": 0.99,
+          "mean_correct_probability": 0.9930053374171257
+        },
+        "dev": {
+          "n": 25,
+          "correct": 17,
+          "accuracy": 0.68,
+          "mean_correct_probability": 0.6707417586435213
+        },
+        "test": {
+          "n": 40,
+          "correct": 26,
+          "accuracy": 0.65,
+          "mean_correct_probability": 0.6577988991188681
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 30,
+          "accuracy": 0.75,
+          "mean_correct_probability": 0.740462863703409
+        }
+      },
+      "training_seconds": 120.86146537499735,
+      "steps": 250,
+      "selected_epoch": 3,
+      "selected_steps": 75,
+      "lora_rank": 16,
+      "lora_alpha": 32,
+      "learning_rate": 5e-05,
+      "epochs_requested": 10,
+      "max_seconds": 180,
+      "beta": null,
+      "reference_policy": null,
+      "adapter_changed": true,
+      "reload_matches": true,
+      "algorithm": "Full-vocabulary next-token SFT",
+      "total_seconds": 205.3587171669933,
+      "peak_vram_gb": null
+    },
+    {
+      "run": "prawko-macos-fp32-17-20260922",
+      "label": "MPS FP32, seed 17",
+      "training_questions": 100,
+      "method": "sft",
+      "model_spec": {
+        "id": "Qwen/Qwen3.5-0.8B",
+        "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "multimodal": true
+      },
+      "seed": 17,
+      "data_sha256": "35110c0e71899ae1e8973863f052ea81c0a9b62d5f57479a4c3035e01750e7e0",
+      "decoding": "Argmax over A/B/C next-token logits; no reasoning; nonthinking chat template",
+      "initial_adapter": null,
+      "target_mode": "letter",
+      "train_batch_size": 4,
+      "eval_batch_size": 8,
+      "training_data": "100 official text-only three-choice questions; separate 25 dev and 40 test",
+      "before": {
+        "train": {
+          "n": 100,
+          "correct": 54,
+          "accuracy": 0.54,
+          "mean_correct_probability": 0.4493026735633612
+        },
+        "dev": {
+          "n": 25,
+          "correct": 16,
+          "accuracy": 0.64,
+          "mean_correct_probability": 0.50676459223032
+        },
+        "test": {
+          "n": 40,
+          "correct": 20,
+          "accuracy": 0.5,
+          "mean_correct_probability": 0.43183009945787487
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 19,
+          "accuracy": 0.475,
+          "mean_correct_probability": 0.4256702776998281
+        }
+      },
+      "after": {
+        "train": {
+          "n": 100,
+          "correct": 97,
+          "accuracy": 0.97,
+          "mean_correct_probability": 0.9628668023987484
+        },
+        "dev": {
+          "n": 25,
+          "correct": 21,
+          "accuracy": 0.84,
+          "mean_correct_probability": 0.8240050409430296
+        },
+        "test": {
+          "n": 40,
+          "correct": 29,
+          "accuracy": 0.725,
+          "mean_correct_probability": 0.7292908007182518
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 27,
+          "accuracy": 0.675,
+          "mean_correct_probability": 0.6794586648956965
+        }
+      },
+      "final": {
+        "train": {
+          "n": 100,
+          "correct": 97,
+          "accuracy": 0.97,
+          "mean_correct_probability": 0.9728650697728153
+        },
+        "dev": {
+          "n": 25,
+          "correct": 19,
+          "accuracy": 0.76,
+          "mean_correct_probability": 0.7808823353470064
+        },
+        "test": {
+          "n": 40,
+          "correct": 26,
+          "accuracy": 0.65,
+          "mean_correct_probability": 0.6392269663594249
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 25,
+          "accuracy": 0.625,
+          "mean_correct_probability": 0.6422837434882169
+        }
+      },
+      "training_seconds": 109.78728254197631,
+      "steps": 250,
+      "selected_epoch": 5,
+      "selected_steps": 125,
+      "lora_rank": 16,
+      "lora_alpha": 32,
+      "learning_rate": 5e-05,
+      "epochs_requested": 10,
+      "max_seconds": 180,
+      "beta": null,
+      "reference_policy": null,
+      "adapter_changed": true,
+      "reload_matches": true,
+      "algorithm": "Full-vocabulary next-token SFT",
+      "environment": {
+        "device": "mps",
+        "precision": "float32",
+        "torch": "2.14.0",
+        "platform": "macOS-26.6.1-arm64-arm-64bit-Mach-O"
+      },
+      "sampled_peak_mps_gb": 10.883036416,
+      "total_seconds": 135.2866378329927,
+      "peak_vram_gb": null
+    },
+    {
+      "run": "prawko-macos-bf16-42-20260922",
+      "label": "MPS BF16, seed 42",
+      "training_questions": 100,
+      "method": "sft",
+      "model_spec": {
+        "id": "Qwen/Qwen3.5-0.8B",
+        "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "multimodal": true
+      },
+      "seed": 42,
+      "data_sha256": "35110c0e71899ae1e8973863f052ea81c0a9b62d5f57479a4c3035e01750e7e0",
+      "decoding": "Argmax over A/B/C next-token logits; no reasoning; nonthinking chat template",
+      "initial_adapter": null,
+      "target_mode": "letter",
+      "train_batch_size": 4,
+      "eval_batch_size": 8,
+      "training_data": "100 official text-only three-choice questions; separate 25 dev and 40 test",
+      "before": {
+        "train": {
+          "n": 100,
+          "correct": 53,
+          "accuracy": 0.53,
+          "mean_correct_probability": 0.44769029134418814
+        },
+        "dev": {
+          "n": 25,
+          "correct": 15,
+          "accuracy": 0.6,
+          "mean_correct_probability": 0.5071477973461151
+        },
+        "test": {
+          "n": 40,
+          "correct": 19,
+          "accuracy": 0.475,
+          "mean_correct_probability": 0.4319909393787384
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 20,
+          "accuracy": 0.5,
+          "mean_correct_probability": 0.42222136865602805
+        }
+      },
+      "after": {
+        "train": {
+          "n": 100,
+          "correct": 91,
+          "accuracy": 0.91,
+          "mean_correct_probability": 0.9122762106265873
+        },
+        "dev": {
+          "n": 25,
+          "correct": 23,
+          "accuracy": 0.92,
+          "mean_correct_probability": 0.8719375419402786
+        },
+        "test": {
+          "n": 40,
+          "correct": 28,
+          "accuracy": 0.7,
+          "mean_correct_probability": 0.7107134153942752
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 26,
+          "accuracy": 0.65,
+          "mean_correct_probability": 0.6514434078482736
+        }
+      },
+      "final": {
+        "train": {
+          "n": 100,
+          "correct": 100,
+          "accuracy": 1.0,
+          "mean_correct_probability": 0.9979586219787597
+        },
+        "dev": {
+          "n": 25,
+          "correct": 18,
+          "accuracy": 0.72,
+          "mean_correct_probability": 0.739386437832095
+        },
+        "test": {
+          "n": 40,
+          "correct": 28,
+          "accuracy": 0.7,
+          "mean_correct_probability": 0.6844160728700757
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 28,
+          "accuracy": 0.7,
+          "mean_correct_probability": 0.7027668697907956
+        }
+      },
+      "training_seconds": 94.97528904100182,
+      "steps": 250,
+      "selected_epoch": 3,
+      "selected_steps": 75,
+      "lora_rank": 16,
+      "lora_alpha": 32,
+      "learning_rate": 5e-05,
+      "epochs_requested": 10,
+      "max_seconds": 180,
+      "beta": null,
+      "reference_policy": null,
+      "adapter_changed": true,
+      "reload_matches": true,
+      "algorithm": "Full-vocabulary next-token SFT",
+      "environment": {
+        "device": "mps",
+        "precision": "bfloat16",
+        "torch": "2.14.0",
+        "platform": "macOS-26.6.1-arm64-arm-64bit-Mach-O"
+      },
+      "sampled_peak_mps_gb": 8.39641728,
+      "total_seconds": 113.59253904098296,
+      "peak_vram_gb": null
+    },
+    {
+      "run": "prawko-macos-expanded-fp32-20260922",
+      "label": "MPS FP32, expanded data",
+      "training_questions": 289,
+      "method": "sft",
+      "model_spec": {
+        "id": "Qwen/Qwen3.5-0.8B",
+        "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "multimodal": true
+      },
+      "seed": 42,
+      "data_sha256": "1067e3e8d3c52e2badac84da67323731242ccbf1789c819d8091bb8fe3a7866c",
+      "decoding": "Argmax over A/B/C next-token logits; no reasoning; nonthinking chat template",
+      "initial_adapter": null,
+      "target_mode": "letter",
+      "train_batch_size": 4,
+      "eval_batch_size": 8,
+      "training_data": "289 official text-only three-choice questions; separate 25 dev and 40 test",
+      "before": {
+        "train": {
+          "n": 289,
+          "correct": 146,
+          "accuracy": 0.5051903114186851,
+          "mean_correct_probability": 0.4270931106434561
+        },
+        "dev": {
+          "n": 25,
+          "correct": 16,
+          "accuracy": 0.64,
+          "mean_correct_probability": 0.50676459223032
+        },
+        "test": {
+          "n": 40,
+          "correct": 20,
+          "accuracy": 0.5,
+          "mean_correct_probability": 0.43183009945787487
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 19,
+          "accuracy": 0.475,
+          "mean_correct_probability": 0.4256702776998281
+        }
+      },
+      "after": {
+        "train": {
+          "n": 289,
+          "correct": 262,
+          "accuracy": 0.9065743944636678,
+          "mean_correct_probability": 0.9069001773060653
+        },
+        "dev": {
+          "n": 25,
+          "correct": 20,
+          "accuracy": 0.8,
+          "mean_correct_probability": 0.788256608132865
+        },
+        "test": {
+          "n": 40,
+          "correct": 35,
+          "accuracy": 0.875,
+          "mean_correct_probability": 0.8583007268382061
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 29,
+          "accuracy": 0.725,
+          "mean_correct_probability": 0.7641903142846787
+        }
+      },
+      "final": {
+        "train": {
+          "n": 289,
+          "correct": 262,
+          "accuracy": 0.9065743944636678,
+          "mean_correct_probability": 0.9069001773060653
+        },
+        "dev": {
+          "n": 25,
+          "correct": 20,
+          "accuracy": 0.8,
+          "mean_correct_probability": 0.788256608132865
+        },
+        "test": {
+          "n": 40,
+          "correct": 35,
+          "accuracy": 0.875,
+          "mean_correct_probability": 0.8583007268382061
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 29,
+          "accuracy": 0.725,
+          "mean_correct_probability": 0.7641903142846787
+        }
+      },
+      "training_seconds": 181.47707429199363,
+      "steps": 380,
+      "selected_epoch": 6,
+      "selected_steps": 380,
+      "lora_rank": 16,
+      "lora_alpha": 32,
+      "learning_rate": 2e-05,
+      "epochs_requested": 10,
+      "max_seconds": 180,
+      "beta": null,
+      "reference_policy": null,
+      "adapter_changed": true,
+      "reload_matches": true,
+      "algorithm": "Full-vocabulary next-token SFT",
+      "environment": {
+        "device": "mps",
+        "precision": "float32",
+        "torch": "2.14.0",
+        "platform": "macOS-26.6.1-arm64-arm-64bit-Mach-O"
+      },
+      "sampled_peak_mps_gb": 10.865109248,
+      "total_seconds": 233.32510733400704,
+      "peak_vram_gb": null
+    },
+    {
+      "run": "prawko-macos-mlx-20260922",
+      "label": "MLX BF16, microbatch 1",
+      "training_questions": 100,
+      "model_spec": {
+        "id": "Qwen/Qwen3.5-0.8B",
+        "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "multimodal": true
+      },
+      "backend": "mlx",
+      "seed": 42,
+      "before": {
+        "dev": {
+          "n": 25,
+          "correct": 15,
+          "mean_correct_probability": 0.503090860247612,
+          "accuracy": 0.6
+        },
+        "test": {
+          "n": 40,
+          "correct": 18,
+          "mean_correct_probability": 0.4289913524873555,
+          "accuracy": 0.45
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 20,
+          "mean_correct_probability": 0.4223356901668012,
+          "accuracy": 0.5
+        }
+      },
+      "after": {
+        "dev": {
+          "n": 25,
+          "correct": 17,
+          "mean_correct_probability": 0.6238902980089187,
+          "accuracy": 0.68
+        },
+        "test": {
+          "n": 40,
+          "correct": 28,
+          "mean_correct_probability": 0.7026302000507713,
+          "accuracy": 0.7
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 28,
+          "mean_correct_probability": 0.6442465903237462,
+          "accuracy": 0.7
+        }
+      },
+      "final": {
+        "dev": {
+          "n": 25,
+          "correct": 13,
+          "mean_correct_probability": 0.5114256414203555,
+          "accuracy": 0.52
+        },
+        "test": {
+          "n": 40,
+          "correct": 25,
+          "mean_correct_probability": 0.6200512356087984,
+          "accuracy": 0.625
+        }
+      },
+      "training_seconds": 180.47047145900433,
+      "total_seconds": 192.45010483302758,
+      "steps": 72,
+      "selected_epoch": 2,
+      "peak_memory_gb": 10.386228631,
+      "reload_matches": true,
+      "mlx": "0.32.2",
+      "mlx_lm": "0.31.3",
+      "batch_size": 4,
+      "microbatch_size": 1,
+      "learning_rate": 5e-05,
+      "lora": {
+        "rank": 16,
+        "scale": 2.0,
+        "dropout": 0.0,
+        "keys": [
+          "self_attn.q_proj",
+          "self_attn.k_proj",
+          "self_attn.v_proj",
+          "self_attn.o_proj",
+          "mlp.gate_proj",
+          "mlp.up_proj",
+          "mlp.down_proj"
+        ]
+      },
+      "method": "sft",
+      "training_data": "100 Polish driving questions"
+    },
+    {
+      "run": "prawko-macos-mlx-batched-20260922",
+      "label": "MLX BF16, batch 4",
+      "training_questions": 100,
+      "model_spec": {
+        "id": "Qwen/Qwen3.5-0.8B",
+        "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "multimodal": true
+      },
+      "method": "sft",
+      "training_data": "100 Polish driving questions",
+      "backend": "mlx",
+      "seed": 42,
+      "before": {
+        "dev": {
+          "n": 25,
+          "correct": 15,
+          "accuracy": 0.6,
+          "mean_correct_probability": 0.503090860247612
+        },
+        "test": {
+          "n": 40,
+          "correct": 18,
+          "accuracy": 0.45,
+          "mean_correct_probability": 0.4289913524873555
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 20,
+          "accuracy": 0.5,
+          "mean_correct_probability": 0.4223356901668012
+        }
+      },
+      "after": {
+        "dev": {
+          "n": 25,
+          "correct": 17,
+          "accuracy": 0.68,
+          "mean_correct_probability": 0.6887971350428416
+        },
+        "test": {
+          "n": 40,
+          "correct": 26,
+          "accuracy": 0.65,
+          "mean_correct_probability": 0.648246260653832
+        },
+        "test_rotated": {
+          "n": 40,
+          "correct": 25,
+          "accuracy": 0.625,
+          "mean_correct_probability": 0.610225338973396
+        }
+      },
+      "final": {
+        "dev": {
+          "n": 25,
+          "correct": 14,
+          "accuracy": 0.56,
+          "mean_correct_probability": 0.575363419495261
+        },
+        "test": {
+          "n": 40,
+          "correct": 22,
+          "accuracy": 0.55,
+          "mean_correct_probability": 0.5575010926475841
+        }
+      },
+      "training_seconds": 181.57270233298186,
+      "total_seconds": 194.3378474159981,
+      "steps": 95,
+      "selected_epoch": 2,
+      "peak_memory_gb": 36.681358724,
+      "reload_matches": true,
+      "mlx": "0.32.2",
+      "mlx_lm": "0.31.3",
+      "batch_size": 4,
+      "microbatch_size": 4,
+      "learning_rate": 5e-05,
+      "lora": {
+        "rank": 16,
+        "scale": 2.0,
+        "dropout": 0.0,
+        "keys": [
+          "self_attn.q_proj",
+          "self_attn.k_proj",
+          "self_attn.v_proj",
+          "self_attn.o_proj",
+          "mlp.gate_proj",
+          "mlp.up_proj",
+          "mlp.down_proj"
+        ]
+      }
+    }
+  ]
+}

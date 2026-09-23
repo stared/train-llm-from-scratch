@@ -2,7 +2,7 @@
 
 [Model training workshop](https://luma.com/Warsaw-Model-Trainers-w3) with **[Piotr Migdał](https://p.migdal.pl/) and Anna Olchowik**, organized by [Kolektyw3](https://luma.com/kolektyw3) as preparation for the [Warsaw Model Trainers hackathon](https://luma.com/Warsaw-Model-Trainers-hackathon?tk=tXTOg3).
 
-Train a small language model from scratch, then adapt existing models. Polish materials, English explanations, ordinary runnable scripts.
+Train a small language model from scratch, then adapt existing models. Polish training data, English explanations.
 
 [![How to Train Your Own Model — Anna Olchowik and Piotr Migdał, 23 September 2026, Kolektyw3, Warsaw](workshop.jpeg)](https://luma.com/Warsaw-Model-Trainers-w3)
 
@@ -37,7 +37,7 @@ Opens http://localhost:5173 in your browser. The app combines an interactive exp
 modal run scripts/prepare_data_modal.py
 ```
 
-Modal downloads **123 MB** and prepares **101 million training tokens** in your cloud volume. The corpus does not pass through your laptop. While it runs, follow the guide's tokenizer example and [byte-pair encoding (BPE)](https://en.wikipedia.org/wiki/Byte_pair_encoding) visualization. Preparation uses paid CPU time, not a GPU.
+Modal downloads **123 MB** and prepares **101 million training tokens** in your cloud volume. Explore the tokenizer and [byte-pair encoding (BPE)](https://en.wikipedia.org/wiki/Byte_pair_encoding) visualization.
 
 ## 2. Pretraining
 
@@ -71,15 +71,11 @@ modal run scripts/rlvr_showcase_modal.py --task six_words
 
 **Up to 10 minutes, about $0.19 measured worker compute.** This starts from the original Qwen model, independently of SFT. Open **RLVR** to see sampled answers, their rewards and development success.
 
-## Additional tasks
-
-Experiment with the tokenizer using your own text.
-
 ## Running the exercises
 
-Exercises 3 and 4 are independent of pretraining. You can run jobs in separate terminals; each job is billed separately. Keep the training terminal connected for live updates. Results are saved in `runs/`.
+Keep the training terminal connected for live updates. Results are saved in `runs/`.
 
-The main path used about **$1.04 in worker compute** in our experiments. These are historical measurements, not caps; loading/evaluation add time and builds/storage cost extra.
+Measured compute for the four exercises: about **$1.04**. See the [run measurements](http://localhost:5173/reports#workshop-check.html).
 
 ## Explore further
 
@@ -88,8 +84,6 @@ Each exercise ends with a small experiment. Options include Wikipedia pretrainin
 ## Files
 
 The four numbered guides are the main path. `scripts/` contains runnable code and its model settings (`models.json`). `datasets/` contains inputs; large downloads in `datasets/local/` are gitignored. `visualization/` contains the app and its local server; `results/` contains experiment reports available through the app; `runs/` contains your generated outputs and is gitignored. `additional/` holds optional exercises and research; `LAB_NOTEBOOK.md` records findings.
-
-Codex or Claude are optional helpers. Other GPU platforms include [Google Colab](https://colab.research.google.com/) and [Lightning AI](https://lightning.ai/); these commands use Modal.
 
 ## Learn more
 

@@ -992,3 +992,12 @@ Validation runs: `scratch-wolne-lektury-30m-1789724828611905521` (60s H100 train
 Read-only replay of the existing ten-minute pretraining and RLVR checkpoints matched the recorded text exactly before adding probabilities to the bundled examples. H100 scratch replay$0.014324; L4 RLVR replay$0.005812 (function-time estimates). Two initial replay workers failed during module import because the local repository path was evaluated remotely; fixed the local/remote import boundary and retained their combined full180s worker ceilings (~$0.26) rather than assuming free failures. Successful measured workers total about$0.193; a$2.50 reserve covers all requested hard worker ceilings for this visualization validation, including failed attempts. This is separate from the earlier$381.89 conservative overnight ledger exposure and remains below the$400 authorization.
 
 CPU validation:32 standard-library tests and8 scratch-model tests pass. Browser checks cover actual saved data, checkpoint controls, reward samples, probability tooltips, text-position invariance, mobile overflow and live-to-completed transitions. The server binds to loopback and serves only explicit app files and normalized run records. Repeated launches reuse the running app. Participant guides now use the same visualization command throughout.
+
+
+## 2026-09-22: Mac fine-tuning
+
+Six local Qwen3.5-0.8B LoRA runs on an M5 Max with 128 GB memory; no Modal jobs. [Measurements and runnable commands](results/macos-fine-tuning.md), [full metric summaries](results/macos-fine-tuning.json).
+
+The existing PyTorch runner works with MPS. BF16 completed ten epochs in 95 seconds (114 seconds including loading, evaluations and reload verification), improving 19/40 to 28/40. FP32 seeds 42 and 17 reached 28/40 and 29/40. Expanding to 289 training questions reached 35/40 in 181 seconds, with 29/40 on rotated options. All selection used development results. The four MPS runs passed `scripts/verify_prawko.py`, including independent score recomputation and training-ID isolation.
+
+MLX 0.31.3 also trained and reloaded adapters: 18/40 to 28/40 with microbatch size 1 and gradient accumulation to batch 4; 18/40 to 26/40 with a true batch of 4. Both used a three-minute budget, rank 16, effective scale 2 and answer-only full-vocabulary cross entropy. Raw baseline predictions differ between FP32 MPS, BF16 MPS and MLX. The MLX loop is in `additional/scripts/prawko_mlx.py`; these are configuration measurements, not a general backend benchmark.

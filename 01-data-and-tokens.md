@@ -12,7 +12,7 @@ For pretraining, we turn text into token IDs and teach a model to predict the ne
 
 ## Wolne Lektury
 
-[Wolne Lektury](https://wolnelektury.pl/) provides literary texts. We use a historical snapshot, not the complete current catalogue.
+[Wolne Lektury](https://wolnelektury.pl/) provides literary texts. We use the snapshot linked below.
 
 - [Download the historical snapshot](https://www.dropbox.com/scl/fi/xe53n90v40l9xuvodecq9/wolnelektury.zip?rlkey=z88vhfdl0cojsacqv5hu7w09u&dl=1): 123 MB compressed.
 - Training split: 5,263 works, 287 MB of text, 101 million tokens.
@@ -34,9 +34,9 @@ To start, run:
 modal run scripts/prepare_data_modal.py
 ```
 
-Modal downloads the texts, converts them into token IDs using our saved tokenizer, and stores them in your Modal volume. Books are split into training, development and test sets before training. The large files stay in the cloud, without passing through your laptop or the workshop Wi-Fi.
+Modal downloads the texts, converts them into token IDs using our saved tokenizer, and stores them in your Modal volume. Books are split into training, development and test sets before training.
 
-Existing prepared data is checked and reused. Wait for **Ready** before [pretraining](02-pretraining.md). While it runs, try the BPE explorer below.
+Wait for **Ready** before [pretraining](02-pretraining.md). While it runs, try the BPE explorer below.
 
 ## Text → tokens
 
@@ -52,7 +52,7 @@ Open the visualization and select **Tokenization**:
 pnpm dev
 ```
 
-Edit the colored text directly. Switch between the workshop tokenizer, Small BPE, or your own byte-level BPE `tokenizer.json` to compare the same text. Move the slider towards bytes to undo merges; hover over a token to see its ID and merge history.
+Edit the colored text directly. Compare the workshop tokenizer with GPT-4 (`cl100k_base`), GPT-4o (`o200k_base`), or your own byte-level BPE `tokenizer.json`. Hover over a token for its ID. Use the slider to undo merges with the workshop tokenizer.
 
 ## Optional: tokenize files or train a tokenizer
 

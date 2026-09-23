@@ -17,6 +17,12 @@
   <p id="notice" role="status" hidden></p>
   <section id="tokens" hidden><iframe title="Interactive byte-pair encoding explorer" src="/tokenizer"></iframe></section>
   <div id="training" hidden>
+    <section id="live-prediction" hidden>
+      <div class="section-heading"><h2>Next-token prediction</h2><label class="inline">Model<select id="live-model"></select></label></div>
+      <div class="live-layout"><div><label class="caption" for="live-input">Input</label><textarea id="live-input" rows="2" maxlength="2000" disabled>— Nie wiem,</textarea><pre id="live-output"></pre>
+      <div class="live-actions"><button id="live-next" disabled>Next token</button><button id="live-reset">Reset</button></div></div>
+      <div><div class="temperature-row"><label for="live-temperature">Temperature</label><input id="live-temperature" type="range" min="0" max="2" step="0.1" value="1"><output id="live-temperature-value">1.0</output></div><div id="live-candidates"></div><p id="live-status" role="status" class="small"></p></div></div>
+    </section>
     <div id="metadata" class="metadata"></div>
     <details id="training-data"><summary>Training example</summary><div id="data-example"></div></details>
     <section class="curve-section" aria-label="Training curve">
@@ -25,17 +31,27 @@
       <div class="timeline"><button id="previous" aria-label="Previous checkpoint">←</button><input id="checkpoint" type="range" min="0" value="0" aria-label="Training checkpoint"><button id="next" aria-label="Next checkpoint">→</button><output id="checkpoint-label"></output></div>
     </section>
     <section class="examples-section">
-      <div class="section-heading"><h2 id="example-heading">Same prompt, over time</h2><label class="inline">Example<select id="example"></select></label></div>
-      <p id="split-note" class="small"></p>
-      <div class="prompt"><span class="caption">Input</span><pre id="prompt"></pre><p id="answer-key"></p></div>
-      <div class="output-controls"><label><input id="probabilities" type="checkbox" checked> Token probabilities</label><span id="probability-note" class="small"></span></div>
+      <div class="section-heading"><h2 id="example-heading">Before and after training</h2></div>
+      <div class="input-row"><label for="example">Input</label><select id="example"></select></div>
+      <div id="question-input" class="prompt" hidden><pre id="prompt"></pre><p id="answer-key"></p></div>
+      <div class="output-controls">
+        <label><input id="probabilities" type="checkbox" checked> Color by token probability</label>
+        <div id="probability-legend" class="probability-scale" hidden aria-label="Logarithmic probability scale, blue likely to red unlikely">
+          <div class="scale-labels"><span>100%</span><span>1%</span><span>0.01%</span></div><div class="gradient"></div>
+        </div>
+        <span id="probability-note" class="small"></span>
+      </div>
       <div class="pair"><section><h3>Before training</h3><div id="before"></div></section><section><h3 id="after-label">Selected checkpoint</h3><div id="after"></div></section></div>
-      <p id="probability-legend" class="small" hidden><span class="gradient"></span> Less likely → more likely. Raw next-token probability, not factual correctness. Hover or focus a token for alternatives.</p>
+      <p id="token-hint" class="small">Hover over a token to inspect its probability and alternatives.</p>
     </section>
     <section id="rollouts" hidden><div class="section-heading"><h2>Learning from rewards</h2><label class="inline">Update<select id="rollout"></select></label></div><p class="small">Four answers sampled for one training prompt. The checker assigns rewards; relative reward determines the update.</p><pre id="rollout-prompt" class="prompt"></pre><div id="rollout-table"></div></section>
-    <footer id="provenance"></footer>
   </div>
 </main>
-<aside id="tooltip" role="tooltip" hidden></aside>
+<aside id="prediction" role="dialog" aria-label="Token probabilities" hidden>
+  <div class="inspector-heading"><strong id="prediction-token"></strong><button id="prediction-close" aria-label="Close token details">×</button></div>
+  <div id="prediction-detail" class="small"></div>
+  <div class="inspector-subheading">Next-token probabilities</div>
+  <div id="prediction-candidates"></div>
+</aside>
 <script type="module" src="/app.js"></script>
 </html>

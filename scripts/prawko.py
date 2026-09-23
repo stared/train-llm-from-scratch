@@ -13,6 +13,7 @@ import hashlib
 import json
 from pathlib import Path
 import random
+import platform
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,7 +32,7 @@ def question(row, order=(0, 1, 2)):
 
 
 def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
-        epochs=5, lr=5e-5, seed=42, device='cuda', progress=None, initial_adapter=None, answer_text=False, train_batch_size=4, eval_batch_size=8, dataset_path=None):
+        epochs=5, lr=5e-5, seed=42, device='cuda', progress=None, initial_adapter=None, answer_text=False, train_batch_size=4, eval_batch_size=8, dataset_path=None, precision=None):
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForImageTextToText
     from peft import LoraConfig, get_peft_model, get_peft_model_state_dict, set_peft_model_state_dict, PeftModel
@@ -41,6 +42,12 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
         raise ValueError('Learning rate out of bounds')
     if train_batch_size not in (1,2,4,8) or eval_batch_size not in (1,2,4,8):
         raise ValueError('Batch sizes must be 1, 2, 4, or 8')
+    precision = precision or ('bfloat16' if device == 'cuda' else 'float32')
+    if precision not in ('float32', 'bfloat16'):
+        raise ValueError('Use float32 or bfloat16 precision')
+    if device == 'mps' and not torch.backends.mps.is_available():
+        raise ValueError('MPS is unavailable on this machine')
+    sampled_peak_mps = 0
     started = time.monotonic()
     if device == 'cuda':
         torch.cuda.reset_peak_memory_stats()
@@ -62,7 +69,7 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
     cls = AutoModelForImageTextToText if spec['multimodal'] else AutoModelForCausalLM
     def load():
         return cls.from_pretrained(spec['id'], revision=spec['revision'],
-            dtype=torch.bfloat16 if device == 'cuda' else torch.float32,
+            dtype=getattr(torch, precision),
             attn_implementation='sdpa').to(device)
     torch.manual_seed(seed)
     model = load()
@@ -87,7 +94,11 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
 
     def logits(inputs):
         # Only project the final hidden state: avoids full prompt-by-vocabulary logits.
-        return model(**inputs, use_cache=False, logits_to_keep=1).logits[:, -1, :].float()
+        nonlocal sampled_peak_mps
+        value = model(**inputs, use_cache=False, logits_to_keep=1).logits[:, -1, :].float()
+        if device == 'mps':
+            sampled_peak_mps = max(sampled_peak_mps, torch.mps.current_allocated_memory())
+        return value
 
     def evaluate(name, rows, rotated=False):
         records = []
@@ -236,6 +247,8 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
             lora_rank=16, lora_alpha=32, learning_rate=lr, epochs_requested=epochs, max_seconds=max_seconds,
             beta=.01 if method=='rlvr' else None, reference_policy='original base model' if method=='rlvr' else None, adapter_changed=changed, reload_matches=matched,
             algorithm='Full-vocabulary next-token SFT' if method=='sft' else 'On-policy categorical REINFORCE/RLOO, four samples, exact three-action reference KL')
+    result['environment'] = dict(device=device, precision=precision, torch=torch.__version__, platform=platform.platform())
+    result['sampled_peak_mps_gb'] = sampled_peak_mps/1e9 if device=='mps' else None
     result['total_seconds'] = time.monotonic() - started
     result['peak_vram_gb'] = torch.cuda.max_memory_allocated()/1e9 if device=='cuda' else None
     save(out / 'result.json', result)
@@ -245,7 +258,7 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--dataset-path',type=Path,help='Optional JSON with train/dev/test splits')
-    p.add_argument('--output', default='runs/prawko-local')
+    p.add_argument('--output', help='Result directory; defaults to a new folder in runs/')
     p.add_argument('--method', choices=['screen', 'sft', 'rlvr'], default='screen')
     p.add_argument('--model', default='qwen3.5-0.8b')
     p.add_argument('--max-seconds', type=int, default=180)
@@ -253,5 +266,8 @@ if __name__ == '__main__':
     p.add_argument('--lr', type=float, default=5e-5)
     p.add_argument('--seed', type=int, default=42)
     p.add_argument('--device', choices=['cpu', 'cuda', 'mps'], default='cpu')
+    p.add_argument('--precision', choices=['float32', 'bfloat16'])
     a = p.parse_args()
-    run(a.output, a.method, a.model, a.max_seconds, a.epochs, a.lr, a.seed, a.device,dataset_path=a.dataset_path)
+    output = a.output or f'runs/prawko-{a.method}-{time.time_ns()}'
+    print(f'Results: {output}', flush=True)
+    run(output, a.method, a.model, a.max_seconds, a.epochs, a.lr, a.seed, a.device,dataset_path=a.dataset_path,precision=a.precision)
