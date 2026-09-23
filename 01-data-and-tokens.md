@@ -67,11 +67,13 @@ https://github.com/user-attachments/assets/99bce2a0-4c99-462d-bd85-bd31b27c2de0
 [Download the tokenizer video](assets/videos/tokenizer-explainer.mp4).
 ## BPE explorer
 
-Open the visualization and select **Tokenization**:
+In a terminal in the repository folder, start the viewer (skip this command if it is already running):
 
 ```bash
 pnpm dev
 ```
+
+Keep that terminal running. In your browser, open [http://localhost:5173/#tokens](http://localhost:5173/#tokens). This opens **Tokenization**. If a browser tab opened automatically, you can use that tab instead.
 
 Edit the colored text directly. Compare the workshop tokenizer with GPT-4 (`cl100k_base`), GPT-4o (`o200k_base`), or your own byte-level BPE `tokenizer.json`. Hover over a token for its ID. Use the slider to undo merges with the workshop tokenizer.
 

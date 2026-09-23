@@ -140,13 +140,15 @@ GPUs differ in speed, available memory and price. Memory limits how large a mode
 
 ## 3. Watch your run
 
-Open a second terminal in the same repository and run:
+If the viewer is not already running, open a second terminal in the same repository and run:
 
 ```bash
 pnpm dev
 ```
 
-If the viewer is already running, keep using it. Open **Pretraining** and choose **your run** from the **Run** menu. Entries labelled **Example run** are included demonstrations, not the job you just started.
+Keep the viewer terminal running. In your browser, open [http://localhost:5173/#pretrain](http://localhost:5173/#pretrain). This opens **Pretraining**. If you already have the viewer open, select **Pretraining** in that tab instead.
+
+Choose **your run** from the **Run** menu. Entries labelled **Example run** are included demonstrations, not the job you just started.
 
 Watch two things:
 

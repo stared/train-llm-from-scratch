@@ -20,14 +20,14 @@ Train a small language model from scratch, then adapt existing models. Polish tr
 pnpm dev
 ```
 
-Opens http://localhost:5173 in your browser. The app combines an interactive explanation with a viewer for real training results:
+Keep this terminal running. In your browser, open [http://localhost:5173](http://localhost:5173) if it has not opened automatically. The app combines an interactive explanation with a viewer for real training results:
 
 - **Tokenization:** explore how text becomes tokens. You can use this before training any model.
 - **Pretraining, SFT and RLVR:** watch your actual training progress, including learning curves and generated text or answers. Select your job in the **Run** menu. Move between checkpoints to compare outputs at different stages of training.
 - **Before you run anything:** the training sections show included example results from earlier experiments. These are not results from your own model.
 - **Reports:** browse saved experiment reports and comparisons.
 
-**`pnpm dev` only opens the viewer. It does not start training.** Start training separately using the Modal commands below. Keep the viewer open and the training terminal connected for live updates; your runs appear automatically.
+**`pnpm dev` only starts the viewer. It does not start training.** Start training separately using the Modal commands below. Keep the viewer open and the training terminal connected for live updates; your runs appear automatically.
 
 ## 1. Data and tokenization
 
