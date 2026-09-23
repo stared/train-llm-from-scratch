@@ -69,8 +69,8 @@ One actual correction, from the pilot linked above:
 
 | Question 10840: how do you transport a child under 150 cm in the front passenger seat? | Answer |
 |---|---|
-| Original Qwen3.5-0.8B | A — on a passenger's lap |
-| Same model + SFT on 100 exam questions | B — in a child seat or other child restraint |
+| Original Qwen3.5-0.8B | A, on a passenger's lap |
+| Same model + SFT on 100 exam questions | B, in a child seat or other child restraint |
 | Official dataset key | B |
 
 Question/options are abbreviated English translations; the actual inputs and predictions are Polish question text and A/B/C letters. Read the report for the complete question, all options and regressions.
@@ -113,8 +113,4 @@ For a different task, [teach a model to answer in verse](additional/poetry.md).
 
 **Next:** [4. Reinforcement learning with verifiable rewards](04-reinforcement-learning.md).
 
-## See also
-
-- [Which ML are you?](https://github.com/stared/which-ml-are-you): explore accuracy, log-loss, precision and recall.
-- [TRL SFTTrainer](https://huggingface.co/docs/trl/sft_trainer): a configurable SFT training implementation.
-- [More on fine-tuning, prompting and quantization](additional/reading.md#fine-tuning).
+**Further reading:** [Fine-tuning and reinforcement learning](README.md#fine-tuning-and-reinforcement-learning).

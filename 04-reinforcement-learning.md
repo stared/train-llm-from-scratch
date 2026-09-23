@@ -49,8 +49,4 @@ Check whether the successful stories are interesting, as well as valid. For anot
 
 We also prompted **Qwen3.5-2B** to explain Polish driving-exam answers, then trained with RLVR rewarding only a correct final letter. Strict success rose **0 → 25/40**, but the model stopped explaining. Reading the explicit answer anywhere in the response gave **25/40 both before and after**. It learned the rewarded format, not better exam knowledge. [Actual outputs and curves](http://localhost:5173/reports#training-comparisons.html).
 
-## See also
-
-- [State of GPT](https://www.youtube.com/watch?v=bZQun8Y4L2A) (Karpathy, 2023) — an overview of pretraining, SFT and reinforcement learning from human feedback.
-- [TRL: GRPO trainer](https://huggingface.co/docs/trl/grpo_trainer) and [RLOO trainer](https://huggingface.co/docs/trl/rloo_trainer) — `scripts/rlvr_showcase.py` uses on-policy REINFORCE with a leave-one-out baseline (RLOO); GRPO is the close relative used for DeepSeek-R1.
-- [DeepSeek-R1 paper](https://arxiv.org/abs/2501.12948) — RLVR at scale, with a detailed account of training and evaluation.
+**Further reading:** [Fine-tuning and reinforcement learning](README.md#fine-tuning-and-reinforcement-learning).

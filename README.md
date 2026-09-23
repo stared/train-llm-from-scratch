@@ -4,7 +4,7 @@
 
 Train a small language model from scratch, then adapt existing models. Polish training data, English explanations.
 
-[![How to Train Your Own Model — Anna Olchowik and Piotr Migdał, 23 September 2026, Kolektyw3, Warsaw](workshop.jpeg)](https://luma.com/Warsaw-Model-Trainers-w3)
+[![How to Train Your Own Model, Anna Olchowik and Piotr Migdał, 23 September 2026, Kolektyw3, Warsaw](workshop.jpeg)](https://luma.com/Warsaw-Model-Trainers-w3)
 
 ## Setup
 
@@ -85,12 +85,42 @@ Each exercise ends with a small experiment. Options include Wikipedia pretrainin
 
 The four numbered guides are the main path. `scripts/` contains runnable code and its model settings (`models.json`). `datasets/` contains inputs; large downloads in `datasets/local/` are gitignored. `visualization/` contains the app and its local server; `results/` contains experiment reports available through the app; `runs/` contains your generated outputs and is gitignored. `additional/` holds optional exercises and research; `LAB_NOTEBOOK.md` records findings.
 
-## Learn more
+## Further reading
 
-- [Transformer Explainer](https://poloclub.github.io/transformer-explainer/): explore how GPT-2 predicts the next token.
-- [RecurrentJS — Andrej Karpathy](https://cs.stanford.edu/people/karpathy/recurrentjs/): train an RNN/LSTM in your browser and watch it learn to generate text.
-- [MiMo-V2.6 RL dashboard](https://mimo.xiaomi.com/rl/): public post-training dashboard from Xiaomi's MiMo team, led by Luo Fuli. See also [HN discussion](https://news.ycombinator.com/item?id=49732270).
-- [Let's build GPT from scratch](https://www.youtube.com/watch?v=kCc8FmEb1nY): Karpathy's coding walkthrough.
-- [Hugging Face LLM Course](https://huggingface.co/learn/llm-course/en/chapter1/4): transformers, pretraining and fine-tuning.
+### Machine learning fundamentals
 
-[Further reading and model benchmarks](additional/reading.md).
+- [Thinking in tensors, writing in PyTorch](https://github.com/stared/thinking-in-tensors-writing-in-pytorch), a hands-on introduction to neural networks.
+- [Which ML are you?](https://github.com/stared/which-ml-are-you), explore accuracy, log-loss, precision and recall.
+- [TensorFlow Playground](https://playground.tensorflow.org/), change a small neural network and watch its decision boundary learn.
+- [Sparks of AGI](https://arxiv.org/abs/2303.12712), early experiments exploring GPT-4's capabilities and limitations.
+- [GPT-4 gets a B on my quantum computing final exam](https://scottaaronson.blog/?p=7209), Scott Aaronson examines what the model gets right and where its reasoning fails.
+
+### Language models
+
+- [Transformer Explainer](https://poloclub.github.io/transformer-explainer/), follow next-token prediction through GPT-2 and change the input and temperature.
+- [LLM Visualization](https://bbycroft.net/llm), trace the tensors and computations inside a transformer.
+- [MicroGPT](https://karpathy.ai/microgpt.html), a minimal implementation to read alongside our [training loop](scripts/train_scratch.py).
+- [Let's build GPT from scratch](https://www.youtube.com/watch?v=kCc8FmEb1nY), Karpathy's coding walkthrough.
+- [Hugging Face LLM Course](https://huggingface.co/learn/llm-course/en/chapter1/4), a structured course covering tokenizers, transformers and training.
+- [Nanochat](https://github.com/karpathy/nanochat), a complete language-model training pipeline to explore after the workshop.
+- [RecurrentJS](https://cs.stanford.edu/people/karpathy/recurrentjs/), Karpathy's earlier browser demo of an RNN learning to generate text.
+
+### Fine-tuning and reinforcement learning
+
+- [TRL SFTTrainer](https://huggingface.co/docs/trl/sft_trainer) and [RLOOTrainer](https://huggingface.co/docs/trl/rloo_trainer), implementations of supervised fine-tuning and reinforcement learning with a leave-one-out baseline. See [GRPOTrainer](https://huggingface.co/docs/trl/grpo_trainer) for the related algorithm used in DeepSeek-R1.
+- [DeepSeek-R1 paper](https://arxiv.org/abs/2501.12948), reinforcement learning with verifiable rewards at scale.
+- [MiMo-V2.6 RL dashboard](https://mimo.xiaomi.com/rl/), public post-training dashboard from Xiaomi's MiMo team, led by Luo Fuli. See also [HN discussion](https://news.ycombinator.com/item?id=49732270).
+
+### Evaluating and choosing models
+
+- [Medprompt](https://arxiv.org/abs/2311.16452), a medical-exam case study showing why a strong prompting baseline matters before fine-tuning.
+- [Artificial Analysis](https://artificialanalysis.ai/), compare model quality, speed and price.
+- [Quesma benchmarks](https://quesma.com/benchmarks/), task-specific evaluations, including [Baba Is Bench](https://quesma.com/benchmarks/babaisbench/) for puzzle solving and [mushroom identification](https://quesma.com/blog/mushroom-llm-vision/) for image classification.
+- [Terminal-Bench 4.0](https://www.tbench.ai/), evaluate agents on practical tasks, with completion rates, cost and token usage.
+- [Arena](https://arena.ai/leaderboard) and [LiveBench](https://livebench.ai/), compare human preferences with benchmark performance. Use these to shortlist models, then test on your own task.
+
+### Model size, compute and quantization
+
+- [Training compute over time](https://ourworldindata.org/grapher/computation-used-to-train-notable-artificial-intelligence-systems), Our World in Data's estimates for notable AI systems.
+- [Incompressible Knowledge Probes](https://01.me/research/ikp/), explore the relationship between factual knowledge and parameter count, including model-size estimates inferred from benchmark scores.
+- [Qwen3.8-27B quantization benchmarks](https://quesma.com/blog/qwen38-27b-quantizations-benchmarked/), measured quality changes when reducing weight precision.

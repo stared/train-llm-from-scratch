@@ -114,8 +114,4 @@ Longer Wikipedia runs continue improving held-out loss. See the [training-time a
 
 **Next:** [3. Supervised fine-tuning](03-fine-tuning.md).
 
-## See also
-
-- [Transformer Explainer](https://poloclub.github.io/transformer-explainer/): follow next-token prediction through GPT-2.
-- [MicroGPT](https://karpathy.ai/microgpt.html): a small GPT implementation; compare its training loop with [train_scratch.py](scripts/train_scratch.py).
-- [More on training and optimization](additional/reading.md#pretraining).
+**Further reading:** [Language models](README.md#language-models).
