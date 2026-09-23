@@ -4,6 +4,15 @@ You will teach a model to choose **A, B or C** for Polish driving-theory questio
 
 We now use **Qwen3.5-0.8B**, an existing pretrained model with roughly 800 million parameters. **This does not continue training your Wolne Lektury model.** Qwen already has language skills; we adapt it to this specific task.
 
+<details>
+<summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: Why aren't we using the model we just trained?</strong></summary>
+
+Chapter 2 showed how a model begins learning language from random weights. Our small model had only ten minutes to learn from literary text. It can continue text, but it has not been trained to follow question-answering instructions.
+
+Qwen gives us a stronger starting point for this exercise. We can spend our short training budget adapting its existing skills to driving-test answers. These chapters show two useful choices: build a model from scratch, or adapt an existing one. You could also fine-tune your own model, but that is a separate experiment.
+
+</details>
+
 ## 1. Understand the task and check you are ready
 
 Use the same repository and Modal setup as before. You do not need to finish the pretraining run or download its weights. The [question dataset](datasets/prawko-v2/data.json) is already included. The script loads Qwen and its tokenizer automatically on the Modal worker.
@@ -12,7 +21,44 @@ Each example contains a question, three options and the correct letter. For exam
 
 The model learns to predict **the answer letter**, not an explanation. The script shuffles option order during training and updates the target letter to match.
 
+<details>
+<summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: How is answering a question still predicting the next token?</strong></summary>
+
+The question and its options are the text the model reads first. Its answer is the continuation. Here is training question 2536, with the answer boundary shown as `Answer:` for clarity:
+
+```text
+Kierujesz samochodem osobowym podczas ulewnego deszczu. Którą z wymienionych czynności należy wykonać po wjechaniu w koleinę wypełnioną wodą?
+A. Płynnie zmniejszyć prędkość.
+B. Zdecydowanie przyhamować.
+C. Zdecydowanie przyspieszyć.
+Answer:
+```
+
+The supplied target is `A`. The script uses Qwen's chat formatting to mark where the answer starts; it does not literally add the English label above. It asks the model to return only one letter.
+
+In chapter 2, we learned from next-token predictions throughout a passage. Here, the question provides context and the training loss focuses on the correct answer letter. If the model gives `A` a low probability, the loss is higher. Updating the adapter aims to make that correct letter more likely.
+
+</details>
+
+<details>
+<summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: Why shuffle the answer options?</strong></summary>
+
+In the example above, the correct answer occupies position A. If we move that answer to position C, the target must become `C`.
+
+Shuffling discourages a shortcut: remembering that a particular question always means "A". The model should connect the question to the answer's content wherever it appears. This does not guarantee understanding, but it reduces reliance on a fixed option order.
+
+</details>
+
 An **adapter** is a small set of extra trainable weights added to the existing model.
+
+<details>
+<summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: If the original weights stay frozen, how can the answer change?</strong></summary>
+
+Frozen means those original numbers are not updated. The adapter adds a learned adjustment to some of the model's calculations. The combined result affects the probabilities of the next token.
+
+For example, the original model might favor `B`. After training, the adapter's adjustments may make `A` more likely for the same question. We changed the extra weights that participate in the calculation, so the answer can change even though the original weights stayed fixed.
+
+</details>
 
 There are **100 training questions**, **25 development questions** and **40 test questions**. Training questions update the adapter. Development questions select the best checkpoint. Test questions measure the selected model.
 

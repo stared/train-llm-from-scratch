@@ -17,7 +17,25 @@ For the requested words **astronaut** and **birthday**:
 
 The checker counts sequences of letters as words and ignores capitalization when matching them. Punctuation does not count as a word.
 
+<details>
+<summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: Why can a model with four billion parameters struggle to count six words?</strong></summary>
+
+Remember chapter 1: the model generates **tokens**, while this checker counts **words**. A word can take several tokens. Generating six tokens therefore does not necessarily produce six words.
+
+The model chooses each next token using learned patterns. Fluent writing does not guarantee that it will track the word count, include both requested words and stop at exactly the right point. A larger model can still miss these constraints. This exercise gives it training feedback specifically about those rules.
+
+</details>
+
 Use the same repository and Modal setup as before. There is no dataset to download manually: the script generates **256 training prompts**, **24 development prompts** and **32 test prompts**. It loads the pretrained model automatically. There are no supplied target stories.
+
+<details>
+<summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: Why use reinforcement learning instead of supplying correct stories?</strong></summary>
+
+Many different stories can satisfy the same request. We could write target stories and use supervised fine-tuning, as in chapter 3. But writing those examples takes work, while checking word counts and required words is easy to automate.
+
+Here, the model proposes answers and the checker supplies feedback. We do not need to write a target story for every prompt. This is useful when we can reliably check the property we want to teach. It also sets a limit: our checker can teach compliance with these rules, but it cannot tell the model which story is more interesting.
+
+</details>
 
 <details>
 <summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: How can a score teach the model?</strong></summary>
@@ -25,6 +43,19 @@ Use the same repository and Modal setup as before. There is no dataset to downlo
 For each training prompt, the model samples four possible answers. The checker scores each one. The training update encourages answers that scored better than their alternatives and discourages those that scored worse. Only the LoRA adapter changes.
 
 **Reward** is a number from 0 to 1. The six-word checker gives partial credit for getting close to six words, including the requested words, and avoiding repetitions while using the required format. Meeting every rule adds a bonus and gives the maximum reward of 1.
+
+Imagine these four sampled answers for the requested words **astronaut** and **birthday**. These are teaching examples, with rewards calculated by the actual checker and rounded to two decimal places:
+
+| Sampled answer | Reward | Why? |
+|---|---:|---|
+| Astronaut blew birthday candles in space. | 1.00 | Meets every rule. |
+| Astronaut blew birthday candles. | 0.43 | Includes both words, but has only four words. |
+| Astronaut watched distant stars in silence. | 0.40 | Six words, but missing "birthday". |
+| Astronaut astronaut birthday birthday candles candles. | 0.40 | Six words and both requested words, but repeats words. |
+
+The script compares each answer's score with the average score of the other three answers for that prompt. In this example, the passing answer scores above its alternatives; the other answers score below theirs. The training objective pushes up the probability of the token choices in the better-scoring answer and pushes down those in the worse-scoring answers. The optimizer uses gradients to adjust the adapter, much as it did in chapter 3. Shared patterns can then affect answers to other prompts too; improvement is not guaranteed for every answer.
+
+The checker itself only returns a score. We do not calculate gradients through its word-counting code. Instead, that score determines the direction and strength of the learning signal applied to the model's token probabilities. The actual script also applies a small penalty for moving too far from the original model, so rewards are not its only consideration.
 
 **Success** is a separate yes/no check: did the answer meet every rule? Average reward can improve even while some answers still fail.
 
