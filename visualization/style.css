@@ -24,3 +24,5 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;font
 @media(max-width:700px){.live-layout{grid-template-columns:1fr;gap:12px}#live-prediction .section-heading{align-items:start}#live-prediction .inline{width:100%}#live-model{flex:1;max-width:none;min-width:0}}
 
 .heading{flex-wrap:wrap}#run-control{width:100%}#run-control select{font-size:14px}.token{cursor:help}
+
+#live-prompts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}#live-prompts button{font-size:12px;padding:4px 8px}

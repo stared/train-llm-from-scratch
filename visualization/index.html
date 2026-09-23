@@ -24,7 +24,7 @@
   <div id="training" hidden>
     <section id="live-prediction" hidden>
       <div class="section-heading"><h2>Next-token prediction</h2><label class="inline">Model<select id="live-model"></select></label></div>
-      <div class="live-layout"><div><label class="caption" for="live-input">Input</label><textarea id="live-input" rows="2" maxlength="2000" disabled>— Nie wiem,</textarea><pre id="live-output"></pre>
+      <div class="live-layout"><div><label class="caption" for="live-input">Input</label><textarea id="live-input" rows="2" maxlength="2000" disabled>Był piękny</textarea><div id="live-prompts" aria-label="Prompt suggestions"></div><pre id="live-output"></pre>
       <div class="live-actions"><button id="live-next" disabled>Next token</button><button id="live-reset">Reset</button></div></div>
       <div><div class="temperature-row"><label for="live-temperature">Temperature</label><input id="live-temperature" type="range" min="0" max="2" step="0.1" value="1"><output id="live-temperature-value">1.0</output></div><div id="live-candidates"></div><p id="live-status" role="status" class="small"></p></div></div>
     </section>

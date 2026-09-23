@@ -22,6 +22,10 @@ export function setupLivePrediction(root){
  function append(id){if(tokens.length>=256)return;tokens.push(id);predict()}
  $('live-next').onclick=()=>{if(result)append(result.sampled)};
  $('live-input').oninput=()=>{tokens=[];result=null;++version;$('live-output').textContent='';$('live-candidates').replaceChildren();$('live-next').disabled=true;clearTimeout(timer);timer=setTimeout(predict,250)};
+ $('live-prompts').replaceChildren(...['Był piękny','Była ciemna','Nie wiem, czy','Otworzył drzwi i','Warszawa jest','Warsztaty z trenowania modelu sztucznej inteligencji'].map(text=>{
+  const button=document.createElement('button');button.type='button';button.textContent=text;button.disabled=true;
+  button.onclick=()=>{$('live-input').value=text;$('live-input').oninput();$('live-input').focus()};return button;
+ }));
  $('live-temperature').oninput=()=>{result=null;++version;$('live-next').disabled=true;$('live-temperature-value').textContent=(+$('live-temperature').value).toFixed(1);clearTimeout(timer);timer=setTimeout(predict,100)};
  $('live-model').onchange=()=>{tokens=[];$('live-output').textContent='';predict()};
  $('live-reset').onclick=()=>{tokens=[];$('live-output').textContent='';predict()};
@@ -30,7 +34,7 @@ export function setupLivePrediction(root){
   if(started)return;started=true;
   try{const response=await fetch('/api/prediction/models');if(!response.ok)throw Error('Could not load local models.');const models=await response.json();
    if(!models.length){$('live-status').textContent='No local model weights. Train a model and save its checkpoint to explore new prompts.';return}
-   $('live-model').replaceChildren(...models.map(m=>new Option(m.label,m.id)));$('live-input').disabled=false;await predict();
+   $('live-model').replaceChildren(...models.map(m=>new Option(m.label,m.id)));$('live-input').disabled=false;$('live-prompts').querySelectorAll('button').forEach(button=>button.disabled=false);await predict();
   }catch(e){$('live-status').textContent=e.message;started=false}
  };
 }

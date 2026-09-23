@@ -28,7 +28,7 @@ else:
 ROOT = Path(__file__).resolve().parents[1]
 APP = ROOT/'visualization'
 EXAMPLE_RUNS = {
-    'pretrain': 'scratch-wolne-lektury-30m-1789676785288825614',
+    'pretrain': 'scratch-wl-30m-1788883120289174941',
     'sft': 'prawko-sft-1789672433144290591',
     'rlvr': 'rlvr-train-six_words-1789672431850535000',
 }
