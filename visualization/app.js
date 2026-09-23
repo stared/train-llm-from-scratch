@@ -24,6 +24,7 @@ async function refresh(first=false){if(stage==='tokens')return;const version=++r
   options($('run'),items.map(r=>[r.id,r.label]),id);
   const selected=$('run').value;if(active&&!chosen.has(stage))chosen.set(stage,selected);if(!selected){notice('No recorded runs for this section yet.');return;}
   const data=await get('/api/run?id='+encodeURIComponent(selected));if(version!==request)return;
+  notice(); // A recovered connection must clear its error even if data is unchanged.
   const signature=JSON.stringify(data);if(signature===lastSignature&&!first)return;
   const follow=!run||checkpoint===run.snapshots.length-1;const same=run?.id===data.id;
   run=data;lastSignature=signature;checkpoint=same&&!follow?Math.min(checkpoint,data.snapshots.length-1):data.snapshots.length-1;
@@ -89,4 +90,4 @@ $('run').onchange=()=>{chosen.set(stage,$('run').value);lastSignature='';refresh
 window.addEventListener('hashchange',()=>{prediction.set(null);route()});
 const frame=document.querySelector('iframe');frame.onload=()=>{const doc=frame.contentDocument;new ResizeObserver(()=>{frame.style.height=doc.documentElement.scrollHeight+'px';}).observe(doc.body);};
 window.addEventListener('resize',()=>{if(run&&stage!=='tokens')renderCurve();});
-route();setInterval(()=>refresh(),3000);
+export const ready=route();setInterval(()=>refresh(),3000);

@@ -228,7 +228,16 @@ def catalog():
     items = [{**r, 'id':'example-'+r['stage'], 'label':run_label(r)} for r in curated]
     seen = {r['id'] for r in curated}
     counts = {}
-    for folder in folders()[:80]:
+    candidates = folders()[:80]
+    # Keep a live run's public ID after its result folder arrives, regardless of
+    # directory modification order. /api/run already resolves these live IDs.
+    live_ids = {}
+    for folder in candidates:
+        if folder.name.startswith('live-'):
+            final = read(folder/'progress.json', {}).get('final')
+            if final:
+                live_ids.setdefault(final, folder.name)
+    for folder in candidates:
         try:
             final = read(folder/'progress.json', {}).get('final') if folder.name.startswith('live-') else None
             identity = final or folder.name
@@ -241,7 +250,7 @@ def catalog():
             seen.add(identity)
             counts[run['stage']] = counts.get(run['stage'], 0) + 1
             if counts[run['stage']] <= 10:
-                items.append({**run, 'id':folder.name, 'label':run_label(run)})
+                items.append({**run, 'id':live_ids.get(identity, folder.name), 'label':run_label(run)})
         except (ValueError, KeyError, OSError):
             continue
     labels = [r['label'] for r in items]

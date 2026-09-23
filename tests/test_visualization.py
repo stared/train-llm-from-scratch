@@ -11,6 +11,50 @@ from visualization import server as visualization
 
 
 class VisualizationTests(unittest.TestCase):
+    def test_completed_run_keeps_live_id_in_either_folder_order(self):
+        for stage in ('pretrain', 'sft', 'rlvr'):
+            with self.subTest(stage=stage), tempfile.TemporaryDirectory() as d:
+                root = Path(d)
+                live_folder = root/'runs'/f'live-{stage}-123'
+                final_folder = root/'runs'/f'scratch-{stage}-456'
+                live_folder.mkdir(parents=True)
+                final_folder.mkdir()
+                events = [dict(kind='preview', label='Before', step=0,
+                               rows=[dict(prompt='Hello', continuation=' world')],
+                               metadata=dict(model='Test model', source='Test corpus'))]
+                write_live(live_folder, stage, events, 'Running', time.monotonic())
+                completed = dict(id=final_folder.name, stage=stage, model='Test model',
+                                 status='Completed', snapshots=[dict(rows=events[0]['rows'])])
+                with patch.object(visualization, 'ROOT', root), \
+                     patch.object(visualization, 'examples', return_value=[]), \
+                     patch.object(visualization, 'normalize', return_value=completed):
+                    with patch.object(visualization, 'folders', return_value=[live_folder]):
+                        self.assertEqual(visualization.catalog()[0]['id'], live_folder.name)
+                    write_live(live_folder, stage, events, 'Completed', time.monotonic(), final=final_folder.name)
+                    for order in ([final_folder, live_folder], [live_folder, final_folder]):
+                        with patch.object(visualization, 'folders', return_value=order):
+                            items = visualization.catalog()
+                            self.assertEqual(len(items), 1)
+                            self.assertEqual(items[0]['id'], live_folder.name)
+                            self.assertEqual(items[0]['status'], 'Completed')
+                            handler = object.__new__(visualization.Handler)
+                            handler.path = '/api/run?id='+items[0]['id']
+                            handler.json = Mock()
+                            handler.do_GET()
+                            self.assertEqual(handler.json.call_args.args[0]['status'], 'Completed')
+                    # Results without a live record still use their own folder ID.
+                    with patch.object(visualization, 'folders', return_value=[final_folder]):
+                        self.assertEqual(visualization.catalog()[0]['id'], final_folder.name)
+
+    def test_replies_disable_browser_caching(self):
+        handler = object.__new__(visualization.Handler)
+        handler.send_response = Mock()
+        handler.send_header = Mock()
+        handler.end_headers = Mock()
+        handler.wfile = Mock()
+        handler.reply(b'content', 'text/javascript')
+        handler.send_header.assert_any_call('Cache-Control', 'no-store')
+
     def test_local_report_is_rendered_without_writing_html(self):
         with tempfile.TemporaryDirectory() as d:
             folder=Path(d)

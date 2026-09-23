@@ -13,7 +13,12 @@
   <a href="/reports">Reports</a>
 </nav>
 <main>
-  <div class="heading"><div><h1 id="title"></h1><p id="intro"></p></div><label id="run-control">Run<select id="run"></select></label></div>
+  <div id="startup" role="status">
+    <p id="startup-message">Loading the viewer…</p>
+    <button id="reload-viewer" type="button">Reload page</button>
+  </div>
+  <noscript><p>Enable JavaScript, then reload this page to use the viewer.</p></noscript>
+  <div class="heading"><div><h1 id="title"></h1><p id="intro"></p></div><label id="run-control" hidden>Run<select id="run"></select></label></div>
   <p id="notice" role="status" hidden></p>
   <section id="tokens" hidden><iframe title="Interactive byte-pair encoding explorer" src="/tokenizer"></iframe></section>
   <div id="training" hidden>
@@ -53,5 +58,22 @@
   <div class="inspector-subheading">Next-token probabilities</div>
   <div id="prediction-candidates"></div>
 </aside>
-<script type="module" src="/app.js"></script>
+<script>
+// Keep recovery independent of the module graph: a missing import must not
+// leave only an empty heading and Run menu on screen.
+const startup = document.getElementById('startup');
+const message = document.getElementById('startup-message');
+document.getElementById('reload-viewer').onclick = () => location.reload();
+const slow = setTimeout(() => {
+  message.textContent = 'The viewer is taking longer to load. Check that pnpm dev is running, then reload this page.';
+}, 10000);
+import('/app.js').then(app => app.ready).then(() => {
+  clearTimeout(slow);
+  startup.hidden = true;
+}).catch(error => {
+  clearTimeout(slow);
+  message.textContent = 'Viewer couldn’t load. Restart pnpm dev, then reload this page.';
+  console.error('Viewer startup failed:', error);
+});
+</script>
 </html>
