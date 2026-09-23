@@ -6,11 +6,18 @@
 <style>
 *{box-sizing:border-box}body{margin:0;background:#f5f4ef;color:#242a2d;font-family:system-ui,-apple-system,sans-serif}main{max-width:1120px;margin:auto;padding:6vh 6vw 100px}section[hidden]{display:none}section{min-height:70vh}.chapter{color:#236c70;font-size:18px;font-weight:650;letter-spacing:.06em}h1{font-size:clamp(32px,4.5vw,58px);line-height:1.12;letter-spacing:-.035em;margin:24px 0}.analogy{font-size:clamp(21px,2.5vw,30px);color:#52686b;margin:0 0 36px}p,li{font-size:clamp(18px,2.1vw,26px);line-height:1.5}li{margin:12px 0}ul{padding-left:28px}.message{margin-top:34px;padding-top:24px;border-top:1px solid #c9d2ce;color:#236c70;font-weight:650}nav{position:fixed;bottom:0;width:100%;background:#f5f4ef;display:flex;align-items:center;justify-content:center;gap:24px;padding:18px;border-top:1px solid #dce0da}button{font:inherit;font-size:17px;color:#236c70;background:transparent;border:1px solid #9aaca7;border-radius:4px;padding:9px 18px;cursor:pointer}button:disabled{opacity:.35;cursor:default}button:focus-visible{outline:3px solid #236c70;outline-offset:3px}#count{font-variant-numeric:tabular-nums}.note{font-size:18px;color:#59615e}@media(max-height:650px){main{padding-top:24px}h1{margin:14px 0}.analogy{margin-bottom:20px}}@media print{body{background:white}main{padding:0;max-width:none}section,section[hidden]{display:block;break-after:page;min-height:0;padding:30px}nav{display:none}@page{size:landscape;margin:15mm}}
 .qr-slide{text-align:center}.qr-slide img{display:block;width:min(340px,65vw,44vh);height:auto;margin:24px auto;background:white}.qr-slide a{color:#236c70;overflow-wrap:anywhere}.qr-slide .note{margin-bottom:0}
+.qr-slide .short-url{font-size:clamp(32px,5vw,64px);font-weight:750;line-height:1.15;letter-spacing:-.02em;margin:24px 0}.short-url a{text-decoration:none}
 </style>
 </head>
 <body>
 <main>
-<section aria-labelledby="title1">
+<section class="qr-slide" aria-labelledby="title5">
+<h1 id="title5">The workshop is here</h1>
+<p class="analogy">Scan to open the instructions on GitHub.</p>
+<a href="https://github.com/stared/train-llm-from-scratch/blob/main/README.md"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtAAAALQAQAAAACRLHoxAAAEVklEQVR4nO2dAYrjMAwA63L//3KO4HUljR03x1GOKzOwS+smZZk1wiiy3I7Hp3h+7JsffjVQCFAIUAhQCFAIUAhQCFAIUAhQCFAIUAhQCFAIUAhQCFAIUAhQyFcI+TVetDJ8pPc9w91eo+f79rriWNz78b/66VdXFAIUAhTyXfH68Yqzj1dU7q/O2Byfjmjdo/exvPfjf/XTr64oBCgEKOTb4vUjrZjH+7F6Hp/k97WyhPf+r0KefnVFIUAhQCH/KF5nmPmY19U9Qscam/hvBAoBCgEKAQq5G6/nWJwz2ucn5++aua7oGigEKAQoBChkF68PfvozFs8Wx1PHY7p+vlfXQCFAIUAhQCHX8Zpr5R6dez4k/4yrY2y+90TXQCFAIUAhQCGgXWWfG+r3csVIJ9eHrNA1UAhQCFAIUMh1/fWIx3Pt9boemyvu/EzyRNdAIUAhQCFAIbv1dVvU8zHnkUfqurtGa11POPmAQoBCgEJ2+xuP16vIXkfUHhzL6M5oresJJx9QCFAIUMg+f90WVddjPOCO9Fo9MtA1UAhQCFAIUMh1vM79QHLsZTZkH7XtH3KJkw8oBCgEKORd/XX72XVeM9W5WmQdn+cd6roGCgEKAQoBCtnvb2wlJxJjeRd6XW2zJjvQNVAIUAhQCFDIrp6vYe9i7GasvUKiY1/Nj/T96dbzXeDkAwoBCgEKeb8fvZXXuS6ETyDXe9UHugYKAQoBCgEKuXreOO+R6czRuOazeZ6B9SGXOPmAQoBCgEL25xU0ZEHySQUjZ1Kz1HMlyUDXQCFAIUAhQCH78wqO6ayvMZ7zHrkau+a7XV9vcPIBhQCFAIXcqedrU+4jTiqIK+OOGHF9vcHJBxQCFAIUcnd93V6j9SyZyInkc8L6iPnrLU4+oBCgEKCQO+cVNMTl2D8Ta+y6Du8jrq+3OPmAQoBCgELen1dwlArruaJv7nxdO0RZf32Bkw8oBCgEKGRfz3cs+oQMag3IXIvNij5dA4UAhQCFAIVcx+tcFVJPL+AemRyz17V8J7oGCgEKAQoBCrnKh6x3oR+lo0gwnzYzo2ugEKAQoBCgkHf9r49p9Vw7hAQ5A1IrADu6BgoBCgEKAQq5sx+9Tatpdubr19V1NXfZ6BooBCgEKAQo5E/PRz/Su/FJzZaYv76Jkw8oBCgEKGR3fmMQ/VLX/a/jmlrDl9E1UAhQCFAIUMi+39P67N28hs471HPvkLlDn66BQoBCgEKAQvb70dcVHz0Kz2cTXNeGnOgaKAQoBCgEKGR/HljA3EdE7L7Gzj1D4vqMroFCgEKAQoBC7sbrR8p65H58oxPUiNm1btt6vg1OPqAQoBCgkDv9noJ4phinF9QOffHM8cT+1xucfEAhQCFAIe/7PXXymefcQ1M79sWTR/s9bXHyAYUAhQCF3K2//nt0DRQCFAIUAhQCFAIUAhQCFAIUAhQCFAIUAhQCFAIUAhQCFAIUAhQCFAJ+A+pxSsPVjQ7UAAAAAElFTkSuQmCC" alt="QR code linking to the workshop README on GitHub" width="720" height="720"></a>
+<p class="short-url"><a href="https://shorturl.at/MF3wG">shorturl.at/MF3wG</a></p>
+</section>
+<section aria-labelledby="title1" hidden>
 <div class="chapter">01 · DATA AND TOKENS</div>
 <h1 id="title1">The tools and materials</h1>
 <p class="analogy">Think of arriving at a workshop before building anything.</p>
@@ -49,12 +56,7 @@
 <p class="message">“Try an answer. I’ll check whether it succeeds.”</p>
 <p class="note">SFT learns from supplied answers. RLVR learns from scores for its own attempts.</p>
 </section>
-<section class="qr-slide" aria-labelledby="title5" hidden>
-<h1 id="title5">The workshop is here</h1>
-<p class="analogy">Scan to open the instructions on GitHub.</p>
-<a href="https://github.com/stared/train-llm-from-scratch/blob/main/README.md"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtAAAALQAQAAAACRLHoxAAAEVklEQVR4nO2dAYrjMAwA63L//3KO4HUljR03x1GOKzOwS+smZZk1wiiy3I7Hp3h+7JsffjVQCFAIUAhQCFAIUAhQCFAIUAhQCFAIUAhQCFAIUAhQCFAIUAhQyFcI+TVetDJ8pPc9w91eo+f79rriWNz78b/66VdXFAIUAhTyXfH68Yqzj1dU7q/O2Byfjmjdo/exvPfjf/XTr64oBCgEKOTb4vUjrZjH+7F6Hp/k97WyhPf+r0KefnVFIUAhQCH/KF5nmPmY19U9Qscam/hvBAoBCgEKAQq5G6/nWJwz2ucn5++aua7oGigEKAQoBChkF68PfvozFs8Wx1PHY7p+vlfXQCFAIUAhQCHX8Zpr5R6dez4k/4yrY2y+90TXQCFAIUAhQCGgXWWfG+r3csVIJ9eHrNA1UAhQCFAIUMh1/fWIx3Pt9boemyvu/EzyRNdAIUAhQCFAIbv1dVvU8zHnkUfqurtGa11POPmAQoBCgEJ2+xuP16vIXkfUHhzL6M5oresJJx9QCFAIUMg+f90WVddjPOCO9Fo9MtA1UAhQCFAIUMh1vM79QHLsZTZkH7XtH3KJkw8oBCgEKORd/XX72XVeM9W5WmQdn+cd6roGCgEKAQoBCtnvb2wlJxJjeRd6XW2zJjvQNVAIUAhQCFDIrp6vYe9i7GasvUKiY1/Nj/T96dbzXeDkAwoBCgEKeb8fvZXXuS6ETyDXe9UHugYKAQoBCgEKuXreOO+R6czRuOazeZ6B9SGXOPmAQoBCgEL25xU0ZEHySQUjZ1Kz1HMlyUDXQCFAIUAhQCH78wqO6ayvMZ7zHrkau+a7XV9vcPIBhQCFAIXcqedrU+4jTiqIK+OOGHF9vcHJBxQCFAIUcnd93V6j9SyZyInkc8L6iPnrLU4+oBCgEKCQO+cVNMTl2D8Ta+y6Du8jrq+3OPmAQoBCgELen1dwlArruaJv7nxdO0RZf32Bkw8oBCgEKGRfz3cs+oQMag3IXIvNij5dA4UAhQCFAIVcx+tcFVJPL+AemRyz17V8J7oGCgEKAQoBCrnKh6x3oR+lo0gwnzYzo2ugEKAQoBCgkHf9r49p9Vw7hAQ5A1IrADu6BgoBCgEKAQq5sx+9Tatpdubr19V1NXfZ6BooBCgEKAQo5E/PRz/Su/FJzZaYv76Jkw8oBCgEKGR3fmMQ/VLX/a/jmlrDl9E1UAhQCFAIUMi+39P67N28hs471HPvkLlDn66BQoBCgEKAQvb70dcVHz0Kz2cTXNeGnOgaKAQoBCgEKGR/HljA3EdE7L7Gzj1D4vqMroFCgEKAQoBC7sbrR8p65H58oxPUiNm1btt6vg1OPqAQoBCgkDv9noJ4phinF9QOffHM8cT+1xucfEAhQCFAIe/7PXXymefcQ1M79sWTR/s9bXHyAYUAhQCF3K2//nt0DRQCFAIUAhQCFAIUAhQCFAIUAhQCFAIUAhQCFAIUAhQCFAIUAhQCFAJ+A+pxSsPVjQ7UAAAAAElFTkSuQmCC" alt="QR code linking to the workshop README on GitHub" width="720" height="720"></a>
-<p class="note"><a href="https://github.com/stared/train-llm-from-scratch/blob/main/README.md">github.com/stared/train-llm-from-scratch</a></p>
-</section>
+
 </main>
 <nav aria-label="Slide navigation"><button id="previous" type="button">Previous</button><span id="count" aria-live="polite"></span><button id="next" type="button">Next</button></nav>
 <script>
