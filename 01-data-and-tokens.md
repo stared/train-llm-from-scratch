@@ -48,22 +48,21 @@ Why separate them? A model can improve on its practice material without improvin
 
 </details>
 
-Wait for **Ready** before [pretraining](02-pretraining.md). While it runs, try the BPE explorer below.
-
 ## Text → tokens
 
-**Watch: how a tokenizer works** — 3 min 36 s, English question-and-answer narration with on-screen explanations and subtitles.
+We have prepared a [tokenizer](datasets/wiki-tokenizer.json), trained on the Polish Wikipedia dataset, which we will use to tokenize Wolne Lektury. It is a **byte-pair encoding (BPE) tokenizer**.
+
+Byte-pair encoding (BPE) starts with small pieces and repeatedly merges frequent adjacent pairs. A trained tokenizer applies those merges and assigns each piece an integer ID.
+
+Our tokenizer has **8,192 vocabulary entries**. It was trained on 2,048 Wikipedia training articles, using up to 8,192 characters per article. It is included at `datasets/wiki-tokenizer.json`, ready to use with Wolne Lektury. You do not need the Wikipedia dataset to use this saved tokenizer.
+
+**Watch: how our tokenizer works** 
 
 This video shows how our tokenizer was trained on **2,048 Wikipedia training articles**, using up to **8,192 characters per article**, to build an **8,192-entry vocabulary**. It then shows how we use that saved tokenizer on Wolne Lektury. You do not need to train the tokenizer or download Wikipedia yourself.
 
 https://github.com/user-attachments/assets/99bce2a0-4c99-462d-bd85-bd31b27c2de0
 
 [Download the tokenizer video](assets/videos/tokenizer-explainer.mp4).
-
-Byte-pair encoding (BPE) starts with small pieces and repeatedly merges frequent adjacent pairs. A trained tokenizer applies those merges and assigns each piece an integer ID.
-
-Our tokenizer has **8,192 vocabulary entries**. It was trained on 2,048 Wikipedia training articles, using up to 8,192 characters per article. It is included at `datasets/wiki-tokenizer.json`, ready to use with Wolne Lektury. You do not need the Wikipedia dataset to use this saved tokenizer.
-
 ## BPE explorer
 
 Open the visualization and select **Tokenization**:
