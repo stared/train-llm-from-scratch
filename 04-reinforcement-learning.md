@@ -142,6 +142,25 @@ To use the trained model later, you need **the original Qwen3.5-4B model plus th
 
 You have finished when the command has completed, you have compared before/after answers, and you can explain the difference between receiving partial reward and passing every rule.
 
+## Optional exercise: try your own words
+
+Use your saved adapter to write a story containing two words you choose.
+
+Copy the folder name from the training command's **`Saved:`** message. Replace `YOUR_RLVR_RUN_NAME` below with that name, such as `rlvr-train-six_words-123456789`. Do not include `runs/`.
+
+```bash
+modal run scripts/try_adapter_modal.py --task six_words --run YOUR_RLVR_RUN_NAME \
+  --word-one lantern --word-two river
+```
+
+Replace `lantern` and `river` with two different English words, using letters only. The command prints the generated story, its word count, reward and **Pass/Fail** result from the same checker used during training.
+
+Count the words yourself. Did the answer include both requested words without repetitions? Is it an interesting story? A failed answer is a useful result too: training does not guarantee success on a new prompt.
+
+This loads the original model and your selected adapter from Modal storage onto an L4 GPU. **It incurs cloud inference charges**, including model-loading time, but does not train or change the adapter. No manual download is needed. Loading can take time; the answer appears in the terminal, not the visualization.
+
+The helper uses deterministic generation, as in the workshop evaluation. Repeating the same input is expected to give the same answer. Try a different word pair to explore the result. See [the inference script](scripts/try_adapter_modal.py).
+
 **Optional reading:** [Countdown and what a reward can accidentally teach](additional/reinforcement-learning-experiments.md).
 
 **Further reading:** [Fine-tuning and reinforcement learning](README.md#fine-tuning-and-reinforcement-learning).

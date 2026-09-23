@@ -161,6 +161,26 @@ The selected `adapter/` is what you would load alongside the original Qwen3.5-0.
 
 You have finished when the command has completed, you have compared before/after test results, and you can explain which parts of the model changed.
 
+## Optional exercise: try your own question
+
+Use your saved adapter to answer a new Polish question. Supply three answer options; the model will choose A, B or C.
+
+Copy the folder name from the training command's **`Saved`** message. Replace `YOUR_SFT_RUN_NAME` below with that name, such as `prawko-sft-123456789`. Do not include `runs/`.
+
+```bash
+modal run scripts/try_adapter_modal.py --task exam --run YOUR_SFT_RUN_NAME \
+  --question "Jaki kolor sygnalizacji świetlnej oznacza nakaz zatrzymania?" \
+  --a "Czerwony." \
+  --b "Zielony." \
+  --c "Każdy kolor oznacza to samo."
+```
+
+The command prints **Answer** and probabilities among A/B/C. For this example, the expected answer is A. Replace the question and all three options with your own. You do not supply the correct letter to the model; check its prediction yourself. It can be wrong, and these probabilities are not a guarantee of correctness.
+
+This loads the original model and your selected adapter from Modal storage onto an L4 GPU. **It incurs cloud inference charges**, including model-loading time, but does not train or change the adapter. No manual download is needed. Loading can take time; the answer appears in the terminal, not the visualization.
+
+The helper uses the same A/B/C selection as the workshop evaluation. It does not generate explanations. See [the inference script](scripts/try_adapter_modal.py) for how the model and adapter are loaded.
+
 <details>
 <summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: Optional alternative — run on a Mac</strong></summary>
 
