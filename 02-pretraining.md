@@ -1,6 +1,8 @@
 # 2. Pretraining
 
-Train a **30-million-parameter generative pretrained transformer (GPT)** from random weights on Wolne Lektury. It learns next-token prediction, not how to answer chat questions.
+In this tutorial, you will train **ScratchGPT-30M**, a small language model with roughly 30 million parameters, on **Wolne Lektury**. It starts with random weights and learns to predict the next token. By the end, you will compare its text before and after training and know where its saved weights are.
+
+This model learns to continue text. It is not trained to answer chat questions.
 
 <details>
 <summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: What actually changes during training?</strong></summary>
@@ -42,6 +44,72 @@ The model learns patterns that help it continue literary text: spelling, grammar
 
 </details>
 
+## 1. Check that you are ready
+
+Complete [data preparation](01-data-and-tokens.md#prepare-wolne-lektury) and wait for **Ready**. Run the commands below from the repository's root folder, where `README.md` is located.
+
+Training runs on a cloud GPU in Modal. Your laptop launches the job and displays its progress; it does not need its own GPU.
+
+Allow roughly **12 minutes**, plus any initial environment build. The training loop has a **10-minute budget**; loading, evaluation and saving take extra time. A previous default run took 11 min 32 s and cost about **$0.78 in worker compute**, with its environment already built. This is an example, not a spending cap; builds and storage are separate.
+
+## 2. Start training
+
+Run:
+
+```bash
+modal run scripts/scratch_recipe_modal.py --recipe wolne-lektury
+```
+
+The command will:
+
+1. Start the Modal worker and load the prepared data.
+2. Evaluate the random model and save some initial text samples.
+3. Train, reporting loss and periodically generating new samples.
+4. Select the weights with the best development loss, evaluate them, and save the results.
+
+Startup can take time before the first training measurements appear. At the end, the terminal prints **`Saved`** followed by your local run folder.
+
+Keep this terminal connected until the command finishes. You only need to launch it once.
+
+The `wolne-lektury` recipe chooses the settings for you: **ScratchGPT-30M, H100 GPU, batch size 64 and a 512-token context**. It uses the prepared Wolne Lektury data and the saved 8,192-token tokenizer. Keep these defaults for your first run.
+
+<details>
+<summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: How does the training script work? A programmer's overview</strong></summary>
+
+[scratch_recipe_modal.py](scripts/scratch_recipe_modal.py) is the **job launcher**. It reads the `wolne-lektury` recipe, chooses the GPU and settings, and asks Modal to run the training code in the cloud.
+
+**Inside `train_scratch.py`, one training step looks like this:**
+
+```mermaid
+flowchart TD
+    A["Sample 64 fragments from the training tokens"] --> B["Inputs: 512 tokens per fragment<br/>Targets: the same text shifted by one token"]
+    B --> C["Predict the next tokens<br/>using the model's current weights"]
+    C --> D["Calculate loss<br/>Compare predictions with the real next tokens"]
+    D --> E["loss.backward()<br/>Calculate how each weight affects the loss"]
+    E --> F["Clip large gradients<br/>Limit the size of the combined gradient"]
+    F --> G["optimizer.step()<br/>AdamW adjusts the weights"]
+    G --> H{"Time left in the<br/>10-minute budget?"}
+    H -->|"Yes: use the updated weights"| A
+    H -->|"No"| I["Finish evaluation and save results<br/>Keep the weights with the best development loss"]
+```
+
+The input/target shift supplies the answers automatically. For example, after `A | la`, the target is `_ma`. **The weight update is the learning step.** The next batch uses those updated weights. Before each step, `optimizer.zero_grad()` clears the previous gradients so they do not accumulate.
+
+Periodically, the script also checks development loss and saves better weights to `best.pt`. Those checks do not update weights; they help choose which model version to keep.
+
+**The libraries have different jobs:**
+
+- **Modal** supplies the remote computer, its Python environment and persistent storage.
+- **PyTorch (`torch`)** runs the model and learns its weights. `loss.backward()` calculates gradients; `optimizer.step()` applies an AdamW update.
+- **NumPy** reads the prepared token arrays and samples text fragments.
+- **Hugging Face Tokenizers (`tokenizers`)** loads the fixed tokenizer and converts between text and token IDs for the generated examples.
+
+**Follow the calls:** the launcher's local `main()` starts a remote worker. `execute_recipe()` passes the settings to [scratch_worker.py](scripts/scratch_worker.py), which calls `run()` in [train_scratch.py](scripts/train_scratch.py). The model is defined in [scratch_model.py](scripts/scratch_model.py).
+
+During training, development checks keep track of the best weights, and [training_progress.py](scripts/training_progress.py) streams progress to your laptop. At the end, the selected model is evaluated and its results are downloaded. The weights stay in Modal until you download them separately.
+
+</details>
+
 <details>
 <summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: What do these settings mean?</strong></summary>
 
@@ -57,116 +125,94 @@ For our default Wolne Lektury run:
 
 </details>
 
-## What to expect
+<details>
+<summary style="color: #8b1e2d; font-size: 1.15em; cursor: pointer;"><strong>Click to expand: What does choosing a GPU change?</strong></summary>
 
-| Dataset / model | Training | End to end | GPU | Worker cost | Test loss before → after |
-|---|---:|---:|---|---:|---:|
-| Wolne Lektury / ScratchGPT-30M | 10 min | 11 min 32 s | H100 | $0.78 | 9.073 → 2.820 |
+A **GPU** is hardware that performs many numerical calculations in parallel. Training uses it to calculate predictions and weight updates. H100, L4 and A10 are different GPU models, not different language models.
 
-Measured with the image already built. [Run report](http://localhost:5173/reports#workshop-check.html).
+GPUs differ in speed, available memory and price. Memory limits how large a model and batch can fit. With our fixed ten-minute budget, a faster GPU can usually process more batches and make more weight updates. A cheaper GPU may cost less for the run but complete fewer updates.
 
-## Run
+**Keep H100 for this walkthrough.** You do not need to compare GPUs to complete it. Knowing the trade-off is useful later when choosing between a lower run cost and more training within the same time. More updates do not guarantee a better model; check development loss and generated text.
 
-Complete [data preparation](01-data-and-tokens.md#prepare-wolne-lektury) first, then run:
+[Optional GPU comparisons](additional/pretraining-experiments.md#comparing-gpus).
 
-```bash
-modal run scripts/scratch_recipe_modal.py --recipe wolne-lektury
-```
+</details>
 
-The command uses H100, a 512-token context and an 8,192-token vocabulary. You can start [fine-tuning](03-fine-tuning.md) in another terminal while it runs.
+## 3. Watch your run
 
-## Watch training
-
-In another terminal, run:
+Open a second terminal in the same repository and run:
 
 ```bash
 pnpm dev
 ```
 
-Open **Pretraining** and select your run. The loss curve updates during training. Select a checkpoint to compare the same prompt before and after training. Token colors run from blue (likely) to red (unlikely) on a logarithmic scale. Hover over a token for its probability and alternatives.
+If the viewer is already running, keep using it. Open **Pretraining** and choose **your run** from the **Run** menu. Entries labelled **Example run** are included demonstrations, not the job you just started.
 
-Cross-entropy loss measures how much probability the model assigns to the actual next tokens; lower is better. A uniform prediction over 8,192 tokens has loss ln(8192) ≈ 9.01 nats, close to our random model's 9.07. Falling development loss means better predictions on text excluded from training.
+Watch two things:
 
-## Actual result
+- **Development loss:** a prediction-error score on text excluded from weight updates. A downward trend means the model is getting better at predicting that separate text. Individual measurements can fluctuate.
+- **Generated text:** select different checkpoints to compare continuations of the same prompt. Early output may look like nonsense; later output should become more recognizable as Polish prose.
 
-**ScratchGPT-30M**, before and after ten minutes of pretraining on Wolne Lektury. Excerpts from an earlier run, `scratch-wl-30m-1788883120289174941`; ellipses mark truncation.
+Training loss measures performance on the batches the model learns from. Development loss helps you check whether that learning also works on other text. You do not need a particular loss value to complete this tutorial.
 
-| Input | Random model | After pretraining |
+Hover over generated tokens to see their probabilities and alternatives. Generating these previews does not update the model's weights.
+
+## 4. Check the finished result
+
+Wait for the training command to finish and print **`Saved`**. In the viewer, compare the initial output with the **Selected checkpoint**. This is the model version chosen using development loss; it is not necessarily the last training step.
+
+Use the same prompt for both versions. Look for more recognizable words and sentences, then check whether the selected model's development and test loss improved over the random model. Test loss assesses the selected model on a separate set of texts; it does not choose the checkpoint.
+
+For example, an earlier Wolne Lektury run produced these excerpts:
+
+| Starting text | Before training | After training |
 |---|---|---|
 | — Nie wiem, | 99okraty Juni Griiennikózózniemie… | ale mówiła o pani zaraz. … |
-| Test loss (lower is better) | 9.073 | 2.782 |
 
-The model learned recognizable prose but still makes grammatical and logical mistakes. A related text-generation demonstration is Karpathy's [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) (2015), using recurrent networks. Try training one in the [RecurrentJS demo](https://cs.stanford.edu/people/karpathy/recurrentjs/).
+Your wording and scores will differ. More recognizable prose is useful progress, but the model can still make grammatical mistakes or produce nonsense. It is not a reliable source of facts.
 
-## Choosing a GPU
+## 5. Find your saved model
 
-Choose another card with `--gpu L4`, `--gpu A10` or `--gpu L40S`.
+The **`Saved`** message identifies a folder such as `runs/scratch-wolne-lektury-30m-<number>/` on your laptop. That folder contains downloaded measurements and generated samples for the viewer.
 
-Wolne Lektury, 30M parameters, batch 32, context 512, ten minutes of training. Worker time includes loading and evaluation.
+The actual **model weights stay in Modal**, in the `model-training-workshop` volume, under `runs/<run-name>/`. The worker calls that location `/persist/runs/<run-name>/`.
 
-| GPU | Worker time | Worker cost | Tokens processed | Test loss ↓ |
-|---|---:|---:|---:|---:|
-| H100 | 10 min 37 s | $0.74 | 394M | 2.784 |
-| L4 | 10 min 34 s | $0.18 | 50M | 3.152 |
-| A10 | 10 min 22 s | $0.23 | 72M | 3.064 |
-| L40S | 10 min 24 s | $0.38 | 180M | 2.885 |
+- `best.pt` contains the selected model's learned weights.
+- `result.json` includes the model configuration and evaluation results.
+- `tokenizer.json` contains the matching tokenizer.
 
-H100 processed more tokens per dollar; L4 cost less per run. These measurements use batch 32 and fewer diagnostics than the main command, which uses batch 64. Costs include CPU and memory.
+The reports let you inspect what happened. To generate new text, you also need the weights and matching tokenizer.
 
-To compare cards, use the same batch size on both runs:
+## Optional: try your own starting phrase
 
-```bash
-modal run scripts/scratch_recipe_modal.py --gpu L4 --batch-size 32
-modal run scripts/scratch_recipe_modal.py --gpu H100 --batch-size 32
-```
+The viewer's **Next-token prediction** panel runs a saved model locally on your laptop's CPU. It needs the three files above in the same local run folder. The training command already downloaded `result.json` and `tokenizer.json`; download `best.pt` once after the run finishes.
 
-Add `--compile-training` to compile the training loop. With H100 and batch 32, the workshop script processed 578M tokens in ten minutes, with test loss 2.760. Including evaluation: 11 min 4 s, $0.77.
-
-[Measured comparisons](http://localhost:5173/reports#training-comparisons.html). [Modal GPU options](https://modal.com/docs/guide/gpu) and [pricing](https://modal.com/pricing).
-
-## Predict the next token
-
-At the top of **Pretraining**, choose a local model and edit the input. Click a candidate to append it, or **Next token** to sample one. Temperature changes the probabilities across the full vocabulary.
-
-## Tokens and epochs
-
-The measured ten-minute run processed **328M token presentations**, about **3.24 times** the 101M-token training corpus. We sample random windows, so this is approximate exposure, not three sequential passes. More training can lower training loss while making held-out loss worse; watch both curves. In the matched research runs, extending training from 10 to 30 minutes increased exposure from 3.89 to 12.44 corpus-equivalents and reduced test loss from 2.784 to 2.720; worker cost rose from $0.74 to $2.12.
-
-For Wikipedia, the training pool is much larger: 3.14B tokens. A ten-minute 30M/H100 research run processed 404M tokens, only **0.13 corpus-equivalents**. At that measured rate, one equivalent would take roughly **78 minutes / $5.8** (an extrapolation, not a measured full pass). A useful learning demonstration does not require a complete epoch.
-
-## Try
-
-For a shorter run, add `--max-seconds 300`. Compare the generated text and test loss, not just the training loss. Each run saves a new folder under `runs/`; select your run in the visualization.
-
-## Wikipedia alternative
-
-[September 2026 dump](https://dumps.wikimedia.org/plwiki/20260901/): **2.73 GB compressed**, original markup retained. Preparation runs on Modal CPU and needs considerably more time and cloud storage than Wolne Lektury.
-
-Measured on the prepared corpus, with the 98M-parameter model, batch 64, context 512 and compiled training:
-
-| GPU | Training | Worker time | Worker cost | Test loss before → after |
-|---|---:|---:|---:|---:|
-| H100 | 10 min | 11 min 3 s | $0.77 | 9.174 → 1.627 |
-| B200 | 10 min | 11 min | $1.19 | 9.174 → 1.509 |
-
-Both learned markup while inventing facts; lower loss does not mean reliable knowledge. H100 processed 302M token presentations; B200 processed 565M. One run per GPU. [Experiment records](LAB_NOTEBOOK.md#participant-wikipedia-command-and-full-prose-data).
-
-Prepare it:
+In your terminal, set `RUN_NAME` to the exact folder name printed after training. Replace the placeholder below; do not include the leading `runs/`:
 
 ```bash
-modal run scripts/prepare_data_modal.py --corpus wikipedia
+RUN_NAME="YOUR_RUN_FOLDER_NAME"
+modal volume get model-training-workshop "runs/$RUN_NAME/best.pt" "runs/$RUN_NAME/best.pt"
 ```
 
-After **Ready**, start training:
+This downloads the saved weights, not the training dataset, and does not start another training job. [Modal's file download documentation](https://modal.com/docs/cli/latest/volume#modal-volume-get).
 
-```bash
-modal run scripts/scratch_recipe_modal.py --recipe wiki-100m --compile-training
-```
+Refresh the viewer, then:
 
-Watch it in the **Pretraining** section of the visualization. Add `--gpu B200` to compare cards, or use `--recipe wiki-cheap --max-seconds 300` for a smaller 10M model on L4 (earlier measured worker cost about $0.10).
+1. At the top of **Pretraining**, choose the downloaded model in **Next-token prediction**.
+2. Enter a short Polish starting phrase in **Input**, such as `Pewnego dnia`.
+3. Click **Next token** several times to build a continuation. You can also click a candidate to choose that token yourself.
+4. Use **Reset** to clear the continuation and try again.
 
-Longer Wikipedia runs continue improving held-out loss. See the [training-time and cost curves](results/wikipedia-scaling.svg); those research runs take longer than this exercise.
+Leave **Temperature** at its default initially. Lower values favor the most likely tokens; higher values spread probability more widely. These actions use the saved weights without changing them. This is **inference**, not training.
+
+If the panel says **No local model weights**, check that `best.pt`, `result.json` and `tokenizer.json` are together inside the same `runs/scratch-.../` folder.
+
+## You have finished pretraining
+
+You have completed this part when your run has finished, you have compared its initial and selected outputs, and you know where the model is saved. Trying a new prompt is optional.
 
 **Next:** [3. Supervised fine-tuning](03-fine-tuning.md).
+
+**Optional reading:** [GPU comparisons, training duration and Wikipedia experiments](additional/pretraining-experiments.md). These are outside the main workshop path.
 
 **Further reading:** [Language models](README.md#language-models).
