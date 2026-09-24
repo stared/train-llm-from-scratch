@@ -3,7 +3,7 @@
 Run from the repository root:
 
 ```bash
-PYTHONPATH=scripts uv run --no-project --with tiktoken==0.12.0 -m unittest discover -s tests -v
+uv run tests/run.py
 ```
 
 These checks cover data splits, question/answer formatting, corpus chunks, tokenizers and deterministic RLVR verifiers. They do not download a model or rent a GPU.

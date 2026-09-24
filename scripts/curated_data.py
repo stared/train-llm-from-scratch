@@ -183,12 +183,12 @@ def build():
         path = Path('datasets') / f'{style}-v1'
         path.mkdir(parents=True, exist_ok=True)
         payload = ''.join(json.dumps(r, ensure_ascii=False)+'\n' for r in rows)
-        (path / 'train.jsonl').write_text(payload)
+        (path / 'train.jsonl').write_text(payload, encoding='utf-8', newline='\n')
         manifest = {'style': style, 'languages': 'both', 'examples': len(rows),
                     'teacher': {'id': 'assistant-authored workshop examples', 'revision': 'curated-v1'},
                     'data_sha256': hashlib.sha256(payload.encode()).hexdigest(),
                     'quality_note': 'Original authored examples, openly inspectable; not expert literary evaluation. No movie quotations. Small-model synthetic draft was rejected and is not included.'}
-        (path / 'dataset.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2))
+        (path / 'dataset.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
         print(path, len(rows))
 
 

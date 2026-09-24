@@ -6,7 +6,6 @@
 import argparse
 import html
 import json
-import mimetypes
 import os
 import sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -27,6 +26,15 @@ else:
 
 ROOT = Path(__file__).resolve().parents[1]
 APP = ROOT/'visualization'
+CONTENT_TYPES = {
+    '.html': 'text/html; charset=utf-8',
+    '.js': 'text/javascript; charset=utf-8',
+    '.css': 'text/css; charset=utf-8',
+    '.json': 'application/json; charset=utf-8',
+    '.md': 'text/plain; charset=utf-8',
+    '.svg': 'image/svg+xml',
+    '.png': 'image/png',
+}
 EXAMPLE_RUNS = {
     'pretrain': 'scratch-wl-30m-1788883120289174941',
     'sft': 'prawko-sft-1789672433144290591',
@@ -36,7 +44,7 @@ EXAMPLE_RUNS = {
 
 def read(path, default=None):
     try:
-        return json.loads(path.read_text())
+        return json.loads(path.read_text(encoding='utf-8'))
     except (OSError, ValueError):
         return default
 
@@ -320,7 +328,7 @@ class Handler(BaseHTTPRequestHandler):
                 reports=[]
                 for path in sorted((ROOT/'results').glob('*.html')):
                     if path.is_symlink(): continue
-                    match=re.search(r'<title>(.*?)</title>',path.read_text(),re.S)
+                    match=re.search(r'<title>(.*?)</title>',path.read_text(encoding='utf-8'),re.S)
                     reports.append(dict(url='/reports/'+path.name,
                         title=html.unescape(match.group(1)) if match else path.stem.replace('-',' '),name=path.stem))
                 for path in report_runs():
@@ -353,8 +361,7 @@ class Handler(BaseHTTPRequestHandler):
             if url.path not in files: return self.send_error(404)
             path=files[url.path]
             content=path.read_bytes()
-            mime=mimetypes.guess_type(path.name)[0] or 'application/octet-stream'
-            self.reply(content,mime+'; charset=utf-8')
+            self.reply(content, CONTENT_TYPES.get(path.suffix, 'application/octet-stream'))
         except (BrokenPipeError, ConnectionResetError):
             pass
         except (OSError, ValueError, KeyError, TypeError):
@@ -383,7 +390,7 @@ if __name__=='__main__':
     a=p.parse_args()
     if a.export_examples:
         records=[normalize(ROOT/'runs'/name) for name in EXAMPLE_RUNS.values()]
-        (ROOT/'visualization/examples.json').write_text(json.dumps(records,ensure_ascii=False,separators=(',',':'))+'\n')
+        (ROOT/'visualization/examples.json').write_text(json.dumps(records,ensure_ascii=False,separators=(',',':'))+'\n', encoding='utf-8', newline='\n')
         print('Exported three recorded runs; no model inference performed.')
     else:
         try:

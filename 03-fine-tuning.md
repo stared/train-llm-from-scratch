@@ -187,11 +187,7 @@ Use your saved adapter to answer a new Polish question. Supply three answer opti
 Copy the folder name from the training command's **`Saved`** message. Replace `YOUR_SFT_RUN_NAME` below with that name, such as `prawko-sft-123456789`. Do not include `runs/`.
 
 ```bash
-modal run scripts/try_adapter_modal.py --task exam --run YOUR_SFT_RUN_NAME \
-  --question "Jaki kolor sygnalizacji świetlnej oznacza nakaz zatrzymania?" \
-  --a "Czerwony." \
-  --b "Zielony." \
-  --c "Każdy kolor oznacza to samo."
+modal run scripts/try_adapter_modal.py --task exam --run YOUR_SFT_RUN_NAME --question "Jaki kolor sygnalizacji świetlnej oznacza nakaz zatrzymania?" --a "Czerwony." --b "Zielony." --c "Każdy kolor oznacza to samo."
 ```
 
 The command prints **Answer** and probabilities among A/B/C. For this example, the expected answer is A. Replace the question and all three options with your own. You do not supply the correct letter to the model; check its prediction yourself. It can be wrong, and these probabilities are not a guarantee of correctness.

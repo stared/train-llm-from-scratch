@@ -30,9 +30,9 @@ def experiment(task, stage, model, max_seconds, steps, lr, seed, beta, dev_inter
         result['remote_seconds'] = time.monotonic() - started
         result['estimated_compute_usd'] = result['remote_seconds'] * (.000222 + 2*.0000131 + 16*.00000222)
         for filename in ['rlvr_showcase.py', 'rlvr_tasks.py']:
-            (path / ('executed_' + filename)).write_text((Path('/work/scripts') / filename).read_text())
-        (path / 'execution.json').write_text(json.dumps(result, indent=2))
-        return name, {p.name: p.read_text() for p in path.iterdir() if p.is_file()}
+            (path / ('executed_' + filename)).write_text((Path('/work/scripts') / filename).read_text(encoding='utf-8'), encoding='utf-8', newline='\n')
+        (path / 'execution.json').write_text(json.dumps(result, indent=2), encoding='utf-8', newline='\n')
+        return name, {p.name: p.read_text(encoding='utf-8') for p in path.iterdir() if p.is_file()}
     finally:
         volume.commit()
 
@@ -54,7 +54,7 @@ def main(task: str = 'six_words', stage: str = 'train', model: str = 'qwen3.5-4b
         out = Path('runs') / name
         out.mkdir(parents=True, exist_ok=False)
         for filename, content in files.items():
-            (out / filename).write_text(content)
+            (out / filename).write_text(content, encoding='utf-8', newline='\n')
         print('Saved:', out, flush=True)
         if stage == 'train':
             print('View results: pnpm dev', flush=True)

@@ -29,10 +29,10 @@ def experiment(model,epochs,max_seconds,target_tokens,batch_size,line_aligned):
         result=run('/work/corpus',str(path),model,epochs,max_seconds,'cuda',target_tokens,batch_size,line_aligned)
         result['remote_seconds']=time.monotonic()-started
         result['estimated_compute_usd']=result['remote_seconds']*(.000222+2*.0000131+16*.00000222)
-        (path/'execution.json').write_text(json.dumps(result,ensure_ascii=False,indent=2))
+        (path/'execution.json').write_text(json.dumps(result,ensure_ascii=False,indent=2), encoding='utf-8', newline='\n')
         for filename in ('corpus_workshop.py','corpus_chunks.py','style_workshop.py','models.json'):
             (path/('executed_'+filename)).write_bytes((Path('/work/scripts')/filename).read_bytes())
-        return name,{p.name:p.read_text() for p in path.iterdir() if p.is_file()}
+        return name,{p.name:p.read_text(encoding='utf-8') for p in path.iterdir() if p.is_file()}
     finally:volume.commit()
 
 
@@ -44,5 +44,5 @@ def main(model:str='lfm2.5-2.6b',epochs:int=1,max_seconds:int=600,
         raise ValueError('Invalid chunk/batch size')
     name,files=experiment.remote(model,epochs,max_seconds,target_tokens,batch_size,line_aligned)
     path=Path('runs')/name;path.mkdir(parents=True,exist_ok=False)
-    for filename,contents in files.items():(path/filename).write_text(contents)
+    for filename,contents in files.items():(path/filename).write_text(contents, encoding='utf-8', newline='\n')
     print('Saved:',path)

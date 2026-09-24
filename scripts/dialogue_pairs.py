@@ -88,7 +88,7 @@ def main():
     a.output.mkdir(parents=True,exist_ok=False)
     for split,rows in result.items():
         payload=''.join(json.dumps(row,ensure_ascii=False)+'\n' for row in rows)
-        (a.output/f'{split}.jsonl').write_text(payload)
+        (a.output/f'{split}.jsonl').write_text(payload, encoding='utf-8', newline='\n')
     manifest={'style':'wit','languages':a.language,'examples':len(result['train']),
               'validation_examples':len(result['validation']),'source':a.source,
               'source_sha256':hashlib.sha256(raw).hexdigest(),
@@ -96,7 +96,7 @@ def main():
               'teacher':{'id':'user-supplied dialogue','revision':hashlib.sha256(raw).hexdigest()},
               'recipe':'Adjacent cross-speaker pairs in both directions; consecutive same-speaker turns merged; speaker names kept as metadata; deduplicated; scenes connected by shared lines assigned wholly to one split.',
               'caveat':'Reverse pairs are reconstruction examples, not necessarily natural replies. A single connected scene group cannot provide a separate validation split.'}
-    (a.output/'dataset.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2))
+    (a.output/'dataset.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2), encoding='utf-8', newline='\n')
     print(f"Saved {len(result['train'])} train and {len(result['validation'])} validation examples to {a.output}")
     if len(result['train'])<24:
         print('The workshop trainer requires at least 24 training examples; this file is a data-conversion preview.')

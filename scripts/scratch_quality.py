@@ -124,7 +124,7 @@ def evaluate_quality(model, tokenizer, device, outpath, *, max_new_tokens=128, f
         evaluation_seconds=time.monotonic() - started,
     )
     if outpath is not None:
-        Path(outpath).write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
+        Path(outpath).write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
     return result
 
 
@@ -137,7 +137,7 @@ if __name__ == '__main__':
     parser.add_argument('--device', choices=['cpu', 'cuda'], default='cpu')
     parser.add_argument('--checkpoint', default='best.pt')
     args = parser.parse_args()
-    metadata = json.loads((args.run_dir / 'result.json').read_text())
+    metadata = json.loads((args.run_dir / 'result.json').read_text(encoding='utf-8'))
     model = ScratchGPT(Config(**metadata['config'])).to(args.device)
     state = torch.load(args.run_dir / args.checkpoint, map_location=args.device, weights_only=True)
     model.load_state_dict(state['model'] if 'model' in state else state)
@@ -146,7 +146,7 @@ if __name__ == '__main__':
     result['model'] = metadata['model']
     result['source'] = metadata['source']
     result['checkpoint'] = args.checkpoint
-    (args.run_dir / 'quality.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
+    (args.run_dir / 'quality.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
     print(json.dumps({key: result[key] for key in ('factual_correct', 'factual_total', 'evaluation_seconds')}, indent=2))
 
 
@@ -155,7 +155,7 @@ def evaluate_fixed_pool(model, device, data_dir, batch_count=8, batch_size=8, se
     import hashlib
     import numpy as np
     folder=Path(data_dir)
-    metadata=json.loads((folder/'tokens.json').read_text())
+    metadata=json.loads((folder/'tokens.json').read_text(encoding='utf-8'))
     if batch_count<1 or batch_size<1:raise ValueError('Positive evaluation batch dimensions required')
     rng=np.random.default_rng(seed)
     result={}

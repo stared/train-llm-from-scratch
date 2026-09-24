@@ -166,8 +166,7 @@ Use your saved adapter to write a story containing two words you choose.
 Copy the folder name from the training command's **`Saved:`** message. Replace `YOUR_RLVR_RUN_NAME` below with that name, such as `rlvr-train-six_words-123456789`. Do not include `runs/`.
 
 ```bash
-modal run scripts/try_adapter_modal.py --task six_words --run YOUR_RLVR_RUN_NAME \
-  --word-one lantern --word-two river
+modal run scripts/try_adapter_modal.py --task six_words --run YOUR_RLVR_RUN_NAME --word-one lantern --word-two river
 ```
 
 Replace `lantern` and `river` with two different English words, using letters only. The command prints the generated story, its word count, reward and **Pass/Fail** result from the same checker used during training.

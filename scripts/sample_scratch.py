@@ -15,7 +15,7 @@ from train_scratch import PROMPTS
 
 def sample(run,output,device):
     run=Path(run)
-    result=json.loads((run/'result.json').read_text())
+    result=json.loads((run/'result.json').read_text(encoding='utf-8'))
     model=ScratchGPT(Config(**result['config'])).to(device)
     model.load_state_dict(torch.load(run/'best.pt',map_location=device,weights_only=True))
     model.eval()
@@ -27,7 +27,7 @@ def sample(run,output,device):
         with torch.autocast('cuda',dtype=torch.bfloat16) if device=='cuda' else nullcontext():
             generated=model.generate(ids,new_tokens=128)
         records.append(dict(prompt=prompt,continuation=tokenizer.decode(generated[0,ids.shape[1]:].tolist(),skip_special_tokens=False)))
-    Path(output).write_text(json.dumps(records,ensure_ascii=False,indent=2))
+    Path(output).write_text(json.dumps(records,ensure_ascii=False,indent=2), encoding='utf-8', newline='\n')
 
 
 if __name__=='__main__':

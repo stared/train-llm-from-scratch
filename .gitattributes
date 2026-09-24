@@ -1,0 +1,2 @@
+# Keep dataset hashes identical in Windows and Unix checkouts.
+/datasets/** text=auto eol=lf

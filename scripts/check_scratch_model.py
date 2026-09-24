@@ -45,10 +45,10 @@ class ScratchModelChecks(unittest.TestCase):
         text="'''Żółć''' [[Polska|PL]] {{Infobox|x=1}}\n<ref>A &amp; B</ref>\n{|\n| Łódź\n|}\n"
         with tempfile.TemporaryDirectory() as d:
             path=Path(d)
-            (path/'extraction.json').write_text('{}')
+            (path/'extraction.json').write_text('{}', encoding='utf-8', newline='\n')
             row=json.dumps(dict(id='fixture',text=text),ensure_ascii=False)+'\n'
             for name in ('train','dev','test','tokenizer_sample'):
-                (path/f'{name}.jsonl').write_text(row)
+                (path/f'{name}.jsonl').write_text(row, encoding='utf-8', newline='\n')
             tokenize(path)
             tok=Tokenizer.from_file(str(path/'tokenizer.json'))
             ids=np.fromfile(path/'test.bin',dtype='<u2').tolist()
@@ -73,7 +73,7 @@ class ScratchModelChecks(unittest.TestCase):
                 array.tofile(data/f'{split}.bin')
                 splits[split]=dict(tokens=len(array),sha256=hashlib.sha256(array.tobytes()).hexdigest())
             (data/'tokens.json').write_text(json.dumps(dict(vocab_size=4,splits=splits,
-                tokenizer_sha256=hashlib.sha256((data/'tokenizer.json').read_bytes()).hexdigest(),generation_prompts=['a'])))
+                tokenizer_sha256=hashlib.sha256((data/'tokenizer.json').read_bytes()).hexdigest(),generation_prompts=['a'])), encoding='utf-8', newline='\n')
             events=[]
             with patch('train_scratch.time.monotonic',side_effect=itertools.count(0,2)), \
                  patch('train_scratch.config_for',return_value=Config(vocab_size=4,width=16,layers=1,heads=2,hidden=32,context=256)), \
@@ -103,11 +103,11 @@ class ScratchModelChecks(unittest.TestCase):
             self.assertEqual(other_pool,evaluate_fixed_pool(loaded,'cpu',data,batch_count=2,batch_size=4,seed=17))
             mixture=Path(temp)/'mixture';mixture.mkdir()
             (mixture/'tokenizer.json').write_bytes((data/'tokenizer.json').read_bytes())
-            meta=json.loads((data/'tokens.json').read_text())
+            meta=json.loads((data/'tokens.json').read_text(encoding='utf-8'))
             for split in ('train','dev','test'):
                 values=np.full(1500,2,dtype='<u2');values.tofile(mixture/f'{split}.bin')
                 meta['splits'][split]=dict(tokens=len(values),sha256=hashlib.sha256(values.tobytes()).hexdigest())
-            (mixture/'tokens.json').write_text(json.dumps(meta))
+            (mixture/'tokens.json').write_text(json.dumps(meta), encoding='utf-8', newline='\n')
             batches=[];original_forward=ScratchGPT.forward
             def inspect_forward(model,ids,targets=None,positions=None):
                 if model.training and targets is not None:batches.append(ids.clone())

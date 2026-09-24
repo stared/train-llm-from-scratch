@@ -30,7 +30,7 @@ def strip_reference_tags(text):
 
 
 def save(path, value):
-    Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=2))
+    Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
 
 
 def article_split(text):
@@ -69,11 +69,11 @@ def extract(source, output, verify=True):
     out.mkdir(parents=True, exist_ok=False)
     started = time.monotonic()
     if verify:
-        item = json.loads((ROOT/'additional/research/scratch/sources.json').read_text())['sources']['wikipedia-pl-20260901']['files'][0]
+        item = json.loads((ROOT/'additional/research/scratch/sources.json').read_text(encoding='utf-8'))['sources']['wikipedia-pl-20260901']['files'][0]
         from download_scratch_corpus import verify as verify_file
         verify_file(Path(source), item)
     counts = {s: dict(articles=0, utf8_bytes=0, redirects=0) for s in ('train','dev','test')}
-    files = {s: (out/f'{s}.jsonl').open('w') for s in counts}
+    files = {s: (out/f'{s}.jsonl').open('w', encoding='utf-8', newline='\n') for s in counts}
     sample = []
     try:
         for i, row in enumerate(iter_articles(source), 1):
@@ -96,7 +96,7 @@ def extract(source, output, verify=True):
     finally:
         for file in files.values():
             file.close()
-    with (out/'tokenizer_sample.jsonl').open('w') as f:
+    with (out/'tokenizer_sample.jsonl').open('w', encoding='utf-8', newline='\n') as f:
         for _, qid, text in sorted(sample,reverse=True):
             f.write(json.dumps(dict(id=qid,text=text),ensure_ascii=False)+'\n')
     manifest = dict(source=str(source), snapshot='20260901', counts=counts,
@@ -124,7 +124,7 @@ def tokenize(output):
     trainer = trainers.BpeTrainer(vocab_size=8192, min_frequency=2,
         initial_alphabet=pre_tokenizers.ByteLevel.alphabet(), special_tokens=['<|endoftext|>'], show_progress=True)
     def sample_texts():
-        with (out/'tokenizer_sample.jsonl').open() as f:
+        with (out/'tokenizer_sample.jsonl').open(encoding='utf-8') as f:
             for line in f:
                 yield json.loads(line)['text']
     tok.train_from_iterator(sample_texts(),trainer=trainer)
@@ -134,7 +134,7 @@ def tokenize(output):
     for split in ('dev','test','train'):
         size = docs = raw_bytes = 0
         digest = hashlib.sha256()
-        with (out/f'{split}.jsonl').open() as source, (out/f'{split}.bin').open('wb') as target:
+        with (out/f'{split}.jsonl').open(encoding='utf-8') as source, (out/f'{split}.bin').open('wb') as target:
             batch = []
             def flush(rows):
                 nonlocal size, docs, raw_bytes
@@ -159,7 +159,7 @@ def tokenize(output):
                            tokens_per_utf8_byte=size/raw_bytes)
         print(split,json.dumps(counts[split]),flush=True)
     save(out/'tokens.json',dict(vocab_size=tok.get_vocab_size(),eod_id=end,dtype='little-endian uint16',
-        extraction=json.loads((out/'extraction.json').read_text()),
+        extraction=json.loads((out/'extraction.json').read_text(encoding='utf-8')),
         tokenizer_sha256=hashlib.sha256((out/'tokenizer.json').read_bytes()).hexdigest(),splits=counts,
         packing='Original wikitext + one EOD token per article; causal windows may cross EOD boundaries',
         seconds=time.monotonic()-started))

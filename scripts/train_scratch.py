@@ -22,7 +22,7 @@ PROMPTS = ["'''Warszawa''' –", '== Historia ==\n', '{{Infobox', "'''Polska''' 
 
 
 def save(path,value):
-    Path(path).write_text(json.dumps(value,ensure_ascii=False,indent=2))
+    Path(path).write_text(json.dumps(value,ensure_ascii=False,indent=2), encoding='utf-8', newline='\n')
 
 
 class ShuffledWindows:
@@ -66,7 +66,7 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
     if device=='cuda':torch.set_num_threads(2)  # Match reserved host CPU; avoid initialization oversubscription.
     out=Path(output);out.mkdir(parents=True,exist_ok=False)
     data_dir=Path(data_dir)
-    metadata=json.loads((data_dir/'tokens.json').read_text())
+    metadata=json.loads((data_dir/'tokens.json').read_text(encoding='utf-8'))
     generation_prompts=metadata.get('generation_prompts',PROMPTS)
     tokenizer=Tokenizer.from_file(str(data_dir/'tokenizer.json'))
     if hashlib.sha256((data_dir/'tokenizer.json').read_bytes()).hexdigest()!=metadata['tokenizer_sha256']:
@@ -82,7 +82,7 @@ def run(data_dir, output, size='10m', max_seconds=300, seed=42, device='cuda', b
     extra=None;article_starts=None
     if sampling_mode not in ('uniform','shuffled'):
         extra_dir=Path(mixture_dir) if mixture_dir else data_dir
-        extra_meta=json.loads((extra_dir/'tokens.json').read_text())
+        extra_meta=json.loads((extra_dir/'tokens.json').read_text(encoding='utf-8'))
         if extra_meta['tokenizer_sha256']!=metadata['tokenizer_sha256']:
             raise ValueError('Mixture tokenizer mismatch')
         with (extra_dir/'train.bin').open('rb') as f:

@@ -18,7 +18,7 @@ import time
 from examples import TASKS, dataset, score
 
 ROOT = Path(__file__).resolve().parents[1]
-MODELS = json.loads((ROOT / 'scripts/models.json').read_text())
+MODELS = json.loads((ROOT / 'scripts/models.json').read_text(encoding='utf-8'))
 
 
 def run(model_key='qwen3-0.6b', task='routing', steps=40, eval_size=8,
@@ -61,7 +61,7 @@ def run(model_key='qwen3-0.6b', task='routing', steps=40, eval_size=8,
     train_rows = dataset(task, 'train')
     test_rows = dataset(task, 'test', eval_size)
     for split, rows in [('train', train_rows), ('test', test_rows)]:
-        (out / f'{split}.jsonl').write_text(''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in rows))
+        (out / f'{split}.jsonl').write_text(''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in rows), encoding='utf-8', newline='\n')
 
     encoded = []
     for row in train_rows:
@@ -72,7 +72,7 @@ def run(model_key='qwen3-0.6b', task='routing', steps=40, eval_size=8,
         encoded.append((prefix + completion, [-100] * len(prefix) + completion))
     (out / 'mask_example.json').write_text(json.dumps({
         'prompt': train_rows[0]['prompt'], 'answer': train_rows[0]['answer'],
-        'tokens': tokenizer.convert_ids_to_tokens(encoded[0][0]), 'labels': encoded[0][1]}, indent=2))
+        'tokens': tokenizer.convert_ids_to_tokens(encoded[0][0]), 'labels': encoded[0][1]}, indent=2), encoding='utf-8', newline='\n')
 
     def evaluate(model, name):
         model.eval()
@@ -85,7 +85,7 @@ def run(model_key='qwen3-0.6b', task='routing', steps=40, eval_size=8,
                     eos_token_id=stop_token_id, use_cache=True)
                 text = tokenizer.decode(generated[0, ids.shape[1]:], skip_special_tokens=True)
                 predictions.append({**row, 'prediction': text, **score(task, text, row['answer'])})
-        (out / f'{name}.json').write_text(json.dumps(predictions, ensure_ascii=False, indent=2))
+        (out / f'{name}.json').write_text(json.dumps(predictions, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
         result = {key: sum(p[key] for p in predictions) / len(predictions)
                   for key in ('correct', 'format_valid')}
         print(name, result, flush=True)
@@ -144,7 +144,7 @@ def run(model_key='qwen3-0.6b', task='routing', steps=40, eval_size=8,
         torch.cuda.empty_cache()
     model = PeftModel.from_pretrained(load_base(), out / 'adapter')
     reloaded = evaluate(model, 'reloaded')
-    same = json.loads((out / 'after.json').read_text()) == json.loads((out / 'reloaded.json').read_text())
+    same = json.loads((out / 'after.json').read_text(encoding='utf-8')) == json.loads((out / 'reloaded.json').read_text(encoding='utf-8'))
     if not same:
         raise RuntimeError('Saved adapter reload changed deterministic predictions')
     result = dict(model=model_key, model_spec=spec, task=task, seed=42,
@@ -156,10 +156,10 @@ def run(model_key='qwen3-0.6b', task='routing', steps=40, eval_size=8,
                   peak_vram_gb=torch.cuda.max_memory_allocated()/1e9 if device == 'cuda' else None,
                   data_sha256=hashlib.sha256((out / 'train.jsonl').read_bytes()).hexdigest(),
                   versions={p: importlib.metadata.version(p) for p in ['torch', 'transformers', 'peft', 'accelerate']})
-    (out / 'loss.json').write_text(json.dumps(history, indent=2))
+    (out / 'loss.json').write_text(json.dumps(history, indent=2), encoding='utf-8', newline='\n')
     (out / 'environment.txt').write_text('\n'.join(sorted(
-        f"{d.metadata['Name']}=={d.version}" for d in importlib.metadata.distributions())))
-    (out / 'result.json').write_text(json.dumps(result, indent=2))
+        f"{d.metadata['Name']}=={d.version}" for d in importlib.metadata.distributions())), encoding='utf-8', newline='\n')
+    (out / 'result.json').write_text(json.dumps(result, indent=2), encoding='utf-8', newline='\n')
     print(json.dumps(result, indent=2), flush=True)
     return result
 

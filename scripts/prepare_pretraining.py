@@ -21,7 +21,7 @@ SOURCES = {'wolne-lektury': 'falenty-wl', 'wikipedia': 'wikipedia-pl-20260901', 
 
 
 def validate(folder):
-    metadata = json.loads((folder/'tokens.json').read_text())
+    metadata = json.loads((folder/'tokens.json').read_text(encoding='utf-8'))
     for name in FILES:
         path = folder/name
         if name.endswith('.bin'):
@@ -48,7 +48,7 @@ def sejm_source(source):
     downloads = ROOT/'datasets/local/scratch-corpora/sejm'
     downloads.mkdir(parents=True, exist_ok=True)
     print(f'{DEFAULT_SOURCE} not found; downloading the published archive (existing downloads are verified and reused)', flush=True)
-    for item in json.loads(MANIFEST.read_text())['sources']['sejm']['files']:
+    for item in json.loads(MANIFEST.read_text(encoding='utf-8'))['sources']['sejm']['files']:
         download(item, downloads)
     return downloads/'sejm.zip'
 
@@ -56,7 +56,7 @@ def sejm_source(source):
 def prepare_sejm(folder, source, check_only=False):
     from prepare_sejm_scratch import prepare as prepare_text
     source = None if check_only else sejm_source(source)
-    recorded = json.loads((folder/'tokens.json').read_text())['extraction'] if folder.exists() else {}
+    recorded = json.loads((folder/'tokens.json').read_text(encoding='utf-8'))['extraction'] if folder.exists() else {}
     if source and recorded.get('source') == str(source):
         with source.open('rb') as stream:
             if hashlib.file_digest(stream, 'sha256').hexdigest() != recorded['source_sha256']:
@@ -82,7 +82,7 @@ def prepare(corpus, check_only=False, source=None):
     if not folder.exists() and not check_only:
         from download_scratch_corpus import download, MANIFEST
         source = 'falenty-wl' if corpus == 'wolne-lektury' else 'wikipedia-pl-20260901'
-        info = json.loads(MANIFEST.read_text())['sources'][source]
+        info = json.loads(MANIFEST.read_text(encoding='utf-8'))['sources'][source]
         downloads = ROOT/'datasets/local/scratch-corpora'/source
         downloads.mkdir(parents=True, exist_ok=True)
         print('1/3 Downloading source (existing downloads are verified and reused)', flush=True)

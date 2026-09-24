@@ -21,7 +21,7 @@ LETTERS = 'ABC'
 
 
 def save(path, obj):
-    Path(path).write_text(json.dumps(obj, ensure_ascii=False, indent=2))
+    Path(path).write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
 
 
 def question(row, order=(0, 1, 2)):
@@ -54,9 +54,9 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
     out = Path(output)
     out.mkdir(parents=True, exist_ok=False)
     data_path = Path(dataset_path) if dataset_path else ROOT / 'datasets/prawko-v2/data.json'
-    data = json.loads(data_path.read_text())
+    data = json.loads(data_path.read_text(encoding='utf-8'))
     save(out / 'data.json', data)
-    spec = json.loads((ROOT / 'scripts/models.json').read_text())[model_key]
+    spec = json.loads((ROOT / 'scripts/models.json').read_text(encoding='utf-8'))[model_key]
     save(out / 'model_spec.json', spec)
     tokenizer = AutoTokenizer.from_pretrained(spec['id'], revision=spec['revision'])
     tokenizer.padding_side = 'left'
@@ -237,8 +237,8 @@ def run(output, method='screen', model_key='qwen3.5-0.8b', max_seconds=180,
         model = PeftModel.from_pretrained(load(), out / 'adapter')
         model.eval()
         evaluate('reload', data['test'][:8])
-        a = json.loads((out / 'after_test.json').read_text())[:8]
-        b = json.loads((out / 'reload.json').read_text())
+        a = json.loads((out / 'after_test.json').read_text(encoding='utf-8'))[:8]
+        b = json.loads((out / 'reload.json').read_text(encoding='utf-8'))
         matched = all(x['prediction'] == y['prediction'] for x, y in zip(a, b))
         if not matched:
             raise RuntimeError('Reload predictions differ')

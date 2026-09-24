@@ -12,7 +12,7 @@ from pathlib import Path
 
 def verify(path):
     path = Path(path)
-    read = lambda name: json.loads((path/name).read_text())
+    read = lambda name: json.loads((path/name).read_text(encoding='utf-8'))
     result = read('execution.json' if (path/'execution.json').exists() else 'result.json')
     data = read('data.json')
     assert hashlib.sha256((path/'data.json').read_bytes()).hexdigest() == result['data_sha256']
@@ -72,7 +72,7 @@ def verify(path):
         if result['method'] == 'rlvr':
             audit.update(all_sample_rewards_and_advantages_recomputed=True,
                          selected_sampled_actions=audit['selected_presentations']*4)
-    (path/'local_verification.json').write_text(json.dumps(audit,indent=2))
+    (path/'local_verification.json').write_text(json.dumps(audit,indent=2), encoding='utf-8', newline='\n')
     print(path.name, json.dumps(audit))
     return audit
 

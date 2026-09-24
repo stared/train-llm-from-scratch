@@ -28,8 +28,8 @@ def prepare(raw, output):
     out = Path(output)
     out.mkdir(parents=True, exist_ok=False)
     (out/'source.txt').write_bytes(raw)
-    (out/'train.txt').write_text(body)
-    (out/'SOURCE_CREDITS.txt').write_text(credits.strip()+'\n')
+    (out/'train.txt').write_text(body, encoding='utf-8', newline='\n')
+    (out/'SOURCE_CREDITS.txt').write_text(credits.strip()+'\n', encoding='utf-8', newline='\n')
     metadata = {'title': 'Pan Tadeusz', 'author': 'Adam Mickiewicz',
                 'source_url': URL, 'source_page': 'https://wolnelektury.pl/katalog/lektura/pan-tadeusz/',
                 'source_sha256': hashlib.sha256(raw).hexdigest(),
@@ -37,7 +37,7 @@ def prepare(raw, output):
                 'characters': len(body), 'words_whitespace': len(body.split()),
                 'books': 12, 'epilogue': True, 'split': 'entire literary text used for training; no held-out book',
                 'preprocessing': 'Normalize CRLF, remove front title/ISBN and publisher footer; preserve all twelve books and epilogue; strip line indentation. Unmodified source and credits retained.'}
-    (out/'corpus.json').write_text(json.dumps(metadata, ensure_ascii=False, indent=2))
+    (out/'corpus.json').write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
     print(json.dumps(metadata, ensure_ascii=False, indent=2))
 
 

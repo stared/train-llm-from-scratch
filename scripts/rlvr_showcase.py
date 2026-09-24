@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def save(path, obj):
-    Path(path).write_text(json.dumps(obj, ensure_ascii=False, indent=2))
+    Path(path).write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
 
 
 def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
@@ -41,7 +41,7 @@ def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
     out = Path(output)
     out.mkdir(parents=True, exist_ok=False)
     started = time.monotonic()
-    spec = json.loads((ROOT / 'scripts/models.json').read_text())[model_key]
+    spec = json.loads((ROOT / 'scripts/models.json').read_text(encoding='utf-8'))[model_key]
     save(out / 'model_spec.json', spec)
     data = dataset if dataset is not None else make_data(task)
     checker = verifier or check
@@ -252,7 +252,7 @@ def run(output, task='six_words', stage='train', model_key='qwen3.5-4b',
     model = PeftModel.from_pretrained(load_base(), out / 'adapter')
     model.eval()
     evaluate('reload', data['test'][:8])
-    reload_matches = json.loads((out / 'reload.json').read_text()) == json.loads((out / 'after_test.json').read_text())[:8]
+    reload_matches = json.loads((out / 'reload.json').read_text(encoding='utf-8')) == json.loads((out / 'after_test.json').read_text(encoding='utf-8'))[:8]
     if not reload_matches:
         raise RuntimeError('Reload differs from saved model predictions')
     result = dict(stage=stage, task=task, model=model_key, model_spec=spec,

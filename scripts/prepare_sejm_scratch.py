@@ -137,8 +137,8 @@ def prepare(source, tokenizer_path, output):
                     extraction=extraction, splits=counts,
                     packing='Chunk text plus one EOD; training windows may cross EOD boundaries',
                     seconds=time.monotonic() - started)
-    (out / 'extraction.json').write_text(json.dumps(extraction, ensure_ascii=False, indent=2), encoding='utf-8')
-    (out / 'tokens.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf-8')
+    (out / 'extraction.json').write_text(json.dumps(extraction, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
+    (out / 'tokens.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
     print(json.dumps(dict(splits=counts, seconds=manifest['seconds']), ensure_ascii=False), flush=True)
 
 

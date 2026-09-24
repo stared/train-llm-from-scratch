@@ -30,7 +30,7 @@ def experiment(stage,style,model,languages,data_run,epochs,max_seconds,prompt,ba
         if stage!='train' or not source.exists():
             source=Path('/persist/runs')/data_run
         manifest='dataset.json' if stage=='train' else 'style_result.json'
-        style=json.loads((source/manifest).read_text())['style']
+        style=json.loads((source/manifest).read_text(encoding='utf-8'))['style']
     name=f'style-{stage}-{style}-{time.time_ns()}'
     path=Path('/persist/runs')/name
     try:
@@ -46,10 +46,10 @@ def experiment(stage,style,model,languages,data_run,epochs,max_seconds,prompt,ba
         result['remote_seconds']=time.monotonic()-started
         result['estimated_compute_usd']=result['remote_seconds']*(.000222+2*.0000131+16*.00000222)
         # Preserve the executed source alongside outputs, even after later edits.
-        (path/'executed_style_workshop.py').write_text(Path('/work/scripts/style_workshop.py').read_text())
-        (path/'executed_style_data.py').write_text(Path('/work/scripts/style_data.py').read_text())
-        (path/'execution.json').write_text(json.dumps(result,ensure_ascii=False,indent=2))
-        return name,{p.name:p.read_text() for p in path.iterdir() if p.is_file()}
+        (path/'executed_style_workshop.py').write_text(Path('/work/scripts/style_workshop.py').read_text(encoding='utf-8'), encoding='utf-8', newline='\n')
+        (path/'executed_style_data.py').write_text(Path('/work/scripts/style_data.py').read_text(encoding='utf-8'), encoding='utf-8', newline='\n')
+        (path/'execution.json').write_text(json.dumps(result,ensure_ascii=False,indent=2), encoding='utf-8', newline='\n')
+        return name,{p.name:p.read_text(encoding='utf-8') for p in path.iterdir() if p.is_file()}
     finally:
         volume.commit()
 
@@ -72,7 +72,7 @@ def main(stage:str='data',style:str='poetry',model:str='qwen3.5-4b',languages:st
     out=Path('runs')/name
     out.mkdir(parents=True,exist_ok=False)
     for filename,contents in files.items():
-        (out/filename).write_text(contents)
+        (out/filename).write_text(contents, encoding='utf-8', newline='\n')
     print('Saved:',out)
     if stage == 'train':
         print('View results: pnpm dev', flush=True)

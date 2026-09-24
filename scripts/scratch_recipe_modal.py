@@ -65,6 +65,6 @@ def main(recipe: str = 'wolne-lektury', max_seconds: int = 600, gpu: str = '', b
     out = Path(__file__).resolve().parents[1] / 'runs' / name
     out.mkdir(parents=True, exist_ok=True)
     for filename, content in files.items():
-        (out / filename).write_text(content)
+        (out / filename).write_text(content, encoding='utf-8', newline='\n')
     print('Saved', out)
     print('View results: pnpm dev', flush=True)

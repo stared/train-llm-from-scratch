@@ -114,7 +114,7 @@ def audit(path,require_weights=False):
                      'Reload equality verifies recorded fresh-process outputs; this audit does not rerun inference.',
                      'Factual candidate arithmetic is checked, not semantic correctness of generated prose.',
                      'Common Wikipedia metrics are schema/provenance checked, not recomputed.'])
-    (path/'audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+    (path/'audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8', newline='\n')
     return report
 
 

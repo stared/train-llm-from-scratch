@@ -16,11 +16,11 @@ OUT=Path('datasets/pan-tadeusz-qa-v1')
 BOOK=re.compile(r'Księga (pierwsza|druga|trzecia|czwarta|piąta|szósta|siódma|ósma|dziewiąta|dziesiąta|jedenasta|dwunasta)')
 
 def dump(path,value):
-    path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n')
+    path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n', encoding='utf-8', newline='\n')
 
 def select():
     OUT.mkdir(parents=True,exist_ok=False)
-    lines=SOURCE.read_text().splitlines()
+    lines=SOURCE.read_text(encoding='utf-8').splitlines()
     book=0;skip=0;paragraphs=[];paragraph=[]
     for number,line in enumerate(lines,1):
         if BOOK.fullmatch(line):
@@ -96,18 +96,18 @@ def validation_split(rows):
     raise ValueError('Cannot make a 50-example validation split without shared verse lines')
 
 def build():
-    passages=json.loads((OUT/'passages.json').read_text())
-    selection=json.loads((OUT/'selection.json').read_text())
+    passages=json.loads((OUT/'passages.json').read_text(encoding='utf-8'))
+    selection=json.loads((OUT/'selection.json').read_text(encoding='utf-8'))
     assert hashlib.sha256(SOURCE.read_bytes()).hexdigest()==selection['source_sha256'], 'Source changed'
-    prompts=json.loads((OUT/'literal_prompts.json').read_text())
+    prompts=json.loads((OUT/'literal_prompts.json').read_text(encoding='utf-8'))
     revised=set()
-    for line in (OUT/'everyday_overrides.txt').read_text().splitlines():
+    for line in (OUT/'everyday_overrides.txt').read_text(encoding='utf-8').splitlines():
         key,prompt=line.split('|',1);key='pt-'+key
         assert key in prompts and key not in revised,key
         revised.add(key);prompts[key]=prompt
     dump(OUT/'prompts.json',prompts)
     assert len(passages)==500 and set(prompts)=={r['id'] for r in passages}
-    lines=SOURCE.read_text().splitlines();used=set();rows=[]
+    lines=SOURCE.read_text(encoding='utf-8').splitlines();used=set();rows=[]
     for row in passages:
         prompt=prompts[row['id']].strip()
         assert prompt and '\n' not in prompt and 10<=len(prompt)<=250
@@ -122,7 +122,7 @@ def build():
     assert len({r['answer'] for r in rows})==500
     validation_ids=validation_split(rows)
     for name,subset in [('examples',rows),('train',[r for r in rows if r['id'] not in validation_ids]),('validation',[r for r in rows if r['id'] in validation_ids])]:
-        (OUT/f'{name}.jsonl').write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in subset))
+        (OUT/f'{name}.jsonl').write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in subset), encoding='utf-8', newline='\n')
     manifest=dict(style='poetry',languages='pl',examples=450,total_examples=500,validation_examples=50,
         data_sha256=hashlib.sha256((OUT/'train.jsonl').read_bytes()).hexdigest(),
         all_examples_sha256=hashlib.sha256((OUT/'examples.jsonl').read_bytes()).hexdigest(),
@@ -140,7 +140,7 @@ def build():
     for row in rows:
         split='validation' if row['id'] in validation_ids else 'train'
         report+=f'## {row["id"]} · book {row["book"]} · {row["line_count"]} lines · {split}\n\n**User:** {row["prompt"]}\n\n**Assistant target — original Pan Tadeusz:**\n\n'+ '  \n'.join('> '+s for s in row['answer'].splitlines())+f'\n\nSource: `{SOURCE}`, lines {row["source_lines"][0]}–{row["source_lines"][-1]}.\n\n'
-    (OUT/'REVIEW.md').write_text(report)
+    (OUT/'REVIEW.md').write_text(report, encoding='utf-8', newline='\n')
     print(json.dumps(dict(examples=500,train=450,validation=50,prompt_kinds=dict(Counter(r['prompt_kind'] for r in rows)),line_counts=dict(Counter(r['line_count'] for r in rows))),ensure_ascii=False))
 
 if __name__=='__main__':

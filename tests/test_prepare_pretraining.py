@@ -21,7 +21,7 @@ class PreparationTests(unittest.TestCase):
         for split in ('train','dev','test'):
             (self.folder/f'{split}.bin').write_bytes(b'\x01\x00')
             metadata['splits'][split] = {'tokens': 1, 'sha256': hashlib.sha256(b'\x01\x00').hexdigest()}
-        (self.folder/'tokens.json').write_text(json.dumps(metadata))
+        (self.folder/'tokens.json').write_text(json.dumps(metadata), encoding='utf-8', newline='\n')
 
     def test_corrupt_tokens_rejected(self):
         prep.validate(self.folder)
@@ -97,7 +97,7 @@ class SejmPreparationTests(unittest.TestCase):
             for split in ('train', 'dev', 'test'):
                 (output/f'{split}.bin').write_bytes(b'\x01\x00')
                 meta['splits'][split] = {'tokens': 1, 'sha256': hashlib.sha256(b'\x01\x00').hexdigest()}
-            (output/'tokens.json').write_text(json.dumps(meta))
+            (output/'tokens.json').write_text(json.dumps(meta), encoding='utf-8', newline='\n')
         with patch.object(prep, 'ROOT', self.root), patch('prepare_sejm_scratch.prepare', fake_prepare), \
                 patch.dict('sys.modules', {'modal': modal}):
             prep.prepare('sejm', source=self.root/'sejm.txt')

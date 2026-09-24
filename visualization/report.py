@@ -38,7 +38,7 @@ def chart(series, xlabel, ylabel):
 def render(folder):
     folder = Path(folder)
     def read(name):
-        return json.loads((folder/name).read_text())
+        return json.loads((folder/name).read_text(encoding='utf-8'))
     def pairs(before, after, key):
         by_key = {r[key]: r for r in after}
         if set(by_key) != {r[key] for r in before}:

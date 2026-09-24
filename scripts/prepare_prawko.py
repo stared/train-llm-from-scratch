@@ -71,8 +71,8 @@ def build(source, output):
                     counts={k: len(v) for k, v in splits.items()},
                     answer_counts={k: dict(Counter('ABC'[r['answer']] for r in v)) for k, v in splits.items()},
                     groups=[[r['id'] for r in g] for g in buckets])
-    (out / 'data.json').write_text(json.dumps(splits, ensure_ascii=False, indent=2))
-    (out / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2))
+    (out / 'data.json').write_text(json.dumps(splits, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
+    (out / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
     (out / 'source.xlsx').write_bytes(raw)
     print(json.dumps(manifest, ensure_ascii=False, indent=2))
 

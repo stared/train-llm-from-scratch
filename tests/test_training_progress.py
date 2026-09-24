@@ -24,11 +24,11 @@ class ProgressTests(unittest.TestCase):
             folder=Path(temp)
             events=[dict(series='Loss',step=0,value=9.),dict(series='Loss',step=10,value=4.)]
             write_live(folder,'pretrain',events,'Running',time.monotonic())
-            payload=json.loads((folder/'progress.json').read_text())
+            payload=json.loads((folder/'progress.json').read_text(encoding='utf-8'))
             self.assertEqual(payload['events'],events)
             self.assertEqual(payload['status'],'Running')
             write_live(folder,'pretrain',events,'Completed',time.monotonic(),final='scratch-demo')
-            payload=json.loads((folder/'progress.json').read_text())
+            payload=json.loads((folder/'progress.json').read_text(encoding='utf-8'))
             self.assertEqual(payload['final'],'scratch-demo')
             self.assertEqual(payload['status'],'Completed')
             self.assertEqual([p.name for p in folder.iterdir()],['progress.json'])

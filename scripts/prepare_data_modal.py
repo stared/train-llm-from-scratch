@@ -26,7 +26,7 @@ def prepare_on_volume(corpus, persist=Path('/persist')):
         print('Prepared data verified; reusing it.', flush=True)
         return name
     source = SOURCES[corpus]
-    info = json.loads(MANIFEST.read_text())['sources'][source]
+    info = json.loads(MANIFEST.read_text(encoding='utf-8'))['sources'][source]
     downloads = persist/'datasets/sources'/source
     downloads.mkdir(parents=True, exist_ok=True)
     for item in info['files']:

@@ -28,8 +28,8 @@ def experiment(sft_run, groups, rollouts):
         result = run(str(Path('/persist/runs') / sft_run), str(path), groups, rollouts, 'cuda')
         result['remote_seconds'] = time.monotonic() - started
         result['estimated_compute_usd'] = result['remote_seconds'] * (.000222 + 2*.0000131 + 8*.00000222)
-        (path / 'rl_result.json').write_text(json.dumps(result, indent=2))
-        return name, {p.name: p.read_text() for p in path.iterdir() if p.is_file()}
+        (path / 'rl_result.json').write_text(json.dumps(result, indent=2), encoding='utf-8', newline='\n')
+        return name, {p.name: p.read_text(encoding='utf-8') for p in path.iterdir() if p.is_file()}
     finally:
         volume.commit()
 
@@ -42,5 +42,5 @@ def main(sft_run: str, groups: int = 12, rollouts: int = 4):
     out = Path('runs') / name
     out.mkdir(parents=True, exist_ok=False)
     for filename, content in files.items():
-        (out / filename).write_text(content)
+        (out / filename).write_text(content, encoding='utf-8', newline='\n')
     print('Results:', out)

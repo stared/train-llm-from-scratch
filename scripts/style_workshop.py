@@ -15,11 +15,11 @@ import time
 from style_data import training_prompts, instruction, surface_metrics, EVALUATION
 
 ROOT = Path(__file__).resolve().parents[1]
-MODELS = json.loads((ROOT / 'scripts/models.json').read_text())
+MODELS = json.loads((ROOT / 'scripts/models.json').read_text(encoding='utf-8'))
 
 
 def write_json(path, value):
-    Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=2))
+    Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
 
 
 def dataset_metrics(text, manifest):
@@ -113,7 +113,7 @@ def make_data(output, style='poetry', model_key='gemma4-e2b', languages='both',
         write_json(out / 'rejected.json', rejected)
         if time.monotonic() - generation_start >= max_seconds:
             break
-    (out / 'train.jsonl').write_text(''.join(json.dumps(r, ensure_ascii=False)+'\n' for r in accepted))
+    (out / 'train.jsonl').write_text(''.join(json.dumps(r, ensure_ascii=False)+'\n' for r in accepted), encoding='utf-8', newline='\n')
     result = dict(style=style, teacher=spec, languages=languages, examples=len(accepted),
                   rejected=len(rejected), seed=42, generation_seconds=time.monotonic()-generation_start,
                   total_seconds=time.monotonic()-started, instruction=instruction(style),
@@ -135,9 +135,9 @@ def train(data_dir, output, model_key='qwen3.5-4b', epochs=4, max_seconds=300, d
     out = Path(output)
     out.mkdir(parents=True, exist_ok=False)
     data_dir = Path(data_dir)
-    manifest = json.loads((data_dir / 'dataset.json').read_text())
+    manifest = json.loads((data_dir / 'dataset.json').read_text(encoding='utf-8'))
     style = manifest['style']
-    rows = [json.loads(line) for line in (data_dir / 'train.jsonl').read_text().splitlines()]
+    rows = [json.loads(line) for line in (data_dir / 'train.jsonl').read_text(encoding='utf-8').splitlines()]
     if len(rows) < 24:
         raise ValueError('Need at least 24 reviewed examples')
     expected = manifest['data_sha256']
@@ -147,10 +147,10 @@ def train(data_dir, output, model_key='qwen3.5-4b', epochs=4, max_seconds=300, d
     previous_result = None
     if resume_dir:
         resume_dir = Path(resume_dir)
-        previous_result = json.loads((resume_dir / 'style_result.json').read_text())
+        previous_result = json.loads((resume_dir / 'style_result.json').read_text(encoding='utf-8'))
         if epochs != 1 or previous_result['model'] != model_key or previous_result['data_sha256'] != expected:
             raise ValueError('Continue only one-pass runs with the exact same model and dataset')
-        previous_seen = set(json.loads((resume_dir / 'seen_example_indices.json').read_text()))
+        previous_seen = set(json.loads((resume_dir / 'seen_example_indices.json').read_text(encoding='utf-8')))
         if not previous_seen <= set(range(len(rows))) or len(previous_seen) == len(rows):
             raise ValueError('Invalid coverage or the entire dataset has already been seen')
     torch.manual_seed(42)
@@ -169,7 +169,7 @@ def train(data_dir, output, model_key='qwen3.5-4b', epochs=4, max_seconds=300, d
             raise ValueError(f'Example {row["id"]} exceeds {limit} tokens; refusing silent truncation')
         encoded.append((prefix+response, [-100]*len(prefix)+response))
     evaluation_path = data_dir / 'evaluation.json'
-    evaluation = json.loads(evaluation_path.read_text()) if evaluation_path.exists() else EVALUATION
+    evaluation = json.loads(evaluation_path.read_text(encoding='utf-8')) if evaluation_path.exists() else EVALUATION
     eval_rows = [r for r in evaluation if manifest['languages'] in ('both', r['language'])]
     write_json(out / 'evaluation.json', eval_rows)
     if set(r['prompt'] for r in rows) & set(r['prompt'] for r in eval_rows):
@@ -190,8 +190,8 @@ def train(data_dir, output, model_key='qwen3.5-4b', epochs=4, max_seconds=300, d
 
     model = load()
     if resume_dir:
-        before = json.loads((resume_dir / 'base.json').read_text())
-        prompted = json.loads((resume_dir / 'prompted.json').read_text())
+        before = json.loads((resume_dir / 'base.json').read_text(encoding='utf-8'))
+        prompted = json.loads((resume_dir / 'prompted.json').read_text(encoding='utf-8'))
         if any([r['prompt'] for r in values] != [r['prompt'] for r in eval_rows]
                for values in (before, prompted)):
             raise ValueError('Continuation evaluation prompts differ from the saved baseline')
@@ -310,7 +310,7 @@ def train(data_dir, output, model_key='qwen3.5-4b', epochs=4, max_seconds=300, d
 def chat(adapter_dir, output, prompt, device='cuda'):
     from peft import PeftModel
     run = Path(adapter_dir)
-    spec = json.loads((run / 'style_result.json').read_text())
+    spec = json.loads((run / 'style_result.json').read_text(encoding='utf-8'))
     tokenizer, stop, load, _ = setup(spec['model'], device)
     model = load()
     before = generate(model, tokenizer, stop, [prompt], device)[0]
@@ -335,10 +335,10 @@ def sample_saved(adapter_dir, output, device='cuda', adapter_scale=1.0):
         raise ValueError('Adapter scale must be in (0, 1]')
     run, out = Path(adapter_dir), Path(output)
     out.mkdir(parents=True, exist_ok=False)
-    result = json.loads((run / 'style_result.json').read_text())
-    manifest = json.loads((run / 'dataset.json').read_text())
+    result = json.loads((run / 'style_result.json').read_text(encoding='utf-8'))
+    manifest = json.loads((run / 'dataset.json').read_text(encoding='utf-8'))
     evaluation_path = run / 'evaluation.json'
-    evaluation = json.loads(evaluation_path.read_text()) if evaluation_path.exists() else EVALUATION
+    evaluation = json.loads(evaluation_path.read_text(encoding='utf-8')) if evaluation_path.exists() else EVALUATION
     eval_rows = [r for r in evaluation if manifest['languages'] in ('both', r['language'])]
     tokenizer, stop, load, _ = setup(result['model'], device)
     model = load()

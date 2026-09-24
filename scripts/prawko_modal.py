@@ -33,9 +33,9 @@ def experiment(method, model, max_seconds, epochs, lr, seed, gpu='L4', batch_siz
                      dataset_path='/work/datasets/prawko-v2/'+('extended.json' if dataset=='expanded' else 'data.json'))
         result['remote_seconds'] = time.monotonic() - started
         result['estimated_compute_usd'] = result['remote_seconds'] * (GPU_RATES[gpu] + 2*.0000131 + 16*.00000222)
-        (path / 'executed_prawko.py').write_text(Path('/work/scripts/prawko.py').read_text())
-        (path / 'execution.json').write_text(json.dumps(result, indent=2))
-        return name, {p.name: p.read_text() for p in path.iterdir() if p.is_file()}
+        (path / 'executed_prawko.py').write_text(Path('/work/scripts/prawko.py').read_text(encoding='utf-8'), encoding='utf-8', newline='\n')
+        (path / 'execution.json').write_text(json.dumps(result, indent=2), encoding='utf-8', newline='\n')
+        return name, {p.name: p.read_text(encoding='utf-8') for p in path.iterdir() if p.is_file()}
     finally:
         volume.commit()
 
@@ -64,6 +64,6 @@ def main(method: str = 'screen', model: str = 'qwen3.5-0.8b', max_seconds: int =
         out = Path('runs') / name
         out.mkdir(parents=True, exist_ok=False)
         for filename, content in files.items():
-            (out / filename).write_text(content)
+            (out / filename).write_text(content, encoding='utf-8', newline='\n')
         print('Saved', out, flush=True)
         print('View results: pnpm dev', flush=True)

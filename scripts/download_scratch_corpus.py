@@ -59,7 +59,7 @@ def main():
     p.add_argument('--download', action='store_true')
     p.add_argument('--output', type=Path, default=Path(__file__).resolve().parents[1] / 'datasets/local/scratch-corpora')
     a = p.parse_args()
-    source = json.loads(MANIFEST.read_text())['sources'][a.source]
+    source = json.loads(MANIFEST.read_text(encoding='utf-8'))['sources'][a.source]
     print(source['description'])
     print(f"{len(source['files'])} files; {sum(x['size'] for x in source['files'])/1e9:.3f} GB compressed")
     for item in source['files']:

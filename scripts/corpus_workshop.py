@@ -33,7 +33,7 @@ def run(data_dir, output, model_key='lfm2.5-2.6b', epochs=1, max_seconds=600, de
         raise ValueError('Choose 256/1024/2048/4096 target tokens and batch size 1/2')
     started=time.monotonic()
     data_dir, out=Path(data_dir), Path(output)
-    manifest=json.loads((data_dir/'corpus.json').read_text())
+    manifest=json.loads((data_dir/'corpus.json').read_text(encoding='utf-8'))
     raw=(data_dir/'train.txt').read_bytes()
     if hashlib.sha256(raw).hexdigest()!=manifest['text_sha256']:
         raise ValueError('Corpus hash mismatch')

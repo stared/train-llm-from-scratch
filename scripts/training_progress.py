@@ -33,7 +33,7 @@ def reporter(channel):
 def write_live(folder, stage, events, status, started, final=None):
     elapsed = time.monotonic()-started
     meta = dict(stage=stage, status=status, elapsed_seconds=elapsed, updated_at=time.time(), events=events, final=final)
-    (folder/'progress.tmp').write_text(json.dumps(meta, indent=2))
+    (folder/'progress.tmp').write_text(json.dumps(meta, indent=2), encoding='utf-8', newline='\n')
     (folder/'progress.tmp').replace(folder/'progress.json')
 
 

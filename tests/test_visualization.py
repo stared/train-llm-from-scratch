@@ -63,7 +63,7 @@ class VisualizationTests(unittest.TestCase):
                      'base':[dict(prompt='<question>',answer='before')],
                      'finetuned':[dict(prompt='<question>',answer='after')]}
             for name,value in records.items():
-                (folder/(name+'.json')).write_text(json.dumps(value))
+                (folder/(name+'.json')).write_text(json.dumps(value), encoding='utf-8', newline='\n')
             report=visualization.render_report(folder)
             self.assertIn('&lt;question&gt;',report)
             self.assertIn('before',report)
@@ -102,8 +102,8 @@ class VisualizationTests(unittest.TestCase):
             self.assertEqual(value['model'],'Test model')
             self.assertEqual(value['curves'][0]['points'],[[0,8.]])
             self.assertEqual(value['snapshots'][0]['rows'][0]['continuation'],' there')
-            raw=json.loads((folder/'progress.json').read_text());raw['updated_at']=0
-            (folder/'progress.json').write_text(json.dumps(raw))
+            raw=json.loads((folder/'progress.json').read_text(encoding='utf-8'));raw['updated_at']=0
+            (folder/'progress.json').write_text(json.dumps(raw), encoding='utf-8', newline='\n')
             self.assertEqual(visualization.live(folder)['status'],'Disconnected')
 
     def test_examples_are_complete_and_pairs_match(self):

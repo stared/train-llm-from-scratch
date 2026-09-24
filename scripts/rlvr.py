@@ -34,7 +34,7 @@ def run(sft_dir, output, groups=12, rollouts=4, device='cpu', max_seconds=90):
     if not 1 <= groups <= 32 or not 2 <= rollouts <= 8 or not 1 <= max_seconds <= 180:
         raise ValueError('Limits: 1–32 groups, 2–8 rollouts, 1–180 training seconds')
     source = Path(sft_dir)
-    manifest = json.loads((source / 'result.json').read_text())
+    manifest = json.loads((source / 'result.json').read_text(encoding='utf-8'))
     if manifest['model'] != 'lfm2.5-350m' or manifest['task'] != 'polish':
         raise ValueError('Use the LFM2.5-350M Polish SFT run as the warm start')
     out = Path(output)
@@ -84,7 +84,7 @@ def run(sft_dir, output, groups=12, rollouts=4, device='cpu', max_seconds=90):
             seq, start = generate(a, b)
             text = tokenizer.decode(seq[0, start:], skip_special_tokens=True)
             rows.append(dict(a=a, b=b, answer=a+b, prediction=text, reward=reward(text, a, b)))
-        (out / f'{name}.json').write_text(json.dumps(rows, ensure_ascii=False, indent=2))
+        (out / f'{name}.json').write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
         return sum(r['reward'] for r in rows) / len(rows)
 
     before = evaluate('before')
@@ -139,7 +139,7 @@ def run(sft_dir, output, groups=12, rollouts=4, device='cpu', max_seconds=90):
     model = load(out / 'adapter')
     model.eval()
     reloaded = evaluate('reloaded')
-    same = (out / 'after.json').read_text() == (out / 'reloaded.json').read_text()
+    same = (out / 'after.json').read_text(encoding='utf-8') == (out / 'reloaded.json').read_text(encoding='utf-8')
     if not same:
         raise RuntimeError('Reload predictions differ')
     result = dict(algorithm='on-policy REINFORCE with leave-one-out baseline; beta=0',
@@ -149,8 +149,8 @@ def run(sft_dir, output, groups=12, rollouts=4, device='cpu', max_seconds=90):
                   training_seconds=train_seconds, total_seconds=time.monotonic()-started,
                   peak_vram_gb=torch.cuda.max_memory_allocated()/1e9 if device == 'cuda' else None,
                   diagnostic='nonzero reward signal' if updates else 'all groups had uniform rewards; no learning update')
-    (out / 'rl_result.json').write_text(json.dumps(result, indent=2))
-    (out / 'rollouts.json').write_text(json.dumps(history, ensure_ascii=False, indent=2))
+    (out / 'rl_result.json').write_text(json.dumps(result, indent=2), encoding='utf-8', newline='\n')
+    (out / 'rollouts.json').write_text(json.dumps(history, ensure_ascii=False, indent=2), encoding='utf-8', newline='\n')
     print(json.dumps(result, indent=2), flush=True)
     return result
 

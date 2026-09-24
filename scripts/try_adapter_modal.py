@@ -53,12 +53,12 @@ def predict(run, task, prompt, words):
     folder = Path('/persist/runs') / run
     if not (folder / 'adapter/adapter_config.json').is_file():
         raise ValueError(f'No saved adapter in {run}. Use the name printed by your completed training run.')
-    result = json.loads((folder / 'result.json').read_text())
+    result = json.loads((folder / 'result.json').read_text(encoding='utf-8'))
     valid = (result.get('method') == 'sft' if task == 'exam'
              else result.get('task') == 'six_words')
     if not valid:
         raise ValueError('This run does not match the requested task. Choose the matching chapter’s run.')
-    spec = json.loads((folder / 'model_spec.json').read_text())
+    spec = json.loads((folder / 'model_spec.json').read_text(encoding='utf-8'))
     tokenizer = AutoTokenizer.from_pretrained(folder / 'tokenizer')
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token

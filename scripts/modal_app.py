@@ -28,8 +28,8 @@ def experiment(model, task, steps, eval_size, max_seconds):
         # Formula includes requested CPU and RAM, but is not a billing receipt.
         result['remote_seconds'] = time.monotonic() - started
         result['estimated_compute_usd'] = result['remote_seconds'] * (.000222 + 2*.0000131 + 8*.00000222)
-        (path / 'result.json').write_text(json.dumps(result, indent=2))
-        files = {p.name: p.read_text() for p in path.iterdir() if p.is_file()}
+        (path / 'result.json').write_text(json.dumps(result, indent=2), encoding='utf-8', newline='\n')
+        files = {p.name: p.read_text(encoding='utf-8') for p in path.iterdir() if p.is_file()}
         return name, files
     finally:
         volume.commit()
@@ -49,5 +49,5 @@ def main(model: str = 'qwen3-0.6b', task: str = 'routing', steps: int = 40,
     out = Path('runs') / name
     out.mkdir(parents=True, exist_ok=False)
     for filename, data in files.items():
-        (out / filename).write_text(data)
+        (out / filename).write_text(data, encoding='utf-8', newline='\n')
     print(f'Results: {out}; adapter: Modal volume model-training-workshop /runs/{name}/adapter')

@@ -38,6 +38,8 @@ Install these two tools using their linked instructions:
 
 Run all commands from this repository's folder.
 
+On Windows, use PowerShell. The workshop commands run training on Modal; the local `--device mps` examples are for Macs only.
+
 Install the Modal command-line tool:
 
 ```bash
@@ -65,4 +67,3 @@ This checks your connection and displays information about the active token. It 
 - **Billing or limit error:** return to **Usage & billing**.
 
 Setup is complete when the connection check succeeds and you have checked your workspace's credits and saved spending limit. Return to the [README visualization section](README.md#visualization), then continue with data preparation. These setup steps do not start the exercises.
-

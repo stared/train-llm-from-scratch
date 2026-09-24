@@ -14,7 +14,7 @@ def models():
     for folder in sorted((ROOT / 'runs').glob('scratch-*')):
         if folder.is_symlink() or not all((folder / name).is_file() for name in ('best.pt', 'result.json', 'tokenizer.json')):
             continue
-        result = json.loads((folder / 'result.json').read_text())
+        result = json.loads((folder / 'result.json').read_text(encoding='utf-8'))
         if 'config' not in result:
             continue
         corpus = ('Sejm' if folder.name.startswith('scratch-sejm') else

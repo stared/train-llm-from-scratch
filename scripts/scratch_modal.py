@@ -29,15 +29,15 @@ def experiment(size,max_seconds,batch_size):
         result=run('/persist/datasets/wiki-scratch-v1',str(out),size,max_seconds,42,'cuda',batch_size)
         subprocess.run([sys.executable,'/work/scripts/sample_scratch.py',str(out),
                         '--device','cuda','--output',str(out/'reload_samples.json')],check=True,timeout=120)
-        matches=json.loads((out/'reload_samples.json').read_text())==json.loads((out/'samples_selected.json').read_text())
+        matches=json.loads((out/'reload_samples.json').read_text(encoding='utf-8'))==json.loads((out/'samples_selected.json').read_text(encoding='utf-8'))
         if not matches:raise RuntimeError('Fresh-process generation differs')
         result['fresh_process_reload_matches']=matches
         result['remote_seconds']=time.monotonic()-start
         result['estimated_compute_usd']=result['remote_seconds']*(.000222+2*.0000131+16*.00000222)
         for file in ('scratch_model.py','train_scratch.py','sample_scratch.py'):
-            (out/('executed_'+file)).write_text((Path('/work/scripts')/file).read_text())
-        (out/'execution.json').write_text(json.dumps(result,indent=2))
-        return name,{p.name:p.read_text() for p in out.iterdir() if p.suffix in ('.json','.py')}
+            (out/('executed_'+file)).write_text((Path('/work/scripts')/file).read_text(encoding='utf-8'), encoding='utf-8', newline='\n')
+        (out/'execution.json').write_text(json.dumps(result,indent=2), encoding='utf-8', newline='\n')
+        return name,{p.name:p.read_text(encoding='utf-8') for p in out.iterdir() if p.suffix in ('.json','.py')}
     finally:
         volume.commit()
 
@@ -50,6 +50,6 @@ def main(size:str='compare',max_seconds:int=300,batch_size:int=32):
     for selected in (('10m','30m') if size=='compare' else (size,)):
         name,files=experiment.remote(selected,max_seconds,batch_size)
         out=Path('runs')/name;out.mkdir(parents=True,exist_ok=False)
-        for filename,text in files.items():(out/filename).write_text(text)
+        for filename,text in files.items():(out/filename).write_text(text, encoding='utf-8', newline='\n')
         print('Saved',out,flush=True)
         print('View results: pnpm dev', flush=True)

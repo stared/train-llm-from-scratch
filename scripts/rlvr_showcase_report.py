@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 def read(path):
-    return json.loads(path.read_text())
+    return json.loads(path.read_text(encoding='utf-8'))
 
 
 def build(paths, output='results/rlvr-results'):
@@ -63,7 +63,7 @@ def build(paths, output='results/rlvr-results'):
                            '', '```text', old['text'], '```', '',
                            f"After — {run['model_spec']['id']} + {run['task']} RLVR; success={new['success']}; reward={new['reward']:.3f}:",
                            '', '```text', new['text'], '```', ''])
-    Path(output + '.md').write_text('\n'.join(md))
+    Path(output + '.md').write_text('\n'.join(md), encoding='utf-8', newline='\n')
     payload = json.dumps(bundles, ensure_ascii=False).replace('<', '\\u003c')
     page = r'''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RLVR lab — before / after</title><style>
@@ -94,7 +94,7 @@ function render(){let b=DATA[+$('task').value],split=$('split').value,all=b.spli
 let count=k=>all.filter(r=>r[k].success).length; $('summary').innerHTML='<h2>'+esc(b.run.task)+'</h2><div class="stats">'+count('before')+'/'+all.length+' → '+count('after')+'/'+all.length+' strict successes</div><p>'+esc(b.run.model_spec.id)+' · '+(b.run.training_seconds/60).toFixed(1)+' minutes training · $'+b.run.estimated_compute_usd.toFixed(3)+' completed-worker compute. '+b.run.updates+' updates. Reload verified: '+b.run.reload_matches+'.</p><small>Model revision '+esc(b.run.model_spec.revision)+' · '+esc(b.name)+'</small>'+(b.run.task==='six_words'?'<p>Passing the word checker does not prove a good story. Judge meaning, novelty and grammar yourself.</p>':'');
 $('cards').innerHTML=rows.map(x=>'<article class="card"><div class="tag">'+esc(x.input.id)+'</div><pre class="prompt">'+esc(x.input.prompt)+'</pre><div class="cols">'+answer('Before',x.before,x.input,b.run.model_spec.id+' · original')+answer('After RLVR',x.after,x.input,b.run.model_spec.id+' · '+b.run.task+' rewards')+'</div></article>').join('')||'<p>No examples match this filter.</p>'}
 ['task','split','changed'].forEach(id=>$(id).addEventListener('change',render));render();</script></html>'''
-    Path(output + '.html').write_text(page.replace('__DATA__', payload))
+    Path(output + '.html').write_text(page.replace('__DATA__', payload), encoding='utf-8', newline='\n')
     print(f'Saved {output}.md and {output}.html')
 
 

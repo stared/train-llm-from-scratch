@@ -55,9 +55,9 @@ def prepare():
     OUT.mkdir(parents=True,exist_ok=False)
     for name,data in [('scenes.json',scenes),('parsing_audit.json',audit),('headings.json',headings),
                       ('unpaired_scenes.json',[s for s in scenes if len(s)<2])]:
-        (OUT/name).write_text(json.dumps(data,ensure_ascii=False,indent=2))
+        (OUT/name).write_text(json.dumps(data,ensure_ascii=False,indent=2), encoding='utf-8', newline='\n')
     for split,rows in result.items():
-        (OUT/f'{split}.jsonl').write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in rows))
+        (OUT/f'{split}.jsonl').write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in rows), encoding='utf-8', newline='\n')
     manifest={'style':'wit','languages':'pl','examples':len(result['train']),
               'source':str(SOURCE),'source_sha256':hashlib.sha256(raw).hexdigest(),
               'data_sha256':hashlib.sha256((OUT/'train.jsonl').read_bytes()).hexdigest(),
@@ -66,14 +66,14 @@ def prepare():
               'unpaired_scenes':sum(len(s)<2 for s in scenes),'validation_examples':0,
               'recipe':'All usable adjacent dialogue pairs, both forward and reverse, deduplicated. No authored comic examples mixed in. Scene headings/stage directions excluded; unlabelled continuations attached to previous speaker; source mistakes retained.',
               'evaluation':'New ordinary Polish questions. No film-quotation holdout; all usable exchanges requested for training.'}
-    (OUT/'dataset.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2))
+    (OUT/'dataset.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2), encoding='utf-8', newline='\n')
     prompts=['Dlaczego mój komputer znowu się zawiesił?',
              'Kolega pożyczył ode mnie pieniądze i nie oddaje. Co mu powiedzieć?',
              'Nie wiem, co chcę robić w życiu. Od czego zacząć?',
              'Szef chce, żebym pracował w sobotę. Jak mu odmówić?',
              'Kupiłem drogi sweter, a wszyscy się ze mnie śmieją. Co robić?',
              'Dlaczego warto robić kopie zapasowe?']
-    (OUT/'evaluation.json').write_text(json.dumps([{'id':f'new-pl-{i}','language':'pl','prompt':p} for i,p in enumerate(prompts)],ensure_ascii=False,indent=2))
+    (OUT/'evaluation.json').write_text(json.dumps([{'id':f'new-pl-{i}','language':'pl','prompt':p} for i,p in enumerate(prompts)],ensure_ascii=False,indent=2), encoding='utf-8', newline='\n')
     print(json.dumps(manifest,ensure_ascii=False,indent=2))
 
 
