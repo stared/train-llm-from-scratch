@@ -13,6 +13,18 @@
         }
       ]
     },
+    "sejm": {
+      "description": "Polish Sejm sitting transcripts of the first three terms (1991–2001) as one plain-text file, sejm.txt, 342,466,132 bytes.",
+      "files": [
+        {
+          "name": "sejm.zip",
+          "url": "https://pliki.danieljanus.pl/sejm.zip",
+          "size": 112060350,
+          "hash_algorithm": "sha256",
+          "checksum": "43be1b1b5bf7616ac1f4d8ad380e49819e89a4f6153d3002f44942f55f8d3d6f"
+        }
+      ]
+    },
     "wikipedia-pl-clean": {
       "description": "Wikimedia cleaned Polish articles, snapshot20231101, six Parquet shards; 1,587,721 articles.",
       "revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",

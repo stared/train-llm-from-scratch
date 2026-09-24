@@ -17,7 +17,8 @@ def models():
         result = json.loads((folder / 'result.json').read_text())
         if 'config' not in result:
             continue
-        corpus = 'Wolne Lektury' if folder.name.startswith(('scratch-wl-', 'scratch-wolne-lektury-')) else 'Wikipedia'
+        corpus = ('Sejm' if folder.name.startswith('scratch-sejm') else
+                  'Wolne Lektury' if folder.name.startswith(('scratch-wl-', 'scratch-wolne-lektury-')) else 'Wikipedia')
         found.append({'id': folder.name, 'label': f"{corpus}, {result['model']}", 'config': result['config']})
     found.sort(key=lambda r: (not r['id'].startswith('scratch-wl-30m-'), not r['id'].startswith('scratch-wl-'), r['id']))
     # One checkpoint per corpus/model combination keeps the selector useful.

@@ -49,3 +49,58 @@ class PreparationTests(unittest.TestCase):
         with patch.object(prep, 'ROOT', self.root), patch.dict('sys.modules', {'modal':modal}):
             prep.prepare('wolne-lektury')
         self.assertEqual(upload.__enter__.return_value.put_file.call_count, 5)
+
+
+class SejmPreparationTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+
+    def test_chunks_reproduce_text_verbatim(self):
+        import prepare_sejm_scratch as sejm
+        text = ''.join(f'Poseł {i}:\r\nTekst  wystąpienia {i}.\r\n\r\n' for i in range(400)) + 'bez końca linii'
+        source = self.root/'sejm.txt'
+        source.write_bytes(text.encode('utf-8'))
+        with patch.object(sejm, 'CHUNK_CHARS', 200), patch.object(sejm, 'HARD_LIMIT_CHARS', 800):
+            parts = list(sejm.chunks(source))
+        self.assertEqual(''.join(parts), text)
+        self.assertGreater(len(parts), 50)
+        self.assertTrue(all(p.endswith('\r\n\r\n') for p in parts[:-1]))
+
+    def test_zip_archive_reads_member_verbatim(self):
+        import zipfile
+        import prepare_sejm_scratch as sejm
+        text = 'Marszałek:\r\n\r\nProszę o zajęcie miejsc.\n'
+        with zipfile.ZipFile(self.root/'sejm.zip', 'w') as z:
+            z.writestr('sejm.txt', text.encode('utf-8'))
+        self.assertEqual(''.join(sejm.chunks(self.root/'sejm.zip')), text)
+
+    def test_missing_local_text_downloads_pinned_archive(self):
+        import download_scratch_corpus
+        import prepare_sejm_scratch as sejm
+        downloaded = []
+        with patch.object(prep, 'ROOT', self.root), patch.object(sejm, 'DEFAULT_SOURCE', self.root/'absent.txt'), \
+                patch.object(download_scratch_corpus, 'download', lambda item, folder: downloaded.append(item['url'])):
+            source = prep.sejm_source(None)
+        self.assertEqual(downloaded, ['https://pliki.danieljanus.pl/sejm.zip'])
+        self.assertEqual(source, self.root/'datasets/local/scratch-corpora/sejm/sejm.zip')
+
+    def test_sejm_is_prepared_locally_without_modal(self):
+        modal = Mock()
+        prepared = []
+        def fake_prepare(source, tokenizer, output):
+            prepared.append(Path(source))
+            output.mkdir(parents=True)
+            (output/'tokenizer.json').write_bytes(b'{}')
+            meta = {'tokenizer_sha256': hashlib.sha256(b'{}').hexdigest(), 'splits': {}}
+            for split in ('train', 'dev', 'test'):
+                (output/f'{split}.bin').write_bytes(b'\x01\x00')
+                meta['splits'][split] = {'tokens': 1, 'sha256': hashlib.sha256(b'\x01\x00').hexdigest()}
+            (output/'tokens.json').write_text(json.dumps(meta))
+        with patch.object(prep, 'ROOT', self.root), patch('prepare_sejm_scratch.prepare', fake_prepare), \
+                patch.dict('sys.modules', {'modal': modal}):
+            prep.prepare('sejm', source=self.root/'sejm.txt')
+        self.assertEqual(prepared, [self.root/'sejm.txt'])
+        self.assertTrue((self.root/'datasets/local/sejm-scratch-v1/tokens.json').exists())
+        modal.Volume.from_name.assert_not_called()

@@ -7,6 +7,7 @@ RECIPES = {
     'wiki': ('30m', 'wiki-scratch-v1', 'H100', 64, 512, 100),
     'wiki-100m': ('100m', 'wiki-scratch-v1', 'H100', 64, 512, 100),
     'wolne-lektury': ('30m', 'wl-scratch-v1', 'H100', 64, 512, 100),
+    'sejm': ('30m', 'sejm-scratch-v1', 'H100', 64, 512, 100),
     'stories-cheap': ('10m', 'tinystories-v1', 'L4', 32, 256, 20),
     'stories': ('30m', 'tinystories-v1', 'H100', 64, 512, 100),
     'popular-wiki': ('30m', 'wiki-popular-v1', 'H100', 64, 512, 100),

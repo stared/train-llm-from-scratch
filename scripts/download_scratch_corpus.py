@@ -55,7 +55,7 @@ def download(item, folder):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--source', choices=['falenty-wl', 'wikipedia-pl-clean', 'wikipedia-pl-20260901'], required=True)
+    p.add_argument('--source', choices=['falenty-wl', 'sejm', 'wikipedia-pl-clean', 'wikipedia-pl-20260901'], required=True)
     p.add_argument('--download', action='store_true')
     p.add_argument('--output', type=Path, default=Path(__file__).resolve().parents[1] / 'datasets/local/scratch-corpora')
     a = p.parse_args()
