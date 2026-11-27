@@ -126,6 +126,7 @@ The four numbered guides are the main path. `scripts/` contains runnable code an
 ### Fine-tuning and reinforcement learning
 
 - [TRL SFTTrainer](https://huggingface.co/docs/trl/sft_trainer) and [RLOOTrainer](https://huggingface.co/docs/trl/rloo_trainer), implementations of supervised fine-tuning and reinforcement learning with a leave-one-out baseline. See [GRPOTrainer](https://huggingface.co/docs/trl/grpo_trainer) for the related algorithm used in DeepSeek-R1.
+- [Predicting LoRA size for any dataset](https://engram.com/blog/lora-size), how much a LoRA adapter can store, measured in bits of training data on Qwen3.5-0.8B, the model in our SFT exercise. Advanced; read it to reason about choosing the adapter rank.
 - [DeepSeek-R1 paper](https://arxiv.org/abs/2501.12948), reinforcement learning with verifiable rewards at scale.
 - [MiMo-V2.6 RL dashboard](https://mimo.xiaomi.com/rl/), public post-training dashboard from Xiaomi's MiMo team, led by Luo Fuli. See also [HN discussion](https://news.ycombinator.com/item?id=49732270).
 
