@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = ["tiktoken==0.12.0"]
-# ///
 """Run CPU tests from any shell, without setting PYTHONPATH."""
 from pathlib import Path
 import sys

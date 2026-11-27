@@ -30,7 +30,7 @@ The [Polish Wikipedia dump from September 2026](https://dumps.wikimedia.org/plwi
 To start, run:
 
 ```bash
-modal run scripts/prepare_data_modal.py
+uv run modal run scripts/prepare_data_modal.py
 ```
 
 Modal downloads the texts, converts them into token IDs using our saved tokenizer, and stores them in your Modal volume. Books are split into training, development and test sets before training.

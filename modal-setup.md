@@ -33,23 +33,25 @@ Do not set the usage limit to zero: that would also block credit-funded work.
 
 Install these two tools using their linked instructions:
 
-- **[uv](https://docs.astral.sh/uv/getting-started/installation/)** manages Python versions and packages. We use it to install Modal and run Python scripts with the dependencies they need. The workshop uses **Python 3.14**; uv downloads it if needed.
+- **[uv](https://docs.astral.sh/uv/getting-started/installation/)** manages Python versions and packages. It installs the Modal command-line tool and the packages the scripts need, all at the versions pinned in `pyproject.toml`. The workshop uses **Python 3.14**; uv downloads it if needed.
 - **[pnpm](https://pnpm.io/installation/)** manages JavaScript packages and runs commands defined by a project. In this workshop, `pnpm dev` starts the local visualization so you can explore tokens and view training results in your browser.
 
 Run all commands from this repository's folder.
 
 On Windows, use PowerShell. The workshop commands run training on Modal; the local `--device mps` examples are for Macs only.
 
-Install the Modal command-line tool:
+Install the Modal command-line tool and the other packages:
 
 ```bash
-uv tool install modal==1.5.5
+uv sync
 ```
 
-Connect it to your account:
+This installs them into this folder only, in `.venv`. Commands start with `uv run`, so they use these versions.
+
+Connect Modal to your account:
 
 ```bash
-modal setup
+uv run modal setup
 ```
 
 In the browser, sign in with the account you created above. Select the same workspace and approve the authorization request. This lets your terminal submit jobs to that workspace. Return to the terminal and wait for setup to finish. If the browser does not open, use the link printed in the terminal. Keep credentials private.
@@ -57,13 +59,13 @@ In the browser, sign in with the account you created above. Select the same work
 ## Check that setup worked
 
 ```bash
-modal token info
+uv run modal token info
 ```
 
 This checks your connection and displays information about the active token. It does **not** launch a training job. Confirm that it succeeds and identifies your intended workspace. This is the verification command in [Modal's getting-started guide](https://modal.com/docs/guide/getting-started).
 
-- **`modal: command not found`:** run `uv tool update-shell`, open a new terminal, and try again.
-- **Authentication fails or the wrong workspace appears:** rerun `modal setup` and authorize the intended workspace.
+- **`modal: command not found`:** prefix the command with `uv run` and run it from this repository's folder.
+- **Authentication fails or the wrong workspace appears:** rerun `uv run modal setup` and authorize the intended workspace.
 - **Billing or limit error:** return to **Usage & billing**.
 
 Setup is complete when the connection check succeeds and you have checked your workspace's credits and saved spending limit. Return to the [README visualization section](README.md#visualization), then continue with data preparation. These setup steps do not start the exercises.

@@ -15,7 +15,7 @@ The source identifies the literary work as public domain. Source edition: Adam M
 ## Run
 
 ```bash
-modal run scripts/corpus_modal.py --max-seconds 600
+uv run modal run scripts/corpus_modal.py --max-seconds 600
 ```
 
 Default: LFM2.5-2.6B, one L4, BF16 LoRA rank eight, learning rate 1e-4, batch two, one shuffled pass through the full tokenized book. Blocks have 256 next-token targets and share one boundary token, so chunking does not discard targets at block boundaries. The final partial block is retained and padding is masked.
@@ -25,7 +25,7 @@ The ten-minute training limit is checked after each update; the whole remote fun
 Local NVIDIA GPU:
 
 ```bash
-uv run scripts/corpus_workshop.py --data-dir datasets/pan-tadeusz-full --output runs/my-pan-tadeusz --device cuda --max-seconds 600
+uv run --group train scripts/corpus_workshop.py --data-dir datasets/pan-tadeusz-full --output runs/my-pan-tadeusz --device cuda --max-seconds 600
 ```
 
 To independently redownload and check the source layout:
@@ -54,14 +54,6 @@ LFM2.5-2.6B completed one **full pass in 61.3 seconds**: 333 updates, all 665 bl
 
 [Eight new before/after chat comparisons](../../results/pan-tadeusz-results.md) test the saved full-book adapter with sampled decoding, without a poetry instruction. They do not demonstrate reliable poetic chat: English planning text consumes much of the output budget, and visible replies mostly remain prose. The report separates final-reply text from planning and retains unmodified raw outputs.
 
-Run without retraining:
-
-```bash
-modal run additional/scripts/corpus_probe_modal.py
-```
-
-Local GPU: `uv run additional/scripts/corpus_probe.py --adapter-dir PATH_TO_SAVED_RUN --output runs/my-corpus-probe`.
-
 ## Question-to-verse follow-up — dataset prepared
 
 [500 ordinary Polish prompts → 4–12 original verse lines](../../additional/poetry.md) now provide explicit chat supervision, including deliberately humorous modern questions answered by historical passages. The dataset has 450 training and 50 validation pairs. [Qwen3.5-4B has now been trained on these pairs](../../results/pan-tadeusz-qa-results.md); the full-book results below are separate experiments.
@@ -73,13 +65,13 @@ The original measured run used only 256 next-token targets per chunk; this was a
 Tested comparison, starting from the same original checkpoint on the same full book:
 
 ```bash
-modal run scripts/corpus_modal.py --target-tokens 2048 --batch-size 1 --line-aligned --max-seconds 600
+uv run modal run scripts/corpus_modal.py --target-tokens 2048 --batch-size 1 --line-aligned --max-seconds 600
 ```
 
 Local GPU:
 
 ```bash
-uv run scripts/corpus_workshop.py --output runs/pan-tadeusz-2048 --device cuda --target-tokens 2048 --batch-size 1 --line-aligned --max-seconds 600
+uv run --group train scripts/corpus_workshop.py --output runs/pan-tadeusz-2048 --device cuda --target-tokens 2048 --batch-size 1 --line-aligned --max-seconds 600
 ```
 
 A chunk contains at most 2,049 input tokens to predict 2,048 targets. Line-aligned mode chooses the last available token boundary ending in a newline under that limit. One token overlaps between chunks as context, and every next-token target remains covered exactly once per full pass. Very long lines or unavailable newline token boundaries fall back to a fixed split; `forced_line_splits` records those cases. It preserves line boundaries where possible, not necessarily couplet/stanza/book boundaries.
@@ -90,8 +82,3 @@ Longer context may help model relationships across verses; it does not enforce s
 
 [Actual before/after and 256-vs-2,048 comparisons](../../results/pan-tadeusz-2048-results.md): ordinary replies remain prose; a manually checked continuation line has 11 syllables. Eight short chat probes plus two longer-output diagnostic questions do not establish thirteen-syllable chat. New training and evaluation cost **$0.09176 estimated requested compute**, excluding startup/storage.
 
-Reproduce the saved-adapter chat test without training again:
-
-```bash
-modal run additional/scripts/corpus_probe_modal.py --adapter-run pan-tadeusz-1788794554392255032 --long-output-tokens 1024
-```

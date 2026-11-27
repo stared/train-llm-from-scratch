@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = ["tokenizers==0.23.2"]
-# ///
 """Inspect text with our saved BPE tokenizer, or train one on UTF-8 text files."""
 import argparse
 import json

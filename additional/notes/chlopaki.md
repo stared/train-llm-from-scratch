@@ -11,7 +11,7 @@ All usable pairs go into training, as requested. Six newly written ordinary Poli
 ## Reproduce
 
 ```bash
-modal run scripts/style_modal.py --stage train --data-run chlopaki-bidirectional-v1 --model qwen3.5-4b --epochs 1 --max-seconds 600 --batch-tokens 2048
+uv run modal run scripts/style_modal.py --stage train --data-run chlopaki-bidirectional-v1 --model qwen3.5-4b --epochs 1 --max-seconds 600 --batch-tokens 2048
 ```
 
 One L4, BF16 LoRA rank 16, alpha 32, dropout 0.05, learning rate 1e-4, gradient checkpointing. Direct batches contain up to four examples and at most 2,048 padded input tokens; short length buckets reduce padding. Only answer tokens contribute to the loss. This mode uses an answer-token mean within each batch, unlike the earlier per-example gradient-accumulation recipe. Long examples are not silently truncated. The initial attempt without gradient checkpointing ran out of GPU memory and is recorded as a failed run.
@@ -21,7 +21,7 @@ The training limit is ten minutes, checked after each update; the overall functi
 If the cap interrupts the pass, continue the saved adapter on only the examples it has not seen:
 
 ```bash
-modal run scripts/style_modal.py --stage train --data-run chlopaki-bidirectional-v1 --model qwen3.5-4b --epochs 1 --max-seconds 180 --batch-tokens 2048 --resume-run PREVIOUS_RUN_NAME
+uv run modal run scripts/style_modal.py --stage train --data-run chlopaki-bidirectional-v1 --model qwen3.5-4b --epochs 1 --max-seconds 180 --batch-tokens 2048 --resume-run PREVIOUS_RUN_NAME
 ```
 
 Continuation checks the dataset hash and model revision, carries over adapter weights and coverage, and starts a fresh AdamW optimizer. It is not an exact optimizer-state resume. Combined training time is recorded separately from the current call's time.
@@ -29,7 +29,7 @@ Continuation checks the dataset hash and model revision, carries over adapter we
 For a local NVIDIA GPU:
 
 ```bash
-uv run scripts/style_workshop.py train --data-dir datasets/chlopaki-bidirectional-v1 --output runs/my-chlopaki --model qwen3.5-4b --epochs 1 --max-seconds 600 --batch-tokens 2048 --device cuda
+uv run --group train scripts/style_workshop.py train --data-dir datasets/chlopaki-bidirectional-v1 --output runs/my-chlopaki --model qwen3.5-4b --epochs 1 --max-seconds 600 --batch-tokens 2048 --device cuda
 ```
 
 `uv run scripts/prepare_chlopaki.py` rebuilds the dataset from the supplied file; it refuses to overwrite the versioned output directory. The source hash and dataset hash are in [dataset.json](../../datasets/chlopaki-bidirectional-v1/dataset.json).
@@ -55,8 +55,8 @@ Full-strength sampling produces a visibly absurd comic voice; greedy decoding mo
 Reproduce the sampled comparison without training again:
 
 ```bash
-modal run scripts/style_modal.py --stage sample --data-run style-train-wit-1788781334049902996
-modal run scripts/style_modal.py --stage sample --data-run style-train-wit-1788781334049902996 --adapter-scale 0.25
+uv run modal run scripts/style_modal.py --stage sample --data-run style-train-wit-1788781334049902996
+uv run modal run scripts/style_modal.py --stage sample --data-run style-train-wit-1788781334049902996 --adapter-scale 0.25
 ```
 
 Both use seed 42, temperature 0.7, top-p 0.8, top-k 20 and repetition penalty 1.1. Adapter strength scales the saved LoRA contribution at inference; no additional training takes place.

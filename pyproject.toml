@@ -1,0 +1,16 @@
+[project]
+name = "ai-from-scratch"
+version = "0"
+requires-python = ">=3.14"
+# Needed everywhere, including cloud data preparation.
+dependencies = ["numpy==2.5.5", "tokenizers==0.23.3"]
+
+[dependency-groups]
+# Model training: Modal GPU images, or local runs with `uv run --group train`.
+train = ["torch==2.15.0", "transformers==5.24.1", "peft==0.22.0", "accelerate==1.16.0"]
+# Local only: Modal client and visualization/tests.
+dev = ["modal==1.6.4", "tiktoken==0.14.0"]
+
+[tool.uv]
+package = false
+default-groups = ["dev"]

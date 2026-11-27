@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = ["tokenizers==0.23.2", "numpy==2.5.3"]
-# ///
 """Prepare the historical Falenty Wolne Lektury archive with the existing Wiki BPE.
 
 The archive is a concatenated snapshot, not a current complete library. Paragraphs

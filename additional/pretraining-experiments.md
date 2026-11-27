@@ -22,8 +22,8 @@ H100 processed more tokens per dollar; L4 cost less per run. These measurements 
 To compare cards, use the same batch size on both runs:
 
 ```bash
-modal run scripts/scratch_recipe_modal.py --gpu L4 --batch-size 32
-modal run scripts/scratch_recipe_modal.py --gpu H100 --batch-size 32
+uv run modal run scripts/scratch_recipe_modal.py --gpu L4 --batch-size 32
+uv run modal run scripts/scratch_recipe_modal.py --gpu H100 --batch-size 32
 ```
 
 Add `--compile-training` to compile the training loop. With H100 and batch 32, the workshop script processed 578M tokens in ten minutes, with test loss 2.760. Including evaluation: 11 min 4 s, $0.77.
@@ -56,13 +56,13 @@ Both learned markup while inventing facts; lower loss does not mean reliable kno
 Prepare it:
 
 ```bash
-modal run scripts/prepare_data_modal.py --corpus wikipedia
+uv run modal run scripts/prepare_data_modal.py --corpus wikipedia
 ```
 
 After **Ready**, start training:
 
 ```bash
-modal run scripts/scratch_recipe_modal.py --recipe wiki-100m --compile-training
+uv run modal run scripts/scratch_recipe_modal.py --recipe wiki-100m --compile-training
 ```
 
 Watch it in the **Pretraining** section of the visualization. Add `--gpu B200` to compare cards, or use `--recipe wiki-cheap --max-seconds 300` for a smaller 10M model on L4 (earlier measured worker cost about $0.10).

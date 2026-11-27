@@ -34,7 +34,7 @@ Keep this terminal running. In your browser, open [http://localhost:5173](http:/
 [Start here: data and tokens](01-data-and-tokens.md). To prepare [Wolne Lektury](https://wolnelektury.pl/), run:
 
 ```bash
-modal run scripts/prepare_data_modal.py
+uv run modal run scripts/prepare_data_modal.py
 ```
 
 Modal downloads **123 MB** and prepares **101 million training tokens** in your cloud volume. Explore the tokenizer and [byte-pair encoding (BPE)](https://en.wikipedia.org/wiki/Byte_pair_encoding) visualization.
@@ -44,7 +44,7 @@ Modal downloads **123 MB** and prepares **101 million training tokens** in your 
 After preparation says **Ready**, [train a small model from random weights](02-pretraining.md):
 
 ```bash
-modal run scripts/scratch_recipe_modal.py --recipe wolne-lektury
+uv run modal run scripts/scratch_recipe_modal.py --recipe wolne-lektury
 ```
 
 30M parameters on H100. Training takes 10 minutes; the measured run took 11 min 32 s including evaluation and cost $0.78. [Compare GPUs](02-pretraining.md#choosing-a-gpu).
@@ -56,7 +56,7 @@ Open **Pretraining** in the visualization to watch loss and generated text at ea
 [Train Qwen3.5-0.8B for the Polish Driving Licence Exam](03-fine-tuning.md), using question → correct-answer examples:
 
 ```bash
-modal run scripts/prawko_modal.py --method sft --epochs 10 --max-seconds 180
+uv run modal run scripts/prawko_modal.py --method sft --epochs 10 --max-seconds 180
 ```
 
 **Up to 3 minutes, about $0.065 measured worker compute.** The included dataset needs no preparation; you can start this while pretraining runs. Open **SFT** to see the training input, target answer and changing A/B/C probabilities.
@@ -68,7 +68,7 @@ On an M5 Max, the same SFT exercise took **1 min 54 s total** using the laptop G
 [Teach Qwen3.5-4B to write exactly six words](04-reinforcement-learning.md). The model tries answers; code checks them and supplies rewards:
 
 ```bash
-modal run scripts/rlvr_showcase_modal.py --task six_words
+uv run modal run scripts/rlvr_showcase_modal.py --task six_words
 ```
 
 **Up to 10 minutes, about $0.19 measured worker compute.** This starts from the original Qwen model, independently of SFT. Open **RLVR** to see sampled answers, their rewards and development success.

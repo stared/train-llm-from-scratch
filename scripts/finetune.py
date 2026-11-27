@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = ["torch==2.14.0", "transformers==5.16.1", "peft==0.20.0", "accelerate==1.14.0"]
-# ///
 """Ordinary Python LoRA SFT, baseline evaluation, and saved-adapter reload.
 
 No TRL, notebook, agent, quantization kernel, or external dataset is required.

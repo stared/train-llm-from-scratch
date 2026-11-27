@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = ["torch==2.14.0", "transformers==5.16.1", "peft==0.20.0", "accelerate==1.14.0"]
-# ///
 """Tiny RLVR: on-policy REINFORCE with a leave-one-out baseline, no KL.
 
 Starts from the saved LFM2.5-350M Polish SFT adapter. One gradient update per

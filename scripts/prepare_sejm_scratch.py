@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = ["tokenizers==0.23.2", "numpy==2.5.3"]
-# ///
 """Tokenize the plain-text Sejm corpus with the existing Wiki BPE.
 
 The source is either sejm.txt or the published sejm.zip that contains it.

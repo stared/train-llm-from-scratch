@@ -82,7 +82,7 @@ One seed per recipe; fixed 16,384-token loss windows; ten curated factual probes
 Use the already prepared dataset on Modal volume `model-training-workshop`; preparation and upload should happen before the live session. This command starts **one** training worker:
 
 ```bash
-uvx --from modal==1.5.0 modal run scripts/scratch_recipe_modal.py --recipe stories --max-seconds 600
+uv run modal run scripts/scratch_recipe_modal.py --recipe stories --max-seconds 600
 ```
 
 Other presets: `stories-cheap`, `literature`, `wiki`, `wiki-cheap`, `popular-wiki`. The single-recipe wrapper uses the tested shared worker; its CLI import was checked, but that new wrapper was not charged for an additional training rerun. Matrix wrappers preserve the exact completed experiment launches.
@@ -90,10 +90,10 @@ Other presets: `stories-cheap`, `literature`, `wiki`, `wiki-cheap`, `popular-wik
 Ordinary NVIDIA GPU equivalent for 30M TinyStories:
 
 ```bash
-uv run scripts/train_scratch.py --data data/tinystories-v1 --size 30m --device cuda --context 512 --batch-size 64 --warmup-steps 100 --eval-interval 300 --max-seconds 600 --output runs/my-stories
-uv run scripts/sample_scratch.py runs/my-stories --device cuda --output runs/my-stories/samples-reloaded.json
+uv run --group train scripts/train_scratch.py --data data/tinystories-v1 --size 30m --device cuda --context 512 --batch-size 64 --warmup-steps 100 --eval-interval 300 --max-seconds 600 --output runs/my-stories
+uv run --group train scripts/sample_scratch.py runs/my-stories --device cuda --output runs/my-stories/samples-reloaded.json
 ```
 
-For Wiki/literature, change `--data` to `datasets/local/wiki-scratch-v1` or `datasets/local/wl-scratch-v1`. Cheap 10M recipes use context 256, batch 32 and 20 warmup updates. Architecture is a small causal Transformer with RMSNorm, RoPE, SwiGLU, tied embeddings and SDPA; AdamW, BF16 autocast, cosine decay, gradient clipping, no compilation. Scripts pin dependencies and can run through uv.
+For Wiki/literature, change `--data` to `datasets/local/wiki-scratch-v1` or `datasets/local/wl-scratch-v1`. Cheap 10M recipes use context 256, batch 32 and 20 warmup updates. Architecture is a small causal Transformer with RMSNorm, RoPE, SwiGLU, tied embeddings and SDPA; AdamW, BF16 autocast, cosine decay, gradient clipping, no compilation. Dependencies are pinned in `pyproject.toml`.
 
-Regenerate reports with `uv run additional/scripts/scratch_long_report.py --include-baselines`; audit artifacts with `uv run scripts/verify_pretraining.py`. `--require-weights` additionally checks local checkpoint presence. Actual GPU jobs separately verified exact fresh-process sampling equality after checkpoint reload.
+Audit artifacts with `uv run scripts/verify_pretraining.py`. `--require-weights` additionally checks local checkpoint presence. Actual GPU jobs separately verified exact fresh-process sampling equality after checkpoint reload.

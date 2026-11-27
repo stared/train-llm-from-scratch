@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = []
-# ///
 """Audit completed scratch experiments from saved artifacts, without loading weights.
 
 This checks arithmetic, provenance, recorded selection/reload evidence and quality

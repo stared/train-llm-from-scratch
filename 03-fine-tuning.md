@@ -97,7 +97,7 @@ Cloud time includes an image build, with model weights cached. Mac totals includ
 Run from the repository directory:
 
 ```bash
-modal run scripts/prawko_modal.py --method sft --epochs 10 --max-seconds 180
+uv run modal run scripts/prawko_modal.py --method sft --epochs 10 --max-seconds 180
 ```
 
 The command will:
@@ -187,7 +187,7 @@ Use your saved adapter to answer a new Polish question. Supply three answer opti
 Copy the folder name from the training command's **`Saved`** message. Replace `YOUR_SFT_RUN_NAME` below with that name, such as `prawko-sft-123456789`. Do not include `runs/`.
 
 ```bash
-modal run scripts/try_adapter_modal.py --task exam --run YOUR_SFT_RUN_NAME --question "Jaki kolor sygnalizacji świetlnej oznacza nakaz zatrzymania?" --a "Czerwony." --b "Zielony." --c "Każdy kolor oznacza to samo."
+uv run modal run scripts/try_adapter_modal.py --task exam --run YOUR_SFT_RUN_NAME --question "Jaki kolor sygnalizacji świetlnej oznacza nakaz zatrzymania?" --a "Czerwony." --b "Zielony." --c "Każdy kolor oznacza to samo."
 ```
 
 The command prints **Answer** and probabilities among A/B/C. For this example, the expected answer is A. Replace the question and all three options with your own. You do not supply the correct letter to the model; check its prediction yourself. It can be wrong, and these probabilities are not a guarantee of correctness.
@@ -199,7 +199,7 @@ The helper uses the same A/B/C selection as the workshop evaluation. It does not
 ## Run on a Mac
 
 ```bash
-uv run scripts/prawko.py --device mps --precision bfloat16 --method sft --max-seconds 180 --epochs 10
+uv run --group train scripts/prawko.py --device mps --precision bfloat16 --method sft --max-seconds 180 --epochs 10
 ```
 
 On the M5 Max, this took **1 min 54 s total**, improving held-out accuracy **19/40 → 28/40**. Results appear under **SFT** when the run finishes. The adapter and reports are saved locally in the output folder printed by the script.
@@ -207,7 +207,7 @@ On the M5 Max, this took **1 min 54 s total**, improving held-out accuracy **19/
 To compare with local RLVR:
 
 ```bash
-uv run scripts/prawko.py --device mps --precision bfloat16 --method rlvr --max-seconds 180 --epochs 10 --lr 5e-6
+uv run --group train scripts/prawko.py --device mps --precision bfloat16 --method rlvr --max-seconds 180 --epochs 10 --lr 5e-6
 ```
 
 This took **2 min 19 s total** and improved held-out accuracy **19/40 → 25/40**. [Mac RLVR measurements](results/macos-fine-tuning.md#driving-exam-rlvr).

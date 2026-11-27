@@ -7,7 +7,7 @@ import modal
 app = modal.App('workshop-rlvr-showcase')
 volume = modal.Volume.from_name('model-training-workshop', create_if_missing=True)
 image = (modal.Image.debian_slim(python_version='3.14')
-         .pip_install_from_requirements('scripts/requirements.txt')
+         .uv_sync(groups=['train'], extra_options='--no-default-groups')
          .env({'HF_HOME': '/persist/hf', 'TOKENIZERS_PARALLELISM': 'false'})
          .add_local_file('scripts/rlvr_showcase.py', '/work/scripts/rlvr_showcase.py')
          .add_local_file('scripts/rlvr_tasks.py', '/work/scripts/rlvr_tasks.py')

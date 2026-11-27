@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = ["torch==2.14.0", "tokenizers==0.23.2", "numpy==2.5.3"]
-# ///
 """Fixed, small diagnostics for scratch models; not a factuality benchmark.
 
 Candidate scoring measures preference among supplied continuations, not whether

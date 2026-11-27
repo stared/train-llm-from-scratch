@@ -1,6 +1,6 @@
 """Select original verse passages and build audited Polish prompt/verse SFT data.
 
-Run with uv run --no-project scripts/prepare_pan_tadeusz_qa.py select|build.
+Run with uv run scripts/prepare_pan_tadeusz_qa.py select|build.
 The build step uses the committed, individually authored prompts; no model/API call.
 """
 import argparse

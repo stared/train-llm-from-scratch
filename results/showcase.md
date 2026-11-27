@@ -20,8 +20,8 @@ We compare the unchanged model, the unchanged model with an explicit style promp
 Start with the included data; no generation call is needed:
 
 ```bash
-uvx --from modal==1.5.0 modal run scripts/style_modal.py --stage train --style poetry --data-run poetry-v1 --model qwen3.5-4b --epochs 4 --max-seconds 600
-uvx --from modal==1.5.0 modal run scripts/style_modal.py --stage train --style wit --data-run wit-v1 --model qwen3.5-4b --epochs 6 --max-seconds 300
+uv run modal run scripts/style_modal.py --stage train --style poetry --data-run poetry-v1 --model qwen3.5-4b --epochs 4 --max-seconds 600
+uv run modal run scripts/style_modal.py --stage train --style wit --data-run wit-v1 --model qwen3.5-4b --epochs 6 --max-seconds 300
 ```
 
 Open `datasets/poetry-v1/train.jsonl` and `datasets/wit-v1/train.jsonl`. Check relevance, factual content, Polish grammar, rhyme and wit. Data authorship and SHA-256 hashes are recorded in each manifest.
@@ -29,7 +29,7 @@ Open `datasets/poetry-v1/train.jsonl` and `datasets/wit-v1/train.jsonl`. Check r
 Optional: generate a new candidate dataset. Review the outputs before deciding to train on them:
 
 ```bash
-uvx --from modal==1.5.0 modal run scripts/style_modal.py --stage data --style poetry --languages both --max-seconds 300
+uv run modal run scripts/style_modal.py --stage data --style poetry --languages both --max-seconds 300
 ```
 
 Use the printed data run name in `--data-run` for a generated dataset. Training reads the actual style from the dataset manifest. Each call uses one L4. Training has a five-minute default limit checked after each update, excluding loading and evaluation; the overall function timeout is 20 minutes. The requested L4 + 2 CPU + 16 GiB compute estimate for that timeout is about $0.34, excluding startup, storage and any resource use above the allocation. No server is deployed.
@@ -37,19 +37,13 @@ Use the printed data run name in `--data-run` for a generated dataset. Training 
 Ask your own question of a saved adapter; this starts a short GPU job and exits:
 
 ```bash
-uvx --from modal==1.5.0 modal run scripts/style_modal.py --stage chat --data-run TRAIN_RUN_NAME --prompt 'Why does coffee go cold?'
-```
-
-Build an offline page showing all evaluation outputs:
-
-```bash
-uv run additional/scripts/style_report.py runs/TRAIN_RUN_NAME --output results/showcase.html
+uv run modal run scripts/style_modal.py --stage chat --data-run TRAIN_RUN_NAME --prompt 'Why does coffee go cold?'
 ```
 
 Compare fixed-seed sampled decoding without training again:
 
 ```bash
-uvx --from modal==1.5.0 modal run scripts/style_modal.py --stage sample --data-run TRAIN_RUN_NAME
+uv run modal run scripts/style_modal.py --stage sample --data-run TRAIN_RUN_NAME
 ```
 
 This evaluates the base, prompted base and saved adapter with temperature 0.7, top-p 0.8, top-k 20 and seed 42. The current sampler also uses repetition penalty 1.1, added for the film-dialogue experiment; the earlier saved poetry/wit probes used 1.0. Exact settings are saved in each result. It saves a new result directory. Read the whole comparison; selecting a lucky sample is not a reliable improvement. The sampled poetry check did not fix the observed quality problems.
@@ -57,14 +51,14 @@ This evaluates the base, prompted base and saved adapter with temperature 0.7, t
 On your own NVIDIA GPU, the same training code runs without Modal:
 
 ```bash
-uv run scripts/style_workshop.py train --data-dir datasets/poetry-v1 --output runs/my-poet --model qwen3.5-4b --device cuda --epochs 4 --max-seconds 600
-uv run scripts/style_workshop.py chat --adapter-dir runs/my-poet --output runs/my-question --device cuda --prompt 'Why does coffee go cold?'
+uv run --group train scripts/style_workshop.py train --data-dir datasets/poetry-v1 --output runs/my-poet --model qwen3.5-4b --device cuda --epochs 4 --max-seconds 600
+uv run --group train scripts/style_workshop.py chat --adapter-dir runs/my-poet --output runs/my-question --device cuda --prompt 'Why does coffee go cold?'
 ```
 
 Local CPU/MPS paths are selectable but not benchmarked. Modal training copies text results back to your laptop; adapters stay in the shared volume. Download the complete training directory if you want local inference, since inference reads both `style_result.json` and `adapter/`:
 
 ```bash
-uvx --from modal==1.5.0 modal volume get model-training-workshop /runs/TRAIN_RUN_NAME ./downloaded-run
+uv run modal volume get model-training-workshop /runs/TRAIN_RUN_NAME ./downloaded-run
 ```
 
 ## Workshop exercise: 45–60 minutes

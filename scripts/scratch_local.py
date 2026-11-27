@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = ["torch==2.14.0", "tokenizers==0.23.2", "numpy==2.5.3"]
-# ///
 """Train a fresh ScratchGPT on this computer from locally prepared tokens.
 
 Uses the Apple GPU (MPS) or CUDA when available, otherwise the CPU. Progress

@@ -5,22 +5,22 @@ For the newer minute-scale task comparison, see [RLVR workshop examples](../../0
 Run the Polish SFT exercise first, then reuse its saved adapter. SFT learns from supplied answer tokens; RLVR samples its own answers, gets a numerical reward from a checker, and updates the policy from that reward.
 
 ```bash
-modal run scripts/modal_app.py --model lfm2.5-350m --task polish --steps 40 --eval-size 8 --max-seconds 90
+uv run modal run scripts/modal_app.py --model lfm2.5-350m --task polish --steps 40 --eval-size 8 --max-seconds 90
 
 # Substitute the SFT run directory name printed by that command.
-modal run scripts/rlvr_modal.py --sft-run YOUR_SFT_RUN --groups 12 --rollouts 4
+uv run modal run scripts/rlvr_modal.py --sft-run YOUR_SFT_RUN --groups 12 --rollouts 4
 ```
 
 For a local GPU, with the full SFT output directory including adapter and tokenizer:
 
 ```bash
-uv run scripts/rlvr.py --sft-dir runs/YOUR_SFT_RUN --output runs/my-rlvr --device cuda --groups 12 --rollouts 4
+uv run --group train scripts/rlvr.py --sft-dir runs/YOUR_SFT_RUN --output runs/my-rlvr --device cuda --groups 12 --rollouts 4
 ```
 
-Both trainers are uv scripts with pinned inline dependencies and lockfiles. To retrieve the entire SFT run from Modal:
+Dependencies for both trainers are pinned in `pyproject.toml` and locked in `uv.lock`. To retrieve the entire SFT run from Modal:
 
 ```bash
-modal volume get model-training-workshop /runs/YOUR_SFT_RUN ./runs/YOUR_SFT_RUN
+uv run modal volume get model-training-workshop /runs/YOUR_SFT_RUN ./runs/YOUR_SFT_RUN
 ```
 
 **The algorithm.** For each arithmetic prompt, generate four independent answers. Reward is 1 if the whole stripped answer is the exact integer sum, and 0 otherwise. The checker neither evaluates generated code nor searches a long answer for a lucky matching number.
