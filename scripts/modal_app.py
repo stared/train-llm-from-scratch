@@ -7,7 +7,7 @@ import modal
 app = modal.App('model-training-workshop')
 volume = modal.Volume.from_name('model-training-workshop', create_if_missing=True)
 image = (modal.Image.debian_slim(python_version='3.14')
-         .pip_install_from_requirements('scripts/requirements.txt')
+         .uv_sync(groups=['train'], extra_options='--no-default-groups')
          .env({'HF_HOME': '/persist/hf', 'TOKENIZERS_PARALLELISM': 'false'})
          .add_local_file('scripts/finetune.py', '/work/scripts/finetune.py')
          .add_local_file('scripts/examples.py', '/work/scripts/examples.py')

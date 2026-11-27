@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = ["torch==2.14.0", "transformers==5.16.1", "peft==0.20.0", "accelerate==1.14.0"]
-# ///
 """Create style examples once, then train a persona adapter for 1–10 minutes."""
 import argparse
 import gc

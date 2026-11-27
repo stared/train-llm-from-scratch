@@ -14,7 +14,7 @@ A więc do szerpentynek i stają na mecie.
 ```
 
 ```bash
-modal run scripts/style_modal.py --stage train --data-run pan-tadeusz-qa-v1 --model qwen3.5-4b --epochs 2 --max-seconds 600 --batch-tokens 2048
+uv run modal run scripts/style_modal.py --stage train --data-run pan-tadeusz-qa-v1 --model qwen3.5-4b --epochs 2 --max-seconds 600 --batch-tokens 2048
 ```
 
 Measured training: **370 seconds**. All 12 sampled held-out replies had 4–12 lines; grammar and meter remain uneven. Completed training/evaluation worker compute: **about $0.22**.
@@ -28,7 +28,7 @@ The terminal prints loss every ten updates. At completion, run `pnpm dev` and se
 To ask your own question, replace `RUN_NAME` with the training run name:
 
 ```bash
-modal run scripts/style_modal.py --stage chat --data-run RUN_NAME --prompt "Co zrobić, gdy sąsiad hałasuje?"
+uv run modal run scripts/style_modal.py --stage chat --data-run RUN_NAME --prompt "Co zrobić, gdy sąsiad hałasuje?"
 ```
 
 The chat command prints **both original Qwen3.5-4B and your fine-tuned model** on the same question. Records: `base.json`, `finetuned.json`, `loss.json`; adapter weights remain on Modal.

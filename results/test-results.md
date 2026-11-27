@@ -23,7 +23,7 @@ All successful jobs used one Modal NVIDIA L4, BF16 LoRA, a pinned model revision
 
 - The first tokenizer call returned a BatchEncoding under Transformers 5.16. Explicit `return_dict=False` fixed the list-based training path. This failed before model weights were loaded.
 - The first Gemma selection was the base checkpoint without a chat template. The actual chat recipe uses `google/gemma-4-E2B-it`.
-- Inspection of the first successful Gemma smoke run exposed a wrong target terminator: generic `<eos>` instead of Gemma’s `<turn|>`. After correcting both supervision and generation stopping, the first-step loss fell from about 8.08 to 0.0000035. The earlier run is preserved and labeled superseded in `additional/scripts/report.py`; it is excluded from the main table but included in spending estimates.
+- Inspection of the first successful Gemma smoke run exposed a wrong target terminator: generic `<eos>` instead of Gemma’s `<turn|>`. After correcting both supervision and generation stopping, the first-step loss fell from about 8.08 to 0.0000035. The earlier run is preserved and labeled superseded; it is excluded from the main table but included in spending estimates.
 - The first RLVR Modal wrapper referenced a local module absent from the container. Modal retried initialization despite zero function retries; the app was explicitly stopped and the wrapper made self-contained. The corrected run succeeded. Function timeouts and retry settings do not by themselves bound all startup behavior.
 
 **Spending.** The recorded successful calls, including the superseded Gemma run and RLVR, total approximately **$0.119** in estimated requested compute. The formula is timed remote seconds × (L4 $0.000222/s + 2 CPU cores × $0.0000131/s + 8 GiB RAM × $0.00000222/s). It is not a Modal invoice: image building, startup, failed attempts, resource usage above requested allocations, and ongoing cache storage are excluded. The shared dependency image initially took about 65 seconds to build. [Rates checked September 6](https://modal.com/pricing).
@@ -33,13 +33,12 @@ The preparation used an initial $2 estimated-compute planning ceiling. Jobs ran 
 **Reproduce the cheap experiments.**
 
 ```bash
-uvx --from modal==1.5.0 modal run scripts/modal_app.py --model lfm2.5-350m --task routing --steps 20 --eval-size 8 --max-seconds 90
-uvx --from modal==1.5.0 modal run scripts/modal_app.py --model lfm2.5-350m --task extraction --steps 40 --eval-size 8 --max-seconds 90
-uvx --from modal==1.5.0 modal run scripts/modal_app.py --model lfm2.5-350m --task polish --steps 40 --eval-size 8 --max-seconds 90
-uv run additional/scripts/report.py
+uv run modal run scripts/modal_app.py --model lfm2.5-350m --task routing --steps 20 --eval-size 8 --max-seconds 90
+uv run modal run scripts/modal_app.py --model lfm2.5-350m --task extraction --steps 40 --eval-size 8 --max-seconds 90
+uv run modal run scripts/modal_app.py --model lfm2.5-350m --task polish --steps 40 --eval-size 8 --max-seconds 90
 ```
 
-Change `--model` to a verified alias to compare models. `uv run additional/scripts/smoke_matrix.py` reruns the documented five-job matrix sequentially; it is not necessary for using one exercise. Primary dependencies and revisions are pinned; full installed package versions are recorded per successful SFT run, and local uv script lockfiles are included.
+Change `--model` to a verified alias to compare models. Primary dependencies and revisions are pinned; full installed package versions are recorded per successful SFT run, and all dependencies are locked in `uv.lock`.
 
 **Raw results.**
 

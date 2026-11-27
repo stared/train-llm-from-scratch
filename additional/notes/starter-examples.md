@@ -19,8 +19,8 @@ From-scratch training now works with ordinary uv scripts and Modal. See [experim
 **Start cheaply on Modal.** Only the Modal client is needed on your laptop; GPU dependencies install in the remote image. Python 3.12 is the tested remote environment.
 
 ```bash
-modal setup
-modal run scripts/modal_app.py --model lfm2.5-350m --task routing --steps 20 --eval-size 8 --max-seconds 90
+uv run modal setup
+uv run modal run scripts/modal_app.py --model lfm2.5-350m --task routing --steps 20 --eval-size 8 --max-seconds 90
 ```
 
 One invocation runs one model/task combination. Choose `routing`, `extraction`, or `polish`. Choose a model alias from [scripts/models.json](../../scripts/models.json), consulting the test results before assuming compatibility. Defaults use one L4 with a ten-minute remote timeout, no retries, and a 180-second training limit. The first build/download can take longer than the training itself. Training time limits are checked after each optimizer update; they exclude loading, evaluation and reload. The remote timeout is the overall backstop.
@@ -28,7 +28,7 @@ One invocation runs one model/task combination. Choose `routing`, `extraction`, 
 **Run without Modal.** On a machine with a supported NVIDIA GPU:
 
 ```bash
-uv run scripts/finetune.py --model lfm2.5-350m --task extraction --device cuda --steps 40 --output runs/my-extraction
+uv run --group train scripts/finetune.py --model lfm2.5-350m --task extraction --device cuda --steps 40 --output runs/my-extraction
 ```
 
 CPU and MPS are selectable through `--device`; their training paths are not yet benchmarked. CPU is the default for ordinary Python so it never silently rents hardware. Existing output directories are rejected to protect previous results. No notebook or coding assistant is required.
@@ -45,8 +45,7 @@ These are original synthetic starter datasets, generated locally with no teacher
 
 ```bash
 uv run scripts/examples.py extraction --size 3
-PYTHONPATH=scripts uv run --no-project -m unittest discover -s tests -v
-uv run additional/scripts/report.py
+uv run tests/run.py
 ```
 
 **Artifacts.** Each completed run saves `result.json`, before/after/reloaded predictions, actual train/test data, a token/loss-mask example, loss history, and dependency versions. Modal copies these small files back into `runs/`; weights stay in a persistent volume to avoid unnecessary transfers. Every successful run checks finite loss, changed adapter weights and identical deterministic predictions after discarding the trained model and reloading a fresh base plus saved adapter. This reload occurs in the same Python process, not a separate process.
@@ -54,8 +53,8 @@ uv run additional/scripts/report.py
 To download your adapter after a Modal run, substitute the printed run name:
 
 ```bash
-modal volume get model-training-workshop /runs/RUN_NAME/adapter ./downloaded-adapter
-modal volume get model-training-workshop /runs/RUN_NAME/tokenizer ./downloaded-tokenizer
+uv run modal volume get model-training-workshop /runs/RUN_NAME/adapter ./downloaded-adapter
+uv run modal volume get model-training-workshop /runs/RUN_NAME/tokenizer ./downloaded-tokenizer
 ```
 
 The adapter needs the exact original model revision in `result.json`; it is not a standalone model. Checkpoint revisions and primary package versions are pinned. `environment.txt` captures all installed versions for each run.

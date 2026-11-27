@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = ["tokenizers==0.23.2", "numpy==2.5.3"]
-# ///
 """Extract original article wikitext, train BPE, tokenize the full corpus.
 
 XML decoding only: links/templates/ref tags/tables remain in article text.

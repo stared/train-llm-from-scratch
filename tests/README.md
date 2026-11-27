@@ -17,7 +17,7 @@ pnpm exec node --test tests/test_prediction.mjs
 Additional model checks have pinned dependencies and run on CPU:
 
 ```bash
-uv run scripts/check_scratch_model.py
+uv run --group train scripts/check_scratch_model.py
 ```
 
 Verify saved Prawko run records without retraining:

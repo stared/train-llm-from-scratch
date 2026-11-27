@@ -7,7 +7,7 @@ Complete the [fine-tuning tutorial](../03-fine-tuning.md) first. These compariso
 Run this next to compare the two methods:
 
 ```bash
-modal run scripts/prawko_modal.py --method rlvr --epochs 10 --max-seconds 180
+uv run modal run scripts/prawko_modal.py --method rlvr --epochs 10 --max-seconds 180
 ```
 
 Each training run starts from the same original model and trains a [low-rank adaptation (LoRA)](https://huggingface.co/docs/peft/conceptual_guides/lora) adapter for up to three minutes. LoRA freezes the original weights and trains small added matrices, reducing the number of trainable parameters and optimizer memory.
@@ -35,7 +35,7 @@ Open [before/after answers](../results/prawko-example-results.md) and [longer-ru
 Use 289 official questions with the same development and test sets:
 
 ```bash
-modal run scripts/prawko_modal.py --method sft --dataset expanded --max-seconds 180
+uv run modal run scripts/prawko_modal.py --method sft --dataset expanded --max-seconds 180
 ```
 
 | Dataset / model | Training | GPU | Worker cost | Test accuracy before → after |
@@ -55,7 +55,7 @@ Set `--max-seconds 600` for ten minutes. Replace `--method sft` with `--method r
 The default 0.8B model uses L4. For Qwen3.5-4B, the runner uses smaller batches on L4 to fit the longer exam prompts. Choose a card with `--gpu L40S` or `--gpu H100`.
 
 ```bash
-modal run scripts/prawko_modal.py --method sft --model qwen3.5-4b --max-seconds 600 --epochs 40
+uv run modal run scripts/prawko_modal.py --method sft --model qwen3.5-4b --max-seconds 600 --epochs 40
 ```
 
 [Model, GPU and training comparisons](http://localhost:5173/reports#training-comparisons.html).

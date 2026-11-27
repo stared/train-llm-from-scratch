@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = []
-# ///
 """Build a reproducible, text-only category-B subset of the official catalogue."""
 import argparse
 from collections import Counter

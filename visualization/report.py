@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = []
-# ///
 """Render completed local experiments inside the visualization app."""
 from html import escape
 import json

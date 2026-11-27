@@ -14,7 +14,7 @@ Tested on 22–23 September 2026: **MacBook Pro, M5 Max, 128 GB unified memory**
 ## Run
 
 ```bash
-uv run scripts/prawko.py --device mps --precision bfloat16 --method sft --max-seconds 180 --epochs 10
+uv run --group train scripts/prawko.py --device mps --precision bfloat16 --method sft --max-seconds 180 --epochs 10
 ```
 
 Results are saved in a new `runs/prawko-sft-*` folder. Open **SFT** in `pnpm dev` after completion. The selected LoRA adapter is in `adapter/`; the final adapter is in `final_adapter/`.
@@ -43,16 +43,12 @@ MPS memory is the largest tensor allocation sampled after a forward pass. MLX re
 ## More data
 
 ```bash
-uv run scripts/prawko.py --device mps --method sft --max-seconds 180 --epochs 10 --lr 2e-5 --dataset-path datasets/prawko-v2/extended.json
+uv run --group train scripts/prawko.py --device mps --method sft --max-seconds 180 --epochs 10 --lr 2e-5 --dataset-path datasets/prawko-v2/extended.json
 ```
 
 This uses 289 training questions and preserves the same development/test splits. The measured FP32 run improved **20/40 → 35/40**, with **29/40** after rotating the answer options.
 
 ## MLX comparison
-
-```bash
-uv run additional/scripts/prawko_mlx.py --output runs/prawko-mlx --max-seconds 180
-```
 
 The MLX experiment uses the same prompt, full-vocabulary answer loss, LoRA rank 16 and effective batch size 4. Its adapter initialization and numerical implementation differ from PyTorch; the untrained baseline also differs. Both implementations are evaluated independently before training.
 
@@ -63,7 +59,7 @@ The batched MLX run completed more updates than the microbatch run within three 
 ## Driving-exam RLVR
 
 ```bash
-uv run scripts/prawko.py --device mps --precision bfloat16 --method rlvr --max-seconds 180 --epochs 10 --lr 5e-6
+uv run --group train scripts/prawko.py --device mps --precision bfloat16 --method rlvr --max-seconds 180 --epochs 10 --lr 5e-6
 ```
 
 | Learning rate | Training | Total | Test before → selected | Rotated test after | Selected epoch |
@@ -78,7 +74,7 @@ The lower-rate run's final epoch scored 27/40, but the development-selected epoc
 ## Six-word RLVR
 
 ```bash
-uv run scripts/rlvr_showcase.py --device mps --precision bfloat16 --task six_words --model qwen3.5-4b --max-seconds 600 --output runs/rlvr-six-words-mac
+uv run --group train scripts/rlvr_showcase.py --device mps --precision bfloat16 --task six_words --model qwen3.5-4b --max-seconds 600 --output runs/rlvr-six-words-mac
 ```
 
 | Model | Training | Total, first run | Test success before → after | Selected update |

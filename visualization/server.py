@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = ["torch==2.14.0", "tokenizers==0.23.2", "tiktoken==0.12.0", "numpy==2.5.3"]
-# ///
 """Local, read-only workshop viewer. No model or Modal account required."""
 import argparse
 import html

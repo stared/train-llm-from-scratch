@@ -24,7 +24,7 @@ Outputs: `train.jsonl`, `validation.jsonl`, and a source/hash manifest. Splittin
 The training JSONL is compatible with `scripts/style_workshop.py`. Once there are at least 24 training examples:
 
 ```bash
-modal run scripts/style_modal.py --stage train --data-run my-dialogues --model qwen3.5-4b --epochs 4 --max-seconds 300
+uv run modal run scripts/style_modal.py --stage train --data-run my-dialogues --model qwen3.5-4b --epochs 4 --max-seconds 300
 ```
 
 The existing trainer runs its general persona probes; it does not automatically score `validation.jsonl`. Keep that file for a separate dialogue-reconstruction evaluation. Reverse pairs satisfy the requested two-way mapping, but may be unnatural conversational replies; their effect on chat quality should be inspected.

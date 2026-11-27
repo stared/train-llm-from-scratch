@@ -57,7 +57,7 @@ Allow roughly **12 minutes**, plus any initial environment build. The training l
 Run:
 
 ```bash
-modal run scripts/scratch_recipe_modal.py --recipe wolne-lektury
+uv run modal run scripts/scratch_recipe_modal.py --recipe wolne-lektury
 ```
 
 The command will:
@@ -193,7 +193,7 @@ In your terminal, set `RUN_NAME` to the exact folder name printed after training
 
 ```bash
 RUN_NAME="YOUR_RUN_FOLDER_NAME"
-modal volume get model-training-workshop "runs/$RUN_NAME/best.pt" "runs/$RUN_NAME/best.pt"
+uv run modal volume get model-training-workshop "runs/$RUN_NAME/best.pt" "runs/$RUN_NAME/best.pt"
 ```
 
 This downloads the saved weights, not the training dataset, and does not start another training job. [Modal's file download documentation](https://modal.com/docs/cli/latest/volume#modal-volume-get).
@@ -218,13 +218,13 @@ The Sejm corpus contains the sitting transcripts of the first three terms of the
 Prepare the data once, on a Modal CPU. This takes about a minute of tokenizing plus the download:
 
 ```bash
-modal run scripts/prepare_data_modal.py --corpus sejm
+uv run modal run scripts/prepare_data_modal.py --corpus sejm
 ```
 
 Then train with the same settings as the `wolne-lektury` recipe (ScratchGPT-30M, H100 GPU, batch size 64, 512-token context):
 
 ```bash
-modal run scripts/scratch_recipe_modal.py --recipe sejm
+uv run modal run scripts/scratch_recipe_modal.py --recipe sejm
 ```
 
 Everything in sections 3–5 above applies, including downloading `best.pt` to try the model.
@@ -240,7 +240,7 @@ uv run scripts/prepare_pretraining.py sejm
 The script uses `~/corpora/sejm.txt` if you have it, otherwise it downloads the archive. Use `--source path/to/file.txt` to prepare a different file. Then train:
 
 ```bash
-uv run scripts/scratch_local.py --recipe sejm
+uv run --group train scripts/scratch_local.py --recipe sejm
 ```
 
 The script uses your Mac's GPU (MPS) when available, otherwise CUDA, otherwise the CPU. The `sejm` recipe trains **ScratchGPT-10M with batch size 32 and a 256-token context** for 10 minutes. `--recipe sejm-30m` trains the 30M model with a 512-token context. Change the budget with `--max-seconds`, up to 8,400.

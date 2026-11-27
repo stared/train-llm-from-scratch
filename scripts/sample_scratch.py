@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = ["torch==2.14.0", "tokenizers==0.23.2", "numpy==2.5.3"]
-# ///
 """Generate from a saved scratch model in a fresh process."""
 import argparse
 from contextlib import nullcontext

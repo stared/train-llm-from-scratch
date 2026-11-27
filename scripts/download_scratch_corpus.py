@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = []
-# ///
 """List or download pinned scratch-training corpora; stdlib, resumable, checked.
 
 Listing is the default. --download explicitly fetches the complete selected source.

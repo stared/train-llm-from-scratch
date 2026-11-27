@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = ["modal==1.5.5", "tokenizers==0.23.2", "numpy==2.5.3"]
-# ///
 """Download, prepare, verify and upload a pretraining corpus. Safe to run again.
 
 Sejm tokens are prepared for training on this computer and not uploaded; Modal
@@ -70,7 +66,7 @@ def prepare_sejm(folder, source, check_only=False):
             output.rename(folder)
     print('2/2 Checking prepared files:', folder.relative_to(ROOT), flush=True)
     validate(folder)
-    print('Ready. Start training on this computer:\nuv run scripts/scratch_local.py --recipe sejm')
+    print('Ready. Start training on this computer:\nuv run --group train scripts/scratch_local.py --recipe sejm')
 
 
 def prepare(corpus, check_only=False, source=None):
@@ -121,8 +117,8 @@ def prepare(corpus, check_only=False, source=None):
                 upload.put_file(folder/name, remote+'/'+name)
     else:
         print('3/3 Matching prepared files already on Modal; upload skipped.', flush=True)
-    command = ('modal run scripts/scratch_recipe_modal.py --recipe wolne-lektury' if corpus == 'wolne-lektury'
-               else 'modal run scripts/scratch_modal.py --size 10m --max-seconds 300')
+    command = ('uv run modal run scripts/scratch_recipe_modal.py --recipe wolne-lektury' if corpus == 'wolne-lektury'
+               else 'uv run modal run scripts/scratch_modal.py --size 10m --max-seconds 300')
     print('Ready. Start training:\n'+command)
 
 

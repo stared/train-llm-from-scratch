@@ -85,7 +85,7 @@ Cloud time includes an image build, with model weights cached. Mac time includes
 Run from the repository directory:
 
 ```bash
-modal run scripts/rlvr_showcase_modal.py --task six_words
+uv run modal run scripts/rlvr_showcase_modal.py --task six_words
 ```
 
 The command will:
@@ -166,7 +166,7 @@ Use your saved adapter to write a story containing two words you choose.
 Copy the folder name from the training command's **`Saved:`** message. Replace `YOUR_RLVR_RUN_NAME` below with that name, such as `rlvr-train-six_words-123456789`. Do not include `runs/`.
 
 ```bash
-modal run scripts/try_adapter_modal.py --task six_words --run YOUR_RLVR_RUN_NAME --word-one lantern --word-two river
+uv run modal run scripts/try_adapter_modal.py --task six_words --run YOUR_RLVR_RUN_NAME --word-one lantern --word-two river
 ```
 
 Replace `lantern` and `river` with two different English words, using letters only. The command prints the generated story, its word count, reward and **Pass/Fail** result from the same checker used during training.
@@ -180,7 +180,7 @@ The helper uses deterministic generation, as in the workshop evaluation. Repeati
 ## Run on a Mac
 
 ```bash
-uv run scripts/rlvr_showcase.py --device mps --precision bfloat16 --task six_words --model qwen3.5-4b --max-seconds 600 --output runs/rlvr-six-words-mac
+uv run --group train scripts/rlvr_showcase.py --device mps --precision bfloat16 --task six_words --model qwen3.5-4b --max-seconds 600 --output runs/rlvr-six-words-mac
 ```
 
 Use a new output directory for each run. The selected adapter is saved in `adapter/`.

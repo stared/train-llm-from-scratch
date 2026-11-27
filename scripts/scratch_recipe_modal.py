@@ -18,8 +18,7 @@ GPU_RATES = {'L4': .000222, 'A10': .000306, 'L40S': .000542, 'H100': .001097,
 app = modal.App('workshop-scratch-single-recipe')
 volume = modal.Volume.from_name('model-training-workshop')
 image = (modal.Image.debian_slim(python_version='3.14')
-         .pip_install_from_requirements('scripts/requirements.txt')
-         .pip_install('numpy==2.5.3', 'tokenizers==0.23.2')
+         .uv_sync(groups=['train'], extra_options='--no-default-groups')
          .env({'TORCHINDUCTOR_COMPILE_THREADS':'2'}))
 for name in ('scratch_model.py', 'train_scratch.py', 'sample_scratch.py',
              'scratch_quality.py', 'scratch_worker.py', 'training_progress.py'):

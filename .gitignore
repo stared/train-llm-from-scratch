@@ -46,7 +46,7 @@ htmlcov/
 *.pth
 *.ckpt
 
-# Keep datasets, uv lockfiles, reports and LAB_NOTEBOOK.md versioned.
+# Keep datasets, uv.lock, reports and LAB_NOTEBOOK.md versioned.
 
 # Visible local corpora, prepared tokens and dataset rebuilds
 /datasets/local/

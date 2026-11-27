@@ -5,7 +5,7 @@ import modal
 app = modal.App('workshop-prepare-data')
 volume = modal.Volume.from_name('model-training-workshop', create_if_missing=True)
 image = (modal.Image.debian_slim(python_version='3.14')
-         .pip_install('numpy==2.5.3', 'tokenizers==0.23.2')
+         .uv_sync(extra_options='--no-default-groups')
          .add_local_file('datasets/wiki-tokenizer.json', '/work/datasets/wiki-tokenizer.json')
          .add_local_file('additional/research/scratch/sources.json', '/work/additional/research/scratch/sources.json'))
 for script in ('download_scratch_corpus', 'prepare_wl_scratch', 'prepare_sejm_scratch', 'prepare_wiki_scratch', 'prepare_pretraining'):

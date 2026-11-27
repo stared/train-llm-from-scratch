@@ -1,10 +1,6 @@
-# /// script
-# requires-python = ">=3.14"
-# dependencies = ["torch==2.14.0", "transformers==5.16.1", "peft==0.20.0", "accelerate==1.14.0"]
-# ///
 """LLM robi prawko: answer-only SFT versus a three-action RLVR bandit.
 
-Ordinary uv script; identical constrained A/B/C prediction for all evaluations.
+Identical constrained A/B/C prediction for all evaluations.
 No chain of thought, teacher model, or generated rationale is used.
 """
 import argparse
